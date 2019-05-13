@@ -2,63 +2,59 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 114D718190
-	for <lists+blinux-list@lfdr.de>; Wed,  8 May 2019 23:20:18 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9F30F1BC08
+	for <lists+blinux-list@lfdr.de>; Mon, 13 May 2019 19:37:20 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 3A66D3084246;
-	Wed,  8 May 2019 21:20:16 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id ECA1760C82;
-	Wed,  8 May 2019 21:20:15 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 42336307D863;
+	Mon, 13 May 2019 17:37:17 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BA2885DE01;
+	Mon, 13 May 2019 17:37:15 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A9C5D41F58;
-	Wed,  8 May 2019 21:20:15 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
-	[10.5.11.12])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 69BD618089CB;
+	Mon, 13 May 2019 17:37:09 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
+	[10.5.11.13])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x48LKDfI010644 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 8 May 2019 17:20:13 -0400
+	id x4DHa7Pp004094 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 13 May 2019 13:36:07 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 198BC60C93; Wed,  8 May 2019 21:20:13 +0000 (UTC)
+	id 042C1608AC; Mon, 13 May 2019 17:36:07 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx03.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.27])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 14D7960C82
-	for <blinux-list@redhat.com>; Wed,  8 May 2019 21:20:10 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mx1.redhat.com (ext-mx20.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.49])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id F26BA5F7C1
+	for <Blinux-list@redhat.com>; Mon, 13 May 2019 17:36:04 +0000 (UTC)
+Received: from mail-out-02.crystone.se (mail-out-02.crystone.se [93.90.145.12])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id C466489C40
-	for <blinux-list@redhat.com>; Wed,  8 May 2019 21:20:09 +0000 (UTC)
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 44zqBK1kgcz1C66
-	for <blinux-list@redhat.com>; Wed,  8 May 2019 17:20:09 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 44zqBK0zXJzcbR; Wed,  8 May 2019 17:20:09 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 44zqBK0vMhzcbQ
-	for <blinux-list@redhat.com>; Wed,  8 May 2019 17:20:09 -0400 (EDT)
-Date: Wed, 8 May 2019 17:20:09 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: survey request (fwd)
-In-Reply-To: <alpine.NEB.2.21.1905081710570.2894@panix1.panix.com>
-Message-ID: <alpine.NEB.2.21.1905081718300.13320@panix1.panix.com>
-References: <alpine.NEB.2.21.1905081710570.2894@panix1.panix.com>
-MIME-Version: 1.0
-X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 216
-	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.27]); Wed, 08 May 2019 21:20:09 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.27]);
-	Wed, 08 May 2019 21:20:09 +0000 (UTC) for IP:'166.84.1.89'
-	DOMAIN:'mailbackend.panix.com' HELO:'mailbackend.panix.com'
-	FROM:'jdashiel@panix.com' RCPT:''
-X-RedHat-Spam-Score: -2.301  (RCVD_IN_DNSWL_MED,
-	SPF_PASS) 166.84.1.89 mailbackend.panix.com 166.84.1.89
-	mailbackend.panix.com <jdashiel@panix.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.5.110.27
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+	by mx1.redhat.com (Postfix) with ESMTPS id 696793098576
+	for <Blinux-list@redhat.com>; Mon, 13 May 2019 17:35:52 +0000 (UTC)
+X-Halon-ID: a0ebce21-75a4-11e9-b0d6-005056917149
+Authorized-sender: anders@pipkrokodil.se
+Received: from [10.0.1.7] (unknown [213.89.68.34])
+	by mail-out-01.crystone.se (Halon) with ESMTPSA
+	id a0ebce21-75a4-11e9-b0d6-005056917149;
+	Mon, 13 May 2019 19:29:15 +0200 (CEST)
+Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
+Subject: The Sword project.
+Message-Id: <6B091BAF-7CC4-47D3-ACE4-777004374FF9@pipkrokodil.se>
+Date: Mon, 13 May 2019 19:29:13 +0200
+To: Linux for blind general discussion <Blinux-list@redhat.com>
+X-Greylist: Delayed for 00:06:09 by milter-greylist-4.5.16 (mx1.redhat.com
+	[10.5.110.49]); Mon, 13 May 2019 17:35:53 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.49]);
+	Mon, 13 May 2019 17:35:53 +0000 (UTC) for IP:'93.90.145.12'
+	DOMAIN:'mail-out-02.crystone.se' HELO:'mail-out-02.crystone.se'
+	FROM:'anders@pipkrokodil.se' RCPT:''
+X-RedHat-Spam-Score: 0 () 93.90.145.12 mail-out-02.crystone.se 93.90.145.12
+	mail-out-02.crystone.se <anders@pipkrokodil.se>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.49
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id x4DHa7Pp004094
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -73,80 +69,18 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.40]); Wed, 08 May 2019 21:20:16 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.48]); Mon, 13 May 2019 17:37:19 +0000 (UTC)
 
-The url for the survey is:
-https://cambridge.eu.qualtrics.com/jfe/form/SV_1XnLRnabmgmiQ8R
-
-On Wed, 8 May 2019, Linux for blind general discussion wrote:
-
-> Date: Wed, 8 May 2019 17:17:12
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Subject: Re: survey request (fwd)
->
-> Since other blind users are on this list, I figured to forward this survey
-> request along with some information to help us fill it out.
-> Please use seamonkey since seamonkey does not require pulseaudio to be
-> running to play audio.
-> If you take the survey after the demographics section a section with video
-> clips will come up.
-> To play a video clip, get into the panel and turn orca review mode on and
-> search the screen for the P on the Play/Mute button and hit spacebar to
-> make the video clip play.  After that tab out to the next button and hit
-> space on that to answer the questions about the clip you just heard.  This
-> way works.  Chromium comes up for me bearly speaking english with a
-> germanic accent that is really intense.  I have no idea how to get
-> chromium speaking united states english, but that's another issue as a
-> result of having tried chromium along with firefox and seamonkey.  I don't
-> have midori here so didn't try with that browser yet but have time so may
-> do that this weekend.
->
->
->
-> --
->
->
-> ---------- Forwarded message ----------
-> Date: Wed, 8 May 2019 12:44:27
-> From: E. Sar-ba <es777@cam.ac.uk>
-> To: Jude DaShiell <jdashiel@panix.com>
-> Subject: Re: survey request
->
-> Hi Jude,
->
-> Thank you so much for participating in my survey. I have put the link to it at the end of this e-mail. Also, disregard the information on only four amazon.co.uk vouchers.
->
-> Best,
->
-> Enes
->
-> survey link:
->  https://cambridge.eu.qualtrics.com/jfe/form/SV_1XnLRnabmgmiQ8R
->
-> On 5/8/2019 5:38 PM, Jude DaShiell wrote:
->
-> I'll be one of the congenitally blind in this survey if I can fill it out.
->
->
->
-> --
->
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
-
--- 
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
+SGkhCklzIGFueW9uZSBoZXJlIGZhbWlsaWFyIHdpdGggdGhlIFN3b3JkIHByb2plY3Q/CkFyZSB0
+aGVyZSBwcmUtY29tcGlsZWQgdmVyc2lvbnMgdGhhdCBjYW4gYmUgZG93bmxvYWRlZCBmcm9tIHRo
+ZSBEZWJpYW4gcmVwb3NpdG9yeSBvciB0aGUgVWJ1bnQgUmVwbz8KSSBrbm93IFhpcGhvcyBjYW4g
+YmUgaW5zdGFsbGVkIFZpYSB0aGUgcmVwbyBidXQgIGlzbuKAmXQgWGlwaG9zIHBhcnQgb2YgU3dv
+cmQgb3IgaXMgU3dvcmQgcGFydCBvZiBYaXBob3M/CkkgYW0gYSBiaXQgY29uZnVzZWQ/ClRoYW5r
+cyBpbiBhZHZhbmNlLgovQQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20K
+aHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
