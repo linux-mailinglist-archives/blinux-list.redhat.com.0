@@ -2,89 +2,94 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 84B5E2D279
-	for <lists+blinux-list@lfdr.de>; Wed, 29 May 2019 01:43:03 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	by mail.lfdr.de (Postfix) with ESMTPS id 078822F94F
+	for <lists+blinux-list@lfdr.de>; Thu, 30 May 2019 11:22:27 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id C87E22E95A2;
-	Tue, 28 May 2019 23:43:00 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id BE13A83F44;
+	Thu, 30 May 2019 09:22:23 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7953B1972A;
-	Tue, 28 May 2019 23:42:59 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2E9F77944D;
+	Thu, 30 May 2019 09:22:19 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 382301806B16;
-	Tue, 28 May 2019 23:42:55 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
-	[10.5.11.12])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 488681806B11;
+	Thu, 30 May 2019 09:22:12 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
+	[10.5.11.11])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x4SNgnZ8015906 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 28 May 2019 19:42:49 -0400
+	id x4U9LvfT025493 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 30 May 2019 05:21:57 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 6F7C860C4C; Tue, 28 May 2019 23:42:49 +0000 (UTC)
+	id 00CF56F921; Thu, 30 May 2019 09:21:57 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx05.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.29])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6AA9560BE0
-	for <blinux-list@redhat.com>; Tue, 28 May 2019 23:42:47 +0000 (UTC)
-Received: from mail-ot1-f49.google.com (mail-ot1-f49.google.com
-	[209.85.210.49])
+Received: from mx1.redhat.com (ext-mx14.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.43])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id EF90C600C7
+	for <Blinux-list@redhat.com>; Thu, 30 May 2019 09:21:54 +0000 (UTC)
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com
+	[209.85.128.52])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id B96AB18DF6C
-	for <blinux-list@redhat.com>; Tue, 28 May 2019 23:42:46 +0000 (UTC)
-Received: by mail-ot1-f49.google.com with SMTP id r7so199645otn.6
-	for <blinux-list@redhat.com>; Tue, 28 May 2019 16:42:46 -0700 (PDT)
+	by mx1.redhat.com (Postfix) with ESMTPS id 0BFDD3097031
+	for <Blinux-list@redhat.com>; Thu, 30 May 2019 09:21:48 +0000 (UTC)
+Received: by mail-wm1-f52.google.com with SMTP id 7so3346822wmo.2
+	for <Blinux-list@redhat.com>; Thu, 30 May 2019 02:21:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=mime-version:in-reply-to:references:from:date:message-id:subject:to; 
-	bh=jX8afi1O9wzubvwTXt+rloxFoTfkYDzdGjU94BvFTac=;
-	b=mf8go9CGQTNm20xA/+K6CmWMBCFj1r1XqyMw8FOT/4o8gP26GWXchQe37BbgS8+xw1
-	IW5oKZQsJN+bfniPQprLQ/v0M3/Gq6XT0l0pyys4ZkGgQTlowpBRYSGSrbWd6C6LGGwu
-	UV0lmmVpgfrHWlV8gY5AqIijfqSx/3XloHWy5tIDlO8+GWIsEzXbf+aVDClJS9QIAjQR
-	TRg4ClEIsjLlK7SST9M7gBSr1VgWxZK+w4z97Q/NfZbZhBk1vlr/SKs9kUvR2jbUl44w
-	gbIrOEQsaLf2rFMe6Q6VAmKnFauEx8Lsz0Ol4wngXdag+npzCJWS97++7676SR/Fa/DE
-	tM3g==
+	h=to:from:subject:message-id:date:user-agent:mime-version
+	:content-language;
+	bh=3UTAJpQVpNGJAqpK+dyLCsQCZCVYoADdioQ8KcRiHTg=;
+	b=kCd8w366MHUbRi3CGOE5ir1DiLhEhbAbqTqkSp4A4Rjpp/uDErUo7zLWi4jn80kg0G
+	cpwJID/6+zYNbDfSXBvhVjbvaZlPeVOVBJYpgLjicVW0PKnRD7bAZ9UZj17348Z9z7G7
+	lYdNA3rkMim6n4SuGVuGmTVmOXGBWNjWKvaq9fsTHGkh7wnx75FmAoD/Mt0NS8QX8dXb
+	XC8U19WdhVcvNfBM83L/8zdA5KMdAn1Sa6kxvF2YKjOOrTkwyXcQ+Upts2+2NpzhJmfM
+	r0RSVdg24QUziK4Q4/yDRLND0iG2ST9qkKQYxSOPgTuKLt2VJMwaH+99KIAVLTl/ETXO
+	BhqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=jX8afi1O9wzubvwTXt+rloxFoTfkYDzdGjU94BvFTac=;
-	b=fS3F9tjaazB/Hx00gxsHj3PyRxxgecTm1PoP4shdgJnk/VoipHvJPxvAiXgrFtQHNF
-	qKAB01l7aMJGXOEYzsgTAlFdS7WQ12MFtf4MU/jzjI5fShr188QkZ9hT+DpzTc/5XRAd
-	0mEBO6Dj61b9ZG2QFXPcFW6wJqJlzO3/VyWo3F+XtxFtVMZgukWndLuBgZFYfWOGWNu0
-	Xx3f1xjww3hCEfRAQWhEBCPzZ0QsTLGI3B+CuTlgfS5Afy6GJil5F1e/Whft5u7sSdlW
-	HudWIuKdXlqJeg7DsPHzrgB/q8hecmgYdEeRdOfUCjlU18Zwui/V/cAihHd7KeBzv/l4
-	uCTg==
-X-Gm-Message-State: APjAAAWR3T7C64xMXkwX+8B2dChmeertjv6a8GVMnovIJzOezffItFSD
-	CaZKoXOIQOBdHhBlpXYbuKdCY15fbexJaQ9gwIA6lOhE
-X-Google-Smtp-Source: APXvYqymrajsEq/sV8/yLd7sOQkaLqhabQ38MsIwp8d07WSJtwK8fYujyxXUHhy+pZSeqZPvqWtbv4se7RD7+iwlO1Q=
-X-Received: by 2002:a05:6830:148e:: with SMTP id
-	s14mr32398292otq.54.1559086966020; 
-	Tue, 28 May 2019 16:42:46 -0700 (PDT)
+	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
+	:mime-version:content-language;
+	bh=3UTAJpQVpNGJAqpK+dyLCsQCZCVYoADdioQ8KcRiHTg=;
+	b=PIDbPTLPq6X5GKA6Sel5NovkKqfl1bCbkMx0gQqgXCfBtMovjhIOGfLDwdiZwgY+Vi
+	lK7esqTYIo8PJ4XRXuCGLAZxc9eElpJM5osIfbZLbP13o17Pl5n+9znd00LCTPLW2AhT
+	mbfn9zCkNMzol8csDF4sHlTNvaJotxmuO2kGyIBVueOBx7argvglt1n7TpocbnYGmagZ
+	PM/V9Dt4rXCmLMWp3fZLR5apSFl6zX8HnauEJC6VUrTg4WEIUPhk2ocxpwCwj7jIlNnJ
+	2eF6Cge6ZZxJkpUtxOThb/BwGXU4s6y4QL7VOw6mPPE5MKm6zVEhacdJfmJJBSt4Aaa7
+	ARRg==
+X-Gm-Message-State: APjAAAW9qj6OUWXZdJYC0Vwmf3dJCGqMmcNbcgeisZ+20NhQxgsl5Za2
+	Wr7TqEvia4YW6Atvd4PSqPu5kta9XE0=
+X-Google-Smtp-Source: APXvYqznztp4BAArMY/CGVbiLMUonIi4v+2GxDI7GuCcChDCooOxxoqYK+K1g+Z3E7T5J+RGwRqAGg==
+X-Received: by 2002:a1c:2d83:: with SMTP id t125mr1569019wmt.83.1559208106329; 
+	Thu, 30 May 2019 02:21:46 -0700 (PDT)
+Received: from localhost.localdomain ([2a02:d8a0:1c:0:6445:32bd:fd42:da45])
+	by smtp.gmail.com with ESMTPSA id y1sm1690116wma.14.2019.05.30.02.21.45
+	for <Blinux-list@redhat.com>
+	(version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
+	Thu, 30 May 2019 02:21:45 -0700 (PDT)
+To: Blinux-list@redhat.com
+Subject: which python modules
+Message-ID: <acbb03d8-1fd2-6f9c-5995-eb1a2380bd33@gmail.com>
+Date: Thu, 30 May 2019 11:21:44 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+	Thunderbird/60.7.0
 MIME-Version: 1.0
-Received: by 2002:a05:6830:149:0:0:0:0 with HTTP; Tue, 28 May 2019 16:42:45
-	-0700 (PDT)
-In-Reply-To: <4fdb67fb-b05f-66f5-f5ca-2ecc81b953f7@gmail.com>
-References: <CAO2sX32uqs-w1XPsn132sUfkyngzbG1VZsM3v4ehtd1C_S4L5A@mail.gmail.com>
-	<4fdb67fb-b05f-66f5-f5ca-2ecc81b953f7@gmail.com>
-Date: Tue, 28 May 2019 23:42:45 +0000
-Message-ID: <CAO2sX32T7ORb5+hJoCCR_wsx5Vp6Es=DStwLEE4_V6G9=UDaQw@mail.gmail.com>
-Subject: Re: Setting Orca to Laptop mode and navigating CrowdOx.
-To: blinux-list@redhat.com
+Content-Language: en-US
 X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
-	(mx1.redhat.com [10.5.110.29]);
-	Tue, 28 May 2019 23:42:46 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.29]);
-	Tue, 28 May 2019 23:42:46 +0000 (UTC) for IP:'209.85.210.49'
-	DOMAIN:'mail-ot1-f49.google.com' HELO:'mail-ot1-f49.google.com'
-	FROM:'mewtamer@gmail.com' RCPT:''
-X-RedHat-Spam-Score: -0.109  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
-	SPF_PASS) 209.85.210.49 mail-ot1-f49.google.com 209.85.210.49
-	mail-ot1-f49.google.com <mewtamer@gmail.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.5.110.29
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+	(mx1.redhat.com [10.5.110.43]);
+	Thu, 30 May 2019 09:21:48 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.43]);
+	Thu, 30 May 2019 09:21:48 +0000 (UTC) for IP:'209.85.128.52'
+	DOMAIN:'mail-wm1-f52.google.com' HELO:'mail-wm1-f52.google.com'
+	FROM:'vlcekpavel93@gmail.com' RCPT:''
+X-RedHat-Spam-Score: -0.165  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_ENVFROM_END_DIGIT, FREEMAIL_FROM, HTML_MESSAGE,
+	RCVD_IN_DNSWL_NONE, RCVD_IN_MSPIKE_H2, SPF_HELO_NONE,
+	SPF_PASS) 209.85.128.52 mail-wm1-f52.google.com 209.85.128.52
+	mail-wm1-f52.google.com <vlcekpavel93@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.43
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -98,24 +103,50 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-2"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.29]); Tue, 28 May 2019 23:43:02 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.27]); Thu, 30 May 2019 09:22:25 +0000 (UTC)
 
-Okay, alt+F2 wouldn't work on my main system as I'm not running a full
-desktop environment, but it did make me realize I could try bringing
-up Orca's configuration window from a Live DVD and then copy
-~/.local/share/orca to my hard drive.
+Hi,
 
-Still can't pull up Orca config from my installed system, and caps
-lock is still doing its original job in addition to being my orca
-modifier, but I've now got Orca using the laptop keymap, and the mouse
-emulation provided by orca+7,8,9,0 is proving sufficient for the web
-page that was giving me trouble.
+I want to create a little game in Python. What I need?
 
+1 window, 1 readonly editbox and 4 buttons. Which modules do I need to =
+
+install to get sound and graphics, of course accessible graphics? Pygame =
+
+for sound and pygtk for gtk?
+
+Thanks,
+
+-- =
+
+
+
+  Pavel Vl=E8ek
+
+i=E8o: 04619471
+Slezsk=E1 483/7
+737 01, =C8esk=FD T=EC=B9=EDn
+Webov=E9 str=E1nky <http://www.pvlcek.cz/>
+M=E1 hudba na Supraphonline =
+
+<https://www.supraphonline.cz/umelec/446156-pavel-vlcek>
+M=E9 knihy na Jin=E9 knihy <https://www.jine-knihy.cz/autor/pavel-vlcek>
+telefon: +420 558436840
+mobil: +420 732 122 696
+
+
+  Bankovn=ED spojen=ED
+
+*Vl=E8ek Pavel*
+*2701033015 / 2010*
+*IBAN CZ8420100000002701261173*
+*BIC FIOBCZPPXXX*
+*Adresa banky Fio banka, a.s., V Celnici 1028/10, 117 21 Praha 1*
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
