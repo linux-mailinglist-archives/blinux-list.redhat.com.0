@@ -2,85 +2,94 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id CDC853A424
-	for <lists+blinux-list@lfdr.de>; Sun,  9 Jun 2019 09:37:45 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8F09F3A451
+	for <lists+blinux-list@lfdr.de>; Sun,  9 Jun 2019 10:17:12 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 231203082134;
-	Sun,  9 Jun 2019 07:37:43 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 96128608C6;
-	Sun,  9 Jun 2019 07:37:40 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 69CF680F6D;
+	Sun,  9 Jun 2019 08:17:10 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0EEFD5D720;
+	Sun,  9 Jun 2019 08:17:10 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7AE2E18363C1;
-	Sun,  9 Jun 2019 07:37:35 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
-	[10.5.11.12])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 49C0F206D1;
+	Sun,  9 Jun 2019 08:17:08 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
+	[10.5.11.13])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x597VtE9018983 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 9 Jun 2019 03:31:55 -0400
+	id x598H3D0027460 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 9 Jun 2019 04:17:03 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 43D9D60BEC; Sun,  9 Jun 2019 07:31:55 +0000 (UTC)
+	id 668C060BE7; Sun,  9 Jun 2019 08:17:03 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx06.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.30])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3E08960BE5
-	for <blinux-list@redhat.com>; Sun,  9 Jun 2019 07:31:52 +0000 (UTC)
-Received: from pb-smtp1.pobox.com (pb-smtp1.pobox.com [64.147.108.70])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mx1.redhat.com (ext-mx03.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.27])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5F74B60A9B
+	for <blinux-list@redhat.com>; Sun,  9 Jun 2019 08:17:01 +0000 (UTC)
+Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com
+	[209.85.215.178])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 79501356EA
-	for <blinux-list@redhat.com>; Sun,  9 Jun 2019 07:31:19 +0000 (UTC)
-Received: from pb-smtp1.pobox.com (unknown [127.0.0.1])
-	by pb-smtp1.pobox.com (Postfix) with ESMTP id 291C3163966
-	for <blinux-list@redhat.com>; Sun,  9 Jun 2019 03:31:09 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha1; c=relaxed; d=pobox.com; h=date:from:to
-	:subject:message-id:reply-to:references:mime-version
-	:content-type:in-reply-to; s=sasl; bh=SBt8p7HH/UehKev7pLHqr3PenN
-	0=; b=DENgkDSRj+K2ZDb4YLD2w/eMtxmiAsLyvKgC+5VLPigWC0xI4Tltzg7DzJ
-	x9FeCFlf9V+hgk+3s4PTVMiY7/Kd1om3I7BzC78UkkU7bjqvaVEkyVgjniwFfOMN
-	MmqjRdL0alMX2YEBImjLuY4/1PUMCIfT5D6UIqki1RgHoy1Ak=
-DomainKey-Signature: a=rsa-sha1; c=nofws; d=pobox.com; h=date:from:to
-	:subject:message-id:reply-to:references:mime-version
-	:content-type:in-reply-to; q=dns; s=sasl; b=VBCjrzZxjJ5fPVg0gaZI
-	YepZN9goFCTRzOVP7oLbSfBPocw0l9Lcykcr6e28qqQiKiNRqopqU1x1n+zrOC3o
-	SdqjJ8SuQMV/r8wRUEqjGZNfajEiwiar8cwvqBiTt/e4itVnzSqR+008kHKxWkEc
-	3QzhFEHjX7QGRw8c4t9y4m8=
-Received: from pb-smtp1.nyi.icgroup.com (unknown [127.0.0.1])
-	by pb-smtp1.pobox.com (Postfix) with ESMTP id 1FCC2163965
-	for <blinux-list@redhat.com>; Sun,  9 Jun 2019 03:31:09 -0400 (EDT)
-Received: from sprite (unknown [66.8.174.31])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by pb-smtp1.pobox.com (Postfix) with ESMTPSA id 84625163964
-	for <blinux-list@redhat.com>; Sun,  9 Jun 2019 03:31:08 -0400 (EDT)
-Received: from jroth by sprite with local (Exim 4.89)
-	(envelope-from <joelz@pobox.com>) id 1hZsI2-0001bv-Nt
-	for blinux-list@redhat.com; Sat, 08 Jun 2019 21:30:54 -1000
-Date: Sat, 8 Jun 2019 21:30:54 -1000
+	by mx1.redhat.com (Postfix) with ESMTPS id 7D0C57FDE9
+	for <blinux-list@redhat.com>; Sun,  9 Jun 2019 08:16:58 +0000 (UTC)
+Received: by mail-pg1-f178.google.com with SMTP id s27so3392199pgl.2
+	for <blinux-list@redhat.com>; Sun, 09 Jun 2019 01:16:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+	h=message-id:from:to:subject:date:mime-version
+	:content-transfer-encoding:in-reply-to:references;
+	bh=IDSdbDA5go72D2MO4ggDPiU8ET0uVadoFttimCwpqM4=;
+	b=SWmcBg2/i28BI5ftzqomBVosd6cSb+4e/YtyfTgCks7oY/zFtExpwQCCasemLoWiL5
+	LoYjhHuFUZE+vlSFvhU7NJpY+d+ydoal82rIY43khloph+NDXF9lRdkJIkBCzqxhv38+
+	eXsY2yW8WxevEAANxmF6P3GZ5n8pi5/6O9CPhmJS/kd/ClYWxF36srbNoRi5+RxU8kGS
+	EZASH3o3vj/5ewqgj5WXtD/gnAtTgXzTGz6ZCSL4JYgj9sW0T0bSqt9S9Y/cgaw1X4Zh
+	ZHXpCgZFvcAgSV+IAkuwWNN7gG1dZaZ9EpzMO027eDsgmF3+tbFf8QQL+IOaonlkAx56
+	gfyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:message-id:from:to:subject:date:mime-version
+	:content-transfer-encoding:in-reply-to:references;
+	bh=IDSdbDA5go72D2MO4ggDPiU8ET0uVadoFttimCwpqM4=;
+	b=sPHsDq+YqTNG5ik6YkfATparO3KCzd2GuVJvGmwWL8+q/qy+sE3L//aSpgZTvMc5AJ
+	wFNPF0S0nPEvGb/2ZRFCzSU/hiQ8w7cg8BZkzJg/2jzdsvIasWzdoqPRqHpLP8i8bF1b
+	UwTpTZIRjgm9bUdPJKZ8sHMnh+i6tl+31hzwDOkFurJX8V/7DKAOtA6yAkUhQTG6SCI7
+	oBl6WS1ilDSDjmvssrPs6twbyw5iL41bw7Z/Q7gV3xyOfFlVDY53/9CM9pc8JrBf1MEE
+	jkyNIupbeM71W2lhz7vvzR6NUAi9KkHfAREJgId9b7zmh1sA4D5z3kSAP+jevETQPBQg
+	wlfA==
+X-Gm-Message-State: APjAAAXs4rnMeslzploMumRvgnXwKqUwEAU2THD37t/UTUI+Tu5vEaoe
+	jzJX8+vCcE/9xIY/C7BXixYhnHnR
+X-Google-Smtp-Source: APXvYqx/hv8+hQoCtsDGxTLNsurzf6QTjgmtOk/vC4AzRp04R24Ald//VeDF9hufZ3tPdBnYvdAcUg==
+X-Received: by 2002:a63:c203:: with SMTP id b3mr10352621pgd.398.1560068217491; 
+	Sun, 09 Jun 2019 01:16:57 -0700 (PDT)
+Received: from [192.168.1.181] ([67.230.224.68])
+	by smtp.gmail.com with ESMTPSA id
+	j13sm6311349pfh.13.2019.06.09.01.16.56 for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+	Sun, 09 Jun 2019 01:16:56 -0700 (PDT)
+Message-ID: <20190609.081559.973.18@[192.168.1.181]>
 To: blinux-list@redhat.com
 Subject: Re: Audio Recording
-Message-ID: <20190609073054.um4fm7ln56h72vir@sprite>
-References: <20190609.052602.869.15@[192.168.1.181]>
+Date: Sun, 09 Jun 2019 03:15:59 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190609.052602.869.15@[192.168.1.181]>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-Pobox-Relay-ID: 8C4CEE3A-8A88-11E9-A703-46F8B7964D18-04347428!pb-smtp1.pobox.com
-X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 216
-	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.30]); Sun, 09 Jun 2019 07:31:24 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.30]);
-	Sun, 09 Jun 2019 07:31:24 +0000 (UTC) for IP:'64.147.108.70'
-	DOMAIN:'pb-smtp1.pobox.com' HELO:'pb-smtp1.pobox.com'
-	FROM:'joelz@pobox.com' RCPT:''
-X-RedHat-Spam-Score: -0.098  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	SPF_HELO_NONE,
-	SPF_NONE) 64.147.108.70 pb-smtp1.pobox.com 64.147.108.70
-	pb-smtp1.pobox.com <joelz@pobox.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.5.110.30
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+In-Reply-To: <20190609073054.um4fm7ln56h72vir@sprite>
+References: <20190609.052602.869.15@[192.168.1.181]>
+	<20190609073054.um4fm7ln56h72vir@sprite>
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+	(mx1.redhat.com [10.5.110.27]);
+	Sun, 09 Jun 2019 08:16:58 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.27]);
+	Sun, 09 Jun 2019 08:16:58 +0000 (UTC) for IP:'209.85.215.178'
+	DOMAIN:'mail-pg1-f178.google.com'
+	HELO:'mail-pg1-f178.google.com' FROM:'captinlogic@gmail.com'
+	RCPT:''
+X-RedHat-Spam-Score: -0.109  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
+	SPF_PASS) 209.85.215.178 mail-pg1-f178.google.com 209.85.215.178
+	mail-pg1-f178.google.com <captinlogic@gmail.com>
+X-Scanned-By: MIMEDefang 2.78 on 10.5.110.27
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id x598H3D0027460
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -99,39 +108,54 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.42]); Sun, 09 Jun 2019 07:37:44 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.27]); Sun, 09 Jun 2019 08:17:11 +0000 (UTC)
 
-> What are we using for audio recording on linux these days. In the gui. Is audacity still the best one from an a11y standpoint? How about CLI?
-> I'm interested in recording from line-in so I can archive some of my tapes.
+I settled on arecord.
+One question I did have, is there a way to hear the audio input source? On the old sound blaster cards, they had a "what you hear" option. So you could plug in your microphone or stereo and hear it through your headphones and adjust the volume accordingly.
 
-Hi,
+----- Original Message -----
+From: Linux for blind general discussion <blinux-list@redhat.com>
+To: blinux-list@redhat.com
+Date: Sat, 8 Jun 2019 21:30:54 -1000
+Subject: Re: Audio Recording
 
->From the command line, probably sox, ecasound or arecord. For
-example, ecasound -i:alsa,default -f:16,2,48000 -o:tape1.wav
-
-This records from the default ALSA soundcard, in stereo 16
-bit depth at 48kHz to file tape1.wav. I think there is a
-parameter for duration if you know in advance, and you can
-also just stop the engine with Ctrl-C.
-
-For multitrack recording in a terminal, I can offer a
-shameless plug for Nama, based on Ecasound. Nama does most
-of what you would want for recording, mixing and mastering
-in a text environment. 
-
-A prolific user of this program has posted many of her compositions here:
-http://juliencoder.de/nama/
-
-Here is some information about project:
-http://freeshell.de/~bolangi/cgi1/nama.cgi/00home.html
-https://metacpan.org/release/Audio-Nama
-
-Feel free to contact me for support.
-
-Joel Roth <joelz@pobox.com>
--- 
-  
+> > What are we using for audio recording on linux these days. In the gui. Is audacity still the best one from an a11y standpoint? How about CLI?
+> > I'm interested in recording from line-in so I can archive some of my tapes.
+> 
+> Hi,
+> 
+> >From the command line, probably sox, ecasound or arecord. For
+> example, ecasound -i:alsa,default -f:16,2,48000 -o:tape1.wav
+> 
+> This records from the default ALSA soundcard, in stereo 16
+> bit depth at 48kHz to file tape1.wav. I think there is a
+> parameter for duration if you know in advance, and you can
+> also just stop the engine with Ctrl-C.
+> 
+> For multitrack recording in a terminal, I can offer a
+> shameless plug for Nama, based on Ecasound. Nama does most
+> of what you would want for recording, mixing and mastering
+> in a text environment. 
+> 
+> A prolific user of this program has posted many of her compositions here:
+> http://juliencoder.de/nama/
+> 
+> Here is some information about project:
+> http://freeshell.de/~bolangi/cgi1/nama.cgi/00home.html
+> https://metacpan.org/release/Audio-Nama
+> 
+> Feel free to contact me for support.
+> 
+> Joel Roth <joelz@pobox.com>
+> -- 
+>   
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
