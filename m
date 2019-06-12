@@ -2,64 +2,58 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 692C342C10
-	for <lists+blinux-list@lfdr.de>; Wed, 12 Jun 2019 18:21:44 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	by mail.lfdr.de (Postfix) with ESMTPS id 47A6C431EC
+	for <lists+blinux-list@lfdr.de>; Thu, 13 Jun 2019 01:52:05 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id A8D3CC0587F5;
-	Wed, 12 Jun 2019 16:21:26 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B1C0E196A0;
-	Wed, 12 Jun 2019 16:21:13 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 271317F769;
+	Wed, 12 Jun 2019 23:51:56 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 873DD60185;
+	Wed, 12 Jun 2019 23:51:46 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 354E34EA6C;
-	Wed, 12 Jun 2019 16:20:58 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
-	[10.5.11.11])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 809131806B16;
+	Wed, 12 Jun 2019 23:51:39 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
+	[10.5.11.14])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x5CGKMtL024291 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 12 Jun 2019 12:20:25 -0400
+	id x5CNpVAJ008715 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 12 Jun 2019 19:51:31 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id ED3716014E; Wed, 12 Jun 2019 16:20:22 +0000 (UTC)
+	id A56395ED3B; Wed, 12 Jun 2019 23:51:31 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx17.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.46])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E728B600CC
-	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 16:20:20 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+Received: from mx1.redhat.com (ext-mx12.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.41])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A01FF5ED38
+	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 23:51:29 +0000 (UTC)
+Received: from server2.shellworld.net (server2.shellworld.net [66.172.12.120])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 92FCE3082E69
-	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 16:20:06 +0000 (UTC)
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 45PBsq3bR6z1GVS
-	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 12:19:59 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 45PBsq2y8LzcbR; Wed, 12 Jun 2019 12:19:59 -0400 (EDT)
+	by mx1.redhat.com (Postfix) with ESMTPS id 12E68306641B
+	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 23:51:29 +0000 (UTC)
+Received: by server2.shellworld.net (Postfix, from userid 1028)
+	id 9EE458C0367; Wed, 12 Jun 2019 23:44:00 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 45PBsq2wtKzcbQ
-	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 12:19:59 -0400 (EDT)
-Date: Wed, 12 Jun 2019 12:19:59 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: blind instructions needed
-In-Reply-To: <87v9xbdysu.fsf@gmail.com>
-Message-ID: <alpine.NEB.2.21.1906121214370.28070@panix1.panix.com>
-References: <alpine.NEB.2.21.1905281245170.9594@panix1.panix.com>
-	<87v9xbdysu.fsf@gmail.com>
+	by server2.shellworld.net (Postfix) with ESMTP id 9E56B8C02A4
+	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 16:44:00 -0700 (PDT)
+Date: Wed, 12 Jun 2019 16:44:00 -0700
+To: Blinux Discussion List <blinux-list@redhat.com>
+Subject: 2 Debian Issues??
+Message-ID: <Pine.LNX.4.64.1906121630310.30932@server2.shellworld.net>
 MIME-Version: 1.0
-X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 216
-	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.46]); Wed, 12 Jun 2019 16:20:06 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.46]);
-	Wed, 12 Jun 2019 16:20:06 +0000 (UTC) for IP:'166.84.1.89'
-	DOMAIN:'mailbackend.panix.com' HELO:'mailbackend.panix.com'
-	FROM:'jdashiel@panix.com' RCPT:''
-X-RedHat-Spam-Score: -2.3  (RCVD_IN_DNSWL_MED, SPF_HELO_NONE,
-	SPF_PASS) 166.84.1.89 mailbackend.panix.com 166.84.1.89
-	mailbackend.panix.com <jdashiel@panix.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.46
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Greylist: Delayed for 00:07:26 by milter-greylist-4.5.16 (mx1.redhat.com
+	[10.5.110.41]); Wed, 12 Jun 2019 23:51:29 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.41]);
+	Wed, 12 Jun 2019 23:51:29 +0000 (UTC) for IP:'66.172.12.120'
+	DOMAIN:'server2.shellworld.net' HELO:'server2.shellworld.net'
+	FROM:'chime@hubert-humphrey.com' RCPT:''
+X-RedHat-Spam-Score: 0.002  (SPF_HELO_NONE,
+	SPF_NONE) 66.172.12.120 server2.shellworld.net
+	66.172.12.120 server2.shellworld.net
+	<chime@hubert-humphrey.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.41
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -74,54 +68,23 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.32]); Wed, 12 Jun 2019 16:21:43 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.27]); Wed, 12 Jun 2019 23:51:59 +0000 (UTC)
 
-My understanding of how google works has improved.  I don't have
-two-factor authentication turned on and won't be able to turn it on
-until I get a working smartphone replacement.  And of course without
-two-factor authentication working, no need for app-passwords either.  I
-tried using a landline number which doesn't take text messages but
-google wasn't intelligent enough to handle that by calling that number
-with a voice recording of the verification code or allowing users
-setting up two-factor authentication to use voice recordings of
-verification codes from the start.  Some kind of policy decision did
-that I'm sure.
-
-On Wed, 12 Jun 2019, Linux for blind general discussion wrote:
-
-> Date: Wed, 12 Jun 2019 03:53:53
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Subject: Re: blind instructions needed
->
-> Hello,
->
-> Could you explain what kind of instruction you're looking for?
->
-> Best Regards
-> Linux for blind general discussion <blinux-list@redhat.com> writes:
->
-> > I'm trying to generate some app-passwords on google and signed into gmail
-> > and got to my account and then the instructions I was using turned out to
-> > be garbage.
-> > I can't even with chromium find the user button to click on it and nothing
-> > after that user control will appear either.  I tried firefox first and
-> > firefox was even worse.  The people that wrote the Dell web site are
-> > working for google now since both sites take you around in circles and
-> > don't get you to what you're searching for and when thunder storms are
-> > about to come down I don't appreciate wasting time going around in circles
-> > under those kind of deadlines where computer and other electrical
-> > equipment could be damaged.
->
->
->
-
--- 
+Well, many months ago Tim was quite a help in a related item. Yes, I can at 
+least change the beep and length as something like
+setterm -bfreq 440 -blength 200
+However, can you please inform where to put these so they servive a boot.
+But now, I think since an upgrade to Kernel 5.1.3 while I can run commands for 
+changing rows-and-columns, they are not affective. Mostly running Sid with 
+135lines, but my laptop only has 112. In searching, a mention was made of xrandr 
+but I am not running an x server. However, while I am in TCSH, it doesn't work 
+in bash either. Thanks so much in advance for any guidance
+Chime
 
 _______________________________________________
 Blinux-list mailing list
