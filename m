@@ -2,74 +2,63 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 67FEF423F8
-	for <lists+blinux-list@lfdr.de>; Wed, 12 Jun 2019 13:29:26 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+	by mail.lfdr.de (Postfix) with ESMTPS id 692C342C10
+	for <lists+blinux-list@lfdr.de>; Wed, 12 Jun 2019 18:21:44 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 2CE38308624C;
-	Wed, 12 Jun 2019 11:29:17 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id A8D3CC0587F5;
+	Wed, 12 Jun 2019 16:21:26 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8CE0B5D968;
-	Wed, 12 Jun 2019 11:29:07 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B1C0E196A0;
+	Wed, 12 Jun 2019 16:21:13 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B10D424AFA;
-	Wed, 12 Jun 2019 11:29:00 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 354E34EA6C;
+	Wed, 12 Jun 2019 16:20:58 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
 	[10.5.11.11])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x5CBRlD8026909 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 12 Jun 2019 07:27:47 -0400
+	id x5CGKMtL024291 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 12 Jun 2019 12:20:25 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id C99537BE97; Wed, 12 Jun 2019 11:27:47 +0000 (UTC)
+	id ED3716014E; Wed, 12 Jun 2019 16:20:22 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx11.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.40])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C3AB17BE96
-	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 11:27:45 +0000 (UTC)
-Received: from opera.rednote.net (opera.rednote.net [66.228.34.147])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mx1.redhat.com (ext-mx17.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.46])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E728B600CC
+	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 16:20:20 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id B863930C1AEA
-	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 11:27:14 +0000 (UTC)
-Received: from rednote.net (localhost [127.0.0.1])
-	by opera.rednote.net (8.15.2/8.15.2) with ESMTPS id x5CBR6oD026140
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)
-	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 11:27:06 GMT
-DKIM-Filter: OpenDKIM Filter v2.11.0 opera.rednote.net x5CBR6oD026140
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=rednote.net;
-	s=default; t=1560338826;
-	bh=eGn/nSLXgbcu6vJquVVIDkP9aXo0ry66sHM0gz0fT6c=;
-	h=Date:From:To:Subject:References:In-Reply-To:From;
-	b=EdOo4JPCPBg3DEoyyDAoijbrTGTWBCK3/ELTJFfVRkg0U5aRhHfWDYUsZKXIO47Cs
-	qTq29aeYhtfJ933Og6BZCw5hQjBs5yxhc5kK2Q9gylNl9PGFqx6Y20PQBMrlj/f2b0
-	WszHnwHe68xH4X3PN2KrFbJRyqEn6mjenPI1J0Po=
-Received: (from janina@localhost)
-	by rednote.net (8.15.2/8.15.2/Submit) id x5CBR6o2026139
-	for blinux-list@redhat.com; Wed, 12 Jun 2019 07:27:06 -0400
-Date: Wed, 12 Jun 2019 07:27:06 -0400
-To: blinux-list@redhat.com
-Subject: Re: Audio Recording
-Message-ID: <20190612112706.GA2272@rednote.net>
-References: <20190609.052602.869.15@[192.168.1.181]>
-	<alpine.NEB.2.21.1906090142180.26372@panix1.panix.com>
+	by mx1.redhat.com (Postfix) with ESMTPS id 92FCE3082E69
+	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 16:20:06 +0000 (UTC)
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 45PBsq3bR6z1GVS
+	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 12:19:59 -0400 (EDT)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 45PBsq2y8LzcbR; Wed, 12 Jun 2019 12:19:59 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 45PBsq2wtKzcbQ
+	for <blinux-list@redhat.com>; Wed, 12 Jun 2019 12:19:59 -0400 (EDT)
+Date: Wed, 12 Jun 2019 12:19:59 -0400
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: blind instructions needed
+In-Reply-To: <87v9xbdysu.fsf@gmail.com>
+Message-ID: <alpine.NEB.2.21.1906121214370.28070@panix1.panix.com>
+References: <alpine.NEB.2.21.1905281245170.9594@panix1.panix.com>
+	<87v9xbdysu.fsf@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <alpine.NEB.2.21.1906090142180.26372@panix1.panix.com>
-X-Operating-System: Linux opera.rednote.net 5.0.17-300.fc30.x86_64
-User-Agent: Mutt/1.11.4 (2019-03-13)
-X-Greylist: Sender passed SPF test, ACL 242 matched, not delayed by
-	milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.40]);
-	Wed, 12 Jun 2019 11:27:34 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.40]);
-	Wed, 12 Jun 2019 11:27:34 +0000 (UTC) for IP:'66.228.34.147'
-	DOMAIN:'opera.rednote.net' HELO:'opera.rednote.net'
-	FROM:'janina@rednote.net' RCPT:''
-X-RedHat-Spam-Score: -0.102  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	SPF_HELO_PASS,
-	SPF_PASS) 66.228.34.147 opera.rednote.net 66.228.34.147
-	opera.rednote.net <janina@rednote.net>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.40
+X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 216
+	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
+	[10.5.110.46]); Wed, 12 Jun 2019 16:20:06 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.46]);
+	Wed, 12 Jun 2019 16:20:06 +0000 (UTC) for IP:'166.84.1.89'
+	DOMAIN:'mailbackend.panix.com' HELO:'mailbackend.panix.com'
+	FROM:'jdashiel@panix.com' RCPT:''
+X-RedHat-Spam-Score: -2.3  (RCVD_IN_DNSWL_MED, SPF_HELO_NONE,
+	SPF_PASS) 166.84.1.89 mailbackend.panix.com 166.84.1.89
+	mailbackend.panix.com <jdashiel@panix.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.46
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
@@ -89,64 +78,50 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.49]); Wed, 12 Jun 2019 11:29:25 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.32]); Wed, 12 Jun 2019 16:21:43 +0000 (UTC)
 
-In addition to the alsa-utils' arecord, you might want to familiarize
-yourself with sox:
+My understanding of how google works has improved.  I don't have
+two-factor authentication turned on and won't be able to turn it on
+until I get a working smartphone replacement.  And of course without
+two-factor authentication working, no need for app-passwords either.  I
+tried using a landline number which doesn't take text messages but
+google wasn't intelligent enough to handle that by calling that number
+with a voice recording of the verification code or allowing users
+setting up two-factor authentication to use voice recordings of
+verification codes from the start.  Some kind of policy decision did
+that I'm sure.
 
-http://sox.sourceforge.net/
+On Wed, 12 Jun 2019, Linux for blind general discussion wrote:
 
-
-Then, if you're up to the learning curve, there's ecasound:
-
-http://www.eca.cx/ecasound/
-
-
-Depending on how serious you are about audio recording, you may also
-need to familiarize yourself with ffmpeg and possibly also jack.
-
-Best,
-
-Janina
-
-Linux for blind general discussion writes:
-> On cli I'm using aarecord with some parameters so we don't record a .wav
-> file since size is limited.  The wav file you can record you can use to
-> verify your microphone's volume once you listen to the recording.
-> 
-> On Sun, 9 Jun 2019, Linux for blind general discussion wrote:
-> 
-> > Date: Sun, 9 Jun 2019 01:26:02
-> > From: Linux for blind general discussion <blinux-list@redhat.com>
-> > To: blinux-list@redhat.com
-> > Subject: Audio Recording
-> >
-> > What are we using for audio recording on linux these days. In the gui. Is audacity still the best one from an a11y standpoint? How about CLI?
-> > I'm interested in recording from line-in so I can archive some of my tapes.
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://www.redhat.com/mailman/listinfo/blinux-list
-> >
-> 
-> -- 
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
+> Date: Wed, 12 Jun 2019 03:53:53
+> From: Linux for blind general discussion <blinux-list@redhat.com>
+> To: blinux-list@redhat.com
+> Subject: Re: blind instructions needed
+>
+> Hello,
+>
+> Could you explain what kind of instruction you're looking for?
+>
+> Best Regards
+> Linux for blind general discussion <blinux-list@redhat.com> writes:
+>
+> > I'm trying to generate some app-passwords on google and signed into gmail
+> > and got to my account and then the instructions I was using turned out to
+> > be garbage.
+> > I can't even with chromium find the user button to click on it and nothing
+> > after that user control will appear either.  I tried firefox first and
+> > firefox was even worse.  The people that wrote the Dell web site are
+> > working for google now since both sites take you around in circles and
+> > don't get you to what you're searching for and when thunder storms are
+> > about to come down I don't appreciate wasting time going around in circles
+> > under those kind of deadlines where computer and other electrical
+> > equipment could be damaged.
+>
+>
+>
 
 -- 
-
-Janina Sajka
-
-Linux Foundation Fellow
-Executive Chair, Accessibility Workgroup:	http://a11y.org
-
-The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
-Chair, Accessible Platform Architectures	http://www.w3.org/wai/apa
 
 _______________________________________________
 Blinux-list mailing list
