@@ -2,66 +2,74 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1BFA651E23
-	for <lists+blinux-list@lfdr.de>; Tue, 25 Jun 2019 00:21:31 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+	by mail.lfdr.de (Postfix) with ESMTPS id A45175832A
+	for <lists+blinux-list@lfdr.de>; Thu, 27 Jun 2019 15:13:26 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 157714E938;
-	Mon, 24 Jun 2019 22:21:24 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E93061001B05;
-	Mon, 24 Jun 2019 22:21:16 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 496DAA404E;
+	Thu, 27 Jun 2019 13:12:36 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 68F0A196F7;
+	Thu, 27 Jun 2019 13:12:21 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 63A1B1806B18;
-	Mon, 24 Jun 2019 22:21:10 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
-	[10.5.11.15])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BC34B206D4;
+	Thu, 27 Jun 2019 13:12:01 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
+	[10.5.11.11])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x5OMKx9J020135 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 24 Jun 2019 18:20:59 -0400
+	id x5RDBKmC030382 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 27 Jun 2019 09:11:20 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id AE5BF5B68F; Mon, 24 Jun 2019 22:20:59 +0000 (UTC)
+	id F30AC60126; Thu, 27 Jun 2019 13:11:19 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx01.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A971B5B68E
-	for <blinux-list@redhat.com>; Mon, 24 Jun 2019 22:20:57 +0000 (UTC)
-Received: from smtprelay08.ispgateway.de (smtprelay08.ispgateway.de
-	[134.119.228.111])
+Received: from mx1.redhat.com (ext-mx04.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.28])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id ED1AC6012D
+	for <blinux-list@redhat.com>; Thu, 27 Jun 2019 13:11:17 +0000 (UTC)
+Received: from opera.rednote.net (opera.rednote.net [66.228.34.147])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 998B781F31
-	for <blinux-list@redhat.com>; Mon, 24 Jun 2019 22:20:43 +0000 (UTC)
-Received: from [84.57.117.238] (helo=[192.168.2.111])
-	by smtprelay08.ispgateway.de with esmtpsa
-	(TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92)
-	(envelope-from <chrys@linux-a11y.org>) id 1hfXKE-0005N5-MR
-	for blinux-list@redhat.com; Tue, 25 Jun 2019 00:20:34 +0200
-Mime-Version: 1.0 (1.0)
-Date: Tue, 25 Jun 2019 00:20:34 +0200
-Subject: Re: Some basic Pulseaudio Questions
-Message-Id: <8DD43559-5653-4F0B-957D-DD13814C2CF1@linux-a11y.org>
-References: <E1hfWEU-0000NO-Eu@wb5agz>
-In-Reply-To: <E1hfWEU-0000NO-Eu@wb5agz>
-To: blinux-list@redhat.com
-X-Df-Sender: Y2hyeXNAbGludXgtYTExeS5vcmc=
-X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 216
-	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.25]); Mon, 24 Jun 2019 22:20:53 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.25]);
-	Mon, 24 Jun 2019 22:20:53 +0000 (UTC) for IP:'134.119.228.111'
-	DOMAIN:'smtprelay08.ispgateway.de'
-	HELO:'smtprelay08.ispgateway.de' FROM:'chrys@linux-a11y.org'
-	RCPT:''
-X-RedHat-Spam-Score: -0.7  (RCVD_IN_DNSWL_LOW, SPF_HELO_PASS,
-	SPF_NONE) 134.119.228.111 smtprelay08.ispgateway.de
-	134.119.228.111 smtprelay08.ispgateway.de
-	<chrys@linux-a11y.org>
-X-Scanned-By: MIMEDefang 2.83 on 10.5.110.25
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id x5OMKx9J020135
+	by mx1.redhat.com (Postfix) with ESMTPS id 5BB7788318
+	for <blinux-list@redhat.com>; Thu, 27 Jun 2019 13:10:56 +0000 (UTC)
+Received: from rednote.net (localhost [127.0.0.1])
+	by opera.rednote.net (8.15.2/8.15.2) with ESMTPS id x5RDAtlN003371
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)
+	for <blinux-list@redhat.com>; Thu, 27 Jun 2019 13:10:55 GMT
+DKIM-Filter: OpenDKIM Filter v2.11.0 opera.rednote.net x5RDAtlN003371
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=rednote.net;
+	s=default; t=1561641055;
+	bh=tOlY9mTSuN56na434vmOlZVMeVj2Twn4p7lyqbcdOvY=;
+	h=Date:From:To:Subject:References:In-Reply-To:From;
+	b=BKBp6wJEvy+tTEdloAgfvE/uECTK8Kz4tBQ2ifajlqyT1kJyAHGdEOQMZaIfI0jT1
+	umwfm6V3nm5JMI+tgxF/jsmweA2I5LvCLe2rkXVVh4nVQafqhwVHW1TYDjUGsUqcb6
+	Dirj3fG3OoCJj71J3STeZx7AH7+YICKC4VqzTESM=
+Received: (from janina@localhost)
+	by rednote.net (8.15.2/8.15.2/Submit) id x5RDAsGH003370
+	for blinux-list@redhat.com; Thu, 27 Jun 2019 09:10:54 -0400
+Date: Thu, 27 Jun 2019 09:10:54 -0400
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Using $PROMPT_COMMAND to beep depending on success/failure
+Message-ID: <20190627131054.GA3329@rednote.net>
+References: <20160420134111.2629abd1@bigbox.christie.dr>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20160420134111.2629abd1@bigbox.christie.dr>
+X-Operating-System: Linux opera.rednote.net 5.0.17-300.fc30.x86_64
+User-Agent: Mutt/1.12.0 (2019-05-25)
+X-Greylist: Sender passed SPF test, ACL 242 matched, not delayed by
+	milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.28]);
+	Thu, 27 Jun 2019 13:11:02 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.28]);
+	Thu, 27 Jun 2019 13:11:02 +0000 (UTC) for IP:'66.228.34.147'
+	DOMAIN:'opera.rednote.net' HELO:'opera.rednote.net'
+	FROM:'janina@rednote.net' RCPT:''
+X-RedHat-Spam-Score: -0.102  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	SPF_HELO_PASS,
+	SPF_PASS) 66.228.34.147 opera.rednote.net 66.228.34.147
+	opera.rednote.net <janina@rednote.net>
+X-Scanned-By: MIMEDefang 2.78 on 10.5.110.28
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -80,42 +88,56 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.38]); Mon, 24 Jun 2019 22:21:29 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.38]); Thu, 27 Jun 2019 13:13:25 +0000 (UTC)
 
-Howdy my friend,
+I like this idea, but it needs some debugging on my end.
 
-fenrir ships by default a script to configure pulse for its usage if you want to have the full power Pulse. Fenrir does not belong to an kernel module and is just userspace based. I would not use my kernel al Audioplayer as well XD. I think the concept is dated.
+Firstly, I did make sure to get all that code on one line in my .bashrc.
+However, I get this error:
 
-Cheers chrys
+play WARN alsa: can't encode 0-bit Unknown or not applicable
 
-> Am 24.06.2019 um 23:10 schrieb Linux for blind general discussion <blinux-list@redhat.com>:
+Tim Chase writes:
+> Stumbled on this one today thanks to @climagic on Twitter.  If you
+> want to have your machine give you one tone if the previous command
+> succeeded (had an exit-status of 0) and a different tone if the
+> previous command failed (had a non-zero exit status), you can put the
+> following one-liner in your .bashrc file:
 > 
->    Thanks for a very good answer.  I didn't know about mpv
-> and what I have read so far sounds very good.
+> PROMPT_COMMAND='[ "$?" == 0 ] && play -qn synth sin F3 trim 0 0 0.1
+> fade 0 0.1 0.05 vol 0.2 || play -qn synth square F4 trim 0 0.1 fade 0
+> 0.1 0.05'
 > 
->    I have been using mplayer for around 12 years and being a
-> fork of that, mpv has a similar feel
+> This uses the `play` command from the `sox` package.  There are a
+> number of tweaks you can make to change the tones, timbres,
+> wave-form, volume, duration, etc.  The above uses an F3 sine-wave at
+> 20% volume for success and an F4 square-wave at 100% volume for
+> failure.
 > 
-> Shlomi Fish  writes:
->> Note that ALSA can do multiplexed sound too. Moreover, please try
->> https://mpv.io/ instead of mplayer.
+> To test it out, use the `true` and `false` commands (they don't do
+> anything other than exit with a particular zero/non-zero exit code).
 > 
->    Multiplexed sound is what I am after more than anything
-> else as I run standard debian Linux and am thoroughly happy most
-> days with how it works.
+> But here's hoping someone here finds it useful.
 > 
->    Strangely enough, the playback-only sound device on the
-> Raspberry pI will mix at least two streams without missing a
-> beat.  I was very surprised.
+> -tim
 > 
-> Martin
+> 
 > 
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://www.redhat.com/mailman/listinfo/blinux-list
 
+-- 
+
+Janina Sajka
+
+Linux Foundation Fellow
+Executive Chair, Accessibility Workgroup:	http://a11y.org
+
+The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
+Chair, Accessible Platform Architectures	http://www.w3.org/wai/apa
 
 _______________________________________________
 Blinux-list mailing list
