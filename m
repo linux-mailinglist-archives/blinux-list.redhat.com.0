@@ -2,63 +2,73 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5FDAE60E8C
-	for <lists+blinux-list@lfdr.de>; Sat,  6 Jul 2019 04:44:09 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+	by mail.lfdr.de (Postfix) with ESMTPS id 96A8E60F3E
+	for <lists+blinux-list@lfdr.de>; Sat,  6 Jul 2019 08:23:37 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 4869183F40;
-	Sat,  6 Jul 2019 02:44:07 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id DD8075129E;
-	Sat,  6 Jul 2019 02:44:05 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id AAA133086246;
+	Sat,  6 Jul 2019 06:23:34 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D5E3380C9;
+	Sat,  6 Jul 2019 06:23:33 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id DEBFD4EBC0;
-	Sat,  6 Jul 2019 02:44:03 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
-	[10.5.11.23])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8411718184A4;
+	Sat,  6 Jul 2019 06:23:30 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
+	[10.5.11.12])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x662hvEs020196 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 5 Jul 2019 22:43:57 -0400
+	id x666NM3b024599 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 6 Jul 2019 02:23:22 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 024F85780; Sat,  6 Jul 2019 02:43:57 +0000 (UTC)
+	id 909BD18A49; Sat,  6 Jul 2019 06:23:22 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx06.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.30])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id EFC944128
-	for <blinux-list@redhat.com>; Sat,  6 Jul 2019 02:43:54 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+Received: from mx1.redhat.com (ext-mx03.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.27])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 89FBCBA45
+	for <blinux-list@redhat.com>; Sat,  6 Jul 2019 06:23:20 +0000 (UTC)
+Received: from hera.aquilenet.fr (hera.aquilenet.fr [185.233.100.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id DA409368E3
-	for <blinux-list@redhat.com>; Sat,  6 Jul 2019 02:43:53 +0000 (UTC)
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 45gbd515FRz1HRJ
-	for <blinux-list@redhat.com>; Fri,  5 Jul 2019 22:43:53 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 45gbd46tLKzcbR; Fri,  5 Jul 2019 22:43:52 -0400 (EDT)
+	by mx1.redhat.com (Postfix) with ESMTPS id 4137B83F3B
+	for <blinux-list@redhat.com>; Sat,  6 Jul 2019 06:23:18 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 45gbd46Yd0zcbQ
-	for <blinux-list@redhat.com>; Fri,  5 Jul 2019 22:43:52 -0400 (EDT)
-Date: Fri, 5 Jul 2019 22:43:52 -0400
+	by hera.aquilenet.fr (Postfix) with ESMTP id B5DD15EDC
+	for <blinux-list@redhat.com>; Sat,  6 Jul 2019 08:23:16 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at aquilenet.fr
+Received: from hera.aquilenet.fr ([127.0.0.1])
+	by localhost (hera.aquilenet.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id wzrW3AsW2yWv for <blinux-list@redhat.com>;
+	Sat,  6 Jul 2019 08:23:16 +0200 (CEST)
+Received: from function (105.251.129.77.rev.sfr.net [77.129.251.105])
+	by hera.aquilenet.fr (Postfix) with ESMTPSA id 24B155ED9
+	for <blinux-list@redhat.com>; Sat,  6 Jul 2019 08:23:16 +0200 (CEST)
+Received: from samy by function with local (Exim 4.92)
+	(envelope-from <samuel.thibault@ens-lyon.org>) id 1hje6N-00085m-CT
+	for blinux-list@redhat.com; Sat, 06 Jul 2019 08:23:15 +0200
+Date: Sat, 6 Jul 2019 08:23:15 +0200
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Need a memory refresh
-In-Reply-To: <20190705213906.GA11497@abilitiessoft>
-Message-ID: <alpine.NEB.2.21.1907052242460.4881@panix1.panix.com>
-References: <20190705213906.GA11497@abilitiessoft>
+Subject: Re: debian missing speech
+Message-ID: <20190706062315.d6blqwm5bvpzlx33@function>
+Mail-Followup-To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <CADj8Jxe3riDFGg4OL1L2h6d0YDyjW-htUNiq14Xe5zQtp74E7w@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CADj8Jxe3riDFGg4OL1L2h6d0YDyjW-htUNiq14Xe5zQtp74E7w@mail.gmail.com>
+Organization: I am not organized
+User-Agent: NeoMutt/20170113 (1.7.2)
 X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 216
 	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.30]); Sat, 06 Jul 2019 02:43:54 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.30]);
-	Sat, 06 Jul 2019 02:43:54 +0000 (UTC) for IP:'166.84.1.89'
-	DOMAIN:'mailbackend.panix.com' HELO:'mailbackend.panix.com'
-	FROM:'jdashiel@panix.com' RCPT:''
-X-RedHat-Spam-Score: -2.3  (RCVD_IN_DNSWL_MED, SPF_HELO_NONE,
-	SPF_PASS) 166.84.1.89 mailbackend.panix.com 166.84.1.89
-	mailbackend.panix.com <jdashiel@panix.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.5.110.30
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+	[10.5.110.27]); Sat, 06 Jul 2019 06:23:19 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.27]);
+	Sat, 06 Jul 2019 06:23:19 +0000 (UTC) for IP:'185.233.100.1'
+	DOMAIN:'hera.aquilenet.fr' HELO:'hera.aquilenet.fr'
+	FROM:'samuel.thibault@ens-lyon.org' RCPT:''
+X-RedHat-Spam-Score: 0.651  (RCVD_IN_DNSWL_NONE, SPF_HELO_PASS,
+	SPF_NEUTRAL) 185.233.100.1 hera.aquilenet.fr
+	185.233.100.1 hera.aquilenet.fr <samuel.thibault@ens-lyon.org>
+X-Scanned-By: MIMEDefang 2.78 on 10.5.110.27
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -77,28 +87,22 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.27]); Sat, 06 Jul 2019 02:44:08 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.49]); Sat, 06 Jul 2019 06:23:36 +0000 (UTC)
 
-If the three users are on the machine, alt plus a function key like
-alt-f2 for ttyS2 and alt-f3 for ttyS3 will do it.
+Hello,
 
-On Fri, 5 Jul 2019, Linux for blind general discussion wrote:
+Linux for blind general discussion, le ven. 05 juil. 2019 22:05:31 -0400, a ecrit:
+> So I have two of the debian netinstall iso on my pc when I was
+> installing in virtual box it could not find the speech when tiping S
+> to start the speech install.
 
-> Date: Fri, 5 Jul 2019 17:39:06
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: Linux for blind general discussion <blinux-list@redhat.com>
-> Subject: Need a memory refresh
->
-> I am using Debian Buster, CLI  only. I have three users on the machine, besides the superuser. I can't remember the keystroke to switch from one user to another.
-> ssh isn't really satisfactory, since it doesn't set up an independent user. Where can I find information like this?
->
-> Thanks,
-> John
->
->
+Could you try this version?
+http://cdimage.debian.org/cdimage/buster_di_alpha4/amd64/iso-cd/
 
--- 
+It seems that some hardware have issues with the latest kernel.
+
+Samuel
 
 _______________________________________________
 Blinux-list mailing list
