@@ -2,92 +2,86 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4B1046A62C
-	for <lists+blinux-list@lfdr.de>; Tue, 16 Jul 2019 12:08:16 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+	by mail.lfdr.de (Postfix) with ESMTPS id 46AE06AF9F
+	for <lists+blinux-list@lfdr.de>; Tue, 16 Jul 2019 21:14:41 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id A3C9344BCD;
-	Tue, 16 Jul 2019 10:08:14 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2C56A5C554;
-	Tue, 16 Jul 2019 10:08:14 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id CD273307D844;
+	Tue, 16 Jul 2019 19:14:37 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3FC4E60C44;
+	Tue, 16 Jul 2019 19:14:36 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 691504E58F;
-	Tue, 16 Jul 2019 10:08:13 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
-	[10.5.11.13])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 333C01800207;
+	Tue, 16 Jul 2019 19:14:33 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
+	[10.5.11.12])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x6GA88pu019150 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 16 Jul 2019 06:08:08 -0400
+	id x6GJEQPF000770 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 16 Jul 2019 15:14:26 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 9AB8D1C8; Tue, 16 Jul 2019 10:08:08 +0000 (UTC)
+	id 9C2AE60C78; Tue, 16 Jul 2019 19:14:26 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx20.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.49])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 916A21C0
-	for <blinux-list@redhat.com>; Tue, 16 Jul 2019 10:08:04 +0000 (UTC)
-Received: from mta01.o2scoral.fr (mta01.o2scoral.fr [109.234.163.41])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mx1.redhat.com (ext-mx10.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.39])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 963A260C73
+	for <blinux-list@redhat.com>; Tue, 16 Jul 2019 19:14:24 +0000 (UTC)
+Received: from mail-io1-f51.google.com (mail-io1-f51.google.com
+	[209.85.166.51])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 48373307154A
-	for <blinux-list@redhat.com>; Tue, 16 Jul 2019 10:08:03 +0000 (UTC)
-X-Spam-Status: No
-X-MailPropre-MailScanner-From: didier@slint.fr
-X-MailPropre-MailScanner-SpamScore: s
-X-MailPropre-MailScanner-SpamCheck: not spam, SpamAssassin (not cached,
-	score=1.202, required 5, autolearn=disabled, DKIM_INVALID 0.10,
-	DKIM_SIGNED 0.10, SPF_HELO_NONE 0.00, SPF_NONE 0.00,
-	URIBL_BLOCKED 1.00)
-X-MailPropre-MailScanner: Not scanned: please contact your Internet E-Mail
-	Service Provider for details
-X-MailPropre-MailScanner-ID: D3D0210074B.A4665
-X-MailPropre-MailScanner-Information: Please contact the ISP for more
-	information
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=slint.fr;
-	s=default;
-	h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version
-	:Date:Message-ID:References:To:Subject:From:Sender:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=159dshfRaDx8A9mJ1C7cxHOjsogin33y0e4om6rblwg=;
-	b=Wuw2EXeTNru5c+0g2NFTmSSF98
-	QNuNf/MmooFj1UXAhM3Q9TGFPVsU7vyc7rLIxc+cIYlCS+4Az0z42KqmsxXHMUAMGqOQuD7vvCNV4
-	2WvlmftVIHZG3xLgMTpSVaR8GfVjqVNpkOERfvTO7MWegCxl22ddCUPsuxzzP2UFt94c=; 
+	by mx1.redhat.com (Postfix) with ESMTPS id 52A315D674
+	for <blinux-list@redhat.com>; Tue, 16 Jul 2019 19:14:23 +0000 (UTC)
+Received: by mail-io1-f51.google.com with SMTP id j5so37569015ioj.8
+	for <blinux-list@redhat.com>; Tue, 16 Jul 2019 12:14:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+	h=from:content-transfer-encoding:mime-version:subject:message-id:date
+	:to; bh=pAENN9r7PhBEI0xRiyFJYpaFSPVnZTl8ySIlb1KMr1Y=;
+	b=jXqPWE4rXzq21wHaXR9hIs8ixQwy6w7akN50Ap3i1aUxA+L3rjvbXwaN5FPYP5+PR3
+	MwrpVGNr2zv0rf1RVEq7hi01wfSkQoNe/gTJ56g2INR4OYexvPk056FeHcH/fqVqXB5k
+	7wcICD8LwAVnAVqfNSqvMtQV+NPV2dkPEqXcIRLlPQg3nxdkvtB1eBT7feE5cfXSDTaW
+	9HijHV7u3tdai4uAGZLW4PB5D/6lvHiktiQeED8zBWS2R9fS+WK7GfQZrypckWYHZl0G
+	GWWRUqEYarrjvytU+Q7cw6v0nMvlfm1r68HnN0S5gEnA1ADTl1/pX6PdIrNZPLA5LSmp
+	QlZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:from:content-transfer-encoding:mime-version
+	:subject:message-id:date:to;
+	bh=pAENN9r7PhBEI0xRiyFJYpaFSPVnZTl8ySIlb1KMr1Y=;
+	b=h0D2rKilcjR/jkAlK/ei+4p+GOtyr+zoBnvfHDp0c0E0txwisGo49fk57UX2NNiIfn
+	7lEcpNx+hqD3EDIyA90gImUeZGs20hYniOMWK5evNErjZgV4DDFPNi59E2DeV+deophT
+	nm4DT+9rKeWFP2jbVWHEIaHdNgjZQxkQCcF2qaC5QM0sAJCcLAi4WtAhyomlUJNcZP+H
+	lVK8oNgbw7wtBbeTG0Xs8e4ETqIYBqZ+kOqpEEqi+vO/EWZiHTY2Lb2M7SKPoK1Rxytp
+	jl6U5YFGoB33PVN2Y54QgLqcgMYJux8vhcuFHOjQs2SWTaUBeeFeffvbaeredj9NqB4U
+	30kQ==
+X-Gm-Message-State: APjAAAXaG8M5+9XpxRd8y+Gnh6mqSZcTG06mF2UPMNM4KXVPLL69hBK4
+	xD9EsUfcXlo1ErSCwzbRjq4DMyn5
+X-Google-Smtp-Source: APXvYqyhwdZxSG+IQxeaWHsnR/HteJmiWDBZqD6neQbRolTQ8kZ3piNgr7LGG44d0CQqK0zJtKt/qg==
+X-Received: by 2002:a5d:9e11:: with SMTP id h17mr32803110ioh.261.1563304462524;
+	Tue, 16 Jul 2019 12:14:22 -0700 (PDT)
+Received: from [192.168.0.2] ([65.34.110.88]) by smtp.gmail.com with ESMTPSA id
+	c17sm17250226ioo.82.2019.07.16.12.14.21 for <blinux-list@redhat.com>
+	(version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+	Tue, 16 Jul 2019 12:14:21 -0700 (PDT)
+Mime-Version: 1.0 (1.0)
 Subject: Re: mumble command-line client
+Message-Id: <56E3E288-7D64-44A7-ADD3-078D1C9588D2@gmail.com>
+Date: Tue, 16 Jul 2019 14:14:17 -0500
 To: blinux-list@redhat.com
-References: <28EEB0BA-CB88-4203-B999-16EDD2DE51B2@gmail.com>
-Message-ID: <22b97d1b-8b03-fbd3-9fd5-13b8a8e4b2e0@slint.fr>
-Date: Tue, 16 Jul 2019 12:02:55 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
-	Thunderbird/60.8.0
-MIME-Version: 1.0
-In-Reply-To: <28EEB0BA-CB88-4203-B999-16EDD2DE51B2@gmail.com>
-Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse,
-	please include it with any abuse report
-X-AntiAbuse: Primary Hostname - fox.o2switch.net
-X-AntiAbuse: Original Domain - redhat.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - slint.fr
-X-Get-Message-Sender-Via: fox.o2switch.net: authenticated_id: didier@slint.fr
-X-Authenticated-Sender: fox.o2switch.net: didier@slint.fr
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Greylist: Delayed for 00:05:05 by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.49]); Tue, 16 Jul 2019 10:08:03 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.49]);
-	Tue, 16 Jul 2019 10:08:03 +0000 (UTC) for IP:'109.234.163.41'
-	DOMAIN:'mta01.o2scoral.fr' HELO:'mta01.o2scoral.fr'
-	FROM:'didier@slint.fr' RCPT:''
-X-RedHat-Spam-Score: -0.098  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	SPF_HELO_NONE,
-	SPF_NONE) 109.234.163.41 mta01.o2scoral.fr 109.234.163.41
-	mta01.o2scoral.fr <didier@slint.fr>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.49
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+	(mx1.redhat.com [10.5.110.39]);
+	Tue, 16 Jul 2019 19:14:23 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.39]);
+	Tue, 16 Jul 2019 19:14:23 +0000 (UTC) for IP:'209.85.166.51'
+	DOMAIN:'mail-io1-f51.google.com' HELO:'mail-io1-f51.google.com'
+	FROM:'montanalag@gmail.com' RCPT:''
+X-RedHat-Spam-Score: -0.099  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
+	SPF_PASS) 209.85.166.51 mail-io1-f51.google.com 209.85.166.51
+	mail-io1-f51.google.com <montanalag@gmail.com>
+X-Scanned-By: MIMEDefang 2.78 on 10.5.110.39
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -102,45 +96,16 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.30]); Tue, 16 Jul 2019 10:08:15 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.48]); Tue, 16 Jul 2019 19:14:40 +0000 (UTC)
 
-Hello Brian,
+Do you think barnard might run in ubuntu?
 
-Indeed barnard.
-
-It has just been updated, thanks to Brandon McGinty-Carroll and Storm
-Dragon
-
-If running Arch you can get it from the AUR (package barnard-git).
-If running Slint you can get it with "slapt-get -i barnard".
-
-Else you'll have to build it from git:
-https://github.com/bmmcginty/barnard
-
-A new helper script barnard-ui has been added two weeks age, it's
-included in the Arch package and I will upgrade barnard for Slint today
-to add it. It allows to set up a connection and choose among the
-ones already set up.
-
-Best regards,
-
-Didier
---
-Didier Spaier
-Slint maintainer
-http:// slint.fr
-
-On 16/07/2019 09:16, Linux for blind general discussion wrote:
-> Hi,
-> Is there such a beast?
-> tia.
-> 
-> --Brian Tew
+--Brian Tew
 
 _______________________________________________
 Blinux-list mailing list
