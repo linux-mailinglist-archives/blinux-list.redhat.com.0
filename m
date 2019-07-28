@@ -2,92 +2,92 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 831046F3B9
-	for <lists+blinux-list@lfdr.de>; Sun, 21 Jul 2019 16:36:36 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+	by mail.lfdr.de (Postfix) with ESMTPS id 76D6A77C7A
+	for <lists+blinux-list@lfdr.de>; Sun, 28 Jul 2019 02:14:42 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 5231B3DD47;
-	Sun, 21 Jul 2019 14:36:33 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id AACBE3082199;
+	Sun, 28 Jul 2019 00:14:38 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 486AA60BF3;
-	Sun, 21 Jul 2019 14:36:30 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4FE1A19D7C;
+	Sun, 28 Jul 2019 00:14:35 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 24B644E58F;
-	Sun, 21 Jul 2019 14:36:24 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0C6A841F40;
+	Sun, 28 Jul 2019 00:14:28 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
 	[10.5.11.23])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x6LEa6LD007138 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 21 Jul 2019 10:36:07 -0400
+	id x6S0EJV6030733 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 27 Jul 2019 20:14:19 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id AE3D619C79; Sun, 21 Jul 2019 14:36:06 +0000 (UTC)
+	id 6802E19D7D; Sun, 28 Jul 2019 00:14:19 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx09.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.38])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A72F019C77
-	for <blinux-list@redhat.com>; Sun, 21 Jul 2019 14:36:04 +0000 (UTC)
-Received: from mta02.o2scoral.fr (mta02.o2scoral.fr [109.234.163.42])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mx1.redhat.com (ext-mx19.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.48])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 61BDB19D7C
+	for <blinux-list@redhat.com>; Sun, 28 Jul 2019 00:14:17 +0000 (UTC)
+Received: from mail-lj1-f178.google.com (mail-lj1-f178.google.com
+	[209.85.208.178])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 3C30B4E908
-	for <blinux-list@redhat.com>; Sun, 21 Jul 2019 14:36:03 +0000 (UTC)
-X-Spam-Status: No
-X-MailPropre-MailScanner-From: didier@slint.fr
-X-MailPropre-MailScanner-SpamScore: s
-X-MailPropre-MailScanner-SpamCheck: not spam, SpamAssassin (cached,
-	score=1.202, required 5, autolearn=disabled, DKIM_INVALID 0.10,
-	DKIM_SIGNED 0.10, SPF_HELO_NONE 0.00, SPF_NONE 0.00,
-	URIBL_BLOCKED 1.00)
-X-MailPropre-MailScanner: Not scanned: please contact your Internet E-Mail
-	Service Provider for details
-X-MailPropre-MailScanner-ID: D794410146C.A3D95
-X-MailPropre-MailScanner-Information: Please contact the ISP for more
-	information
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=slint.fr;
-	s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Date:
-	Message-ID:Reply-To:Subject:From:Cc:To:Sender:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=zb43GHMvKuaRX5YPTat+r1QPJi71IOCmxrhUira9A0c=;
-	b=nUalWj9ZCrHvuZbfvy2SCkyIPo
-	YCr96VxmyO73fecx2cM05n+kLEAVdlIEnov/Fk9nGBLkZTHSdCcs2+fb8a7oygdxVknJP5Fif43n0
-	m6BINh2dZZMTulygZ1Y0JKq1v3itjBlS3w8sFnY27NwOEkxbdMbKYHNmFJS+l6o88YzM=; 
-To: slint <slint@slint.fr>
-Subject: Merge of packages repository from Slint
-Message-ID: <ba0e7f64-32ba-925e-a429-36c5352caff8@slint.fr>
-Date: Sun, 21 Jul 2019 16:30:27 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
-	Thunderbird/60.8.0
+	by mx1.redhat.com (Postfix) with ESMTPS id 78D2A307D8BE
+	for <blinux-list@redhat.com>; Sun, 28 Jul 2019 00:14:16 +0000 (UTC)
+Received: by mail-lj1-f178.google.com with SMTP id m8so21387978lji.7
+	for <blinux-list@redhat.com>; Sat, 27 Jul 2019 17:14:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+	h=from:to:date:message-id:user-agent:subject:mime-version
+	:content-transfer-encoding;
+	bh=LauNUhIM6kH8fYqeLJo+M8RC/YeelJonu+hRqlXBFaY=;
+	b=BcxMpzrwk5OSpA5Ie8UuODxLslYeQnnYX6oQl5Ac8/+dYsjQyq1QScaF014beqUUV5
+	LrrQuKrILYOvOtQ/S9F2Q1xcQKSOtYj4AsDN+83FCut6piic5ZeFX5YnfKLTuRwWc7Uh
+	yvTHGgtJnXssJvRfUnxCy2zHQTnGRBbb5yO58eBCoyTmq86LwVa6fDrAQWP+sJmKbxcl
+	MhXaskmkqra8VhOKbE0bisUjRbfVCDU4XupMsUTLI8G7Bkpwmis5yJ39tOJqsFQBAN5D
+	HuJxMRKJqAxEQR8HMAam1FvmApaohli57TXcO16PBD/B4WZjm4ABh31jp3HYSXjSY0Fm
+	VoIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:from:to:date:message-id:user-agent:subject
+	:mime-version:content-transfer-encoding;
+	bh=LauNUhIM6kH8fYqeLJo+M8RC/YeelJonu+hRqlXBFaY=;
+	b=BlJAPh758JyX1MWXUoXnwSMMnX8tIymMVgj/7i9w42aPI1Dh0WpdOoJzFVWW4zYk+Q
+	IO+xtU4pf89lfOy1YUVmwq2iqr8cJCIDBc9tw6obJR6Z/Zcvl8mKWuQz0xEG4jXwE82W
+	5WbH9Mi6/Igfr6AHf+gGvmXqXqfHC/k19sQ4ytKOdypAediusfPyiScluPCXrEwzJH5w
+	0d4rut95onJwcfNgnw5OQLccOJx1lrxhe4QX9r2YSBc5fcUNrhSGdEjvsqiqNOYx8efo
+	ok0X+z8Nt8lgL3o2N8yENj0yLctFAZjS7nEU5yhVxbPPyzKCFOXdd9b+udNqEKv7zPfT
+	8k5g==
+X-Gm-Message-State: APjAAAVsdz4jF3KQneOuMomIFkkGBqsNfxhVoLu6Khdemozv7hqakss2
+	FMYqvQOyso4YFUjLO+22V0vOd7FUSko=
+X-Google-Smtp-Source: APXvYqxzMNemrb3jISDOnWIluF/4A8YI9YpKFeQiCUoqO1JJ8Rrm0OtL8/h//hF3ovGkE2NLFEdQGQ==
+X-Received: by 2002:a2e:9643:: with SMTP id z3mr54614410ljh.43.1564272854729; 
+	Sat, 27 Jul 2019 17:14:14 -0700 (PDT)
+Received: from [100.115.92.2] (81-228-143-85-no527.tbcn.telia.com.
+	[81.228.143.85]) by smtp.gmail.com with ESMTPSA id
+	y29sm11516411ljd.43.2019.07.27.17.14.13 for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+	Sat, 27 Jul 2019 17:14:14 -0700 (PDT)
+To: <blinux-list@redhat.com>
+Date: Sun, 28 Jul 2019 02:14:13 +0200
+Message-ID: <16c35ed8008.2746.afbff0009b353412c733e12e23e6ae2b@gmail.com>
+User-Agent: AquaMail/1.20.0-1462 (build: 102100002)
+Subject: dualboot win 10 debian
 MIME-Version: 1.0
-Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse,
-	please include it with any abuse report
-X-AntiAbuse: Primary Hostname - fox.o2switch.net
-X-AntiAbuse: Original Domain - redhat.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - slint.fr
-X-Get-Message-Sender-Via: fox.o2switch.net: authenticated_id: didier@slint.fr
-X-Authenticated-Sender: fox.o2switch.net: didier@slint.fr
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Greylist: Delayed for 00:05:23 by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.38]); Sun, 21 Jul 2019 14:36:03 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.38]);
-	Sun, 21 Jul 2019 14:36:03 +0000 (UTC) for IP:'109.234.163.42'
-	DOMAIN:'mta02.o2scoral.fr' HELO:'mta02.o2scoral.fr'
-	FROM:'didier@slint.fr' RCPT:''
-X-RedHat-Spam-Score: -0.098  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+	(mx1.redhat.com [10.5.110.48]);
+	Sun, 28 Jul 2019 00:14:16 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.48]);
+	Sun, 28 Jul 2019 00:14:16 +0000 (UTC) for IP:'209.85.208.178'
+	DOMAIN:'mail-lj1-f178.google.com'
+	HELO:'mail-lj1-f178.google.com' FROM:'mjonsson1986@gmail.com'
+	RCPT:''
+X-RedHat-Spam-Score: 0.151  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_ENVFROM_END_DIGIT, FREEMAIL_FROM, RCVD_IN_DNSWL_NONE,
 	SPF_HELO_NONE,
-	SPF_NONE) 109.234.163.42 mta02.o2scoral.fr 109.234.163.42
-	mta02.o2scoral.fr <didier@slint.fr>
-X-Scanned-By: MIMEDefang 2.78 on 10.5.110.38
+	SPF_PASS) 209.85.208.178 mail-lj1-f178.google.com 209.85.208.178
+	mail-lj1-f178.google.com <mjonsson1986@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.48
 X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-loop: blinux-list@redhat.com
-Cc: The Vinux Support Forum <vinux-support@googlegroups.com>,
-	Linux for blind general discussion <blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -105,69 +105,15 @@ Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.29]); Sun, 21 Jul 2019 14:36:35 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.42]); Sun, 28 Jul 2019 00:14:41 +0000 (UTC)
 
-Hello,
+i have debian testing and windows 10 installed
+i was able to boot debian the first times
+but when i booted windows 10 my computer still boots into windows after 
+every reboot
+these tasks was easy before uefi took over bios..
 
-I am CCing this message to the Vinux and  blinux mailing list because
-noi all Slint users are registered to the slint mailing list. I hope
-that will not be considered as spam.
-
-Currently there are two different Slint packages repositories for
-versions 14.2.1 and 14.2.1.2 (64-bit).
-
-However every user running a previous 64 bit version can upgrade to
-14.2.1.2 without issue, so I will soon cease to maintain the packages
-for 14.2.1, that will be replaced by packages provided for 14.2.1.2.
-
-Then we will end up with only one package repository, whose URL will be:
-http://slackware.uk/slint/x86_64/slint-14.2.1/slint/
-
-The package previously stored in this repository will be tentatively
-stored in another one, just in case, but will not be further updated.
-
-Users already running slint64-14.2.1.2 will need to change this line in
-/etc/slapt-get/slapt-getrc:
-SOURCE=http://slackware.uk/slint/x86_64/slint-testing/:PREFERRED
-so it becomes:
-SOURCE=http://slackware.uk/slint/x86_64/slint-14.2.1/:PREFERRED
-
-I will provide a new slapt-get package including a modified slapt-getrc
-with the new line, so running dotnew after this update will allow you to
-just accept this replacement, then case occurring edit slapt-getrc to
-include customization you made in the previous one. The old one will
-have been renamed /etc/slapt-get/slaptr-getrc.orig if replaced.
-
-To insure a smooth transition, this URL:
-http://slackware.uk/slint/x86_64/slint-testing/
-will become a link to:
-http://slackware.uk/slint/x86_64/slint-14.2.1/
-during a few days after having provided the new slapt-get package.
-
-Users having not yet upgraded to Slint64-14.2.1.2 (if any) can either:
-1) Upgrade right now, following instructions provided here:
-http://slackware.uk/slint/x86_64/slint-14.2.1/doc/README.upgrade
-2) Or choose to wait that the new slapt-get package be available. But
-then follow carefully the instructions given in this document (but step
-2), or expect issues, possibly leading to a system unable to boot. Of
-course it that happens we'll try to help <smile>
-
-These changes will occur very soon, I will announce only on the Slint
-mailing list when done.
-
-I anything is unclear (and not only because English is not my native
-language) please post your questions preferably in the Slint mailing
-list (registration mandatory).
-
-Have a good day,
-
-Didier
---
-Didier Spaier
-slint maintainer
-http://slint.fr
-http://slint.fr/mailman/listinfo/slint_slint.fr
 
 _______________________________________________
 Blinux-list mailing list
