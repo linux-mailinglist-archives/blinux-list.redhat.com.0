@@ -2,91 +2,91 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 76D6A77C7A
-	for <lists+blinux-list@lfdr.de>; Sun, 28 Jul 2019 02:14:42 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5FF38806FE
+	for <lists+blinux-list@lfdr.de>; Sat,  3 Aug 2019 17:19:22 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id AACBE3082199;
-	Sun, 28 Jul 2019 00:14:38 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4FE1A19D7C;
-	Sun, 28 Jul 2019 00:14:35 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 4446385546;
+	Sat,  3 Aug 2019 15:19:18 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 045CD5D6A9;
+	Sat,  3 Aug 2019 15:19:15 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0C6A841F40;
-	Sun, 28 Jul 2019 00:14:28 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3B2171800204;
+	Sat,  3 Aug 2019 15:19:04 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
 	[10.5.11.23])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x6S0EJV6030733 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 27 Jul 2019 20:14:19 -0400
+	id x73FIs71025763 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 3 Aug 2019 11:18:54 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 6802E19D7D; Sun, 28 Jul 2019 00:14:19 +0000 (UTC)
+	id 36D2A19C6A; Sat,  3 Aug 2019 15:18:54 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx19.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.48])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 61BDB19D7C
-	for <blinux-list@redhat.com>; Sun, 28 Jul 2019 00:14:17 +0000 (UTC)
-Received: from mail-lj1-f178.google.com (mail-lj1-f178.google.com
-	[209.85.208.178])
+Received: from mx1.redhat.com (ext-mx10.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.39])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3166019C68
+	for <blinux-list@redhat.com>; Sat,  3 Aug 2019 15:18:52 +0000 (UTC)
+Received: from mail-pg1-f181.google.com (mail-pg1-f181.google.com
+	[209.85.215.181])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 78D2A307D8BE
-	for <blinux-list@redhat.com>; Sun, 28 Jul 2019 00:14:16 +0000 (UTC)
-Received: by mail-lj1-f178.google.com with SMTP id m8so21387978lji.7
-	for <blinux-list@redhat.com>; Sat, 27 Jul 2019 17:14:16 -0700 (PDT)
+	by mx1.redhat.com (Postfix) with ESMTPS id 1D6D65946B
+	for <blinux-list@redhat.com>; Sat,  3 Aug 2019 15:18:51 +0000 (UTC)
+Received: by mail-pg1-f181.google.com with SMTP id w10so37530174pgj.7
+	for <blinux-list@redhat.com>; Sat, 03 Aug 2019 08:18:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=from:to:date:message-id:user-agent:subject:mime-version
+	h=message-id:from:to:subject:date:mime-version
 	:content-transfer-encoding;
-	bh=LauNUhIM6kH8fYqeLJo+M8RC/YeelJonu+hRqlXBFaY=;
-	b=BcxMpzrwk5OSpA5Ie8UuODxLslYeQnnYX6oQl5Ac8/+dYsjQyq1QScaF014beqUUV5
-	LrrQuKrILYOvOtQ/S9F2Q1xcQKSOtYj4AsDN+83FCut6piic5ZeFX5YnfKLTuRwWc7Uh
-	yvTHGgtJnXssJvRfUnxCy2zHQTnGRBbb5yO58eBCoyTmq86LwVa6fDrAQWP+sJmKbxcl
-	MhXaskmkqra8VhOKbE0bisUjRbfVCDU4XupMsUTLI8G7Bkpwmis5yJ39tOJqsFQBAN5D
-	HuJxMRKJqAxEQR8HMAam1FvmApaohli57TXcO16PBD/B4WZjm4ABh31jp3HYSXjSY0Fm
-	VoIw==
+	bh=H//KN7OmM9SuH1as29th4T71htzJJ3ypv1h11/dWoy8=;
+	b=it0NkfInTOb0L16rweNY7CfLKhYrytKwNVCIGD3GQ4ezBGfQiuTK/50wRut59fEnLd
+	+b/Zt1ILEWKuCyTCvjQayJZT2pYdszj1ySCzFIwNlcqo9c30zFHbfTWTzPp/+oXq5eSB
+	Kf7hprzxMdgzJyyOUDyjIPaHnZSSI8GwK82BXbiepepHc4fpDm9lNV1xdYZS84GTcuYD
+	Z8TD2617yhEpr18Lok2Jib4FY+ry9pyIrcFpsugoP6W9kH7iKDmHyfWIHA5oOBzMbd9J
+	QNQDq7kDyWpHeLB4+70Brp9vDDfT+BWEMM70Va/YSnrOFytEpPIRnyoGxWOzUU0XwMln
+	JPLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:to:date:message-id:user-agent:subject
-	:mime-version:content-transfer-encoding;
-	bh=LauNUhIM6kH8fYqeLJo+M8RC/YeelJonu+hRqlXBFaY=;
-	b=BlJAPh758JyX1MWXUoXnwSMMnX8tIymMVgj/7i9w42aPI1Dh0WpdOoJzFVWW4zYk+Q
-	IO+xtU4pf89lfOy1YUVmwq2iqr8cJCIDBc9tw6obJR6Z/Zcvl8mKWuQz0xEG4jXwE82W
-	5WbH9Mi6/Igfr6AHf+gGvmXqXqfHC/k19sQ4ytKOdypAediusfPyiScluPCXrEwzJH5w
-	0d4rut95onJwcfNgnw5OQLccOJx1lrxhe4QX9r2YSBc5fcUNrhSGdEjvsqiqNOYx8efo
-	ok0X+z8Nt8lgL3o2N8yENj0yLctFAZjS7nEU5yhVxbPPyzKCFOXdd9b+udNqEKv7zPfT
-	8k5g==
-X-Gm-Message-State: APjAAAVsdz4jF3KQneOuMomIFkkGBqsNfxhVoLu6Khdemozv7hqakss2
-	FMYqvQOyso4YFUjLO+22V0vOd7FUSko=
-X-Google-Smtp-Source: APXvYqxzMNemrb3jISDOnWIluF/4A8YI9YpKFeQiCUoqO1JJ8Rrm0OtL8/h//hF3ovGkE2NLFEdQGQ==
-X-Received: by 2002:a2e:9643:: with SMTP id z3mr54614410ljh.43.1564272854729; 
-	Sat, 27 Jul 2019 17:14:14 -0700 (PDT)
-Received: from [100.115.92.2] (81-228-143-85-no527.tbcn.telia.com.
-	[81.228.143.85]) by smtp.gmail.com with ESMTPSA id
-	y29sm11516411ljd.43.2019.07.27.17.14.13 for <blinux-list@redhat.com>
+	h=x-gm-message-state:message-id:from:to:subject:date:mime-version
+	:content-transfer-encoding;
+	bh=H//KN7OmM9SuH1as29th4T71htzJJ3ypv1h11/dWoy8=;
+	b=dQLuxG3PwjSgQdXeJMN3Ve9cs0UMa1sI7T0rPez5L8wDkyvW+RJVQ66pDl+sHoNUIu
+	OcufK5Ia0FlcJB/QDMOSLslmfu48ZyhGKeMCxV8/RMiMEalmz0WrIdZIB+yOatnIjbyr
+	6pf1Qwla7kLYxu9n2d6QR7cfmu31hJl8JQQo3Qff3LH8rEOxGWIX/Pg7Not7HKjj/KrU
+	Jx+9Pxgr1m9sSU9IRbMd+afSzsNkybzfEFjVhZktypM82G1e7YMt+WrT77Kl4Y6fz5Ah
+	anl0wwFGuwn3efE2GGCVI55ngEoVLtbTLEeugqgKGCC3gxqAmI6Yl+Iy0WyA+pWo1/UJ
+	3SiA==
+X-Gm-Message-State: APjAAAWKwerPcRGRSE/s2LDFvIv6hlxhOpYkfhanu+/tt3FPAFjhbWo0
+	KwhrsYm9YWXQ9j7LgrSXXZ1vvib+
+X-Google-Smtp-Source: APXvYqyNyjmGZJEy1OQTFWAc8vPipkU4usokuIcFFcmtRkYjCbAHTApS9h2FM1pu1RbX3NdjWpuiYQ==
+X-Received: by 2002:a63:c008:: with SMTP id h8mr128254459pgg.427.1564845530154;
+	Sat, 03 Aug 2019 08:18:50 -0700 (PDT)
+Received: from [0.0.0.0] ([67.230.224.68]) by smtp.gmail.com with ESMTPSA id
+	o130sm135917611pfg.171.2019.08.03.08.18.49
+	for <blinux-list@redhat.com>
 	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-	Sat, 27 Jul 2019 17:14:14 -0700 (PDT)
-To: <blinux-list@redhat.com>
-Date: Sun, 28 Jul 2019 02:14:13 +0200
-Message-ID: <16c35ed8008.2746.afbff0009b353412c733e12e23e6ae2b@gmail.com>
-User-Agent: AquaMail/1.20.0-1462 (build: 102100002)
-Subject: dualboot win 10 debian
+	Sat, 03 Aug 2019 08:18:49 -0700 (PDT)
+Message-ID: <20190803.151747.718.22@[0.0.0.0]>
+To: blinux-list@redhat.com
+Subject: Using the Voxin update
+Date: Sat, 03 Aug 2019 10:17:47 -0500
 MIME-Version: 1.0
 X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
-	(mx1.redhat.com [10.5.110.48]);
-	Sun, 28 Jul 2019 00:14:16 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.48]);
-	Sun, 28 Jul 2019 00:14:16 +0000 (UTC) for IP:'209.85.208.178'
-	DOMAIN:'mail-lj1-f178.google.com'
-	HELO:'mail-lj1-f178.google.com' FROM:'mjonsson1986@gmail.com'
+	(mx1.redhat.com [10.5.110.39]);
+	Sat, 03 Aug 2019 15:18:51 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.39]);
+	Sat, 03 Aug 2019 15:18:51 +0000 (UTC) for IP:'209.85.215.181'
+	DOMAIN:'mail-pg1-f181.google.com'
+	HELO:'mail-pg1-f181.google.com' FROM:'captinlogic@gmail.com'
 	RCPT:''
-X-RedHat-Spam-Score: 0.151  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	FREEMAIL_ENVFROM_END_DIGIT, FREEMAIL_FROM, RCVD_IN_DNSWL_NONE,
-	SPF_HELO_NONE,
-	SPF_PASS) 209.85.208.178 mail-lj1-f178.google.com 209.85.208.178
-	mail-lj1-f178.google.com <mjonsson1986@gmail.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.48
+X-RedHat-Spam-Score: -0.099  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
+	SPF_PASS) 209.85.215.181 mail-pg1-f181.google.com 209.85.215.181
+	mail-pg1-f181.google.com <captinlogic@gmail.com>
+X-Scanned-By: MIMEDefang 2.78 on 10.5.110.39
 X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id x73FIs71025763
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -101,19 +101,14 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.42]); Sun, 28 Jul 2019 00:14:41 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.28]); Sat, 03 Aug 2019 15:19:21 +0000 (UTC)
 
-i have debian testing and windows 10 installed
-i was able to boot debian the first times
-but when i booted windows 10 my computer still boots into windows after 
-every reboot
-these tasks was easy before uefi took over bios..
-
+Can someone please remind me how to merge the voxin update with the purchased one? I can't find this information again for the life of me.
 
 _______________________________________________
 Blinux-list mailing list
