@@ -2,62 +2,65 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4739980C38
-	for <lists+blinux-list@lfdr.de>; Sun,  4 Aug 2019 21:40:52 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	by mail.lfdr.de (Postfix) with ESMTPS id 776CF80F54
+	for <lists+blinux-list@lfdr.de>; Mon,  5 Aug 2019 01:27:23 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 07FE981DE1;
-	Sun,  4 Aug 2019 19:40:50 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id C90B3B0CFB;
+	Sun,  4 Aug 2019 23:27:20 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 555E619C59;
-	Sun,  4 Aug 2019 19:40:47 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A22CD60127;
+	Sun,  4 Aug 2019 23:27:18 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D22DE41F53;
-	Sun,  4 Aug 2019 19:40:41 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
-	[10.5.11.12])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 57C4541F63;
+	Sun,  4 Aug 2019 23:27:13 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
+	[10.5.11.15])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x74JeXUO006877 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 4 Aug 2019 15:40:34 -0400
+	id x74NR5Ds009461 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 4 Aug 2019 19:27:05 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id CD2E560C47; Sun,  4 Aug 2019 19:40:33 +0000 (UTC)
+	id 7D2F55D6B7; Sun,  4 Aug 2019 23:27:05 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx14.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.43])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C527D60BFC
-	for <blinux-list@redhat.com>; Sun,  4 Aug 2019 19:40:31 +0000 (UTC)
-Received: from mail-out-01.crystone.se (mail-out-01.crystone.se [93.90.145.11])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id AEC37308FB9D
-	for <blinux-list@redhat.com>; Sun,  4 Aug 2019 19:40:29 +0000 (UTC)
-X-Halon-ID: da63f62d-b6ee-11e9-8daa-005056912ff2
-Authorized-sender: anders@pipkrokodil.se
-Received: from [10.5.0.5] (unknown [185.213.152.162])
-	by mail-out-02.crystone.se (Halon) with ESMTPSA
-	id da63f62d-b6ee-11e9-8daa-005056912ff2;
-	Sun, 04 Aug 2019 21:34:20 +0200 (CEST)
-Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
+Received: from mx1.redhat.com (ext-mx10.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.39])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 782BB5D6B0
+	for <blinux-list@redhat.com>; Sun,  4 Aug 2019 23:27:03 +0000 (UTC)
+Received: from emex03.nni.net (delawarerecycles.com [216.107.1.236])
+	by mx1.redhat.com (Postfix) with ESMTP id 57BAC3CA20
+	for <blinux-list@redhat.com>; Sun,  4 Aug 2019 23:27:01 +0000 (UTC)
+Received: from admin.nni.com (admin.nni.com [216.107.0.100])
+	by emex03.nni.net (Postfix) with ESMTP id 891F215A04F
+	for <blinux-list@redhat.com>; Sun,  4 Aug 2019 19:35:34 -0400 (EDT)
+Received: from [72.205.39.145] (HELO [192.168.50.215])
+	by admin.nni.com (CommuniGate Pro SMTP 4.1.8)
+	with ESMTP id 23774060 for blinux-list@redhat.com;
+	Sun, 04 Aug 2019 19:27:25 -0400
 Subject: Re: Those Rotten VGA BIOS Setup Screens
-Date: Sun, 4 Aug 2019 21:34:18 +0200
-References: <E1huFN9-0004wX-1Y@wb5agz>
 To: blinux-list@redhat.com
-In-Reply-To: <E1huFN9-0004wX-1Y@wb5agz>
-Message-Id: <96DD717C-4899-4232-951F-6F3F18E4EF1A@pipkrokodil.se>
-X-Greylist: Delayed for 00:06:06 by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.43]); Sun, 04 Aug 2019 19:40:30 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.43]);
-	Sun, 04 Aug 2019 19:40:30 +0000 (UTC) for IP:'93.90.145.11'
-	DOMAIN:'mail-out-01.crystone.se' HELO:'mail-out-01.crystone.se'
-	FROM:'anders@pipkrokodil.se' RCPT:''
-X-RedHat-Spam-Score: 0.002  (SPF_HELO_NONE,
-	SPF_NONE) 93.90.145.11 mail-out-01.crystone.se
-	93.90.145.11 mail-out-01.crystone.se <anders@pipkrokodil.se>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.43
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id x74JeXUO006877
+References: <E1huFN9-0004wX-1Y@wb5agz>
+	<alpine.NEB.2.21.1908040831280.41@panix1.panix.com>
+	<E1huJDg-0005lz-EA@wb5agz>
+Message-ID: <034716d8-14b7-ed12-717f-8d004e09bc5d@crosslink.net>
+Date: Sun, 4 Aug 2019 19:27:00 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+	Thunderbird/60.8.0
+MIME-Version: 1.0
+In-Reply-To: <E1huJDg-0005lz-EA@wb5agz>
+Content-Language: en-US
+X-Greylist: Sender passed SPF test, ACL 264 matched, not delayed by
+	milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.39]);
+	Sun, 04 Aug 2019 23:27:01 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.39]);
+	Sun, 04 Aug 2019 23:27:01 +0000 (UTC) for IP:'216.107.1.236'
+	DOMAIN:'delawarerecycles.com' HELO:'emex03.nni.net'
+	FROM:'cstrobel@crosslink.net' RCPT:''
+X-RedHat-Spam-Score: 0  (SPF_HELO_NONE,
+	SPF_PASS) 216.107.1.236 delawarerecycles.com
+	216.107.1.236 delawarerecycles.com <cstrobel@crosslink.net>
+X-Scanned-By: MIMEDefang 2.78 on 10.5.110.39
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -72,78 +75,44 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.25]); Sun, 04 Aug 2019 19:40:50 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.26]); Sun, 04 Aug 2019 23:27:22 +0000 (UTC)
 
-Hi!
-When i had a pc with Isa slots i borrowed a papenmeier braillex 80 and put their Isa card in and then bios works flawlessly.
-/A
-
-> 4 aug. 2019 kl. 14:12 skrev Linux for blind general discussion <blinux-list@redhat.com>:
-> 
-> 	Are there any gadgets out there that one can connect to a
-> Linux box which will hook to the VGA output of a computer needing
-> BIOS setup work and output text so we don't have to bother other
-> people to help us tinker?
-> 
-> 	Another possibility might be to use a LCD monitor which
-> generally has much less flicker than do the old CRT-style
-> monitors and then snap a picture of the screen on an iPad and use
-> something like Prismo which is an OCR program that, when you can
-> get it to work works well.
-> 
-> 	The longest shot I am thinking of is to buy a device from
-> Epifan which can receive VGA video and converts it in to a .uvc
-> file which is the same format that web cams use.
-> 
-> 	I will have to dive in to perl and write a program that
-> can at least decode the characters on that screen.  One nice
-> thing about that is that it is guaranteed to be straight and in
-> focus.
-> 
-> 	I will have to learn about the .uvc format in order to
-> expand one frame of video in to the bit map.
-> 
-> 	I'm glad nobody is waiting on this project besides me.
-> 
-> 	Even so, this is a perfect example of how technology
-> works against you when you want to do something that all the
-> suits who design this stuff didn't anticipate you needing to do.
-> 
-> 	In this case, I've got some old Dell computers which need
-> to always boot from CDROM before the hard drive.
-> 
-> 	When you set them up this way, they revert back to a
-> different sequence for some unknown reason after maybe 6 months
-> or a year.  As computer users who are blind, it's much better all
-> around if we can solve our own problems within reason.
-> 
-> 	Some rack-mount servers do have serial-based setup
-> methods but most desktops don't.
-> 
-> 	Besides, if you have ever been in the same room as many
-> rack-mount servers, you'll notice it's like being on the runway
-> when a jet is about to take off.
-> 
-> 	They are built to be in a rack with gobs of other hot
-> servers and they move a ton of air with their tiny fast-moving
-> fans.
-> 
-> Anyway, thanks for any good ideas.
-> 
-> Martin McCormick
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
-
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
+IMKgwqDCoCBBcHBhcmVudGx5IHNvbWUgc2VydmVycyBzdXBwb3J0IHRoZSBJUE1JIHByb3RvY29s
+IHRvIGFsbG93IApjb25maWd1cmF0aW9uIG9mIHRoZSBCSU9TIG92ZXIgYSBuZXR3b3JrIGNvbm5l
+Y3Rpb24uCgoKaHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvSW50ZWxsaWdlbnRfUGxhdGZv
+cm1fTWFuYWdlbWVudF9JbnRlcmZhY2UKClRoZXJlIGlzIGFuIEludGVsIGFydGljbGUgYWJvdXQg
+aXQuCgpodHRwczovL3d3dy5pbnRlbC5jb20vY29udGVudC93d3cvdXMvZW4vc3VwcG9ydC9hcnRp
+Y2xlcy8wMDAwMDYxNzQvc2VydmVyLXByb2R1Y3RzL3NlcnZlci1ib2FyZHMuaHRtbAoKSSBkb24n
+dCBrbm93IGZvciBzdXJlIHRoYXQgaXQgd291bGQgYWN0dWFsbHkgd29yayB3aXRoIGFueSBhY2Nl
+c3NpYmlsaXR5IAp0b29scywgYnV0IGl0IHdvdWxkIGJlIGFuIGludGVyZXN0aW5nIHByb2plY3Qg
+aWYgc29tZWJvZHkgd2FudHMgdG8gbG9vayAKaW50byBpdC4KCgoKT24gOC80LzIwMTkgMTI6MTgg
+UE0sIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gVGhvc2Ugd2Vh
+c2xlIGNhcmRzIGFyZSBncmVhdC4gIEkgaGF2ZSBvbmUgYW5kIGl0IGZpdHMgbm90aGluZyBJCj4g
+aGF2ZSB0aGVzZSBkYXlzLgo+Cj4gCVRoYW5rIHlvdSBmb3IgYW5zd2VyaW5nLiAgT25lIG9mIHRo
+ZSBvbGQgRGVsbHMgaGFzIGEKPiByZW1vdmFibGUgdmlkZW8gY2FyZCBidXQgdGhlIFdlYXNsZSBj
+YXJkIEkgaGF2ZSB3aWxsIG5vdAo+IHBoeXNpY2FsbHkgZml0IHRoZSBzbG90IGFzIHRoZSBjb25u
+ZWN0b3IgaGFzIGEga2V5IHdheSBhbmQgdGhlCj4gdmlkZW8gY2FyZCBoYXMgYSBzbG90IGN1dCBp
+biB0byBpdCB3aGVyZSBhcyB0aGUgV2Vhc2xlIGNhcmQncwo+IGVkZ2UgY29ubmVjdG9yIGhhcyBu
+byBzbG90IGFueXdoZXJlLgo+Cj4gCVRoZSBXZWFzbGUgY2FyZCBJIGhhdmUgaXMgb25lIEkgYm91
+Z2h0IHRvIHVzZSBhdCB3b3JrIGluCj4gdGhlIG5pbmV0aWVzIGFuZCBpdCBzdXJlIHNvbHZlZCB0
+aGF0IHByb2JsZW0gb24gdGhlIGJveCBJIHdhcwo+IHVzaW5nIGl0IG9uIGJ1dCBJIGFtIGdvaW5n
+IHRvIGhhdmUgdG8gZG8gc29tZXRoaW5nIGVsc2UgaGVyZS4KPgo+IE1hcnRpbgo+Cj4gTGludXgg
+Zm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gd3Jp
+dGVzOgo+PiBJJ3ZlIGhlYXJkIG9mIGEgd2Vhc2VsIGNhcmQgd2hpY2ggZ29lcyBpbiB0aGUgbW9u
+aXRvciBjb25uZWN0b3IgYW5kIHRoZW4KPj4gY2FuIHNlbmQgb3V0cHV0IHRvIGF0IGxlYXN0IGEg
+cHJpbnRlciBhbmQgbWF5YmUgYSBzZXJpYWwgZGV2aWNlLiAgVGhvc2UKPj4gY2hvb3NpbmcgdGhp
+cyByb3V0ZSB0byBub3QgYm90aGVyIGFueW9uZSBjYW4gZXhwZWN0IHRvIHBheSAkNDAwLjAwIGZv
+cgo+PiB0aGUgZXF1aXBtZW50IGFuZCBubyBJIGRvbid0IGhhdmUgYW55IGNvbnRhY3QgaW5mb3Jt
+YXRpb24gZm9yIGFueQo+PiB2ZW5kb3IuICBJIHJlYWQgYWJvdXQgdGhlc2UgYmFjayBpbiB0aGUg
+MTk5MCdzIHNvIHRob3NlIG1heSBoYXZlIGdvdAo+PiBkaXNjb250aW51ZWQgYnkgbm93Lgo+IF9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQmxpbnV4LWxp
+c3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8vd3d3LnJl
+ZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJs
+aW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3Rp
+bmZvL2JsaW51eC1saXN0
