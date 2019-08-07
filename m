@@ -2,76 +2,92 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9250C84B22
-	for <lists+blinux-list@lfdr.de>; Wed,  7 Aug 2019 14:00:31 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+	by mail.lfdr.de (Postfix) with ESMTPS id 064D384B2C
+	for <lists+blinux-list@lfdr.de>; Wed,  7 Aug 2019 14:06:15 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 8D40D30A00FF;
-	Wed,  7 Aug 2019 12:00:29 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CC1965B6A5;
-	Wed,  7 Aug 2019 12:00:28 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 3CC81309BF17;
+	Wed,  7 Aug 2019 12:06:13 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E543A5C231;
+	Wed,  7 Aug 2019 12:06:12 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 55C81180221F;
-	Wed,  7 Aug 2019 12:00:23 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
-	[10.5.11.14])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 052802551B;
+	Wed,  7 Aug 2019 12:06:12 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
+	[10.5.11.13])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x77BsRS3028550 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 7 Aug 2019 07:54:27 -0400
+	id x77C68r4031430 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 7 Aug 2019 08:06:08 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id BAF345DAA0; Wed,  7 Aug 2019 11:54:27 +0000 (UTC)
+	id 0AE42608AB; Wed,  7 Aug 2019 12:06:08 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx06.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.30])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B52605DE5B
-	for <blinux-list@redhat.com>; Wed,  7 Aug 2019 11:54:25 +0000 (UTC)
-Received: from omta01.suddenlink.net (omta01.suddenlink.net [208.180.40.71])
-	by mx1.redhat.com (Postfix) with ESMTP id A5C6846660
-	for <blinux-list@redhat.com>; Wed,  7 Aug 2019 11:54:24 +0000 (UTC)
-Received: from wb5agz ([47.217.105.76]) by dalofep01.suddenlink.net
-	(InterMail vM.8.04.03.22.02 201-2389-100-169-20190213) with ESMTP
-	id <20190807115424.OOYC8687.dalofep01.suddenlink.net@wb5agz>
-	for <blinux-list@redhat.com>; Wed, 7 Aug 2019 06:54:24 -0500
-Received: from martin by wb5agz with local (Exim 4.92)
-	(envelope-from <martin.m@suddenlink.net>) id 1hvKWN-0002Wk-UF
-	for blinux-list@redhat.com; Wed, 07 Aug 2019 06:54:23 -0500
+Received: from mx1.redhat.com (ext-mx14.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.43])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 04B9760852
+	for <blinux-list@redhat.com>; Wed,  7 Aug 2019 12:06:05 +0000 (UTC)
+Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com
+	[209.85.208.50])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mx1.redhat.com (Postfix) with ESMTPS id 77651300146E
+	for <blinux-list@redhat.com>; Wed,  7 Aug 2019 12:06:04 +0000 (UTC)
+Received: by mail-ed1-f50.google.com with SMTP id d4so86015027edr.13
+	for <blinux-list@redhat.com>; Wed, 07 Aug 2019 05:06:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+	h=to:from:subject:message-id:date:user-agent:mime-version
+	:content-transfer-encoding:content-language;
+	bh=mR4OTwRPWujx9iqW01HLV2tGNY7VJOqp9HFO+i0d0XQ=;
+	b=PoNiu8ZyPi46j9QKBSleScZ1wtGRAo0LpC+06f84vEVMdM+o1ED/KJFSLl9J6+J0kP
+	sT//8hR+i0H95/hoc72ja88mMVepdMgfAZlBP4iNkkqxI26sovXQ1bP07fX+iwdCLUhD
+	KZ/+O+jG6M2l3TPguK4ile7dC2BzJykPOyrJeO6zgaApaRKGEtinBTw4XZQxPKU7No+B
+	g12NQHR+jqNok6HOiyQiQBC6UrSrbGF8ZCKz5Bejt4iJi3SKiR6WQBzAxrhMACeXX3s9
+	QzMfKJV/WRUW1CEydtSD7u0JVSI8aC0YWB3B5T6LDOrv6lZiiprtKFx53qVnmMa2PpVA
+	/r7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
+	:mime-version:content-transfer-encoding:content-language;
+	bh=mR4OTwRPWujx9iqW01HLV2tGNY7VJOqp9HFO+i0d0XQ=;
+	b=YUDmfPAIQjfmWmxMqB4HQ9VlnwJtwZz+ioL674us7ogl6twTHypS2U744DIawiHgIw
+	PMdkxyFcp7DxYBmzlxz5GQ3CBy87YBOhnO7Sc26yXlN2smCrvdFcUC9ONwMpPsiRH1Bx
+	M/DajThVHhk035rtvPb2VGJhKKw5waOIx/LZ/fqz6KFjuS65YN2FzolPo9tdeqPGbVNs
+	USVIgDOVeufWnHYeWEGdZXiUiY+65Kxy7/LQ/93kvj3xN1cRkgBgoS2Nl1O0eAD7N8zm
+	z+dZcNNoad/rQDypnefo9dEwofX/IlJv6LJIPsjIXQXVQaSZU/9tFEoEd4LP4NPQDmsm
+	bv7A==
+X-Gm-Message-State: APjAAAWi8vsoKKD/i7220SR/JRVLIBeth3QWESL+wuJDS2evM0v9if8N
+	7Tb2MaAZgjgRLL0ICVVT5jrtr5HV
+X-Google-Smtp-Source: APXvYqyQ+O17KydR/cH1dbiUAfTXSfiX7Ep6MTKARQRw8Ip2y7fDk1u5BEJSuRq4b9QnGgT9IfGTEw==
+X-Received: by 2002:a50:a3f5:: with SMTP id t50mr9258595edb.273.1565179562871; 
+	Wed, 07 Aug 2019 05:06:02 -0700 (PDT)
+Received: from [192.168.0.13] ([45.222.2.216])
+	by smtp.gmail.com with ESMTPSA id
+	w24sm21340916edb.90.2019.08.07.05.06.01 for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+	Wed, 07 Aug 2019 05:06:02 -0700 (PDT)
 To: blinux-list@redhat.com
-Subject: Re: Those Rotten VGA BIOS Setup Screens
-In-reply-to: <96DD717C-4899-4232-951F-6F3F18E4EF1A@pipkrokodil.se>
-References: <E1huFN9-0004wX-1Y@wb5agz>
-	<96DD717C-4899-4232-951F-6F3F18E4EF1A@pipkrokodil.se>
-Comments: In-reply-to Linux for blind general discussion
-	<blinux-list@redhat.com>
-	message dated "Sun, 04 Aug 2019 21:34:18 +0200."
+Subject: Contracted Braille in GUI not working
+Message-ID: <8ddbff64-9c2c-ed56-14d0-3435b7ce4991@gmail.com>
+Date: Wed, 7 Aug 2019 14:05:59 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+	Thunderbird/60.8.0
 MIME-Version: 1.0
-Content-ID: <9716.1565178863.1@wb5agz>
-Date: Wed, 07 Aug 2019 06:54:23 -0500
-Message-Id: <E1hvKWN-0002Wk-UF@wb5agz>
-X-Authentication-Info: Submitted using SMTP AUTH PLAIN at
-	dalofep01.suddenlink.net from [47.217.105.76] using ID
-	martin.m@suddenlink.net at Wed, 7 Aug 2019 06:54:24 -0500
-X-CM-Analysis: v=2.3 cv=H/mlPNQi c=1 sm=1 tr=0 cx=a_idp_d
-	a=0S4FDTH59LdN14syvppWKg==:117 a=0S4FDTH59LdN14syvppWKg==:17
-	a=kj9zAlcOel0A:10 a=FmdZ9Uzk2mMA:10 a=7jTcn3IT1uMA:10
-	a=20KFwNOVAAAA:8 a=RPYxQj9JJT3B4RC3A5gA:9 a=igUdDTTnTgYLeggW:21
-	a=fP2VzatZwgDz04nG:21 a=CjuIK1q_8ugA:10
-X-CM-Envelope: MS4wfB0SolkbE+d+yjGfwWNNELh2i1uVkPl/E7RM14c5nU/OfhS3jvm3d+TqkbmuPO4WBbQnS6HLXJk5V/NcAq7Fapk4CXkjEWtOwmKQ+fZZl4KiiFU7g/SJ
-	UUbe4AygLq2s0gtlQPhss4XU8MVBY6GK5r+QwFcTkRck+VGywpYmhvh9
-X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 238
-	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.30]); Wed, 07 Aug 2019 11:54:24 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.30]);
-	Wed, 07 Aug 2019 11:54:24 +0000 (UTC) for IP:'208.180.40.71'
-	DOMAIN:'omta01.suddenlink.net' HELO:'omta01.suddenlink.net'
-	FROM:'martin.m@suddenlink.net' RCPT:''
-X-RedHat-Spam-Score: 0.546  (RCVD_IN_BL_SPAMCOP_NET, RCVD_IN_DNSWL_LOW,
+Content-Language: en-US
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+	(mx1.redhat.com [10.5.110.43]);
+	Wed, 07 Aug 2019 12:06:04 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.43]);
+	Wed, 07 Aug 2019 12:06:04 +0000 (UTC) for IP:'209.85.208.50'
+	DOMAIN:'mail-ed1-f50.google.com' HELO:'mail-ed1-f50.google.com'
+	FROM:'brandt.steenkamp@gmail.com' RCPT:''
+X-RedHat-Spam-Score: -0.1  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, RCVD_IN_MSPIKE_H2,
 	SPF_HELO_NONE,
-	SPF_PASS) 208.180.40.71 omta01.suddenlink.net 208.180.40.71
-	omta01.suddenlink.net <martin.m@suddenlink.net>
-X-Scanned-By: MIMEDefang 2.78 on 10.5.110.30
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+	SPF_PASS) 209.85.208.50 mail-ed1-f50.google.com 209.85.208.50
+	mail-ed1-f50.google.com <brandt.steenkamp@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.43
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -86,64 +102,31 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.43]); Wed, 07 Aug 2019 12:00:30 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.45]); Wed, 07 Aug 2019 12:06:13 +0000 (UTC)
 
-That's interesting to know.  I still have the Weasel card which
-may do some of the same things.  The video text buffer for
-classic VGA systems is a specific range of memory.  If you
-remember, each character is is a 16-bit word.  Eight bits are the
-attribute such as color and whether or not it should be flashing
-and the other 8 bits determine the actual character such as a
-blank space or an upper or lower case letter plus a whole bunch
-of ASCII graphics.  Remember the fun of having your speech
-synthesizer read every horizontal piece of a box that went the
-width of the screen.  There were corner pieces such that one
-could draw polygons and create ASCII art.  It was like software
-Legos that you had to listen to.
+Hi everyone,
 
-	I wrote my DOS screen reader in Microsoft assembler and a
-repeat detector was one of the first subroutines I wrote to
-preserve some degree of sanity.  I'll let people who know me be
-the judge as to whether or not I wrote it in time.
 
-	Three of the four old PC's have an on-board VGA chip set
-so I don't remember if the Weasel can run with another VGA card
-in place or not.  I'll be surprised if it does.
+I got contracted Braille to work just fine in the console, and I 
+thought, fine and dandy, everything should be cool in orca; but nooo! I 
+did some research, installed every liblouis package I could find in the 
+Ubuntu 18.04 repositories, rebooted my system to many times to count and 
+still no way to enable contracted Braille? What more can I do! Help, please.
 
-	I would love to play with that Epiphan video to .UVC
-converter but it is four-hundred US Dollars which I can afford
-but it is not a trivial sum so I would be forced to actually
-write the conversion software.
 
-	That sanity I think I saved by writing the repeat
-shutdown subroutines would probably dissolve in this project.
+Google is out of answers!
 
-	The story in our local paper would likely be that
-police were called to our address because a mentally-deranged
-blind retired programmer was found naked, screaming and rolling in the
-street and impeding traffic.
+-- 
+Warm regards,
 
-	I will get the Weasel card and see if it can coexist with
-an existing video card.  I'm not holding my breath.
+Brandt Steenkamp
 
-	Just out of curiosity, What did early Braille displays do when
-confronted by the upper 128 ASCII values?  This is part of the
-reason why we have the modern character sets such as UTF8 and
-others so that all written languages can display properly these
-days.
-
-	Anyway, thanks for more food for thought.
-
-Martin McCormick  WB5AGZ
-
-Linux for blind general discussion <blinux-list@redhat.com> writes:
-> When i had a pc with Isa slots i borrowed a papenmeier braillex 80 and 
-> put their Isa card in and then bios works flawlessly.
+Sent from Ubuntu 18.04 LTS
 
 _______________________________________________
 Blinux-list mailing list
