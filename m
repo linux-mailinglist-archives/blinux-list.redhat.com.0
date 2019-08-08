@@ -2,40 +2,49 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4216A85302
-	for <lists+blinux-list@lfdr.de>; Wed,  7 Aug 2019 20:32:05 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5349485CEC
+	for <lists+blinux-list@lfdr.de>; Thu,  8 Aug 2019 10:32:12 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 6242030A00B0;
-	Wed,  7 Aug 2019 18:32:03 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id C5C188E58D;
+	Thu,  8 Aug 2019 08:32:08 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6A81410016E9;
-	Wed,  7 Aug 2019 18:32:01 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E25B6194B9;
+	Thu,  8 Aug 2019 08:32:05 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 07D3E18005B9;
-	Wed,  7 Aug 2019 18:31:58 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
-	[10.5.11.14])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 07C5D18005A4;
+	Thu,  8 Aug 2019 08:32:01 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
+	[10.5.11.15])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x77IUepF009391 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 7 Aug 2019 14:30:40 -0400
+	id x788VpUV019381 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 8 Aug 2019 04:31:51 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 962075D9E1; Wed,  7 Aug 2019 18:30:40 +0000 (UTC)
+	id B18C75D784; Thu,  8 Aug 2019 08:31:51 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx11.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.40])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9055B5D9DC
-	for <blinux-list@redhat.com>; Wed,  7 Aug 2019 18:30:38 +0000 (UTC)
-Received: from nntp.AegisInfoSys.com (nntp.AegisInfoSys.com [65.242.138.29])
-	by mx1.redhat.com (Postfix) with SMTP id 3D35730EA1BD
-	for <blinux-list@redhat.com>; Wed,  7 Aug 2019 18:30:35 +0000 (UTC)
-Received: (from henry@localhost) by nntp.AegisInfoSys.com (8.6.9/8.6.9) id
-	OAA10464 for blinux-list@redhat.com; Wed, 7 Aug 2019 14:30:33 -0400
-Date: Wed, 7 Aug 2019 14:30:33 -0400
+Received: from mx1.redhat.com (ext-mx17.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.46])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id ACA125D772
+	for <blinux-list@redhat.com>; Thu,  8 Aug 2019 08:31:49 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mx1.redhat.com (Postfix) with ESMTPS id 731F930BA06F
+	for <blinux-list@redhat.com>; Thu,  8 Aug 2019 08:31:48 +0000 (UTC)
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4641nH5QRqz1lBC
+	for <blinux-list@redhat.com>; Thu,  8 Aug 2019 04:31:47 -0400 (EDT)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4641nH3HF0zcbR; Thu,  8 Aug 2019 04:31:47 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4641nH2mjFzcbQ
+	for <blinux-list@redhat.com>; Thu,  8 Aug 2019 04:31:47 -0400 (EDT)
+Date: Thu, 8 Aug 2019 04:31:47 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: No F Key Boot Menu
-Message-ID: <20190807183033.GM11272@nntp.AegisInfoSys.com>
+In-Reply-To: <20190807.185726.951.4@[0.0.0.0]>
+Message-ID: <alpine.NEB.2.21.1908080431030.21763@panix1.panix.com>
 References: <20190805.195033.561.2@0.0.0.0>
 	<CAM+Q2c6km7FeRzd3W4VXNv904-CJbzUd0zeYA3_trQE-==C4Xg@mail.gmail.com>
 	<alpine.NEB.2.21.1908051720430.2278@panix1.panix.com>
@@ -44,23 +53,21 @@ References: <20190805.195033.561.2@0.0.0.0>
 	<20190806.012851.270.6@[0.0.0.0]>
 	<6d9c88f5-439c-0859-c5b5-2da72c16e7d7@GMAIL.COM>
 	<20190807.185726.951.4@[0.0.0.0]>
-Mime-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190807.185726.951.4@[0.0.0.0]>
-User-Agent: Mutt/1.4.2.3i
-X-Greylist: Sender passed SPF test, ACL 264 matched, not delayed by
-	milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.40]);
-	Wed, 07 Aug 2019 18:30:37 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.40]);
-	Wed, 07 Aug 2019 18:30:37 +0000 (UTC) for IP:'65.242.138.29'
-	DOMAIN:'nntp.AegisInfoSys.com' HELO:'nntp.AegisInfoSys.com'
-	FROM:'blinux-mail@AegisInfoSys.com' RCPT:''
-X-RedHat-Spam-Score: 0  (SPF_HELO_NONE,
-	SPF_PASS) 65.242.138.29 nntp.AegisInfoSys.com
-	65.242.138.29 nntp.AegisInfoSys.com
-	<blinux-mail@AegisInfoSys.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.40
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============3467208485790211098=="
+Content-ID: <alpine.NEB.2.21.1908080431031.21763@panix1.panix.com>
+X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 238
+	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
+	[10.5.110.46]); Thu, 08 Aug 2019 08:31:48 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.46]);
+	Thu, 08 Aug 2019 08:31:48 +0000 (UTC) for IP:'166.84.1.89'
+	DOMAIN:'mailbackend.panix.com' HELO:'mailbackend.panix.com'
+	FROM:'jdashiel@panix.com' RCPT:''
+X-RedHat-Spam-Score: -2.3  (RCVD_IN_DNSWL_MED, SPF_HELO_NONE,
+	SPF_PASS) 166.84.1.89 mailbackend.panix.com 166.84.1.89
+	mailbackend.panix.com <jdashiel@panix.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.46
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -75,20 +82,157 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.43]); Wed, 07 Aug 2019 18:32:04 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.28]); Thu, 08 Aug 2019 08:32:10 +0000 (UTC)
 
-for most commodity dells, F12 is often the key to bring up the
-select-boot-device menu.
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-On Wed, Aug 07, 2019 at 11:57:26AM -0700, Linux for blind general discussion wrote:
+--===============3467208485790211098==
+Content-Type: text/plain; charset=US-ASCII
+Content-ID: <alpine.NEB.2.21.1908080431032.21763@panix1.panix.com>
+
+If you use braille, I think it'll be a good idea to backup that memory.
+
+On Wed, 7 Aug 2019, Linux for blind general discussion wrote:
+
+> Date: Wed, 7 Aug 2019 14:57:26
+> From: Linux for blind general discussion <blinux-list@redhat.com>
+> To: blinux-list@redhat.com
+> Subject: Re: No F Key Boot Menu
+>
 > I ended up memorizing the key presses to set boot order in the bios in the absence of a boot menu. Sigh. So many left arrows, so many down arros, etc.
+>
+> ----- Original Message -----
+> From: Linux for blind general discussion <blinux-list@redhat.com>
+> To: blinux-list@redhat.com
+> Date: Wed, 7 Aug 2019 12:08:49 +0100
+> Subject: Re: No F Key Boot Menu
+>
+> > So I'll leap in here. I've been trying to get my Dell Inspiron to boot
+> from a Linux stick. No boot menu anywhere, all the articles say oh, you
+> have to do this and this and that, but......will this actually work?
+>
+> On 06/08/2019 02:28, Linux for blind general discussion wrote:
+> > I think I found the answer:
+> > ? Fast Boot
+> > On/Off
+> > Enabling fast boot will make the initial post/boot slightly faster by bypassing the boot
+> > device check and using last boot HDD.
+> > Default: On
+> > So now I just need some eyeballs to help me get in there and turn that off.
+> > ----- Original Message -----
+> > From: Linux for blind general discussion <blinux-list@redhat.com>
+> > To: blinux-list@redhat.com
+> > Date: Mon, 5 Aug 2019 20:28:41 -0500
+> > Subject: Re: No F Key Boot Menu
+> >
+> >> Yes, on my HP Envy, if I hit the F2 key at startup, I can select from a
+> >> list of boot devices. I do this when I'm installing a new OS from my USB
+> >> stick.
+> >>
+> >>
+> >> On 8/5/19 4:27 PM, Linux for blind general discussion wrote:
+> >>> Getting into the bios isn't the problem. It's selecting a device to boot from which is.
+> >>>
+> >>> ----- Original Message -----
+> >>> From: Linux for blind general discussion <blinux-list@redhat.com>
+> >>> To: Linux for blind general discussion <blinux-list@redhat.com>
+> >>> Date: Mon, 5 Aug 2019 17:21:14 -0400
+> >>> Subject: Re: No F Key Boot Menu
+> >>>
+> >>>> The delete key can get you into bios on some systems too.
+> >>>>
+> >>>> On Mon, 5 Aug 2019, Linux for blind general discussion wrote:
+> >>>>
+> >>>>> Date: Mon, 5 Aug 2019 15:59:41
+> >>>>> From: Linux for blind general discussion <blinux-list@redhat.com>
+> >>>>> To: blinux-list@redhat.com
+> >>>>> Subject: Re: No F Key Boot Menu
+> >>>>>
+> >>>>> Often the escape key can be used to bring up a boot menu. That being
+> >>>>> said, there's usually an option in bios to set more than 1 boot drive,
+> >>>>> such that if the 1st 1 doesn't contain bootable media, it'll move onto
+> >>>>> the 2nd 1, etc.
+> >>>>>
+> >>>>> On 8/5/19, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> >>>>>> My bios:
+> >>>>>> Board: EVGA INTERNATIONAL CO.,LTD 131-HE-E995 1.0
+> >>>>>> UEFI: American Megatrends Inc. 2.08 06/28/2019
+> >>>>>> does not seem to have a function whereby you can select a device to boot
+> >>>>>> from using one of the function keys. Instead, one must physically go into
+> >>>>>> the bios and change boot order, if, for example, you wish to boot from a
+> >>>>>> flash drive to install an OS. And if that flash drive is subsequently
+> >>>>>> removed, the system will not boot, until you go into the bios and change the
+> >>>>>> boot order, again.
+> >>>>>> My question: is this normal bios behavior these days, or is something wrong
+> >>>>>> in my particular implementation. I turned off the secure boot function in
+> >>>>>> there. Would turning that on fix this? What else might I look for in the
+> >>>>>> bios to either (a) allow for falling back on different devices should one be
+> >>>>>> removed or (b) to allow the function key boot menu found in previous bios
+> >>>>>> implementations.
+> >>>>>>
+> >>>>>> _______________________________________________
+> >>>>>> Blinux-list mailing list
+> >>>>>> Blinux-list@redhat.com
+> >>>>>> https://www.redhat.com/mailman/listinfo/blinux-list
+> >>>>>>
+> >>>>>
+> >>>> --
+> >>>>
+> >>>> _______________________________________________
+> >>>> Blinux-list mailing list
+> >>>> Blinux-list@redhat.com
+> >>>> https://www.redhat.com/mailman/listinfo/blinux-list
+> >>>>
+> >>> _______________________________________________
+> >>> Blinux-list mailing list
+> >>> Blinux-list@redhat.com
+> >>> https://www.redhat.com/mailman/listinfo/blinux-list
+> >> --
+> >> Christopher (CJ)
+> >> Chaltain at Gmail
+> >>
+> >> _______________________________________________
+> >> Blinux-list mailing list
+> >> Blinux-list@redhat.com
+> >> https://www.redhat.com/mailman/listinfo/blinux-list
+> >>
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://www.redhat.com/mailman/listinfo/blinux-list
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+>
+
+-- 
+
+--===============3467208485790211098==
+Content-Type: text/plain; charset=us-ascii
+Content-ID: <alpine.NEB.2.21.1908080431033.21763@panix1.panix.com>
+Content-Description: 
+Content-Disposition: inline
 
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
 https://www.redhat.com/mailman/listinfo/blinux-list
+--===============3467208485790211098==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
+--===============3467208485790211098==--
+
