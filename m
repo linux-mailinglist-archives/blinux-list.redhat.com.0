@@ -2,63 +2,61 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7437D9BE75
-	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 17:22:39 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+	by mail.lfdr.de (Postfix) with ESMTPS id 696879BFBD
+	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 21:11:45 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 4279A4E93D;
-	Sat, 24 Aug 2019 15:22:37 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1E7E750305;
-	Sat, 24 Aug 2019 15:22:37 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 931B8C049E32;
+	Sat, 24 Aug 2019 19:11:43 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E0B315C28C;
+	Sat, 24 Aug 2019 19:11:40 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2897818089C8;
-	Sat, 24 Aug 2019 15:22:36 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
-	[10.5.11.11])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6FCDD4A486;
+	Sat, 24 Aug 2019 19:11:35 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
+	[10.5.11.16])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7OFMWCc008572 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 24 Aug 2019 11:22:32 -0400
+	id x7OJBR2U012511 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 24 Aug 2019 15:11:27 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 0D62D6012A; Sat, 24 Aug 2019 15:22:32 +0000 (UTC)
+	id AAC215C57A; Sat, 24 Aug 2019 19:11:27 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx10.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.39])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 07D9B600C4
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 15:22:29 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+Received: from mx1.redhat.com (ext-mx28.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.69])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A5ECA5C553
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 19:11:25 +0000 (UTC)
+Received: from server2.shellworld.net (server2.shellworld.net [66.172.12.120])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 190C459465
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 15:22:28 +0000 (UTC)
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 46G27l3xvmz1qBY
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 11:22:27 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 46G27l2KKvzcbR; Sat, 24 Aug 2019 11:22:27 -0400 (EDT)
+	by mx1.redhat.com (Postfix) with ESMTPS id A67AF8AC6FB
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 19:11:24 +0000 (UTC)
+Received: by server2.shellworld.net (Postfix, from userid 1005)
+	id 73BB98C04C9; Sat, 24 Aug 2019 19:11:24 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 46G27l20XszcbQ
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 11:22:27 -0400 (EDT)
-Date: Sat, 24 Aug 2019 11:22:27 -0400
+	by server2.shellworld.net (Postfix) with ESMTP id 731588C03AF
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 15:11:24 -0400 (EDT)
+Date: Sat, 24 Aug 2019 15:11:24 -0400 (EDT)
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Slint package error
-In-Reply-To: <b7cfca6c-6cfa-4efd-8e9a-7c9649412efa@GMAIL.COM>
-Message-ID: <alpine.NEB.2.21.1908241122070.23422@panix1.panix.com>
-References: <b7cfca6c-6cfa-4efd-8e9a-7c9649412efa@GMAIL.COM>
+Subject: Re: amazon?
+In-Reply-To: <A4215BB2-6107-4752-AC5F-679E449FC076@gmail.com>
+Message-ID: <Pine.LNX.4.64.1908241501480.31524@server2.shellworld.net>
+References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
+	<A4215BB2-6107-4752-AC5F-679E449FC076@gmail.com>
 MIME-Version: 1.0
-X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 238
-	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.39]); Sat, 24 Aug 2019 15:22:28 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.39]);
-	Sat, 24 Aug 2019 15:22:28 +0000 (UTC) for IP:'166.84.1.89'
-	DOMAIN:'mailbackend.panix.com' HELO:'mailbackend.panix.com'
-	FROM:'jdashiel@panix.com' RCPT:''
-X-RedHat-Spam-Score: -2.3  (RCVD_IN_DNSWL_MED, SPF_HELO_NONE,
-	SPF_PASS) 166.84.1.89 mailbackend.panix.com 166.84.1.89
-	mailbackend.panix.com <jdashiel@panix.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.5.110.39
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Greylist: Sender passed SPF test, ACL 264 matched, not delayed by
+	milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.69]);
+	Sat, 24 Aug 2019 19:11:24 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.69]);
+	Sat, 24 Aug 2019 19:11:24 +0000 (UTC) for IP:'66.172.12.120'
+	DOMAIN:'server2.shellworld.net' HELO:'server2.shellworld.net'
+	FROM:'klewellen@shellworld.net' RCPT:''
+X-RedHat-Spam-Score: 0.001 (SPF_HELO_NONE) 66.172.12.120
+	server2.shellworld.net 66.172.12.120 server2.shellworld.net
+	<klewellen@shellworld.net>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.69
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -73,53 +71,51 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.38]); Sat, 24 Aug 2019 15:22:38 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.31]); Sat, 24 Aug 2019 19:11:44 +0000 (UTC)
 
-Validate iso before burning.
-On Sat, 24 Aug 2019, Linux for blind general
-discussion wrote:
+1. My comment regarding Linux is based on direct communications with 
+Amazon staff,  who have confessed not to have heard of it,and  who have 
+no direct contact with their so called 
+accessibility team when problems arise.
+2. them properly compiled  elinks and links function with java script.
+3.  Access is tied to interaction which is why even later editions of lynx 
+can manage some scripting, submit buttons for example.
 
-> Date: Sat, 24 Aug 2019 11:00:21
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: Linux for blind general discussion <blinux-list@redhat.com>
-> Subject: Slint package error
+4. since adaptive technology is often a substitution for the persons eyes, 
+hands, brain, and the like, what gives you the right to state that 
+technology choices are not tied to physical mandates?  How does your stance 
+differ from those who claim that access need not exist at all,  or that 
+all those sharing  a label are the same?
+5. the names of access or other individuals at amazon confirming your 
+assumption here?  the legal stance is that if a site serves the public, 
+an individual can expect equal public access...which is why  alternative 
+doors    are to exist  in the first place.
+How do you know what low graphics can or cannot do if you do not follow 
+their development?  This is about keyboard response which exists in 
+graphical  browsers like elinks and links.
+
+
+
+On Fri, 23 Aug 2019, Linux for blind general discussion wrote:
+
+> I don't believe for a minute that the accessibility staff at Amazon has either forgotten or stopped caring about Linux accessibility. Realistically though, it is possible that they have stopped worrying about the very small number of people who still use text-based browsers and expect them to work for shopping, banking and other modern internet tasks. The thing is Linux accessibility in 2019 != lynx/links/elinks accessibility. In fact, this hasn't been the case since about 2008 or so
+> .
+> Unfortunately, text-based browsers have not kept up with the rest of the internet, and can't be expected to work well for most websites without a major overhaul, especially since they don't even support the latest HTML5 standards, nor do they support accessibility standards that have been in place for years. Even w3m doesn't fully support the w3c's own standards.
 >
-> I'll detail what I do to run into this.
->
->
-> 1. I download a fresh ISO from slint.fr and the 'get and install Slint'
-> section, which takes me o the Slint UK one, and I get the .iso from there
->
->
-> 2. I create the disk.raw file with size 30GB
->
->
-> 3. I do sudo sh qemo (else qemu won't work)
->
-> 4. Boot up and choose auto partition
->
->
-> 5. Get to the p[art where it asks to install packages, going with default
-> options all the way.
->
->
-> Every package it tries to install, has the 'there was a fatal error' message
-> with it. I've tried a fresh download, the md5 verifies the ISO as correct.
->
-> Any ideas? Does the auto partition break things?
+> Yes, I can see why some people may want these light-weight and fast browsers to work with Amazon, and yes, they should be made aware of the problems that people are having. But to say that Amazon doesn't care about Linux accessibility because their site doesn't work with a text-based browser is at best a gross exageration, and is at worst a grave disservice to those of us who use Linux and a screen reader at the same time.
+> Imetumwa kutoka miti
 >
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://www.redhat.com/mailman/listinfo/blinux-list
 >
-
--- 
+>
 
 _______________________________________________
 Blinux-list mailing list
