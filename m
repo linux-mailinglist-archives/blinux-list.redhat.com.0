@@ -2,73 +2,72 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6EE2E9BE0F
-	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 15:48:44 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+	by mail.lfdr.de (Postfix) with ESMTPS id D5CA69BE15
+	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 15:59:04 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id D7E55189DADC;
-	Sat, 24 Aug 2019 13:48:42 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6CC1C5C3F8;
-	Sat, 24 Aug 2019 13:48:42 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id E469718C8910;
+	Sat, 24 Aug 2019 13:59:02 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 233AB600C4;
+	Sat, 24 Aug 2019 13:59:02 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E03092551C;
-	Sat, 24 Aug 2019 13:48:40 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E99051802218;
+	Sat, 24 Aug 2019 13:59:00 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
 	[10.5.11.12])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7ODmPkG006951 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 24 Aug 2019 09:48:25 -0400
+	id x7ODwvGo007084 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 24 Aug 2019 09:58:57 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id E99D760F86; Sat, 24 Aug 2019 13:48:25 +0000 (UTC)
+	id 09C6260F86; Sat, 24 Aug 2019 13:58:57 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx02.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.26])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E418160C80
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 13:48:23 +0000 (UTC)
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com
-	[209.85.221.53])
+Received: from mx1.redhat.com (ext-mx21.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.62])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 04BC560C80
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 13:58:54 +0000 (UTC)
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com
+	[209.85.221.48])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 3064989AC9
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 13:48:22 +0000 (UTC)
-Received: by mail-wr1-f53.google.com with SMTP id z1so11092523wru.13
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 06:48:22 -0700 (PDT)
+	by mx1.redhat.com (Postfix) with ESMTPS id 3156F18C426C
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 13:58:53 +0000 (UTC)
+Received: by mail-wr1-f48.google.com with SMTP id k2so11146350wrq.2
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 06:58:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
 	h=from:subject:to:references:message-id:date:user-agent:mime-version
 	:in-reply-to:content-transfer-encoding:content-language;
-	bh=qyTBEwn5132ELYIquNEVDmaHXsZx1cwuf0NNsRCXLsk=;
-	b=FLKCXN72WsF9m62sGG+piiutVV5kSmJAD8j7hucgpm+2AtFJO9MxFLiGYAbNXUHp10
-	Ez75OLqILL4CWC7VzKte9C/qEVr/l0xRbjPEsvtTiTnTosfZVc+rW0GRMoQvPLT2K/Lw
-	Z1492Ufq+KisO//3w5afzVYzpwngPd+eCE+vM8lDvAeKkMkasmdX/9QAgcRF3x4A39Ad
-	FGrt+DO01osXzQwJpoCtua0Q/bNO36K02auTKwwVjFjYhGb4SyxO2ahcHrnijfpmShzL
-	jAD65NPF3dZWj4bqlDXN2P6AgC75BJWh5uqp/GsW6trn5EBclcGdcWc+YBH7ttsw4eFn
-	r38A==
+	bh=aE1wSySGkIWPysiNbBDd1uzQa3/+87GEn9g/IGloKWU=;
+	b=B3DpfZZYYPy+7YtEq7ckl0aEt+TeVSRnxTet2Mlluv7qfefi8HzRIoZPVrCukaB0xy
+	TrBMhcupf1D2zNBJRXUncfUO2VNB1oqginmelhoNzkdyUHb4KQXg6DjstdL1MSE0S6WL
+	sc82CVwoD2KwoOnMFDKVm3RYvqj0vxqJlrsEcQhF/YgRIwYAUjAwLgBEiq+pdPQeV67p
+	caiCQyrm8HCagWO8Y0kgGvfUaJS875Z0ZFU215y4PyJ4GFXnIjosW6Cl5K+Xz5QtUBkD
+	5Z2EJcWQEUYoouGcBu/WPiTSOBZIL8DRERyK5Dl3o3+A7eYyDz6bPHzHhfxUR33r5Kru
+	WgKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
 	h=x-gm-message-state:from:subject:to:references:message-id:date
 	:user-agent:mime-version:in-reply-to:content-transfer-encoding
 	:content-language;
-	bh=qyTBEwn5132ELYIquNEVDmaHXsZx1cwuf0NNsRCXLsk=;
-	b=D2Tmn7POugd8mDuiqInD72ZEG3pSlBa2KWpCCE3f3BvQEigtemrhbrX/HEXbd25WyV
-	uQ7LSk3ouj9ZtUm8ouIir1ENFGgI87sHz9Dq5keP1BedGgE5Pnt6wTstxl02sBjaBSMG
-	xbfu/xBrPB08uKgx2Zc9E9G0CnDZ5fWqc4duQ1ScHT9VJS4LhwGGkcfaYgumCcvF1bTh
-	1FuA/ywmNK/RhBh2cQMXiz4q2qhcNRAyNPxhTej0Z5F/CMdwOZO2YsaE47w8Q4hBv8Ve
-	CgKrmfdeZvZwG45dlOEx03uPFoz7iLNXTwvwcwODWsdidsrySmTO45oQGnul8ezKzy1k
-	nwiA==
-X-Gm-Message-State: APjAAAVAxkOauMvfeAHVS9rXJlineRhW494gUzy+/e7GEIALOmVixEGp
-	pELNb2aB53aRSxDf177y2aXN3jdV
-X-Google-Smtp-Source: APXvYqyVY3c7hYxOfMFWHcRvsBBoEfy63H2St32yGqNpoylmyvdvYlgoLcKqarlTbbDdGgB5BufLPg==
-X-Received: by 2002:a05:6000:1085:: with SMTP id
-	y5mr11174536wrw.285.1566654500532; 
-	Sat, 24 Aug 2019 06:48:20 -0700 (PDT)
+	bh=aE1wSySGkIWPysiNbBDd1uzQa3/+87GEn9g/IGloKWU=;
+	b=pqYB8foSNsG8TYRb/+VWlOZdVHqwqH3hOBUd467B5wDtAAk517QCQ1nRvcFB/5PEHB
+	UI6oMzbZ8+Nvftk+fi5gbftGzXUYTTS+91r5ymiVEjgsLsdm/kPYfYAceFg3OxKOVVm8
+	fTKeEXF0ve2V3BK6cy1uoDy4GRf8RV4rLt60bzsfxMBYwhIMZk6TnhzxWAAs3t+OFGJ+
+	C50vsap8gNcbo+CzcDe6WTlc71qhIcnn0QEJtQYoUlsVMi4reWqsqdEIK38w/bFWkjOm
+	6Y83gC7buzZsydzz4y7qxJHgJdZ9JRnZXs8GusfCSHtuc/geZ7uf6W8KODO5Jppn/vZC
+	GQDw==
+X-Gm-Message-State: APjAAAWeMdOwov8lso0NtHA/Uye4I+Xb9zr6knEc3zklqXCDOcw2oudK
+	sYC7JaEdxwHpzjq/MKByHWWRq/+B
+X-Google-Smtp-Source: APXvYqwAJbQa7SDDNVkDjIQ1/ZhoXxm3FdKO/ewXWs1hXeWL6LIY16jcFARxZWzwClaXbbm7SX/hhw==
+X-Received: by 2002:a5d:66d0:: with SMTP id k16mr11094822wrw.333.1566655131437;
+	Sat, 24 Aug 2019 06:58:51 -0700 (PDT)
 Received: from ?IPv6:2a04:b2c2:807:200:9d52:54c0:3f3b:a797?
 	([2a04:b2c2:807:200:9d52:54c0:3f3b:a797])
-	by smtp.gmail.com with ESMTPSA id
-	a23sm12326103wma.24.2019.08.24.06.48.19 for <blinux-list@redhat.com>
+	by smtp.gmail.com with ESMTPSA id 6sm7043694wmf.23.2019.08.24.06.58.50
+	for <blinux-list@redhat.com>
 	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-	Sat, 24 Aug 2019 06:48:19 -0700 (PDT)
+	Sat, 24 Aug 2019 06:58:50 -0700 (PDT)
 X-Google-Original-From: Jace Kattalakis <KHALFANG1366@GMAIL.COM>
 Subject: Re: Slint and VM
 To: Linux for blind general discussion <blinux-list@redhat.com>
@@ -82,26 +81,26 @@ References: <9371f6c4-35d7-7990-67ed-32cacb736d47@GMAIL.COM>
 	<77c97795-52b2-848e-275a-9ea2e8f9b984@slint.fr>
 	<3690eea5-ed3e-319e-2c88-c926bcafb152@GMAIL.COM>
 	<26577346-8dab-e1e6-19ed-c44714fd4ca3@slint.fr>
-Message-ID: <db07d38b-be9e-63a6-7902-9647be5bbbe5@GMAIL.COM>
-Date: Sat, 24 Aug 2019 14:48:18 +0100
+Message-ID: <0f6e771a-178e-f4b8-f15a-a6bfdc741165@GMAIL.COM>
+Date: Sat, 24 Aug 2019 14:58:50 +0100
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
 	Thunderbird/60.8.0
 MIME-Version: 1.0
 In-Reply-To: <26577346-8dab-e1e6-19ed-c44714fd4ca3@slint.fr>
 Content-Language: en-US
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
-	(mx1.redhat.com [10.5.110.26]);
-	Sat, 24 Aug 2019 13:48:22 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.26]);
-	Sat, 24 Aug 2019 13:48:22 +0000 (UTC) for IP:'209.85.221.53'
-	DOMAIN:'mail-wr1-f53.google.com' HELO:'mail-wr1-f53.google.com'
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
+	(mx1.redhat.com [10.5.110.62]);
+	Sat, 24 Aug 2019 13:58:53 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.62]);
+	Sat, 24 Aug 2019 13:58:53 +0000 (UTC) for IP:'209.85.221.48'
+	DOMAIN:'mail-wr1-f48.google.com' HELO:'mail-wr1-f48.google.com'
 	FROM:'khalfang1366@gmail.com' RCPT:''
 X-RedHat-Spam-Score: 0.151  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
 	FREEMAIL_ENVFROM_END_DIGIT, FREEMAIL_FROM, RCVD_IN_DNSWL_NONE,
 	SPF_HELO_NONE,
-	SPF_PASS) 209.85.221.53 mail-wr1-f53.google.com 209.85.221.53
-	mail-wr1-f53.google.com <khalfang1366@gmail.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.5.110.26
+	SPF_PASS) 209.85.221.48 mail-wr1-f48.google.com 209.85.221.48
+	mail-wr1-f48.google.com <khalfang1366@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.62
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
@@ -117,129 +116,214 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.63]); Sat, 24 Aug 2019 13:48:43 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.70]); Sat, 24 Aug 2019 13:59:03 +0000 (UTC)
 
-SGVyZSdzIHdoYXQgaXQgZ2l2ZXMgbWUuCgpJdCBhdXRvIHBhcnRpdGlvbmVkIHRvIHNyMCBST03C
-oCA0ZwoKc2RhMTQwZwpzZGEyIDEwMG0Kc2RhMyAzMGcKCkRvIEkgbmVlZCB0byBkbyBhbnl0aGlu
-ZyB3aXRoIHRoYXQgbGlrZSByZWNyZWF0ZSB0aGUgdmlydHVhbCBkaXNrIGFuZCBkbyAKbWFudWFs
-IHBhcnRpdGlvbmluZz8gSSByYW4gdGhlIGF1dG8gcGFydGl0aW9uIGFzIEkgZGlkbid0IHdhbnQg
-b3QgcmlzayAKbWVzc2luZyB1cCB0aGUgcGFydGl0aW9ucyBhbmQgdGhlIGVhc3kgd2F5IHNlZW1l
-ZCB0byBlIGF1dG8gcGFydGl0aW9ucwoKT24gMjQvMDgvMjAxOSAxNDozMywgTGludXggZm9yIGJs
-aW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90ZToKPiBIZWxsbywKPgo+IElmIHRoZSBtZDVzdW0g
-bWF0Y2hlcywgYW5kIHlvdSBkaWQgZm9ybWF0IHRoZSB2aXJ0dWFsIGRyaXZlLCBtYWtpZyBzdXJl
-Cj4gaXRzIGJpZyBlbm91Z2ggKDIwRykuCj4KPiBTdGFydCBhZ2FpbiB0aGUgaW5zdGFsbGVyIGFu
-ZCwgYXMgc29vbiBhcyBsb2dnZWQgaW4gYXMgcm9vdCB0eXBlOgo+IGxzYmxrIC1sIC1vIG5hbWUs
-c2l6ZSxmc3R5cGUsdHlwZXxncmVwIHBhcnR8c2VkICJzLyAqcGFydC8vIgo+IGFuZCBwb3N0IHRo
-ZSBvdXRwdXQgaW4geW91ciBuZXh0IHBvc3QuCj4KPiBCZXN0LAo+Cj4gRGlkaWVyCj4KPiBPbiAy
-NC8wOC8yMDE5IDE1OjE5LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3Rl
-Ogo+PiBPa2F5IHNvIEkganVzdCByYW4gaW50byB0aGlzIHdpdGggYSBmcmVzaCBpbnN0YWxsIG9m
-IHFlbXUsIG1ha2luZyBteSAKPj4gc2NyaXB0Lgo+Pgo+PiBJdCBib290cy4gSXQgZ2V0cyB0byBp
-bnN0YWxsIHBhY2thZ2VzLCBob3dldmVyLi4uLndpdGggYSBmcmVzaCwgCj4+IHZlcmlmaWVkIElT
-Ty4uLgo+Pgo+PiBFdmVyeSBwYWNrYWdlIHJldHVybnMgYW4gZXJyb3Igd2hpbGUgaW5zdGFsbGlu
-ZywgdGhlIGVycm9ycGtnIDIuIEkndmUgCj4+IHZlcmlmaWVkIHRoZSBpc28uIElTbyBhbmQgZXZl
-biBnb3QgYSBmcmVzaCBvbmUgdG8gdGVzdCwgYW5kLi4uLi5pdCAKPj4gY29uc2lzdGVudGx5LCBv
-biBxZW11LCBydW5zIGludG8gdGhpcy4gQW0gSSB0aGUgc29sZSBvbmUgZXhwZXJpZW5jaW5nIAo+
-PiB0aGlzIG9yIGlzIHRoZXJlIHNvbWV0aGluZyBnb2luZyBvbiB3aXRoIHRoZSBTbGFja3dhcmUg
-VUsgbGluayBmcm9tIAo+PiBzbGludC5mciAodGhlIGNsaWNrIGhlcmUgaW4gdGhlIGluc3RhbGwg
-c2VjdGlvbikgb25lPwo+Pgo+PiBPbiAyNC8wOC8yMDE5IDEzOjM5LCBMaW51eCBmb3IgYmxpbmQg
-Z2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4gSGVsbG8sCj4+Pgo+Pj4gQWNjb3JkaW5nIHRv
-IGh0dHBzOi8vcGFja2FnZXMuZGViaWFuLm9yZy8geW91IG5lZWQgcWVtdS11dGlscyBmb3IgdGhl
-Cj4+PiBjb21tYW5kIHFlbXUtaW1nIGFuZCBxZW11LXN5c3RlbS14ODYgZm9yIHRoZSBjb21tYW5k
-IHFlbXUtc3lzdGVtLXg4Nl82NAo+Pj4KPj4+IFRoYXQncyBhbGwgSSBrbm93LCBJIHJ1biBuZWl0
-aGVyIERlYmlhbiBub3IgVWJ1bnR1Lgo+Pj4KPj4+IEJlc3QsCj4+Pgo+Pj4gRGlkaWVyCj4+Pgo+
-Pj4KPj4+IE9uIDI0LzA4LzIwMTkgMTM6NDAsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1
-c3Npb24gd3JvdGU6Cj4+Pj4gT2theSBzbyBmcm9tIGEgYmFzZSBEZWJpYW4vVWJ1bnR1IGluc3Rh
-bGwuLi4ud2hhdCBwYWNrYWdlcyBkbyBJIAo+Pj4+IG5lZWQgdG8gZG8gdGhlIHFlbXUtaW1nIHN0
-dWZmIHNpbmNlIEkgdHJpZWQgdGhlIG1hbiBrZW11IGFuZCBpdCAKPj4+PiBrZXB0IHNheWluZyBu
-byBtYW51YWwgZm9yIHFlbXUKPj4+Pgo+Pj4+IElzIHRoYXQgc3VwcG9zZWQgdG8gaGFwcGVuPwo+
-Pj4+Cj4+Pj4gT24gMjQvMDgvMjAxOSAwMDowNywgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlz
-Y3Vzc2lvbiB3cm90ZToKPj4+Pj4gSGVsbG8sCj4+Pj4+Cj4+Pj4+IExldCdzIGNyZWF0ZSBhIHFl
-bXUgZGlyZWN0b3J5IGluIHlvdXIgJEhPTUUgYW5kIGdvIHRoZXJlIHdpdGggdGhlc2UKPj4+Pj4g
-Y29tbWFuZHM6Cj4+Pj4+Cj4+Pj4+IG1rZGlyICRIT01FL3FlbXUKPj4+Pj4gY2QgJEhPTWVxZW11
-Cj4+Pj4+Cj4+Pj4+IFRoamVuIGNyZWF0ZSBhIHZpcnR1YWwgZGlzayBvZiBzaXplIDJPIEcgKFNs
-aW50IG5lZWRzIGFyb3VuZCAxM0cpLgo+Pj4+PiBDaGVjayBmaXJzdCB0aGF0IHlvdSBoYXZlIGVu
-b3VnaCBzcGFjZSB0aGVuIHR5cGU6Cj4+Pj4+IHFlbXUtaW1nIGNyZWF0ZSBkaXNrLnJhdyAyMEcK
-Pj4+Pj4KPj4+Pj4gVGhlbiB3cml0ZSBhIHNjcmlwdCB0byBzZXQgdXAgeW91ciBWTS4gTGV0J3Mg
-bmFtZSBpdCBxZW11LnNoLiBoZXJlIAo+Pj4+PiBpcyBhCj4+Pj4+IHN1Z2dlc3RlZCBjb250ZW50
-Ogo+Pj4+Pgo+Pj4+PiAjL2Jpbi9zaAo+Pj4+PiBxZW11LXN5c3RlbS14ODZfNjQgXAo+Pj4+PiAt
-bWFjaGluZSBxMzUgXAo+Pj4+PiAtZW5hYmxlLWt2bSBcCj4+Pj4+IC1jcHUgaG9zdCBcCj4+Pj4+
-IC1ib290IG9yZGVyPWQgXAo+Pj4+PiAtbSAyRyBcCj4+Pj4+IC1zb3VuZGh3IGhkYSBcCj4+Pj4+
-IC1ib290IG1lbnU9b24gXAo+Pj4+PiAtZGlzcGxheSBndGsgXAo+Pj4+PiAtdmdhIHN0ZCBcCj4+
-Pj4+IC1kcml2ZSBmaWxlPWRpc2sucmF3LGZvcm1hdD1yYXcsbWVkaWE9ZGlzayBcCj4+Pj4+IC1j
-ZHJvbSBzbGludDY0LTE0LjIuMS4yLmlzbwo+Pj4+Pgo+Pj4+PiBNYWtlIHRoZSBzY3JpcHQgZXhl
-Y3V0YWJsZToKPj4+Pj4gY2htb2QgNzU1IHFlbXUuc2gKPj4+Pj4KPj4+Pj4gVGhpcyBpcyBhIHNp
-bXBsZSBleGFtcGxlLiBJIGFzc3VtZSB0aGF0IHRoZSBJU08gaXMgYWxzbyBpbiAKPj4+Pj4gJEhP
-TUUvcWVtdSwKPj4+Pj4gZWxzZSBhZnRlciAtY2Ryb20gaW5kaWNhdGUgaXRzIHBhdGguCj4+Pj4+
-Cj4+Pj4+IEFmdGVyIGluc3RhbGxhdGlvbiwgY2xvZSB0aGUgdmlydHVrbGEgbWFjaGliZSBhbmQg
-YmVmb3JlIHN0YXJpbmcgaXQKPj4+Pj4gYWdhaW4gY2hhbmdlIHRoZSBib290IG9yZGVyIHRvIGJv
-b3Qgb24gdGhlIHZpcnR1YWwgZHJpdmU6Cj4+Pj4+IC1ib290IG9yZGVyPWMKPj4+Pj4KPj4+Pj4g
-VG8ga25vdyBtb3JlIHJlYWQgIm1hbiBxZW11Ii4KPj4+Pj4KPj4+Pj4gQmVzdCwKPj4+Pj4KPj4+
-Pj4gRGlkaWVyCj4+Pj4+Cj4+Pj4+IE9uIDIzLzA4LzIwMTkgMjI6NTgsIExpbnV4IGZvciBibGlu
-ZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4+Pj4+PiBZZXMgSSBkbyBuZWVkIGhlbHAgdG8g
-c2V0IHVwIHRoZSBWTS4gSSB1c2UgVmlydHVhbEJveCBzaW5jZSBJIAo+Pj4+Pj4ga25vdyBpdCB3
-b3Jrcy4uLi5idXQgY2FuIHlvdSB3YWxrIG1lIHRocm91Z2ggdGhlIHZlcnkgYmVnaW5uaW5nLCAK
-Pj4+Pj4+IEkgYXNzdW1lIEkgY2FuIHVzZSBsaWJ2ZXJ0LW1hbmFnZXIgZm9yIHRoaXMsIHJpZ2h0
-Pwo+Pj4+Pj4KPj4+Pj4+IE9yIGhvdyBkbyBJIGRvIHRoaXMsIHRoZW4uIEknbSBhIGNvbXBsZXRl
-IGFuZCB1dHRlciBiZWdpbm5lciBhdCAKPj4+Pj4+IGtlbXUgaG9uZXN0bHkKPj4+Pj4+Cj4+Pj4+
-PiBPbiAyMy8wOC8yMDE5IDIxOjQ4LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9u
-IHdyb3RlOgo+Pj4+Pj4+IEhlbGxvLAo+Pj4+Pj4+Cj4+Pj4+Pj4gRGlkaWVyLCBTbGludCBtYWlu
-dGFpbmVyLCBoZXJlLgo+Pj4+Pj4+Cj4+Pj4+Pj4gSSBzdWdnZXN0IHRvIHVzZSBRZW11IGluc3Rl
-YWQuIEl0IHdvcmtzIHdlbGwsIGFuZCB0aGUgc291bmQgaXMgCj4+Pj4+Pj4gd2F5IGJldHRlciB0
-aGFuIHdpdGggVmlydHVhbEJveC4KPj4+Pj4+Pgo+Pj4+Pj4+IFRoYXQncyB3aGF0IEkgdXNlIGZp
-cnN0IHRvIHRlc3QgdGhlIG5ldyBTbGludCBJU09zLCBiZWZvcmUgCj4+Pj4+Pj4gdHJ5aW5nIHRo
-ZW0gb24gYmFyZSBtZXRhbC4KPj4+Pj4+Pgo+Pj4+Pj4+IElmIHlvdSBuZWVkIGhlbHAgdG8gc2V0
-IHVwIHRoZSB2aXJ0dWFsIG1hY2hpbmUsIGp1c3QgYXNrLgo+Pj4+Pj4+Cj4+Pj4+Pj4gQmVzdCBy
-ZWdhcmRzLAo+Pj4+Pj4+Cj4+Pj4+Pj4gRGlkaWVyCj4+Pj4+Pj4KPj4+Pj4+PiBPbiAyMy8wOC8y
-MDE5IDIyOjExLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4+
-Pj4+PiBJIHRob3VnaHQgZm9yIHNvbWUgcmVhc29uIFZib3ggKHRoZSBvbmUgZnJvbSB0aGUgMTgu
-MDQgcmVwb3MpIAo+Pj4+Pj4+PiBzdXBwb3J0ZCBTbGFja3dhcmU/IEknbSBub3Qgc3VyZSB0aG91
-Z2gsIHdoZW4gSSBwdXQgaW4gCj4+Pj4+Pj4+IFNsYWNrd2FyZSBzbyBWYm94IGNhbiBhdXRvIGZp
-bmQgaXQsIGl0IGRlZmF1bHRlZCB0byBXaW43LiAKPj4+Pj4+Pj4gTm90Li4ucXVpdGUgd2hhdCBJ
-IHdhbnQuIFNvLi4ueWVhaCwgYW55b25lIGdvdCBTbGludCB0byB3b3JrIG9uIAo+Pj4+Pj4+PiBh
-IFZNPyBJIGhhdmUgYSBwZXJmZWN0bHkgZ29vZCBVYnVudHUgcGh5c2ljYWwgbWFjaGluZSwgd2Fu
-dGVkIAo+Pj4+Pj4+PiB0byB0ZXN0IFNsaW50IG91dCBhbmQgc2VlIGlmIGl0J3MgYW55IGdvb2Qg
-aW4gYSBWTQo+Pj4+Pj4+Pgo+Pj4+Pj4+PiBPbiAyMy8wOC8yMDE5IDIxOjA4LCBMaW51eCBmb3Ig
-YmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4+Pj4+Pj4gSSB0cmllZCB0aGlzIHVu
-ZGVyIFdpbmRvd3MgYW5kIFZNV2FyZSBwbGF5ZXIsIGhhZCB0aGUgc2FtZSBpc3N1ZS4KPj4+Pj4+
-Pj4+Cj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4gTm8gbG9uZ2VyIGFuIG9wdGlvbiwgc29sZWQgdGhlIE1h
-YyB3aXRoIHRoZSBib290Y2FtcCwgc28gaGF2ZSAKPj4+Pj4+Pj4+IHRvIGxlYXJuIHZpcnR1YWxp
-emF0aW9uIHRoZSBsaW51eCB3YXksIHNpbmNlIGl0IGlzIGFsbCBJIGhhdmUgCj4+Pj4+Pj4+PiBu
-b3cuCj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+IFdhcm0gcmVnYXJkcywKPj4+Pj4+Pj4+
-Cj4+Pj4+Pj4+PiBCcmFuZHQgU3RlZW5rYW1wCj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4gU2VudCB1c2lu
-ZyB0aHVuZGVyYmlyZCBvbiBVYnVudHUgMTkuMDQuCj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4gSSB0ZWFj
-aCBtYWNPUyBhcyB3ZWxsIGFzIGlPUywgbm90IGJlY2F1c2UgSSB3YW50IHRvLCBidXQgCj4+Pj4+
-Pj4+PiBiZWNhdXNlIGl0J3MgZWFzeS4KPj4+Pj4+Pj4+Cj4+Pj4+Pj4+PiBPbiAyMDE5LzA4LzIz
-IDIyOjA0LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4+Pj4+
-Pj4+IE9rYXksIEknbSB0cnlpbmcgdG8gc2V0IFNsaW50IHVwIGluIFZpcnR1YWxib3ggYnV0Li4u
-LnVzaW5nIAo+Pj4+Pj4+Pj4+IHRoZSBsYXRlc3QgSVNPLCBub3RoaW5nIGhhcHBlbnMuIFdoYXQg
-c2V0dGluZ3MgZG8gSSBuZWVkIHRvIAo+Pj4+Pj4+Pj4+IGNvbmZpZyBmb3IgdGhlIFZNIHRvIHdv
-cmsgc3VjY2Vzc2Z1bGx5Pwo+Pj4+Pj4+Cj4+Pj4+Pj4gX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KPj4+Pj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QK
-Pj4+Pj4+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+Pj4+Pj4gaHR0cHM6Ly93d3cucmVkaGF0
-LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+Pj4+Pgo+Pj4+Pj4gX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+Pj4+IEJsaW51eC1saXN0
-IG1haWxpbmcgbGlzdAo+Pj4+Pj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+Pj4+Pj4gaHR0cHM6
-Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+Pj4+Pgo+Pj4+
-Pgo+Pj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+
-Pj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+Pj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNv
-bQo+Pj4+PiBodHRwczovL3d3dy5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxp
-c3QKPj4+Pgo+Pj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCj4+Pj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+Pj4gQmxpbnV4LWxpc3RAcmVkaGF0
-LmNvbQo+Pj4+IGh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgt
-bGlzdAo+Pj4+Cj4+Pgo+Pj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KPj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+Pj4gQmxpbnV4LWxpc3RAcmVk
-aGF0LmNvbQo+Pj4gaHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51
-eC1saXN0Cj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+PiBCbGludXgtbGlzdEByZWRoYXQuY29t
-Cj4+IGh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+
-Pgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBC
-bGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4gaHR0cHM6
-Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0CgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5n
-IGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL3d3dy5yZWRoYXQuY29tL21haWxt
-YW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
+Okay my bad on that, I missed the -l and the rest of it. I'll put that here.
+
+Okay I can't get the full output since after doing that, speech died. It 
+did however say the sda was FAT and the others I didn't get to before 
+speech died.
+
+Is it best to simply create a new raw disk and go from there?
+
+
+
+
+On 24/08/2019 14:33, Linux for blind general discussion wrote:
+> Hello,
+>
+> If the md5sum matches, and you did format the virtual drive, makig sure
+> its big enough (20G).
+>
+> Start again the installer and, as soon as logged in as root type:
+> lsblk -l -o name,size,fstype,type|grep part|sed "s/ *part//"
+> and post the output in your next post.
+>
+> Best,
+>
+> Didier
+>
+> On 24/08/2019 15:19, Linux for blind general discussion wrote:
+>> Okay so I just ran into this with a fresh install of qemu, making my 
+>> script.
+>>
+>> It boots. It gets to install packages, however....with a fresh, 
+>> verified ISO...
+>>
+>> Every package returns an error while installing, the errorpkg 2. I've 
+>> verified the iso. ISo and even got a fresh one to test, and.....it 
+>> consistently, on qemu, runs into this. Am I the sole one experiencing 
+>> this or is there something going on with the Slackware UK link from 
+>> slint.fr (the click here in the install section) one?
+>>
+>> On 24/08/2019 13:39, Linux for blind general discussion wrote:
+>>> Hello,
+>>>
+>>> According to https://packages.debian.org/ you need qemu-utils for the
+>>> command qemu-img and qemu-system-x86 for the command qemu-system-x86_64
+>>>
+>>> That's all I know, I run neither Debian nor Ubuntu.
+>>>
+>>> Best,
+>>>
+>>> Didier
+>>>
+>>>
+>>> On 24/08/2019 13:40, Linux for blind general discussion wrote:
+>>>> Okay so from a base Debian/Ubuntu install....what packages do I 
+>>>> need to do the qemu-img stuff since I tried the man kemu and it 
+>>>> kept saying no manual for qemu
+>>>>
+>>>> Is that supposed to happen?
+>>>>
+>>>> On 24/08/2019 00:07, Linux for blind general discussion wrote:
+>>>>> Hello,
+>>>>>
+>>>>> Let's create a qemu directory in your $HOME and go there with these
+>>>>> commands:
+>>>>>
+>>>>> mkdir $HOME/qemu
+>>>>> cd $HOMeqemu
+>>>>>
+>>>>> Thjen create a virtual disk of size 2O G (Slint needs around 13G).
+>>>>> Check first that you have enough space then type:
+>>>>> qemu-img create disk.raw 20G
+>>>>>
+>>>>> Then write a script to set up your VM. Let's name it qemu.sh. here 
+>>>>> is a
+>>>>> suggested content:
+>>>>>
+>>>>> #/bin/sh
+>>>>> qemu-system-x86_64 \
+>>>>> -machine q35 \
+>>>>> -enable-kvm \
+>>>>> -cpu host \
+>>>>> -boot order=d \
+>>>>> -m 2G \
+>>>>> -soundhw hda \
+>>>>> -boot menu=on \
+>>>>> -display gtk \
+>>>>> -vga std \
+>>>>> -drive file=disk.raw,format=raw,media=disk \
+>>>>> -cdrom slint64-14.2.1.2.iso
+>>>>>
+>>>>> Make the script executable:
+>>>>> chmod 755 qemu.sh
+>>>>>
+>>>>> This is a simple example. I assume that the ISO is also in 
+>>>>> $HOME/qemu,
+>>>>> else after -cdrom indicate its path.
+>>>>>
+>>>>> After installation, cloe the virtukla machibe and before staring it
+>>>>> again change the boot order to boot on the virtual drive:
+>>>>> -boot order=c
+>>>>>
+>>>>> To know more read "man qemu".
+>>>>>
+>>>>> Best,
+>>>>>
+>>>>> Didier
+>>>>>
+>>>>> On 23/08/2019 22:58, Linux for blind general discussion wrote:
+>>>>>> Yes I do need help to set up the VM. I use VirtualBox since I 
+>>>>>> know it works....but can you walk me through the very beginning, 
+>>>>>> I assume I can use libvert-manager for this, right?
+>>>>>>
+>>>>>> Or how do I do this, then. I'm a complete and utter beginner at 
+>>>>>> kemu honestly
+>>>>>>
+>>>>>> On 23/08/2019 21:48, Linux for blind general discussion wrote:
+>>>>>>> Hello,
+>>>>>>>
+>>>>>>> Didier, Slint maintainer, here.
+>>>>>>>
+>>>>>>> I suggest to use Qemu instead. It works well, and the sound is 
+>>>>>>> way better than with VirtualBox.
+>>>>>>>
+>>>>>>> That's what I use first to test the new Slint ISOs, before 
+>>>>>>> trying them on bare metal.
+>>>>>>>
+>>>>>>> If you need help to set up the virtual machine, just ask.
+>>>>>>>
+>>>>>>> Best regards,
+>>>>>>>
+>>>>>>> Didier
+>>>>>>>
+>>>>>>> On 23/08/2019 22:11, Linux for blind general discussion wrote:
+>>>>>>>> I thought for some reason Vbox (the one from the 18.04 repos) 
+>>>>>>>> supportd Slackware? I'm not sure though, when I put in 
+>>>>>>>> Slackware so Vbox can auto find it, it defaulted to Win7. 
+>>>>>>>> Not...quite what I want. So...yeah, anyone got Slint to work on 
+>>>>>>>> a VM? I have a perfectly good Ubuntu physical machine, wanted 
+>>>>>>>> to test Slint out and see if it's any good in a VM
+>>>>>>>>
+>>>>>>>> On 23/08/2019 21:08, Linux for blind general discussion wrote:
+>>>>>>>>> I tried this under Windows and VMWare player, had the same issue.
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> No longer an option, soled the Mac with the bootcamp, so have 
+>>>>>>>>> to learn virtualization the linux way, since it is all I have 
+>>>>>>>>> now.
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> Warm regards,
+>>>>>>>>>
+>>>>>>>>> Brandt Steenkamp
+>>>>>>>>>
+>>>>>>>>> Sent using thunderbird on Ubuntu 19.04.
+>>>>>>>>>
+>>>>>>>>> I teach macOS as well as iOS, not because I want to, but 
+>>>>>>>>> because it's easy.
+>>>>>>>>>
+>>>>>>>>> On 2019/08/23 22:04, Linux for blind general discussion wrote:
+>>>>>>>>>> Okay, I'm trying to set Slint up in Virtualbox but....using 
+>>>>>>>>>> the latest ISO, nothing happens. What settings do I need to 
+>>>>>>>>>> config for the VM to work successfully?
+>>>>>>>
+>>>>>>> _______________________________________________
+>>>>>>> Blinux-list mailing list
+>>>>>>> Blinux-list@redhat.com
+>>>>>>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>>>>>
+>>>>>> _______________________________________________
+>>>>>> Blinux-list mailing list
+>>>>>> Blinux-list@redhat.com
+>>>>>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>>>>>
+>>>>>
+>>>>> _______________________________________________
+>>>>> Blinux-list mailing list
+>>>>> Blinux-list@redhat.com
+>>>>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>>>
+>>>> _______________________________________________
+>>>> Blinux-list mailing list
+>>>> Blinux-list@redhat.com
+>>>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>>>
+>>>
+>>> _______________________________________________
+>>> Blinux-list mailing list
+>>> Blinux-list@redhat.com
+>>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
