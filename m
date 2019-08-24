@@ -2,90 +2,66 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 72B799BFF3
-	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 22:05:12 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+	by mail.lfdr.de (Postfix) with ESMTPS id D49119BFF5
+	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 22:12:20 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 4DD08C057F88;
-	Sat, 24 Aug 2019 20:05:10 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 66DCA5C553;
-	Sat, 24 Aug 2019 20:05:09 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id F18B9C057EC0;
+	Sat, 24 Aug 2019 20:12:18 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 39B43608A5;
+	Sat, 24 Aug 2019 20:12:17 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3667B4A486;
-	Sat, 24 Aug 2019 20:05:07 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
-	[10.5.11.15])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B8C141802218;
+	Sat, 24 Aug 2019 20:12:14 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+	[10.5.11.22])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7OK47Li013301 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 24 Aug 2019 16:04:07 -0400
+	id x7OKC7K9013434 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 24 Aug 2019 16:12:07 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 8BD5A5D704; Sat, 24 Aug 2019 20:04:07 +0000 (UTC)
+	id 7DC83100195C; Sat, 24 Aug 2019 20:12:07 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx20.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.49])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 871CB5D6D0
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 20:04:05 +0000 (UTC)
-Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com
-	[209.85.210.44])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from mx1.redhat.com (ext-mx29.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.70])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 78B3910013D9
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 20:12:05 +0000 (UTC)
+Received: from server2.shellworld.net (server2.shellworld.net [66.172.12.120])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 957643086246
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 20:04:04 +0000 (UTC)
-Received: by mail-ot1-f44.google.com with SMTP id b1so11813452otp.6
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 13:04:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=mime-version:in-reply-to:references:from:date:message-id:subject:to; 
-	bh=w7UeNmUQm06cDjy/JwTB6pLtVX3918UfOjeR7PowKFE=;
-	b=u7NaBfw9qbN5YG8abruQgkQa/Tx6Onyv3I9KdiJm+5hR7nnKbAhwuTjgRnFhqm0+VD
-	65HU6Qh3D4E3T0tnHi9skLqkIu07lW/vav04WMThQw9lRN/odzedOP6A2InVgwQXivWh
-	YN1wIAyd/JUBzrddVfzSbw+QDL5yONNpwc4YvMmf//Hd/fCtDPYjmXae5PZb0Dpd1lB4
-	tpVD4WMQuBljCdylu5dckQwR203fGq028UUuDJ6IC5zCZClypHuS0P36P6r6mhb5yGwu
-	GOoAdpqTzi0qzCcZ1fbVJ6vD31/gYcRwxKWG1sCvaWlQBCN69sNoSA/PmgTouxgt1YHy
-	56QQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=w7UeNmUQm06cDjy/JwTB6pLtVX3918UfOjeR7PowKFE=;
-	b=n9mByyQkk6BOOVAtxbbitxP0H3cg4k+iHFQ8UVuTpxZxOcBpi3WpiG3bS2pgApmTuO
-	KuZlS1Akb/vTmcru1Sl9n7SsNqQLYbJOwLquu+tBBo/RPtCbyhMGb/aiVqJR2wMD7Er7
-	4Hm5sqUlOv4eurCWnGoYPSx7ttb5LuexSd1muYlO3VZjFmZO5/EfOy+lHckwH7dR05iS
-	Ech1nUolNPwy880sVHftzfDLhA153JXAQXEaU1B+7Pr8A5Rk+cJPx8/u/f6/MRVgcnWy
-	BHzyBUEUaQ+h0eaokwzi+plUSg8T7Cmosv9P/6O0h0cxcszufjHgxCq5/tU9ZbtMT4+T
-	dCJg==
-X-Gm-Message-State: APjAAAX67ISEjBp6xf76VcWACKkOH6Zw4IRkQ/VxtEE4pDVMj6noNKMO
-	Rt0TvxZpzsrn5O3ZruBwzFIufr/3wr9Nd/Vtpt2q5Q==
-X-Google-Smtp-Source: APXvYqzmatwPureJA/8HbIvkgwtHVBXe4yTwEuz5XmwPwW9sJrX7YqPsSsIjsnowzpcy4j1YL4L5U7L3CuYs36P6vHs=
-X-Received: by 2002:a9d:66d2:: with SMTP id t18mr7367053otm.355.1566677043925; 
-	Sat, 24 Aug 2019 13:04:03 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:a9d:48d:0:0:0:0:0 with HTTP;
-	Sat, 24 Aug 2019 13:04:03 -0700 (PDT)
-In-Reply-To: <Pine.LNX.4.64.1908241525220.31524@server2.shellworld.net>
+	by mx1.redhat.com (Postfix) with ESMTPS id 7AFE118C8914
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 20:12:04 +0000 (UTC)
+Received: by server2.shellworld.net (Postfix, from userid 1005)
+	id 4B0E88C04C9; Sat, 24 Aug 2019 20:12:04 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+	by server2.shellworld.net (Postfix) with ESMTP id 4A79B8C0400
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 16:12:04 -0400 (EDT)
+Date: Sat, 24 Aug 2019 16:12:04 -0400 (EDT)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: amazon?
+In-Reply-To: <1ac5ac49-c976-2d87-105b-9988c74dd17c@gmail.com>
+Message-ID: <Pine.LNX.4.64.1908241607480.31524@server2.shellworld.net>
 References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
 	<A4215BB2-6107-4752-AC5F-679E449FC076@gmail.com>
 	<Pine.LNX.4.64.1908231729330.11612@server2.shellworld.net>
-	<DCD8C4F3-9F51-486C-8E83-609B51DD8B03@gmail.com>
-	<Pine.LNX.4.64.1908241525220.31524@server2.shellworld.net>
-Date: Sat, 24 Aug 2019 20:04:03 +0000
-Message-ID: <CAO2sX30t5OyZF0UGSbBBHfAVqdK6vYZjbPB6V4chAT5OvU28CQ@mail.gmail.com>
-Subject: Re: amazon?
-To: blinux-list@redhat.com
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
-	(mx1.redhat.com [10.5.110.49]);
-	Sat, 24 Aug 2019 20:04:04 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.49]);
-	Sat, 24 Aug 2019 20:04:04 +0000 (UTC) for IP:'209.85.210.44'
-	DOMAIN:'mail-ot1-f44.google.com' HELO:'mail-ot1-f44.google.com'
-	FROM:'mewtamer@gmail.com' RCPT:''
-X-RedHat-Spam-Score: -0.099  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
-	SPF_PASS) 209.85.210.44 mail-ot1-f44.google.com 209.85.210.44
-	mail-ot1-f44.google.com <mewtamer@gmail.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.49
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+	<Pine.LNX.4.64.1908241516100.31524@server2.shellworld.net>
+	<1ac5ac49-c976-2d87-105b-9988c74dd17c@gmail.com>
+MIME-Version: 1.0
+Content-Type: MULTIPART/MIXED;
+	BOUNDARY="-1404930036-1041337479-1566677524=:31524"
+X-Greylist: Sender passed SPF test, ACL 264 matched, not delayed by
+	milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.70]);
+	Sat, 24 Aug 2019 20:12:04 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.70]);
+	Sat, 24 Aug 2019 20:12:04 +0000 (UTC) for IP:'66.172.12.120'
+	DOMAIN:'server2.shellworld.net' HELO:'server2.shellworld.net'
+	FROM:'klewellen@shellworld.net' RCPT:''
+X-RedHat-Spam-Score: 0.001 (SPF_HELO_NONE) 66.172.12.120
+	server2.shellworld.net 66.172.12.120 server2.shellworld.net
+	<klewellen@shellworld.net>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.70
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -100,36 +76,98 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.32]); Sat, 24 Aug 2019 20:05:11 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.32]); Sat, 24 Aug 2019 20:12:19 +0000 (UTC)
 
-If all web designers and browser developers adhered to W3C standards,
-I suspect most of these problems would be non-existant...
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-However, I suspect those who make an effort to comply with standards
-are in the minority, that those who actually manage compliance are
-even rarer, and that a majority of those not trying for compliance are
-not even aware the W3C exists. I also suspect the W3C is completely
-lacking in the ability to enforce their standards, have my doubts any
-legal mandates that are enforcible align completely with W3C
-standards, and suspect the average user has negligible leverage to
-hold those who violate web standards accountable, especially if the
-site is hosted in a different country or the site owner lives in a
-different country from the user with the grievance.
+---1404930036-1041337479-1566677524=:31524
+Content-Type: TEXT/PLAIN; charset=utf-8; format=flowed
+Content-Transfer-Encoding: QUOTED-PRINTABLE
 
-Standards are nice and all, but their usefulness is much diminished if
-most of the relevant individuals are just ignoring the standards and
-doing their own thing, and personal experience would suggest that's
-exactly what's happening, especially if mouse/touch-only elements and
-vision tests in place of turing tests are violations of the standards
-as the abominations that are JavaScript clickables and Captcha are all
-over the place.
+Which means what exactly?
+  Access is not about blindness, it is about interaction.   Many=20
+populations  for various reasons  require keyboard function, and the like.=
+=20
+If  amazon thinks access begins and ends with a blind employee, they are=20
+wrong.  After all,  just because one person experiences blindness, it has=
+=20
+nothing whatsoever to do with   how another person sharing the same label=
+=20
+might accommodate.
+
+
+
+On Sat, 24 Aug 2019, Linux for blind general discussion wrote:
+
+> Amazon has more then one blind employee.
+>
+> On 8/24/19 2:23 PM, Linux for blind general discussion wrote:
+>>  Amazon cannot=C2=A0 from an access standpoint *force*=C2=A0 anyone to a=
+ccommodate
+>>  their=C2=A0 body as Amazon=C2=A0 sees fit.=C2=A0 I suspect instead they=
+ have a toking
+>>  blind person and have decided to project=C2=A0 that individual onto oth=
+ers,
+>>  even those=C2=A0 using things like voice browsers=C2=A0 due to dexterit=
+y
+>>  challenges ..as if blindness is the only disability in existence.=C2=A0=
+ What
+>>  is equally disturbing is how customer service cannot directly reach
+>>  individuals=C2=A0 on the accessibility=C2=A0 team, assuming there is mo=
+re than one
+>>  person.
+>>  Using image based verification have been considered poor from a w3c
+>>  perspective=C2=A0 for many years.=C2=A0 Why amazon still uses them is a=
+nyone's
+>>  guess.
+>>=20
+>>=20
+>>
+>>  On Fri, 23 Aug 2019, Linux for blind general discussion wrote:
+>>=20
+>> >  Well, are you implying I should be forced to run a graphical=20
+>> >  screen-reader such as Orca, so I can shop at Amazon? I suppose if the=
+re=20
+>> >  were something much better than Orca, I would certainly try it out. M=
+y=20
+>> >  Wife wants me to try-and-shop at Amazon from a Chrome Book. I will=20
+>> >  experiment.
+>> >  Chime
+>> >=20
+>> >  _______________________________________________
+>> >  Blinux-list mailing list
+>> >  Blinux-list@redhat.com
+>> >  https://www.redhat.com/mailman/listinfo/blinux-list
+>> >=20
+>> >=20
+>>
+>>  _______________________________________________
+>>  Blinux-list mailing list
+>>  Blinux-list@redhat.com
+>>  https://www.redhat.com/mailman/listinfo/blinux-list
+>
+> --=20
+> Christopher (CJ)
+> Chaltain at Gmail
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+---1404930036-1041337479-1566677524=:31524
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
 https://www.redhat.com/mailman/listinfo/blinux-list
+---1404930036-1041337479-1566677524=:31524--
+
