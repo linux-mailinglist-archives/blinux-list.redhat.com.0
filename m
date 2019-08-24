@@ -2,90 +2,63 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id A20659BE68
-	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 17:12:53 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7437D9BE75
+	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 17:22:39 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 0D57530832EA;
-	Sat, 24 Aug 2019 15:12:52 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 785215C28C;
-	Sat, 24 Aug 2019 15:12:51 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 4279A4E93D;
+	Sat, 24 Aug 2019 15:22:37 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1E7E750305;
+	Sat, 24 Aug 2019 15:22:37 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A30444A486;
-	Sat, 24 Aug 2019 15:12:50 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
-	[10.5.11.22])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2897818089C8;
+	Sat, 24 Aug 2019 15:22:36 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
+	[10.5.11.11])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7OFCmtC008358 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 24 Aug 2019 11:12:48 -0400
+	id x7OFMWCc008572 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 24 Aug 2019 11:22:32 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 0CF0F1001947; Sat, 24 Aug 2019 15:12:48 +0000 (UTC)
+	id 0D62D6012A; Sat, 24 Aug 2019 15:22:32 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx16.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.45])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 07E881001B12
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 15:12:44 +0000 (UTC)
-Received: from boudin.jabatus.com (boudin.jabatus.com [109.234.162.62])
+Received: from mx1.redhat.com (ext-mx10.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.39])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 07D9B600C4
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 15:22:29 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id BCB753082A98
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 15:12:43 +0000 (UTC)
-X-Spam-Status: No
-X-MailPropre-MailScanner-From: didier@slint.fr
-X-MailPropre-MailScanner-SpamCheck: not spam, SpamAssassin (not cached,
-	score=0.002, required 5, autolearn=disabled, SPF_HELO_NONE 0.00,
-	SPF_NONE 0.00)
-X-MailPropre-MailScanner: Not scanned: please contact your Internet E-Mail
-	Service Provider for details
-X-MailPropre-MailScanner-ID: 1F2961007A4.A3719
-X-MailPropre-MailScanner-Information: Please contact the ISP for more
-	information
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=slint.fr;
-	s=default;
-	h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version
-	:Date:Message-ID:From:References:To:Subject:Sender:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=wNBCymo60CWd0a6CyCWSFG5UmoewYgEik5QuywDf7go=;
-	b=JARpZt45xgQlAKBdoHTwOvCH4h
-	Mq+EjeYuW8d6FpxZHgNp4dv7k/8lX8yqBMQnmdqllMiWdFOlj8ao+0PP/nAwLesVFQcPtpvDA0W6K
-	1Eakrj2GRjQbywvcWjPDS9u2OOywY4CSD6q7tEqMt6b959m7TKQakw0FiSSlTOZkBogM=; 
+	by mx1.redhat.com (Postfix) with ESMTPS id 190C459465
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 15:22:28 +0000 (UTC)
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 46G27l3xvmz1qBY
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 11:22:27 -0400 (EDT)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 46G27l2KKvzcbR; Sat, 24 Aug 2019 11:22:27 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 46G27l20XszcbQ
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 11:22:27 -0400 (EDT)
+Date: Sat, 24 Aug 2019 11:22:27 -0400
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Slint package error
-To: blinux-list@redhat.com
-References: <b7cfca6c-6cfa-4efd-8e9a-7c9649412efa@GMAIL.COM>
-Message-ID: <9b9bc06c-d84f-92fb-d2a3-afa4637639d2@slint.fr>
-Date: Sat, 24 Aug 2019 17:12:40 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
-	Thunderbird/60.8.0
-MIME-Version: 1.0
 In-Reply-To: <b7cfca6c-6cfa-4efd-8e9a-7c9649412efa@GMAIL.COM>
-Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse,
-	please include it with any abuse report
-X-AntiAbuse: Primary Hostname - fox.o2switch.net
-X-AntiAbuse: Original Domain - redhat.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - slint.fr
-X-Get-Message-Sender-Via: fox.o2switch.net: authenticated_id: didier@slint.fr
-X-Authenticated-Sender: fox.o2switch.net: didier@slint.fr
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Greylist: Delayed for 18:22:40 by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.45]); Sat, 24 Aug 2019 15:12:43 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.45]);
-	Sat, 24 Aug 2019 15:12:43 +0000 (UTC) for IP:'109.234.162.62'
-	DOMAIN:'boudin.jabatus.com' HELO:'boudin.jabatus.com'
-	FROM:'didier@slint.fr' RCPT:''
-X-RedHat-Spam-Score: -0.098  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	SPF_HELO_NONE,
-	SPF_NONE) 109.234.162.62 boudin.jabatus.com 109.234.162.62
-	boudin.jabatus.com <didier@slint.fr>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.45
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+Message-ID: <alpine.NEB.2.21.1908241122070.23422@panix1.panix.com>
+References: <b7cfca6c-6cfa-4efd-8e9a-7c9649412efa@GMAIL.COM>
+MIME-Version: 1.0
+X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 238
+	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
+	[10.5.110.39]); Sat, 24 Aug 2019 15:22:28 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.39]);
+	Sat, 24 Aug 2019 15:22:28 +0000 (UTC) for IP:'166.84.1.89'
+	DOMAIN:'mailbackend.panix.com' HELO:'mailbackend.panix.com'
+	FROM:'jdashiel@panix.com' RCPT:''
+X-RedHat-Spam-Score: -2.3  (RCVD_IN_DNSWL_MED, SPF_HELO_NONE,
+	SPF_PASS) 166.84.1.89 mailbackend.panix.com 166.84.1.89
+	mailbackend.panix.com <jdashiel@panix.com>
+X-Scanned-By: MIMEDefang 2.78 on 10.5.110.39
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -100,46 +73,53 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.44]); Sat, 24 Aug 2019 15:12:52 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.38]); Sat, 24 Aug 2019 15:22:38 +0000 (UTC)
 
-At the TARGET step, you need to accept to format the partition used for root or /. Accept default filesystem proposed ext4.
+Validate iso before burning.
+On Sat, 24 Aug 2019, Linux for blind general
+discussion wrote:
 
-The reason is 'auto' does create the partitions, but does not install a filesystem in them.
-
-You can reuse the same disk and go directly to the TARGET step after having logged in as root.
-
-Best,
-
-Didier
-
-
-
-On 24/08/2019 17:00, Linux for blind general discussion wrote:
+> Date: Sat, 24 Aug 2019 11:00:21
+> From: Linux for blind general discussion <blinux-list@redhat.com>
+> To: Linux for blind general discussion <blinux-list@redhat.com>
+> Subject: Slint package error
+>
 > I'll detail what I do to run into this.
-> 
-> 
-> 1. I download a fresh ISO from slint.fr and the 'get and install Slint' section, which takes me o the Slint UK one, and I get the .iso from there
-> 
-> 
+>
+>
+> 1. I download a fresh ISO from slint.fr and the 'get and install Slint'
+> section, which takes me o the Slint UK one, and I get the .iso from there
+>
+>
 > 2. I create the disk.raw file with size 30GB
-> 
-> 
+>
+>
 > 3. I do sudo sh qemo (else qemu won't work)
-> 
+>
 > 4. Boot up and choose auto partition
-> 
-> 
-> 5. Get to the p[art where it asks to install packages, going with default options all the way.
-> 
-> 
-> Every package it tries to install, has the 'there was a fatal error' message with it. I've tried a fresh download, the md5 verifies the ISO as correct.
-> 
+>
+>
+> 5. Get to the p[art where it asks to install packages, going with default
+> options all the way.
+>
+>
+> Every package it tries to install, has the 'there was a fatal error' message
+> with it. I've tried a fresh download, the md5 verifies the ISO as correct.
+>
 > Any ideas? Does the auto partition break things?
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+
+-- 
 
 _______________________________________________
 Blinux-list mailing list
