@@ -2,65 +2,89 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 902B29BFF1
-	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 22:02:47 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+	by mail.lfdr.de (Postfix) with ESMTPS id 72B799BFF3
+	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 22:05:12 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id A93E4307D8BE;
-	Sat, 24 Aug 2019 20:02:45 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6E73F5DD63;
-	Sat, 24 Aug 2019 20:02:45 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 4DD08C057F88;
+	Sat, 24 Aug 2019 20:05:10 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 66DCA5C553;
+	Sat, 24 Aug 2019 20:05:09 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4A0F61802218;
-	Sat, 24 Aug 2019 20:02:44 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3667B4A486;
+	Sat, 24 Aug 2019 20:05:07 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
 	[10.5.11.15])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7OK2fdM013277 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 24 Aug 2019 16:02:41 -0400
+	id x7OK47Li013301 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 24 Aug 2019 16:04:07 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 64DA85D704; Sat, 24 Aug 2019 20:02:41 +0000 (UTC)
+	id 8BD5A5D704; Sat, 24 Aug 2019 20:04:07 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx08.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.32])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5FBC85D6D0
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 20:02:39 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mx1.redhat.com (ext-mx20.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.49])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 871CB5D6D0
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 20:04:05 +0000 (UTC)
+Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com
+	[209.85.210.44])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id D8E2EC057EC0
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 20:02:37 +0000 (UTC)
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 46G8M12s2CznkR
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 16:02:37 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 46G8M11FtTzcbR; Sat, 24 Aug 2019 16:02:37 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 46G8M10vSqzcbQ
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 16:02:37 -0400 (EDT)
-Date: Sat, 24 Aug 2019 16:02:37 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: amazon?
-In-Reply-To: <251aee8d-1527-b391-a37e-e4fbf6799996@gmail.com>
-Message-ID: <alpine.NEB.2.21.1908241555430.22902@panix1.panix.com>
+	by mx1.redhat.com (Postfix) with ESMTPS id 957643086246
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 20:04:04 +0000 (UTC)
+Received: by mail-ot1-f44.google.com with SMTP id b1so11813452otp.6
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 13:04:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+	h=mime-version:in-reply-to:references:from:date:message-id:subject:to; 
+	bh=w7UeNmUQm06cDjy/JwTB6pLtVX3918UfOjeR7PowKFE=;
+	b=u7NaBfw9qbN5YG8abruQgkQa/Tx6Onyv3I9KdiJm+5hR7nnKbAhwuTjgRnFhqm0+VD
+	65HU6Qh3D4E3T0tnHi9skLqkIu07lW/vav04WMThQw9lRN/odzedOP6A2InVgwQXivWh
+	YN1wIAyd/JUBzrddVfzSbw+QDL5yONNpwc4YvMmf//Hd/fCtDPYjmXae5PZb0Dpd1lB4
+	tpVD4WMQuBljCdylu5dckQwR203fGq028UUuDJ6IC5zCZClypHuS0P36P6r6mhb5yGwu
+	GOoAdpqTzi0qzCcZ1fbVJ6vD31/gYcRwxKWG1sCvaWlQBCN69sNoSA/PmgTouxgt1YHy
+	56QQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=w7UeNmUQm06cDjy/JwTB6pLtVX3918UfOjeR7PowKFE=;
+	b=n9mByyQkk6BOOVAtxbbitxP0H3cg4k+iHFQ8UVuTpxZxOcBpi3WpiG3bS2pgApmTuO
+	KuZlS1Akb/vTmcru1Sl9n7SsNqQLYbJOwLquu+tBBo/RPtCbyhMGb/aiVqJR2wMD7Er7
+	4Hm5sqUlOv4eurCWnGoYPSx7ttb5LuexSd1muYlO3VZjFmZO5/EfOy+lHckwH7dR05iS
+	Ech1nUolNPwy880sVHftzfDLhA153JXAQXEaU1B+7Pr8A5Rk+cJPx8/u/f6/MRVgcnWy
+	BHzyBUEUaQ+h0eaokwzi+plUSg8T7Cmosv9P/6O0h0cxcszufjHgxCq5/tU9ZbtMT4+T
+	dCJg==
+X-Gm-Message-State: APjAAAX67ISEjBp6xf76VcWACKkOH6Zw4IRkQ/VxtEE4pDVMj6noNKMO
+	Rt0TvxZpzsrn5O3ZruBwzFIufr/3wr9Nd/Vtpt2q5Q==
+X-Google-Smtp-Source: APXvYqzmatwPureJA/8HbIvkgwtHVBXe4yTwEuz5XmwPwW9sJrX7YqPsSsIjsnowzpcy4j1YL4L5U7L3CuYs36P6vHs=
+X-Received: by 2002:a9d:66d2:: with SMTP id t18mr7367053otm.355.1566677043925; 
+	Sat, 24 Aug 2019 13:04:03 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a9d:48d:0:0:0:0:0 with HTTP;
+	Sat, 24 Aug 2019 13:04:03 -0700 (PDT)
+In-Reply-To: <Pine.LNX.4.64.1908241525220.31524@server2.shellworld.net>
 References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
 	<A4215BB2-6107-4752-AC5F-679E449FC076@gmail.com>
-	<Pine.LNX.4.64.1908241501480.31524@server2.shellworld.net>
-	<251aee8d-1527-b391-a37e-e4fbf6799996@gmail.com>
-MIME-Version: 1.0
-X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 238
-	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
-	[10.5.110.32]); Sat, 24 Aug 2019 20:02:38 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.32]);
-	Sat, 24 Aug 2019 20:02:38 +0000 (UTC) for IP:'166.84.1.89'
-	DOMAIN:'mailbackend.panix.com' HELO:'mailbackend.panix.com'
-	FROM:'jdashiel@panix.com' RCPT:''
-X-RedHat-Spam-Score: -2.3  (RCVD_IN_DNSWL_MED, SPF_HELO_NONE,
-	SPF_PASS) 166.84.1.89 mailbackend.panix.com 166.84.1.89
-	mailbackend.panix.com <jdashiel@panix.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.5.110.32
+	<Pine.LNX.4.64.1908231729330.11612@server2.shellworld.net>
+	<DCD8C4F3-9F51-486C-8E83-609B51DD8B03@gmail.com>
+	<Pine.LNX.4.64.1908241525220.31524@server2.shellworld.net>
+Date: Sat, 24 Aug 2019 20:04:03 +0000
+Message-ID: <CAO2sX30t5OyZF0UGSbBBHfAVqdK6vYZjbPB6V4chAT5OvU28CQ@mail.gmail.com>
+Subject: Re: amazon?
+To: blinux-list@redhat.com
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+	(mx1.redhat.com [10.5.110.49]);
+	Sat, 24 Aug 2019 20:04:04 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.49]);
+	Sat, 24 Aug 2019 20:04:04 +0000 (UTC) for IP:'209.85.210.44'
+	DOMAIN:'mail-ot1-f44.google.com' HELO:'mail-ot1-f44.google.com'
+	FROM:'mewtamer@gmail.com' RCPT:''
+X-RedHat-Spam-Score: -0.099  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
+	SPF_PASS) 209.85.210.44 mail-ot1-f44.google.com 209.85.210.44
+	mail-ot1-f44.google.com <mewtamer@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.49
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
@@ -80,106 +104,30 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.48]); Sat, 24 Aug 2019 20:02:46 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.32]); Sat, 24 Aug 2019 20:05:11 +0000 (UTC)
 
-I predict Dominos will have its clock thoroughly cleaned.  Precedent
-even in the Supreme Court isn't on their side.
-Congress made it clear what accessibility requirements are in the
-accessibility process and that happened in 2010.  There's about 16
-technical requirements and a Preamble to Section 508 and this was
-something D.O.D. got measured against in 2012 when Obama required a
-D.O.D.-wide accessibility report.  End result of that was the United
-States Navy was Accessibility Leader and the United States Navy was
-still left with serious problems and all other components had much work
-to do.  I know about that having worked for the Navy during that time.
+If all web designers and browser developers adhered to W3C standards,
+I suspect most of these problems would be non-existant...
 
-On Sat, 24 Aug 2019, Linux for blind general discussion wrote:
+However, I suspect those who make an effort to comply with standards
+are in the minority, that those who actually manage compliance are
+even rarer, and that a majority of those not trying for compliance are
+not even aware the W3C exists. I also suspect the W3C is completely
+lacking in the ability to enforce their standards, have my doubts any
+legal mandates that are enforcible align completely with W3C
+standards, and suspect the average user has negligible leverage to
+hold those who violate web standards accountable, especially if the
+site is hosted in a different country or the site owner lives in a
+different country from the user with the grievance.
 
-> Date: Sat, 24 Aug 2019 15:53:37
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Subject: Re: amazon?
->
-> Amazon is definitely aware of Linux. They have apps running on Android and
-> even platforms that use Android as their OS. They support Linux in AWS
-> including their own flavor of Linux. I'm sure their are some staff at Amazon
-> who don't know about Linux, but that doesn't mean the company is unaware of or
-> doesn't care about Linux.
->
->
-> BTW, there is still a legal question as to whether a web site which offers
-> products or services to the public needs to be accessible. The ADA doesn't
-> have companion guidelines on what it means for a site to be accessible and
-> Domino's is going to court to claim that the ADA doesn't require them to make
-> their site or apps accessible. I think the ADA does apply to public web sites,
-> and I think Domino's will lose, but that doesn't mean it isn't still an open
-> legal question.
->
->
->
-> On 8/24/19 2:11 PM, Linux for blind general discussion wrote:
-> > 1. My comment regarding Linux is based on direct communications with Amazon
-> > staff,? who have confessed not to have heard of it,and? who have no direct
-> > contact with their so called accessibility team when problems arise.
-> > 2. them properly compiled? elinks and links function with java script.
-> > 3.? Access is tied to interaction which is why even later editions of lynx
-> > can manage some scripting, submit buttons for example.
-> >
-> > 4. since adaptive technology is often a substitution for the persons eyes,
-> > hands, brain, and the like, what gives you the right to state that
-> > technology choices are not tied to physical mandates?? How does your stance
-> > differ from those who claim that access need not exist at all,? or that all
-> > those sharing? a label are the same?
-> > 5. the names of access or other individuals at amazon confirming your
-> > assumption here?? the legal stance is that if a site serves the public, an
-> > individual can expect equal public access...which is why? alternative
-> > doors??? are to exist? in the first place.
-> > How do you know what low graphics can or cannot do if you do not follow
-> > their development?? This is about keyboard response which exists in
-> > graphical? browsers like elinks and links.
-> >
-> >
-> >
-> > On Fri, 23 Aug 2019, Linux for blind general discussion wrote:
-> >
-> >> I don't believe for a minute that the accessibility staff at Amazon has
-> >> either forgotten or stopped caring about Linux accessibility. Realistically
-> >> though, it is possible that they have stopped worrying about the very small
-> >> number of people who still use text-based browsers and expect them to work
-> >> for shopping, banking and other modern internet tasks. The thing is Linux
-> >> accessibility in 2019 != lynx/links/elinks accessibility. In fact, this
-> >> hasn't been the case since about 2008 or so
-> >> .
-> >> Unfortunately, text-based browsers have not kept up with the rest of the
-> >> internet, and can't be expected to work well for most websites without a
-> >> major overhaul, especially since they don't even support the latest HTML5
-> >> standards, nor do they support accessibility standards that have been in
-> >> place for years. Even w3m doesn't fully support the w3c's own standards.
-> >>
-> >> Yes, I can see why some people may want these light-weight and fast
-> >> browsers to work with Amazon, and yes, they should be made aware of the
-> >> problems that people are having. But to say that Amazon doesn't care about
-> >> Linux accessibility because their site doesn't work with a text-based
-> >> browser is at best a gross exageration, and is at worst a grave disservice
-> >> to those of us who use Linux and a screen reader at the same time.
-> >> Imetumwa kutoka miti
-> >>
-> >> _______________________________________________
-> >> Blinux-list mailing list
-> >> Blinux-list@redhat.com
-> >> https://www.redhat.com/mailman/listinfo/blinux-list
-> >>
-> >>
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://www.redhat.com/mailman/listinfo/blinux-list
->
->
-
--- 
+Standards are nice and all, but their usefulness is much diminished if
+most of the relevant individuals are just ignoring the standards and
+doing their own thing, and personal experience would suggest that's
+exactly what's happening, especially if mouse/touch-only elements and
+vision tests in place of turing tests are violations of the standards
+as the abominations that are JavaScript clickables and Captcha are all
+over the place.
 
 _______________________________________________
 Blinux-list mailing list
