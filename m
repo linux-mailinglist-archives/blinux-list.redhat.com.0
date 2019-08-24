@@ -2,63 +2,64 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id B70C99BFDB
-	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 21:32:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 539579BFDF
+	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 21:35:58 +0200 (CEST)
 Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 2CD1C10F23E4;
-	Sat, 24 Aug 2019 19:32:12 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1205C5D6D0;
-	Sat, 24 Aug 2019 19:32:12 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 8F9403082199;
+	Sat, 24 Aug 2019 19:35:56 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5165F5D6D0;
+	Sat, 24 Aug 2019 19:35:56 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BB0F92551C;
-	Sat, 24 Aug 2019 19:32:11 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
-	[10.5.11.12])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 529BA1802218;
+	Sat, 24 Aug 2019 19:35:55 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
+	[10.5.11.23])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7OJWA4V012834 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 24 Aug 2019 15:32:10 -0400
+	id x7OJZqwD012898 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 24 Aug 2019 15:35:52 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 4F90E60C80; Sat, 24 Aug 2019 19:32:10 +0000 (UTC)
+	id 625F219C6A; Sat, 24 Aug 2019 19:35:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx22.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.63])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4A4B160BF1
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 19:32:07 +0000 (UTC)
+Received: from mx1.redhat.com (ext-mx05.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.29])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5D93119C69
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 19:35:49 +0000 (UTC)
 Received: from server2.shellworld.net (server2.shellworld.net [66.172.12.120])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 8CC81189DAC8
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 19:32:06 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id CB04119CF7A
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 19:35:48 +0000 (UTC)
 Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id 6988F8C04C9; Sat, 24 Aug 2019 19:32:06 +0000 (UTC)
+	id A58368C04C9; Sat, 24 Aug 2019 19:35:48 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id 68FCC8C0400
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 15:32:06 -0400 (EDT)
-Date: Sat, 24 Aug 2019 15:32:06 -0400 (EDT)
+	by server2.shellworld.net (Postfix) with ESMTP id A2DBD8C0400
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 15:35:48 -0400 (EDT)
+Date: Sat, 24 Aug 2019 15:35:48 -0400 (EDT)
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: amazon?
-In-Reply-To: <alpine.NEB.2.21.1908232114580.20438@panix1.panix.com>
-Message-ID: <Pine.LNX.4.64.1908241529040.31524@server2.shellworld.net>
+In-Reply-To: <CAO2sX32GhipoPjeRWNbCAT88bPgQYjOAoti50xXKafChDJ3H=w@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.1908241533180.31524@server2.shellworld.net>
 References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
 	<A4215BB2-6107-4752-AC5F-679E449FC076@gmail.com>
 	<Pine.LNX.4.64.1908231729330.11612@server2.shellworld.net>
 	<alpine.NEB.2.21.1908232114580.20438@panix1.panix.com>
+	<CAO2sX32GhipoPjeRWNbCAT88bPgQYjOAoti50xXKafChDJ3H=w@mail.gmail.com>
 MIME-Version: 1.0
 X-Greylist: Sender passed SPF test, ACL 264 matched, not delayed by
-	milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.63]);
-	Sat, 24 Aug 2019 19:32:06 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.63]);
-	Sat, 24 Aug 2019 19:32:06 +0000 (UTC) for IP:'66.172.12.120'
+	milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.29]);
+	Sat, 24 Aug 2019 19:35:48 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.29]);
+	Sat, 24 Aug 2019 19:35:48 +0000 (UTC) for IP:'66.172.12.120'
 	DOMAIN:'server2.shellworld.net' HELO:'server2.shellworld.net'
 	FROM:'klewellen@shellworld.net' RCPT:''
 X-RedHat-Spam-Score: 0.001 (SPF_HELO_NONE) 66.172.12.120
 	server2.shellworld.net 66.172.12.120 server2.shellworld.net
 	<klewellen@shellworld.net>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.63
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.78 on 10.5.110.29
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -78,45 +79,102 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.66]); Sat, 24 Aug 2019 19:32:12 +0000 (UTC)
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.42]); Sat, 24 Aug 2019 19:35:57 +0000 (UTC)
 
-In fact There  was an article in the new York times back in march 
-suggesting individuals  who want to avoid the bondage problems loading 
-heavy  graphics can cause use Lynx instead.  Many of the users on the Lynx 
-development list are not using adaptive technology at all.  Some live in 
-parts  of the world where loading heavy graphics    impacts their bondage, 
-or where that sort of Internet does not even exist.
-
+Public sites like Amazon are supposed to incorporate css to this end. In 
+fact  for a while, perhaps still?  there was a link on the main amazon 
+site advertising that if one wants a more simplified  shopping experience 
+one could go to the access page...which is now a disaster from a keyboard 
+standpoint.
 
 
-On Fri, 23 Aug 2019, Linux for blind general discussion wrote:
+On Sat, 24 Aug 2019, Linux for blind general discussion wrote:
 
-> Actually, sighted power users prefer text-based browsers when and where
-> possible in order to avoid javascript and all that goes with it.  Those
-> are decidedly not accessibility users in our sense but do want faster
-> access than can be had using graphical browsers.
+> Personally, it would be nice if web designers would stop shoehorning
+> JavaScript and other rich web stuff into pages where the same thing
+> could be accomplished with plain, old HTML, would stop setting cookies
+> when they aren't needed, and would do a sanity check to ensure their
+> forms work properly with keyboard and tabbing.
 >
-> On Fri, 23 Aug 2019, Linux for blind general discussion wrote:
+> That said, a site-side fix to any problem only fixes it for that
+> specific site, while a browser-side fix could in theory fix it across
+> many different sites.
 >
->> Date: Fri, 23 Aug 2019 20:32:51
->> From: Linux for blind general discussion <blinux-list@redhat.com>
->> To: Linux for blind general discussion <blinux-list@redhat.com>
->> Subject: Re: amazon?
+> Sadly, there doesn't seem to be much of a happy medium between
+> lumbering behemoths like Firefox and Chromium that weigh hundreds of
+> megabytes by the time you add up everything they need to run, and
+> lightweight html pagers like links, elinks, and lynx that are arguably
+> only good for accessing web 1.0 content.
+>
+> I'd love to ditch Firefox and the GUI in general, but for the sake of
+> my sanity, I don't think I could make the move without at least the
+> following features in a text web browser:
+>
+> Enough JavaScript/HTML5 support to display pages that use them to load
+> content, ideally disabled by default with a easy method of toggling it
+> on when needed or permanently allowing specified sites.
+>
+> Navigational hotkeys comparable to those provided when using a
+> Graphical browser with Orca, NVDA, or JAWS(seriously, some of these
+> are so handy I wonder how sighted people with mice(including my own
+> past self) make due without them.
+>
+> The option to turn multi-column web pages into single column pages or
+> to stretch the active cell in a table or element in a form to fit the
+> screen width.
+>
+> And my dream web browser would probably nearly replicate the
+> Firefox+Orca user experience minus the occasional sluggishness
+> introduced by the GUI and Python while having auto-converting all
+> clickables to something that can be activated with spacebar and/or
+> enter/return and adds in basic keyboard shortcuts for
+> temporarily/permanently allowing JavaScript/Cookies in the active
+> tab/from the site in the active tab(If starting with Firefox-like
+> keybindings, perhaps ctrl+J to toggle JavaScript and ctrl+K to toggle
+> cookies adding shift to change the permission permanently).
+>
+> Sadly, I don't know the first thing about coding a web browser, and
+> given how long the well known text browsers have been lagging in
+> regards to the most essential aspects of the modern web, I can only
+> hope their developers have their reasons for keeping their browsers in
+> the past and aren't just too lazy/don't know how to modernize their
+> projects.
+>
+> On 8/24/19, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+>> Actually, sighted power users prefer text-based browsers when and where
+>> possible in order to avoid javascript and all that goes with it.  Those
+>> are decidedly not accessibility users in our sense but do want faster
+>> access than can be had using graphical browsers.
 >>
->> Well, are you implying I should be forced to run a graphical screen-reader
->> such as Orca, so I can shop at Amazon? I suppose if there were something much
->> better than Orca, I would certainly try it out. My Wife wants me to
->> try-and-shop at Amazon from a Chrome Book. I will experiment.
->> Chime
+>> On Fri, 23 Aug 2019, Linux for blind general discussion wrote:
+>>
+>>> Date: Fri, 23 Aug 2019 20:32:51
+>>> From: Linux for blind general discussion <blinux-list@redhat.com>
+>>> To: Linux for blind general discussion <blinux-list@redhat.com>
+>>> Subject: Re: amazon?
+>>>
+>>> Well, are you implying I should be forced to run a graphical
+>>> screen-reader
+>>> such as Orca, so I can shop at Amazon? I suppose if there were something
+>>> much
+>>> better than Orca, I would certainly try it out. My Wife wants me to
+>>> try-and-shop at Amazon from a Chrome Book. I will experiment.
+>>> Chime
+>>>
+>>> _______________________________________________
+>>> Blinux-list mailing list
+>>> Blinux-list@redhat.com
+>>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>>
+>>>
+>>
+>> --
 >>
 >> _______________________________________________
 >> Blinux-list mailing list
 >> Blinux-list@redhat.com
 >> https://www.redhat.com/mailman/listinfo/blinux-list
 >>
->>
->
-> -- 
 >
 > _______________________________________________
 > Blinux-list mailing list
