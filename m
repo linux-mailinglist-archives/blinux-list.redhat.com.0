@@ -2,97 +2,102 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2A7329BC2E
-	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 08:14:24 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	by mail.lfdr.de (Postfix) with ESMTPS id 96F669BD59
+	for <lists+blinux-list@lfdr.de>; Sat, 24 Aug 2019 13:40:35 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 387F63082E90;
-	Sat, 24 Aug 2019 06:14:22 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 02B3E19C4F;
-	Sat, 24 Aug 2019 06:14:19 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 173113086258;
+	Sat, 24 Aug 2019 11:40:33 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BE7BC5C28C;
+	Sat, 24 Aug 2019 11:40:28 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 09B632551B;
-	Sat, 24 Aug 2019 06:14:15 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
-	[10.5.11.16])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3839118089C8;
+	Sat, 24 Aug 2019 11:40:21 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
+	[10.5.11.14])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7O6E7Y8029161 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 24 Aug 2019 02:14:07 -0400
+	id x7OBeDEM003085 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 24 Aug 2019 07:40:13 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 472235C548; Sat, 24 Aug 2019 06:14:07 +0000 (UTC)
+	id 02DC613ACF; Sat, 24 Aug 2019 11:40:13 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx20.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.49])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 417E65C296
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 06:14:04 +0000 (UTC)
-Received: from mail-yw1-f48.google.com (mail-yw1-f48.google.com
-	[209.85.161.48])
+Received: from mx1.redhat.com (ext-mx21.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.62])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id F111917AF3
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 11:40:10 +0000 (UTC)
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com
+	[209.85.221.53])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 054ED3086246
-	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 06:14:04 +0000 (UTC)
-Received: by mail-yw1-f48.google.com with SMTP id e65so4765589ywh.0
-	for <blinux-list@redhat.com>; Fri, 23 Aug 2019 23:14:03 -0700 (PDT)
+	by mx1.redhat.com (Postfix) with ESMTPS id 831F718C426C
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 11:40:09 +0000 (UTC)
+Received: by mail-wr1-f53.google.com with SMTP id z11so10924779wrt.4
+	for <blinux-list@redhat.com>; Sat, 24 Aug 2019 04:40:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=date:user-agent:in-reply-to:references:mime-version
-	:content-transfer-encoding:subject:to:from:message-id;
-	bh=6Unkcj9Y2tQHxS0OoBsUct4HcH8pSfPVZ9ehB+hrTf8=;
-	b=egAB+pxEJr32J36P4dBDfX+0MtA+p6GwUJYrwVjRPfUo0wgSJ6R9AXqEvHcbfQKcTu
-	qFT4+GnfGVTI5Sp4rw8yPcGPSJ9+PE0cqgIBBbakDc7e6SCKJxbPheUDbTxNHuLx6XLO
-	hqz28a5c50ZRHT5nEwgQWwz+tQRjS32xKfItTGw1vtmHXEBTzY+zcJ4DDvNrKRInZORa
-	daYselwViI6RzZHu6HR9NESd7mVpU1rBpr1cxeX0dAvUGFapP1MF7n0nrVrWcRoeYjsc
-	oxAqEOw85MAw8CHhW8hOKpluzHmISVFvaCLQSHWwbeV4/v+M4Ijyn9it9N7BCFBFvSx4
-	NiVQ==
+	h=from:subject:to:references:message-id:date:user-agent:mime-version
+	:in-reply-to:content-transfer-encoding:content-language;
+	bh=qe4oDoUtO2Nq4e26qb3bLHkxzRJVt56ArITXTfS5YLQ=;
+	b=cVSaDIm9//4mYQfIkjKtMQ1QoroJdj2VIkPzZxFutoaFclTrNPyudGMx4/uy7T6GD9
+	6FwoaQU6aZxB2H4rNNYLq/yOoMjyX95KWwbdYZ0peagI9gNo/N5TbeRtpjvGtGSiSZmZ
+	hHBfKyf7oDsXNlQXHWICmmmkV+N69ZXrzyMuq4O8J1IJhFQRZCPBMdB5zGX1nXTAdxwe
+	Bjb3AIpf/zDY6EdWOSte59zgIjbtKTXuh26QL70pbh3KpFswjRI5guDPnn02KzMfyHIC
+	xpSu1kP7nknmEKvX7JylzE/npigVvSlb++veJEJeQ6m7BydAuHsQi0gcyC5kh1bALAgo
+	Kjgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:date:user-agent:in-reply-to:references
-	:mime-version:content-transfer-encoding:subject:to:from:message-id;
-	bh=6Unkcj9Y2tQHxS0OoBsUct4HcH8pSfPVZ9ehB+hrTf8=;
-	b=Px7aUPUx/9+0vs7PmUmtstP+V+vrKmaq7OHghmjz5Ln/Vy2x1wfHWPqQk5cVDGO7Bh
-	tDadEZJjbCx3SlmT9n9Y33E0SAhdOBiA+R5EMWSoe6b0ywePAsTFgwCRtNpX4PDtAsV4
-	/kYJQxKKeh3SXcWAPBioAM22QqjzsUCH6lvTn8RKRCgxz3UN6UI86FQoOYQkhl/gmmUy
-	Eav5MkvOXcHjfWXnqu/4RptdmjFiXH0oISLVVdDNSttC707vQQTtWmcQX5AAOC7aDW/U
-	zSOVpQ0u37ADaPz2u477voMi3bnQmnED6y7O7/IrIR3w+mtIaQ5SsgBsxM/fBoJpfSpy
-	7V9A==
-X-Gm-Message-State: APjAAAXFycYxRP6P66dMHZjfzPaJPaRcO8V+j3YnKjUfBi0+YFVJLo1x
-	cY9raTDewoHa9hcJ6Owp6BVNe1BYyvs=
-X-Google-Smtp-Source: APXvYqzp3CvGDUagIMRv2K2X3WjiMzyTDz/i0qfG5uN8YXch9nWgaLPlYqz81m9FKcqtCBByUU0/UQ==
-X-Received: by 2002:a81:7a92:: with SMTP id v140mr5892343ywc.315.1566627242965;
-	Fri, 23 Aug 2019 23:14:02 -0700 (PDT)
-Received: from android-6116dfaa305bca74.lan (cpe-75-189-192-174.nc.res.rr.com.
-	[75.189.192.174]) by smtp.gmail.com with ESMTPSA id
-	e127sm1077245ywb.28.2019.08.23.23.14.01 for <blinux-list@redhat.com>
+	h=x-gm-message-state:from:subject:to:references:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding
+	:content-language;
+	bh=qe4oDoUtO2Nq4e26qb3bLHkxzRJVt56ArITXTfS5YLQ=;
+	b=anjipFksi4sdA9bEcZD8XkdbN9Ah0xpx5rTleUCTNWdw0pi5b2oWTn6Nyy83QOOtyC
+	0PBk2RF//mAu7I4udT1dea0M66W4SFZ+7BT8LupdDkL55istz3ZAl9eETl8LRsOIKPb/
+	c/uWq9zhTFroufTMo4oRb1aZ/ie60Re3nHOcys4gNIGPjHgQGJOV70PdnNsWXQU9uSLm
+	oTvEjoLSVi2FCjtRxA7hh3GUA/w8vuz7ryb0ov2UXJevvwGjTdVcmx6X4MoPiD/8ldZr
+	fT8q8Bs0yKg6SvHQHcW8SyJPDriFHij6hC50+PcKN7wjzLNHNOBxayGiZaQXSsWl5lid
+	L0KA==
+X-Gm-Message-State: APjAAAXtulHoJzEIAuDayWBt4pW1XBls3eztnI/jf//IXFz2eF6JX+Th
+	1axXuDehFsbFh840YUrJgRD3BkIK
+X-Google-Smtp-Source: APXvYqxJxdUPVlYWgOrfWOmTRxI92lWCiqKFOC4alV6vFKxE3g2rMhr4B8QMkgAYCXN7CSeW1vWfXw==
+X-Received: by 2002:a5d:54ce:: with SMTP id x14mr10595571wrv.237.1566646807943;
+	Sat, 24 Aug 2019 04:40:07 -0700 (PDT)
+Received: from ?IPv6:2a04:b2c2:807:200:5c4c:f7fa:5d83:63aa?
+	([2a04:b2c2:807:200:5c4c:f7fa:5d83:63aa])
+	by smtp.gmail.com with ESMTPSA id t13sm6468669wrr.0.2019.08.24.04.40.06
+	for <blinux-list@redhat.com>
 	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-	Fri, 23 Aug 2019 23:14:02 -0700 (PDT)
-Date: Sat, 24 Aug 2019 02:13:53 -0400
-User-Agent: K-9 Mail for Android
-In-Reply-To: <CAO2sX32GhipoPjeRWNbCAT88bPgQYjOAoti50xXKafChDJ3H=w@mail.gmail.com>
-References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
-	<A4215BB2-6107-4752-AC5F-679E449FC076@gmail.com>
-	<Pine.LNX.4.64.1908231729330.11612@server2.shellworld.net>
-	<alpine.NEB.2.21.1908232114580.20438@panix1.panix.com>
-	<CAO2sX32GhipoPjeRWNbCAT88bPgQYjOAoti50xXKafChDJ3H=w@mail.gmail.com>
+	Sat, 24 Aug 2019 04:40:07 -0700 (PDT)
+X-Google-Original-From: Jace Kattalakis <KHALFANG1366@GMAIL.COM>
+Subject: Re: Slint and VM
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <9371f6c4-35d7-7990-67ed-32cacb736d47@GMAIL.COM>
+	<8f446f63-2eb6-6d85-5216-3295372bb7a7@gmail.com>
+	<f4214c34-41af-8dad-ee32-6598873714b9@GMAIL.COM>
+	<78bc145a-aafa-9d61-72ea-788a2712de0d@slint.fr>
+	<3e503f57-08c0-6cc2-9017-024eb2af9484@GMAIL.COM>
+	<56b7a7a3-0cc8-f1a0-19bb-dceba63f72ce@slint.fr>
+Message-ID: <84c8f8a1-3388-a20a-fb3e-27c52655010c@GMAIL.COM>
+Date: Sat, 24 Aug 2019 12:40:06 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+	Thunderbird/60.8.0
 MIME-Version: 1.0
-Subject: Re: amazon?
-To: blinux-list@redhat.com
-Message-ID: <31ECFF33-9D34-476D-9B96-10EB9F491255@gmail.com>
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
-	(mx1.redhat.com [10.5.110.49]);
-	Sat, 24 Aug 2019 06:14:04 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.49]);
-	Sat, 24 Aug 2019 06:14:04 +0000 (UTC) for IP:'209.85.161.48'
-	DOMAIN:'mail-yw1-f48.google.com' HELO:'mail-yw1-f48.google.com'
-	FROM:'kyle4jesus@gmail.com' RCPT:''
-X-RedHat-Spam-Score: -0.099  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
-	SPF_PASS) 209.85.161.48 mail-yw1-f48.google.com 209.85.161.48
-	mail-yw1-f48.google.com <kyle4jesus@gmail.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.49
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id x7O6E7Y8029161
+In-Reply-To: <56b7a7a3-0cc8-f1a0-19bb-dceba63f72ce@slint.fr>
+Content-Language: en-US
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
+	(mx1.redhat.com [10.5.110.62]);
+	Sat, 24 Aug 2019 11:40:09 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.62]);
+	Sat, 24 Aug 2019 11:40:09 +0000 (UTC) for IP:'209.85.221.53'
+	DOMAIN:'mail-wr1-f53.google.com' HELO:'mail-wr1-f53.google.com'
+	FROM:'khalfang1366@gmail.com' RCPT:''
+X-RedHat-Spam-Score: 0.151  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_ENVFROM_END_DIGIT, FREEMAIL_FROM, RCVD_IN_DNSWL_NONE,
+	SPF_HELO_NONE,
+	SPF_PASS) 209.85.221.53 mail-wr1-f53.google.com 209.85.221.53
+	mail-wr1-f53.google.com <khalfang1366@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.62
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -107,15 +112,135 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.46]); Sat, 24 Aug 2019 06:14:22 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.49]); Sat, 24 Aug 2019 11:40:34 +0000 (UTC)
 
-Tell all this to the W3C and other standards bodies who have adopted HTML5 and Javascript standards for the web. If so many people really want to use text-base browsers wherever possible, then one would think that either text-based browsers would be better developed to fully comply with the latest web standards, or that web standards didn't need to be updated at all, since the 1990's HTML standards were sufficient then, and should still be satisfactory now. For many sites, especially those with large codebases, it can be a nightmare just supporting four well-known graphical browsers. But I know firsthand that trying to support text-based browsers can greatly increase the codebase, which can make already large pages rather unwieldy.
-Imetumwa kutoka karatasi yangu
+Okay so from a base Debian/Ubuntu install....what packages do I need to 
+do the qemu-img stuff since I tried the man kemu and it kept saying no 
+manual for qemu
+
+Is that supposed to happen?
+
+On 24/08/2019 00:07, Linux for blind general discussion wrote:
+> Hello,
+>
+> Let's create a qemu directory in your $HOME and go there with these
+> commands:
+>
+> mkdir $HOME/qemu
+> cd $HOMeqemu
+>
+> Thjen create a virtual disk of size 2O G (Slint needs around 13G).
+> Check first that you have enough space then type:
+> qemu-img create disk.raw 20G
+>
+> Then write a script to set up your VM. Let's name it qemu.sh. here is a
+> suggested content:
+>
+> #/bin/sh
+> qemu-system-x86_64 \
+> -machine q35 \
+> -enable-kvm \
+> -cpu host \
+> -boot order=d \
+> -m 2G \
+> -soundhw hda \
+> -boot menu=on \
+> -display gtk \
+> -vga std \
+> -drive file=disk.raw,format=raw,media=disk \
+> -cdrom slint64-14.2.1.2.iso
+>
+> Make the script executable:
+> chmod 755 qemu.sh
+>
+> This is a simple example. I assume that the ISO is also in $HOME/qemu,
+> else after -cdrom indicate its path.
+>
+> After installation, cloe the virtukla machibe and before staring it
+> again change the boot order to boot on the virtual drive:
+> -boot order=c
+>
+> To know more read "man qemu".
+>
+> Best,
+>
+> Didier
+>
+> On 23/08/2019 22:58, Linux for blind general discussion wrote:
+>> Yes I do need help to set up the VM. I use VirtualBox since I know it 
+>> works....but can you walk me through the very beginning, I assume I 
+>> can use libvert-manager for this, right?
+>>
+>> Or how do I do this, then. I'm a complete and utter beginner at kemu 
+>> honestly
+>>
+>> On 23/08/2019 21:48, Linux for blind general discussion wrote:
+>>> Hello,
+>>>
+>>> Didier, Slint maintainer, here.
+>>>
+>>> I suggest to use Qemu instead. It works well, and the sound is way 
+>>> better than with VirtualBox.
+>>>
+>>> That's what I use first to test the new Slint ISOs, before trying 
+>>> them on bare metal.
+>>>
+>>> If you need help to set up the virtual machine, just ask.
+>>>
+>>> Best regards,
+>>>
+>>> Didier
+>>>
+>>> On 23/08/2019 22:11, Linux for blind general discussion wrote:
+>>>> I thought for some reason Vbox (the one from the 18.04 repos) 
+>>>> supportd Slackware? I'm not sure though, when I put in Slackware so 
+>>>> Vbox can auto find it, it defaulted to Win7. Not...quite what I 
+>>>> want. So...yeah, anyone got Slint to work on a VM? I have a 
+>>>> perfectly good Ubuntu physical machine, wanted to test Slint out 
+>>>> and see if it's any good in a VM
+>>>>
+>>>> On 23/08/2019 21:08, Linux for blind general discussion wrote:
+>>>>> I tried this under Windows and VMWare player, had the same issue.
+>>>>>
+>>>>>
+>>>>> No longer an option, soled the Mac with the bootcamp, so have to 
+>>>>> learn virtualization the linux way, since it is all I have now.
+>>>>>
+>>>>>
+>>>>> Warm regards,
+>>>>>
+>>>>> Brandt Steenkamp
+>>>>>
+>>>>> Sent using thunderbird on Ubuntu 19.04.
+>>>>>
+>>>>> I teach macOS as well as iOS, not because I want to, but because 
+>>>>> it's easy.
+>>>>>
+>>>>> On 2019/08/23 22:04, Linux for blind general discussion wrote:
+>>>>>> Okay, I'm trying to set Slint up in Virtualbox but....using the 
+>>>>>> latest ISO, nothing happens. What settings do I need to config 
+>>>>>> for the VM to work successfully?
+>>>
+>>> _______________________________________________
+>>> Blinux-list mailing list
+>>> Blinux-list@redhat.com
+>>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
 
 _______________________________________________
 Blinux-list mailing list
