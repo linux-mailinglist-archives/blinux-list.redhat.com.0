@@ -2,74 +2,69 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5F7649C685
-	for <lists+blinux-list@lfdr.de>; Mon, 26 Aug 2019 01:21:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id AB9A79C686
+	for <lists+blinux-list@lfdr.de>; Mon, 26 Aug 2019 01:24:28 +0200 (CEST)
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id A916E3091786;
-	Sun, 25 Aug 2019 23:21:20 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 14087308421A;
+	Sun, 25 Aug 2019 23:24:27 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 81455600C4;
-	Sun, 25 Aug 2019 23:21:20 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id DFF96600C4;
+	Sun, 25 Aug 2019 23:24:26 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4B9182551C;
-	Sun, 25 Aug 2019 23:21:20 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B81DE2551C;
+	Sun, 25 Aug 2019 23:24:26 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
 	[10.5.11.22])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7PNLI0K012837 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 25 Aug 2019 19:21:18 -0400
+	id x7PNOO3n012892 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 25 Aug 2019 19:24:24 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 291911001B12; Sun, 25 Aug 2019 23:21:18 +0000 (UTC)
+	id 4471510016EB; Sun, 25 Aug 2019 23:24:24 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx08.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.32])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2413D1001B08
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:21:15 +0000 (UTC)
-Received: from mail-oi1-f176.google.com (mail-oi1-f176.google.com
-	[209.85.167.176])
+Received: from mx1.redhat.com (ext-mx18.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.47])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3CE1810016E9
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:24:22 +0000 (UTC)
+Received: from mail-ot1-f51.google.com (mail-ot1-f51.google.com
+	[209.85.210.51])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id BC422C057E9A
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:21:14 +0000 (UTC)
-Received: by mail-oi1-f176.google.com with SMTP id t24so10768098oij.13
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 16:21:14 -0700 (PDT)
+	by mx1.redhat.com (Postfix) with ESMTPS id 3F082308218D
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:24:21 +0000 (UTC)
+Received: by mail-ot1-f51.google.com with SMTP id k18so13575418otr.3
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 16:24:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=subject:to:references:from:message-id:date:user-agent:mime-version
-	:in-reply-to:content-transfer-encoding:content-language;
-	bh=89/awQ/VSMwTu1oUYDgp+EWFlBBKhufR+V9QB2iXhyQ=;
-	b=NI2COs3/8rXd0M2mDwYGxoAsAhU5m5oNAF1S6jsHq0LjmRxl7nywwSQ0cb6CYg3vzF
-	Dx2MJg/C0PwNQtgqm/zs3wb8lsKR/tJw0vyzOuY/wzP7L3WZE+avFeanZZ26Wd4VdsQ8
-	nVQHSvjgHsqmEaXd2pz6zMdYHQLefU5dUobos67qNkz7Eb4xPJy9PM/Mh8UOyox9vxsW
-	mHClWrZJFWPVyDODhBoq/T/KqvPULj4gHbZavVANiG2XWAn5beUTtq6bZ42jArroklyh
-	LPAQngxFDVdjzNVMSXiAgyw1vFANxrBD70rlxV9sxDLDUkHEiqexbKYxHsYUPszCnLPi
-	no4A==
+	h=mime-version:in-reply-to:references:from:date:message-id:subject:to
+	:content-transfer-encoding;
+	bh=SP5dzEcF0RYOB85FeEFn2o77Rx0k/QtptuAWCFz4o2Q=;
+	b=Lfy96R6ZFjCqCXMXKYYizTRWAix0yGWdW4UhgCOTEMXnp5lEHhoJfhT78aD7D77u9/
+	8tzfYSP0wN/B0HTZGbdu2F7xsA6bL4TZbbM7RXfVX+1lkJS3DA/NtvnpZZmYLL0rkwby
+	6a5XRHT1aFXct4YryV9FxCXeUDUzLeEsw26GPJUGyossFc8l7/hfhDAj/U0BzL8jhhXj
+	sqO8hPo5WGWtg+fKAnP3qzFWLyICYSDE6LYUg+uq36ezCyqJsqgqindsoZh9YQhpqpKB
+	TnpU78EOGDpfhjJGmQpvCn34XCvfK3h2y4lAeH2UtgQqwRsU0cca3cyfmRc6c/tsMIE9
+	9+kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=89/awQ/VSMwTu1oUYDgp+EWFlBBKhufR+V9QB2iXhyQ=;
-	b=tXQ1QI9zp3WB1hs40S1kyx132Cj3pAOQwJoRoB9qhkGgjqD/aL9Q8ak1gniWkWTwu5
-	RW48j4jyGfja2nmFaSRNCnNYNuj9rc0dWEc406cb5hU1OziXlGDa3+xtW5lQWOzvwarD
-	up5Tvjt3dnQyk5sa+P9/6C2aMNkuodsxRq5PIyTKmrXq00ZAHMUt9Ia9Y/qvrhze7819
-	u/xEz1XiwUT3HQu1W/twKNf1tEUHXxRtkaxx3nY243/t+EoDo8nHhBdiXEVt7Hxo+zqv
-	HqPOjyiT7hDH0Hsxvr7+fn9yYmyRKrx8z7OPf3TWnfYVPjalh1VP5zKbUj/IH9oRjWmF
-	YniQ==
-X-Gm-Message-State: APjAAAWhs8ck70HQtCx7AdqEtqmUvn54HTALWyp6ke2PgPXZKHZS5WLW
-	r2zsfbIyQiJdgpfUvw7LDd8Er6U8
-X-Google-Smtp-Source: APXvYqx9fTcKPl5lWTPGLZXkpoB1WfJwSTNUBpZGkyoKIYymjSGvh2KeqzPgONgQMCeIarzjuRYxZg==
-X-Received: by 2002:aca:1714:: with SMTP id j20mr9670648oii.135.1566775273914; 
-	Sun, 25 Aug 2019 16:21:13 -0700 (PDT)
-Received: from [192.168.1.11] (74-194-137-49.gtwncmta01.res.dyn.suddenlink.net.
-	[74.194.137.49])
-	by smtp.gmail.com with ESMTPSA id c5sm3428324otl.29.2019.08.25.16.21.13
-	for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-	Sun, 25 Aug 2019 16:21:13 -0700 (PDT)
-Subject: Re: amazon?
-To: blinux-list@redhat.com
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to:content-transfer-encoding;
+	bh=SP5dzEcF0RYOB85FeEFn2o77Rx0k/QtptuAWCFz4o2Q=;
+	b=MeJCrS0O2p3gyNWRpq7mm0S463cws7JYU4+lSCE+WPop0AAnFxGl4RXvAgD52LWuvX
+	2Oui6SnUTMTb4m/H+X2JKxfXEtEDc5hCz73pt8CXViKtl6Iqh2HvjRrJEBNbLBDeesgZ
+	XZIG7jC2cnKm/jD77uy7+Hy65iJMqRFGI1xrxit6pniMWM83ANlBLf9kZVKuAStVrfO0
+	v7VsWyiFqY+kU9UDSudK48DBkb4z9cCnCfNkYRLb42FQioeGA1fxyRVDJTaDEwmxhHHQ
+	yCaw7K6g9MFla8o0WuLO8V40Ibe3NRF83lvreCB2Rc5y9PpPF3+E1fa0G+WwydJ+xR3M
+	146w==
+X-Gm-Message-State: APjAAAUYE63Q1U5OytavWXj2NnrD3G25COMBLR+UC9E/pDfHi/DF/LUX
+	1FZDUZQDs7XYwJFJYggP5nfbwkSb/YqvjCdf6GP+VA==
+X-Google-Smtp-Source: APXvYqyEOKt72kuk8Ow7qLmRXLjTZb/oqmgepYWTe/fe8Qw+lS7C9qbBkXOitHJkf+ourx4qUbay6Bc8xejge1PC600=
+X-Received: by 2002:a9d:4814:: with SMTP id c20mr13574108otf.186.1566775460583;
+	Sun, 25 Aug 2019 16:24:20 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a9d:48d:0:0:0:0:0 with HTTP;
+	Sun, 25 Aug 2019 16:24:20 -0700 (PDT)
+In-Reply-To: <DA14CE33-EEF3-4B2B-9590-E890E60D4ECE@gmail.com>
 References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
 	<251aee8d-1527-b391-a37e-e4fbf6799996@gmail.com>
 	<alpine.NEB.2.21.1908241555430.22902@panix1.panix.com>
@@ -84,26 +79,27 @@ References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
 	<20190825.213109.635.20@192.168.1.131>
 	<64b28f07-c53c-1943-b5de-e27bc6222f24@gmail.com>
 	<CAO2sX31Df3_6iHD8bF41e3E9A0D-0vJs1Xs4nTouVk4RV5uJUQ@mail.gmail.com>
-Message-ID: <b179b7b3-ec76-1c40-4ea6-794b7c1f4062@gmail.com>
-Date: Sun, 25 Aug 2019 18:21:13 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
-	Thunderbird/60.8.0
-MIME-Version: 1.0
-In-Reply-To: <CAO2sX31Df3_6iHD8bF41e3E9A0D-0vJs1Xs4nTouVk4RV5uJUQ@mail.gmail.com>
-Content-Language: en-US
+	<DA14CE33-EEF3-4B2B-9590-E890E60D4ECE@gmail.com>
+Date: Sun, 25 Aug 2019 23:24:20 +0000
+Message-ID: <CAO2sX31aVqEVpaBAtpqfk1D9-8qqQ34quNGs_mFk5xEOpsj+Mg@mail.gmail.com>
+Subject: Re: amazon?
+To: blinux-list@redhat.com
 X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
-	(mx1.redhat.com [10.5.110.32]);
-	Sun, 25 Aug 2019 23:21:14 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.32]);
-	Sun, 25 Aug 2019 23:21:14 +0000 (UTC) for IP:'209.85.167.176'
-	DOMAIN:'mail-oi1-f176.google.com'
-	HELO:'mail-oi1-f176.google.com' FROM:'chaltain@gmail.com' RCPT:''
-X-RedHat-Spam-Score: -0.099  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
-	SPF_PASS) 209.85.167.176 mail-oi1-f176.google.com 209.85.167.176
-	mail-oi1-f176.google.com <chaltain@gmail.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.5.110.32
+	(mx1.redhat.com [10.5.110.47]);
+	Sun, 25 Aug 2019 23:24:21 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.47]);
+	Sun, 25 Aug 2019 23:24:21 +0000 (UTC) for IP:'209.85.210.51'
+	DOMAIN:'mail-ot1-f51.google.com' HELO:'mail-ot1-f51.google.com'
+	FROM:'mewtamer@gmail.com' RCPT:''
+X-RedHat-Spam-Score: -0.097  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, RCVD_IN_MSPIKE_H3,
+	RCVD_IN_MSPIKE_WL, SPF_HELO_NONE,
+	SPF_PASS) 209.85.210.51 mail-ot1-f51.google.com 209.85.210.51
+	mail-ot1-f51.google.com <mewtamer@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.47
 X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id x7PNOO3n012892
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -118,61 +114,56 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.41]); Sun, 25 Aug 2019 23:21:21 +0000 (UTC)
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.40]); Sun, 25 Aug 2019 23:24:27 +0000 (UTC)
 
-Microsoft has been recommitted to accessibility since their new CEO took 
-over. Narrator is a viable screen reader now, and you can install 
-Windows completely eyes free now. I've also heard their magnification 
-software has improved a lot. They have apps on the App Store designed 
-especially with the blind in mind, such as Seeing AI. They developed a 
-way to teach programming concepts to young blind children called Code 
-Builder. They have a corporate Chief Accessibility Officer. They have a 
-Disability Answer Desk. There CEO has made accessibility part of their 
-mission statement https://www.youtube.com/watch?v=z3SP6X1_wuc
-
-
-What I had in mind when I made the post below though (which was pruned 
-from this thread) was their 2019 Super Bowl commercial where they had 
-disabled children playing on the XBox. They didn't do any of this to 
-pick up a few sales to disabled people or even because of a threat of a 
-law suit. They did it because it was the right thing to do, and they're 
-also cashing in on the positive PR.
-
-
-I'm not saying Microsoft is perfect and that they don't have a ways to 
-go making some of their software more accessible, but they're a good 
-example of a company who could shrug off caring about the disabled, but 
-instead they've changed course and now seem to have a real commitment 
-towards accessibility.
-
-
--- 
-Christopher (CJ)
-Chaltain at Gmail
-
-
-On 8/25/19 5:52 PM, Linux for blind general discussion wrote:
-> Since when is Microsoft committed to accessibility? I thought the
-> whole reason NVDA exists is because Window's built-in screen reader is
-> garbage and JAWS is prohibitively expensive. Also, I thought Microsoft
-> was pretty much the poster child for shrugging off lawsuits and
-> continuing to screw over their customers as much as possible.
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
-
--- 
-Christopher (CJ)
-Chaltain at Gmail
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
+SHVoLCBndWVzcyBldmVuIGEgY29tcGFueSB3aXRoIGEgZGVjYWRlcyBsb25nIGhpc3Rvcnkgb2Yg
+cGlzc2luZyBvZmYKdGhlaXIgY3VzdG9tZXJzIGFuZCBnZXR0aW5nIGF3YXkgd2l0aCBpdCBjYW4g
+dHVybiBvdmVyIGEgbmV3IGxlYWYuLi4KKkNvbnN1bHRzIFdpa2lwZWRpYS4qIEh1aCwgZGlkbid0
+IHJlYWxpemUgV2luMTAgd2FzIGFscmVhZHkgZm91ciB5ZWFycwpvbGQsIHNlZW1zIGxpa2UgaXQg
+d2Fzbid0IHRoYXQgbG9uZyBhZ28gdGhhdCBldmVyeW9uZSB3YXMgY29tcGxhaW5pbmcKYWJvdXQg
+TWljcm9zb2Z0IHRyeWluZyB0byBmb3JjZSB1cGRhdGUgYWxsIHRoZSBXaW43IGFuZCBXaW44IG1h
+Y2hpbmVzCnRvIDEwIGFuZCBicmlja2luZyBtb3N0IG9mIHRoZW0gaW4gdGhlIHByb2Nlc3MuIEFk
+bWl0dGVkbHksIHRoZSBsYXN0CnRpbWUgSSByYW4gV2luZG93cyBvbiBteSBvd24gbWFjaGluZXMg
+Zm9yIGxvbmdlciB0aGFuIGl0IHRvb2sgdG8KZG93bmxvYWQgYW5kIGJ1cm4gYW4gaXNvIHRvIHJl
+cGxhY2UgV2luZG93cyB3aXRoIExpbnV4IHdhcyBiYWNrIGluIHRoZQpYUCBkYXlzLCBhbmQgdGhl
+IGxhc3QgdGltZSBJIHVzZWQgV2luZG93cyBsb25nIGVub3VnaCB0byBkb3dubG9hZCBhbmQKYnVy
+biBhbiBpc28gd2FzIG9uIGEgV2luNyBtYWNoaW5lIHByaW9yIHRvIGdvaW5nIGJsaW5kKG5hdHVy
+YWxseSwgSSd2ZQp1c2VkIFdpbm9kd3Mgb24gc2Nob29sIGNvbXB1dGVycyBzaW5jZSB0aGVuLCBi
+dXQgY2FycnlpbmcgbXkgb3duCmNvbXB1dGVyIHdhcyBlYXNpZXIgdGhhbiB0cnlpbmcgdG8gZ2V0
+IG15IHVuaSdzIERpc2FiaWxpdHkgc2VydmljZXMKb2ZmaWNlIHRvIGluc3RhbGwgYSBzY3JlZW4g
+cmVhZGVyLCBhbmQgbXkgZXhwZXJpZW5jZSB3aXRoIEpBV1MgYW5kCk5WREEgaXMgd2hvbGVseSB0
+aG91Z2ggdGltZSBzcGVudCBpbiBhIFZvY2F0aW9uYWwgUmVoYWIgZm9yIHRoZSBCbGluZApwcm9n
+cmFtKS4KCk9uIDgvMjUvMTksIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gPGJs
+aW51eC1saXN0QHJlZGhhdC5jb20+IHdyb3RlOgo+IE1pY3Jvc29mdCBoYXMgYmVlbiBnZXR0aW5n
+IGJldHRlciBmb3IgYSBmZXcgeWVhcnMgbm93LiBOb3QgYWxsIHRoYXQgb25lCj4gdGhpbmtzIGlz
+buKAmXQgdHJ1ZSBmb3IgYWxsIHRpbWUuIOKYuu+4jwo+IE5hcnJhdG9yIGlzIGFjdHVhbGx5IGlt
+cHJvdmluZy4gTm90IGF0IGFuIGFsYXJtaW5nIHJhdGUgb3IgYW55dGhpbmcsIGFuZAo+IGNvcmUg
+YXBwcyBpbiBXaW5kb3dzLCBlc3BlY2lhbGx5IE1haWwsIHJlbWFpbiBhIHBhaW4gZm9yIGFueSBz
+Y3JlZW4gcmVhZGVyCj4gdXNlciB0byB1c2UsIGJ1dCBtYXliZSB0aGV54oCZbGwgYWN0dWFsbHkg
+bGlzdGVuIHRvIGZlZWRiYWNrIG9uIHRoYXQgaXNzdWUsCj4gYW5kIG5vdCBqdXN0IGRvIHdoYXRl
+dmVyIHRoZXkgZmVlbCBsaWtlIGF0IHRoZSB0aW1lLCB3aGljaCwgdG8gYmUgZmFpciwgaXMKPiB3
+aGF0IG1vc3QgY29tcGFuaWVzIHNlZW0gdG8gZG8sIGV2ZW4gaW4gdGhlIGFjY2Vzc2liaWxpdHkg
+c3BhY2UuICJJdCBkb2VzbuKAmXQKPiBtYXR0ZXIgd2hhdCB5b3Ugd2FudCwiIHRoZXkgc2VlbSB0
+byBzYXksIOKAnHdlIGtub3cgd2hhdCB5b3Ugd2FudCwgc28gd2XigJlsbCBkbwo+IHdoYXQgd2Ug
+a25vdyB5b3Ugd2FudC4iCj4KPj4gT24gQXVnIDI1LCAyMDE5LCBhdCA1OjUyIFBNLCBMaW51eCBm
+b3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uCj4+IDxibGludXgtbGlzdEByZWRoYXQuY29tPiB3
+cm90ZToKPj4KPj4gU2luY2Ugd2hlbiBpcyBNaWNyb3NvZnQgY29tbWl0dGVkIHRvIGFjY2Vzc2li
+aWxpdHk/IEkgdGhvdWdodCB0aGUKPj4gd2hvbGUgcmVhc29uIE5WREEgZXhpc3RzIGlzIGJlY2F1
+c2UgV2luZG93J3MgYnVpbHQtaW4gc2NyZWVuIHJlYWRlciBpcwo+PiBnYXJiYWdlIGFuZCBKQVdT
+IGlzIHByb2hpYml0aXZlbHkgZXhwZW5zaXZlLiBBbHNvLCBJIHRob3VnaHQgTWljcm9zb2Z0Cj4+
+IHdhcyBwcmV0dHkgbXVjaCB0aGUgcG9zdGVyIGNoaWxkIGZvciBzaHJ1Z2dpbmcgb2ZmIGxhd3N1
+aXRzIGFuZAo+PiBjb250aW51aW5nIHRvIHNjcmV3IG92ZXIgdGhlaXIgY3VzdG9tZXJzIGFzIG11
+Y2ggYXMgcG9zc2libGUuCj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+PiBCbGludXgtbGlzdEBy
+ZWRoYXQuY29tCj4+IGh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGlu
+dXgtbGlzdAo+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20K
+PiBodHRwczovL3d3dy5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0
+IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vd3d3LnJlZGhhdC5j
+b20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
