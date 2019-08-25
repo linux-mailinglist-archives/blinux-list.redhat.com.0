@@ -2,73 +2,68 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6CAFD9C652
-	for <lists+blinux-list@lfdr.de>; Sun, 25 Aug 2019 23:48:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B85289C670
+	for <lists+blinux-list@lfdr.de>; Mon, 26 Aug 2019 00:39:34 +0200 (CEST)
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id CDBCE3082E03;
-	Sun, 25 Aug 2019 21:48:07 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0B76D1001959;
-	Sun, 25 Aug 2019 21:48:07 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 153C48CF1A5;
+	Sun, 25 Aug 2019 22:39:33 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 02B5810027A6;
+	Sun, 25 Aug 2019 22:39:31 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B3AD889CF;
-	Sun, 25 Aug 2019 21:48:04 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
-	[10.5.11.16])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2BD2F180B536;
+	Sun, 25 Aug 2019 22:39:29 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
+	[10.5.11.13])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7PLm08A011382 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 25 Aug 2019 17:48:00 -0400
+	id x7PMdKbC012093 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 25 Aug 2019 18:39:20 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 154FE5C28C; Sun, 25 Aug 2019 21:48:00 +0000 (UTC)
+	id 71F1360920; Sun, 25 Aug 2019 22:39:20 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx25.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.66])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0F3EE5C1D8
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 21:47:57 +0000 (UTC)
-Received: from mail-oi1-f177.google.com (mail-oi1-f177.google.com
-	[209.85.167.177])
+Received: from mx1.redhat.com (ext-mx12.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.41])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6CB07608C1
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 22:39:18 +0000 (UTC)
+Received: from mail-oi1-f173.google.com (mail-oi1-f173.google.com
+	[209.85.167.173])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id BCFC810F23E3
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 21:47:56 +0000 (UTC)
-Received: by mail-oi1-f177.google.com with SMTP id v12so10711190oic.12
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 14:47:56 -0700 (PDT)
+	by mx1.redhat.com (Postfix) with ESMTPS id 6320D301A3E3
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 22:39:17 +0000 (UTC)
+Received: by mail-oi1-f173.google.com with SMTP id t24so10730682oij.13
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 15:39:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=subject:to:references:from:message-id:date:user-agent:mime-version
-	:in-reply-to:content-transfer-encoding:content-language;
-	bh=RtvHrSDepvCPKwVJ4o4HO4gFSrRQOSzIjuCd7+W1+ck=;
-	b=pz5wPAZcguU7DOzZc0R1pOHqm6N/mWg76WnSJ1volZn/kT7YGUbILj5vJasbBh8WTy
-	i7MgQEUQm2al4m9JFINPVEX5zK5hF3oZlp7YKv9IdN6ET2w06cFol+g0GFIb+I9lqz7m
-	bLPyB3I3r804p1H4VvZu1sr7/uZwQYv7JZNpYTXSqZzmUaVeKsaVUVQxI78lep7sJc3a
-	NqmD8bYhrOyTqZKa/VZH6OYJBBmL+U5c4mXDZcNlsky0h/xHOzDkFcPWEouWV0QOmwWH
-	pG8KgaDipX6aAh6iwMesgrCvudSZNBVrD+p1CfMLWoLiwuPbiMS4EuHEiAKsV8k01ZHm
-	7/hA==
+	h=mime-version:in-reply-to:references:from:date:message-id:subject:to; 
+	bh=lb+UcvRxxTVOmTBQGdnWGBo9ye8Gew8jR19Vy4D4Udc=;
+	b=VITuzPeBl33quXoy0KiySC5stgKzJqsGFTPLuJqbETx/yMSkayBCHTOwpcKgE9GwQo
+	oTEkSXaa068EUK7MqyqZAhe79caCyjVE1D7EhA7mk02TsgNv0afs6iQ8iIuj5oUGnrTU
+	9NTmXv6KzEsOmrEr6C6+YpLtn9FR1C1+j1GbG2B/3Qma4hktiFmcWHC31uFgvjP6QUGK
+	rzyLxD87axON3pwTYdqAgcXquWgxiSd0Jo1gp3aFtR0olyyE3ppOWsF+DpGu17VedQ90
+	YwafQmtHmysmtvGzkIY5d6yzjNFhjXT0D/tsdXD9GYQ2Kav8OXqUkKgJYPOkv7ja/8O0
+	IbFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=RtvHrSDepvCPKwVJ4o4HO4gFSrRQOSzIjuCd7+W1+ck=;
-	b=iRkH67I0L96uOky2krn5ID6FUC+WEMZu+YvU3CwhtQzx/oF85MX+4DH/d6b16dqBOt
-	p52FeMhQ+5c5jLm5QaAmAni8MnDjdjeopaq6kmyCs8DSqgyMz8MmNlh3RsWYEvKX/B3W
-	uM9FgNWUhZJj2bUo52MuIZxkckeXQEejOIPHu8yLKykpL9BglX6sVA+8MYHPvt3NJOid
-	GQ+zjwUiJ8ZlUausOUk2IhjG1uFmJpvs6I9mYOmrrlkgZJAvw6cbCKnH1Uam7vqyqidn
-	kRGuJ4QphcxP4v0yxWASZGqxXo9mVJJ4psz6Q4unZuus4zMDBr2diKix4ivuPsY+gcoR
-	cAGQ==
-X-Gm-Message-State: APjAAAUTLoqgredA3kUuHL6020ucwOsCCvcJXrNRVbL7LHaJGiKyQxm+
-	Z/NtwwhQ94s/xDjYf2sCzLrqdzA9
-X-Google-Smtp-Source: APXvYqzgtJWyN3UtYCvf1k5/aSSIgl+iFWtZtSmW9ZsQpfkgkcq26RX66TElFnMd4cx/AiC58bVjTQ==
-X-Received: by 2002:aca:c589:: with SMTP id v131mr10561400oif.92.1566769675645;
-	Sun, 25 Aug 2019 14:47:55 -0700 (PDT)
-Received: from [192.168.1.11] (74-194-137-49.gtwncmta01.res.dyn.suddenlink.net.
-	[74.194.137.49]) by smtp.gmail.com with ESMTPSA id
-	a17sm1876135oia.49.2019.08.25.14.47.55 for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-	Sun, 25 Aug 2019 14:47:55 -0700 (PDT)
-Subject: Re: amazon?
-To: blinux-list@redhat.com
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=lb+UcvRxxTVOmTBQGdnWGBo9ye8Gew8jR19Vy4D4Udc=;
+	b=lJBISCpE9QM8Kh8c95XJfF9lABs66PA1SiGRxSUkwIo+rq6zbES8ZeE7+wwbU4ssv1
+	yA7yKArZt+BsICfVn7mHjR9k61BuAXNz1ONIlk/6ZeCt8NJiyZQmdgS/v4gV+lOrZ6rh
+	4nBmKLr2eY2pl7M4byM/LoId1laCgfYpvYPNEM+Ki5POq0VveYmxLxMo6XLY+8rJ0IHA
+	9XAXs2B/cfOdR/R7UK4mZRZ2gF5BzS4dmQUNWCJDR8CYuBqEMsuTjhIJivBx++5gaM+6
+	2u2HTAraYDg0B4t68Q9ykrE2YN5mWi+x2LaLdJJv6q2d9ra/tJxqGhTy6bWFaYCn1F9W
+	Qx9A==
+X-Gm-Message-State: APjAAAWXTL6IuQLnPJ7ThzbtCfQCIvvJDpez3z16q9qqFFaU/FjY8JaT
+	hlBVquofW5oJmdp6dFXRP+4LYZjOS5Bwb9M8jInmFg==
+X-Google-Smtp-Source: APXvYqxOzCXeIXbcZnlt5z5p3mNsV70FO3GsF04aK/Ji5exxp+GZzTOeUEjsatWuEilWvwXG2PkgIAZEDyMe8WLgA2w=
+X-Received: by 2002:aca:c58d:: with SMTP id v135mr10093857oif.42.1566772756502;
+	Sun, 25 Aug 2019 15:39:16 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a9d:48d:0:0:0:0:0 with HTTP;
+	Sun, 25 Aug 2019 15:39:15 -0700 (PDT)
+In-Reply-To: <20190825.213109.635.20@192.168.1.131>
 References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
 	<251aee8d-1527-b391-a37e-e4fbf6799996@gmail.com>
 	<alpine.NEB.2.21.1908241555430.22902@panix1.panix.com>
@@ -78,29 +73,26 @@ References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
 	<Pine.LNX.4.64.1908251207060.2365@server2.shellworld.net>
 	<a1ef7648-72f7-8fc7-e5b5-142187a91cc0@GMAIL.COM>
 	<74ebe647-3c78-b87d-c7a3-aa65d2d688d1@gmail.com>
-	<20190825.212134.847.19@[192.168.1.131]>
+	<20190825.212134.847.19@192.168.1.131>
 	<64b22aae-23e5-d645-eeb9-6c7646972090@gmail.com>
-	<20190825.213109.635.20@[192.168.1.131]>
-Message-ID: <64b28f07-c53c-1943-b5de-e27bc6222f24@gmail.com>
-Date: Sun, 25 Aug 2019 16:47:54 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
-	Thunderbird/60.8.0
-MIME-Version: 1.0
-In-Reply-To: <20190825.213109.635.20@[192.168.1.131]>
-Content-Language: en-US
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
-	(mx1.redhat.com [10.5.110.66]);
-	Sun, 25 Aug 2019 21:47:56 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.66]);
-	Sun, 25 Aug 2019 21:47:56 +0000 (UTC) for IP:'209.85.167.177'
-	DOMAIN:'mail-oi1-f177.google.com'
-	HELO:'mail-oi1-f177.google.com' FROM:'chaltain@gmail.com' RCPT:''
+	<20190825.213109.635.20@192.168.1.131>
+Date: Sun, 25 Aug 2019 22:39:15 +0000
+Message-ID: <CAO2sX30wUQLmSwgswdFibSYszEVQdeLRmx1_8PNYN0oH6W_-qg@mail.gmail.com>
+Subject: Re: amazon?
+To: blinux-list@redhat.com
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+	(mx1.redhat.com [10.5.110.41]);
+	Sun, 25 Aug 2019 22:39:17 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.41]);
+	Sun, 25 Aug 2019 22:39:17 +0000 (UTC) for IP:'209.85.167.173'
+	DOMAIN:'mail-oi1-f173.google.com'
+	HELO:'mail-oi1-f173.google.com' FROM:'mewtamer@gmail.com' RCPT:''
 X-RedHat-Spam-Score: -0.099  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
 	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
-	SPF_PASS) 209.85.167.177 mail-oi1-f177.google.com 209.85.167.177
-	mail-oi1-f177.google.com <chaltain@gmail.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.66
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+	SPF_PASS) 209.85.167.173 mail-oi1-f173.google.com 209.85.167.173
+	mail-oi1-f173.google.com <mewtamer@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.41
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -115,65 +107,57 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.46]); Sun, 25 Aug 2019 21:48:08 +0000 (UTC)
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.69]); Sun, 25 Aug 2019 22:39:33 +0000 (UTC)
 
-I don't know much about Guillermo Robles, who filed the suit against 
-Domino's, but if you say they have money and connections, I can't 
-dispute that. 
-https://www.washingtonpost.com/politics/courts_law/do-protections-for-people-with-disabilities-apply-online-dominos-asks-high-court/2019/07/20/984c685e-a7fd-11e9-a3a6-ab670962db05_story.html?noredirect=on
+Regarding the Domino's lawsuit, a few points to consider:
 
+1. They are much smaller than Amazon, and thus there's a much greater
+chance a lawsuit will actually accomplish something.
 
-I think we're talking about more then a few hundred blind people using 
-Amazon, but that obviously isn't the point. Some companies want to do 
-what's right because it's the right thing to do. It could help with 
-advertising and public relations. I'm sure Apple and Microsoft aren't 
-committed to accessibility just because it means they're going to add a 
-few thousand sales to their bottom line. When companies won't listen is 
-when the threat of enforcing the law can make the difference. I'm pretty 
-sure the reason we have accessible Kindle's from Amazon is because the 
-DoJ said that ereaders used by schools and colleges had to be accessible.
+2. Last I checked, Domino's website was an inaccessible mess even in
+Firefox, one of the major graphical web browsers. By comparison,
+Amazon, though far from perfect, is usable in Firefox with Orca.
+Assuming my experience isn't that unusual and that the gulf between
+the major graphical browsers isn't as great as that between graphical
+browsers and text-browsers, Domino's bad web design is probably
+shutting out a much larger portion of their potential customers
+compared with Amazon.
 
+3. Domino's has actual competition. Even if the lawsuit results in the
+metaphorical slap on the wrist or they don't care about business lost
+because blind pizza lover's can't place an order on their website,
+Bringing their poor treatment of disabled consumers to light might
+actually convince enough people to favor other delivery pizzerias.
+Amazon doesn't have any real competition, making it much harder for
+anyone to follow through on a decision to deny them business.
 
+That said, I confess I'm a bit leery of the legal route as a
+instrument of change. Sitting aside the tendency for sufficiently
+large corporations to shrug off all but the most damaging lawsuits,
+I'm fearful of setting precedents that large corporations can easily
+comply with while remaining ruthlessly uncaring in their pursuit of
+larger bottom lines but which could easily trip up a small-time
+creator trying to establish a web presence.
 
+Part of me says what we need is for every k-12 and college class in
+web design to focuse on standard's compliance and for every course
+involving UI design to hammer home the importance of accessibility...
+but I've got even less faith that the goverenment can actually promote
+right thinking through education than that they can pass legistlation
+that keeps corporations in check without overburdening indie creators.
 
-Christopher (CJ)
-Chaltain at Gmail
-
-
-On 8/25/19 4:31 PM, Linux for blind general discussion wrote:
-> Somebody with money and connections is suing them.
-> Amazon probably could've been reasoned with when they first started. They were small and still connected to their customer base. Now, they're so big, they don't care if a few hundred people don't use their site. It's like a four year old trying to box against George Foreman. He's not going to notice much lol.
->
-> ----- Original Message -----
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Date: Sun, 25 Aug 2019 16:28:35 -0500
-> Subject: Re: amazon?
->
->> And yet Domino's is being sued because their web site and app is not
->> accessible.
->>
->>
->> I agree with you but that doesn't mean law suits should never be filed.
->>
->>
->> -- 
->> Christopher (CJ)
->> Chaltain at Gmail
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
-
--- 
-Christopher (CJ)
-Chaltain at Gmail
+Though, while on the subject, can anyone recommend a good text book
+for someone wanting to expand their web design skills that puts
+emphasis on writing web sites that are standards compliant and
+accessible? I know how to format text with HTML and create lists and
+tables, but don't know the first thing about CSS, HTML5, dynamic
+content, or making forms interactive, so something friendly to a blind
+beginner would be nice.
 
 _______________________________________________
 Blinux-list mailing list
