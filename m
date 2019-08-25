@@ -2,70 +2,48 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id AB9A79C686
-	for <lists+blinux-list@lfdr.de>; Mon, 26 Aug 2019 01:24:28 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+	by mail.lfdr.de (Postfix) with ESMTPS id 696789C687
+	for <lists+blinux-list@lfdr.de>; Mon, 26 Aug 2019 01:27:47 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 14087308421A;
-	Sun, 25 Aug 2019 23:24:27 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id B89A310576D9;
+	Sun, 25 Aug 2019 23:27:45 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id DFF96600C4;
-	Sun, 25 Aug 2019 23:24:26 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 29FE360BEC;
+	Sun, 25 Aug 2019 23:27:45 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B81DE2551C;
-	Sun, 25 Aug 2019 23:24:26 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
-	[10.5.11.22])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7B65F2551C;
+	Sun, 25 Aug 2019 23:27:44 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
+	[10.5.11.12])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7PNOO3n012892 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 25 Aug 2019 19:24:24 -0400
+	id x7PNRfvc012966 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 25 Aug 2019 19:27:41 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 4471510016EB; Sun, 25 Aug 2019 23:24:24 +0000 (UTC)
+	id 5DF1B60F86; Sun, 25 Aug 2019 23:27:41 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx18.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.47])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3CE1810016E9
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:24:22 +0000 (UTC)
-Received: from mail-ot1-f51.google.com (mail-ot1-f51.google.com
-	[209.85.210.51])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from mx1.redhat.com (ext-mx27.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.68])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 58B2060BEC
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:27:39 +0000 (UTC)
+Received: from server2.shellworld.net (server2.shellworld.net [66.172.12.120])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 3F082308218D
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:24:21 +0000 (UTC)
-Received: by mail-ot1-f51.google.com with SMTP id k18so13575418otr.3
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 16:24:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=mime-version:in-reply-to:references:from:date:message-id:subject:to
-	:content-transfer-encoding;
-	bh=SP5dzEcF0RYOB85FeEFn2o77Rx0k/QtptuAWCFz4o2Q=;
-	b=Lfy96R6ZFjCqCXMXKYYizTRWAix0yGWdW4UhgCOTEMXnp5lEHhoJfhT78aD7D77u9/
-	8tzfYSP0wN/B0HTZGbdu2F7xsA6bL4TZbbM7RXfVX+1lkJS3DA/NtvnpZZmYLL0rkwby
-	6a5XRHT1aFXct4YryV9FxCXeUDUzLeEsw26GPJUGyossFc8l7/hfhDAj/U0BzL8jhhXj
-	sqO8hPo5WGWtg+fKAnP3qzFWLyICYSDE6LYUg+uq36ezCyqJsqgqindsoZh9YQhpqpKB
-	TnpU78EOGDpfhjJGmQpvCn34XCvfK3h2y4lAeH2UtgQqwRsU0cca3cyfmRc6c/tsMIE9
-	9+kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to:content-transfer-encoding;
-	bh=SP5dzEcF0RYOB85FeEFn2o77Rx0k/QtptuAWCFz4o2Q=;
-	b=MeJCrS0O2p3gyNWRpq7mm0S463cws7JYU4+lSCE+WPop0AAnFxGl4RXvAgD52LWuvX
-	2Oui6SnUTMTb4m/H+X2JKxfXEtEDc5hCz73pt8CXViKtl6Iqh2HvjRrJEBNbLBDeesgZ
-	XZIG7jC2cnKm/jD77uy7+Hy65iJMqRFGI1xrxit6pniMWM83ANlBLf9kZVKuAStVrfO0
-	v7VsWyiFqY+kU9UDSudK48DBkb4z9cCnCfNkYRLb42FQioeGA1fxyRVDJTaDEwmxhHHQ
-	yCaw7K6g9MFla8o0WuLO8V40Ibe3NRF83lvreCB2Rc5y9PpPF3+E1fa0G+WwydJ+xR3M
-	146w==
-X-Gm-Message-State: APjAAAUYE63Q1U5OytavWXj2NnrD3G25COMBLR+UC9E/pDfHi/DF/LUX
-	1FZDUZQDs7XYwJFJYggP5nfbwkSb/YqvjCdf6GP+VA==
-X-Google-Smtp-Source: APXvYqyEOKt72kuk8Ow7qLmRXLjTZb/oqmgepYWTe/fe8Qw+lS7C9qbBkXOitHJkf+ourx4qUbay6Bc8xejge1PC600=
-X-Received: by 2002:a9d:4814:: with SMTP id c20mr13574108otf.186.1566775460583;
-	Sun, 25 Aug 2019 16:24:20 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:a9d:48d:0:0:0:0:0 with HTTP;
-	Sun, 25 Aug 2019 16:24:20 -0700 (PDT)
-In-Reply-To: <DA14CE33-EEF3-4B2B-9590-E890E60D4ECE@gmail.com>
+	by mx1.redhat.com (Postfix) with ESMTPS id AB547A31CEF
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:27:37 +0000 (UTC)
+Received: by server2.shellworld.net (Postfix, from userid 1005)
+	id 8748E8C033E; Sun, 25 Aug 2019 23:27:37 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+	by server2.shellworld.net (Postfix) with ESMTP id 847F78C012D
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 19:27:37 -0400 (EDT)
+Date: Sun, 25 Aug 2019 19:27:37 -0400 (EDT)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: amazon?
+In-Reply-To: <20190825.212134.847.19@[192.168.1.131]>
+Message-ID: <Pine.LNX.4.64.1908251914140.10144@server2.shellworld.net>
 References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
+	<Pine.LNX.4.64.1908241501480.31524@server2.shellworld.net>
 	<251aee8d-1527-b391-a37e-e4fbf6799996@gmail.com>
 	<alpine.NEB.2.21.1908241555430.22902@panix1.panix.com>
 	<7f8743f3-bddf-6807-b2bf-0e7443c9c322@gmail.com>
@@ -74,32 +52,22 @@ References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
 	<Pine.LNX.4.64.1908251207060.2365@server2.shellworld.net>
 	<a1ef7648-72f7-8fc7-e5b5-142187a91cc0@GMAIL.COM>
 	<74ebe647-3c78-b87d-c7a3-aa65d2d688d1@gmail.com>
-	<20190825.212134.847.19@192.168.1.131>
-	<64b22aae-23e5-d645-eeb9-6c7646972090@gmail.com>
-	<20190825.213109.635.20@192.168.1.131>
-	<64b28f07-c53c-1943-b5de-e27bc6222f24@gmail.com>
-	<CAO2sX31Df3_6iHD8bF41e3E9A0D-0vJs1Xs4nTouVk4RV5uJUQ@mail.gmail.com>
-	<DA14CE33-EEF3-4B2B-9590-E890E60D4ECE@gmail.com>
-Date: Sun, 25 Aug 2019 23:24:20 +0000
-Message-ID: <CAO2sX31aVqEVpaBAtpqfk1D9-8qqQ34quNGs_mFk5xEOpsj+Mg@mail.gmail.com>
-Subject: Re: amazon?
-To: blinux-list@redhat.com
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
-	(mx1.redhat.com [10.5.110.47]);
-	Sun, 25 Aug 2019 23:24:21 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.47]);
-	Sun, 25 Aug 2019 23:24:21 +0000 (UTC) for IP:'209.85.210.51'
-	DOMAIN:'mail-ot1-f51.google.com' HELO:'mail-ot1-f51.google.com'
-	FROM:'mewtamer@gmail.com' RCPT:''
-X-RedHat-Spam-Score: -0.097  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, RCVD_IN_MSPIKE_H3,
-	RCVD_IN_MSPIKE_WL, SPF_HELO_NONE,
-	SPF_PASS) 209.85.210.51 mail-ot1-f51.google.com 209.85.210.51
-	mail-ot1-f51.google.com <mewtamer@gmail.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.47
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id x7PNOO3n012892
+	<20190825.212134.847.19@[192.168.1.131]>
+MIME-Version: 1.0
+Content-Type: MULTIPART/MIXED;
+	BOUNDARY="-1404930036-2042318932-1566775657=:10144"
+X-Greylist: Sender passed SPF test, ACL 264 matched, not delayed by
+	milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.68]);
+	Sun, 25 Aug 2019 23:27:37 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.68]);
+	Sun, 25 Aug 2019 23:27:37 +0000 (UTC) for IP:'66.172.12.120'
+	DOMAIN:'server2.shellworld.net' HELO:'server2.shellworld.net'
+	FROM:'klewellen@shellworld.net' RCPT:''
+X-RedHat-Spam-Score: 0.001 (SPF_HELO_NONE) 66.172.12.120
+	server2.shellworld.net 66.172.12.120 server2.shellworld.net
+	<klewellen@shellworld.net>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.68
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -114,56 +82,342 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.40]); Sun, 25 Aug 2019 23:24:27 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.64]); Sun, 25 Aug 2019 23:27:46 +0000 (UTC)
 
-SHVoLCBndWVzcyBldmVuIGEgY29tcGFueSB3aXRoIGEgZGVjYWRlcyBsb25nIGhpc3Rvcnkgb2Yg
-cGlzc2luZyBvZmYKdGhlaXIgY3VzdG9tZXJzIGFuZCBnZXR0aW5nIGF3YXkgd2l0aCBpdCBjYW4g
-dHVybiBvdmVyIGEgbmV3IGxlYWYuLi4KKkNvbnN1bHRzIFdpa2lwZWRpYS4qIEh1aCwgZGlkbid0
-IHJlYWxpemUgV2luMTAgd2FzIGFscmVhZHkgZm91ciB5ZWFycwpvbGQsIHNlZW1zIGxpa2UgaXQg
-d2Fzbid0IHRoYXQgbG9uZyBhZ28gdGhhdCBldmVyeW9uZSB3YXMgY29tcGxhaW5pbmcKYWJvdXQg
-TWljcm9zb2Z0IHRyeWluZyB0byBmb3JjZSB1cGRhdGUgYWxsIHRoZSBXaW43IGFuZCBXaW44IG1h
-Y2hpbmVzCnRvIDEwIGFuZCBicmlja2luZyBtb3N0IG9mIHRoZW0gaW4gdGhlIHByb2Nlc3MuIEFk
-bWl0dGVkbHksIHRoZSBsYXN0CnRpbWUgSSByYW4gV2luZG93cyBvbiBteSBvd24gbWFjaGluZXMg
-Zm9yIGxvbmdlciB0aGFuIGl0IHRvb2sgdG8KZG93bmxvYWQgYW5kIGJ1cm4gYW4gaXNvIHRvIHJl
-cGxhY2UgV2luZG93cyB3aXRoIExpbnV4IHdhcyBiYWNrIGluIHRoZQpYUCBkYXlzLCBhbmQgdGhl
-IGxhc3QgdGltZSBJIHVzZWQgV2luZG93cyBsb25nIGVub3VnaCB0byBkb3dubG9hZCBhbmQKYnVy
-biBhbiBpc28gd2FzIG9uIGEgV2luNyBtYWNoaW5lIHByaW9yIHRvIGdvaW5nIGJsaW5kKG5hdHVy
-YWxseSwgSSd2ZQp1c2VkIFdpbm9kd3Mgb24gc2Nob29sIGNvbXB1dGVycyBzaW5jZSB0aGVuLCBi
-dXQgY2FycnlpbmcgbXkgb3duCmNvbXB1dGVyIHdhcyBlYXNpZXIgdGhhbiB0cnlpbmcgdG8gZ2V0
-IG15IHVuaSdzIERpc2FiaWxpdHkgc2VydmljZXMKb2ZmaWNlIHRvIGluc3RhbGwgYSBzY3JlZW4g
-cmVhZGVyLCBhbmQgbXkgZXhwZXJpZW5jZSB3aXRoIEpBV1MgYW5kCk5WREEgaXMgd2hvbGVseSB0
-aG91Z2ggdGltZSBzcGVudCBpbiBhIFZvY2F0aW9uYWwgUmVoYWIgZm9yIHRoZSBCbGluZApwcm9n
-cmFtKS4KCk9uIDgvMjUvMTksIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gPGJs
-aW51eC1saXN0QHJlZGhhdC5jb20+IHdyb3RlOgo+IE1pY3Jvc29mdCBoYXMgYmVlbiBnZXR0aW5n
-IGJldHRlciBmb3IgYSBmZXcgeWVhcnMgbm93LiBOb3QgYWxsIHRoYXQgb25lCj4gdGhpbmtzIGlz
-buKAmXQgdHJ1ZSBmb3IgYWxsIHRpbWUuIOKYuu+4jwo+IE5hcnJhdG9yIGlzIGFjdHVhbGx5IGlt
-cHJvdmluZy4gTm90IGF0IGFuIGFsYXJtaW5nIHJhdGUgb3IgYW55dGhpbmcsIGFuZAo+IGNvcmUg
-YXBwcyBpbiBXaW5kb3dzLCBlc3BlY2lhbGx5IE1haWwsIHJlbWFpbiBhIHBhaW4gZm9yIGFueSBz
-Y3JlZW4gcmVhZGVyCj4gdXNlciB0byB1c2UsIGJ1dCBtYXliZSB0aGV54oCZbGwgYWN0dWFsbHkg
-bGlzdGVuIHRvIGZlZWRiYWNrIG9uIHRoYXQgaXNzdWUsCj4gYW5kIG5vdCBqdXN0IGRvIHdoYXRl
-dmVyIHRoZXkgZmVlbCBsaWtlIGF0IHRoZSB0aW1lLCB3aGljaCwgdG8gYmUgZmFpciwgaXMKPiB3
-aGF0IG1vc3QgY29tcGFuaWVzIHNlZW0gdG8gZG8sIGV2ZW4gaW4gdGhlIGFjY2Vzc2liaWxpdHkg
-c3BhY2UuICJJdCBkb2VzbuKAmXQKPiBtYXR0ZXIgd2hhdCB5b3Ugd2FudCwiIHRoZXkgc2VlbSB0
-byBzYXksIOKAnHdlIGtub3cgd2hhdCB5b3Ugd2FudCwgc28gd2XigJlsbCBkbwo+IHdoYXQgd2Ug
-a25vdyB5b3Ugd2FudC4iCj4KPj4gT24gQXVnIDI1LCAyMDE5LCBhdCA1OjUyIFBNLCBMaW51eCBm
-b3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uCj4+IDxibGludXgtbGlzdEByZWRoYXQuY29tPiB3
-cm90ZToKPj4KPj4gU2luY2Ugd2hlbiBpcyBNaWNyb3NvZnQgY29tbWl0dGVkIHRvIGFjY2Vzc2li
-aWxpdHk/IEkgdGhvdWdodCB0aGUKPj4gd2hvbGUgcmVhc29uIE5WREEgZXhpc3RzIGlzIGJlY2F1
-c2UgV2luZG93J3MgYnVpbHQtaW4gc2NyZWVuIHJlYWRlciBpcwo+PiBnYXJiYWdlIGFuZCBKQVdT
-IGlzIHByb2hpYml0aXZlbHkgZXhwZW5zaXZlLiBBbHNvLCBJIHRob3VnaHQgTWljcm9zb2Z0Cj4+
-IHdhcyBwcmV0dHkgbXVjaCB0aGUgcG9zdGVyIGNoaWxkIGZvciBzaHJ1Z2dpbmcgb2ZmIGxhd3N1
-aXRzIGFuZAo+PiBjb250aW51aW5nIHRvIHNjcmV3IG92ZXIgdGhlaXIgY3VzdG9tZXJzIGFzIG11
-Y2ggYXMgcG9zc2libGUuCj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+PiBCbGludXgtbGlzdEBy
-ZWRoYXQuY29tCj4+IGh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGlu
-dXgtbGlzdAo+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20K
-PiBodHRwczovL3d3dy5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0
-IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vd3d3LnJlZGhhdC5j
-b20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
+
+---1404930036-2042318932-1566775657=:10144
+Content-Type: TEXT/PLAIN; charset=X-UNKNOWN; format=flowed
+Content-Transfer-Encoding: QUOTED-PRINTABLE
+
+One thing I find unfortunate here is how many states apparently do not=20
+follow the example of New York.  Access is a human right  and the state's=
+=20
+department  of justice facilitates such complaints as a result, if the=20
+event  took place in the state.
+In Ontario again where companies doing business must insure goods and=20
+services  are equal, the process for a complaint does not require a lawyer.=
+=20
+Additionally, there is a division at the Provencal level providing legal=20
+help.  The federal human rights process likewise does not require a=20
+lawyer.  Companies must deal with individuals  when a complaint is filed.
+Frankly speaking personally a bit of well placed and focused social media=
+=20
+work could attract attention faster than your ada legal process.
+I would add again that access is not only tied to blindness.  still,=20
+given the number of attorneys who identify as blind, finding some=20
+willing to Handel litigation should be simple.
+In any case, Amazon already expresses a willingness to  provide access,=20
+there   is just  no direct link between that department, and the customer=
+=20
+base.
+  On Sun, 25 Aug 2019, Linux for blind general discussion wrote:
+
+> The problem is most of us don't have money to hire lawyers. You'd be amaz=
+ed how many people are screwed over, shoved aside and ignored because they =
+lack the money, connections and clout to do anything. Companies aren't goin=
+g to listen to a few, or even a few hundred customers, unless there's a cle=
+ar advantage for them. That's why a lot of these complaints never go anywhe=
+re.
+>
+> ----- Original Message -----
+> From: Linux for blind general discussion <blinux-list@redhat.com>
+> To: blinux-list@redhat.com
+> Date: Sun, 25 Aug 2019 16:18:37 -0500
+> Subject: Re: amazon?
+>
+>> I agree litigation should be a final step, but there are also certain
+> sections of the blindness community who don't think law suits should
+> ever be used, and IMHO, this is just another extreme that should be
+> avoided. If a company isn't following the law, and nothing else is
+> working, then law suits are a perfectly reasonable tool.
+>
+>
+> --=20
+> Christopher (CJ)
+> Chaltain at Gmail
+>
+>
+> On 8/25/19 11:35 AM, Linux for blind general discussion wrote:
+>> Agreedd, I brought up the legal beating over the head because there's
+>> certain sections of a blind community that have a reputation for
+>> reacing for a lawsuit first without actually trying, or trying and
+>> publically disclosing at least, to resolve issues. It's the same
+>> community who, sterotypically, expect to have things fixed
+>> /instantly/. Which is BS, it takes time to implement things. It's a
+>> whole other debate over what's a reasonable length of time,
+>> but....let's say the 'click here for a minimal site' was already
+>> in....I'd very, very much like that.
+>>
+>> Whoever it was who said litigation's the only way to get change, no,
+>> it isn't. Try reaching out to companies with well thought out, easy to
+>> understand points, such as...as an example off the top of my head
+>>
+>> I believe Amazon should make their sites less cluttered because
+>> reasons 1, 2,3 and 4, and this will benefit everyone because X Y Z.
+>>
+>> The issue is.....disabled people are still a tiny, tiny niche. If it's
+>> presented right to Amazon as a good thing for /everyone/, Amazon will
+>> do it because everybody wins and it's good PR, not just with a
+>> minority of people however.
+>>
+>> On 25/08/2019 17:13, Linux for blind general discussion wrote:
+>>> I agree with you entirely.=A0 Amazon should just do this because it is
+>>> good business.=A0 Want a simple path to using amazon?=A0 go here...whic=
+h
+>>> used to be the case.=A0 Prefer the full site, here you go.
+>>> Speaking personally I find the way=A0 terms like accessibility get used
+>>> to often feel disturbing because the assumption is that everyone
+>>> sharing a certain label, say disability, accommodates and are
+>>> interchangeable for one another.=A0 My understanding of disabilities
+>>> studies is though that the barrier, in this case a site, is where the
+>>> issue lies.=A0 Present options on the menu so people can choose for
+>>> whatever reason, and you do grand business...like Apple.
+>>>
+>>>
+>>>
+>>> On Sun, 25 Aug 2019, Linux for blind general discussion wrote:
+>>>
+>>>> Personally, all I want ouit of Amazon is the /option/ to use a
+>>>> simpler site, with no legal beating over the head with a stick and
+>>>> nobody jumping up and down and threatening to sue Amazon under
+>>>> legislation. I'd rather Amazon do it off their own back. I'd rather,
+>>>> say, use Amazon's mobile site that would be less cluttered and easy
+>>>> to navigate (since I find Amazon insaley hard to use, even before
+>>>> losing my sight it was a pain in the butt to get around honestly, I
+>>>> don't know why they feel like they got to clutter up the pages so
+>>>> much). I just want options, without legal precedent, and for the
+>>>> record, I ain't in the US so all the talk of ADA does not apply
+>>>> here, though given my country is just about gearing up to
+>>>> spectacularly implode.....the ADA does not apply here. I actually
+>>>> don't know if we have website accessibility reules here, if we do
+>>>> I've rarely if ever seen them reported by the media here, the sole
+>>>> sources I find are all US-centric.
+>>>>
+>>>> And that raises another point. Let's say that Japan adopts new
+>>>> legislation. Amazon.jp will, for argument's sake, comply. Amazon.de
+>>>> won't comply with the Japanese legislation because...Germany is not
+>>>> Japan. Amazon.br won't because Brazil is not Germany. Point is,
+>>>> every country has their own legislation they go by. Amazon can't
+>>>> point to the ADA and say see, that's our global standard, because
+>>>> every country treats accessibility differently, so if Amazon
+>>>> /wanted/ to comply with all the rules, they'd need to go over every
+>>>> single site in every country they operate in, and comply with the
+>>>> local laws. Which would be slow going, and costly.
+>>>>
+>>>> On 25/08/2019 05:44, Linux for blind general discussion wrote:
+>>>>> =A0Amazon does business in other countries where such standard
+>>>>> requirements
+>>>>> =A0do exist.
+>>>>> =A0Besides, Amazon=A0 is not claiming that it need not be inclusive.
+>>>>> Rather it
+>>>>> =A0is pretending, without=A0 cross platform testing and actual attemp=
+ts to
+>>>>> =A0provide a uniform experience, that it exists with them.
+>>>>>
+>>>>>
+>>>>>
+>>>>> =A0On Sat, 24 Aug 2019, Linux for blind general discussion wrote:
+>>>>>
+>>>>>> =A0 Congress has not attached web accessibility guidelines to the
+>>>>> ADA, >=A0 guidelines were not established under President Obama and
+>>>>> President >=A0 Trump's administration is officially not pursuing any
+>>>>> such guidelines. >
+>>>>> https://www.boia.org/blog/is-website-accessibility-required-under-the=
+-ada
+>>>>>>>> =A0 Amazon is not covered under Section 508 of the
+>>>>> Rehabilitation Act, as >=A0 the Department of the Navy is.
+>>>>>>>> =A0 Don't get me wrong, I think the ADA extends to web sites,
+>>>>> and I think >=A0 Domino's will lose, but the legal question has yet
+>>>>> to be settled. This >=A0 would all be moot if the DoJ under Obama or
+>>>>> Trump had adopted the WCAD >=A0 2.0 standards as the standards
+>>>>> applying to web accessibility under the >=A0 ADA.
+>>>>>>>> =A0 On 8/24/19 3:02 PM, Linux for blind general discussion wrote:
+>>>>>>> =A0 =A0I predict Dominos will have its clock thoroughly cleaned.=A0=
+ >
+>>>>>> =A0 Precedent
+>>>>>>> =A0 =A0even in the Supreme Court isn't on their side.
+>>>>>>> =A0 =A0Congress made it clear what accessibility requirements are i=
+n
+>>>>> the
+>>>>>>> =A0 =A0accessibility process and that happened in 2010. There's
+>>>>> about 16
+>>>>>>> =A0 =A0technical requirements and a Preamble to Section 508 and thi=
+s
+>>>>> was
+>>>>>>> =A0 =A0something D.O.D. got measured against in 2012 when Obama
+>>>>> required a
+>>>>>>> =A0 =A0D.O.D.-wide accessibility report.=A0 End result of that was =
+the
+>>>>>>> =A0 United
+>>>>>>> =A0 =A0States Navy was Accessibility Leader and the United States
+>>>>> Navy was
+>>>>>>> =A0 =A0still left with serious problems and all other components ha=
+d
+>>>>> much > >=A0 work
+>>>>>>> =A0 =A0to do.=A0 I know about that having worked for the Navy durin=
+g
+>>>>> that > >=A0 time.
+>>>>>>>>> =A0 =A0On Sat, 24 Aug 2019, Linux for blind general discussion
+>>>>> wrote:
+>>>>>>>>>> =A0 Date: Sat, 24 Aug 2019 15:53:37
+>>>>>>>> =A0 From: Linux for blind general discussion
+>>>>> <blinux-list@redhat.com>
+>>>>>>>> =A0 To: blinux-list@redhat.com
+>>>>>>>> =A0 Subject: Re: amazon?
+>>>>>>>>> =A0 Amazon is definitely aware of Linux. They have apps
+>>>>> running on > > Android > =A0 and
+>>>>>>>> =A0 even platforms that use Android as their OS. They support
+>>>>> Linux > >=A0 in AWS
+>>>>>>>> =A0 including their own flavor of Linux. I'm sure their are
+>>>>> some > >=A0 staff at >=A0 Amazon
+>>>>>>>> =A0 who don't know about Linux, but that doesn't mean the
+>>>>> company is > > unaware > =A0 of or
+>>>>>>>> =A0 doesn't care about Linux.
+>>>>>>>>>> =A0 BTW, there is still a legal question as to whether a
+>>>>> web site > > which > offers
+>>>>>>>> =A0 products or services to the public needs to be accessible.
+>>>>> The > > ADA > =A0 doesn't
+>>>>>>>> =A0 have companion guidelines on what it means for a site to be
+>>>>>>> accessible > =A0 and
+>>>>>>>> =A0 Domino's is going to court to claim that the ADA doesn't
+>>>>> require > >=A0 them to >=A0 make
+>>>>>>>> =A0 their site or apps accessible. I think the ADA does apply
+>>>>> to > >=A0 public web >=A0 sites,
+>>>>>>>> =A0 and I think Domino's will lose, but that doesn't mean it
+>>>>> isn't > >=A0 still an >=A0 open
+>>>>>>>> =A0 legal question.
+>>>>>>>>>>> =A0 On 8/24/19 2:11 PM, Linux for blind general
+>>>>> discussion > > > > > > wrote:
+>>>>>>>>> =A0 1. My comment regarding Linux is based on direct
+>>>>> communications > > with > > =A0 Amazon
+>>>>>>>>> =A0 staff,? who have confessed not to have heard of it,and?
+>>>>> who > >=A0 have no > >=A0 direct
+>>>>>>>>> =A0 contact with their so called accessibility team when
+>>>>> problems > >=A0 arise.
+>>>>>>>>> =A0 2. them properly compiled? elinks and links function with
+>>>>> java > >=A0 script.
+>>>>>>>>> =A0 3.? Access is tied to interaction which is why even later
+>>>>>>> =A0 editions of > > lynx
+>>>>>>>>> =A0 can manage some scripting, submit buttons for example.
+>>>>>>>>>>> =A0 4. since adaptive technology is often a substitution
+>>>>> for > >=A0 the persons > > eyes,
+>>>>>>>>> =A0 hands, brain, and the like, what gives you the right to
+>>>>> state > > > > that
+>>>>>>>>> =A0 technology choices are not tied to physical mandates??
+>>>>> How does > > your > > stance
+>>>>>>>>> =A0 differ from those who claim that access need not exist at
+>>>>> all,? > > or > > =A0 that all
+>>>>>>>>> =A0 those sharing? a label are the same?
+>>>>>>>>> =A0 5. the names of access or other individuals at amazon >
+>>>>>> =A0 confirming your
+>>>>>>>>> =A0 assumption here?? the legal stance is that if a site
+>>>>> serves the > > > > =A0 public, an
+>>>>>>>>> =A0 individual can expect equal public access...which is why?
+>>>>>>> =A0 alternative
+>>>>>>>>> =A0 doors??? are to exist? in the first place.
+>>>>>>>>> =A0 How do you know what low graphics can or cannot do if you
+>>>>> do > > not > > =A0 follow
+>>>>>>>>> =A0 their development?? This is about keyboard response which
+>>>>>>> =A0 exists in
+>>>>>>>>> =A0 graphical? browsers like elinks and links.
+>>>>>>>>>>>>>>> =A0 On Fri, 23 Aug 2019, Linux for blind general
+>>>>>>> =A0 discussion wrote:
+>>>>>>>>>>>> =A0 I don't believe for a minute that the accessibility
+>>>>> staff > >=A0 at Amazon > > >=A0 has
+>>>>>>>>>> =A0 either forgotten or stopped caring about Linux
+>>>>> accessibility. > > > > > Realistically
+>>>>>>>>>> =A0 though, it is possible that they have stopped worrying
+>>>>> about > > the > > > very small
+>>>>>>>>>> =A0 number of people who still use text-based browsers and
+>>>>> expect > > them > > > to work
+>>>>>>>>>> =A0 for shopping, banking and other modern internet tasks.
+>>>>> The > >=A0 thing is > > > Linux
+>>>>>>>>>> =A0 accessibility in 2019 !=3D lynx/links/elinks
+>>>>> accessibility. In > >=A0 fact, > > >=A0 this
+>>>>>>>>>> =A0 hasn't been the case since about 2008 or so
+>>>>>>>>>> =A0 .
+>>>>>>>>>> =A0 Unfortunately, text-based browsers have not kept up
+>>>>> with the > >=A0 rest of > > > the
+>>>>>>>>>> =A0 internet, and can't be expected to work well for most >
+>>>>>> websites > > > without a
+>>>>>>>>>> =A0 major overhaul, especially since they don't even
+>>>>> support the > > latest > > > HTML5
+>>>>>>>>>> =A0 standards, nor do they support accessibility standards
+>>>>> that > > have > > > been in
+>>>>>>>>>> =A0 place for years. Even w3m doesn't fully support the
+>>>>> w3c's own > > > > > standards.
+>>>>>>>>>>>>> =A0 Yes, I can see why some people may want these >
+>>>>>> =A0 light-weight and fast
+>>>>>>>>>> =A0 browsers to work with Amazon, and yes, they should be
+>>>>> made > >=A0 aware of > > > the
+>>>>>>>>>> =A0 problems that people are having. But to say that Amazon
+>>>>>>> =A0 doesn't care > > > about
+>>>>>>>>>> =A0 Linux accessibility because their site doesn't work
+>>>>> with a > > > > > text-based
+>>>>>>>>>> =A0 browser is at best a gross exageration, and is at worst
+>>>>> a > > grave > > > =A0 disservice
+>>>>>>>>>> =A0 to those of us who use Linux and a screen reader at the
+>>>>> same > >=A0 time.
+>>>>>>>>>> =A0 Imetumwa kutoka miti
+>>>>>>>>>>>>> _______________________________________________
+>>>>>>>>>> =A0 Blinux-list mailing list
+>>>>>>>>>> =A0 Blinux-list@redhat.com
+>>>>>>>>>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>>>>>>>>>>>>>> _______________________________________________
+>>>>>>>>> =A0 Blinux-list mailing list
+>>>>>>>>> =A0 Blinux-list@redhat.com
+>>>>>>>>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>>>>>>>> =A0 -- >=A0 Christopher (CJ)
+>>>>>> =A0 Chaltain at Gmail
+>>>>>>> =A0 _______________________________________________
+>>>>>> =A0 Blinux-list mailing list
+>>>>>> =A0 Blinux-list@redhat.com
+>>>>>> =A0 https://www.redhat.com/mailman/listinfo/blinux-list
+>>>>>>>
+>>>>> =A0_______________________________________________
+>>>>> =A0Blinux-list mailing list
+>>>>> =A0Blinux-list@redhat.com
+>>>>> =A0https://www.redhat.com/mailman/listinfo/blinux-list
+>>>>
+>>>> _______________________________________________
+>>>> Blinux-list mailing list
+>>>> Blinux-list@redhat.com
+>>>> https://www.redhat.com/mailman/listinfo/blinux-list
+>>>>
+>>>
+>>> _______________________________________________
+>>> Blinux-list mailing list
+>>> Blinux-list@redhat.com
+>>> https://www.redhat.com/mailman/listinfo/blinux-list
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+> --=20
+> Christopher (CJ)
+> Chaltain at Gmail
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+>
+---1404930036-2042318932-1566775657=:10144
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
+---1404930036-2042318932-1566775657=:10144--
+
