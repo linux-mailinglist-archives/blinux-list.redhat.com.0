@@ -2,74 +2,49 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id DC16A9C67A
-	for <lists+blinux-list@lfdr.de>; Mon, 26 Aug 2019 01:01:19 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7ADEE9C67D
+	for <lists+blinux-list@lfdr.de>; Mon, 26 Aug 2019 01:08:52 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id ECD628AC6F6;
-	Sun, 25 Aug 2019 23:01:17 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 9DB8118C891F;
+	Sun, 25 Aug 2019 23:08:50 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2884A5D6D0;
-	Sun, 25 Aug 2019 23:01:17 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 10E805C1D8;
+	Sun, 25 Aug 2019 23:08:50 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 511B91800B74;
-	Sun, 25 Aug 2019 23:01:16 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
-	[10.5.11.16])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1F692180085A;
+	Sun, 25 Aug 2019 23:08:49 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
+	[10.5.11.11])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7PN1DXQ012500 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 25 Aug 2019 19:01:13 -0400
+	id x7PN8j9s012632 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 25 Aug 2019 19:08:45 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 5493D5C207; Sun, 25 Aug 2019 23:01:13 +0000 (UTC)
+	id 9ECD5600C8; Sun, 25 Aug 2019 23:08:45 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx27.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.68])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4E5265C258
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:01:10 +0000 (UTC)
-Received: from mail-yb1-f181.google.com (mail-yb1-f181.google.com
-	[209.85.219.181])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from mx1.redhat.com (ext-mx28.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.69])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 99E14600C4
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:08:43 +0000 (UTC)
+Received: from server2.shellworld.net (server2.shellworld.net [66.172.12.120])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 235BCA2FC4F
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:01:10 +0000 (UTC)
-Received: by mail-yb1-f181.google.com with SMTP id t5so6373009ybt.4
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 16:01:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=from:content-transfer-encoding:mime-version:subject:date:references
-	:to:in-reply-to:message-id;
-	bh=LBzZ9sIHsXAVD79qxbR4SkIhDEB4P+d2Rd8G4ZnIOrc=;
-	b=eq7Pv8iyUofO4GBunFdkxmmy3crx+97hZnbts4RW/oVNE02fM4OVyzBfkw1KLUaLF1
-	/BKQ7Cxs+Vkpf+jGupMvkcRaGVs+Eoc6PBHmKFXXsefAMh6JApe7P/7RUo5P+Cy1th3m
-	tzxtvwElVVusfBj4zt956WADE3sCtVz4oGjfcS2L1HZ3BE7i7+/D6pQ/x995uxiyOYr/
-	zCMqK+OHjI+1QqyVeVOMJlaqWZxGkN0d+0EeQJ4Tfk3prWnoV9dxw4ffSTWd3gRSR+u0
-	jJFT3S1RJ251/9BB+bUEiQeWGuIxT45Ws8fbwtlKzKwRC6xNT93q51sf2K3eKUzOcrYn
-	oDgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:content-transfer-encoding:mime-version
-	:subject:date:references:to:in-reply-to:message-id;
-	bh=LBzZ9sIHsXAVD79qxbR4SkIhDEB4P+d2Rd8G4ZnIOrc=;
-	b=AAIUFB84V/Ejb5qYWcHkL0v/XzfuQJAOsnkTbxIKNjp1tsFxa4+bSMgsqxELhchKDu
-	Gh7b3IooEVh21tC/vz8xZnI35bKeQ0XsoWseHEIWqlEY/J35luAxHE6qEWJeYInkGLjZ
-	1JT+jvWUDQx1zJy8xq3kcdOhtZG1i0mM17nnrPYZK9KPqUXz1CRRX/LFSv7R1OPGvINf
-	1nE6V9C11HK566qYsC9sNnu08x6RSvvxPr5S7INts1MWUWP3H91ZfjhjIFiJ35g28wss
-	rTyCSeMM1Dkd3NHoo3iAV3X3zqJVrGT589WJhd0LHunfcQNLoDhLZF2B0ueKQbsx/+wO
-	yLAw==
-X-Gm-Message-State: APjAAAWb02hbEKWrupoqS/f7XpjtXG3UCHKI841rTqNdQ9UJ7HvQJm4E
-	RosBtbse7rMyBiPFuG3rL9RiaaIr
-X-Google-Smtp-Source: APXvYqzz8vQSGsheRIBMiUYyuQEeSLedwPAgG5Co+ijGz1A2/gwNbUaW34bmknBCb03dqg5sz3EQgw==
-X-Received: by 2002:a25:ba90:: with SMTP id s16mr10912365ybg.507.1566774069204;
-	Sun, 25 Aug 2019 16:01:09 -0700 (PDT)
-Received: from [192.168.44.14] ([24.197.47.105])
-	by smtp.gmail.com with ESMTPSA id
-	s37sm2003094ywa.98.2019.08.25.16.01.08 for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-	Sun, 25 Aug 2019 16:01:08 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
+	by mx1.redhat.com (Postfix) with ESMTPS id 164868CF1AB
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 23:08:42 +0000 (UTC)
+Received: by server2.shellworld.net (Postfix, from userid 1005)
+	id DC2228C033E; Sun, 25 Aug 2019 23:08:41 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+	by server2.shellworld.net (Postfix) with ESMTP id D96F88C012D
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 19:08:41 -0400 (EDT)
+Date: Sun, 25 Aug 2019 19:08:41 -0400 (EDT)
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: amazon?
-Date: Sun, 25 Aug 2019 18:01:08 -0500
+In-Reply-To: <CAO2sX30F90R0WWgkP-B8dGEGewQYjowwCMuiUF_izpFL19wvzQ@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.1908251902420.10144@server2.shellworld.net>
 References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
+	<A4215BB2-6107-4752-AC5F-679E449FC076@gmail.com>
+	<Pine.LNX.4.64.1908241501480.31524@server2.shellworld.net>
 	<251aee8d-1527-b391-a37e-e4fbf6799996@gmail.com>
 	<alpine.NEB.2.21.1908241555430.22902@panix1.panix.com>
 	<7f8743f3-bddf-6807-b2bf-0e7443c9c322@gmail.com>
@@ -77,31 +52,21 @@ References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
 	<6acc536b-99c9-21f7-1d40-be4d10abab70@GMAIL.COM>
 	<Pine.LNX.4.64.1908251207060.2365@server2.shellworld.net>
 	<a1ef7648-72f7-8fc7-e5b5-142187a91cc0@GMAIL.COM>
-	<74ebe647-3c78-b87d-c7a3-aa65d2d688d1@gmail.com>
-	<20190825.212134.847.19@192.168.1.131>
-	<64b22aae-23e5-d645-eeb9-6c7646972090@gmail.com>
-	<20190825.213109.635.20@192.168.1.131>
-	<64b28f07-c53c-1943-b5de-e27bc6222f24@gmail.com>
-	<CAO2sX31Df3_6iHD8bF41e3E9A0D-0vJs1Xs4nTouVk4RV5uJUQ@mail.gmail.com>
-To: "blinux-list@redhat.com" <blinux-list@redhat.com>
-In-Reply-To: <CAO2sX31Df3_6iHD8bF41e3E9A0D-0vJs1Xs4nTouVk4RV5uJUQ@mail.gmail.com>
-Message-Id: <DA14CE33-EEF3-4B2B-9590-E890E60D4ECE@gmail.com>
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
-	(mx1.redhat.com [10.5.110.68]);
-	Sun, 25 Aug 2019 23:01:10 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.68]);
-	Sun, 25 Aug 2019 23:01:10 +0000 (UTC) for IP:'209.85.219.181'
-	DOMAIN:'mail-yb1-f181.google.com'
-	HELO:'mail-yb1-f181.google.com' FROM:'r.d.t.prater@gmail.com'
-	RCPT:''
-X-RedHat-Spam-Score: -0.099  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
-	SPF_PASS) 209.85.219.181 mail-yb1-f181.google.com 209.85.219.181
-	mail-yb1-f181.google.com <r.d.t.prater@gmail.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.68
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id x7PN1DXQ012500
+	<Pine.LNX.4.64.1908251242560.3197@server2.shellworld.net>
+	<CAO2sX30F90R0WWgkP-B8dGEGewQYjowwCMuiUF_izpFL19wvzQ@mail.gmail.com>
+MIME-Version: 1.0
+X-Greylist: Sender passed SPF test, ACL 264 matched, not delayed by
+	milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.69]);
+	Sun, 25 Aug 2019 23:08:42 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.69]);
+	Sun, 25 Aug 2019 23:08:42 +0000 (UTC) for IP:'66.172.12.120'
+	DOMAIN:'server2.shellworld.net' HELO:'server2.shellworld.net'
+	FROM:'klewellen@shellworld.net' RCPT:''
+X-RedHat-Spam-Score: 0.001 (SPF_HELO_NONE) 66.172.12.120
+	server2.shellworld.net 66.172.12.120 server2.shellworld.net
+	<klewellen@shellworld.net>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.69
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -116,34 +81,137 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.69]); Sun, 25 Aug 2019 23:01:18 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.70]); Sun, 25 Aug 2019 23:08:51 +0000 (UTC)
 
-TWljcm9zb2Z0IGhhcyBiZWVuIGdldHRpbmcgYmV0dGVyIGZvciBhIGZldyB5ZWFycyBub3cuIE5v
-dCBhbGwgdGhhdCBvbmUgdGhpbmtzIGlzbuKAmXQgdHJ1ZSBmb3IgYWxsIHRpbWUuIOKYuu+4jwpO
-YXJyYXRvciBpcyBhY3R1YWxseSBpbXByb3ZpbmcuIE5vdCBhdCBhbiBhbGFybWluZyByYXRlIG9y
-IGFueXRoaW5nLCBhbmQgY29yZSBhcHBzIGluIFdpbmRvd3MsIGVzcGVjaWFsbHkgTWFpbCwgcmVt
-YWluIGEgcGFpbiBmb3IgYW55IHNjcmVlbiByZWFkZXIgdXNlciB0byB1c2UsIGJ1dCBtYXliZSB0
-aGV54oCZbGwgYWN0dWFsbHkgbGlzdGVuIHRvIGZlZWRiYWNrIG9uIHRoYXQgaXNzdWUsIGFuZCBu
-b3QganVzdCBkbyB3aGF0ZXZlciB0aGV5IGZlZWwgbGlrZSBhdCB0aGUgdGltZSwgd2hpY2gsIHRv
-IGJlIGZhaXIsIGlzIHdoYXQgbW9zdCBjb21wYW5pZXMgc2VlbSB0byBkbywgZXZlbiBpbiB0aGUg
-YWNjZXNzaWJpbGl0eSBzcGFjZS4gIkl0IGRvZXNu4oCZdCBtYXR0ZXIgd2hhdCB5b3Ugd2FudCwi
-IHRoZXkgc2VlbSB0byBzYXksIOKAnHdlIGtub3cgd2hhdCB5b3Ugd2FudCwgc28gd2XigJlsbCBk
-byB3aGF0IHdlIGtub3cgeW91IHdhbnQuIgoKPiBPbiBBdWcgMjUsIDIwMTksIGF0IDU6NTIgUE0s
-IExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gPGJsaW51eC1saXN0QHJlZGhhdC5j
-b20+IHdyb3RlOgo+IAo+IFNpbmNlIHdoZW4gaXMgTWljcm9zb2Z0IGNvbW1pdHRlZCB0byBhY2Nl
-c3NpYmlsaXR5PyBJIHRob3VnaHQgdGhlCj4gd2hvbGUgcmVhc29uIE5WREEgZXhpc3RzIGlzIGJl
-Y2F1c2UgV2luZG93J3MgYnVpbHQtaW4gc2NyZWVuIHJlYWRlciBpcwo+IGdhcmJhZ2UgYW5kIEpB
-V1MgaXMgcHJvaGliaXRpdmVseSBleHBlbnNpdmUuIEFsc28sIEkgdGhvdWdodCBNaWNyb3NvZnQK
-PiB3YXMgcHJldHR5IG11Y2ggdGhlIHBvc3RlciBjaGlsZCBmb3Igc2hydWdnaW5nIG9mZiBsYXdz
-dWl0cyBhbmQKPiBjb250aW51aW5nIHRvIHNjcmV3IG92ZXIgdGhlaXIgY3VzdG9tZXJzIGFzIG11
-Y2ggYXMgcG9zc2libGUuCj4gCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRo
-YXQuY29tCj4gaHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1s
-aXN0CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxp
-bnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly93d3cu
-cmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
+I am not talking about searching, I am talking about signing in, not that 
+I can  either physically use or duplicate your setup.
+the amazon.com/access page  existing was never the question.  Instead the 
+question is why the sign in page there is actually 15 pages long, with no 
+alt tag designating the locations for email and password.
+Indeed  the amount of clutter is atrocious and since the access is to be 
+less cluttered,  one has to wonder as to their definition of simple.
+  Further  how does their captcha better protect my account if it is not 
+inclusive?
+
+
+
+On Sun, 25 Aug 2019, Linux for blind general discussion wrote:
+
+> Okay, from my Firefox+Orca perspective, the site that results from the
+> "click here for a simplified shopping experience" is still there, and
+> the simplified site is what I get when I load Amazon from my
+> bookmarks.
+>
+> The simplified homepage is filled with various advertising and
+> recommendation clusters, each headed by a level 2 html heading.
+> Admittedly, the one's that are filled with category links instead of
+> individual product links tend to go to pages with an atrocious
+> shortage of html headings, and the body of the simplified homepage is
+> empty if JavaScript isn't enabled. However, even without JavaScript,
+> the search box and cart links are easy enough to find(the go button on
+> the search box is the second button from the top of the page and often
+> the last button on the page, and shifting tabbing from this is the
+> link to clear the search box, the search box itself, and the cart
+> link.
+>
+> In this view the shopping cart and individual product pages seem to
+> match the mobile view I remember using on an android phone prior to
+> blindness, with all of the most important stuff either a button or a
+> few tabs/shift tabs from a button. My only real complaint about this
+> view of the cart is the lack of a subtotal for saved items, and my
+> only real complaint about this view of product pages is that some
+> times the product description is truncated compared to the full site
+> and the inability to acess customer Q&A.
+>
+> Admittedly, checking out from this view of the cart makes it difficult
+> to utilize points from my Amazon Prime card and for some reason, the
+> block that's supposed to display subtotal, shipping, tax, and total is
+> empty.
+>
+> Now, from the simplified homepage, I have to disable css to make the
+> link to the desktop/full site visible to ctrl+F which I need if I want
+> to access customer Q&A or place an order using my reward points. The
+> desktop home page is a mess and often slows my browser to a crawl, but
+> fortunately, if I pull up the mobile view of my cart in one tab before
+> switching to the desktop home page in a different tab, I can keep my
+> cart in mobile view even across page changes while loading product
+> pages in desktop view in new tabs from the cart. The desktop product
+> pages are kind of cluttered and make picking options for products with
+> options harder, but add plenty of html headings to help skip over the
+> clutter to reach product descriptions(again, often more detailed than
+> on the mobile view) and customer Q&A(inaccessible from mobile view).
+>
+> Admittedly, once done with things I need the desktop/full version of
+> the site for, I often need ctrl+F to find the link back to the
+> simplified homepage, and for some reason, I have to restart firefox to
+> get product pages and my cart to load in mobile view after switching
+> back to thesimplified homepage(if I don't restart Firefox, I get stuck
+> with somekind of intermediate view, and while the switch to desktop
+> view doesn't force an existing shopping cart tab to switch, the switch
+> back to simplified does).
+>
+> Not entirely sure what cause Amazon to toss me captcha BS every now
+> and then, but it's rare enough that I tend to count it as a site error
+> rather than deliberately bad design.
+>
+> I also have a problem with Amazon trying to push mp3 downloads of
+> Music and Audible versions of audiobooks when I'm looking for Audio CD
+> editions, but I suspect I'd have that problem even if I was still
+> among the sighted.
+>
+> Best I can tell, there isn't much, if any difference between the
+> desktop and mobile views of search results, but as every product link
+> is an HTML heading and the link to open filter options is right after
+> the go button on the search box, any clutter doesn't really bother me.
+>
+> Admittedly, my experience using Amazon is limited to Firefox and it
+> might be an inaccessible mess in Chromium, Safari, and whatever the
+> default Windows web browser is these days, but I'd personally give
+> Amazon at least a B+ for accessibility, and while I might just be used
+> to Amazon's idiosyncrasies, I'd declare it more accessible than the
+> vast majority of web stores. That said, I'm pretty sure this thread
+> was started because Amazon doesn't play well with links, elinks, lynx,
+> etc. or perhaps, that these browsers don't play well with Amazon.
+>
+> If a website was giving me, Firefox, and Orca as much trouble as the
+> OP implies Amazon is giving them, the text browsers, and whatever
+> console screen reader they're using, I'd probably just call the web
+> designers idiots and not use the site(admittedly, not using Amazon is
+> a much bigger sacrifice than for most other websites), but given how
+> well Amazon works for me and how the main reason I use Firefox is that
+> none of the text-mode browsers I've tried seem half as usable(though,
+> in all fairness, even Firefox would be a pain in the anatomy to use if
+> Orca didn't provide all those handy navigational hotkeys), I can't
+> help wondering if the problem isn't as much due to the limitations of
+> the major text-mode browsers as it is due to the flaws in Amazon's web
+> design.
+>
+> I mean, it would be great if Amazon and every other major website
+> worked well with elinks et al., but unless I'm majorly misinformed,
+> many of these browsers lack functionality all the major graphical
+> browsers have had for years, and while some of that functionality
+> probably needs to die in a fire, upgrading text browsers to better
+> work with modern web sites is probably much easier than convincing web
+> masters to cater too what's probably a very small minority of users.
+>
+> But hey, if there's a text-mode web browser out there that's equipped
+> with all the functional aspects of the modern web and provides a
+> decent replacement for the navigational hotkeys graphical screen
+> readers provide when surfing the web, I'd love to hear about it.
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+>
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
