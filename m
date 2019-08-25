@@ -2,68 +2,106 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id AD1189C4D9
-	for <lists+blinux-list@lfdr.de>; Sun, 25 Aug 2019 18:26:21 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+	by mail.lfdr.de (Postfix) with ESMTPS id 16A289C4E2
+	for <lists+blinux-list@lfdr.de>; Sun, 25 Aug 2019 18:35:45 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id CB4A0387B1;
-	Sun, 25 Aug 2019 16:26:19 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id AB954600C8;
-	Sun, 25 Aug 2019 16:26:19 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 2F28687642;
+	Sun, 25 Aug 2019 16:35:43 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A2BDA60A97;
+	Sun, 25 Aug 2019 16:35:41 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 59C1B2551C;
-	Sun, 25 Aug 2019 16:26:19 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
-	[10.5.11.23])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A46A41800B74;
+	Sun, 25 Aug 2019 16:35:40 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
+	[10.5.11.12])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7PGQGjh005407 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 25 Aug 2019 12:26:16 -0400
+	id x7PGZbWd005640 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 25 Aug 2019 12:35:37 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 8BACF196AE; Sun, 25 Aug 2019 16:26:16 +0000 (UTC)
+	id 16B4960F82; Sun, 25 Aug 2019 16:35:37 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx27.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.68])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8587419C70
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 16:26:14 +0000 (UTC)
-Received: from server2.shellworld.net (server2.shellworld.net [66.172.12.120])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mx1.redhat.com (ext-mx25.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.66])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0E2C66E700
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 16:35:34 +0000 (UTC)
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com
+	[209.85.221.52])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 0DCF7A2FC4F
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 16:26:13 +0000 (UTC)
-Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id E0A2E8C033E; Sun, 25 Aug 2019 16:26:12 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id E00328C012D
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 12:26:12 -0400 (EDT)
-Date: Sun, 25 Aug 2019 12:26:12 -0400 (EDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	by mx1.redhat.com (Postfix) with ESMTPS id E08B210F23E3
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 16:35:31 +0000 (UTC)
+Received: by mail-wr1-f52.google.com with SMTP id q12so12997264wrj.12
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 09:35:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+	h=from:subject:to:references:message-id:date:user-agent:mime-version
+	:in-reply-to:content-language;
+	bh=36Ur2Y3lygBGUK/ho0LjWV7yGXgqGCFYafPor7t/UtM=;
+	b=VZutuj59dRbEQYuxaivoP1gQfFaTWMTGvrXeJ7vAro/0S+UnX0ukvLpD8FR2Ay1JKv
+	IWEW+gRxF7t7c3f87nVy1yFl2IG6GFnRbZY54t5/iUx3IwztaIBa5Pren/NcukIpz7qa
+	7g3AzbW0dfDZA8xY2pOyDKE33oqop0V4lNPHRcKWdNC7UK9iFinqnG7lRVJYFeeYP5TG
+	FJuu+cuc6qkRrkewbtTg6k6j69H3tH8uTvf1qa2YHor02IHHUcCMpyTx44UGqIGkNO0X
+	ZRO2vlenurdCOodw5w1SMnKbeLUSykPd4+XtXa1AEkZtgNeuBBLO/G9Ffr4TUGjDAhoM
+	RTeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:from:subject:to:references:message-id:date
+	:user-agent:mime-version:in-reply-to:content-language;
+	bh=36Ur2Y3lygBGUK/ho0LjWV7yGXgqGCFYafPor7t/UtM=;
+	b=aD2I9EAp39IoPSiMt8DA3gObbEMm3D68tWGW17FBh7rhXIX1kIQMfCPSIkcwxSgjNW
+	QU7C0Hl5kwZzSC/uio88paTMPlq6UB0RNZlLjiJ0B5hWZxyiUj+Ry3JxYzEjeGj3EFl3
+	Bl0KMxOmURasOrSINZTAYlXlbV2c3whWVN614kErGfAoYhueP5otczeXAAAEIymrm1wD
+	U1aGTP67hWjdTnIkyOLn8vDrXk+D9vxtwwlYGcatnCKiD1BYNtCThA5i3zd1Uc6uqzet
+	ayVgMnE1dyCKqy19PozJXSp2JSOaxyNpT3LQsRz9gXmemnS7vxQAjs2Qsc+jM19/MAb2
+	b5Aw==
+X-Gm-Message-State: APjAAAVzkoKFeE66hBMTiyshmtVClYWW/aujWuwjRDkGF+X8KhFPVyMW
+	/FSKo4L9wC+RyVXhINMiV9qWfqvL
+X-Google-Smtp-Source: APXvYqzXy2S7WgB4NOTr41ou2KV/mrAfKgN8jeqvnif8nJQavcW+Mu/5I7j71bBxewL7jhJeaOSN/g==
+X-Received: by 2002:a5d:4d81:: with SMTP id b1mr15398918wru.27.1566750930253; 
+	Sun, 25 Aug 2019 09:35:30 -0700 (PDT)
+Received: from ?IPv6:2a04:b2c2:807:200:404c:4c8a:cfb5:2c2a?
+	([2a04:b2c2:807:200:404c:4c8a:cfb5:2c2a])
+	by smtp.gmail.com with ESMTPSA id
+	b136sm24711486wme.18.2019.08.25.09.35.29 for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+	Sun, 25 Aug 2019 09:35:29 -0700 (PDT)
+X-Google-Original-From: Jace Kattalakis <KHALFANG1366@GMAIL.COM>
 Subject: Re: amazon?
-In-Reply-To: <c5ad4c40-6f4a-d2ac-2b06-60a3243353db@slint.fr>
-Message-ID: <Pine.LNX.4.64.1908251223070.2365@server2.shellworld.net>
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
 	<A4215BB2-6107-4752-AC5F-679E449FC076@gmail.com>
 	<Pine.LNX.4.64.1908241501480.31524@server2.shellworld.net>
 	<251aee8d-1527-b391-a37e-e4fbf6799996@gmail.com>
 	<alpine.NEB.2.21.1908241555430.22902@panix1.panix.com>
 	<7f8743f3-bddf-6807-b2bf-0e7443c9c322@gmail.com>
-	<alpine.NEB.2.21.1908250917550.3958@panix1.panix.com>
-	<c5ad4c40-6f4a-d2ac-2b06-60a3243353db@slint.fr>
+	<Pine.LNX.4.64.1908250041020.12504@server2.shellworld.net>
+	<6acc536b-99c9-21f7-1d40-be4d10abab70@GMAIL.COM>
+	<Pine.LNX.4.64.1908251207060.2365@server2.shellworld.net>
+Message-ID: <a1ef7648-72f7-8fc7-e5b5-142187a91cc0@GMAIL.COM>
+Date: Sun, 25 Aug 2019 17:35:28 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+	Thunderbird/60.8.0
 MIME-Version: 1.0
-X-Greylist: Sender passed SPF test, ACL 264 matched, not delayed by
-	milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.68]);
-	Sun, 25 Aug 2019 16:26:13 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.68]);
-	Sun, 25 Aug 2019 16:26:13 +0000 (UTC) for IP:'66.172.12.120'
-	DOMAIN:'server2.shellworld.net' HELO:'server2.shellworld.net'
-	FROM:'klewellen@shellworld.net' RCPT:''
-X-RedHat-Spam-Score: 0.001 (SPF_HELO_NONE) 66.172.12.120
-	server2.shellworld.net 66.172.12.120 server2.shellworld.net
-	<klewellen@shellworld.net>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.68
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+In-Reply-To: <Pine.LNX.4.64.1908251207060.2365@server2.shellworld.net>
+Content-Language: en-US
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
+	(mx1.redhat.com [10.5.110.66]);
+	Sun, 25 Aug 2019 16:35:32 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.66]);
+	Sun, 25 Aug 2019 16:35:32 +0000 (UTC) for IP:'209.85.221.52'
+	DOMAIN:'mail-wr1-f52.google.com' HELO:'mail-wr1-f52.google.com'
+	FROM:'khalfang1366@gmail.com' RCPT:''
+X-RedHat-Spam-Score: 0.152  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_ENVFROM_END_DIGIT, FREEMAIL_FROM, HTML_MESSAGE,
+	RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
+	SPF_PASS) 209.85.221.52 mail-wr1-f52.google.com 209.85.221.52
+	mail-wr1-f52.google.com <khalfang1366@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.66
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -77,224 +115,227 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.71]); Sun, 25 Aug 2019 16:26:20 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.26]); Sun, 25 Aug 2019 16:35:43 +0000 (UTC)
 
-I am not sure I follow your point.
-My goal was to discover if others have solutions, or have at least met 
-with comparative experiences.
-Amazon is pervasive to be sure.  I am a paying customer, meaning that if 
-the company already says I should find  doors allowing me to shop there, 
-those doors should be open.  Yes it results in profit, which is why those 
-doors should be open.  Not so much because the government says so, but 
-because it allows customers to buy from you.
-
-
-
-On Sun, 25 Aug 2019, Linux for blind general discussion wrote:
-
-> To me, this discussion looks like "hey, accessibilty issues of Amazon
-> website prevent me to make Mr Bezos richer. That's a shame!"
->
-> Sorry, I couldn't resist <smile>
->
-> have a good day everybody,
->
-> Didier
->
-> On 25/08/2019 15:19, Linux for blind general discussion wrote:
->>  Put out whatever misinformation you like, but it doesn't and won't
->>  change anyone's past experiences nor the reasons or causes for them.
->>
->>  On Sat, 24 Aug 2019, Linux for blind general discussion wrote:
->> 
->> >  Date: Sat, 24 Aug 2019 23:26:12
->> >  From: Linux for blind general discussion <blinux-list@redhat.com>
->> >  To: blinux-list@redhat.com
->> >  Subject: Re: amazon?
->> > 
->> >  Congress has not attached web accessibility guidelines to the ADA, 
->> >  guidelines
->> >  were not established under President Obama and President Trump's
->> >  administration is officially not pursuing any such guidelines.
->> >  https://www.boia.org/blog/is-website-accessibility-required-under-the-ada
->> > 
->> > 
->> >  Amazon is not covered under Section 508 of the Rehabilitation Act, as 
->> >  the
->> >  Department of the Navy is.
->> > 
->> > 
->> >  Don't get me wrong, I think the ADA extends to web sites, and I think 
->> >  Domino's
->> >  will lose, but the legal question has yet to be settled. This would all 
->> >  be
->> >  moot if the DoJ under Obama or Trump had adopted the WCAD 2.0 standards 
->> >  as the
->> >  standards applying to web accessibility under the ADA.
->> > 
->> > 
->> >  On 8/24/19 3:02 PM, Linux for blind general discussion wrote:
->> > >  I predict Dominos will have its clock thoroughly cleaned.  Precedent
->> > >  even in the Supreme Court isn't on their side.
->> > >  Congress made it clear what accessibility requirements are in the
->> > >  accessibility process and that happened in 2010.  There's about 16
->> > >  technical requirements and a Preamble to Section 508 and this was
->> > >  something D.O.D. got measured against in 2012 when Obama required a
->> > >  D.O.D.-wide accessibility report.  End result of that was the United
->> > >  States Navy was Accessibility Leader and the United States Navy was
->> > >  still left with serious problems and all other components had much 
->> > >  work
->> > >  to do.  I know about that having worked for the Navy during that time.
->> > > 
->> > >  On Sat, 24 Aug 2019, Linux for blind general discussion wrote:
->> > > 
->> > > >  Date: Sat, 24 Aug 2019 15:53:37
->> > > >  From: Linux for blind general discussion <blinux-list@redhat.com>
->> > > >  To: blinux-list@redhat.com
->> > > >  Subject: Re: amazon?
->> > > > 
->> > > >  Amazon is definitely aware of Linux. They have apps running on 
->> > > >  Android and
->> > > >  even platforms that use Android as their OS. They support Linux in 
->> > > >  AWS
->> > > >  including their own flavor of Linux. I'm sure their are some staff 
->> > > >  at
->> > > >  Amazon
->> > > >  who don't know about Linux, but that doesn't mean the company is 
->> > > >  unaware of
->> > > >  or
->> > > >  doesn't care about Linux.
->> > > > 
->> > > > 
->> > > >  BTW, there is still a legal question as to whether a web site which 
->> > > >  offers
->> > > >  products or services to the public needs to be accessible. The ADA 
->> > > >  doesn't
->> > > >  have companion guidelines on what it means for a site to be 
->> > > >  accessible and
->> > > >  Domino's is going to court to claim that the ADA doesn't require 
->> > > >  them to
->> > > >  make
->> > > >  their site or apps accessible. I think the ADA does apply to public 
->> > > >  web
->> > > >  sites,
->> > > >  and I think Domino's will lose, but that doesn't mean it isn't still 
->> > > >  an
->> > > >  open
->> > > >  legal question.
->> > > > 
->> > > > 
->> > > > 
->> > > >  On 8/24/19 2:11 PM, Linux for blind general discussion wrote:
->> > > > >  1. My comment regarding Linux is based on direct communications 
->> > > > >  with
->> > > > >  Amazon
->> > > > >  staff,? who have confessed not to have heard of it,and? who have 
->> > > > >  no direct
->> > > > >  contact with their so called accessibility team when problems 
->> > > > >  arise.
->> > > > >  2. them properly compiled? elinks and links function with java 
->> > > > >  script.
->> > > > >  3.? Access is tied to interaction which is why even later editions 
->> > > > >  of lynx
->> > > > >  can manage some scripting, submit buttons for example.
->> > > > > 
->> > > > >  4. since adaptive technology is often a substitution for the 
->> > > > >  persons eyes,
->> > > > >  hands, brain, and the like, what gives you the right to state that
->> > > > >  technology choices are not tied to physical mandates?? How does 
->> > > > >  your
->> > > > >  stance
->> > > > >  differ from those who claim that access need not exist at all,? or 
->> > > > >  that
->> > > > >  all
->> > > > >  those sharing? a label are the same?
->> > > > >  5. the names of access or other individuals at amazon confirming 
->> > > > >  your
->> > > > >  assumption here?? the legal stance is that if a site serves the 
->> > > > >  public, an
->> > > > >  individual can expect equal public access...which is why? 
->> > > > >  alternative
->> > > > >  doors??? are to exist? in the first place.
->> > > > >  How do you know what low graphics can or cannot do if you do not 
->> > > > >  follow
->> > > > >  their development?? This is about keyboard response which exists 
->> > > > >  in
->> > > > >  graphical? browsers like elinks and links.
->> > > > > 
->> > > > > 
->> > > > > 
->> > > > >  On Fri, 23 Aug 2019, Linux for blind general discussion wrote:
->> > > > > 
->> > > > > >  I don't believe for a minute that the accessibility staff at 
->> > > > > >  Amazon has
->> > > > > >  either forgotten or stopped caring about Linux accessibility.
->> > > > > >  Realistically
->> > > > > >  though, it is possible that they have stopped worrying about the 
->> > > > > >  very
->> > > > > >  small
->> > > > > >  number of people who still use text-based browsers and expect 
->> > > > > >  them to
->> > > > > >  work
->> > > > > >  for shopping, banking and other modern internet tasks. The thing 
->> > > > > >  is Linux
->> > > > > >  accessibility in 2019 != lynx/links/elinks accessibility. In 
->> > > > > >  fact, this
->> > > > > >  hasn't been the case since about 2008 or so
->> > > > > >  .
->> > > > > >  Unfortunately, text-based browsers have not kept up with the 
->> > > > > >  rest of the
->> > > > > >  internet, and can't be expected to work well for most websites 
->> > > > > >  without a
->> > > > > >  major overhaul, especially since they don't even support the 
->> > > > > >  latest HTML5
->> > > > > >  standards, nor do they support accessibility standards that have 
->> > > > > >  been in
->> > > > > >  place for years. Even w3m doesn't fully support the w3c's own 
->> > > > > >  standards.
->> > > > > > 
->> > > > > >  Yes, I can see why some people may want these light-weight and 
->> > > > > >  fast
->> > > > > >  browsers to work with Amazon, and yes, they should be made aware 
->> > > > > >  of the
->> > > > > >  problems that people are having. But to say that Amazon doesn't 
->> > > > > >  care
->> > > > > >  about
->> > > > > >  Linux accessibility because their site doesn't work with a 
->> > > > > >  text-based
->> > > > > >  browser is at best a gross exageration, and is at worst a grave
->> > > > > >  disservice
->> > > > > >  to those of us who use Linux and a screen reader at the same 
->> > > > > >  time.
->> > > > > >  Imetumwa kutoka miti
->> > > > > > 
->> > > > > >  _______________________________________________
->> > > > > >  Blinux-list mailing list
->> > > > > >  Blinux-list@redhat.com
->> > > > > >  https://www.redhat.com/mailman/listinfo/blinux-list
->> > > > > > 
->> > > > > > 
->> > > > >  _______________________________________________
->> > > > >  Blinux-list mailing list
->> > > > >  Blinux-list@redhat.com
->> > > > >  https://www.redhat.com/mailman/listinfo/blinux-list
->> > > > 
->> >
->> 
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
+QWdyZWVkZCwgSSBicm91Z2h0IHVwIHRoZSBsZWdhbCBiZWF0aW5nIG92ZXIgdGhlIGhlYWQgYmVj
+YXVzZSB0aGVyZSdzIApjZXJ0YWluIHNlY3Rpb25zIG9mIGEgYmxpbmQgY29tbXVuaXR5IHRoYXQg
+aGF2ZSBhIHJlcHV0YXRpb24gZm9yIHJlYWNpbmcgCmZvciBhIGxhd3N1aXQgZmlyc3Qgd2l0aG91
+dCBhY3R1YWxseSB0cnlpbmcsIG9yIHRyeWluZyBhbmQgcHVibGljYWxseSAKZGlzY2xvc2luZyBh
+dCBsZWFzdCwgdG8gcmVzb2x2ZSBpc3N1ZXMuIEl0J3MgdGhlIHNhbWUgY29tbXVuaXR5IHdobywg
+CnN0ZXJvdHlwaWNhbGx5LCBleHBlY3QgdG8gaGF2ZSB0aGluZ3MgZml4ZWQgL2luc3RhbnRseS8u
+IFdoaWNoIGlzIEJTLCBpdCAKdGFrZXMgdGltZSB0byBpbXBsZW1lbnQgdGhpbmdzLiBJdCdzIGEg
+d2hvbGUgb3RoZXIgZGViYXRlIG92ZXIgd2hhdCdzIGEgCnJlYXNvbmFibGUgbGVuZ3RoIG9mIHRp
+bWUsIGJ1dC4uLi5sZXQncyBzYXkgdGhlICdjbGljayBoZXJlIGZvciBhIAptaW5pbWFsIHNpdGUn
+IHdhcyBhbHJlYWR5IGluLi4uLkknZCB2ZXJ5LCB2ZXJ5IG11Y2ggbGlrZSB0aGF0LgoKV2hvZXZl
+ciBpdCB3YXMgd2hvIHNhaWQgbGl0aWdhdGlvbidzIHRoZSBvbmx5IHdheSB0byBnZXQgY2hhbmdl
+LCBubywgaXQgCmlzbid0LiBUcnkgcmVhY2hpbmcgb3V0IHRvIGNvbXBhbmllcyB3aXRoIHdlbGwg
+dGhvdWdodCBvdXQsIGVhc3kgdG8gCnVuZGVyc3RhbmQgcG9pbnRzLCBzdWNoIGFzLi4uYXMgYW4g
+ZXhhbXBsZSBvZmYgdGhlIHRvcCBvZiBteSBoZWFkCgpJIGJlbGlldmUgQW1hem9uIHNob3VsZCBt
+YWtlIHRoZWlyIHNpdGVzIGxlc3MgY2x1dHRlcmVkIGJlY2F1c2UgcmVhc29ucyAKMSwgMiwzIGFu
+ZCA0LCBhbmQgdGhpcyB3aWxsIGJlbmVmaXQgZXZlcnlvbmUgYmVjYXVzZSBYIFkgWi4KClRoZSBp
+c3N1ZSBpcy4uLi4uZGlzYWJsZWQgcGVvcGxlIGFyZSBzdGlsbCBhIHRpbnksIHRpbnkgbmljaGUu
+IElmIGl0J3MgCnByZXNlbnRlZCByaWdodCB0byBBbWF6b24gYXMgYSBnb29kIHRoaW5nIGZvciAv
+ZXZlcnlvbmUvLCBBbWF6b24gd2lsbCBkbyAKaXQgYmVjYXVzZSBldmVyeWJvZHkgd2lucyBhbmQg
+aXQncyBnb29kIFBSLCBub3QganVzdCB3aXRoIGEgbWlub3JpdHkgb2YgCnBlb3BsZSBob3dldmVy
+LgoKT24gMjUvMDgvMjAxOSAxNzoxMywgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lv
+biB3cm90ZToKPiBJIGFncmVlIHdpdGggeW91IGVudGlyZWx5LsKgIEFtYXpvbiBzaG91bGQganVz
+dCBkbyB0aGlzIGJlY2F1c2UgaXQgaXMgCj4gZ29vZCBidXNpbmVzcy7CoCBXYW50IGEgc2ltcGxl
+IHBhdGggdG8gdXNpbmcgYW1hem9uP8KgIGdvIGhlcmUuLi53aGljaCAKPiB1c2VkIHRvIGJlIHRo
+ZSBjYXNlLsKgIFByZWZlciB0aGUgZnVsbCBzaXRlLCBoZXJlIHlvdSBnby4KPiBTcGVha2luZyBw
+ZXJzb25hbGx5IEkgZmluZCB0aGUgd2F5wqAgdGVybXMgbGlrZSBhY2Nlc3NpYmlsaXR5IGdldCB1
+c2VkIAo+IHRvIG9mdGVuIGZlZWwgZGlzdHVyYmluZyBiZWNhdXNlIHRoZSBhc3N1bXB0aW9uIGlz
+IHRoYXQgZXZlcnlvbmUgCj4gc2hhcmluZyBhIGNlcnRhaW4gbGFiZWwsIHNheSBkaXNhYmlsaXR5
+LCBhY2NvbW1vZGF0ZXMgYW5kIGFyZSAKPiBpbnRlcmNoYW5nZWFibGUgZm9yIG9uZSBhbm90aGVy
+LsKgIE15IHVuZGVyc3RhbmRpbmcgb2YgZGlzYWJpbGl0aWVzIAo+IHN0dWRpZXMgaXMgdGhvdWdo
+IHRoYXQgdGhlIGJhcnJpZXIsIGluIHRoaXMgY2FzZSBhIHNpdGUsIGlzIHdoZXJlIHRoZSAKPiBp
+c3N1ZSBsaWVzLsKgIFByZXNlbnQgb3B0aW9ucyBvbiB0aGUgbWVudSBzbyBwZW9wbGUgY2FuIGNo
+b29zZSBmb3IgCj4gd2hhdGV2ZXIgcmVhc29uLCBhbmQgeW91IGRvIGdyYW5kIGJ1c2luZXNzLi4u
+bGlrZSBBcHBsZS4KPgo+Cj4KPiBPbiBTdW4sIDI1IEF1ZyAyMDE5LCBMaW51eCBmb3IgYmxpbmQg
+Z2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Cj4+IFBlcnNvbmFsbHksIGFsbCBJIHdhbnQgb3Vp
+dCBvZiBBbWF6b24gaXMgdGhlIC9vcHRpb24vIHRvIHVzZSBhIAo+PiBzaW1wbGVyIHNpdGUsIHdp
+dGggbm8gbGVnYWwgYmVhdGluZyBvdmVyIHRoZSBoZWFkIHdpdGggYSBzdGljayBhbmQgCj4+IG5v
+Ym9keSBqdW1waW5nIHVwIGFuZCBkb3duIGFuZCB0aHJlYXRlbmluZyB0byBzdWUgQW1hem9uIHVu
+ZGVyIAo+PiBsZWdpc2xhdGlvbi4gSSdkIHJhdGhlciBBbWF6b24gZG8gaXQgb2ZmIHRoZWlyIG93
+biBiYWNrLiBJJ2QgcmF0aGVyLCAKPj4gc2F5LCB1c2UgQW1hem9uJ3MgbW9iaWxlIHNpdGUgdGhh
+dCB3b3VsZCBiZSBsZXNzIGNsdXR0ZXJlZCBhbmQgZWFzeSAKPj4gdG8gbmF2aWdhdGUgKHNpbmNl
+IEkgZmluZCBBbWF6b24gaW5zYWxleSBoYXJkIHRvIHVzZSwgZXZlbiBiZWZvcmUgCj4+IGxvc2lu
+ZyBteSBzaWdodCBpdCB3YXMgYSBwYWluIGluIHRoZSBidXR0IHRvIGdldCBhcm91bmQgaG9uZXN0
+bHksIEkgCj4+IGRvbid0IGtub3cgd2h5IHRoZXkgZmVlbCBsaWtlIHRoZXkgZ290IHRvIGNsdXR0
+ZXIgdXAgdGhlIHBhZ2VzIHNvIAo+PiBtdWNoKS4gSSBqdXN0IHdhbnQgb3B0aW9ucywgd2l0aG91
+dCBsZWdhbCBwcmVjZWRlbnQsIGFuZCBmb3IgdGhlIAo+PiByZWNvcmQsIEkgYWluJ3QgaW4gdGhl
+IFVTIHNvIGFsbCB0aGUgdGFsayBvZiBBREEgZG9lcyBub3QgYXBwbHkgaGVyZSwgCj4+IHRob3Vn
+aCBnaXZlbiBteSBjb3VudHJ5IGlzIGp1c3QgYWJvdXQgZ2VhcmluZyB1cCB0byBzcGVjdGFjdWxh
+cmx5IAo+PiBpbXBsb2RlLi4uLi50aGUgQURBIGRvZXMgbm90IGFwcGx5IGhlcmUuIEkgYWN0dWFs
+bHkgZG9uJ3Qga25vdyBpZiB3ZSAKPj4gaGF2ZSB3ZWJzaXRlIGFjY2Vzc2liaWxpdHkgcmV1bGVz
+IGhlcmUsIGlmIHdlIGRvIEkndmUgcmFyZWx5IGlmIGV2ZXIgCj4+IHNlZW4gdGhlbSByZXBvcnRl
+ZCBieSB0aGUgbWVkaWEgaGVyZSwgdGhlIHNvbGUgc291cmNlcyBJIGZpbmQgYXJlIGFsbCAKPj4g
+VVMtY2VudHJpYy4KPj4KPj4gQW5kIHRoYXQgcmFpc2VzIGFub3RoZXIgcG9pbnQuIExldCdzIHNh
+eSB0aGF0IEphcGFuIGFkb3B0cyBuZXcgCj4+IGxlZ2lzbGF0aW9uLiBBbWF6b24uanAgd2lsbCwg
+Zm9yIGFyZ3VtZW50J3Mgc2FrZSwgY29tcGx5LiBBbWF6b24uZGUgCj4+IHdvbid0IGNvbXBseSB3
+aXRoIHRoZSBKYXBhbmVzZSBsZWdpc2xhdGlvbiBiZWNhdXNlLi4uR2VybWFueSBpcyBub3QgCj4+
+IEphcGFuLiBBbWF6b24uYnIgd29uJ3QgYmVjYXVzZSBCcmF6aWwgaXMgbm90IEdlcm1hbnkuIFBv
+aW50IGlzLCBldmVyeSAKPj4gY291bnRyeSBoYXMgdGhlaXIgb3duIGxlZ2lzbGF0aW9uIHRoZXkg
+Z28gYnkuIEFtYXpvbiBjYW4ndCBwb2ludCB0byAKPj4gdGhlIEFEQSBhbmQgc2F5IHNlZSwgdGhh
+dCdzIG91ciBnbG9iYWwgc3RhbmRhcmQsIGJlY2F1c2UgZXZlcnkgCj4+IGNvdW50cnkgdHJlYXRz
+IGFjY2Vzc2liaWxpdHkgZGlmZmVyZW50bHksIHNvIGlmIEFtYXpvbiAvd2FudGVkLyB0byAKPj4g
+Y29tcGx5IHdpdGggYWxsIHRoZSBydWxlcywgdGhleSdkIG5lZWQgdG8gZ28gb3ZlciBldmVyeSBz
+aW5nbGUgc2l0ZSAKPj4gaW4gZXZlcnkgY291bnRyeSB0aGV5IG9wZXJhdGUgaW4sIGFuZCBjb21w
+bHkgd2l0aCB0aGUgbG9jYWwgbGF3cy4gCj4+IFdoaWNoIHdvdWxkIGJlIHNsb3cgZ29pbmcsIGFu
+ZCBjb3N0bHkuCj4+Cj4+IE9uIDI1LzA4LzIwMTkgMDU6NDQsIExpbnV4IGZvciBibGluZCBnZW5l
+cmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4+PiDCoEFtYXpvbiBkb2VzIGJ1c2luZXNzIGluIG90aGVy
+IGNvdW50cmllcyB3aGVyZSBzdWNoIHN0YW5kYXJkIAo+Pj4gcmVxdWlyZW1lbnRzCj4+PiDCoGRv
+IGV4aXN0Lgo+Pj4gwqBCZXNpZGVzLCBBbWF6b27CoCBpcyBub3QgY2xhaW1pbmcgdGhhdCBpdCBu
+ZWVkIG5vdCBiZSBpbmNsdXNpdmUuIAo+Pj4gUmF0aGVyIGl0Cj4+PiDCoGlzIHByZXRlbmRpbmcs
+IHdpdGhvdXTCoCBjcm9zcyBwbGF0Zm9ybSB0ZXN0aW5nIGFuZCBhY3R1YWwgYXR0ZW1wdHMgdG8K
+Pj4+IMKgcHJvdmlkZSBhIHVuaWZvcm0gZXhwZXJpZW5jZSwgdGhhdCBpdCBleGlzdHMgd2l0aCB0
+aGVtLgo+Pj4KPj4+Cj4+Pgo+Pj4gwqBPbiBTYXQsIDI0IEF1ZyAyMDE5LCBMaW51eCBmb3IgYmxp
+bmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4KPj4+ID7CoCBDb25ncmVzcyBoYXMgbm90
+IGF0dGFjaGVkIHdlYiBhY2Nlc3NpYmlsaXR5IGd1aWRlbGluZXMgdG8gdGhlIAo+Pj4gQURBLCA+
+wqAgZ3VpZGVsaW5lcyB3ZXJlIG5vdCBlc3RhYmxpc2hlZCB1bmRlciBQcmVzaWRlbnQgT2JhbWEg
+YW5kIAo+Pj4gUHJlc2lkZW50ID7CoCBUcnVtcCdzIGFkbWluaXN0cmF0aW9uIGlzIG9mZmljaWFs
+bHkgbm90IHB1cnN1aW5nIGFueSAKPj4+IHN1Y2ggZ3VpZGVsaW5lcy4gPiAKPj4+IGh0dHBzOi8v
+d3d3LmJvaWEub3JnL2Jsb2cvaXMtd2Vic2l0ZS1hY2Nlc3NpYmlsaXR5LXJlcXVpcmVkLXVuZGVy
+LXRoZS1hZGEKPj4+ID4gPiA+wqAgQW1hem9uIGlzIG5vdCBjb3ZlcmVkIHVuZGVyIFNlY3Rpb24g
+NTA4IG9mIHRoZSBSZWhhYmlsaXRhdGlvbiAKPj4+IEFjdCwgYXMgPsKgIHRoZSBEZXBhcnRtZW50
+IG9mIHRoZSBOYXZ5IGlzLgo+Pj4gPiA+ID7CoCBEb24ndCBnZXQgbWUgd3JvbmcsIEkgdGhpbmsg
+dGhlIEFEQSBleHRlbmRzIHRvIHdlYiBzaXRlcywgYW5kIAo+Pj4gSSB0aGluayA+wqAgRG9taW5v
+J3Mgd2lsbCBsb3NlLCBidXQgdGhlIGxlZ2FsIHF1ZXN0aW9uIGhhcyB5ZXQgdG8gYmUgCj4+PiBz
+ZXR0bGVkLiBUaGlzID7CoCB3b3VsZCBhbGwgYmUgbW9vdCBpZiB0aGUgRG9KIHVuZGVyIE9iYW1h
+IG9yIFRydW1wIAo+Pj4gaGFkIGFkb3B0ZWQgdGhlIFdDQUQgPsKgIDIuMCBzdGFuZGFyZHMgYXMg
+dGhlIHN0YW5kYXJkcyBhcHBseWluZyB0byAKPj4+IHdlYiBhY2Nlc3NpYmlsaXR5IHVuZGVyIHRo
+ZSA+wqAgQURBLgo+Pj4gPiA+ID7CoCBPbiA4LzI0LzE5IDM6MDIgUE0sIExpbnV4IGZvciBibGlu
+ZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4+PiA+ID7CoCDCoEkgcHJlZGljdCBEb21pbm9z
+IHdpbGwgaGF2ZSBpdHMgY2xvY2sgdGhvcm91Z2hseSBjbGVhbmVkLsKgID4gCj4+PiA+wqAgUHJl
+Y2VkZW50Cj4+PiA+ID7CoCDCoGV2ZW4gaW4gdGhlIFN1cHJlbWUgQ291cnQgaXNuJ3Qgb24gdGhl
+aXIgc2lkZS4KPj4+ID4gPsKgIMKgQ29uZ3Jlc3MgbWFkZSBpdCBjbGVhciB3aGF0IGFjY2Vzc2li
+aWxpdHkgcmVxdWlyZW1lbnRzIGFyZSBpbiB0aGUKPj4+ID4gPsKgIMKgYWNjZXNzaWJpbGl0eSBw
+cm9jZXNzIGFuZCB0aGF0IGhhcHBlbmVkIGluIDIwMTAuIFRoZXJlJ3MgYWJvdXQgMTYKPj4+ID4g
+PsKgIMKgdGVjaG5pY2FsIHJlcXVpcmVtZW50cyBhbmQgYSBQcmVhbWJsZSB0byBTZWN0aW9uIDUw
+OCBhbmQgdGhpcyB3YXMKPj4+ID4gPsKgIMKgc29tZXRoaW5nIEQuTy5ELiBnb3QgbWVhc3VyZWQg
+YWdhaW5zdCBpbiAyMDEyIHdoZW4gT2JhbWEgCj4+PiByZXF1aXJlZCBhCj4+PiA+ID7CoCDCoEQu
+Ty5ELi13aWRlIGFjY2Vzc2liaWxpdHkgcmVwb3J0LsKgIEVuZCByZXN1bHQgb2YgdGhhdCB3YXMg
+dGhlIAo+Pj4gPiA+wqAgVW5pdGVkCj4+PiA+ID7CoCDCoFN0YXRlcyBOYXZ5IHdhcyBBY2Nlc3Np
+YmlsaXR5IExlYWRlciBhbmQgdGhlIFVuaXRlZCBTdGF0ZXMgCj4+PiBOYXZ5IHdhcwo+Pj4gPiA+
+wqAgwqBzdGlsbCBsZWZ0IHdpdGggc2VyaW91cyBwcm9ibGVtcyBhbmQgYWxsIG90aGVyIGNvbXBv
+bmVudHMgaGFkIAo+Pj4gbXVjaCA+ID7CoCB3b3JrCj4+PiA+ID7CoCDCoHRvIGRvLsKgIEkga25v
+dyBhYm91dCB0aGF0IGhhdmluZyB3b3JrZWQgZm9yIHRoZSBOYXZ5IGR1cmluZyAKPj4+IHRoYXQg
+PiA+wqAgdGltZS4KPj4+ID4gPiA+ID7CoCDCoE9uIFNhdCwgMjQgQXVnIDIwMTksIExpbnV4IGZv
+ciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gCj4+PiB3cm90ZToKPj4+ID4gPiA+ID4gPiDCoCBE
+YXRlOiBTYXQsIDI0IEF1ZyAyMDE5IDE1OjUzOjM3Cj4+PiA+ID4gPiDCoCBGcm9tOiBMaW51eCBm
+b3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIAo+Pj4gPGJsaW51eC1saXN0QHJlZGhhdC5jb20+
+Cj4+PiA+ID4gPiDCoCBUbzogYmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+Pj4gPiA+ID4gwqAgU3Vi
+amVjdDogUmU6IGFtYXpvbj8KPj4+ID4gPiA+ID4gwqAgQW1hem9uIGlzIGRlZmluaXRlbHkgYXdh
+cmUgb2YgTGludXguIFRoZXkgaGF2ZSBhcHBzIAo+Pj4gcnVubmluZyBvbiA+ID4gQW5kcm9pZCA+
+IMKgIGFuZAo+Pj4gPiA+ID4gwqAgZXZlbiBwbGF0Zm9ybXMgdGhhdCB1c2UgQW5kcm9pZCBhcyB0
+aGVpciBPUy4gVGhleSBzdXBwb3J0IAo+Pj4gTGludXggPiA+wqAgaW4gQVdTCj4+PiA+ID4gPiDC
+oCBpbmNsdWRpbmcgdGhlaXIgb3duIGZsYXZvciBvZiBMaW51eC4gSSdtIHN1cmUgdGhlaXIgYXJl
+IHNvbWUgCj4+PiA+ID7CoCBzdGFmZiBhdCA+wqAgQW1hem9uCj4+PiA+ID4gPiDCoCB3aG8gZG9u
+J3Qga25vdyBhYm91dCBMaW51eCwgYnV0IHRoYXQgZG9lc24ndCBtZWFuIHRoZSAKPj4+IGNvbXBh
+bnkgaXMgPiA+IHVuYXdhcmUgPiDCoCBvZiBvcgo+Pj4gPiA+ID4gwqAgZG9lc24ndCBjYXJlIGFi
+b3V0IExpbnV4Lgo+Pj4gPiA+ID4gPiA+IMKgIEJUVywgdGhlcmUgaXMgc3RpbGwgYSBsZWdhbCBx
+dWVzdGlvbiBhcyB0byB3aGV0aGVyIGEgd2ViIAo+Pj4gc2l0ZSA+ID4gd2hpY2ggPiBvZmZlcnMK
+Pj4+ID4gPiA+IMKgIHByb2R1Y3RzIG9yIHNlcnZpY2VzIHRvIHRoZSBwdWJsaWMgbmVlZHMgdG8g
+YmUgYWNjZXNzaWJsZS4gCj4+PiBUaGUgPiA+IEFEQSA+IMKgIGRvZXNuJ3QKPj4+ID4gPiA+IMKg
+IGhhdmUgY29tcGFuaW9uIGd1aWRlbGluZXMgb24gd2hhdCBpdCBtZWFucyBmb3IgYSBzaXRlIHRv
+IGJlIAo+Pj4gPiA+IGFjY2Vzc2libGUgPiDCoCBhbmQKPj4+ID4gPiA+IMKgIERvbWlubydzIGlz
+IGdvaW5nIHRvIGNvdXJ0IHRvIGNsYWltIHRoYXQgdGhlIEFEQSBkb2Vzbid0IAo+Pj4gcmVxdWly
+ZSA+ID7CoCB0aGVtIHRvID7CoCBtYWtlCj4+PiA+ID4gPiDCoCB0aGVpciBzaXRlIG9yIGFwcHMg
+YWNjZXNzaWJsZS4gSSB0aGluayB0aGUgQURBIGRvZXMgYXBwbHkgdG8gCj4+PiA+ID7CoCBwdWJs
+aWMgd2ViID7CoCBzaXRlcywKPj4+ID4gPiA+IMKgIGFuZCBJIHRoaW5rIERvbWlubydzIHdpbGwg
+bG9zZSwgYnV0IHRoYXQgZG9lc24ndCBtZWFuIGl0IAo+Pj4gaXNuJ3QgPiA+wqAgc3RpbGwgYW4g
+PsKgIG9wZW4KPj4+ID4gPiA+IMKgIGxlZ2FsIHF1ZXN0aW9uLgo+Pj4gPiA+ID4gPiA+ID4gwqAg
+T24gOC8yNC8xOSAyOjExIFBNLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIAo+
+Pj4gPiA+ID4gPiA+ID4gd3JvdGU6Cj4+PiA+ID4gPiA+IMKgIDEuIE15IGNvbW1lbnQgcmVnYXJk
+aW5nIExpbnV4IGlzIGJhc2VkIG9uIGRpcmVjdCAKPj4+IGNvbW11bmljYXRpb25zID4gPiB3aXRo
+ID4gPiDCoCBBbWF6b24KPj4+ID4gPiA+ID4gwqAgc3RhZmYsPyB3aG8gaGF2ZSBjb25mZXNzZWQg
+bm90IHRvIGhhdmUgaGVhcmQgb2YgaXQsYW5kPyAKPj4+IHdobyA+ID7CoCBoYXZlIG5vID4gPsKg
+IGRpcmVjdAo+Pj4gPiA+ID4gPiDCoCBjb250YWN0IHdpdGggdGhlaXIgc28gY2FsbGVkIGFjY2Vz
+c2liaWxpdHkgdGVhbSB3aGVuIAo+Pj4gcHJvYmxlbXMgPiA+wqAgYXJpc2UuCj4+PiA+ID4gPiA+
+IMKgIDIuIHRoZW0gcHJvcGVybHkgY29tcGlsZWQ/IGVsaW5rcyBhbmQgbGlua3MgZnVuY3Rpb24g
+d2l0aCAKPj4+IGphdmEgPiA+wqAgc2NyaXB0Lgo+Pj4gPiA+ID4gPiDCoCAzLj8gQWNjZXNzIGlz
+IHRpZWQgdG8gaW50ZXJhY3Rpb24gd2hpY2ggaXMgd2h5IGV2ZW4gbGF0ZXIgCj4+PiA+ID7CoCBl
+ZGl0aW9ucyBvZiA+ID7CoCBseW54Cj4+PiA+ID4gPiA+IMKgIGNhbiBtYW5hZ2Ugc29tZSBzY3Jp
+cHRpbmcsIHN1Ym1pdCBidXR0b25zIGZvciBleGFtcGxlLgo+Pj4gPiA+ID4gPiA+ID4gwqAgNC4g
+c2luY2UgYWRhcHRpdmUgdGVjaG5vbG9neSBpcyBvZnRlbiBhIHN1YnN0aXR1dGlvbiAKPj4+IGZv
+ciA+ID7CoCB0aGUgcGVyc29ucyA+ID4gZXllcywKPj4+ID4gPiA+ID4gwqAgaGFuZHMsIGJyYWlu
+LCBhbmQgdGhlIGxpa2UsIHdoYXQgZ2l2ZXMgeW91IHRoZSByaWdodCB0byAKPj4+IHN0YXRlID4g
+PiA+ID4gdGhhdAo+Pj4gPiA+ID4gPiDCoCB0ZWNobm9sb2d5IGNob2ljZXMgYXJlIG5vdCB0aWVk
+IHRvIHBoeXNpY2FsIG1hbmRhdGVzPz8gSG93IAo+Pj4gZG9lcyA+ID4geW91ciA+ID4gwqAgc3Rh
+bmNlCj4+PiA+ID4gPiA+IMKgIGRpZmZlciBmcm9tIHRob3NlIHdobyBjbGFpbSB0aGF0IGFjY2Vz
+cyBuZWVkIG5vdCBleGlzdCBhdCAKPj4+IGFsbCw/ID4gPiBvciA+ID4gwqAgdGhhdCBhbGwKPj4+
+ID4gPiA+ID4gwqAgdGhvc2Ugc2hhcmluZz8gYSBsYWJlbCBhcmUgdGhlIHNhbWU/Cj4+PiA+ID4g
+PiA+IMKgIDUuIHRoZSBuYW1lcyBvZiBhY2Nlc3Mgb3Igb3RoZXIgaW5kaXZpZHVhbHMgYXQgYW1h
+em9uID4gPsKgIAo+Pj4gY29uZmlybWluZyB5b3VyCj4+PiA+ID4gPiA+IMKgIGFzc3VtcHRpb24g
+aGVyZT8/IHRoZSBsZWdhbCBzdGFuY2UgaXMgdGhhdCBpZiBhIHNpdGUgCj4+PiBzZXJ2ZXMgdGhl
+ID4gPiA+ID4gwqAgcHVibGljLCBhbgo+Pj4gPiA+ID4gPiDCoCBpbmRpdmlkdWFsIGNhbiBleHBl
+Y3QgZXF1YWwgcHVibGljIGFjY2Vzcy4uLndoaWNoIGlzIHdoeT8gCj4+PiA+ID7CoCBhbHRlcm5h
+dGl2ZQo+Pj4gPiA+ID4gPiDCoCBkb29ycz8/PyBhcmUgdG8gZXhpc3Q/IGluIHRoZSBmaXJzdCBw
+bGFjZS4KPj4+ID4gPiA+ID4gwqAgSG93IGRvIHlvdSBrbm93IHdoYXQgbG93IGdyYXBoaWNzIGNh
+biBvciBjYW5ub3QgZG8gaWYgeW91IAo+Pj4gZG8gPiA+IG5vdCA+ID4gwqAgZm9sbG93Cj4+PiA+
+ID4gPiA+IMKgIHRoZWlyIGRldmVsb3BtZW50Pz8gVGhpcyBpcyBhYm91dCBrZXlib2FyZCByZXNw
+b25zZSB3aGljaCAKPj4+ID4gPsKgIGV4aXN0cyBpbgo+Pj4gPiA+ID4gPiDCoCBncmFwaGljYWw/
+IGJyb3dzZXJzIGxpa2UgZWxpbmtzIGFuZCBsaW5rcy4KPj4+ID4gPiA+ID4gPiA+ID4gPiA+ID4g
+wqAgT24gRnJpLCAyMyBBdWcgMjAxOSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgPiAKPj4+ID7C
+oCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4gPiA+ID4gPiA+ID4gPiDCoCBJIGRvbid0IGJlbGlldmUg
+Zm9yIGEgbWludXRlIHRoYXQgdGhlIGFjY2Vzc2liaWxpdHkgCj4+PiBzdGFmZiA+ID7CoCBhdCBB
+bWF6b24gPiA+ID7CoCBoYXMKPj4+ID4gPiA+ID4gPiDCoCBlaXRoZXIgZm9yZ290dGVuIG9yIHN0
+b3BwZWQgY2FyaW5nIGFib3V0IExpbnV4IAo+Pj4gYWNjZXNzaWJpbGl0eS4gPiA+ID4gPiA+IFJl
+YWxpc3RpY2FsbHkKPj4+ID4gPiA+ID4gPiDCoCB0aG91Z2gsIGl0IGlzIHBvc3NpYmxlIHRoYXQg
+dGhleSBoYXZlIHN0b3BwZWQgd29ycnlpbmcgCj4+PiBhYm91dCA+ID4gdGhlID4gPiA+IHZlcnkg
+c21hbGwKPj4+ID4gPiA+ID4gPiDCoCBudW1iZXIgb2YgcGVvcGxlIHdobyBzdGlsbCB1c2UgdGV4
+dC1iYXNlZCBicm93c2VycyBhbmQgCj4+PiBleHBlY3QgPiA+IHRoZW0gPiA+ID4gdG8gd29yawo+
+Pj4gPiA+ID4gPiA+IMKgIGZvciBzaG9wcGluZywgYmFua2luZyBhbmQgb3RoZXIgbW9kZXJuIGlu
+dGVybmV0IHRhc2tzLiAKPj4+IFRoZSA+ID7CoCB0aGluZyBpcyA+ID4gPiBMaW51eAo+Pj4gPiA+
+ID4gPiA+IMKgIGFjY2Vzc2liaWxpdHkgaW4gMjAxOSAhPSBseW54L2xpbmtzL2VsaW5rcyAKPj4+
+IGFjY2Vzc2liaWxpdHkuIEluID4gPsKgIGZhY3QsID4gPiA+wqAgdGhpcwo+Pj4gPiA+ID4gPiA+
+IMKgIGhhc24ndCBiZWVuIHRoZSBjYXNlIHNpbmNlIGFib3V0IDIwMDggb3Igc28KPj4+ID4gPiA+
+ID4gPiDCoCAuCj4+PiA+ID4gPiA+ID4gwqAgVW5mb3J0dW5hdGVseSwgdGV4dC1iYXNlZCBicm93
+c2VycyBoYXZlIG5vdCBrZXB0IHVwIHdpdGggCj4+PiB0aGUgPiA+wqAgcmVzdCBvZiA+ID4gPiB0
+aGUKPj4+ID4gPiA+ID4gPiDCoCBpbnRlcm5ldCwgYW5kIGNhbid0IGJlIGV4cGVjdGVkIHRvIHdv
+cmsgd2VsbCBmb3IgbW9zdCA+IAo+Pj4gPiB3ZWJzaXRlcyA+ID4gPiDCoCB3aXRob3V0IGEKPj4+
+ID4gPiA+ID4gPiDCoCBtYWpvciBvdmVyaGF1bCwgZXNwZWNpYWxseSBzaW5jZSB0aGV5IGRvbid0
+IGV2ZW4gc3VwcG9ydCAKPj4+IHRoZSA+ID4gbGF0ZXN0ID4gPiA+IEhUTUw1Cj4+PiA+ID4gPiA+
+ID4gwqAgc3RhbmRhcmRzLCBub3IgZG8gdGhleSBzdXBwb3J0IGFjY2Vzc2liaWxpdHkgc3RhbmRh
+cmRzIAo+Pj4gdGhhdCA+ID4gaGF2ZSA+ID4gPiBiZWVuIGluCj4+PiA+ID4gPiA+ID4gwqAgcGxh
+Y2UgZm9yIHllYXJzLiBFdmVuIHczbSBkb2Vzbid0IGZ1bGx5IHN1cHBvcnQgdGhlIAo+Pj4gdzNj
+J3Mgb3duID4gPiA+ID4gPiBzdGFuZGFyZHMuCj4+PiA+ID4gPiA+ID4gPiA+ID4gwqAgWWVzLCBJ
+IGNhbiBzZWUgd2h5IHNvbWUgcGVvcGxlIG1heSB3YW50IHRoZXNlID4gPsKgIAo+Pj4gbGlnaHQt
+d2VpZ2h0IGFuZCBmYXN0Cj4+PiA+ID4gPiA+ID4gwqAgYnJvd3NlcnMgdG8gd29yayB3aXRoIEFt
+YXpvbiwgYW5kIHllcywgdGhleSBzaG91bGQgYmUgCj4+PiBtYWRlID4gPsKgIGF3YXJlIG9mID4g
+PiA+IHRoZQo+Pj4gPiA+ID4gPiA+IMKgIHByb2JsZW1zIHRoYXQgcGVvcGxlIGFyZSBoYXZpbmcu
+IEJ1dCB0byBzYXkgdGhhdCBBbWF6b24gCj4+PiA+ID7CoCBkb2Vzbid0IGNhcmUgPiA+ID4gYWJv
+dXQKPj4+ID4gPiA+ID4gPiDCoCBMaW51eCBhY2Nlc3NpYmlsaXR5IGJlY2F1c2UgdGhlaXIgc2l0
+ZSBkb2Vzbid0IHdvcmsgd2l0aCAKPj4+IGEgPiA+ID4gPiA+IMKgIHRleHQtYmFzZWQKPj4+ID4g
+PiA+ID4gPiDCoCBicm93c2VyIGlzIGF0IGJlc3QgYSBncm9zcyBleGFnZXJhdGlvbiwgYW5kIGlz
+IGF0IHdvcnN0IAo+Pj4gYSA+ID4gZ3JhdmUgPiA+ID4gwqAgZGlzc2VydmljZQo+Pj4gPiA+ID4g
+PiA+IMKgIHRvIHRob3NlIG9mIHVzIHdobyB1c2UgTGludXggYW5kIGEgc2NyZWVuIHJlYWRlciBh
+dCB0aGUgCj4+PiBzYW1lID4gPsKgIHRpbWUuCj4+PiA+ID4gPiA+ID4gwqAgSW1ldHVtd2Ega3V0
+b2thIG1pdGkKPj4+ID4gPiA+ID4gPiA+ID4gPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwo+Pj4gPiA+ID4gPiA+IMKgIEJsaW51eC1saXN0IG1haWxpbmcg
+bGlzdAo+Pj4gPiA+ID4gPiA+IMKgIEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+ID4gPiA+ID4g
+PiBodHRwczovL3d3dy5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4+
+ID4gPiA+ID4gPiA+ID4gPiA+ID4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KPj4+ID4gPiA+ID4gwqAgQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+PiA+
+ID4gPiA+IMKgIEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+ID4gPiA+ID4gaHR0cHM6Ly93d3cu
+cmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+PiA+ID4gPiA+wqAgLS0g
+PsKgIENocmlzdG9waGVyIChDSikKPj4+ID7CoCBDaGFsdGFpbiBhdCBHbWFpbAo+Pj4gPiA+wqAg
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+ID7CoCBC
+bGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+ID7CoCBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+
+PiA+wqAgaHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
+Cj4+PiA+ID4KPj4+IMKgX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KPj4+IMKgQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+PiDCoEJsaW51eC1saXN0QHJl
+ZGhhdC5jb20KPj4+IMKgaHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2Js
+aW51eC1saXN0Cj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+PiBCbGludXgtbGlzdEByZWRoYXQu
+Y29tCj4+IGh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlz
+dAo+Pgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4gaHR0
+cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxp
+bmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFp
+bG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
