@@ -2,100 +2,94 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id C67B89C714
-	for <lists+blinux-list@lfdr.de>; Mon, 26 Aug 2019 03:51:50 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 14FC59C719
+	for <lists+blinux-list@lfdr.de>; Mon, 26 Aug 2019 04:00:55 +0200 (CEST)
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 3143D83F45;
-	Mon, 26 Aug 2019 01:51:49 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 52C3919C70;
-	Mon, 26 Aug 2019 01:51:48 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id DFE6B10576E3;
+	Mon, 26 Aug 2019 02:00:52 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6CE3919C70;
+	Mon, 26 Aug 2019 02:00:51 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 59AD2C592;
-	Mon, 26 Aug 2019 01:51:46 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
-	[10.5.11.23])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id CD2391800B74;
+	Mon, 26 Aug 2019 02:00:48 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
+	[10.5.11.15])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7Q1pg38015968 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 25 Aug 2019 21:51:42 -0400
+	id x7Q20hsh016087 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 25 Aug 2019 22:00:43 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 743B419D7A; Mon, 26 Aug 2019 01:51:42 +0000 (UTC)
+	id 64A7C5D713; Mon, 26 Aug 2019 02:00:43 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx28.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.69])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6E7CA19C70
-	for <blinux-list@redhat.com>; Mon, 26 Aug 2019 01:51:40 +0000 (UTC)
-Received: from mail-oi1-f176.google.com (mail-oi1-f176.google.com
-	[209.85.167.176])
+Received: from mx1.redhat.com (ext-mx30.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.71])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5DDAA5D704
+	for <blinux-list@redhat.com>; Mon, 26 Aug 2019 02:00:40 +0000 (UTC)
+Received: from mail-yb1-f182.google.com (mail-yb1-f182.google.com
+	[209.85.219.182])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 85EC8881344
-	for <blinux-list@redhat.com>; Mon, 26 Aug 2019 01:51:39 +0000 (UTC)
-Received: by mail-oi1-f176.google.com with SMTP id b25so10985115oib.4
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 18:51:39 -0700 (PDT)
+	by mx1.redhat.com (Postfix) with ESMTPS id DD8C17F749
+	for <blinux-list@redhat.com>; Mon, 26 Aug 2019 02:00:39 +0000 (UTC)
+Received: by mail-yb1-f182.google.com with SMTP id 1so6020418ybj.8
+	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 19:00:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=mime-version:in-reply-to:references:from:date:message-id:subject:to; 
-	bh=0/cKEY3zludVUeJ6kFNgGpFj60+m0izGiF7RAndbfT4=;
-	b=s4UtbZAXint4pbe4yM3ONekJcQ/iCF7YgHAJujqQtYhqdWY6Kyk4WT4tTel7IbWPlS
-	xw085CKmKspebz7gJEhW9I1AFpaLIitG8lsAIuAyOLjEEm++bORw8aDKjkE9SZXOGPk/
-	vFRqcQ+Z1VqJNP3ethS6KbDwhhyKrr+RQgu5Jab0mkGXor9uzIEq9mEAy7/CcLUY3cA2
-	QO8ttL6Hm6CaVz+l7qVkXE2ptBY0LpE58bC67Htc9aHeT8pfuNPM7FxZaVyHgbj+lmeV
-	lLcyxoP+Qdq9cIEJoz4cvWWiGXe5qYPYHKGFaa+pKtxpCy1f5epk4tAqyHAqJ/PiA16q
-	5SUQ==
+	h=date:user-agent:in-reply-to:references:mime-version
+	:content-transfer-encoding:subject:to:from:message-id;
+	bh=z+j4L82QIPvLlPFLbuD9HVzldiK+wouQAK8jYjIa3/g=;
+	b=ZHwxEUVToAEisaZ8s1cy3EZcIQhINCM3q37SCOFL13eJ3crRfy0T07bPmrBd/6yd0I
+	lHKtmB1Z8oAsV8AaIjHqcVRQKQjDApQdYhpzQumSMOzoa/3c8yAHgBOLQMstDpuhG1oO
+	gYu9bkjvnWbgJO64x2NudShZWWOHcEHZdPolTXgnmvgNOLQNwkB1uPEk5XW+8QYA10N6
+	vUcJZgudf2HfSXwMfRE1UEu9I3wxG+cgVf0k0LuZglZaSxOhUSR/as+PkoS0gBbvEUtW
+	FLytpQxKPlfsPExNICepLBDNVbYwTuFbMpZAFkGKW6nX4ht6gQN4Dlv1KtaySr3Fu5Cv
+	euOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=0/cKEY3zludVUeJ6kFNgGpFj60+m0izGiF7RAndbfT4=;
-	b=fbUQfd2bwqVZoRhnBeIPvDJhSgmbQ5lvGi8wojhQGpVbD5V8ac+y1hsClhGktgNJaK
-	Jf/skTGy1nC6WR2helguyor5hkTp6USwp/j7cGflsodPbxjPvP6tcSIXZmZhzeaFA3+B
-	I578VGhs2U4Vpe0aimueq+wv3sDXTHDvlX/9TugILj6eo748oP9zTVi/bQ9c9rTlcQ0F
-	Tz9s243G04Rm6w64ofVeg9WACl82wHDruXAf+hhq6NM3bMYf5tgeLWwzHuMjDtwbK4em
-	2Vsyqftcx0+Z2svQ/Cd5PuzBAnsfmv2YPllRz8qsWF3wYouCCoowV3XOph6mUokGD5qB
-	9vPA==
-X-Gm-Message-State: APjAAAXc4HsWCI0EDw/s0vxwrbf91S6wVtqnq4tBXn8vBJqLCO7dFVrf
-	Y7JHVh3KhRUNtmrzVv6V+S27XMe/KVs9p4yDlWFavw==
-X-Google-Smtp-Source: APXvYqwMj9J7THz3hSyd9AAH6Nyx8q83rZeFjoNHNsspyV4b5ivXvl9WNb8FSYVsS10k+oo9NT6CA3ZvCV/EiZA3YCo=
-X-Received: by 2002:aca:5b04:: with SMTP id p4mr10810980oib.161.1566784298852; 
-	Sun, 25 Aug 2019 18:51:38 -0700 (PDT)
+	h=x-gm-message-state:date:user-agent:in-reply-to:references
+	:mime-version:content-transfer-encoding:subject:to:from:message-id;
+	bh=z+j4L82QIPvLlPFLbuD9HVzldiK+wouQAK8jYjIa3/g=;
+	b=sw3YrldKOD22gWwmGCJ8z1nlaCU4XBcmzDMIwaGFbFqIO0y3WU7eCppKKvpz0AOAFm
+	OCDJG1+KPV0leNaclvMnXrA126hr8Pvajaf2o9v3SdeAh1B1ejRm6CumhAZGuP1jL92j
+	2t2FGcp5kXILlKg0c2IspFDayG5QHno45uQy+69OoLeZ23EoYcFzAurxiRtIMmEEDiA8
+	PBrrg4IdPRRSGfy1/jTb3/8WHZB+uKBzMAqhCFlRb8nvsy0ONOo2BJeqx/d2eA7ZeFXn
+	3tIxU55+MHSqYR0dd+ZbauZyxVRx4gtPMTSnlWyT7McvAhrv295f4Ae34xuoqbiHLAQQ
+	5jVg==
+X-Gm-Message-State: APjAAAXpqWsqNhGnTEx+Jk3db1xu5vCd00l84dJOjAnsWf0rWRnbwmJU
+	38E0hP3oLXljj8bPw/zVnCZoeRmUILQ=
+X-Google-Smtp-Source: APXvYqyPulsA5iFGMM7P/6VN6Kjwn2hqduV+4ibjfLAdIhG4Qwt53917TReH5hHQndEZQL9No/9lGQ==
+X-Received: by 2002:a25:8505:: with SMTP id w5mr11269630ybk.426.1566784838693; 
+	Sun, 25 Aug 2019 19:00:38 -0700 (PDT)
+Received: from android-6116dfaa305bca74.lan (cpe-75-189-192-174.nc.res.rr.com.
+	[75.189.192.174]) by smtp.gmail.com with ESMTPSA id
+	s37sm2082588ywa.98.2019.08.25.19.00.37 for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+	Sun, 25 Aug 2019 19:00:38 -0700 (PDT)
+Date: Sun, 25 Aug 2019 22:00:29 -0400
+User-Agent: K-9 Mail for Android
+In-Reply-To: <Pine.LNX.4.64.1908252054480.12148@server2.shellworld.net>
+References: <20190826004808.lapid7qsq5dili2u@prl-debianold-64.jexium-island.net>
+	<Pine.LNX.4.64.1908252054480.12148@server2.shellworld.net>
 MIME-Version: 1.0
-Received: by 2002:a9d:48d:0:0:0:0:0 with HTTP;
-	Sun, 25 Aug 2019 18:51:38 -0700 (PDT)
-In-Reply-To: <Pine.LNX.4.64.1908252016050.12148@server2.shellworld.net>
-References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
-	<251aee8d-1527-b391-a37e-e4fbf6799996@gmail.com>
-	<alpine.NEB.2.21.1908241555430.22902@panix1.panix.com>
-	<7f8743f3-bddf-6807-b2bf-0e7443c9c322@gmail.com>
-	<Pine.LNX.4.64.1908250041020.12504@server2.shellworld.net>
-	<6acc536b-99c9-21f7-1d40-be4d10abab70@GMAIL.COM>
-	<Pine.LNX.4.64.1908251207060.2365@server2.shellworld.net>
-	<a1ef7648-72f7-8fc7-e5b5-142187a91cc0@GMAIL.COM>
-	<74ebe647-3c78-b87d-c7a3-aa65d2d688d1@gmail.com>
-	<20190825.212134.847.19@192.168.1.131>
-	<64b22aae-23e5-d645-eeb9-6c7646972090@gmail.com>
-	<20190825.213109.635.20@192.168.1.131>
-	<Pine.LNX.4.64.1908251933090.10144@server2.shellworld.net>
-	<CAO2sX302GFCv+K1uzUE6NqFiaJb96ppT1=J2woNoWOqi9bdjQg@mail.gmail.com>
-	<Pine.LNX.4.64.1908252016050.12148@server2.shellworld.net>
-Date: Mon, 26 Aug 2019 01:51:38 +0000
-Message-ID: <CAO2sX30e6CZUrkvoamGbri5gDitrtnGvLh4J0QMbxYo2zutJrw@mail.gmail.com>
-Subject: Re: amazon?
+Subject: Re: latest lynx  ANN: lynx2.9.0dev.3
 To: blinux-list@redhat.com
+Message-ID: <4F2EC260-5157-43BD-95C3-F3BEFC09CF5E@gmail.com>
 X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
-	(mx1.redhat.com [10.5.110.69]);
-	Mon, 26 Aug 2019 01:51:39 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.69]);
-	Mon, 26 Aug 2019 01:51:39 +0000 (UTC) for IP:'209.85.167.176'
-	DOMAIN:'mail-oi1-f176.google.com'
-	HELO:'mail-oi1-f176.google.com' FROM:'mewtamer@gmail.com' RCPT:''
+	(mx1.redhat.com [10.5.110.71]);
+	Mon, 26 Aug 2019 02:00:39 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.71]);
+	Mon, 26 Aug 2019 02:00:39 +0000 (UTC) for IP:'209.85.219.182'
+	DOMAIN:'mail-yb1-f182.google.com'
+	HELO:'mail-yb1-f182.google.com' FROM:'kyle4jesus@gmail.com' RCPT:''
 X-RedHat-Spam-Score: -0.099  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
 	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, SPF_HELO_NONE,
-	SPF_PASS) 209.85.167.176 mail-oi1-f176.google.com 209.85.167.176
-	mail-oi1-f176.google.com <mewtamer@gmail.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.69
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+	SPF_PASS) 209.85.219.182 mail-yb1-f182.google.com 209.85.219.182
+	mail-yb1-f182.google.com <kyle4jesus@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.71
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id x7Q20hsh016087
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -115,15 +109,11 @@ Content-Transfer-Encoding: 7bit
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.27]); Mon, 26 Aug 2019 01:51:49 +0000 (UTC)
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.64]); Mon, 26 Aug 2019 02:00:53 +0000 (UTC)
 
-I'm not sure what distinction is being made when one says elinks is
-not a text based browser, but I shared my experience because it's a
-reasonable prediction that if someone else using the same combination
-of web browser and screen reader as me performed similar actions,
-they'd get similar results. Can't speak for any other combination of
-web browser and screen reader, though I'd be surprise if Firefox+Orca
-was the only working combination.
+So Lynx just got an update today that adds HTML5 support. This means that yesterday when I said it didn't support the latest web standards, it still didn't. It doesn't change the fact that in order to implement accessibility properly, text-based browsers must jump into the end of the first quarter of the 21st century, rather than forcing web designers to essentially double their code to comply with older browsers. Fortunately, it seems that Lynx has begun taking that step, and its developers are to be commended for this. I will conduct tests on my own website, which I know correctly implements HTML5 <audio> and <video> elements, but has a fallback to download in older browsers, but that nearly doubles the size of a couple of my pages, because I have to link to the files twice. If in fact this is now working, I can remove much of that compatibility code and just use standard and properly implemented HTML5 <audio> and <video> elements, as was my initial plan before I found that many un
+ derdeveloped browsers still didn't support the proper implementation of these elements, which have been a standard since 2012.
+Imetumwa kutoka mkuu
 
 _______________________________________________
 Blinux-list mailing list
