@@ -2,90 +2,76 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id D50FA9C82C
-	for <lists+blinux-list@lfdr.de>; Mon, 26 Aug 2019 06:04:26 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+	by mail.lfdr.de (Postfix) with ESMTPS id 31D289C8A0
+	for <lists+blinux-list@lfdr.de>; Mon, 26 Aug 2019 07:15:34 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 0A31B18C4271;
-	Mon, 26 Aug 2019 04:04:25 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 851C3308FBFC;
+	Mon, 26 Aug 2019 05:15:31 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A5C8F5C207;
-	Mon, 26 Aug 2019 04:04:23 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7322B6060D;
+	Mon, 26 Aug 2019 05:15:30 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BC8262551C;
-	Mon, 26 Aug 2019 04:04:22 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
-	[10.5.11.23])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id AA85A89CF;
+	Mon, 26 Aug 2019 05:15:27 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
+	[10.5.11.12])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x7Q445Lm018666 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 26 Aug 2019 00:04:05 -0400
+	id x7Q5FKCs020548 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 26 Aug 2019 01:15:20 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 92BA219D7A; Mon, 26 Aug 2019 04:04:05 +0000 (UTC)
+	id 4506C9F55; Mon, 26 Aug 2019 05:15:20 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx28.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.69])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8D34519C70
-	for <blinux-list@redhat.com>; Mon, 26 Aug 2019 04:04:03 +0000 (UTC)
-Received: from mail-ot1-f52.google.com (mail-ot1-f52.google.com
-	[209.85.210.52])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from mx1.redhat.com (ext-mx06.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.30])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3F72B9F52
+	for <blinux-list@redhat.com>; Mon, 26 Aug 2019 05:15:16 +0000 (UTC)
+Received: from server2.shellworld.net (server2.shellworld.net [66.172.12.120])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 91F698AC6F2
-	for <blinux-list@redhat.com>; Mon, 26 Aug 2019 04:04:02 +0000 (UTC)
-Received: by mail-ot1-f52.google.com with SMTP id z17so13897060otk.13
-	for <blinux-list@redhat.com>; Sun, 25 Aug 2019 21:04:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=mime-version:in-reply-to:references:from:date:message-id:subject:to; 
-	bh=wuxNZo3Iyhg1FkIeZ08RrVJqvdsNTtaKQ3EvIyD+Qc0=;
-	b=sWjL8nm+ptKzQIxy52jbUlF2WVBXo5LC5/Nkh1FyDABpYWLTef0kPxe8JwoCx+fNVn
-	BkoELQrfwLv+VlprXhn3+Q43tNEzxPUj9y/QfudcT3zxLAwBDiUXKqEf5TwbyAPByMLu
-	aqhfszwmi2jDP3fJnkzpTOf8UuFlF3eYYG5/VJuFkRLMEyGm/IbxPPPUEsFBH/SfFYQL
-	YPnJ3fDzBPv/LFIa72PptosEI4fATuT/ovfR9ltGCP3RB1ddr3MsxuoAeCT+ho8PHqM9
-	IyPKipZpZ0pPfwVBiwmuRZnhAaeiftPQ4awOjILrT72iRB0BLLmoLDX19UtZfrVX0DuU
-	c3Vg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=wuxNZo3Iyhg1FkIeZ08RrVJqvdsNTtaKQ3EvIyD+Qc0=;
-	b=JgiVbzMrVB7CiDXmYwjnslSGNUe5uqmWJFr3mNaIr5V+gFcUWZqLvuaavzYHwcpsiv
-	sM5Q/Fo4IXvxrCJ8+8ji1uD7mGUCZ2Zjb6S7UKJnuiKEUisQC3YmCp5KsuALtt1g2SAY
-	2OrfU2pQkxJ4XuICUkrUbrUvMxo8HqPVEFv6SwiHkTB5cktObjFvw3GIx9lwMTPbq1KJ
-	sLMX9bm+X02AX5cOIzD4pikst8Er2wXzFY2wLZM4LcRmhiDeEU00ohykedPYsPFOAInf
-	HzWTqLgqszl7/R54GWDC4YT3WO2Xbfc0i3nMnPkf4Z5w974x6bNx9O/MCofU+kZtgug7
-	b5ig==
-X-Gm-Message-State: APjAAAWNYJPvBwuF7fzC8prLNsl5AfE9TKOijAYDo4N5g+wmVO0IWGwG
-	1r8WMF/qtPC2280W6tNgzOCrXCwsrnLgdNWiaAR74w==
-X-Google-Smtp-Source: APXvYqyMM3THAo5kDVtzazyx7HhNxayntz5lckDeAF7S/H+YDcMKzcUlxaiNxraoLilCS0yZy32Q9HMNTm1GGgOfpgk=
-X-Received: by 2002:a9d:66d2:: with SMTP id t18mr11980985otm.355.1566792242014;
-	Sun, 25 Aug 2019 21:04:02 -0700 (PDT)
+	by mx1.redhat.com (Postfix) with ESMTPS id 542E836887
+	for <blinux-list@redhat.com>; Mon, 26 Aug 2019 05:15:15 +0000 (UTC)
+Received: by server2.shellworld.net (Postfix, from userid 1005)
+	id 188B68C033E; Mon, 26 Aug 2019 05:15:15 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+	by server2.shellworld.net (Postfix) with ESMTP id 17EFB8C012D
+	for <blinux-list@redhat.com>; Mon, 26 Aug 2019 01:15:15 -0400 (EDT)
+Date: Mon, 26 Aug 2019 01:15:15 -0400 (EDT)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: amazon?
+In-Reply-To: <CAO2sX33WwZ55ekxV=a1aggdbRDNTDYxGx-z=dWhw=1743yX1jg@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.1908260053130.16691@server2.shellworld.net>
+References: <Pine.LNX.4.64.1908231944410.10534@server2.shellworld.net>
+	<alpine.NEB.2.21.1908241555430.22902@panix1.panix.com>
+	<7f8743f3-bddf-6807-b2bf-0e7443c9c322@gmail.com>
+	<Pine.LNX.4.64.1908250041020.12504@server2.shellworld.net>
+	<6acc536b-99c9-21f7-1d40-be4d10abab70@GMAIL.COM>
+	<Pine.LNX.4.64.1908251207060.2365@server2.shellworld.net>
+	<a1ef7648-72f7-8fc7-e5b5-142187a91cc0@GMAIL.COM>
+	<74ebe647-3c78-b87d-c7a3-aa65d2d688d1@gmail.com>
+	<20190825.212134.847.19@192.168.1.131>
+	<64b22aae-23e5-d645-eeb9-6c7646972090@gmail.com>
+	<20190825.213109.635.20@192.168.1.131>
+	<Pine.LNX.4.64.1908251933090.10144@server2.shellworld.net>
+	<CAO2sX302GFCv+K1uzUE6NqFiaJb96ppT1=J2woNoWOqi9bdjQg@mail.gmail.com>
+	<Pine.LNX.4.64.1908252016050.12148@server2.shellworld.net>
+	<CAO2sX30e6CZUrkvoamGbri5gDitrtnGvLh4J0QMbxYo2zutJrw@mail.gmail.com>
+	<Pine.LNX.4.64.1908252207170.13997@server2.shellworld.net>
+	<CAO2sX33WwZ55ekxV=a1aggdbRDNTDYxGx-z=dWhw=1743yX1jg@mail.gmail.com>
 MIME-Version: 1.0
-Received: by 2002:a9d:48d:0:0:0:0:0 with HTTP;
-	Sun, 25 Aug 2019 21:04:01 -0700 (PDT)
-In-Reply-To: <Pine.LNX.4.64.1908252215290.13997@server2.shellworld.net>
-References: <20190826004808.lapid7qsq5dili2u@prl-debianold-64.jexium-island.net>
-	<Pine.LNX.4.64.1908252054480.12148@server2.shellworld.net>
-	<4F2EC260-5157-43BD-95C3-F3BEFC09CF5E@gmail.com>
-	<Pine.LNX.4.64.1908252215290.13997@server2.shellworld.net>
-Date: Mon, 26 Aug 2019 04:04:01 +0000
-Message-ID: <CAO2sX31-dortHjXk_pL+ZJW0hTivNvzZAS3z=3P8x66r+JkpSg@mail.gmail.com>
-Subject: Re: latest lynx ANN: lynx2.9.0dev.3
-To: blinux-list@redhat.com
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
-	(mx1.redhat.com [10.5.110.69]);
-	Mon, 26 Aug 2019 04:04:02 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.69]);
-	Mon, 26 Aug 2019 04:04:02 +0000 (UTC) for IP:'209.85.210.52'
-	DOMAIN:'mail-ot1-f52.google.com' HELO:'mail-ot1-f52.google.com'
-	FROM:'mewtamer@gmail.com' RCPT:''
-X-RedHat-Spam-Score: -0.097  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, RCVD_IN_MSPIKE_H3,
-	RCVD_IN_MSPIKE_WL, SPF_HELO_NONE,
-	SPF_PASS) 209.85.210.52 mail-ot1-f52.google.com 209.85.210.52
-	mail-ot1-f52.google.com <mewtamer@gmail.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.69
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Greylist: Sender passed SPF test, ACL 264 matched, not delayed by
+	milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.30]);
+	Mon, 26 Aug 2019 05:15:15 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.30]);
+	Mon, 26 Aug 2019 05:15:15 +0000 (UTC) for IP:'66.172.12.120'
+	DOMAIN:'server2.shellworld.net' HELO:'server2.shellworld.net'
+	FROM:'klewellen@shellworld.net' RCPT:''
+X-RedHat-Spam-Score: 0.001 (SPF_HELO_NONE) 66.172.12.120
+	server2.shellworld.net 66.172.12.120 server2.shellworld.net
+	<klewellen@shellworld.net>
+X-Scanned-By: MIMEDefang 2.78 on 10.5.110.30
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -100,22 +86,70 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.62]); Mon, 26 Aug 2019 04:04:25 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.43]); Mon, 26 Aug 2019 05:15:32 +0000 (UTC)
 
-I don't follow the development of any web browser, not even the one I
-spend most of my waking hours in(Firefox), but if HTML5 has been a
-standard since 2012 and Lynx has only had HTML5 support since 2016,
-that still sounds like a rather significant amount of feature lag.
+I have said  over and over that access is not about blindness, it is about 
+interaction.
+The solution as others have also shared is making sure wcag 2.0 is 
+followed,   making certain that browsers that function from the keyboard, 
+use html and the like work...that  means a person using a voice browser gets 
+in the door, or an augmented keyboard, or any number of screen readers
+  that are not yours.
+Individuals with learning disabilities use screen readers as well.
+You chose to  defend your combination of tools as interchangeable to other 
+people besides yourself.
+The suggestion that your solution can  be projected onto anyone else at 
+all, speaking personally, creates comparative discrimination  to 
+suggesting that no access  should exist because, as I have heard 
+misinformed people say as well,  my  <insert relationship> was blind and 
+could   not use a computer, so  you cannot do that either, or insert 
+person uses jaws, so you have to use that too.
+One of the  points made by domino's and echoed in a prior post is correct. 
+By  not establishing  firmly that wcag 2.0 is the  standard, something 
+many other jurisdictions  around the world have done, the Supreme court 
+will  simply  suggest the lower court conflicted rulings be addressed.
+Those standards  seek inclusion for everyone, not a specific population, 
+because inclusive design helps far more than one group of people 
+when properly applied, because  many people in many settings do not want to 
+or cannot load heavy graphics.
+I am likewise concerned that the innovation  point made  in the second 
+article shared will result in  greater inconsistencies too.  People making 
+decisions much like ours.  My screen reader combination works for me, so 
+every other body can just change to my tool.
+Accessibility is a foundation on which  as many tools as possible can be 
+used, not where one tool used by one person defines the door for the rest.
 
-Not that I'd expect a text-mode browser to stay cutting edge, but it
-does make you wonder how many web sites are one major upgrade away
-from breaking in Lynx and how many web design teams wouldn't even be
-aware it happened.
+
+
+
+On Mon, 26 Aug 2019, Linux for blind general discussion wrote:
+
+> Okay, such a sound sensitivity certainly complicates matters, and I
+> wouldn't even know where to start with offering advice, especially
+> since I've never even heard of such a thing before. That said, best I
+> can remember, this is the first mention in this thread of anyone
+> having a disability other than blindness/visual impairment, so even if
+> I knew some people had such strong reactions to certain sounds and
+> knew anything about the kinds of accommodations that work for some
+> with such sound sensitivities, I wouldn't have known such was relevant
+> here. My advice wouldn't work for a blind-deaf person or someone whose
+> hands are too arthritic to type either and probably wouldn't help even
+> a fully able person if they know nothing of English. Still, unless
+> there's a PRNG in play, running a given input through a computer
+> program should produce the same output regardless of who's running the
+> program.
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+>
 
 _______________________________________________
 Blinux-list mailing list
