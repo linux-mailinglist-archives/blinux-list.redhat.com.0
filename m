@@ -2,68 +2,88 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7BD30B1479
-	for <lists+blinux-list@lfdr.de>; Thu, 12 Sep 2019 20:33:08 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7879AB1481
+	for <lists+blinux-list@lfdr.de>; Thu, 12 Sep 2019 20:38:24 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 84D0A83F4C;
-	Thu, 12 Sep 2019 18:33:06 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F3F44452F;
-	Thu, 12 Sep 2019 18:33:05 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 9A52C18C892A;
+	Thu, 12 Sep 2019 18:38:22 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1209E5C22F;
+	Thu, 12 Sep 2019 18:38:22 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3B0952551C;
-	Thu, 12 Sep 2019 18:33:04 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
-	[10.5.11.22])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 574C7180221F;
+	Thu, 12 Sep 2019 18:38:21 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
+	[10.5.11.12])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x8CIWx8v031412 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 12 Sep 2019 14:33:00 -0400
+	id x8CIcHdg031733 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 12 Sep 2019 14:38:17 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id D4435100195C; Thu, 12 Sep 2019 18:32:59 +0000 (UTC)
+	id 3C3B860C57; Thu, 12 Sep 2019 18:38:17 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx30.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.71])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CFDB810018FF
-	for <blinux-list@redhat.com>; Thu, 12 Sep 2019 18:32:57 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+Received: from mx1.redhat.com (ext-mx16.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.45])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3571160E1C
+	for <blinux-list@redhat.com>; Thu, 12 Sep 2019 18:38:14 +0000 (UTC)
+Received: from pb-smtp1.pobox.com (pb-smtp1.pobox.com [64.147.108.70])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 596201DA4
-	for <blinux-list@redhat.com>; Thu, 12 Sep 2019 18:32:56 +0000 (UTC)
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 46TnSl410zz12PD
-	for <blinux-list@redhat.com>; Thu, 12 Sep 2019 14:32:55 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 46TnSl2rrSzcbR; Thu, 12 Sep 2019 14:32:55 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 46TnSl2T6fzcbQ
-	for <blinux-list@redhat.com>; Thu, 12 Sep 2019 14:32:55 -0400 (EDT)
-Date: Thu, 12 Sep 2019 14:32:55 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Comunicating from your Linux machine?
-In-Reply-To: <adcbe24e-619c-9580-0ccb-8efcad238a62@slint.fr>
-Message-ID: <alpine.NEB.2.21.1909121426550.18044@panix1.panix.com>
-References: <e2cd82fc-02d9-a55a-abe9-6141dba37f8e@gmail.com>
-	<bd79fcc8-262e-b178-1518-cf12f5ba9b6d@F123.org>
-	<87zhja4b8g.fsf@gmail.com>
-	<ba434a94-0e7b-633c-9a1e-9586f6aa8cd2@gmail.com>
-	<alpine.NEB.2.21.1909121120200.6115@panix1.panix.com>
-	<adcbe24e-619c-9580-0ccb-8efcad238a62@slint.fr>
+	by mx1.redhat.com (Postfix) with ESMTPS id 040773082B41
+	for <blinux-list@redhat.com>; Thu, 12 Sep 2019 18:38:14 +0000 (UTC)
+Received: from pb-smtp1.pobox.com (unknown [127.0.0.1])
+	by pb-smtp1.pobox.com (Postfix) with ESMTP id 3A4D726960
+	for <blinux-list@redhat.com>; Thu, 12 Sep 2019 14:38:13 -0400 (EDT)
+	(envelope-from joelz@pobox.com)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed; d=pobox.com; h=date:from:to
+	:subject:message-id:reply-to:references:mime-version
+	:content-type:in-reply-to; s=sasl; bh=fqRfoa+4akga4bZ6crZ6bgmwxZ
+	4=; b=rykmJm3alB36phJFhXTH+GT3j3KF1GVfQgHIO0hOjgg90J7Dsj3aB5NtNf
+	jQ2neqY8lVfetMjjBlRy0bkC7RMiR6DoQdQQGXcsraoOt1VyTda8KQtflFQlTwXo
+	mO1YX0Jvpy/d5CJzw/dZ9XfRzbqgx7ZRzRyUWbPMIjv5glS9k=
+DomainKey-Signature: a=rsa-sha1; c=nofws; d=pobox.com; h=date:from:to
+	:subject:message-id:reply-to:references:mime-version
+	:content-type:in-reply-to; q=dns; s=sasl; b=I5SyZj7/Bmti378uuh7o
+	1l43txOxV3wdmfS/u+yYjz6VfnlZjlbnaallAwzMz83lpGzZbTDGNm7U52+earap
+	Wm5qcvPf1KyhWojH911RvbETXmHNqJoNyEBXnjfl7h07z9RGHgQa3vr+FJov/dO2
+	vGYbCrDEviH/4/xdJ8oSkik=
+Received: from pb-smtp1.nyi.icgroup.com (unknown [127.0.0.1])
+	by pb-smtp1.pobox.com (Postfix) with ESMTP id 33F5F2695F
+	for <blinux-list@redhat.com>; Thu, 12 Sep 2019 14:38:13 -0400 (EDT)
+	(envelope-from joelz@pobox.com)
+Received: from sprite (unknown [66.8.174.31])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by pb-smtp1.pobox.com (Postfix) with ESMTPSA id A3F552695E
+	for <blinux-list@redhat.com>; Thu, 12 Sep 2019 14:38:12 -0400 (EDT)
+	(envelope-from joelz@pobox.com)
+Received: from jroth by sprite with local (Exim 4.89)
+	(envelope-from <joelz@pobox.com>) id 1i8TyS-00025k-Mh
+	for blinux-list@redhat.com; Thu, 12 Sep 2019 08:37:44 -1000
+Date: Thu, 12 Sep 2019 08:37:44 -1000
+To: blinux-list@redhat.com
+Subject: Re: Half qwerty keyboards?
+Message-ID: <20190912183744.tkk5gf7yosxr4ivy@sprite>
+References: <8a44b755-2712-c6af-60f8-cd8b1e626545@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <8a44b755-2712-c6af-60f8-cd8b1e626545@gmail.com>
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-Pobox-Relay-ID: 79C91276-D58C-11E9-A12E-C28CBED8090B-04347428!pb-smtp1.pobox.com
 X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 238
-	matched, not delayed by milter-greylist-4.6.2 (mx1.redhat.com
-	[10.5.110.71]); Thu, 12 Sep 2019 18:32:56 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.71]);
-	Thu, 12 Sep 2019 18:32:56 +0000 (UTC) for IP:'166.84.1.89'
-	DOMAIN:'mailbackend.panix.com' HELO:'mailbackend.panix.com'
-	FROM:'jdashiel@panix.com' RCPT:''
-X-RedHat-Spam-Score: -2.3  (RCVD_IN_DNSWL_MED, SPF_HELO_NONE,
-	SPF_PASS) 166.84.1.89 mailbackend.panix.com 166.84.1.89
-	mailbackend.panix.com <jdashiel@panix.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.71
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
+	[10.5.110.45]); Thu, 12 Sep 2019 18:38:14 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.45]);
+	Thu, 12 Sep 2019 18:38:14 +0000 (UTC) for IP:'64.147.108.70'
+	DOMAIN:'pb-smtp1.pobox.com' HELO:'pb-smtp1.pobox.com'
+	FROM:'joelz@pobox.com' RCPT:''
+X-RedHat-Spam-Score: -0.8  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	RCVD_IN_DNSWL_LOW, SPF_HELO_NONE,
+	SPF_PASS) 64.147.108.70 pb-smtp1.pobox.com 64.147.108.70
+	pb-smtp1.pobox.com <joelz@pobox.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.45
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -82,100 +102,45 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.27]); Thu, 12 Sep 2019 18:33:07 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.70]); Thu, 12 Sep 2019 18:38:23 +0000 (UTC)
 
-I expect not.  When I ran telegram-cli earlier an import function for
-the author of telegram was one of the failures and that oughtn't have
-happened since that import was for the original author of telegram who's
-address can be found in the README.md file in the source of
-telegram-cli.  The import address had strange coding with lots of
-backslash characters too.  What I need is a test set of commands that
-work on the standard version of telegram I can try on this version of
-the package.  That way, I can speed up what I do on this end and you
-will have any successes and failures to examine on your end.
+Hi Brandt,
 
-On Thu, 12 Sep 2019, Linux for blind general discussion wrote:
+Did you search at all? I found this page documenting several
+half-keyboard projects for linux.
 
-> Date: Thu, 12 Sep 2019 13:56:51
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Subject: Re: Comunicating from your Linux machine?
->
-> Hello Jude and list,
->
-> Telling "I'm not certain sending functions work yet", "may not have been
-> buikt the last time" or "Other distributions may have better compiled
-> versions of telegram-cli available" don't help to find issues in the
-> package, if any."
->
-> What I need is actual testing by users, stating what works and what
-> doesn't after having actually tried.
->
-> So please try the sending functions and report your findings, whatever
-> they be. A good report could look like "I did this, excpected  result A,
-> got result B."
->
-> I never used myself telegram, so I have to rely on end users to file
-> bugs in a way then allow to find what's wrong, case occurring.
->
-> I am also eager of feedback on any other package shipped in Slint.
->
-> Best regards
->
-> Didier
-> --
-> Didier Spaier
-> Slint maintainer
->
-> On 12/09/2019 17:25, Linux for blind general discussion wrote:
-> > On slint we have telegram-cli and although receiving functions work I'm
-> > not certain sending functions work yet.  It is a new slint package
-> > having first lived in slackbuilds repository so may not have been built
-> > properly this last time.  Other distributions may have better compiled
-> > versions of telegram-cli available.  It's worth checking.  You will need
-> > a cell phone and to provide your cell phone number to telegram-cli to
-> > set up an account since for future logins you'll use your username and
-> > the provided login code.  The login code is sent to your cell phone and
-> > you enter it on the computer to finish setting up your account.
-> >
-> > On Wed, 11 Sep 2019, Linux for blind general discussion wrote:
-> >
-> >> Date: Wed, 11 Sep 2019 22:42:15
-> >> From: Linux for blind general discussion <blinux-list@redhat.com>
-> >> To: Linux for blind general discussion <blinux-list@redhat.com>
-> >> Subject: Re: Comunicating from your Linux machine?
-> >>
-> >>> Telegram works fine here using emacs +emacspeak.
-> >>>
-> >>> Is there a specialized client you run to make that work, or can it run in
-> >>> a
-> >>> regular terminal? The Telegram app I saw was a graphical app, but I think
-> >>> I
-> >>> don't have something set properly, although I assume it's a qt5 app, and I
-> >>> had Mumble qt5 working. I would prefer something that interfaces with
-> >>> Pidgin, so I stick to the phone for Telegram, as I just didn't look hard
-> >>> enough to find a Pidgin plugin, and Pidgin here seems to have trouble with
-> >>> voice. That said, looking for telegram didn't yield a Pidgin plugin,
-> >>> although I do recall seeing a text client, though it seems it was separate
-> >>> from the "official" (air quotes there) client.
-> >> ~Kyle
-> >>
-> >> _______________________________________________
-> >> Blinux-list mailing list
-> >> Blinux-list@redhat.com
-> >> https://www.redhat.com/mailman/listinfo/blinux-list
-> >>
-> >>
-> >
->
+http://www.onehandkeyboard.org/linux-one-handed-keyboards/
+
+If X is available, it can be configured for a mirror input.
+
+https://github.com/jorissteyn/xkb-halfqwerty
+
+cheers,
+
+On Tue, Sep 10, 2019 at 06:58:46PM +0200, Linux for blind general discussion wrote:
+> Hi everyone,
+> 
+> I am a one-handed arch user. Why I am asking this, I use to be a Mac user, using the One-Handed Keyboard app for all my typing. Are there any usable Half Qwerty apps out there? A good Mac example is Mirror Qwerty.
+> 
+> This is a rather urgent issue to me, since I have a large project I must finish within the next 3 weeks.
+> 
+> Warm regards,
+> 
+> Brandt Steenkamp
+> 
+> Sent from Thunderbird using Arch Linux
+> 
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://www.redhat.com/mailman/listinfo/blinux-list
->
 
 -- 
+Joel Roth
+
+"Welcome to the World Heat Bank, where we store your waste
+energy and return it with interest."
 
 _______________________________________________
 Blinux-list mailing list
