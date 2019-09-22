@@ -2,96 +2,64 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 92328BABD5
-	for <lists+blinux-list@lfdr.de>; Sun, 22 Sep 2019 23:47:59 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+	by mail.lfdr.de (Postfix) with ESMTPS id C6618BAC13
+	for <lists+blinux-list@lfdr.de>; Mon, 23 Sep 2019 01:00:50 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id A73723086246;
-	Sun, 22 Sep 2019 21:47:56 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 62A911001B13;
-	Sun, 22 Sep 2019 21:47:55 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 50A57308FF32;
+	Sun, 22 Sep 2019 23:00:48 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 14895608C0;
+	Sun, 22 Sep 2019 23:00:46 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 915CA4E58A;
-	Sun, 22 Sep 2019 21:47:51 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
-	[10.5.11.11])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B71521803517;
+	Sun, 22 Sep 2019 23:00:43 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
+	[10.5.11.16])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x8MLlirI026155 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 22 Sep 2019 17:47:44 -0400
+	id x8MN0ZpQ028956 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 22 Sep 2019 19:00:35 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 3F207600F8; Sun, 22 Sep 2019 21:47:44 +0000 (UTC)
+	id 562B55C1D6; Sun, 22 Sep 2019 23:00:35 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx04.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.28])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 399C860127
-	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 21:47:41 +0000 (UTC)
-Received: from mail-qt1-f172.google.com (mail-qt1-f172.google.com
-	[209.85.160.172])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from mx1.redhat.com (ext-mx29.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.70])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 50C835C1B5
+	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 23:00:33 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id C587585538
-	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 21:47:40 +0000 (UTC)
-Received: by mail-qt1-f172.google.com with SMTP id c3so14926919qtv.10
-	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 14:47:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=subject:to:references:from:message-id:date:user-agent:mime-version
-	:in-reply-to:content-transfer-encoding:content-language;
-	bh=fizjX4RrWL9Vg3DJMXSaUZsGejUw4cZXGLiMMKn0/x4=;
-	b=mui3bxOVwOonMTmqWi4ZyR/fNco+c63XDAL1SCnZlmZEaOeRS4jvfphLx694WKRrBM
-	G9q+LY9OQfwn4x8It8nb6Ls5KPNENxCqvL8qGVtGlgiinxny6oMiJdBJOJv80cVIeGhb
-	S37gBwY/nvDkFwjROmR+ytKsorrSTZUMqNnSlBslBlEK6NqMVMrSH9dVjtPxy5IEKSoH
-	kBn6t12j+CnNrevbkmpzK1i6GCulRcQkvhC6z55ZRnWAuXIms3+5e0y7LWFKJ+gLTkG5
-	J4mmoF4z2FjTnkUHeYOc5mOgi+49hJjp0+u6qT3NItapjEtz/9ueBcTopwiLK3Muh+h+
-	JLtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=fizjX4RrWL9Vg3DJMXSaUZsGejUw4cZXGLiMMKn0/x4=;
-	b=PohUNYpymM+6NJ7RYOjVoXzioeiHUFo7TC9fYXydQnpGWqKIgH1IYy/j+eeOyRAmpJ
-	OoBLeTdrGiMZeDGppXuuZJOqc0d8sJ0yTIu3XaGXDBIlG4+Bvl2VtikWdQViJ/lguVNO
-	N2e+scRnqcfsuewx2BkWSrw8lnktwwJQU62tSufVxGJGuiYKMnvqeAGJ1dAlUxraVWrY
-	Gower0d6iEETc1Vpq4d8iOKX4evOxZ4SGQhyItrgvIAzz1hIJjq8XS09JIqwNY9fgBvs
-	r4AO/16+9ITVMn10Xb8dv4h/V1EFw6yvn4VY+ZITMDnV0F7pY6F9TbdcSKY6Zhabvt4f
-	4VKg==
-X-Gm-Message-State: APjAAAUCO0dd/jkZXvefepw53TdnLaSYe09lgWeaq7YcXdeTq9HhfvnD
-	BwLJdJCfxeHKQR2xyNFboPJD17rDEYc=
-X-Google-Smtp-Source: APXvYqzhEYl2KIZuC9vAsT3N+OISNLbU560pYeOiGuLASpz74TGbXH/njcwu+zjJK6889b2IC2iz1w==
-X-Received: by 2002:ac8:3a86:: with SMTP id x6mr13924764qte.316.1569188859719; 
-	Sun, 22 Sep 2019 14:47:39 -0700 (PDT)
-Received: from xu4.kyle.tk (cpe-2606-A000-111A-A097-0-0-0-F17.dyn6.twc.com.
-	[2606:a000:111a:a097::f17])
-	by smtp.gmail.com with ESMTPSA id 54sm5637537qts.75.2019.09.22.14.47.38
-	for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Sun, 22 Sep 2019 14:47:39 -0700 (PDT)
-Subject: Re: Chromium 77.0.3865.90 and accessibility
+	by mx1.redhat.com (Postfix) with ESMTPS id 1536F18C8932
+	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 23:00:31 +0000 (UTC)
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 46c2wt2pd2z1S90
+	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 19:00:30 -0400 (EDT)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 46c2wt1lJ4zcbR; Sun, 22 Sep 2019 19:00:30 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 46c2wt1hmlzcbQ
+	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 19:00:30 -0400 (EDT)
+Date: Sun, 22 Sep 2019 19:00:30 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <alpine.NEB.2.21.1909221453020.6912@panix1.panix.com>
-Message-ID: <f8e47b35-fe04-5170-8222-462a04e85b16@gmail.com>
-Date: Sun, 22 Sep 2019 17:47:36 -0400
-User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:60.0) Gecko/20100101
-	Thunderbird/60.8.0
+Subject: Re: current chromium version a dumpster fire!
+In-Reply-To: <3990292b-2a12-b967-545a-be6e03ec2f6d@gmail.com>
+Message-ID: <alpine.NEB.2.21.1909221856070.17569@panix1.panix.com>
+References: <alpine.NEB.2.21.1909221404340.29542@panix1.panix.com>
+	<3990292b-2a12-b967-545a-be6e03ec2f6d@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <alpine.NEB.2.21.1909221453020.6912@panix1.panix.com>
-Content-Language: en-US
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
-	(mx1.redhat.com [10.5.110.28]);
-	Sun, 22 Sep 2019 21:47:40 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.28]);
-	Sun, 22 Sep 2019 21:47:40 +0000 (UTC) for IP:'209.85.160.172'
-	DOMAIN:'mail-qt1-f172.google.com'
-	HELO:'mail-qt1-f172.google.com' FROM:'kyle4jesus@gmail.com' RCPT:''
-X-RedHat-Spam-Score: -0.1  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, RCVD_IN_MSPIKE_H2,
-	SPF_HELO_NONE,
-	SPF_PASS) 209.85.160.172 mail-qt1-f172.google.com 209.85.160.172
-	mail-qt1-f172.google.com <kyle4jesus@gmail.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.5.110.28
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 238
+	matched, not delayed by milter-greylist-4.6.2 (mx1.redhat.com
+	[10.5.110.70]); Sun, 22 Sep 2019 23:00:31 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.70]);
+	Sun, 22 Sep 2019 23:00:31 +0000 (UTC) for IP:'166.84.1.89'
+	DOMAIN:'mailbackend.panix.com' HELO:'mailbackend.panix.com'
+	FROM:'jdashiel@panix.com' RCPT:''
+X-RedHat-Spam-Score: -2.3  (RCVD_IN_DNSWL_MED, SPF_HELO_NONE,
+	SPF_PASS) 166.84.1.89 mailbackend.panix.com 166.84.1.89
+	mailbackend.panix.com <jdashiel@panix.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.70
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -106,30 +74,49 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.49]); Sun, 22 Sep 2019 21:47:58 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.49]); Sun, 22 Sep 2019 23:00:49 +0000 (UTC)
 
-At this point, I have had to start Chromium from the run window with
+in Chromium 77.0.3865.90 this doesn't work either.  I removed the
+--enable-speech-dispatcher flag from /etc/chromium/00-default.conf and
+that changed no performance at all.  I'll try replacing
+speech-dispatcher with chromevox to see if that has any effect.  The
+.json file is in /usr/lib64/chromium/extensions/ for the record too.  If
+there's no voice coming up once I do that change, this version of
+chromium does not support chromevox..
 
-chromium --enable-speech-dispatcher
+On Sun, 22 Sep 2019, Linux for blind general discussion wrote:
 
-Or change the shortcut from the MATE menu to add the 
---enable-speech-dispatcher option. But this is what changes Espeak on 
-the rest of the desktop to British English and starts Chromium trying to 
-speak English with the Afrikaans voice. Since then, because I primarily 
-speak English, I have removed Espeak from my system and just use 
-RHVoice. This is how I can confirm that Chromium for some reason is 
-causing speech-dispatcher to speak with its first available voice rather 
-than speaking with the default voice. My chosen voice for now is RHVoice 
-bdl, but "ChromeVox spoken feedback is ready" is spoken by Alan on my 
-system. However, once the website I bring up is open, the voice I chose 
-separately in ChromeVox is used from that point on.
+> Date: Sun, 22 Sep 2019 16:45:42
+> From: Linux for blind general discussion <blinux-list@redhat.com>
+> To: Linux for blind general discussion <blinux-list@redhat.com>
+> Subject: Re: current chromium version a dumpster fire!
+>
+> The best way to change the voice and keymap in Chromium with ChromeVox is to
+> press alt+shift+o followed by o. It's counterintuitive to say the least, but
+> starting in Afrikans is also counterintuitive ... something Google did wrong
+> with their speech-dispatcher support, since it is supposed to start with the
+> default voice, not the first available. The Afrikans speech even extends to
+> the "ChromeVoc spoken feedback is ready" message even after the voice has been
+> changed. In any case, the key sequence I mention here always has worked for
+> me, and should still work in the latest package, since it is a ChromeVox
+> sequence rather than a core key shortcut, and ChromeVox hasn't been changed
+> for Chromium in probably the last 3 to 4 years. Hope it helps.
+>
+> Imetumwa kutoka orodha yangu
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+>
 
-Imetumwa kutoka machungwa yangu
+-- 
 
 _______________________________________________
 Blinux-list mailing list
