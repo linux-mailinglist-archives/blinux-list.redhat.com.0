@@ -2,62 +2,63 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 83FF7BA399
-	for <lists+blinux-list@lfdr.de>; Sun, 22 Sep 2019 20:09:15 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+	by mail.lfdr.de (Postfix) with ESMTPS id AF6B8BA597
+	for <lists+blinux-list@lfdr.de>; Sun, 22 Sep 2019 21:00:31 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 7510F3082E44;
-	Sun, 22 Sep 2019 18:09:13 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7D3605D9E2;
-	Sun, 22 Sep 2019 18:09:12 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 2C92B87642;
+	Sun, 22 Sep 2019 19:00:30 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6885719D70;
+	Sun, 22 Sep 2019 19:00:28 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5CBA94E589;
-	Sun, 22 Sep 2019 18:09:11 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
-	[10.5.11.22])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1779C1803517;
+	Sun, 22 Sep 2019 19:00:24 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
+	[10.5.11.14])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x8MI95OC019542 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 22 Sep 2019 14:09:05 -0400
+	id x8MJ0HcC021000 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 22 Sep 2019 15:00:17 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id C49D8100194E; Sun, 22 Sep 2019 18:09:05 +0000 (UTC)
+	id AF51E5DAAC; Sun, 22 Sep 2019 19:00:17 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx29.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.70])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BFA811001947
-	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 18:09:03 +0000 (UTC)
+Received: from mx1.redhat.com (ext-mx13.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.42])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id AA61B5DD63
+	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 19:00:13 +0000 (UTC)
 Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id EB1EA18C890D
-	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 18:09:01 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id B605D3003073
+	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 19:00:11 +0000 (UTC)
 Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 46bwSY3JQbz1FpC
-	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 14:09:01 -0400 (EDT)
+	by mailbackend.panix.com (Postfix) with ESMTP id 46bxbZ70jGz1Hdx;
+	Sun, 22 Sep 2019 15:00:10 -0400 (EDT)
 Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 46bwSY1znmzcbR; Sun, 22 Sep 2019 14:09:01 -0400 (EDT)
+	id 46bxbZ5VNWzcbR; Sun, 22 Sep 2019 15:00:10 -0400 (EDT)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 46bwSY1X4pzcbQ
-	for <blinux-list@redhat.com>; Sun, 22 Sep 2019 14:09:01 -0400 (EDT)
-Date: Sun, 22 Sep 2019 14:09:01 -0400
-To: blinux-list@redhat.com
-Subject: current chromium version a dumpster fire!
-Message-ID: <alpine.NEB.2.21.1909221404340.29542@panix1.panix.com>
+	by panix1.panix.com (Postfix) with ESMTP id 46bxbZ53SDzcbQ;
+	Sun, 22 Sep 2019 15:00:10 -0400 (EDT)
+Date: Sun, 22 Sep 2019 15:00:10 -0400
+To: slint@slint.fr
+Subject: re: Chromium 77.0.3865.90 and accessibility
+Message-ID: <alpine.NEB.2.21.1909221453020.6912@panix1.panix.com>
 MIME-Version: 1.0
 X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 238
-	matched, not delayed by milter-greylist-4.6.2 (mx1.redhat.com
-	[10.5.110.70]); Sun, 22 Sep 2019 18:09:02 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.70]);
-	Sun, 22 Sep 2019 18:09:02 +0000 (UTC) for IP:'166.84.1.89'
+	matched, not delayed by milter-greylist-4.5.16 (mx1.redhat.com
+	[10.5.110.42]); Sun, 22 Sep 2019 19:00:11 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.42]);
+	Sun, 22 Sep 2019 19:00:11 +0000 (UTC) for IP:'166.84.1.89'
 	DOMAIN:'mailbackend.panix.com' HELO:'mailbackend.panix.com'
 	FROM:'jdashiel@panix.com' RCPT:''
 X-RedHat-Spam-Score: -2.3  (RCVD_IN_DNSWL_MED, SPF_HELO_NONE,
 	SPF_PASS) 166.84.1.89 mailbackend.panix.com 166.84.1.89
 	mailbackend.panix.com <jdashiel@panix.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.70
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.42
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-loop: blinux-list@redhat.com
+Cc: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -75,18 +76,18 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.46]); Sun, 22 Sep 2019 18:09:14 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.26]); Sun, 22 Sep 2019 19:00:30 +0000 (UTC)
 
-Do not try following the instructions I posted to this list to change
-chromevox language and also change the classic keyboard layout.  None of
-them work any longer.  So far as I can now discover both of these options
-no longer exist in chromium for chromevox users.
-This is a large package and since I run slint on a 120G ssd, I'll be
-uninstalling it shortly.
-My mistake for having posted those outdated instructions.  Next time, I'll
-make sure instructions work with current versions of software packages
-before posting.
+I can't be 100% certain the classic key map problem was fixed, but on a
+reinstall chromium didn't mess with my system's language default and left
+it alone when speaking with speech-dispatcher.
+To get to a search bar, you need to open a new tab or alt-tab onto an
+existing tab.  It appears once a web page is opened you loose screen
+reader speech though.  I'll try this again and run screen-reader replace
+and see if I can get any part of a web page talking.  That may or may not
+work and if it does is a reasonable work-around ahead of accessibility
+improvements in this app.
 
 
 
