@@ -2,88 +2,88 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6E4FBBDFF2
-	for <lists+blinux-list@lfdr.de>; Wed, 25 Sep 2019 16:24:39 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+	by mail.lfdr.de (Postfix) with ESMTPS id 33066BE05C
+	for <lists+blinux-list@lfdr.de>; Wed, 25 Sep 2019 16:38:30 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id A1D11C05AA57;
-	Wed, 25 Sep 2019 14:24:37 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id 1318044BD1;
+	Wed, 25 Sep 2019 14:38:28 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6D78662A77;
-	Wed, 25 Sep 2019 14:24:36 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6BAB31001B00;
+	Wed, 25 Sep 2019 14:38:27 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3A0E84EE68;
-	Wed, 25 Sep 2019 14:24:35 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
-	[10.5.11.14])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1855B4EE68;
+	Wed, 25 Sep 2019 14:38:26 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
+	[10.5.11.11])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x8PEOTiP016326 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 25 Sep 2019 10:24:29 -0400
+	id x8PEcMm7017018 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 25 Sep 2019 10:38:22 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 96E1536EE; Wed, 25 Sep 2019 14:24:29 +0000 (UTC)
+	id 189056012D; Wed, 25 Sep 2019 14:38:22 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx24.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.65])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9177D5D9E1
-	for <blinux-list@redhat.com>; Wed, 25 Sep 2019 14:24:24 +0000 (UTC)
-Received: from rognon.jabatus.com (rognon.jabatus.com [109.234.165.49])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mx1.redhat.com (ext-mx29.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.70])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 139C3600C8
+	for <blinux-list@redhat.com>; Wed, 25 Sep 2019 14:38:19 +0000 (UTC)
+Received: from mail-ot1-f42.google.com (mail-ot1-f42.google.com
+	[209.85.210.42])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 43642109EFC3
-	for <blinux-list@redhat.com>; Wed, 25 Sep 2019 14:24:22 +0000 (UTC)
-X-Spam-Status: No
-X-MailPropre-MailScanner-From: didier@slint.fr
-X-MailPropre-MailScanner-SpamCheck: not spam, SpamAssassin (not cached,
-	score=0.002, required 5, autolearn=disabled, SPF_HELO_NONE 0.00,
-	SPF_NONE 0.00)
-X-MailPropre-MailScanner: Not scanned: please contact your Internet E-Mail
-	Service Provider for details
-X-MailPropre-MailScanner-ID: 4D8EB10043B.AC347
-X-MailPropre-MailScanner-Information: Please contact the ISP for more
-	information
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=slint.fr;
-	s=default;
-	h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version
-	:Date:Message-ID:From:References:To:Subject:Sender:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=O3U4L5LKH52MVyDic7bXVIBtMBLI9+518L+/QdvraNk=;
-	b=gHQq6/vshuxMRrAHp5Nmgev+Nk
-	tCWrlZrYEP0I0832MrI5J9rLgEN0kJAyZdeHjcFdNgNT3LFtTK02/CBe6IRSBcZMKbFS3P5YVgu/K
-	0/ecckdyJJ3ji0Wwh820iqS/sDpCz0nKsTkoOPV2SrtCpqNRQVXbxtYdIg6UiLIVk+Fk=; 
+	by mx1.redhat.com (Postfix) with ESMTPS id 414BD1918640
+	for <blinux-list@redhat.com>; Wed, 25 Sep 2019 14:38:19 +0000 (UTC)
+Received: by mail-ot1-f42.google.com with SMTP id k32so5016332otc.4
+	for <blinux-list@redhat.com>; Wed, 25 Sep 2019 07:38:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+	h=mime-version:in-reply-to:references:from:date:message-id:subject:to; 
+	bh=3OdpKTMxsV6OdSNmExVkguC4udYdwPWxu8PwXHcfiUw=;
+	b=c0FCeOg9Oydzy2kEFfFy8otxsw0ZA/C4qInUbsG76+cQMp+LxY3Q9qTy0Wjk9XklrL
+	tGDoujy2NmnGMncpypZ14haP4lulVnKuanzzm9PfrV+0dYIUspzhiCp7vvfW9IdOidwW
+	Nl0/CD9JAGcnqnUx+u90iByFF/JYlP5MlPNol/uVHBj6UHsNH7YRGrP3KGjMGU5RBYHu
+	86wj/qQmTDX1UstnqxPSGMjMQiJllBE1tSNT26LvV7/MXaOU+wKavOmigZe6NNvw199M
+	+iK8Yc9OVwHM+4bprA0eB7ERe5SmtO4X4t7v+muPTLmVErLhvDw2iBGhEcUEjSSC9y2T
+	9McA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=3OdpKTMxsV6OdSNmExVkguC4udYdwPWxu8PwXHcfiUw=;
+	b=HfBBluP5JIZ5jqtYqlgmuPSw6XYC1kEwCWLa2UB6bF34J9jHMiLotwr+awiRFzy//O
+	emHT0w6tzRrZEyavg3n+pALMhY8NsSLJLukeYKQp4rgEy5Kxpb3TEGORSX4F2t5XEPwX
+	1gUElOODvImcYB1byvQHGqvAdbLpGbAapnVr0psThUX4CY4ytyc0GgPkZAvpUp/WqwQP
+	6IX5lmKHbfIWwX6kNVUqy/SqkAVne7njVgrf9u1CUlg/qWReOffrrX6HC3ZgvlF+hG3E
+	vT134BoI91erfo4B7PkEzXzgTQOpfBSzphM73f82zkjBBUiNEqScmd52cjEVU9Wp7UeZ
+	AsFw==
+X-Gm-Message-State: APjAAAWbFUXFaWQuUtZQzH88GfIsEs/eQ8aKtQHjit1fUei7jIvsY6Ci
+	6DPpf8tgSE1xLibt7ABjiVIViOZTFXWy6/Qvpp+X6cVp
+X-Google-Smtp-Source: APXvYqxGr1p/nJHgVXqOUlC7gyuuINr5xfIPYxrEo5PXZo1Uvg7TC3t8t1nGLDjQJmbIzvR11SdlcQqqpWw3dssvvOo=
+X-Received: by 2002:a9d:1e85:: with SMTP id n5mr6713017otn.54.1569422298564;
+	Wed, 25 Sep 2019 07:38:18 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a05:6830:1e2d:0:0:0:0 with HTTP; Wed, 25 Sep 2019 07:38:18
+	-0700 (PDT)
+In-Reply-To: <3fcbb1b0-8e9f-bd2d-f222-07320b9b98b2@slint.fr>
+References: <CAOdwYiRQXsy_kj-6sQGY81uGM+SQUrEpt-drM6=w-EqNnX2W0Q@mail.gmail.com>
+	<3fcbb1b0-8e9f-bd2d-f222-07320b9b98b2@slint.fr>
+Date: Wed, 25 Sep 2019 14:38:18 +0000
+Message-ID: <CAO2sX33rqU3LZ-DDhk9e4icPFCe_2RNfM3P-gYbSE2_P3FWscg@mail.gmail.com>
 Subject: Re: grub problem
 To: blinux-list@redhat.com
-References: <CAOdwYiRQXsy_kj-6sQGY81uGM+SQUrEpt-drM6=w-EqNnX2W0Q@mail.gmail.com>
-Message-ID: <3fcbb1b0-8e9f-bd2d-f222-07320b9b98b2@slint.fr>
-Date: Wed, 25 Sep 2019 16:24:05 +0200
-MIME-Version: 1.0
-In-Reply-To: <CAOdwYiRQXsy_kj-6sQGY81uGM+SQUrEpt-drM6=w-EqNnX2W0Q@mail.gmail.com>
-Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse,
-	please include it with any abuse report
-X-AntiAbuse: Primary Hostname - fox.o2switch.net
-X-AntiAbuse: Original Domain - redhat.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - slint.fr
-X-Get-Message-Sender-Via: fox.o2switch.net: authenticated_id: didier@slint.fr
-X-Authenticated-Sender: fox.o2switch.net: didier@slint.fr
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Greylist: Delayed for 66:36:23 by milter-greylist-4.6.2 (mx1.redhat.com
-	[10.5.110.65]); Wed, 25 Sep 2019 14:24:23 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.65]);
-	Wed, 25 Sep 2019 14:24:23 +0000 (UTC) for IP:'109.234.165.49'
-	DOMAIN:'rognon.jabatus.com' HELO:'rognon.jabatus.com'
-	FROM:'didier@slint.fr' RCPT:''
-X-RedHat-Spam-Score: -0.098  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	SPF_HELO_NONE,
-	SPF_NONE) 109.234.165.49 rognon.jabatus.com 109.234.165.49
-	rognon.jabatus.com <didier@slint.fr>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.65
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
+	(mx1.redhat.com [10.5.110.70]);
+	Wed, 25 Sep 2019 14:38:19 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.70]);
+	Wed, 25 Sep 2019 14:38:19 +0000 (UTC) for IP:'209.85.210.42'
+	DOMAIN:'mail-ot1-f42.google.com' HELO:'mail-ot1-f42.google.com'
+	FROM:'mewtamer@gmail.com' RCPT:''
+X-RedHat-Spam-Score: -0.097  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, RCVD_IN_MSPIKE_H3,
+	RCVD_IN_MSPIKE_WL, SPF_HELO_NONE,
+	SPF_PASS) 209.85.210.42 mail-ot1-f42.google.com 209.85.210.42
+	mail-ot1-f42.google.com <mewtamer@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.70
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -98,42 +98,19 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.32]); Wed, 25 Sep 2019 14:24:38 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.30]); Wed, 25 Sep 2019 14:38:28 +0000 (UTC)
 
-Hi Kristoffer,
-
-If I understand well you installed Linux, then Windows.
-
-In such a scenario I think that Windows install its own
-bootloader replacing GRUB.
-
-If this is correct you could just start again the installer
-of your Linux distribution and from there reinstall GRUB.
-
-The way to do hat depends on your linux distribution and version,
-please indicate what the are so give you accurate guidance.
-
-Best,
-
-Didier
-
-On 25/09/2019 12:09, Linux for blind general discussion wrote:
-> Hi.
-> I don't know if I've written here about this before.
-> I've got a hp prodesk 600 computer.
-> I have installed windows.
-> But I can't boot linux. I don't even get grub. when I boot the
-> computer it boots into windows.
-> It has worked on every computer I've had except this one.
-> LInux works very good on this computer without windows installed.
-> 
-> 
-> -- Kristoffer Gustafsson
+Yeah, I think it's been more than a decade since I last setup a dual
+boot, but everything I've ever read on the subject says Windows
+doesn't play nice with other OSes so you should install Windows first
+to ensure you don't end up with a boot loader that ignores anything
+that isn't Windows, and I've never read of Windows fixing this bad
+behavior.
 
 _______________________________________________
 Blinux-list mailing list
