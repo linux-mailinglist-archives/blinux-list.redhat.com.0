@@ -2,91 +2,95 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id AA3C3BE0D1
-	for <lists+blinux-list@lfdr.de>; Wed, 25 Sep 2019 17:08:16 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+	by mail.lfdr.de (Postfix) with ESMTPS id A1F29BE0FC
+	for <lists+blinux-list@lfdr.de>; Wed, 25 Sep 2019 17:14:45 +0200 (CEST)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 3A671300CB2B;
-	Wed, 25 Sep 2019 15:08:15 +0000 (UTC)
+	by mx1.redhat.com (Postfix) with ESMTPS id D3076753C7;
+	Wed, 25 Sep 2019 15:14:43 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 96F621001B00;
-	Wed, 25 Sep 2019 15:08:14 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 579B661367;
+	Wed, 25 Sep 2019 15:14:43 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E33404EE6A;
-	Wed, 25 Sep 2019 15:08:13 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
-	[10.5.11.13])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8E7024EE68;
+	Wed, 25 Sep 2019 15:14:42 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
+	[10.5.11.16])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x8PF89ZM019018 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 25 Sep 2019 11:08:09 -0400
+	id x8PFEdqB019514 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 25 Sep 2019 11:14:39 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 9D28C64046; Wed, 25 Sep 2019 15:08:09 +0000 (UTC)
+	id 8618B5C224; Wed, 25 Sep 2019 15:14:39 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx27.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.68])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 73BDA6062B
-	for <blinux-list@redhat.com>; Wed, 25 Sep 2019 15:07:52 +0000 (UTC)
-Received: from limonade.jabatus.com (limonade.jabatus.com [109.234.165.188])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mx1.redhat.com (ext-mx07.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.31])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8169B5C220
+	for <blinux-list@redhat.com>; Wed, 25 Sep 2019 15:14:37 +0000 (UTC)
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com
+	[209.85.128.42])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 06973A44AD7
-	for <blinux-list@redhat.com>; Wed, 25 Sep 2019 15:07:52 +0000 (UTC)
-X-Spam-Status: No
-X-MailPropre-MailScanner-From: didier@slint.fr
-X-MailPropre-MailScanner-SpamCheck: not spam, SpamAssassin (not cached,
-	score=0.002, required 5, autolearn=disabled, SPF_HELO_NONE 0.00,
-	SPF_NONE 0.00)
-X-MailPropre-MailScanner: Not scanned: please contact your Internet E-Mail
-	Service Provider for details
-X-MailPropre-MailScanner-ID: 8807A100437.AA6D4
-X-MailPropre-MailScanner-Information: Please contact the ISP for more
-	information
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=slint.fr;
-	s=default;
-	h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version
-	:Date:Message-ID:From:References:To:Subject:Sender:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=q8Cq7+diEGU96JRnqHXd8ciu+5cWDTGXiaZTQARTsSE=;
-	b=e8cpCdqLZlJ+A2MkYrVscVNfjy
-	NyzlPzI3sn7+5PpLVe7HUNFVgH0e264YFacvl/Yp85x1bG18dnvc1Li5IvbEse5ZwrRUTbYgW3Xhb
-	r33ve4P4HQ7hdhCGhjBYSLezag/9Jjrl/KxdQynZm9uvMrhBzPRpZvgXle6pytCeUGRs=; 
-Subject: Re: grub problem
-To: blinux-list@redhat.com
+	by mx1.redhat.com (Postfix) with ESMTPS id 82AB1C08EC0C
+	for <blinux-list@redhat.com>; Wed, 25 Sep 2019 15:14:36 +0000 (UTC)
+Received: by mail-wm1-f42.google.com with SMTP id f22so5407810wmc.2
+	for <blinux-list@redhat.com>; Wed, 25 Sep 2019 08:14:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+	h=mime-version:in-reply-to:references:from:date:message-id:subject:to
+	:content-transfer-encoding;
+	bh=bOMvlMtcF9VmwdecAe0FDcawqXjgRysb5wiswQLxXYI=;
+	b=IsON1v1HwxOQ2zjN/Bn/i9McPFX67YdsG990YoeIE/x3mt72WRfJ+SpNReY/0BZ/O/
+	w89JR1r7MCVtvdz2xvJ86bXoB+U44wGxvtfP7xjythQ5g3jBblSFiCLkib29JEKm2U86
+	i5mNXht3lL3ZiOnPJJjL6uexDRzYbWSHqd4cNFN8asJeqhisp6a1cMpSa6xDUUiXkmYk
+	VqYfk+ZZrukqLnkfE5a9dzTWZdsYTahUH/nD+e3LIjU/D+LqTl/XZqjzIw+Milly2IYH
+	sbjQhsQQy6bxvqzt90AweIWgiXYOtnMwe9kFGzV58KBfa1tAft0yebyiSq37uAzA32SG
+	K64w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to:content-transfer-encoding;
+	bh=bOMvlMtcF9VmwdecAe0FDcawqXjgRysb5wiswQLxXYI=;
+	b=mKfU1EcEOQH3KV9twPLBhOn94POiaOmelvCs2Y8AODMUPktgAMOU7SclbsOZ2S8PS3
+	3zjUtDUm0n4fs+xm7cCjNxFWb47dRUJygf5HavNYNT/LVse9ngMFQaHUG5uBZaqyZIbw
+	e08lKE4aHm+awCe1mwHliVoXwjDS/31BJ8AcYv/v/sfAjrvkkBIfEnk1AHwOvkngsHVf
+	9kaJr6qU4zCnpd2buIpbXaWRMduG/VluiiUXsF1BSpibjZ0dv8HZlQlLHPBnNen+LFIu
+	dxCYSf8SkGSTntEQVA/we8mOgfDKSFD9rN1ZTM39io+5UbpTwmeHEegH14NKISEO7C0w
+	Orjg==
+X-Gm-Message-State: APjAAAVvLHLhqrw2THu07KlVNQzk53RJSNFddAEl96B6+HL+hEiiiVFH
+	DSiTGWVxx5vSgQVnANuhiCX1f6cOyw6wj+G1lvUyZRo=
+X-Google-Smtp-Source: APXvYqxxkIni0XIvh12GyckDxdlvICDHp7uRjSFh2VLvFjLzASg+UmD4kPqJpF57m6IgJMsCrSfqAjgLpFh5JKM5g+g=
+X-Received: by 2002:a05:600c:114e:: with SMTP id
+	z14mr7886500wmz.134.1569424474880; 
+	Wed, 25 Sep 2019 08:14:34 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a1c:9e09:0:0:0:0:0 with HTTP; Wed, 25 Sep 2019 08:14:34
+	-0700 (PDT)
+In-Reply-To: <989ae4bf-dd95-9c80-a903-4a715106bb53@slint.fr>
 References: <CAOdwYiRQXsy_kj-6sQGY81uGM+SQUrEpt-drM6=w-EqNnX2W0Q@mail.gmail.com>
 	<3fcbb1b0-8e9f-bd2d-f222-07320b9b98b2@slint.fr>
 	<CAO2sX33rqU3LZ-DDhk9e4icPFCe_2RNfM3P-gYbSE2_P3FWscg@mail.gmail.com>
 	<CAOdwYiQb4UzzwnEGwgxz8y-LVQFf5bvRO9qD8MFe6wHS1dbTvA@mail.gmail.com>
-Message-ID: <989ae4bf-dd95-9c80-a903-4a715106bb53@slint.fr>
-Date: Wed, 25 Sep 2019 17:07:49 +0200
-MIME-Version: 1.0
-In-Reply-To: <CAOdwYiQb4UzzwnEGwgxz8y-LVQFf5bvRO9qD8MFe6wHS1dbTvA@mail.gmail.com>
-Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse,
-	please include it with any abuse report
-X-AntiAbuse: Primary Hostname - fox.o2switch.net
-X-AntiAbuse: Original Domain - redhat.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - slint.fr
-X-Get-Message-Sender-Via: fox.o2switch.net: authenticated_id: didier@slint.fr
-X-Authenticated-Sender: fox.o2switch.net: didier@slint.fr
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Greylist: Delayed for 67:19:53 by milter-greylist-4.6.2 (mx1.redhat.com
-	[10.5.110.68]); Wed, 25 Sep 2019 15:07:52 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.68]);
-	Wed, 25 Sep 2019 15:07:52 +0000 (UTC) for IP:'109.234.165.188'
-	DOMAIN:'limonade.jabatus.com' HELO:'limonade.jabatus.com'
-	FROM:'didier@slint.fr' RCPT:''
-X-RedHat-Spam-Score: -0.099  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	RCVD_IN_MSPIKE_H2, SPF_HELO_NONE,
-	SPF_NONE) 109.234.165.188 limonade.jabatus.com 109.234.165.188
-	limonade.jabatus.com <didier@slint.fr>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.68
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+	<989ae4bf-dd95-9c80-a903-4a715106bb53@slint.fr>
+Date: Wed, 25 Sep 2019 17:14:34 +0200
+Message-ID: <CAOdwYiRqBvEe4cQA36=Tdfhy06Zx=AU+D2_PhBqN3A++DeDLpg@mail.gmail.com>
+Subject: Re: grub problem
+To: blinux-list@redhat.com
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+	(mx1.redhat.com [10.5.110.31]);
+	Wed, 25 Sep 2019 15:14:36 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.31]);
+	Wed, 25 Sep 2019 15:14:36 +0000 (UTC) for IP:'209.85.128.42'
+	DOMAIN:'mail-wm1-f42.google.com' HELO:'mail-wm1-f42.google.com'
+	FROM:'kg.kristoffer@gmail.com' RCPT:''
+X-RedHat-Spam-Score: -0.1  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, RCVD_IN_MSPIKE_H2,
+	SPF_HELO_NONE,
+	SPF_PASS) 209.85.128.42 mail-wm1-f42.google.com 209.85.128.42
+	mail-wm1-f42.google.com <kg.kristoffer@gmail.com>
+X-Scanned-By: MIMEDefang 2.78 on 10.5.110.31
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id x8PFEdqB019514
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -101,30 +105,32 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.46]); Wed, 25 Sep 2019 15:08:15 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.39]); Wed, 25 Sep 2019 15:14:44 +0000 (UTC)
 
-Which distribution and version of the distribution?
-
-On 25/09/2019 17:00, Linux for blind general discussion wrote:
-> I installed windows first.
-> I got question if I wanted to write grub to mbr. I answered yes.
-> 
-> 
-> 2019-09-25 16:38 GMT+02:00, Linux for blind general discussion
-> <blinux-list@redhat.com>:
->> Yeah, I think it's been more than a decade since I last setup a dual
->> boot, but everything I've ever read on the subject says Windows
->> doesn't play nice with other OSes so you should install Windows first
->> to ensure you don't end up with a boot loader that ignores anything
->> that isn't Windows, and I've never read of Windows fixing this bad
->> behavior.
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
+bGF0ZXN0IHZlcnNpb24gb2YgZGViaWFuLgoKCjIwMTktMDktMjUgMTc6MDcgR01UKzAyOjAwLCBM
+aW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uCjxibGludXgtbGlzdEByZWRoYXQuY29t
+PjoKPiBXaGljaCBkaXN0cmlidXRpb24gYW5kIHZlcnNpb24gb2YgdGhlIGRpc3RyaWJ1dGlvbj8K
+Pgo+IE9uIDI1LzA5LzIwMTkgMTc6MDAsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Np
+b24gd3JvdGU6Cj4+IEkgaW5zdGFsbGVkIHdpbmRvd3MgZmlyc3QuCj4+IEkgZ290IHF1ZXN0aW9u
+IGlmIEkgd2FudGVkIHRvIHdyaXRlIGdydWIgdG8gbWJyLiBJIGFuc3dlcmVkIHllcy4KPj4KPj4K
+Pj4gMjAxOS0wOS0yNSAxNjozOCBHTVQrMDI6MDAsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRp
+c2N1c3Npb24KPj4gPGJsaW51eC1saXN0QHJlZGhhdC5jb20+Ogo+Pj4gWWVhaCwgSSB0aGluayBp
+dCdzIGJlZW4gbW9yZSB0aGFuIGEgZGVjYWRlIHNpbmNlIEkgbGFzdCBzZXR1cCBhIGR1YWwKPj4+
+IGJvb3QsIGJ1dCBldmVyeXRoaW5nIEkndmUgZXZlciByZWFkIG9uIHRoZSBzdWJqZWN0IHNheXMg
+V2luZG93cwo+Pj4gZG9lc24ndCBwbGF5IG5pY2Ugd2l0aCBvdGhlciBPU2VzIHNvIHlvdSBzaG91
+bGQgaW5zdGFsbCBXaW5kb3dzIGZpcnN0Cj4+PiB0byBlbnN1cmUgeW91IGRvbid0IGVuZCB1cCB3
+aXRoIGEgYm9vdCBsb2FkZXIgdGhhdCBpZ25vcmVzIGFueXRoaW5nCj4+PiB0aGF0IGlzbid0IFdp
+bmRvd3MsIGFuZCBJJ3ZlIG5ldmVyIHJlYWQgb2YgV2luZG93cyBmaXhpbmcgdGhpcyBiYWQKPj4+
+IGJlaGF2aW9yLgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29t
+Cj4gaHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4K
+CgotLSAKS3Jpc3RvZmZlciBHdXN0YWZzc29uClNhbMOkbmdzZ2F0YW4gN2EKdGVsOjAzMy0xMiA2
+MCA5Mwptb2JpbDogMDczMC01MDA5MzQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRo
+YXQuY29tCmh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlz
+dA==
