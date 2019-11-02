@@ -1,92 +1,97 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
-	by mail.lfdr.de (Postfix) with ESMTPS id EBB02D6C0E
-	for <lists+blinux-list@lfdr.de>; Tue, 15 Oct 2019 01:32:09 +0200 (CEST)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by mail.lfdr.de (Postfix) with ESMTP id C4F4CECECE
+	for <lists+blinux-list@lfdr.de>; Sat,  2 Nov 2019 14:18:43 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1572700722;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 list-unsubscribe:list-subscribe:list-post;
+	bh=bWkHPH3vF/FS5D5S107oBmcCWrErzH0YyOWvcKVThWQ=;
+	b=IsukX2RvFrIuoOQ0snqBCZkeEXjZBQCzwaHor03a8US74XE5jq5vsnW3tHpNPOSaEHp95L
+	z4/0FmpJMKUk1JZxXDdvzzaAId8VCSN6IQmilSHCZYQC1yMPmk6XD2P0EZkEmvdxpP4DVL
+	4i75mstB//3L55Nvq9b2uY+AibZZTnY=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-182-vl8jU78VN7uNV0lJkL5ACw-1; Sat, 02 Nov 2019 09:18:40 -0400
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id A43B5C010C13;
-	Mon, 14 Oct 2019 23:32:07 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 12A455D6A3;
-	Mon, 14 Oct 2019 23:32:03 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 072BD66F;
+	Sat,  2 Nov 2019 13:18:34 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2AD1060878;
+	Sat,  2 Nov 2019 13:18:29 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0800D1803518;
-	Mon, 14 Oct 2019 23:31:54 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 117F34BB78;
+	Sat,  2 Nov 2019 13:18:10 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
 	[10.5.11.16])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id x9ENTpKs013114 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 14 Oct 2019 19:29:51 -0400
+	id xA2DI1Gw023469 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 2 Nov 2019 09:18:01 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 445FB5C231; Mon, 14 Oct 2019 23:29:51 +0000 (UTC)
+	id 125F55C3FD; Sat,  2 Nov 2019 13:18:01 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx1.redhat.com (ext-mx16.extmail.prod.ext.phx2.redhat.com
-	[10.5.110.45])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3FB575C1D6
-	for <blinux-list@redhat.com>; Mon, 14 Oct 2019 23:29:48 +0000 (UTC)
-Received: from mail-io1-f51.google.com (mail-io1-f51.google.com
-	[209.85.166.51])
+Received: from mx1.redhat.com (ext-mx17.extmail.prod.ext.phx2.redhat.com
+	[10.5.110.46])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0AEA15C1D4
+	for <blinux-list@redhat.com>; Sat,  2 Nov 2019 13:17:58 +0000 (UTC)
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com
+	[209.85.128.42])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 1E95F300DA3A
-	for <blinux-list@redhat.com>; Mon, 14 Oct 2019 23:29:48 +0000 (UTC)
-Received: by mail-io1-f51.google.com with SMTP id u8so41656639iom.5
-	for <blinux-list@redhat.com>; Mon, 14 Oct 2019 16:29:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=message-id:from:to:subject:date:mime-version
-	:content-transfer-encoding;
-	bh=VuWIiHEPy3P4jf4Q79LTxm5tr7A170mAAndFVrDnOOw=;
-	b=F9FuQJHe0u0IbzLdkD+gp2wvD5SapyyyfiGOuxd9aJ3d1dPLS709qRlMt48DGL9ZWh
-	/NME3Mq0A3ceZz5BML9FyAbYTCVkWSvKXrtC93AgNyOF3rsH+thsWG0LW1+mOelmM3d6
-	F2rfVeQdQTZnzOG/XPOk8mcK017LiA+xo7GzvaifqrKI8IKRLuiAfQCVk4ohXr+sUXgs
-	1Rah2UueQvwhESi56ZmLCwpwEtAKmZmrEpMXtWy3vtBphiFo4hXPKDMKXPwoDfew/JSa
-	nNvuRHyEVpi0brrciAmU04LvTQnA/ab6PGfB7XuxZJJedweXYHQGm8oljzTweiaECaVH
-	eKRw==
+	by mx1.redhat.com (Postfix) with ESMTPS id 6A0823082D67
+	for <blinux-list@redhat.com>; Sat,  2 Nov 2019 13:17:57 +0000 (UTC)
+Received: by mail-wm1-f42.google.com with SMTP id q70so12097143wme.1
+	for <blinux-list@redhat.com>; Sat, 02 Nov 2019 06:17:57 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:message-id:from:to:subject:date:mime-version
-	:content-transfer-encoding;
-	bh=VuWIiHEPy3P4jf4Q79LTxm5tr7A170mAAndFVrDnOOw=;
-	b=VlSXCklBCay3pH6bzxlTjV8mX8E51hFnQiUe4CBV1wKzW5Sv3LG3iTQS2M57uLaFFo
-	Hc+nI26IK2Q0dJBe6hGJ0ubaQnypohnf0bnWRi8+zwg3WbyYF7jWGPVN0XN5GoCgqm72
-	QxAzcaLLt0HGb13c/0sQGLDjKtTF9dH0Sc+75fv9kc1/fKcVEqXRA3/PeZ9LrWnmFxOG
-	d2ApBdAMbZb4/Qdrh8RwG8RDno1hBcfMZsD3cTR4emife5RKqiiOEuHEJ5uZt8qc1O0c
-	NxyPqRJ5+eXxJ5mykYeFQO231MUrh8kEpcWho85NsCRqjO4o9U3wQDTNsOqfXy1k4FRz
-	A3sQ==
-X-Gm-Message-State: APjAAAXwbo0BSaCIJeiHHHkeywWrQcZ/4+jcdmQRrA89BdqZnDXDa09s
-	QM8v9sUl+S5I4geQRVhuoSiZEVsAFK0=
-X-Google-Smtp-Source: APXvYqwsKo36FGyidXAdz8SFHybWJvP/4vRR1asxI3P253pZ28rBfVi9+07m6yifmy73TUwGzrjKnA==
-X-Received: by 2002:a6b:c84d:: with SMTP id y74mr20549010iof.170.1571095787144;
-	Mon, 14 Oct 2019 16:29:47 -0700 (PDT)
-Received: from [0.0.0.0] (184-169-119-58-dynamic.midco.net. [184.169.119.58])
+	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
+	:mime-version:content-transfer-encoding:content-language;
+	bh=8mcIzMP6TY4KrvTpT+XTLe4BXSoM+u/8b44H8IEVkx8=;
+	b=YK1gvykLQ8kA3UoyWV+WIbFp6RxNXOkIZwSqhsSV1iUkYmHlPHu9r4tEQRQDZxNvGa
+	lH3Qt2vZV4tO5vJkpmw/mgiotO4rHqI7P4OzJZZzcIKaKtk+G8I2wf9wf7YT6iuP/ZBy
+	lVSs0dJ09wOKnd6nAVUoFhaGea5usiMNaLgnUipgmXcZtfZnC0kfCqLonh7jMV2CwTp8
+	/Fne5sWc02UtiaCM4k1f9iNg46LzHcgv9mUjxDDHJSgTRSYPyPgDSKCwgiZW2AQM7VzW
+	9upnKabFb1NxfIkXHWhs62KJOq8/aVfGD1/O7fqIaneQQaRO18z77wYRne0tYtRfAOfg
+	jyBQ==
+X-Gm-Message-State: APjAAAVP6DoRJcZ0OuGv/HHU4CHdoOH/yA0iJtZws/UcmHCCF/cGqaVN
+	R7Qm1knKQinUlRYqth/fltSuavad
+X-Google-Smtp-Source: APXvYqx+968HPYg5Wx59s3n5h/OyFkx6IpmLPJBcweCnd1oL54zHUFcEKwcY8lvKmEeHawidtjSjfw==
+X-Received: by 2002:a1c:4089:: with SMTP id n131mr15609508wma.86.1572700675861;
+	Sat, 02 Nov 2019 06:17:55 -0700 (PDT)
+Received: from [192.168.1.221] (host-89-240-50-39.as13285.net. [89.240.50.39])
 	by smtp.gmail.com with ESMTPSA id
-	d6sm1814763ilc.39.2019.10.14.16.29.45 for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-	Mon, 14 Oct 2019 16:29:46 -0700 (PDT)
-Message-ID: <20191014.232928.711.9@[0.0.0.0]>
-To: blinux-list@redhat.com
-Subject: Unraid, Freenas and Friends
-Date: Mon, 14 Oct 2019 18:29:28 -0500
+	76sm19373986wma.0.2019.11.02.06.17.54 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Sat, 02 Nov 2019 06:17:54 -0700 (PDT)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Ubuntu, UEFI and hard disks
+Message-ID: <9fcc4efe-6f6b-0629-9d3b-5d178f690969@gmail.com>
+Date: Sat, 2 Nov 2019 13:17:54 +0000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+	Thunderbird/68.2.1
 MIME-Version: 1.0
+Content-Language: en-US
 X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
-	(mx1.redhat.com [10.5.110.45]);
-	Mon, 14 Oct 2019 23:29:48 +0000 (UTC)
-X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.45]);
-	Mon, 14 Oct 2019 23:29:48 +0000 (UTC) for IP:'209.85.166.51'
-	DOMAIN:'mail-io1-f51.google.com' HELO:'mail-io1-f51.google.com'
-	FROM:'captinlogic@gmail.com' RCPT:''
-X-RedHat-Spam-Score: -0.1  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
-	FREEMAIL_FROM, RCVD_IN_DNSWL_NONE, RCVD_IN_MSPIKE_H2,
-	SPF_HELO_NONE,
-	SPF_PASS) 209.85.166.51 mail-io1-f51.google.com 209.85.166.51
-	mail-io1-f51.google.com <captinlogic@gmail.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.110.45
+	(mx1.redhat.com [10.5.110.46]);
+	Sat, 02 Nov 2019 13:17:57 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.46]);
+	Sat, 02 Nov 2019 13:17:57 +0000 (UTC) for IP:'209.85.128.42'
+	DOMAIN:'mail-wm1-f42.google.com' HELO:'mail-wm1-f42.google.com'
+	FROM:'khalfang1366@gmail.com' RCPT:''
+X-RedHat-Spam-Score: 0.15  (DKIM_SIGNED, DKIM_VALID, DKIM_VALID_AU,
+	FREEMAIL_ENVFROM_END_DIGIT, FREEMAIL_FROM, RCVD_IN_DNSWL_NONE,
+	RCVD_IN_MSPIKE_H2, SPF_HELO_NONE,
+	SPF_PASS) 209.85.128.42 mail-wm1-f42.google.com 209.85.128.42
+	mail-wm1-f42.google.com <khalfang1366@gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.46
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id x9ENTpKs013114
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -101,17 +106,25 @@ List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.32]); Mon, 14 Oct 2019 23:32:08 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-MC-Unique: vl8jU78VN7uNV0lJkL5ACw-1
+X-Mimecast-Spam-Score: 0
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: 7bit
 
-Has anybody played with these NAS solutions? Can they be successfully installed by a blind user? I think we discussed them before but I forgot the outcome of the discussion. Been considering building a network storage solution.
-I have 9 hard drives connected to a debian box via esata and USB 3. However, there's this odd bug or something in the kernel that won't allow me to use more than one esata box on the PCI esata card I have. I thought one of the NAS OS builds might fix that.
+I posted this over at askubuntu but I figured I'd ask here too. Got my 
+laptop to boot into Ubuntu Mate. Problem is...it won't detect the hard 
+drive at all. I can do slblk and all it shows is dev/sda (which is the 
+USB stick). Installer picks up the stick too and tell me I need 8GB of 
+space on the 8GB memory stick.
+
+I went into Win10's settings and turned off UEFI, then secure boot. So. 
+Should I reenable the UEFI firmware but leave secure boot off, or...?
 
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
 https://www.redhat.com/mailman/listinfo/blinux-list
+
