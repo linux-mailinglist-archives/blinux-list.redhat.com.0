@@ -1,90 +1,89 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
-	by mail.lfdr.de (Postfix) with ESMTP id 046E510DEDB
-	for <lists+blinux-list@lfdr.de>; Sat, 30 Nov 2019 20:27:51 +0100 (CET)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+	by mail.lfdr.de (Postfix) with ESMTP id 917D010DF31
+	for <lists+blinux-list@lfdr.de>; Sat, 30 Nov 2019 21:17:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1575142071;
+	s=mimecast20190719; t=1575145073;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=kzpTrUdVv8RbqY21ms7jclMX3TLjdFteaSTQD9zrpkU=;
-	b=Wwac48DpoZ9eF03pcxkx19yHeKbfw5NFWvo4pj68BC8UakCoEfdxKpgNVC0qbmWVmEKXzw
-	SiK5NJRrRAgG7w4EYbsTYOBF08qOLNK83TW5B3k1crBy74m5TsZIp4AVMhmf5XSZikhemi
-	8PUHrYF50vR90Dw6XOBClalBnw/5waU=
+	bh=iH113V8WX29Xiv5yoTjePIHA4C2v13PG9Jtx3NPH2w8=;
+	b=aRVkMKXURiE/vO00/Xo60xCrRXEQTziMSVEk/Yr3AVeSp8gudr5jp5LI9J/qfLQp5Auwsi
+	6tUsqzsT2etlo28EdYKIdXSy2H/zIWUcD2moOCXeXeKT9QjxQpbkQGMNp4SOoAPi90E0mG
+	GziSHJ6jypHOhkx04Uu9SYcU6iXF8k0=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-381-o8ND-XHJNcOYCVcUYWP1zQ-1; Sat, 30 Nov 2019 14:27:48 -0500
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-198-77GYJPq8NOKgLMS2jqVJiQ-1; Sat, 30 Nov 2019 15:17:51 -0500
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CAB18800D41;
-	Sat, 30 Nov 2019 19:27:41 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BFD2C5C219;
-	Sat, 30 Nov 2019 19:27:37 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6254580183C;
+	Sat, 30 Nov 2019 20:17:46 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B39A519C58;
+	Sat, 30 Nov 2019 20:17:45 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3F0964BB5C;
-	Sat, 30 Nov 2019 19:27:27 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EA21D1809567;
+	Sat, 30 Nov 2019 20:17:43 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id xAUJREEN017456 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 30 Nov 2019 14:27:14 -0500
+	id xAUKHbUc019555 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 30 Nov 2019 15:17:38 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 0AABFD1BCE; Sat, 30 Nov 2019 19:27:14 +0000 (UTC)
+	id C182820316E8; Sat, 30 Nov 2019 20:17:37 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 062A5D93BD
-	for <blinux-list@redhat.com>; Sat, 30 Nov 2019 19:27:11 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BD66420316E0
+	for <blinux-list@redhat.com>; Sat, 30 Nov 2019 20:17:35 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2FC0680289F
-	for <blinux-list@redhat.com>; Sat, 30 Nov 2019 19:27:11 +0000 (UTC)
-Received: from mail-pg1-f193.google.com (mail-pg1-f193.google.com
-	[209.85.215.193]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-324-f2WZbeO_NvmTpoMZCv--GQ-1; Sat, 30 Nov 2019 14:27:08 -0500
-Received: by mail-pg1-f193.google.com with SMTP id b10so16082296pgd.4
-	for <blinux-list@redhat.com>; Sat, 30 Nov 2019 11:27:08 -0800 (PST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 935288F77EB
+	for <blinux-list@redhat.com>; Sat, 30 Nov 2019 20:17:35 +0000 (UTC)
+Received: from mail-oi1-f171.google.com (mail-oi1-f171.google.com
+	[209.85.167.171]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-177-vspplbDtMkKjd7alDiBQrA-1; Sat, 30 Nov 2019 15:17:33 -0500
+Received: by mail-oi1-f171.google.com with SMTP id l20so28924184oie.10
+	for <blinux-list@redhat.com>; Sat, 30 Nov 2019 12:17:33 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:date:from:reply-to:to:subject:message-id
-	:user-agent:mime-version;
-	bh=15nW5sbkgL8FZSZnGha0db2ZqUBvyqFF+l7EZZwW0oE=;
-	b=oSQBdVV24SFjScW/8Pi/4ieMrISl7MqEtRRgp5wxLHvRXc9yOJolQk2zK78IRnqqbl
-	OzLSv4K5yRHjXo3C81winFnzNNlBunVg8t07c9dNa12uo5wPd7azk5uKBGFStW+qyGbk
-	o/Q61LFqhh9cGtJTIOp52eo6E49+uHuiZzUEBLFsAH1ycBp7CUZ9lheMVxk3v2NGFdcW
-	aj6Aucgoxc3W2V4gxOeZve0AXRI7wiDXbNEjcpmA4VlQg20V226VErfXXrruzWz7DRVx
-	hQgC7R3aC0ITbaB92v1DYBpASK2nCbrPVjqHFF8iGnmqMazhRrr/cfKM1oZbDRE1gMkV
-	h/ew==
-X-Gm-Message-State: APjAAAU1/CVOB8lZAzHV3phePUSdudzmPdi5pcvCw67mXK+FefpdCSlP
-	0nzzPDkhG+9cO3/O37ZpCM/yYO+r
-X-Google-Smtp-Source: APXvYqwFuhbxHfW+Zaxwje6TyxAzXMqxpuowD9+9MEmZEDJfgdBTSWJFiZ6VZmvvZgIvoxq8tnhHsg==
-X-Received: by 2002:a63:3089:: with SMTP id w131mr2262457pgw.453.1575142027370;
-	Sat, 30 Nov 2019 11:27:07 -0800 (PST)
-Received: from tom-M2800 (72-160-86-209.dyn.centurytel.net. [72.160.86.209])
+	h=x-gm-message-state:from:to:subject:date:message-id:mime-version
+	:content-transfer-encoding;
+	bh=Ir7z/h/PRJ3bONht0D9sYPr0tBokstBJAxagbLfkJnI=;
+	b=pmXJE5bwDona5ydm9WlC585xVNG1WgMJfc57HAaIPLMFnO7vyzc9MDQGifFQ83LHae
+	Y5L3rMpUdnLdoKdGC00yux/wqQksoS3uoXlNhF4R5a7i7CzV2o5cV5C81jqt8KFrQc2t
+	LKKuo6fdKUfR85hDhxnJqCYb90J8YP+fUSf9igRsGxdl3fRtp3/edfL4C4IvwiBJOY+Z
+	I9BOsu6+ynx8pTRV1yOFePAxCr3/OQDpL2nYIiykS2P28RXWyJLU2wKhmve6jWJJWKK1
+	+yJQuwsqE0x2IVbeJjZKHoeHqd3oqHrEAM/B3iZlSdOylY3LcfMPUdcxyTd/8d8znMFq
+	fYfw==
+X-Gm-Message-State: APjAAAXbumAZEQ6lGKc+n2gmcmhXvT8pIYzPLvHEEjOTlmN6UhTNVz/2
+	VlIshRXzll8LrJnu0SNTWwPrw5sV
+X-Google-Smtp-Source: APXvYqyzDe9Sk4Cv5KI7xbMk2/s2FDrxTG4p0PLRwfPcGjNNSAnfounta0pdupMCU7+worOEX0PjoA==
+X-Received: by 2002:aca:f083:: with SMTP id
+	o125mr12960489oih.122.1575145052766; 
+	Sat, 30 Nov 2019 12:17:32 -0800 (PST)
+Received: from [192.168.1.71] ([2600:1700:81f0:1c10:cc72:9753:3329:5d0f])
 	by smtp.gmail.com with ESMTPSA id
-	i127sm15134876pfe.54.2019.11.30.11.27.04
-	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-	Sat, 30 Nov 2019 11:27:06 -0800 (PST)
-Date: Sat, 30 Nov 2019 11:26:57 -0800 (PST)
-X-X-Sender: tom@tom-M2800
-To: orca-list@gnome.org, Blinux list <blinux-list@redhat.com>
-Subject: OT: Braille graphics display
-Message-ID: <alpine.DEB.2.21.1911301122130.20764@tom-M2800>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	l13sm8850451otp.46.2019.11.30.12.17.31
+	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+	Sat, 30 Nov 2019 12:17:31 -0800 (PST)
+To: orca-list@gnome.org, "Blinux list" <blinux-list@redhat.com>
+Subject: A question about how to get speech running on Ubuntu version 18.
+	Please read below?
+Date: Sat, 30 Nov 2019 12:17:30 -0800
+Message-ID: <00ECC5AD-FF56-410F-9EA2-B8EB0DE98A23@gmail.com>
 MIME-Version: 1.0
-X-MC-Unique: f2WZbeO_NvmTpoMZCv--GQ-1
-X-MC-Unique: o8ND-XHJNcOYCVcUYWP1zQ-1
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-MC-Unique: vspplbDtMkKjd7alDiBQrA-1
+X-MC-Unique: 77GYJPq8NOKgLMS2jqVJiQ-1
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id xAUJREEN017456
+	lists01.pubmisc.prod.ext.phx2.redhat.com id xAUKHbUc019555
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -101,24 +100,17 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-Mimecast-Spam-Score: 0
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: base64
 
-Since it is off topic please reply off list.
-
-I am looking for any information on any functioning display capable of 
-showing tactile graphics.  I have found several articles on groups working 
-on this but nothing definite that has made it to a point of even being out 
-for testing.
-
-Thanks
-tom
-
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
+ICBIZWxsbyBldmVyeW9uZSwgSeKAmW0gdHJ5aW5nIHRvIHNldCB1cCBVYnVudHUgaW4gYSB2aXJ0
+dWFsIG1hY2hpbmUuIApXaGF0IGNvbW1hbmQgZG8gSSBpc3N1ZSB0byBzdGFydCB0aGF0IHNwZWVj
+aCB3aGljaCBJIGJlbGlldmUgaXMgYSAKZmVzdGl2YWwgc3BlZWNoIHBhY2thZ2UuIFdoaWNoIGlz
+IGVtYmVkZGVkIGluIG9yY2EuIEFueSBnb29kIHN1Z2dlc3Rpb25zIApvbiB0aGlzIHF1ZXN0aW9u
+PwoKU2luY2VyZWx5IE1hdXJpY2UgTWluZXMuCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0
+QHJlZGhhdC5jb20KaHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51
+eC1saXN0
 
