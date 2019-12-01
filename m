@@ -1,89 +1,90 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
-	by mail.lfdr.de (Postfix) with ESMTP id 917D010DF31
-	for <lists+blinux-list@lfdr.de>; Sat, 30 Nov 2019 21:17:54 +0100 (CET)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by mail.lfdr.de (Postfix) with ESMTP id CB35F10E262
+	for <lists+blinux-list@lfdr.de>; Sun,  1 Dec 2019 16:43:28 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1575145073;
+	s=mimecast20190719; t=1575215007;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=iH113V8WX29Xiv5yoTjePIHA4C2v13PG9Jtx3NPH2w8=;
-	b=aRVkMKXURiE/vO00/Xo60xCrRXEQTziMSVEk/Yr3AVeSp8gudr5jp5LI9J/qfLQp5Auwsi
-	6tUsqzsT2etlo28EdYKIdXSy2H/zIWUcD2moOCXeXeKT9QjxQpbkQGMNp4SOoAPi90E0mG
-	GziSHJ6jypHOhkx04Uu9SYcU6iXF8k0=
+	bh=+MoXo6mrNWiMpScDAp4S1li9bBuyXjrUnY0UES6iDjI=;
+	b=a9uQpN+nm/1iTBhwXnOhCYVbDTTblEdDdycG5HnMNrXZMZNKrcVSJPwsjbABVg1CtUon0/
+	Lh6F1/KHqflgkZpeIZUUyXWwO0uJe8/sadbSoASCpRniHELXhtNtpZ47bcodKgGzsLJo56
+	0d5dM8/4CJol744Ybko0/lN4Jg+0QEs=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-198-77GYJPq8NOKgLMS2jqVJiQ-1; Sat, 30 Nov 2019 15:17:51 -0500
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-348-5rPl8r7eMTSuImPcuLWjYw-1; Sun, 01 Dec 2019 10:43:25 -0500
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6254580183C;
-	Sat, 30 Nov 2019 20:17:46 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B39A519C58;
-	Sat, 30 Nov 2019 20:17:45 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D62FC10054E3;
+	Sun,  1 Dec 2019 15:43:17 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3B65410013A7;
+	Sun,  1 Dec 2019 15:43:16 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EA21D1809567;
-	Sat, 30 Nov 2019 20:17:43 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8AF084E9EC;
+	Sun,  1 Dec 2019 15:43:09 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id xAUKHbUc019555 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 30 Nov 2019 15:17:38 -0500
+	id xB1Fh10u003073 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 1 Dec 2019 10:43:01 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id C182820316E8; Sat, 30 Nov 2019 20:17:37 +0000 (UTC)
+	id 61AAA2166B29; Sun,  1 Dec 2019 15:43:01 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BD66420316E0
-	for <blinux-list@redhat.com>; Sat, 30 Nov 2019 20:17:35 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5D6A72166B27
+	for <blinux-list@redhat.com>; Sun,  1 Dec 2019 15:42:59 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 935288F77EB
-	for <blinux-list@redhat.com>; Sat, 30 Nov 2019 20:17:35 +0000 (UTC)
-Received: from mail-oi1-f171.google.com (mail-oi1-f171.google.com
-	[209.85.167.171]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-177-vspplbDtMkKjd7alDiBQrA-1; Sat, 30 Nov 2019 15:17:33 -0500
-Received: by mail-oi1-f171.google.com with SMTP id l20so28924184oie.10
-	for <blinux-list@redhat.com>; Sat, 30 Nov 2019 12:17:33 -0800 (PST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3500F185AB73
+	for <blinux-list@redhat.com>; Sun,  1 Dec 2019 15:42:59 +0000 (UTC)
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com
+	[209.85.128.45]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-367-P5FFiCAzPDmZEWsOXl_gTw-1; Sun, 01 Dec 2019 10:42:57 -0500
+Received: by mail-wm1-f45.google.com with SMTP id p17so7389751wmi.3
+	for <blinux-list@redhat.com>; Sun, 01 Dec 2019 07:42:57 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:to:subject:date:message-id:mime-version
-	:content-transfer-encoding;
-	bh=Ir7z/h/PRJ3bONht0D9sYPr0tBokstBJAxagbLfkJnI=;
-	b=pmXJE5bwDona5ydm9WlC585xVNG1WgMJfc57HAaIPLMFnO7vyzc9MDQGifFQ83LHae
-	Y5L3rMpUdnLdoKdGC00yux/wqQksoS3uoXlNhF4R5a7i7CzV2o5cV5C81jqt8KFrQc2t
-	LKKuo6fdKUfR85hDhxnJqCYb90J8YP+fUSf9igRsGxdl3fRtp3/edfL4C4IvwiBJOY+Z
-	I9BOsu6+ynx8pTRV1yOFePAxCr3/OQDpL2nYIiykS2P28RXWyJLU2wKhmve6jWJJWKK1
-	+yJQuwsqE0x2IVbeJjZKHoeHqd3oqHrEAM/B3iZlSdOylY3LcfMPUdcxyTd/8d8znMFq
-	fYfw==
-X-Gm-Message-State: APjAAAXbumAZEQ6lGKc+n2gmcmhXvT8pIYzPLvHEEjOTlmN6UhTNVz/2
-	VlIshRXzll8LrJnu0SNTWwPrw5sV
-X-Google-Smtp-Source: APXvYqyzDe9Sk4Cv5KI7xbMk2/s2FDrxTG4p0PLRwfPcGjNNSAnfounta0pdupMCU7+worOEX0PjoA==
-X-Received: by 2002:aca:f083:: with SMTP id
-	o125mr12960489oih.122.1575145052766; 
-	Sat, 30 Nov 2019 12:17:32 -0800 (PST)
-Received: from [192.168.1.71] ([2600:1700:81f0:1c10:cc72:9753:3329:5d0f])
-	by smtp.gmail.com with ESMTPSA id
-	l13sm8850451otp.46.2019.11.30.12.17.31
-	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-	Sat, 30 Nov 2019 12:17:31 -0800 (PST)
-To: orca-list@gnome.org, "Blinux list" <blinux-list@redhat.com>
-Subject: A question about how to get speech running on Ubuntu version 18.
-	Please read below?
-Date: Sat, 30 Nov 2019 12:17:30 -0800
-Message-ID: <00ECC5AD-FF56-410F-9EA2-B8EB0DE98A23@gmail.com>
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to:content-transfer-encoding;
+	bh=7PyaQSvPWvnFSfpVW9Nokl8TclRatAOAOWCcuoubFaY=;
+	b=AXxKDHvHIvWmK+IyBctseXdjJZ+dLPeitKHNJ8sMefUpAvtTEDB0AU4aRPQ4VcZrCu
+	KbnZsPknhTb378JRw92R09lBI+q8rPWTvQhJuoviJdow2wNHucO0LTsqbw1N3xtP3vvY
+	HrrusKG5sBraN85Tce1Efr1IG/RIhlFQDJCPIEItM0V/W7pORpYattO79d/7QYMorAiQ
+	fRGiRcdh5YFDT2QMw7bzvRQ6+YZT/CcPZBxvXtntLzIIejiw+bMaVW9bZRYM4+jcV0TA
+	rU4siXVrOudtzLYD5DcRPZJ6IQwHSgIj3y5rs+oym88iuTf0BMc4CaAtos9p4dlT8mBg
+	7zdQ==
+X-Gm-Message-State: APjAAAWDhEtv1JypR22I5vLEt9DzBEK/+1eKmVBOnzNiyL4FFxKE5TEq
+	HYq584RUd97PwhOK0Swvnw9VT93e8kW4YdC7XuFqtQ==
+X-Google-Smtp-Source: APXvYqzlunH+I6m48c3BPisYawP2smHclCcZHCA9PJsqhcvZgX8bhZ4zAzKuv1gaJ5G2exPav9SzYog1fl9dlRvrlCQ=
+X-Received: by 2002:a05:600c:243:: with SMTP id
+	3mr7818721wmj.169.1575214975988; 
+	Sun, 01 Dec 2019 07:42:55 -0800 (PST)
 MIME-Version: 1.0
-X-MC-Unique: vspplbDtMkKjd7alDiBQrA-1
-X-MC-Unique: 77GYJPq8NOKgLMS2jqVJiQ-1
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+Received: by 2002:a7b:ce15:0:0:0:0:0 with HTTP;
+	Sun, 1 Dec 2019 07:42:55 -0800 (PST)
+In-Reply-To: <00ECC5AD-FF56-410F-9EA2-B8EB0DE98A23@gmail.com>
+References: <00ECC5AD-FF56-410F-9EA2-B8EB0DE98A23@gmail.com>
+Date: Sun, 1 Dec 2019 10:42:55 -0500
+Message-ID: <CAJKfDDGz+tn5c7BY=OCa9oG-cSp6WXzvcddvCRs128zirrhNpw@mail.gmail.com>
+Subject: Re: A question about how to get speech running on Ubuntu version 18.
+	Please read below?
+To: blinux-list@redhat.com
+X-MC-Unique: P5FFiCAzPDmZEWsOXl_gTw-1
+X-MC-Unique: 5rPl8r7eMTSuImPcuLWjYw-1
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id xAUKHbUc019555
+	lists01.pubmisc.prod.ext.phx2.redhat.com id xB1Fh10u003073
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -100,17 +101,27 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-Mimecast-Spam-Score: 0
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
 
-ICBIZWxsbyBldmVyeW9uZSwgSeKAmW0gdHJ5aW5nIHRvIHNldCB1cCBVYnVudHUgaW4gYSB2aXJ0
-dWFsIG1hY2hpbmUuIApXaGF0IGNvbW1hbmQgZG8gSSBpc3N1ZSB0byBzdGFydCB0aGF0IHNwZWVj
-aCB3aGljaCBJIGJlbGlldmUgaXMgYSAKZmVzdGl2YWwgc3BlZWNoIHBhY2thZ2UuIFdoaWNoIGlz
-IGVtYmVkZGVkIGluIG9yY2EuIEFueSBnb29kIHN1Z2dlc3Rpb25zIApvbiB0aGlzIHF1ZXN0aW9u
-PwoKU2luY2VyZWx5IE1hdXJpY2UgTWluZXMuCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0
-QHJlZGhhdC5jb20KaHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51
-eC1saXN0
+SSB3b3VsZG4ndCByZWNvbW1lbmQgdG8gdXNlIExpbnV4IHRoYXQgd2F5LCBmb3IgYWNjZXNzaWJp
+bGl0eSBhdCB0aGUKbW9tZW50IFVidW50dSBNYXRlIDE4LjA0IExUUyBmcm9tIGEgbGl2ZSB1c2Ig
+b3IgYXMgYSBuYXRpdmUKaW5zdGFsbGF0aW9uIGlzIGhhcmQgdG8gYmVhdCwgaXQgbmVlZCBzb21l
+IHNtYWxsIHR3ZWFrcyB0byBzaGluZSBhdApwZWFrIHBvdGVudGlhbCBob3dldmVyLCBjaGVjayBN
+YXRlIHR3ZWFrIGZvciBDb21waXogYW5kIGxlYXJuIGFib3V0CmFjY2Vzc2liaWxpdHkgZmVhdHVy
+ZXMgaXQgb2ZmZXIuCgoyMDE5LTExLTMwIDE1OjE3IFVUQ+KIkjA1OjAwLCBMaW51eCBmb3IgYmxp
+bmQgZ2VuZXJhbCBkaXNjdXNzaW9uCjxibGludXgtbGlzdEByZWRoYXQuY29tPjoKPiAgIEhlbGxv
+IGV2ZXJ5b25lLCBJ4oCZbSB0cnlpbmcgdG8gc2V0IHVwIFVidW50dSBpbiBhIHZpcnR1YWwgbWFj
+aGluZS4KPiBXaGF0IGNvbW1hbmQgZG8gSSBpc3N1ZSB0byBzdGFydCB0aGF0IHNwZWVjaCB3aGlj
+aCBJIGJlbGlldmUgaXMgYQo+IGZlc3RpdmFsIHNwZWVjaCBwYWNrYWdlLiBXaGljaCBpcyBlbWJl
+ZGRlZCBpbiBvcmNhLiBBbnkgZ29vZCBzdWdnZXN0aW9ucwo+IG9uIHRoaXMgcXVlc3Rpb24/Cj4K
+PiBTaW5jZXJlbHkgTWF1cmljZSBNaW5lcy4KPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGlu
+dXgtbGlzdEByZWRoYXQuY29tCj4gaHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3Rp
+bmZvL2JsaW51eC1saXN0CgoKLS0gCk1pY2hhw6tsIENhcm9uIENvdXR1cmllcgoKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxp
+bmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFp
+bG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
 
