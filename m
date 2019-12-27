@@ -1,93 +1,93 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id 9944A12B0BF
-	for <lists+blinux-list@lfdr.de>; Fri, 27 Dec 2019 03:49:35 +0100 (CET)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	by mail.lfdr.de (Postfix) with ESMTP id 0F48512BAC2
+	for <lists+blinux-list@lfdr.de>; Fri, 27 Dec 2019 20:40:23 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1577414974;
+	s=mimecast20190719; t=1577475622;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=S7C31Fpb4pbV5FQVpen4d73P/nPaFWd7ty3SJCZzcco=;
-	b=XOJ6/tNLzIfxeRCtbDlmilcnT4AKy7mpDNFO4iUycef338NNyGvK/DTVrAA5BxAnqBIfle
-	phOmAEVHz0Wb9UgjvQzpCJxvJTZCRPmbHUWN9qyYeG3qBF7sam6VjjSl9TQdr2utKmaGY5
-	pqIfTDFKj+emMxe0cMzufV15pxcZ5JM=
+	bh=yC0MAdaqune9u07O+Th03UlDPd1ZImpOf41Ma0V92Ug=;
+	b=Kf3jpvsHM2EMH3pWJknxhJ0+Ugg4T9d8mNe2EjXyAmq2DSvCkb9UL8/7SukO/xEj/RZzRK
+	MohmPfIyunz/U1nR1iH0B/yltwnspu/5dl8JNvFASQhnALjuZgEoiYdWW+TpTjiO5ztno+
+	b2UzhzO5i5Lvt5PRZNrOihuhe507aHk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-420-ioDoweqkM_iaHzOQFfNFzw-1; Thu, 26 Dec 2019 21:49:31 -0500
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-45-cn0dY5xzNLGRo4ef2nLYbQ-1; Fri, 27 Dec 2019 14:40:20 -0500
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 46591185432C;
-	Fri, 27 Dec 2019 02:49:24 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8CD451000329;
-	Fri, 27 Dec 2019 02:49:23 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D4160800D41;
+	Fri, 27 Dec 2019 19:40:13 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3EBE461F30;
+	Fri, 27 Dec 2019 19:40:12 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5996F4E16F;
-	Fri, 27 Dec 2019 02:49:20 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 9D73F1809567;
+	Fri, 27 Dec 2019 19:40:05 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id xBR2nBS8025728 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 26 Dec 2019 21:49:11 -0500
+	id xBRJdvJn015157 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 27 Dec 2019 14:39:57 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 01FDC2026D67; Fri, 27 Dec 2019 02:49:11 +0000 (UTC)
+	id F3C1E20316EA; Fri, 27 Dec 2019 19:39:56 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F13EB2038B80
-	for <blinux-list@redhat.com>; Fri, 27 Dec 2019 02:49:08 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id EDAA720316E0
+	for <blinux-list@redhat.com>; Fri, 27 Dec 2019 19:39:54 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BDA12801E87
-	for <blinux-list@redhat.com>; Fri, 27 Dec 2019 02:49:08 +0000 (UTC)
-Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com
-	[209.85.215.172]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-201-aA2HwQeJPTe4n91DlJhSeA-1; Thu, 26 Dec 2019 21:49:06 -0500
-Received: by mail-pg1-f172.google.com with SMTP id k25so13759605pgt.7
-	for <blinux-list@redhat.com>; Thu, 26 Dec 2019 18:49:06 -0800 (PST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D4E98185AB6C
+	for <blinux-list@redhat.com>; Fri, 27 Dec 2019 19:39:54 +0000 (UTC)
+Received: from mail-ot1-f50.google.com (mail-ot1-f50.google.com
+	[209.85.210.50]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-330-X2Y6M1dsPzGXwXaxBQ2RWQ-1; Fri, 27 Dec 2019 14:39:52 -0500
+Received: by mail-ot1-f50.google.com with SMTP id w21so29657646otj.7
+	for <blinux-list@redhat.com>; Fri, 27 Dec 2019 11:39:52 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
-	:references:mime-version;
-	bh=jVoqLp+K1/+NXa4S7VqD4eZ7CF15yUFEiRnn0jpAGG4=;
-	b=pc6vFv+WJyjgGscPMHP1IiNQGVxQ1y4yp5XmTUoWnZVRaoVNhW4SQCnoVZ+uxBqHsr
-	E6JsfXuxFH7P+VEPH+FL0fxnUPF+zqHI/WH8MThEDNvnwEiOC1IVpYGcbLDr0XA+J176
-	rt0viXLHVt2dIsetrKPMFDSExLh1B7MFdDSE6XpjwnDX/s8QfzZYW0Uz5SmGmjHWEG6h
-	x6AanV9lJhp5zjy4OV53T4AbGp9MfYHKTsSqe83U8Frn2lY2gicbOo/xspazzqPwbw66
-	Y4hcELoK0NcLyTXfWcJ5LdZ5pc6pJR5ZRqLn/eapGNoBmVw4SPP1rcL5mxqerGY2wIBj
-	mrog==
-X-Gm-Message-State: APjAAAXHukPxVdqtq8cJAO9o6tTtpZQv/q++Ync198uXnOz3T9Z+8VHF
-	V+BDK7uT3UIy6DYVqmbA26ZriH8P
-X-Google-Smtp-Source: APXvYqxHE0+bzTgTPzpFKPH+4OwB0sDnMfqg9otdDzVvg70OD6Z3aLHS0Nybk6WIHDugYd4qIjslgw==
-X-Received: by 2002:a62:2cc1:: with SMTP id
-	s184mr51818375pfs.111.1577414945546; 
-	Thu, 26 Dec 2019 18:49:05 -0800 (PST)
-Received: from [192.168.0.31] (cpe-104-34-133-201.socal.res.rr.com.
-	[104.34.133.201]) by smtp.gmail.com with ESMTPSA id
-	j18sm35661011pgk.1.2019.12.26.18.49.04 for <blinux-list@redhat.com>
+	h=x-gm-message-state:from:to:references:in-reply-to:subject:date
+	:message-id:mime-version:content-transfer-encoding:content-language
+	:thread-index;
+	bh=Iwo89AfWZdGFGzHuRhYcwaYycZ81aJUk4TmSapr8W0Y=;
+	b=Og+y7pW1xjbK/QtVDRQAmOXC4mPCum04jYCdtgq71F0azWO+wUOkR51iSFWIKosAIv
+	VmyiE5LrueC6iI8FHf+4x/v18ZMZOrlPuMAXF/Jw7v84BSzEGgR3yzGTmhujNovgC3yM
+	CW+h4PGSx2RIDU4WDrqzLDbUer7lH+B9I/T2dPVaK6mkaXvK9nRCk4l5uN6vKq3UEzt2
+	m4OwlxijcIf3wECXk69B4o0RMNe9RkULz5Ugdo9KiUtaPYLG5sWs+yN45DUGRfQwFEId
+	a6VK1LTE9iZTEnJ7wzalHjAP9oBRl+vGB5oDhmpoLaRL+HsEUcQDoPFcWPY6tumg4j/0
+	Nhvw==
+X-Gm-Message-State: APjAAAXV8DUZgEm9r37WygR0wNlk2aG04CVo1a31gjEV647hbSskVBgT
+	oPUdVfITA7PdAMAlXUGpocNkNlAuTH8=
+X-Google-Smtp-Source: APXvYqx+wkoDdbskB1O7BEIsoEh1dzzFfrpJpsNoRO82md2JjuIZ6NTDByPlHBB8TSTcwlGPso4TIw==
+X-Received: by 2002:a9d:7757:: with SMTP id t23mr61134961otl.315.1577475591565;
+	Fri, 27 Dec 2019 11:39:51 -0800 (PST)
+Received: from DESKTOPAOE7QDN ([2600:1702:20f0:4420:5903:1a75:1005:8d37])
+	by smtp.googlemail.com with ESMTPSA id
+	m3sm7554329otf.13.2019.12.27.11.39.50 for <blinux-list@redhat.com>
 	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-	Thu, 26 Dec 2019 18:49:04 -0800 (PST)
-To: "Linux for blind general discussion" <blinux-list@redhat.com>
-Subject: Re: I question about how does a blind person get speech going on a
-	Ubentu System.
-Date: Thu, 26 Dec 2019 18:49:03 -0800
-Message-ID: <C7F1A5E5-4018-4009-ABD2-B8EF245D0944@gmail.com>
-In-Reply-To: <b0cf008e-d9f3-fbd0-9ee5-ce42204852b7@gmail.com>
+	Fri, 27 Dec 2019 11:39:50 -0800 (PST)
+To: <blinux-list@redhat.com>
 References: <CF33CC84-F8ED-4994-B8A4-85478733D19B@gmail.com>
-	<b0cf008e-d9f3-fbd0-9ee5-ce42204852b7@gmail.com>
+In-Reply-To: <CF33CC84-F8ED-4994-B8A4-85478733D19B@gmail.com>
+Subject: RE: I question about how does a blind person get speech going on
+	a	Ubentu System.
+Date: Fri, 27 Dec 2019 14:39:49 -0500
+Message-ID: <01a701d5bced$679f1e90$36dd5bb0$@gmail.com>
 MIME-Version: 1.0
-X-MC-Unique: aA2HwQeJPTe4n91DlJhSeA-1
-X-MC-Unique: ioDoweqkM_iaHzOQFfNFzw-1
+Content-Language: en-us
+Thread-Index: AQJhzXjwR35A5gSorfMWdKnyTL+yeaa2Ph4w
+X-MC-Unique: X2Y6M1dsPzGXwXaxBQ2RWQ-1
+X-MC-Unique: cn0dY5xzNLGRo4ef2nLYbQ-1
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id xBR2nBS8025728
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -104,48 +104,52 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 X-Mimecast-Spam-Score: 0
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Yes it is 18.4.3 I just puled down 19.10 desktop.iso from u of a. 
-Maurice Mines.
+Hi,
 
-On 26 Dec 2019, at 18:18, Linux for blind general discussion wrote:
+To get orca running, first do you have auto login or do you have to enter a
+password?  If  you have a password than you should be able to just press
+ault supper s and orca should come up talking.  I think this works after
+login as well but don't remember as it's been sometime since I did an
+install of ubuntu system.  Not sure off the top of my head but there is a
+ubuntu accessibility list which should help with what  you want.
 
-> Do you mean Ubuntu 18.04.3? I haven't tried this version yet, but I 
-> got Orca going on an 18.04.1 install a while ago by just hitting the 
-> key sequence to start Orca, namely alt+super+s. BTW, this is the same 
-> as alt+windows+s.
->
->
-> On 12/26/19 5:58 PM, Linux for blind general discussion wrote:
->> Hello my subject line says it all, I am totally blind. I downloaded a 
->> copy of Desktop Ubentu 18.3. This distribution has been installed in 
->> a virtual Machine. After installation the system is running the GUI 
->> Interface. I would like to use Orca four scream Reading access? How 
->> can I due this?
->>
->> Sincerely Maurice Mines.
->>
->> PS this email has been dictated to my Mac Book pro. Please forgive 
->> any mistakes?I hope that this is readable?
->>
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://www.redhat.com/mailman/listinfo/blinux-list
->>
-> -- 
-> Christopher (CJ)
-> Chaltain at Gmail
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
+
+HTH.
+
+
+Mathew.
+
+
+
+-----Original Message-----
+From: blinux-list-bounces@redhat.com <blinux-list-bounces@redhat.com> On
+Behalf Of Linux for blind general discussion
+Sent: Thursday, December 26, 2019 6:58 PM
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: I question about how does a blind person get speech going on a
+Ubentu System.
+
+Hello my subject line says it all, I am totally blind. I downloaded a 
+copy of Desktop Ubentu 18.3. This distribution has been installed in a 
+virtual Machine. After installation the system is running the GUI 
+Interface. I would like to use Orca four scream Reading access? How can 
+I due this?
+
+Sincerely Maurice Mines.
+
+PS this email has been dictated to my Mac Book pro. Please forgive any 
+mistakes?I hope that this is readable?	
+
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
 
 
 _______________________________________________
