@@ -1,77 +1,84 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
-	by mail.lfdr.de (Postfix) with ESMTP id 8B7A114FB4C
-	for <lists+blinux-list@lfdr.de>; Sun,  2 Feb 2020 04:04:58 +0100 (CET)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	by mail.lfdr.de (Postfix) with ESMTP id D550E14FBBF
+	for <lists+blinux-list@lfdr.de>; Sun,  2 Feb 2020 06:34:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1580612697;
+	s=mimecast20190719; t=1580621675;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=HPWjy/40rmtz1kTk/da+UmP/6W9hXYBnK5fIeGTTBAU=;
-	b=dYHWaLZOQVAOszMNY+ink3m/sDMnEUiPq1ULRPN9+GSR3ZXV3V1wbaNB9tfa5hr9fwaLFJ
-	0YaD8BocDtftRNXRgDHSEIITt3gYWlBp1WNAkHuBblyiKlAvPx0/2C92u46diL7vHZptAp
-	BUuBQd3kRfwIidBu+8OJUnJnVqGiJnw=
+	bh=Ns7UY2uUcQJOn/AsNMV96alhRMF5ePELUM3/UjlbGUs=;
+	b=OIHjP2i2moMB/Cejq7tWZf2YYW+BZaslCCkLusSumcSgbH68KdLsLATAI4LhYP5n6o6HMM
+	OKh3eIUw54IZR9rZ69BRxp6bnHXLpvs+PkZsjfJJGDSsg+QsnbekFAtB5PF7W6biGTN/R8
+	WvawPjBWdrvjPHHbaLROxw23EmLH+mU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-128-F6gEMqjUMxyTLHRBDvTwbw-1; Sat, 01 Feb 2020 22:04:53 -0500
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-305-9FX3VTR3M36nO-Ju3hNGtw-1; Sun, 02 Feb 2020 00:34:33 -0500
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id F2E28DB60;
-	Sun,  2 Feb 2020 03:04:48 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1A35D5C3FD;
-	Sun,  2 Feb 2020 03:04:48 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 428AA13E2;
+	Sun,  2 Feb 2020 05:34:29 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id EFD7F77931;
+	Sun,  2 Feb 2020 05:34:28 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 280C21809567;
-	Sun,  2 Feb 2020 03:04:46 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B1B1485CEE;
+	Sun,  2 Feb 2020 05:34:28 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 01234fiJ010934 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 1 Feb 2020 22:04:41 -0500
+	id 0125YPJ5013989 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 2 Feb 2020 00:34:25 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 7D032112131B; Sun,  2 Feb 2020 03:04:41 +0000 (UTC)
+	id 426D52093CEA; Sun,  2 Feb 2020 05:34:25 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 78B4E10EE78D
-	for <blinux-list@redhat.com>; Sun,  2 Feb 2020 03:04:39 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3D6382093CDD
+	for <blinux-list@redhat.com>; Sun,  2 Feb 2020 05:34:23 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B86F985A33E
-	for <blinux-list@redhat.com>; Sun,  2 Feb 2020 03:04:39 +0000 (UTC)
-Received: from mail-oi1-f178.google.com (mail-oi1-f178.google.com
-	[209.85.167.178]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-235-8PnQmq3oMhiMG_2E3zjMVw-1; Sat, 01 Feb 2020 22:04:37 -0500
-Received: by mail-oi1-f178.google.com with SMTP id v19so11397865oic.12
-	for <blinux-list@redhat.com>; Sat, 01 Feb 2020 19:04:37 -0800 (PST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7C2A31019808
+	for <blinux-list@redhat.com>; Sun,  2 Feb 2020 05:34:23 +0000 (UTC)
+Received: from mail-yw1-f47.google.com (mail-yw1-f47.google.com
+	[209.85.161.47]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-94-VrfwuVpeOqyhNCP0soB1Ww-1; Sun, 02 Feb 2020 00:34:19 -0500
+Received: by mail-yw1-f47.google.com with SMTP id b186so9897037ywc.1
+	for <blinux-list@redhat.com>; Sat, 01 Feb 2020 21:34:19 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=KyDj0qKrQNMYfLx5HfqELLBeYOFUjk1QVTV7aiVpFmg=;
-	b=HzSam9madOA3E2g2+13DD8RIiW0Nb7V6NtEPQ2Yb1y+2p2/NRwpilvoEwFSOy2HV4y
-	0IcMYZkpwxAwJbDw1DMhjyxfQ2uH/VusQhZRGo6a2a+wMQ78qDuDwY4M2BtrLovpyQGj
-	Dmxm3srcqokCeIDw0Bj2Qi5MAxgvE1tkO3mgz4PwfipmvPdvLHUcPgRdFxA9uCmRNONF
-	VxN7rP5IJfWRaUgX22/AwqlqmBFHtM6rP/vlUYmznS+LdkhaUJRQHhNaCNHNWaPE3A1/
-	voqONkb3an6DWgmhDEj/qnI7VmjNqzK5sJzgvfwzYr68AkslccPr7evVv7kqzYChNlHv
-	bwDQ==
-X-Gm-Message-State: APjAAAWe1Qb8uxUC7pgnbgjYeY22w4yaEQqmF/ZkByHz7/kl6kRJgTOx
-	DiqJzz59VyFKFWcA56SYJGfl4nGtVAtl6i/dIIH9SA==
-X-Google-Smtp-Source: APXvYqypM7R8dvPWUAptLAafQj8U76qQwdjeUXTqSj49heBKK31ljhy7CP5Ej9SwbKcBirHq0NgUwZoHUWARiyHoP74=
-X-Received: by 2002:aca:be09:: with SMTP id o9mr7682906oif.177.1580612676731; 
-	Sat, 01 Feb 2020 19:04:36 -0800 (PST)
+	h=x-gm-message-state:message-id:from:to:subject:date:mime-version
+	:content-transfer-encoding:in-reply-to:references;
+	bh=ps1/jBp67eWKgbVwNMETZWErnl0z4Nm3k/kOBcXvOf4=;
+	b=NjegHskxCbTWkurFyJZiC5b9+W7saQ0FZmMG5VYPCQp13XTCx+NmdNp/zjg1dXpLuW
+	D4dSG3pb5cv3ptMOWJMaERsPYybo5YRTV3x/9saOTmkFIJftxHsj8EC+s8rmlHeYljhB
+	CW1A4SQV6cSXBwmxKGYygg1+TsH7x9FXaeoUJ+ohA/yNktHq7l5a7clNGRfsvXRmY7EC
+	PvnDbDqOsfbzhaEOQikCzx2GlSUOXljunUxQHDk0xTXntdwcMmE9o3UXQAaJe35QE12I
+	CHIGYWfMgYpmsm78mNKJQvSgZXQ/mJwx+SB8F/pDrKIeNzWdGJU1QjSmAmQid2LwNpnW
+	lC5Q==
+X-Gm-Message-State: APjAAAWacZEk9UI/dsW7JRwO2xOzXzB+wRB7fjIk2tS4OOau19d5rqHl
+	3fw8H1O88qQis5hIplJ/rH1tOSVOXQ4=
+X-Google-Smtp-Source: APXvYqzajxJKFRBpBSdfvTHmgpXdFrYB58MPxEr8NySv3JPpHdDQubIsLzdjyewKeVLhX0IoSsHrMA==
+X-Received: by 2002:a81:4e0d:: with SMTP id c13mr11675801ywb.448.1580621658765;
+	Sat, 01 Feb 2020 21:34:18 -0800 (PST)
+Received: from [192.168.1.118] (24-220-234-87-dynamic.midco.net.
+	[24.220.234.87]) by smtp.gmail.com with ESMTPSA id
+	m138sm6474833ywd.56.2020.02.01.21.34.17 for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+	Sat, 01 Feb 2020 21:34:18 -0800 (PST)
+Message-ID: <20200202.053250.708.97@[192.168.1.118]>
+To: blinux-list@redhat.com
+Subject: Re: A Live Boot Image for the Mac that Talks
+Date: Sat, 01 Feb 2020 23:32:50 -0600
 MIME-Version: 1.0
-Received: by 2002:a9d:4d96:0:0:0:0:0 with HTTP;
-	Sat, 1 Feb 2020 19:04:36 -0800 (PST)
-In-Reply-To: <E1iy5Fq-0006fl-BN@wb5agz>
+In-Reply-To: <alpine.NEB.2.21.2002020031250.19173@panix1.panix.com>
 References: <E1ixMhY-0001xB-U2@wb5agz>
 	<alpine.NEB.2.21.2001310111580.13258@panix1.panix.com>
 	<E1iy1ln-00062r-3h@wb5agz>
@@ -79,15 +86,13 @@ References: <E1ixMhY-0001xB-U2@wb5agz>
 	<d75a7b21-75c1-ee44-5d35-71129cfeea51@verizon.net>
 	<10e5062a-cb11-97d5-e394-2042b9dedfaf@gmail.com>
 	<E1iy5Fq-0006fl-BN@wb5agz>
-Date: Sun, 2 Feb 2020 03:04:36 +0000
-Message-ID: <CAO2sX32EXpxci1Y3q2Jch+Z75vdUx-cRQS2=dxdOOtBLiqY-yQ@mail.gmail.com>
-Subject: Re: A Live Boot Image for the Mac that Talks
-To: blinux-list@redhat.com
-X-MC-Unique: 8PnQmq3oMhiMG_2E3zjMVw-1
-X-MC-Unique: F6gEMqjUMxyTLHRBDvTwbw-1
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+	<CAO2sX32EXpxci1Y3q2Jch+Z75vdUx-cRQS2=dxdOOtBLiqY-yQ@mail.gmail.com>
+	<alpine.NEB.2.21.2002020031250.19173@panix1.panix.com>
+X-MC-Unique: VrfwuVpeOqyhNCP0soB1Ww-1
+X-MC-Unique: 9FX3VTR3M36nO-Ju3hNGtw-1
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 01234fiJ010934
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 0125YPJ5013989
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -104,29 +109,66 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-I don't have any experience with Macs or writing bootable images to
-USB sticks(I just burn isos to DVD using wodim when I need to make a
-new Linux disc), but my first two thoughts are:
+There was a cd image floating around that you could use to pass things on to a USB. The vinux project hosted it.
 
-1. Perhaps the Mac's bios isn't configured to allow booting from USB
-media. I know I've had to get sighted assistance to fix the bios boot
-order on every laptop and desktop I've acquired since going blind
-before I could boot installation media to install Linux... I even had
-to do it for a netbook that came pre-loaded with Ubuntu if memory
-serves.
+----- Original Message -----
+From: Linux for blind general discussion <blinux-list@redhat.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Date: Sun, 2 Feb 2020 00:32:54 -0500
+Subject: Re: A Live Boot Image for the Mac that Talks
 
-2. I could be wrong, but I believe the files needed for making a
-CD/DVD bootable and making a USB stick bootable are different. If so,
-even a properly written iso might not result in a bootable USB stick
-if the iso only includes the files needed for booting from CD/DVD.
-Again, no experience with making bootable USB sticks, so I might be
-horribly mistaken.
+> Older machines wouldn't have that capability.  One computer I have can
+> do it and the other computer cannot.  The difference is the flash bios
+> in each of the machines.  One permits it and the other does not.
+> 
+> On Sun, 2 Feb 2020, Linux for blind general discussion wrote:
+> 
+> > Date: Sat, 1 Feb 2020 22:04:36
+> > From: Linux for blind general discussion <blinux-list@redhat.com>
+> > To: blinux-list@redhat.com
+> > Subject: Re: A Live Boot Image for the Mac that Talks
+> >
+> > I don't have any experience with Macs or writing bootable images to
+> > USB sticks(I just burn isos to DVD using wodim when I need to make a
+> > new Linux disc), but my first two thoughts are:
+> >
+> > 1. Perhaps the Mac's bios isn't configured to allow booting from USB
+> > media. I know I've had to get sighted assistance to fix the bios boot
+> > order on every laptop and desktop I've acquired since going blind
+> > before I could boot installation media to install Linux... I even had
+> > to do it for a netbook that came pre-loaded with Ubuntu if memory
+> > serves.
+> >
+> > 2. I could be wrong, but I believe the files needed for making a
+> > CD/DVD bootable and making a USB stick bootable are different. If so,
+> > even a properly written iso might not result in a bootable USB stick
+> > if the iso only includes the files needed for booting from CD/DVD.
+> > Again, no experience with making bootable USB sticks, so I might be
+> > horribly mistaken.
+> >
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://www.redhat.com/mailman/listinfo/blinux-list
+> >
+> >
+> 
+> -- 
+> 
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+> 
+> 
 
 
 _______________________________________________
