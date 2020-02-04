@@ -1,88 +1,75 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	by mail.lfdr.de (Postfix) with ESMTP id 94184151DC4
-	for <lists+blinux-list@lfdr.de>; Tue,  4 Feb 2020 17:02:46 +0100 (CET)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+	by mail.lfdr.de (Postfix) with ESMTP id 6A071151DF5
+	for <lists+blinux-list@lfdr.de>; Tue,  4 Feb 2020 17:14:11 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1580832165;
+	s=mimecast20190719; t=1580832850;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=bMG4NRUhnnmgAzvwUcYK2f8Ghrn3H/ohCeGb2owG/90=;
-	b=VCPOZAefsEOc6Ay7Eau4/gZNT8g5dyiQKQlB+VKp1YUxOJle926lr2Nlf7D+WaAm9zDCeF
-	LCyFxjwgxCkr/7vW1FX+K32oSZ6v+VAiWGimC00p3vyvElrEZu87ZGR6hHMHZJf8HXYBjU
-	PP/d1m6+idhn07koMIi1gdbq2aCBNb0=
+	bh=Wu0h3a9F85DcqgXHwL1HLOEAxJksirsm3hLOPcESNIs=;
+	b=ZbXiOnp/usavwA5S20K7jucp8ObjI2dkxKpGyyUIk5gvVI3uvwC7+h7bW6qFzCPHWrt2yk
+	1qASEWLAttOxbF94070wYoAsN+gcku0PfnvVqDipjZLt55mNG55/gGbsP6m1/daDpfnIJ2
+	SIpebN9VL9Xfrwc4mMO87D+Rl2zbkIQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-391-yekcqV6HPK2nwKbcnRYS9w-1; Tue, 04 Feb 2020 11:02:38 -0500
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-96-PPrUcEgROUmcC4rvt9i4Mg-1; Tue, 04 Feb 2020 11:14:06 -0500
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id BAE641B18BC3;
-	Tue,  4 Feb 2020 16:02:33 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A008B1085926;
+	Tue,  4 Feb 2020 16:14:01 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B54A810002B6;
-	Tue,  4 Feb 2020 16:02:31 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D1E3860BF3;
+	Tue,  4 Feb 2020 16:14:00 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B25FE8173D;
-	Tue,  4 Feb 2020 16:02:26 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2B59C8173F;
+	Tue,  4 Feb 2020 16:13:58 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 014G2GY3001411 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 4 Feb 2020 11:02:16 -0500
+	id 014GDqaW001708 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 4 Feb 2020 11:13:52 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 8C4EADBF0B; Tue,  4 Feb 2020 16:02:16 +0000 (UTC)
+	id 227CD20316F9; Tue,  4 Feb 2020 16:13:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 84E9CDBF16
-	for <blinux-list@redhat.com>; Tue,  4 Feb 2020 16:02:12 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1DA622093CE9
+	for <blinux-list@redhat.com>; Tue,  4 Feb 2020 16:13:50 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 74C1080300C
-	for <blinux-list@redhat.com>; Tue,  4 Feb 2020 16:02:12 +0000 (UTC)
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com
-	[209.85.221.45]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-313-uBjjTkOpP7SFivtmv9uVdA-1; Tue, 04 Feb 2020 11:01:52 -0500
-Received: by mail-wr1-f45.google.com with SMTP id y11so23738929wrt.6
-	for <blinux-list@redhat.com>; Tue, 04 Feb 2020 08:01:52 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
-	:mime-version:content-transfer-encoding:content-language;
-	bh=DepQOc59Hg6H5BgqfD0QC/DkgeOjCtiiIi7wPZekJBk=;
-	b=B2+aSHzsucX+Yxag+uaozzxPjRZhvjlvYFNDAY8WkCKB9YZi/PO+NqvW4jn/u8U6y6
-	TEy19NC7qqw+8w3dzfBzv8QYB2KcbJ2adJmtbxrhVZtjEtLYLT0NGfzI2qyrMNiRyeyv
-	Hp1bdWwc/X5vb5xluoEhHafPygXdPBf9vgfV6gTaI6JUkG+W6GITOAjERPEe0n72j+d3
-	vvPkhO8PcJdy7osLH+9dwyjRRZcaQsoWHFVb6WTuW89wIUUR/psOFo9vC02b0XC6pHS8
-	pc0I6nVAbCI1CiHp80iAglq4oYL8PJwZNvOVwT6Csv4HLvdZK4Od84g1LFn8I/pvEiTz
-	xanA==
-X-Gm-Message-State: APjAAAUoaP37P+xQjLM/5AagH4oIMFlt7dLty71p5RO0NnNH/zga9nzE
-	oNurUzjUae18u1D5Xzdwh2Yq0zO9
-X-Google-Smtp-Source: APXvYqwpHiWVHvaw4tYxm4oLVpTB0ZAmrvbU8wfqST0dUtueJBewUmpuA/ikyfInqGVAEdjqkItVmA==
-X-Received: by 2002:a5d:6411:: with SMTP id z17mr24349476wru.57.1580832110761; 
-	Tue, 04 Feb 2020 08:01:50 -0800 (PST)
-Received: from [141.24.217.136] (avt22.rz.tu-ilmenau.de. [141.24.217.136])
-	by smtp.gmail.com with ESMTPSA id
-	s139sm4359536wme.35.2020.02.04.08.01.50 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Tue, 04 Feb 2020 08:01:50 -0800 (PST)
-To: blinux-list@redhat.com
-Subject: Looking for Emacspeak users
-Message-ID: <bc9ce353-0b50-f93e-345f-c9d53da80968@gmail.com>
-Date: Tue, 4 Feb 2020 17:01:49 +0100
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
-	Thunderbird/68.4.1
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0B43018AE954
+	for <blinux-list@redhat.com>; Tue,  4 Feb 2020 16:13:50 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-417-k7-TCeG-OzSPbov4YI9jKw-1; Tue, 04 Feb 2020 11:13:47 -0500
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 48BqWH4Kr4z1Lbq
+	for <blinux-list@redhat.com>; Tue,  4 Feb 2020 11:13:47 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 48BqWH3Zwlzcbc; Tue,  4 Feb 2020 11:13:47 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 48BqWH3WVpzcbW
+	for <blinux-list@redhat.com>; Tue,  4 Feb 2020 11:13:47 -0500 (EST)
+Date: Tue, 4 Feb 2020 11:13:47 -0500
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Looking for Emacspeak users
+In-Reply-To: <bc9ce353-0b50-f93e-345f-c9d53da80968@gmail.com>
+Message-ID: <alpine.NEB.2.21.2002041112390.13803@panix1.panix.com>
+References: <bc9ce353-0b50-f93e-345f-c9d53da80968@gmail.com>
 MIME-Version: 1.0
-Content-Language: en-US
-X-MC-Unique: uBjjTkOpP7SFivtmv9uVdA-1
-X-MC-Unique: yekcqV6HPK2nwKbcnRYS9w-1
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-MC-Unique: k7-TCeG-OzSPbov4YI9jKw-1
+X-MC-Unique: PPrUcEgROUmcC4rvt9i4Mg-1
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 014GDqaW001708
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -99,26 +86,48 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hello
+Why not send e-mail to:
+emacspeak-request@cs.vassar.edu
+and ask to be subscribed to the emacspeak list?  That's where all of
+that action happens.
+On Tue, 4 Feb 2020, Linux for blind general
+discussion wrote:
 
+> Date: Tue, 4 Feb 2020 11:01:49
+> From: Linux for blind general discussion <blinux-list@redhat.com>
+> To: blinux-list@redhat.com
+> Subject: Looking for Emacspeak users
+>
+> Hello
+>
+>
+> I have Several years curious about emacspeak.
+>
+> I tried it out in a raspberry pi, but regarding it needs its own TTS engine
+> whuich I was not able to configure in those times.
+>
+>
+> I would like to contact emacspeak users in linux to discuss about what can I
+> do in that environment and how versatile it is.
+>
+>
+> Thanks
+>
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+>
 
-I have Several years curious about emacspeak.
-
-I tried it out in a raspberry pi, but regarding it needs its own TTS 
-engine whuich I was not able to configure in those times.
-
-
-I would like to contact emacspeak users in linux to discuss about what 
-can I do in that environment and how versatile it is.
-
-
-Thanks
+-- 
 
 
 _______________________________________________
