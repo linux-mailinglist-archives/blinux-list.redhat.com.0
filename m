@@ -1,88 +1,84 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
-	by mail.lfdr.de (Postfix) with ESMTP id 7E842151025
-	for <lists+blinux-list@lfdr.de>; Mon,  3 Feb 2020 20:10:44 +0100 (CET)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	by mail.lfdr.de (Postfix) with ESMTP id 2B407151915
+	for <lists+blinux-list@lfdr.de>; Tue,  4 Feb 2020 11:58:19 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1580757043;
+	s=mimecast20190719; t=1580813898;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ITNdMpfliPqZiT3krGZGen7NjeUP9/UT53hybKtlm6Q=;
-	b=P0Dp21J8PDW5tVoYzT5Wq2/mD8ns/sFxzL89imMXvv7y9+OpNDMk0rf5WXGQjQi5FoTyOL
-	Nkkyw4JnHTzOCmLhW4+/g/t9caT4BUJwYuMTtb1zJjpAmDu+m8rHm2v20DhZH1ykSmYLS9
-	ykJmpcT0EqLeRKJnK3Rwo4ttYZ5Gnlk=
+	bh=er2LA7A6owKRB1Jp2SoaFiwA8j2lTpGxIWmwBXY2JKY=;
+	b=hyDHzZOFwN9p9YymjfJ7c7L34QsMALQLY3+S3BMH9vyEEd0Pw61SLE7XeXhiETRpalRyny
+	bIqqNcAnHcbL2EtGdGVNy5z5Xm6D4IXIFKRqveXaNWl1xywjxl38n7wdhJHlimupbGpFmD
+	/yq5a78yURN3yGIcPFzdvRN6fRPiCds=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-27-BOBxt0cyMSO3s_peiry_xg-1; Mon, 03 Feb 2020 14:10:35 -0500
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-245-GVSCerZkM_iPaKXtw76AQw-1; Tue, 04 Feb 2020 05:58:16 -0500
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 25B97107ACC4;
-	Mon,  3 Feb 2020 19:10:30 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 687971922960;
+	Tue,  4 Feb 2020 10:58:11 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CC96460BE0;
-	Mon,  3 Feb 2020 19:10:28 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6787119486;
+	Tue,  4 Feb 2020 10:58:09 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 80A9018089C8;
-	Mon,  3 Feb 2020 19:10:23 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E401B18089CD;
+	Tue,  4 Feb 2020 10:58:05 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 013JADvA020311 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 3 Feb 2020 14:10:13 -0500
+	id 014AvwO7013051 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 4 Feb 2020 05:57:58 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 6C41F2026D68; Mon,  3 Feb 2020 19:10:13 +0000 (UTC)
+	id B1C4D2038BAD; Tue,  4 Feb 2020 10:57:58 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 671ED2037E43
-	for <blinux-list@redhat.com>; Mon,  3 Feb 2020 19:10:11 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id AC0B92038BBE
+	for <blinux-list@redhat.com>; Tue,  4 Feb 2020 10:57:56 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8159910197E0
-	for <blinux-list@redhat.com>; Mon,  3 Feb 2020 19:10:11 +0000 (UTC)
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com
-	[209.85.221.48]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-168-1I_PwUSEPWCh6G0YQDvrlQ-1; Mon, 03 Feb 2020 14:10:08 -0500
-Received: by mail-wr1-f48.google.com with SMTP id z3so19777490wru.3
-	for <blinux-list@redhat.com>; Mon, 03 Feb 2020 11:10:08 -0800 (PST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9839A1019808
+	for <blinux-list@redhat.com>; Tue,  4 Feb 2020 10:57:56 +0000 (UTC)
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com
+	[209.85.221.47]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-150-4qjNw78PMfSQXEMYe_v3Eg-1; Tue, 04 Feb 2020 05:57:54 -0500
+Received: by mail-wr1-f47.google.com with SMTP id a6so22372325wrx.12
+	for <blinux-list@redhat.com>; Tue, 04 Feb 2020 02:57:54 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=8nZ9Z0a44EqPEsuYhuEG8E0Yq2h0S+epe6dKRvtZV0E=;
-	b=DrXnSRmSDRF9Y7Vasxl43L8sOqhyBNZAqrTBdVOa88Nv2rbrq6Q1AxFIb/dCKOx0UT
-	K91rpyakuoJnAznpGUWd/Yq1/D1wht2bcGi00SDSyykIhRyFeftPso0emOeMRua4xaVA
-	b4FE0rPCvJEX1p/uS60ueSMBC7qTvbg4uICBA4j49pey4uXO2+QdtguxtmwGmXZ/7BMa
-	GajRn1qjEhw8jbXMWO2bCjnXXGCyj/PDv6vQckZYqH8pPETA/5FDcpjrh/kRiAwN9Y27
-	Le/+SFg72tUERsZYQMFX4g71Daq/LbrsD/FBpP93+5EhT8hZ/tBFcziwuwJmMpKqyvM2
-	buMw==
-X-Gm-Message-State: APjAAAVvblITy+Yo0vBvlHajV2R+asRMXz1H2gd3u3A058jaj3kZRSwc
-	V4dWEqFRIn31nh1ePtJ0NJDmYJ/CavB8Oxb0ornNNBCe
-X-Google-Smtp-Source: APXvYqwYslccvkoASUjH7vLq2QY2BtUGB6zcKI7fk9BP5Q32wtNZXWWJXWy5CIBz6REC701Ot0IeeIgOLdYK1+rl7E4=
+	h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+	bh=CtjemEH3iF3EYfLjiQHHBfDhbNjZtUVyn7qOJt+bCpg=;
+	b=rpNu/RS3NE9Jx2/Ozr6o4wLkUaNylJjjusIbUPFDQoL0Iaoa44OiVvA+7yBxmJOXmu
+	2qHcX3Do5RqAIQUBVVUelZpRnZOZh8KjVCUBcJylqhGdGP3AW2AcA4vqj8L0hEf7lffR
+	V7PDJHlH3E7W9ZDr3byMAF/QXwgqJsimr9n+f82jEPTNUSUICEd8IZfv2Z/AvUxLLNXa
+	uMft3f0OGBWj/kavpMtmrt36Re705TBZOx26jY5um+1LIgQTCu8NkVBrSMt7neFQ3X3L
+	jmp2JAl98oF0UJvTd++9paBRoLxMER6AHjUqeJcqnvE/eTutLSg4/O/dTdCg8qYRWarz
+	O3jw==
+X-Gm-Message-State: APjAAAXIB0u/3DHKQPSl5aGteJXMIJySPF90JS8lntkaxBTqxronCJ+0
+	TiBIMKiQ4qh18NbecU4V94gOYSw/O0nm/wT3zeU/mCYf
+X-Google-Smtp-Source: APXvYqwtIh5FGpeiymzztuqVABREpwlWKgV5Pd7HAfkuQcwiyvlkjDmaPGGbN+83xvPPTg6I+Zh7Zz5+9su6dYPTTLk=
 X-Received: by 2002:a05:6000:367:: with SMTP id
-	f7mr16743287wrf.174.1580757007450; 
-	Mon, 03 Feb 2020 11:10:07 -0800 (PST)
+	f7mr21131770wrf.174.1580813872989; 
+	Tue, 04 Feb 2020 02:57:52 -0800 (PST)
 MIME-Version: 1.0
-Received: by 2002:a05:6000:114f:0:0:0:0 with HTTP; Mon, 3 Feb 2020 11:10:06
-	-0800 (PST)
-In-Reply-To: <165B2FAD-F35D-482B-BE93-40F0BEC7A24A@gmail.com>
-References: <165B2FAD-F35D-482B-BE93-40F0BEC7A24A@gmail.com>
-Date: Mon, 3 Feb 2020 14:10:06 -0500
-Message-ID: <CADj8JxdQTOcUMtXyyNd=FbQYMAmedwyt2GEGdUSzJzLGfGmQYA@mail.gmail.com>
-Subject: Re: g podder
+Received: by 2002:a5d:5605:0:0:0:0:0 with HTTP;
+	Tue, 4 Feb 2020 02:57:52 -0800 (PST)
+Date: Tue, 4 Feb 2020 05:57:52 -0500
+Message-ID: <CADj8Jxfm9YKA=hho-tQw+q7S7vaJpHX4TjK6oKQh1rcmtabZvw@mail.gmail.com>
+Subject: Gpodder
 To: blinux-list@redhat.com
-X-MC-Unique: 1I_PwUSEPWCh6G0YQDvrlQ-1
-X-MC-Unique: BOBxt0cyMSO3s_peiry_xg-1
+X-MC-Unique: 4qjNw78PMfSQXEMYe_v3Eg-1
+X-MC-Unique: GVSCerZkM_iPaKXtw76AQw-1
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 013JADvA020311
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 014AvwO7013051
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -99,24 +95,15 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-I think its alt then f to jump to the menus.
-
-On 2/3/20, Linux for blind general discussion <blinux-list@redhat.com> wrote:
-> I am having trouble getting to menus in g podder.
-> What is the key combination to make an opml file of all my podcast feeds?
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
->
+I just tried out gpodder on my laptop and if you press alt g you will
+jump to the menu bar and land in the gpodder menu. from there you can
+move and use the other menus in the menu bar.
 
 
 _______________________________________________
