@@ -2,68 +2,72 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
-	by mail.lfdr.de (Postfix) with ESMTP id 1A53115F935
-	for <lists+blinux-list@lfdr.de>; Fri, 14 Feb 2020 23:04:06 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id 991D9162304
+	for <lists+blinux-list@lfdr.de>; Tue, 18 Feb 2020 10:08:07 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1581717845;
+	s=mimecast20190719; t=1582016886;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=dGlAmG3gYxKrNWawyVCzjWo+peMstgHiSzXz/etbgzs=;
-	b=Iwm/L7bmtdGuFSd6CtdKkboSGEh+eHmYFPyv10eF3L4J+KlbWL0MgW9E54mJGDOaRWEwf7
-	xeHDGlunoE/tVvGU2yEDz93l5MHJjq5MScy/tHFb03dl4rQeu7RObgLCqjA6KN+qme34ib
-	vYBQHK0Zn1alB8nZeeyvfpGjNbMCbh8=
+	bh=sEtkcwMS/sT8gmLLeTr8abNu+oSsn0mIOCTI/yaxURw=;
+	b=Ypt7Av+wTs2smApthlV1DvLrxbyn3TxZ0gDoEu6vEV7TGh1C1mvh51EAaHkPoBytFpVcKa
+	cFzlQ3Kq+rBkSDbChgCgn9ZqjzIoZMQXAxCNhArGmxRDXY0X784cf0kBvRnz7kbXpxsWDI
+	29/dVmuPNIAqol4LUdjA52eTQ/9f+F8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-31-5JEghMogM3udtrDsP3aLJA-1; Fri, 14 Feb 2020 17:04:02 -0500
+ us-mta-417-K-uXyxyYORWz3rIGY1POow-1; Tue, 18 Feb 2020 04:08:04 -0500
 Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 0D3CA100550E;
-	Fri, 14 Feb 2020 22:03:56 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C2413189F764;
+	Tue, 18 Feb 2020 09:07:59 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C609160BF1;
-	Fri, 14 Feb 2020 22:03:50 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C9D0C60BF3;
+	Tue, 18 Feb 2020 09:07:55 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id CE6678B2B3;
-	Fri, 14 Feb 2020 22:03:39 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 039D735B09;
+	Tue, 18 Feb 2020 09:07:50 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 01EM1hkO016651 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 14 Feb 2020 17:01:43 -0500
+	id 01I969Jq005710 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 18 Feb 2020 04:06:09 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 3E41B2028CD4; Fri, 14 Feb 2020 22:01:43 +0000 (UTC)
+	id 49AB52093CF3; Tue, 18 Feb 2020 09:06:09 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 397F82026D67
-	for <blinux-list@redhat.com>; Fri, 14 Feb 2020 22:01:41 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 44EF32093CF9
+	for <blinux-list@redhat.com>; Tue, 18 Feb 2020 09:06:07 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 129951800F1C
-	for <blinux-list@redhat.com>; Fri, 14 Feb 2020 22:01:41 +0000 (UTC)
-Received: from server2.shellworld.net (server2.shellworld.net
-	[66.172.12.120]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-338-6Khj6WxSMnaFSqEd1L26CQ-1; Fri, 14 Feb 2020 17:01:38 -0500
-Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id E99378C0308; Fri, 14 Feb 2020 22:01:36 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 07AD910192B4
+	for <blinux-list@redhat.com>; Tue, 18 Feb 2020 09:06:07 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-291-ELTRtH0-MFqes3lPX8Io8g-1; Tue, 18 Feb 2020 04:06:04 -0500
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 48MFMJ22TNz1d4S
+	for <blinux-list@redhat.com>; Tue, 18 Feb 2020 04:06:04 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 48MFMJ0VKczcbc; Tue, 18 Feb 2020 04:06:03 -0500 (EST)
 Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id 48C3C8C02D8
-	for <blinux-list@redhat.com>; Fri, 14 Feb 2020 17:01:36 -0500 (EST)
-Date: Fri, 14 Feb 2020 17:01:36 -0500 (EST)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Raspberry Pi's Raspbian now supports Orca screen reader. (fwd)
-Message-ID: <Pine.LNX.4.64.2002141658530.32308@server2.shellworld.net>
+	by panix1.panix.com (Postfix) with ESMTP id 48MFMH6wdSzcbV
+	for <blinux-list@redhat.com>; Tue, 18 Feb 2020 04:06:03 -0500 (EST)
+Date: Tue, 18 Feb 2020 04:06:03 -0500
+To: blinux-list@redhat.com
+Subject: early warning I hope
+Message-ID: <alpine.NEB.2.21.2002180400500.24018@panix1.panix.com>
 MIME-Version: 1.0
-X-MC-Unique: 6Khj6WxSMnaFSqEd1L26CQ-1
-X-MC-Unique: 5JEghMogM3udtrDsP3aLJA-1
+X-MC-Unique: ELTRtH0-MFqes3lPX8Io8g-1
+X-MC-Unique: K-uXyxyYORWz3rIGY1POow-1
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 01EM1hkO016651
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 01I969Jq005710
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -83,26 +87,26 @@ Errors-To: blinux-list-bounces@redhat.com
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Can anyone confirm this working first hand?
-If so, what sorts of applications are possible, and are there voice 
-choices for Orca?
+I just ran a kernel update a few minutes ago on archlinux and tried
+rebooting.
+Some uuid cannot be found and I got thrown into an emergency shell.  All
+of this of course without screen reader working.
+I found this out as a result of talking to a be my eyes volunteer on the
+phone after she examined my screen.
+I have no idea what caused that and have minimal usb stuff connected to
+the computer.  I had disconnected a flash drive from the computer thinking
+the flash drive was the cause of the missing uuid but that wasn't the
+case.
+Fortunately I use solid state drives and have another different system on
+one of them or I'd be offline for a while.
+The volunteer didn't read me the long number after that uuid error.
 
 
 
-
-The Raspberry Pi team reached out to an accessibility charity known as 
-AbilityNet to help evaluate the Raspberry Pi desktop environment for 
-improvements. Raspbian now supports Orca screen reader. Orca is compatible with 
-most applications that use GTK or Qt toolkits. Other toolkits aren't compatible 
-and may or may not work. You can also find a new pixel doubling feature in the 
-Raspberry Pi Configuration menu, improving screen visibility for visually 
-impaired persons.
-
-https://www.tomshardware.com/news/raspbian-buster-gets-new-features-in-big-update
-
+--
 
 
 _______________________________________________
