@@ -1,82 +1,87 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id 4C65117EE5D
-	for <lists+blinux-list@lfdr.de>; Tue, 10 Mar 2020 03:07:52 +0100 (CET)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+	by mail.lfdr.de (Postfix) with ESMTP id 1F0DC17F028
+	for <lists+blinux-list@lfdr.de>; Tue, 10 Mar 2020 06:33:28 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1583806071;
+	s=mimecast20190719; t=1583818407;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=CnV9rEw8DbHqH9Cqses+mNFxnXsTCRjyDe2N+P0ziLY=;
-	b=VTFgToZJgPKc7834aaLNVSAOCsZgRDzDMFd7b/c8EuDaHmfCtjCMGph/06jufFO83hxHeI
-	OQoNE9ojXUy9l4WGBjQy32MPEKO2nS4WK5viy73tt8C46ceRo63EdckJzJr6puEZurBFnF
-	z+IGp5sq0UQF5WaFbojMpENiiws+S/g=
+	bh=WMIe0JMk6H3nVHhL5Im7LiuvuZXceEy/AYVN2V8wwQQ=;
+	b=KrZbeogEnIXIsDJqBJiAbynsEqs/qogypyLVhEcnWeO3Z8iUdWKXSXTYg2HTcRMQjVeUx/
+	yNXw3HLcu81oIa5hz5sTSLCIo2df5c6wCntqKAvQV6uOh1ww/+Jv5sC+mnr8oDXLlm4V0q
+	ZZxJVx7UaFttnSfyAO510Z737Jf+qpo=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-104--c2PVBnMPjqO9hI9oCcwhg-1; Mon, 09 Mar 2020 22:07:48 -0400
-X-MC-Unique: -c2PVBnMPjqO9hI9oCcwhg-1
+ us-mta-110-h_NEKERPNvuHo0pIFjbr-g-1; Tue, 10 Mar 2020 01:33:24 -0400
+X-MC-Unique: h_NEKERPNvuHo0pIFjbr-g-1
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A9DC113E2;
-	Tue, 10 Mar 2020 02:07:43 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 471B78D56A;
-	Tue, 10 Mar 2020 02:07:41 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9C51F800D55;
+	Tue, 10 Mar 2020 05:33:19 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CDE918D571;
+	Tue, 10 Mar 2020 05:33:16 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5129986A04;
-	Tue, 10 Mar 2020 02:07:35 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EEC3218089CD;
+	Tue, 10 Mar 2020 05:33:10 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 02A27R4q005880 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 9 Mar 2020 22:07:27 -0400
+	id 02A5X163011288 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 10 Mar 2020 01:33:01 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 7210A178B1; Tue, 10 Mar 2020 02:07:27 +0000 (UTC)
+	id 8A79D20230A9; Tue, 10 Mar 2020 05:33:01 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6E4236C32B
-	for <blinux-list@redhat.com>; Tue, 10 Mar 2020 02:07:25 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 836A6202A943
+	for <blinux-list@redhat.com>; Tue, 10 Mar 2020 05:32:59 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 930CB800307
-	for <blinux-list@redhat.com>; Tue, 10 Mar 2020 02:07:25 +0000 (UTC)
-Received: from p3plsmtpa09-08.prod.phx3.secureserver.net
-	(p3plsmtpa09-08.prod.phx3.secureserver.net [173.201.193.237]) (Using
-	TLS)
-	by relay.mimecast.com with ESMTP id us-mta-250-ps5ibU5MOe-6sgbGNQv1NQ-1;
-	Mon, 09 Mar 2020 22:07:22 -0400
-X-MC-Unique: ps5ibU5MOe-6sgbGNQv1NQ-1
-Received: from [192.168.50.215] ([72.205.36.177]) by :SMTPAUTH: with ESMTPA
-	id BUIfj2Gh7n4lEBUIgjcMcS; Mon, 09 Mar 2020 19:07:18 -0700
-X-CMAE-Analysis: v=2.3 cv=U53s8tju c=1 sm=1 tr=0
-	a=KrEcpKSwXc6ZHCuzcgfT3w==:117 a=KrEcpKSwXc6ZHCuzcgfT3w==:17
-	a=jpOVt7BSZ2e4Z31A5e1TngXxSK0=:19 a=IkcTkHD0fZMA:10 a=20KFwNOVAAAA:8
-	a=k44nJ-0nKYCfhYaTTPkA:9 a=QEXdDO2ut3YA:10 a=M-L8O40jsvsA:10
-X-SECURESERVER-ACCT: cstrobel@crosslink.net
-Subject: Re: Accessible PDF viewer
-To: blinux-list@redhat.com
-References: <2856df1a-69cb-0a03-d4f0-bf3051b2ab20@gmail.com>
-Message-ID: <ccc1f11e-f015-f66f-c897-e6bbf9c0afc3@crosslink.net>
-Date: Mon, 9 Mar 2020 22:07:17 -0400
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
-	Thunderbird/68.5.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1D02A185A78E
+	for <blinux-list@redhat.com>; Tue, 10 Mar 2020 05:32:59 +0000 (UTC)
+Received: from mail-io1-f42.google.com (mail-io1-f42.google.com
+	[209.85.166.42]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-201-EDqxos9eOLeiwU0UrJdVCA-1; Tue, 10 Mar 2020 01:32:54 -0400
+X-MC-Unique: EDqxos9eOLeiwU0UrJdVCA-1
+Received: by mail-io1-f42.google.com with SMTP id d8so11554091ion.7
+	for <blinux-list@redhat.com>; Mon, 09 Mar 2020 22:32:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+	:message-id:subject:to;
+	bh=jdMyRQGOx5K8Zab2mEQUocALQ3TSmwpAQ+A7JeaCriI=;
+	b=P2pMX+xJ5D8qfedfJ9oXgcJN/PJa352zGLjmiXHq9zxTgMgQfZ+AmAxuq1CfmjkdNf
+	pK3kDrOsPwoesicH1d0yLar0gV+y29oIF5I6etklFkvFjFJlLfTKq7C/q7GIOuF8E0Zy
+	NAiom1zNoF51F6ysKGd65CFYPB2OoCAVqLofqV8VUymj/BxQEtAdqBtY6+yQpk78OTZX
+	B72A6h1CWevnZ+EJ+qeSJWp185iyZndejXWGMHNDCeROYKHEOEgSCoPiFpK/50HT8CSV
+	oczDDG3qx1+88kGwyP48LBuJ4KFVR09dKo2ioXfpKoh9wx46aAHtva2hj6yCJfPHXS2f
+	hHcA==
+X-Gm-Message-State: ANhLgQ3iJL9q3PSMNNZgkmFuGp4eYrP2skVILgdhY+Q3/veJgrl8OzqI
+	0CSRy+yeWhLVS1J/12kTogTEyIoQ/2RTr0Lf1VocZA==
+X-Google-Smtp-Source: ADFU+vvw9s2Vj5B2zxwhRIjYUVveIuI8PCZyvx5Qmk+0Jk2ugnbL4cZvXlYj/NZGt+o74mrPC/kxgnK0EwE8s3LLmnc=
+X-Received: by 2002:a05:6602:2434:: with SMTP id
+	g20mr2112417iob.97.1583818374041; 
+	Mon, 09 Mar 2020 22:32:54 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <2856df1a-69cb-0a03-d4f0-bf3051b2ab20@gmail.com>
-Content-Language: en-US
-X-CMAE-Envelope: MS4wfFTC894Vbl3asLNcl2hTASFWLqeBkdNjpedbij5gmTPm4uRWiw6f3Dbae+W6qr8jpe0ebBJpqhkb4eE1I/jx7JpVekQWKG7hyfPPCBPlXBKqgmUB4k0F
-	Si2Z88voA1qZxNMEHGK5ZDE4hohux9ShI8QlU4pFMQwQJeJcRQG9vQ+aU+yokAoiS1cWozH5OU03vQ==
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 02A27R4q005880
+References: <2856df1a-69cb-0a03-d4f0-bf3051b2ab20@gmail.com>
+	<ccc1f11e-f015-f66f-c897-e6bbf9c0afc3@crosslink.net>
+In-Reply-To: <ccc1f11e-f015-f66f-c897-e6bbf9c0afc3@crosslink.net>
+Date: Tue, 10 Mar 2020 07:32:42 +0200
+Message-ID: <CAPo=n-9HbU7zg09v=fZKLkaq0Tu3M+CQi4FQgKoLN+feKJeiyg@mail.gmail.com>
+Subject: Re: Accessible PDF viewer
+To: Linux for blind general discussion <blinux-list@redhat.com>
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -95,22 +100,59 @@ Errors-To: blinux-list-bounces@redhat.com
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-VWJ1bnR1IE1hdGUgRGVza3RvcCBzZWVtcyB0byBoYXZlIEF0cmlsIERvY3VtZW50IFZpZXdlci7C
-oCBJZiB5b3UgcHJlc3MgCkY3IHRvIHR1cm4gb24gY2FyZXQgYnJvd3NpbmcgaXQgc2VlbXMgdG8g
-YmUgdXNhYmxlIHdpdGggc29tZSBQREYgZmlsZXMuCkkgaGF2ZSBub3QgdXNlZCBpdCBleHRlbnNp
-dmVseS7CoCBZb3UgY2FuIGFsc28gcHJlc3MgY29udHJvbC1hIHRvIHNlbGVjdCAKdGhlIGVudGly
-ZSBkb2N1bWVudCBhbmQgcGFzdGUgaXQgaW50byBhbiBFZGl0b3IuCgoKCk9uIDMvOS8yMDIwIDU6
-MzYgUE0sIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gSGVsbG8s
-Cj4KPgo+IGlzIHRoZXJlIGFueSBhY2Nlc3NpYmxlIHBkZiB2aWV3ZXIgb24gTGludXggd2hpY2gg
-Y2FuIGJlIHVzZWQgd2lodCAKPiBPcmNhIHNjcmVlbiByZWFkZXI/Cj4KPgo+IEV2aW5jZSBzZWVt
-cyBub3QgdG8gYmVsb25nIHRvIHRoaXMgY2F0ZWdvcnkuCj4KPgo+IFRoYW5rIHlvdSBpbiBhZHZh
-bmNlIQo+Cj4gVmxhZHlzbGF2Cj4KPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlz
-dEByZWRoYXQuY29tCj4gaHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2Js
-aW51eC1saXN0Cj4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRw
-czovL3d3dy5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
+The best PDF experiance I know about currently is if you run Orca master
+with the latest snapshot of chromium or Chrome. The builtin PDF reader of
+Chromium is very nice, it places every page under a different landmark so
+you can navigate between them with m and shift+m. It even support a few PDF
+tags by converting them to their HTML equivalents, headings for example.
+
+Regards,
+
+Rynhardt
+
+On Tue, 10 Mar 2020, 04:07 Linux for blind general discussion, <
+blinux-list@redhat.com> wrote:
+
+> Ubuntu Mate Desktop seems to have Atril Document Viewer.  If you press
+> F7 to turn on caret browsing it seems to be usable with some PDF files.
+> I have not used it extensively.  You can also press control-a to select
+> the entire document and paste it into an Editor.
+>
+>
+>
+> On 3/9/2020 5:36 PM, Linux for blind general discussion wrote:
+> > Hello,
+> >
+> >
+> > is there any accessible pdf viewer on Linux which can be used wiht
+> > Orca screen reader?
+> >
+> >
+> > Evince seems not to belong to this category.
+> >
+> >
+> > Thank you in advance!
+> >
+> > Vladyslav
+> >
+> >
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://www.redhat.com/mailman/listinfo/blinux-list
+> >
+>
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
 
