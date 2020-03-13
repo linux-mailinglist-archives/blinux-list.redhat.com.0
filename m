@@ -1,82 +1,90 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id 440CE183E03
-	for <lists+blinux-list@lfdr.de>; Fri, 13 Mar 2020 01:57:51 +0100 (CET)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
+	by mail.lfdr.de (Postfix) with ESMTP id 258DD1847D0
+	for <lists+blinux-list@lfdr.de>; Fri, 13 Mar 2020 14:17:22 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1584061070;
+	s=mimecast20190719; t=1584105441;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=g0/WUFmi4xUQmpJ+gHyfpXHFIrP1FreBRmKmkX3DGI0=;
-	b=O9Wm2XDtyYFeK7oBQ6p9qzlubINDHYotRWuqm+6oLZKY5fx1PbMdASBlQpODQiwmaW5KKg
-	7aiVqZSx69F9Is+czaSGL3oDzj5Uu+S/fi+N2GFD+O3k4HUxT/JtDbzhFRG2PNX3GfmB1k
-	8eiDD9v9Puck/qHjFKRXU3NnlkJZqYU=
+	bh=ELA/7oVVUZolUq7LfQ8kW09QOrS7UOW3rlzin9SMUsY=;
+	b=Bhhu+85eQcP/Hh9q0mPXlF5fyHgnzPMi26EptskbzmqDRXl5tb4L1hOTpv4On839E6NfHO
+	a9f1xiouwB1a7wLidy87xSu1Pn75MpMcDbI612X8V8kzjY6pSWeyits2czZXDqHe+kQ3Am
+	J+gE6U4sfNEVNw4jylVtCX/3fZzfsyM=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-484-cimgiKrJPqO9KeYfFjauwQ-1; Thu, 12 Mar 2020 20:57:47 -0400
-X-MC-Unique: cimgiKrJPqO9KeYfFjauwQ-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-269-pnTofNz6OAeIF_-s9lV0Tw-1; Fri, 13 Mar 2020 09:17:18 -0400
+X-MC-Unique: pnTofNz6OAeIF_-s9lV0Tw-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id BD0A51005509;
-	Fri, 13 Mar 2020 00:57:41 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 49EBC5C1B5;
-	Fri, 13 Mar 2020 00:57:37 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2C654801E66;
+	Fri, 13 Mar 2020 13:17:12 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6F3425DA60;
+	Fri, 13 Mar 2020 13:17:07 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6FAF718089CD;
-	Fri, 13 Mar 2020 00:57:27 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 91D8384479;
+	Fri, 13 Mar 2020 13:16:56 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 02D0vHDW013649 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 12 Mar 2020 20:57:17 -0400
+	id 02DDGliC003640 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 13 Mar 2020 09:16:47 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 3C5831013030; Fri, 13 Mar 2020 00:57:17 +0000 (UTC)
+	id 244C82038B97; Fri, 13 Mar 2020 13:16:47 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 37DB01017853
-	for <blinux-list@redhat.com>; Fri, 13 Mar 2020 00:57:15 +0000 (UTC)
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1ECCF2038B82
+	for <blinux-list@redhat.com>; Fri, 13 Mar 2020 13:16:45 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2412B185A78E
-	for <blinux-list@redhat.com>; Fri, 13 Mar 2020 00:57:15 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-250-OSOWGg_RMsCoS0DKTayGVg-1; Thu, 12 Mar 2020 20:57:12 -0400
-X-MC-Unique: OSOWGg_RMsCoS0DKTayGVg-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 48dnN80qdwz1MJn
-	for <blinux-list@redhat.com>; Thu, 12 Mar 2020 20:57:12 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 48dnN75k1vzcbc; Thu, 12 Mar 2020 20:57:11 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 48dnN74tPhzcbV
-	for <blinux-list@redhat.com>; Thu, 12 Mar 2020 20:57:11 -0400 (EDT)
-Date: Thu, 12 Mar 2020 20:57:11 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Want to try a GUI. Which one is best?
-In-Reply-To: <A1240AA4-BC16-4889-86D6-9AA548E30EDC@gmail.com>
-Message-ID: <alpine.NEB.2.21.2003122054120.4990@panix1.panix.com>
-References: <20200301111759.GA12551@abilitiessoft>
-	<alpine.NEB.2.21.2003010712220.19233@panix1.panix.com>
-	<CAO2sX310Obvpt=w1X=1+Tz7eWgXC5aiBz=53nond=1i0PpfSog@mail.gmail.com>
-	<20200301173057.GA14419@abilitiessoft>
-	<alpine.NEB.2.21.2003011300110.6533@panix1.panix.com>
-	<alpine.NEB.2.21.2003011304590.6533@panix1.panix.com>
-	<A1240AA4-BC16-4889-86D6-9AA548E30EDC@gmail.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 32E34800297
+	for <blinux-list@redhat.com>; Fri, 13 Mar 2020 13:16:45 +0000 (UTC)
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com
+	[209.85.221.47]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-143-ArNXIcOJP8O7LIuOGM_sOw-1; Fri, 13 Mar 2020 09:16:43 -0400
+X-MC-Unique: ArNXIcOJP8O7LIuOGM_sOw-1
+Received: by mail-wr1-f47.google.com with SMTP id 6so12044070wre.4
+	for <blinux-list@redhat.com>; Fri, 13 Mar 2020 06:16:42 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:date:from:to:message-id:in-reply-to:references
+	:subject:mime-version:content-transfer-encoding;
+	bh=DVBj0rGXdfKsOzIRiKPFyeN72Jncy0bTBVCND2vEMHs=;
+	b=gbtl7ZX2JtrqSpV95mf9zickDJ+FkiZjixapnh852urqY0qfCEZF6bidQ5xtF6cQeh
+	vxj6CUbtCqRvVSHUW4159X5e047yQpmQ4hrM6nHhCQ29YrQ0FaaXlMvtt5QHjuYenZ9E
+	V6xJU2AotBQmhjOSfQECwU6CJZCOawkKfn0tO7FL1E4XSQ0yAP1oZL1vzU6vbFDZq7XN
+	cnpiGDZRD5HCAUH/KHA9GKL9A0uJ/d/VO89Z1939puo6noWMg/cWzBsnaEsprsa2uRm6
+	xSTetUBYS/j48j0Z9VzjoIDpn84ORJRY8HjA6ve8QRe4RgevypqprsYahkDlDS0Pxbqp
+	Lu1g==
+X-Gm-Message-State: ANhLgQ3/2bJOsLx6i0qI2FXL6xeOXbOnG/+GAyDL4PVbbePA5x9dc0EX
+	4bhqsyqHecHOVYVvFL15/kpQpzieFz0=
+X-Google-Smtp-Source: ADFU+vuFhgDBG+kVVtj78zIj3h8jmhtdT8MF2c0O6zVDPnE2kjEel/5tNtaif2ilasPntb1aOgIwrA==
+X-Received: by 2002:a5d:6086:: with SMTP id w6mr17447914wrt.224.1584105401297; 
+	Fri, 13 Mar 2020 06:16:41 -0700 (PDT)
+Received: from [127.0.0.1] (cpe-75-189-192-174.nc.res.rr.com. [75.189.192.174])
+	by smtp.gmail.com with ESMTPSA id
+	f203sm1383134wmf.18.2020.03.13.06.16.39 for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+	Fri, 13 Mar 2020 06:16:40 -0700 (PDT)
+Date: Fri, 13 Mar 2020 13:16:31 +0000 (UTC)
+To: blinux-list@redhat.com
+Message-ID: <4d35e0f7-1bed-49f3-9f07-ba0129d66dcc@localhost>
+In-Reply-To: <6b72c0c6-6a71-e688-4448-789876e33a34@slint.fr>
+References: <6b72c0c6-6a71-e688-4448-789876e33a34@slint.fr>
+Subject: Stormux is born.
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 02D0vHDW013649
+X-Correlation-ID: <4d35e0f7-1bed-49f3-9f07-ba0129d66dcc@localhost>
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -93,23 +101,18 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-I have a friend most of a thousand miles away.  He is also blind and got
-ubuntu with gnome installed on his system by thinkpenguin.  What I would
-like to know is if sudo apt install mate mate-extra as a command will
-start the process to replace gnome with mate on his machine.  He uses orca
-and works lots better with the classic version of gnome and unfortunately
-in 19.10 Ubuntu removed classic from the desktop list you can choose after
-entering a password.
-
-
-
---
+I'm very happy to see this project continued, and I have already started working on the social media aspect and marketing and promotion. Stormux now has a Telegram channel that will announce news and release notes,
+https://t.me/stormux
+as well as a linked general discussion group at
+https://t.me/stormux_discussion
+Stormux will also soon be available on most of the usual social media channels including Facebook and Twitter. I'm happy to work with this project, and will do my best to keep everyone interested updated regarding its status and features.
+~Kyle
 
 
 _______________________________________________
