@@ -1,75 +1,72 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-74.mimecast.com (us-smtp-delivery-74.mimecast.com [63.128.21.74])
-	by mail.lfdr.de (Postfix) with ESMTP id C6CED18A766
-	for <lists+blinux-list@lfdr.de>; Wed, 18 Mar 2020 22:51:45 +0100 (CET)
+Received: from us-smtp-delivery-74.mimecast.com (us-smtp-delivery-74.mimecast.com [216.205.24.74])
+	by mail.lfdr.de (Postfix) with ESMTP id 1E12118A8D1
+	for <lists+blinux-list@lfdr.de>; Thu, 19 Mar 2020 00:00:19 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1584568304;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	s=mimecast20190719; t=1584572418;
+	h=from:from:sender:sender:reply-to:reply-to:subject:date:date:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Trxgo+Aodg6lEHGBMlwX7qNy1TrWc6L8ISgBlsDaCpo=;
-	b=dRQ6i/gZNqgbrmPQbS0sAYKPeb5z8xiO/PVOTALbIsEkSmAZhHQNMKd0rmpUMiQ5rwNWXD
-	cIGKiAzmyDKP9r0kg7EM+XqsRNp8Qfr8era3pv2Z9QU11yW3rJ+HqqLSA7kdttjx5ot8aq
-	eAn56M8CtojIaHl3P80N5cobA6MEM0M=
+	bh=q2euf8/6RsTJQXK3EDGrQ1PcdR21Jn6MxCjlxsgpXEo=;
+	b=BErYGjKUjXC2ur5k02b77nWV1PSjKkT355iWjzGeEyO33NorPMe1bh29U4O5SJHIChg3k0
+	fmtc74H0HfsxG93/cqlr3skMYNdJ1MsyQrmpcg0iL+tnEoDt8TngmPi4Wq5ck3vrCw5qDq
+	MvIvObgyz4x+J/M9L3wZLWIOdNszJII=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-204-JO8zZCXbPN6oBEtzGClfIw-1; Wed, 18 Mar 2020 17:51:42 -0400
-X-MC-Unique: JO8zZCXbPN6oBEtzGClfIw-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-427-UeCMGbXdMWa8hPnhiaXBUA-1; Wed, 18 Mar 2020 19:00:16 -0400
+X-MC-Unique: UeCMGbXdMWa8hPnhiaXBUA-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 49885190B2A2;
-	Wed, 18 Mar 2020 21:51:35 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 73B97189F763;
+	Wed, 18 Mar 2020 23:00:11 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id DC30E6EF97;
-	Wed, 18 Mar 2020 21:51:33 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 79E0F5C1D8;
+	Wed, 18 Mar 2020 23:00:09 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7A91D87013;
-	Wed, 18 Mar 2020 21:51:28 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 88745860FE;
+	Wed, 18 Mar 2020 23:00:05 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 02ILpLOB007696 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 18 Mar 2020 17:51:21 -0400
+	id 02IMxv44009539 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 18 Mar 2020 18:59:57 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 4707E2166B29; Wed, 18 Mar 2020 21:51:21 +0000 (UTC)
+	id 68A3B2063FE5; Wed, 18 Mar 2020 22:59:57 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 436FA2166AE4
-	for <blinux-list@redhat.com>; Wed, 18 Mar 2020 21:51:19 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6243B2063FE8
+	for <blinux-list@redhat.com>; Wed, 18 Mar 2020 22:59:54 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5CC818007CB
-	for <blinux-list@redhat.com>; Wed, 18 Mar 2020 21:51:19 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9120A185A78E
+	for <blinux-list@redhat.com>; Wed, 18 Mar 2020 22:59:54 +0000 (UTC)
 Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-129-XZK6rJ_hOrKjDCmH_t4I5A-1; Wed, 18 Mar 2020 17:51:14 -0400
-X-MC-Unique: XZK6rJ_hOrKjDCmH_t4I5A-1
+	us-mta-162-aWdxsazwMGuelDVZBAFP4g-1; Wed, 18 Mar 2020 18:59:51 -0400
+X-MC-Unique: aWdxsazwMGuelDVZBAFP4g-1
 Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 48jNyn5hw5zlyv;
-	Wed, 18 Mar 2020 17:51:13 -0400 (EDT)
+	by mailbackend.panix.com (Postfix) with ESMTP id 48jQTz1hYmzr7M
+	for <blinux-list@redhat.com>; Wed, 18 Mar 2020 18:59:51 -0400 (EDT)
 Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 48jNyn3wyKzcbc; Wed, 18 Mar 2020 17:51:13 -0400 (EDT)
+	id 48jQTz0dLvzcbc; Wed, 18 Mar 2020 18:59:51 -0400 (EDT)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 48jNyn3GcNzcbV;
-	Wed, 18 Mar 2020 17:51:13 -0400 (EDT)
-Date: Wed, 18 Mar 2020 17:51:13 -0400
+	by panix1.panix.com (Postfix) with ESMTP id 48jQTz0Y0mzcbV
+	for <blinux-list@redhat.com>; Wed, 18 Mar 2020 18:59:51 -0400 (EDT)
+Date: Wed, 18 Mar 2020 18:59:50 -0400
 To: blinux-list@redhat.com
-Subject: wget downloads
-Message-ID: <alpine.NEB.2.21.2003181743480.22723@panix1.panix.com>
+Message-ID: <alpine.NEB.2.21.2003181859040.3823@panix1.panix.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 02ILpLOB007696
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 02IMxv44009539
 X-loop: blinux-list@redhat.com
-Cc: slint@freelists.org
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -85,35 +82,15 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-the best way I've found to do wget downloads outside of sourceforge.net is
-to use:
-wget -bc url.
-The reason for this is if wget-log doesn't exist on your user directory,
-wget will create it and write its download progress into wget-log.  If
-wget-log exists, wget-log.1 will get created and written to for the
-present download.
-The suffix number increases if the last one is present so you could get a
-bunch of wget-log files in your user directory if you don't manage them.
-The reasons you want wget-log are two.
-First you can check if the download is complete with:
-grep -i saved wget-log
-If grep returns nothing, it means either a download failed or hasn't yet
-finished.
-If grep returns a line of information with the word saved in it, it means
-your download is complete.
-The second reason is you can check the progress of your download with:
-wc -l wget-log
-That will return a number.
-If you repeat that command and get a higher number back, your download is
-progressing.
-If you don't use wget -bc url, you get a mess on your screen and no
-ability to check completion and progress of your download.
+maybe worth trying
+use edbrowse to try and download that microsoft iso file, that may work
+since it offers some javascript to microsoft.
 
 
 
