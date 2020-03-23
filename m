@@ -2,97 +2,71 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-74.mimecast.com (us-smtp-delivery-74.mimecast.com [63.128.21.74])
-	by mail.lfdr.de (Postfix) with ESMTP id 53A4618E430
-	for <lists+blinux-list@lfdr.de>; Sat, 21 Mar 2020 21:17:58 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id B4C6318F516
+	for <lists+blinux-list@lfdr.de>; Mon, 23 Mar 2020 13:55:56 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1584821876;
+	s=mimecast20190719; t=1584968155;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
-	 list-unsubscribe:list-subscribe:list-post:autocrypt:autocrypt;
-	bh=CsdcF2En8+I+NujLntJIkq4ZoygcRcyOl+YciZFxtq0=;
-	b=AaPkz68NvMaDVJY+Y+I4CUHGa+N4UOzSINS/rS8lRYiZP7VatuKr2RgpUDKpaILEoYJKyV
-	M77pL0GprZScEzoDfjujEDH7aT1KoZ9AZyTJQMxMUMDpByEIC9Dx/AGmnrWMqf47tln0pa
-	Mxp68BCD3G6rrigN/q6P8rogN8kuZIM=
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 list-unsubscribe:list-subscribe:list-post;
+	bh=re/Tfjb8Wj25ZYSiKUi2mY8P628h+x1VtEzFGtfYPOw=;
+	b=Rau22kOFpPNcGQcbMPh8VU+nxTL941OyKNnGfz0ZxQPXDqlwpOMAIDCBOxng5odki/5r35
+	+Hy0sZk4jPiFnWPo5Mb3+KgQq5IrIAPtXC+VLIuuAAy/dmFPYzA1jNrU5b8c3ngpf95zXG
+	JDGivHHGSCUxDxewYXjOdmAqfkqWQq8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-302-sCN8SbPCOTuPR09GwPbhYA-1; Sat, 21 Mar 2020 16:17:54 -0400
-X-MC-Unique: sCN8SbPCOTuPR09GwPbhYA-1
+ us-mta-394-2zotemD7PN-eRcpq6YFA5Q-1; Mon, 23 Mar 2020 08:55:53 -0400
+X-MC-Unique: 2zotemD7PN-eRcpq6YFA5Q-1
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A1FA018A07C2;
-	Sat, 21 Mar 2020 20:17:50 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6E5851005513;
+	Mon, 23 Mar 2020 12:55:45 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F041D8D574;
-	Sat, 21 Mar 2020 20:17:48 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BE4698AC30;
+	Mon, 23 Mar 2020 12:55:42 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A20D51809567;
-	Sat, 21 Mar 2020 20:17:46 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8A1F018089CF;
+	Mon, 23 Mar 2020 12:55:35 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 02LKGwdx029590 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 21 Mar 2020 16:16:58 -0400
+	id 02NCtRhs026965 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 23 Mar 2020 08:55:27 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 6840720267F2; Sat, 21 Mar 2020 20:16:58 +0000 (UTC)
+	id 48FF120316EF; Mon, 23 Mar 2020 12:55:27 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6411A2026E1C
-	for <blinux-list@redhat.com>; Sat, 21 Mar 2020 20:16:56 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4566520316E0
+	for <blinux-list@redhat.com>; Mon, 23 Mar 2020 12:55:25 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 73849101A55D
-	for <blinux-list@redhat.com>; Sat, 21 Mar 2020 20:16:56 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
-	relay.mimecast.com with ESMTP id us-mta-43-4_M2du8aOM25OVwX-bqROA-1;
-	Sat, 21 Mar 2020 16:16:53 -0400
-X-MC-Unique: 4_M2du8aOM25OVwX-bqROA-1
-Received: from darkstar.slint.fr (sfa89-1-78-208-157-71.fbx.proxad.net
-	[78.208.157.71])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id E1F84BE791
-	for <blinux-list@redhat.com>; Sat, 21 Mar 2020 20:16:37 +0100 (CET)
-Subject: Re: latest archlinux kernel upgrade
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 68EF1101A55F
+	for <blinux-list@redhat.com>; Mon, 23 Mar 2020 12:55:25 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-170-N8OaDO6aMG6lI_gmyZFajA-1; Mon, 23 Mar 2020 08:55:22 -0400
+X-MC-Unique: N8OaDO6aMG6lI_gmyZFajA-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 48mDrB3f9Lz1XhY
+	for <blinux-list@redhat.com>; Mon, 23 Mar 2020 08:55:22 -0400 (EDT)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 48mDrB2cGHzcbc; Mon, 23 Mar 2020 08:55:22 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 48mDrB2VM9zcbV
+	for <blinux-list@redhat.com>; Mon, 23 Mar 2020 08:55:22 -0400 (EDT)
+Date: Mon, 23 Mar 2020 08:55:22 -0400
 To: blinux-list@redhat.com
-References: <alpine.NEB.2.21.2003211557350.25508@panix1.panix.com>
-Autocrypt: addr=didier@slint.fr; prefer-encrypt=mutual; keydata=
-	xsBNBFY6fG8BCADH4Hf/OaE2MwXRFMrU/9oDd+YPqR/wkhmIv0veDio84fsWA5qMz1De7TEv
-	dNuxIVYTznuVOd/9lpdfxQ1KV9rgD7yoBPLmjbQA1vVjB+1QylIQUV0B9AYFUsxZP32Ic2pg
-	TS3US/WiZyx+/jS50ri4kvT9iDtIEu7WBWFr8YMOoq3oLkHI8Y7gBG0WsK9XYN09glhtI+bA
-	jLPr/ezwEg5M3FDb4U7XFq7GcA6EEzanKMAOHdZl3lta7dv5gpgdj+38j5jPfV1cJW+J1fha
-	63X72xxXGs7V6J7NGpnW7SAKfTAMXsPXZwwGIuqMQs1Z89I+2ZPJPOoV8zMncTsWzHStABEB
-	AAHNH0RpZGllciBTcGFpZXIgPGRpZGllckBzbGludC5mcj7CwH8EEwEKACkCGwMHCwkIBwMC
-	AQYVCAIJCgsEFgIDAQIeAQIXgAUCXcBjnwUJGlHqEgAKCRDVAgLvYMA+6v/ICAC8Oa2zXOne
-	zyuFrPtNsciJWYwWamW+g5TNaY9NPnyMRNKDi7IcP6PoDwHRI8YBgo+Z9w0qFKQ/WVSI/O6s
-	gm7LnOX7OEHjnub4sjrr5PHcsPRjm6iJFIgGgD+waz0K5fxcc65ti3lgHLH1tkhORyiT5EFp
-	0VllWDQfPHw5avm9oopJv1FuPfZhSlFT6QhjD2ARmOrxfFBjELQZjDidckOYf/8Stoh+aK5F
-	5q69DpF+bSZzOtCht+S6LT+Im5zqMgq1Dfqb3FpnVO3MyhSLeGI2nB+OFNTBGByRFKHYRsHc
-	VaQBjtfsr4HnC0UR2P/bDIk/oxLnIN9nHJuL6btcf9M6zsBNBFY6fG8BCACqDQKHSw0ElDkw
-	PPpNguL0ujOyygO30xlLyfW9pWOEycHSLhLzvDTlFkvr5IxvyCDBIFBdzpkeQqh1+ZxrFliw
-	Wyj+9/roJlIjxeAyNs2xQZ7tQM6K5xtbUs8O5YtkCCO3OegAiLgmzzgxes79Qy+V3ciKbl+v
-	rsNu7T9ro3zZhyinci1eOCcKEtXFPQW5P4woB+6+JheN9pIiDkjojmdC+xkvDadP7kJYKp19
-	Itys/CbNvxEoOLsgeJhsZSmNU2QNhXkLfr7+AC99fb/c5ZDTNPRBqgLJCp+gTxn1QVJrAbq2
-	OP3refmSRxdA3yUDMjxEeHwDNZJL9aEtTDlTzPk5ABEBAAHCwGUEGAEKAA8CGwwFAl1EQo4F
-	CQjq+XYACgkQ1QIC72DAPurGhAf+LKNM5AajZNNnccq3bWawqsY1P5ZtFvZLPxMbx2xsnYaM
-	8UPe/tGfuxp+q1ouCRKgvtefjd2eBLGXaysCA5r3Jv+hgdjPKEJut3rARhTJMaDwjKOcOTHG
-	AhFtpsjBkVXuCBxEpNBEypyis3w4kQUCxP7nro4yzdXY7s6EbadNd8nG4B8qFt4JxnqJnZWl
-	97mBQFJjFXlkAM+0eAkpF+rYzL6QKCKydO2Xcz7UTSMe/blXtZUjHxyr8Nh1G+ywEbkmQP+l
-	QhcxJYJbK+q4zNM0U64zzLRwIvVknpdEzJKiFXsydnm9VFE9tzC6a+h40du2OdhkoNDVuFSq
-	aG2M5OmN/Q==
-Message-ID: <503bff3b-a6e8-9e8a-7392-df35606fba72@slint.fr>
-Date: Sat, 21 Mar 2020 21:16:51 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Thunderbird/68.6.0
+Subject: Re: 2020-02-03 jenux iso (fwd)
+Message-ID: <alpine.NEB.2.21.2003230855130.1753@panix1.panix.com>
 MIME-Version: 1.0
-In-Reply-To: <alpine.NEB.2.21.2003211557350.25508@panix1.panix.com>
-Content-Language: fr
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 02LKGwdx029590
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 02NCtRhs026965
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -112,23 +86,46 @@ Errors-To: blinux-list-bounces@redhat.com
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SGkgSnVkZSwKCkkgZG9uJ3QgdGhpbmsgdGhhdCB0aGUga2VybmVsIGJlIHRoZSBjdWxwcml0IGFz
-IGFsbCBzcGVha3VwIGRyaXZlcnMgYXJlIHNoaXBwZWQgYXMgbW91ZHVsZXMgYWNjb3JkaW5nIHRv
-IHRoZSBjb25maWcgZmlsZToKaHR0cHM6Ly9naXQuYXJjaGxpbnV4Lm9yZy9zdm50b2dpdC9wYWNr
-YWdlcy5naXQvdHJlZS90cnVuay9jb25maWc/aD1wYWNrYWdlcy9saW51eAoKTWF5YmUgd2lwaW5n
-IHRoZSBkaXNrIGlzIGEgYml0IGV4dHJlbWUuLi4KCk1lYW53aGlsZSB5b3UgbWF5IGNvbnRpbnVl
-IHVzaW5nIHlvdXIgU2xpbnQgdW50aWwgZnVydGhlciBub3RpY2Ugb3IgdW50aWwgSSBkaWUgb2Yg
-c29tZSBuYXN0eSBmbHUgKHdoaWNoZXZlciBjb21lcyBmaXJzdCkuCgpDaGVlcnMsCkRpaWRlcgoK
-TGUgMjEvMDMvMjAyMCDDoCAyMTowMCwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lv
-biBhIMOpY3JpdMKgOgo+IEkgdGhpbmsgaXQncyA1LjU5LTEwIGFuZCBpdCBoYXMgZGVmaW5pdGVs
-eSBraWxsZWQgZXNwZWFrdXAuICBJIGNoZWNrZWQKPiB3aXRoIHRoZSBkaXNrIHVubW91bnRlZCBh
-bmQgcmFuIGUyZnNjayAtcCBhbmQgZ290IGpvdXJuYWwgY2xlYW4gYW5kIG5vCj4gZXJyb3JzLgo+
-IERvZXMgYSB3YXkgZXhpc3QgdG8gY2xlYXIgdGhpcywgb3IgaXMgaXQgdGltZSB0byB3aXBlIHRo
-ZSBkaXNrIGFuZCByZXBsYWNlCj4gYXJjaGxpbnV4IHdpdGggZGViaWFuPwoKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcg
-bGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFpbG1h
-bi9saXN0aW5mby9ibGludXgtbGlzdA==
+
+
+-- 
+
+
+---------- Forwarded message ----------
+Date: Sun, 22 Mar 2020 19:09:27
+From: Daniel Nash <dnl.nash@gmail.com>
+To: Jude DaShiell <jdashiel@panix.com>
+Subject: Re: 2020-02-03 jenux iso
+
+Hello:
+
+The audio demonstration of the jenux install on a qemu vm, along with
+playthroughs of audio games can be found at the following address:
+https://nashcentral.duckdns.org/media/jenux_and_games.ogg
+Enjoy.
+
+Sincerely:
+
+Daniel Nash
+On Thu, Mar 19, 2020 at 06:39:22PM -0400, Jude DaShiell wrote:
+> Base installs fine.
+> mate fails with /etc/postinstall.sh no such file or directory and the
+> error continues until the machine is rebooted.
+> A file with a certain number wouldn't download in the gnome install I
+> wrote about earlier.
+> This error I caught since it kept repeating without any intervening text.
+>
+>
+>
+> --
+>
+
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
 
