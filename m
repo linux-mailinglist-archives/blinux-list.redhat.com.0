@@ -2,75 +2,98 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-74.mimecast.com (us-smtp-delivery-74.mimecast.com [63.128.21.74])
-	by mail.lfdr.de (Postfix) with ESMTP id BEA79195DB0
-	for <lists+blinux-list@lfdr.de>; Fri, 27 Mar 2020 19:32:01 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id BAE7A195E9C
+	for <lists+blinux-list@lfdr.de>; Fri, 27 Mar 2020 20:27:28 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1585333920;
+	s=mimecast20190719; t=1585337247;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=g2DoggIdXUPYyM0BXseNyTbYPO0Aht1Pphrmp9v4hgw=;
-	b=ciAcHa1ou+GCfOhx6lXdrSLHQ5CrnR0b60FGHWGHb0rndcmC1naynFW2D51nGud68QydDE
-	mLf1fVu/EUDN//QBNCbw55NWCgo/+/oZPke/VcSjRBJ04APpfijJi109qTTjvM48LsVjUF
-	pl2amizn7/YdEJs7YwMQZs81iyskDPA=
+	bh=qyBbV7XPAOPMGTCQaHlkCzyK/XLRM973K/SzIMG/7pM=;
+	b=Py1xlRUwouHgcmVMtWYCm5xvJkSWZGHvhET4lYNdb8uq3qv+4BOhLYlFtSL7bV14eXsX9u
+	BFu0wUttysi4ClrwfGv9HnUNgp+5cX4hja135zF6VJTnEP8o8NmLadfo0/YXVxekpPWnxU
+	vMl9ZMRwskQmdvSwnDauPeq+lYS5yVI=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-34-EApjeRdMNRSNM9mrEqngRw-1; Fri, 27 Mar 2020 14:31:56 -0400
-X-MC-Unique: EApjeRdMNRSNM9mrEqngRw-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-48-kfaY6ibKPb2Nmv3iv4r18w-1; Fri, 27 Mar 2020 15:27:24 -0400
+X-MC-Unique: kfaY6ibKPb2Nmv3iv4r18w-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 39D31149C5;
-	Fri, 27 Mar 2020 18:31:52 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 26ADC5DA7D;
-	Fri, 27 Mar 2020 18:31:48 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 51ACC18C43C2;
+	Fri, 27 Mar 2020 19:27:20 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 65BBD19C7F;
+	Fri, 27 Mar 2020 19:27:19 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2067C18034EA;
-	Fri, 27 Mar 2020 18:31:45 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A19BD8A04C;
+	Fri, 27 Mar 2020 19:27:16 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 02RIVb0l017067 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 27 Mar 2020 14:31:37 -0400
+	id 02RJRBjf018721 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 27 Mar 2020 15:27:11 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 01AD52166B30; Fri, 27 Mar 2020 18:31:37 +0000 (UTC)
+	id E28C32033955; Fri, 27 Mar 2020 19:27:10 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F205F2166B2B
-	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 18:31:35 +0000 (UTC)
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id DE9232033957
+	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 19:27:08 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0CE198007C9
-	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 18:31:35 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-330-DpAV2palMhGoqDN2jXB_Ug-1; Fri, 27 Mar 2020 14:31:32 -0400
-X-MC-Unique: DpAV2palMhGoqDN2jXB_Ug-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 48pr6C4xV7z1j8v
-	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 14:31:31 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 48pr6C1Y7Rzcbc; Fri, 27 Mar 2020 14:31:31 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 48pr6C0yymzcbW
-	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 14:31:31 -0400 (EDT)
-Date: Fri, 27 Mar 2020 14:31:30 -0400
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B5813101A55D
+	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 19:27:08 +0000 (UTC)
+Received: from gateway7.unifiedlayer.com (gateway7.unifiedlayer.com
+	[74.220.194.128]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-18-NotgrR5bOvaN7FLj9G04cA-1; Fri, 27 Mar 2020 15:27:05 -0400
+X-MC-Unique: NotgrR5bOvaN7FLj9G04cA-1
+Received: from cm1.websitewelcome.com (unknown [192.185.0.102])
+	by gateway7.unifiedlayer.com (Postfix) with ESMTP id 67D6020115993
+	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 14:27:04 -0500 (CDT)
+Received: from uscentral455.accountservergroup.com ([174.136.13.174])
+	by cmsmtp with ESMTP
+	id HudEjD3bhwLnQHudEjninY; Fri, 27 Mar 2020 14:27:04 -0500
+X-Authority-Reason: nr=8
+Received: from 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
+	([172.0.250.193]:47639 helo=bigbox.attlocal.net)
+	by uscentral455.accountservergroup.com with esmtpsa
+	(TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.91)
+	(envelope-from <blinux.list@thechases.com>) id 1jHudE-000pdS-25
+	for blinux-list@redhat.com; Fri, 27 Mar 2020 14:27:04 -0500
+Date: Fri, 27 Mar 2020 14:27:02 -0500
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Newbee Linux user introduction
-In-Reply-To: <B0D71794-95D6-435A-84FE-71D2D3D8575C@gmail.com>
-Message-ID: <alpine.NEB.2.21.2003271427590.22610@panix1.panix.com>
-References: <B0D71794-95D6-435A-84FE-71D2D3D8575C@gmail.com>
+Subject: Re: Convert unwrapped paragraphs to hard wrapped paragraphs when
+	there's no blank lines.
+Message-ID: <20200327142702.35209f95@bigbox.attlocal.net>
+In-Reply-To: <CAO2sX317wcDpD8e3OWg7_5UvxMWND7urVtyok-9i9Q=PBBZCFg@mail.gmail.com>
+References: <CAO2sX317wcDpD8e3OWg7_5UvxMWND7urVtyok-9i9Q=PBBZCFg@mail.gmail.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 02RIVb0l017067
+X-AntiAbuse: This header was added to track abuse,
+	please include it with any abuse report
+X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
+X-AntiAbuse: Original Domain - redhat.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - thechases.com
+X-BWhitelist: no
+X-Source-IP: 172.0.250.193
+X-Source-L: No
+X-Exim-ID: 1jHudE-000pdS-25
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
+	(bigbox.attlocal.net) [172.0.250.193]:47639
+X-Source-Auth: tim@thechases.com
+X-Email-Count: 1
+X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
+X-Local-Domain: yes
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -87,49 +110,37 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-You probably didn't choose gnome when you installed debian so you have
-the mate desktop installed.  That was a very smart choice.  After you've
-logged in inside orca, try hitting the alt key and holding that down
-then hit f1 key.  If I am right a whole set of menus and commands will
-start speaking as they come up on your screen.  That particular
-keystroke combination does not do that in gnome normally.  One could
-force gnome into classical mode where this would work but you're
-probably better off not doing that especially if your machine is light
-on resources.
+On March 27, 2020, Linux for blind general discussion wrote:
+> does anyone know a way to automate inserting blank lines before
+> and after each line in a file that's too long to fit on the screen
+> all at once and then hard wrap those long lines?
 
-On Fri, 27 Mar 2020, Linux for blind general discussion wrote:
+Well, since adding a blank line after each line-break puts a blank
+line before the next line, you (should?) only need to add newlines
+after each line which can easily be done with sed:
 
-> Date: Fri, 27 Mar 2020 13:27:41
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Subject: Newbee Linux user introduction
->
-> Hello,
->
-> My name is Simon and I am from UK.
->
-> I have been a Windows and for 13 years a mac user.  I have no training in computer programming.  Whatever I do know , I have learnt as I went along.  I would like to give Linux a go, having failed a few years ago.  But I?m quite determined to learn.  I have just joined this group, and I would like to ask you to be patient with me as I may be talking nonsense or asking very basic questions.  The world of Linux is very new to me and I am still very much learning the concepts and terms other experienced users take for granted.
->
-> If you had any suggestions or pointers to any materials I might use to start, please help.  I understand from my research on the subject of Linux accessibility that CLI is the way to go.  I have no sight and I use speech as well as Braille.  I have just managed to install Debian 10.3 distro on an old laptop Dell inspiron 640, have successfully activated Orca during the installation and completed it.  I can?t yet determine whether I?m using gnome desktop or Mate, and if Gnome, whether it would be easier for me to use Mate , and if the latter is true, how I would install or choose Mate if it?s already installed.  I?m not quite sure yet either exactly what the difference between the two is.  I realize my Dell is 13 years old, and I will want to purchase a much newer second hand laptop as soon as I?ve saved for it.  This might enable me to install something different.  A friendly person on another list suggested tarch.  I am beginning to research Tarch and want to be ready to use it so
-  if there are any documents that would help me understand how Tarch works after the installation, and whether I can install it without sight, please say.
->
-> Thank you for listening.
->
-> Simon
->
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
+  $ sed G input_file.txt > output_file_with_spaces.txt
 
--- 
+If you want to format the lines at the same time, you can do that
+with "fmt"
+
+  $ sed G input.txt | fmt > formatted_output_with_spaces.txt
+
+By default, fmt formats to 72 characters wide but you can adjust that
+using
+
+  fmt -80
+
+Hope this helps,
+
+-tim
+
 
 
 _______________________________________________
