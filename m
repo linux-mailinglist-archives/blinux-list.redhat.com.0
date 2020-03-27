@@ -2,98 +2,86 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-74.mimecast.com (us-smtp-delivery-74.mimecast.com [63.128.21.74])
-	by mail.lfdr.de (Postfix) with ESMTP id BAE7A195E9C
-	for <lists+blinux-list@lfdr.de>; Fri, 27 Mar 2020 20:27:28 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id E8319196045
+	for <lists+blinux-list@lfdr.de>; Fri, 27 Mar 2020 22:14:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1585337247;
+	s=mimecast20190719; t=1585343642;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
-	 list-unsubscribe:list-subscribe:list-post;
-	bh=qyBbV7XPAOPMGTCQaHlkCzyK/XLRM973K/SzIMG/7pM=;
-	b=Py1xlRUwouHgcmVMtWYCm5xvJkSWZGHvhET4lYNdb8uq3qv+4BOhLYlFtSL7bV14eXsX9u
-	BFu0wUttysi4ClrwfGv9HnUNgp+5cX4hja135zF6VJTnEP8o8NmLadfo0/YXVxekpPWnxU
-	vMl9ZMRwskQmdvSwnDauPeq+lYS5yVI=
+	 references:references:list-id:list-help:list-unsubscribe:
+	 list-subscribe:list-post; bh=obJS5qqXI8EoHj87crRas6PEYwGJPvBzHHPoYXo05Wc=;
+	b=bbVbkbT9uqMANHSn3LPEN8PpMgYJWayim3179pD8+RtTTRwOUnDAUj/Pxc3+dnb5hGBJHp
+	tz9vl3pm4FQ8cG6GWfUDo+5Mz/vMmi70DURPZ329vvjT1cMh5ez+32NBwX1C2E7PXcr6qL
+	Z2RFWhzZ2mzZy9ubR2T/mZMZMRWVn4c=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-48-kfaY6ibKPb2Nmv3iv4r18w-1; Fri, 27 Mar 2020 15:27:24 -0400
-X-MC-Unique: kfaY6ibKPb2Nmv3iv4r18w-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-444-ir4EEoo8O8S1nylEn3Y4cA-1; Fri, 27 Mar 2020 17:14:00 -0400
+X-MC-Unique: ir4EEoo8O8S1nylEn3Y4cA-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 51ACC18C43C2;
-	Fri, 27 Mar 2020 19:27:20 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 65BBD19C7F;
-	Fri, 27 Mar 2020 19:27:19 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C1C1E1005512;
+	Fri, 27 Mar 2020 21:13:55 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C69331C9;
+	Fri, 27 Mar 2020 21:13:53 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A19BD8A04C;
-	Fri, 27 Mar 2020 19:27:16 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D635D18089CD;
+	Fri, 27 Mar 2020 21:13:49 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 02RJRBjf018721 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 27 Mar 2020 15:27:11 -0400
+	id 02RLDfuq022448 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 27 Mar 2020 17:13:42 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id E28C32033955; Fri, 27 Mar 2020 19:27:10 +0000 (UTC)
+	id B08F82166B2D; Fri, 27 Mar 2020 21:13:41 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id DE9232033957
-	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 19:27:08 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id AC5DB2166B2B
+	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 21:13:37 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B5813101A55D
-	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 19:27:08 +0000 (UTC)
-Received: from gateway7.unifiedlayer.com (gateway7.unifiedlayer.com
-	[74.220.194.128]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-18-NotgrR5bOvaN7FLj9G04cA-1; Fri, 27 Mar 2020 15:27:05 -0400
-X-MC-Unique: NotgrR5bOvaN7FLj9G04cA-1
-Received: from cm1.websitewelcome.com (unknown [192.185.0.102])
-	by gateway7.unifiedlayer.com (Postfix) with ESMTP id 67D6020115993
-	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 14:27:04 -0500 (CDT)
-Received: from uscentral455.accountservergroup.com ([174.136.13.174])
-	by cmsmtp with ESMTP
-	id HudEjD3bhwLnQHudEjninY; Fri, 27 Mar 2020 14:27:04 -0500
-X-Authority-Reason: nr=8
-Received: from 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
-	([172.0.250.193]:47639 helo=bigbox.attlocal.net)
-	by uscentral455.accountservergroup.com with esmtpsa
-	(TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.91)
-	(envelope-from <blinux.list@thechases.com>) id 1jHudE-000pdS-25
-	for blinux-list@redhat.com; Fri, 27 Mar 2020 14:27:04 -0500
-Date: Fri, 27 Mar 2020 14:27:02 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Convert unwrapped paragraphs to hard wrapped paragraphs when
-	there's no blank lines.
-Message-ID: <20200327142702.35209f95@bigbox.attlocal.net>
-In-Reply-To: <CAO2sX317wcDpD8e3OWg7_5UvxMWND7urVtyok-9i9Q=PBBZCFg@mail.gmail.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9CAE2101A55A
+	for <blinux-list@redhat.com>; Fri, 27 Mar 2020 21:13:37 +0000 (UTC)
+Received: from bilbo.visn.co.uk (bilbo.visn.co.uk [193.254.210.60]) (Using
+	TLS) by relay.mimecast.com with ESMTP id
+	us-mta-404-QB0R5c4uPt2iL2gBH6pVEQ-1; Fri, 27 Mar 2020 17:13:35 -0400
+X-MC-Unique: QB0R5c4uPt2iL2gBH6pVEQ-1
+Received: from cpc121376-wals12-2-0-cust281.16-1.cable.virginm.net
+	([77.100.81.26]:1109 helo=bobsh23aug09)
+	by bilbo.visn.co.uk with esmtpa (Exim 4.93)
+	(envelope-from <robh@apearl.net>) id 1jHwIG-00A7TP-Gv
+	for blinux-list@redhat.com; Fri, 27 Mar 2020 21:13:33 +0000
+Message-ID: <6E7CE5B42BCA4755BDC5CF7210633D62@bobsh23aug09>
+To: <blinux-list@redhat.com>
 References: <CAO2sX317wcDpD8e3OWg7_5UvxMWND7urVtyok-9i9Q=PBBZCFg@mail.gmail.com>
+Subject: Re: Convert unwrapped paragraphs to hard wrapped paragraphs when
+	there'sno blank lines.
+Date: Fri, 27 Mar 2020 21:13:35 -0000
 MIME-Version: 1.0
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
 X-AntiAbuse: This header was added to track abuse,
 	please include it with any abuse report
-X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
+X-AntiAbuse: Primary Hostname - bilbo.visn.co.uk
 X-AntiAbuse: Original Domain - redhat.com
 X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - thechases.com
-X-BWhitelist: no
-X-Source-IP: 172.0.250.193
-X-Source-L: No
-X-Exim-ID: 1jHudE-000pdS-25
+X-AntiAbuse: Sender Address Domain - apearl.net
+X-Get-Message-Sender-Via: bilbo.visn.co.uk: authenticated_id:
+	robh+apearl.net/only user confirmed/virtual account not
+	confirmed
+X-Authenticated-Sender: bilbo.visn.co.uk: robh@apearl.net
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
-X-Source-Sender: 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
-	(bigbox.attlocal.net) [172.0.250.193]:47639
-X-Source-Auth: tim@thechases.com
-X-Email-Count: 1
-X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
-X-Local-Domain: yes
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 02RLDfuq022448
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -110,37 +98,51 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-On March 27, 2020, Linux for blind general discussion wrote:
-> does anyone know a way to automate inserting blank lines before
-> and after each line in a file that's too long to fit on the screen
-> all at once and then hard wrap those long lines?
+Apache PHP server would do it, though would need to be coded.  I used to 
+love doing this and text-crunchers were my stock'in trade.
 
-Well, since adding a blank line after each line-break puts a blank
-line before the next line, you (should?) only need to add newlines
-after each line which can easily be done with sed:
+But a long time ago now. But the functions are still there and it's not a 
+difficult language to grasp.
 
-  $ sed G input_file.txt > output_file_with_spaces.txt
+RobH.
 
-If you want to format the lines at the same time, you can do that
-with "fmt"
+----- Original Message ----- 
+From: "Linux for blind general discussion" <blinux-list@redhat.com>
+To: "Linux for blind general discussion" <blinux-list@redhat.com>
+Sent: Friday, March 27, 2020 3:30 PM
+Subject: Convert unwrapped paragraphs to hard wrapped paragraphs when 
+there'sno blank lines.
 
-  $ sed G input.txt | fmt > formatted_output_with_spaces.txt
 
-By default, fmt formats to 72 characters wide but you can adjust that
-using
+Okay, this isn't strictly an accessibility question, but I can't think
+of any better place to ask and Google didn't help much.
 
-  fmt -80
+I occasionally purchase eBooks from Smash Words as they're the only
+eBook Store I know of that offers plain text along side the far too
+prevalent for my liking PDF, ePub, and Kindle formats.
 
-Hope this helps,
+Problem is, their plain text eBooks are typically long enough Firefox
+and Orca simply choke on them and they have paragraphs that are
+unwrapped, which makes reading them with nano and SBL cumbersome.
+Normally, I'd just use nano's justify command to hard wrap thewhole
+file, but they lack blank lines between paragraphs, so Nano would
+think the whole book a single paragraph.
 
--tim
+So, does anyone know a way to automate inserting blank lines before
+and after each line in a file that's too long to fit on the screen all
+at once and then hard wrap those long lines?
 
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
 
 
 _______________________________________________
