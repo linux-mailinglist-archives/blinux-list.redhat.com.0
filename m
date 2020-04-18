@@ -1,71 +1,86 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
-	by mail.lfdr.de (Postfix) with ESMTP id 98F3A1AD37C
-	for <lists+blinux-list@lfdr.de>; Fri, 17 Apr 2020 01:58:33 +0200 (CEST)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+	by mail.lfdr.de (Postfix) with ESMTP id 73DB71AEC77
+	for <lists+blinux-list@lfdr.de>; Sat, 18 Apr 2020 14:38:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1587081512;
+	s=mimecast20190719; t=1587213502;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:mime-version:mime-version:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ekmolxXnI+ZzGBhuyLf5JlCVozxzr30h0VHP7Vz0j2o=;
-	b=cmqNbFGHRWOAyKnFZkvkKSYEHb0crkMvBbKQ/nmXE6V2GK11AUdN10Q0/mR2t1Fd8RlKZI
-	A/TsswQJrXe7osnnWs1c+fp3h1JsgCevrBzl+xfvg6cJPjaBci+9yWNTtzaRwaKcUnV6KJ
-	5AVbGuLf5+oTTutwW3YGHE4cTFsIJ9Q=
+	bh=IjGBsJ4VnKdn8LYQO0lowtyRtLlgiSgk3SGxG+Ttsjs=;
+	b=coQG25Eq5XGcOadKK+he7XXL7448K8UgHdW8M12EsUNwu/ANZbiRA2v9yIdMBX7qsnpOev
+	dIJhSH2hokdqedEjtdJfI8Nv6gzSEYSbX7OzKzN2rYIE4wH9a2oXZ52e3yBQ09iTdF5lbk
+	GIxA/XQXWJ0G2FDWveugaFfPpfXns2Q=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-495-lSFebO4zNbaLCy4bfzJ6WQ-1; Thu, 16 Apr 2020 19:58:30 -0400
-X-MC-Unique: lSFebO4zNbaLCy4bfzJ6WQ-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-78-ZhO0zYhvPz69f6JQuJeREw-1; Sat, 18 Apr 2020 08:38:20 -0400
+X-MC-Unique: ZhO0zYhvPz69f6JQuJeREw-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 54B8419251A0;
-	Thu, 16 Apr 2020 23:58:25 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7E4538017F3;
+	Sat, 18 Apr 2020 12:38:14 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6A3D2A09A6;
-	Thu, 16 Apr 2020 23:58:21 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D67EE5D9CA;
+	Sat, 18 Apr 2020 12:38:09 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3BAA11809567;
-	Thu, 16 Apr 2020 23:58:13 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2ACA518363CF;
+	Sat, 18 Apr 2020 12:37:57 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 03GNw1cc012242 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 16 Apr 2020 19:58:02 -0400
+	id 03ICblMQ026109 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 18 Apr 2020 08:37:47 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id C9D072026983; Thu, 16 Apr 2020 23:58:01 +0000 (UTC)
+	id 0E1451005E46; Sat, 18 Apr 2020 12:37:47 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C61122026D66
-	for <blinux-list@redhat.com>; Thu, 16 Apr 2020 23:57:59 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 09E4E1006B08
+	for <blinux-list@redhat.com>; Sat, 18 Apr 2020 12:37:44 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DB5CA8056D1
-	for <blinux-list@redhat.com>; Thu, 16 Apr 2020 23:57:59 +0000 (UTC)
-Received: from mailbox.supranet.net (mailbox.supranet.net [66.170.1.9])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-166-w_f5eTFRPmSREiQe57XDWg-1; Thu, 16 Apr 2020 19:57:57 -0400
-X-MC-Unique: w_f5eTFRPmSREiQe57XDWg-1
-Received: from [68.190.112.237] (port=45310 helo=localhost)
-	by mailbox.supranet.net with esmtpsa (TLSv1:AES256-SHA:256)
-	(Exim 4.82 (FreeBSD)) (envelope-from <john@godtouches.org>)
-	id 1jPEOK-000Hzj-H0
-	for blinux-list@redhat.com; Thu, 16 Apr 2020 18:57:56 -0500
-Date: Thu, 16 Apr 2020 18:57:55 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 32AB2800296
+	for <blinux-list@redhat.com>; Sat, 18 Apr 2020 12:37:44 +0000 (UTC)
+Received: from mail-qt1-f172.google.com (mail-qt1-f172.google.com
+	[209.85.160.172]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-332-_Axn2zLvO82a2BgwFsjEWg-1; Sat, 18 Apr 2020 08:37:38 -0400
+X-MC-Unique: _Axn2zLvO82a2BgwFsjEWg-1
+Received: by mail-qt1-f172.google.com with SMTP id z90so4389352qtd.10
+	for <blinux-list@redhat.com>; Sat, 18 Apr 2020 05:37:38 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:from:content-transfer-encoding:mime-version
+	:subject:message-id:date:cc:to;
+	bh=4/AiEIeEyf2Tt5OQYdCShaHhiv/Y6/MOuWJaQqIRFPo=;
+	b=pJjgmj3QJ6vx/J7oUisC7pb03DNjmk9p0Njmse0ulYBRSyOozybSZHz8bRJZYNnelm
+	Kup5ZL6AI5pKGhkDlSR/D5ydJq/EhBQdYb0b4YpPsbRGAvnWryFPIRdU4pkAbU5hNSGH
+	0DB79w/qsHPoqFQ0eYiOO/ujbPOSsISV+/9AB6DeJBevyTXTfJ00MfNYiE1jYIIHfA/H
+	ESaFhMlm/WfE6b4IdT258jmO/qvch4sjIc0H1fAXxFkXE+kkIJcENsDOqCqSmJDhVB6w
+	5mqxjJSObn6+osefCnGjMB9cxgRQ7uvWz0qMb7mbRR0iQHlQGLNCZwmKeu2Ntr7j0Id/
+	mAOg==
+X-Gm-Message-State: AGi0PubzkTJDCzobFK/dUav8bUHfjOe50nkjLz5Nu/unTJVn8wHLyOdi
+	GnUxLhcnZO7msbQDeHR7Qg/5TYbg
+X-Google-Smtp-Source: APiQypLU35RANSdszllJCds6qg4Y1YbBIS0un4CERSSfNZkPLlgYH6vmXM+F0xSaYwqp2H1/yMu5jA==
+X-Received: by 2002:ac8:4b5b:: with SMTP id e27mr7554705qts.46.1587213457375; 
+	Sat, 18 Apr 2020 05:37:37 -0700 (PDT)
+Received: from [192.168.0.3] ([65.34.110.88]) by smtp.gmail.com with ESMTPSA id
+	z90sm20441371qtd.75.2020.04.18.05.37.36
+	(version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+	Sat, 18 Apr 2020 05:37:36 -0700 (PDT)
+Mime-Version: 1.0 (1.0)
 Subject: Can you give me some ideas for debugging these problems?
-Message-ID: <20200416235755.GA8649@abilitiessoft>
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 03GNw1cc012242
+Message-Id: <F6FF49B1-F0C3-4F3A-A082-84D6A5963FFF@gmail.com>
+Date: Sat, 18 Apr 2020 07:37:33 -0500
+To: John Boyer <john.boyer@abilitiessoft.org>
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
+Cc: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -81,53 +96,19 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
-Helloo Everyone,
-
-I will first describe the problems and then ask some questions. I don't claim to be a Linux expert. My ignorance will be evident to the real experts.
-
-I have a Debian Buster system with 8 GB of memory. It is less than four years old. Recently I installed Gnome 3.3 with Orca. I use Braille only and no speech, 
-since I am deaf-blind. The Braille display is a Focus 40 connected to a USB port. A technician from a local computer company installed TeamViewer so he could help 
-with problems remotely, but he seems puzzled by the ones I am encountering.
-
-When the system boots the desktop comes up on tty1 and ty2. It appears to be functiooning fairly well. TeamViewer is running and asking for a partner. I can run 
-Firefox and surf the web. However, eventually the Braille display becomes unresponsive. It keeps showing the same thing, no matter what I do on the keyboard. 
-Sighted companions tell me the screen is responding appropriately.
-
-I can switch to other consoles using ctrl+Alt+Fn and run command-line programs. However, when I switch back to tty1 or tty2 the Braille display acts as if the 
-USB port has been disabled. It appears to have been turned off. Switching to any other console produces the message "no irq handler for vector and BRLTTY5.6. 
-After a while the console behaves normally for command-line use. The desktop seems to disappear completely. I can switch consoles with Alt+Fn. Except to tty1 and 
-tty2, which hang up.
-
-Questions:
-
-1. How is the desktop started at boot time? What script or program starts it and how is it called?
-
-2. The problem with the Braille display becoming unresponsive and continuing to show the same thing must be a problem with Orca. It apears to work properly for 
-the most part, but I can't use help mode. I have asked about these problems on the Orca list, but they were no help.
-
-3. The desktop runs functions from several libraries. Which of those might be crashing? How is it possible for something not running as root to produce an 
-interrupt with no handler?
-
-Thanks,
-John
-
--- 
-John J. Boyer
-Email: john.boyer@abilitiessoft.org
-website: http://www.abilitiessoft.org
-Status: Company dissolved but website and email addresses  live.
-Location: Madison, Wisconsin, USA
-Mission: developing assistive technology software and providing STEM services 
-        that are available at no cost
-
-
+Hello John,
+I think I may know your problem. I have the same display,
+and I was having usb problems. It almost drove me sane.
+Finally I replaced the usb cable with a cheap cable from Walmart,
+and that fixed it. Now I am thinking those cables
+vispero supplies may be defective, but mine worked fine for a while.
+try replacing that cable. Good luck.
 
 _______________________________________________
 Blinux-list mailing list
