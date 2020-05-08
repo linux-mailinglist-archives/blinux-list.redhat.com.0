@@ -1,81 +1,83 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id 8A6801C9F1B
-	for <lists+blinux-list@lfdr.de>; Fri,  8 May 2020 01:26:49 +0200 (CEST)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	by mail.lfdr.de (Postfix) with ESMTP id 6A5531CA032
+	for <lists+blinux-list@lfdr.de>; Fri,  8 May 2020 03:40:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1588894008;
+	s=mimecast20190719; t=1588902042;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=zu26nl9INogI8x/yGNtatAnYaYS8lle5ZLRlHcddqP8=;
-	b=I/v7ffBA120JdQRWh1v8eWj9DFhk7A+KmiK1pohj2WCE79eweDbAgm1+U8HS7lsUnqlHkR
-	7xJCZErYkl6zoDGcqC9puwVt3T1ZDyS71qrG1euvl//QhAb2ApVF8OZjHxVua+xWG99uGY
-	RR+18Juk+YpaTzxw/S0EB4WUzxWaR78=
+	bh=Mi9n6yNPx9nVIT/R/l8SFIlrUeuQiwhY0b6MDzoyzKs=;
+	b=hooidElNXFwtWNDuOFEbsnGAtjmj5c/R/sn68ytoN4TqYUJaIJwNfZgRQgOs2amaQRpk5B
+	yqhG++1SMJxShOkCFhhHmbBsZ0Z1Q3QoTNxyFaXkU/TgdyIOYmGBa0jwCWNLcFOIOsa8Sh
+	da0Qwe7fg6Ajk2quhhOIZdJ7R/8oLjU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-214-3N-xMv0zOMugxgta-iIwAQ-1; Thu, 07 May 2020 19:26:21 -0400
-X-MC-Unique: 3N-xMv0zOMugxgta-iIwAQ-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-302-n6w_R-oNMZy6SWd6HXvuaA-1; Thu, 07 May 2020 21:40:40 -0400
+X-MC-Unique: n6w_R-oNMZy6SWd6HXvuaA-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7E6E8107ACF3;
-	Thu,  7 May 2020 23:26:16 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A738270545;
-	Thu,  7 May 2020 23:26:14 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9FF2B835B40;
+	Fri,  8 May 2020 01:40:30 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9BA025C1B0;
+	Fri,  8 May 2020 01:40:27 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7BADA1809542;
-	Thu,  7 May 2020 23:26:13 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3869C4CAA0;
+	Fri,  8 May 2020 01:40:17 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 047NQACA032736 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 7 May 2020 19:26:10 -0400
+	id 0481e7v3008495 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 7 May 2020 21:40:08 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id EC05911D289; Thu,  7 May 2020 23:26:09 +0000 (UTC)
+	id 00D032026972; Fri,  8 May 2020 01:40:07 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E795C11D292
-	for <blinux-list@redhat.com>; Thu,  7 May 2020 23:26:07 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id F0F0A2026971
+	for <blinux-list@redhat.com>; Fri,  8 May 2020 01:40:03 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D5A5C811E7A
-	for <blinux-list@redhat.com>; Thu,  7 May 2020 23:26:06 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-125-Tly_SoNzMWaWL_BYO6onLQ-1; Thu, 07 May 2020 19:26:02 -0400
-X-MC-Unique: Tly_SoNzMWaWL_BYO6onLQ-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 49J8j55JNQz1Vtm
-	for <blinux-list@redhat.com>; Thu,  7 May 2020 19:26:01 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 49J8j552j9zcbc; Thu,  7 May 2020 19:26:01 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 49J8j54y1nzcbV
-	for <blinux-list@redhat.com>; Thu,  7 May 2020 19:26:01 -0400 (EDT)
-Date: Thu, 7 May 2020 19:26:01 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Anything besides vanilla Arch?
-In-Reply-To: <6fd91d96-84fb-40a8-44e6-81912e513740@gmail.com>
-Message-ID: <alpine.NEB.2.21.2005071925350.17771@panix1.panix.com>
-References: <008e01d62459$7b0c9600$7125c200$@GMAIL.COM>
-	<alpine.NEB.2.21.2005071040040.20641@panix1.panix.com>
-	<C7AD6A0B-2C1B-4468-A337-812062331F24@gmail.com>
-	<alpine.NEB.2.21.2005071214200.15709@panix1.panix.com>
-	<61E76085-7AA1-4410-9DBA-531C0A89DC46@gmail.com>
-	<6fd91d96-84fb-40a8-44e6-81912e513740@gmail.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DA966811E7A
+	for <blinux-list@redhat.com>; Fri,  8 May 2020 01:40:03 +0000 (UTC)
+Received: from p3plsmtpa12-04.prod.phx3.secureserver.net
+	(p3plsmtpa12-04.prod.phx3.secureserver.net [68.178.252.233]) (Using
+	TLS) by
+	relay.mimecast.com with ESMTP id us-mta-157-X1jr5aOPN2CHqjewiBoEXA-1;
+	Thu, 07 May 2020 21:40:00 -0400
+X-MC-Unique: X1jr5aOPN2CHqjewiBoEXA-1
+Received: from [192.168.50.215] ([72.205.36.177]) by :SMTPAUTH: with ESMTPA
+	id WrzajRPuJdXXWWrzbjs73y; Thu, 07 May 2020 18:39:59 -0700
+X-CMAE-Analysis: v=2.3 cv=aOWOVo1m c=1 sm=1 tr=0
+	a=KrEcpKSwXc6ZHCuzcgfT3w==:117 a=KrEcpKSwXc6ZHCuzcgfT3w==:17
+	a=IkcTkHD0fZMA:10 a=20KFwNOVAAAA:8 a=C9rDRMEI8PKWpcfErykA:9
+	a=QEXdDO2ut3YA:10 a=M-L8O40jsvsA:10
+X-SECURESERVER-ACCT: cstrobel@crosslink.net
+Subject: Re: Tab-Completing a Program After man?
+To: blinux-list@redhat.com
+References: <Pine.LNX.4.64.2005061731420.9482@server2.shellworld.net>
+	<alpine.NEB.2.21.2005070001100.25293@panix1.panix.com>
+	<Pine.LNX.4.64.2005062106410.11539@server2.shellworld.net>
+Message-ID: <fcca34ac-46b4-cb54-d490-30c87be07187@crosslink.net>
+Date: Thu, 7 May 2020 21:39:58 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+	Thunderbird/68.8.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+In-Reply-To: <Pine.LNX.4.64.2005062106410.11539@server2.shellworld.net>
+Content-Language: en-US
+X-CMAE-Envelope: MS4wfJM46WIcrMpHwqP2lmjhJyjlxcQvEQ7vrk/IcEj6XOCwXrB/62ba5L8DJyrIh4112YFps1dmj64bTuXa8zhEc7FjT4/VWLvSSTASBBAYCP4hgKsss0OY
+	xDg1M3u65MkzW4dSTY21OXcqN6bf2+Qq8WScG6uPL4vf07W36sE+nmkqWGjRXRDZTQzxXMlSWkVdNg==
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 047NQACA032736
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 0481e7v3008495
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -92,170 +94,21 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: base64
 
-You could try tarch:
-http://the-brannons.com/tarch/
-
-On Thu, 7 May 2020, Linux for blind general
-discussion
-wrote:
-
-> Date: Thu, 7 May 2020 16:33:55
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: Linux for blind general discussion <blinux-list@redhat.com>
-> Subject: Re: Anything besides vanilla Arch?
->
-> Interesting,
->
-> Ubuntu 20.04 and it's spins pick up my WiFi card fine, but Jenux, not so much.
->
-> Ubuntu Mate 20.04 is on curnel version 5.4.0. What is the Curnel version on
-> the Jenux ISO?
->
-> Warm regards/Groetnis/Herzliche Gr??e,
->
-> Brandt Steenkamp
->
-> Sent using Thunderbird from Ubuntu Mate 20.04
->
-> On 2020/05/07 21:37, Linux for blind general discussion wrote:
-> > I will give it a go.
-> >
-> >> On May 7, 2020, at 11:15 AM, Linux for blind general discussion
-> >> <blinux-list@redhat.com> wrote:
-> >>
-> >> If Jenux wasn't talking, I couldn't install it since I never had enough
-> >> funds for a braille display and don't have sighted assistance with the
-> >> exception of be my eyes.
-> >>
-> >> On Thu, 7 May 2020, Linux for blind general discussion wrote:
-> >>
-> >>> Date: Thu, 7 May 2020 11:37:47
-> >>> From: Linux for blind general discussion <blinux-list@redhat.com>
-> >>> To: Linux for blind general discussion <blinux-list@redhat.com>
-> >>> Subject: Re: Anything besides vanilla Arch?
-> >>>
-> >>> Is Jenux with a talking installer?
-> >>> I had not heard of Jenux.
-> >>>
-> >>>> On May 7, 2020, at 9:42 AM, Linux for blind general discussion
-> >>>> <blinux-list@redhat.com> wrote:
-> >>>>
-> >>>> I have Jenux installed and you get a choice of gnome mate kde or base
-> >>>> type installs with that distribution.  Oh, I forgot there's also a
-> >>>> couple android distributions it will do for you too if desired.  The
-> >>>> android installs have talkback for a screen reader.
-> >>>>
-> >>>> wget -bc
-> >>>> https://nashcentral.duckdns.org/projects/Jenux-2020.02.03-x86_64.iso.sha512
-> >>>> wget -bc
-> >>>> https://nashcentral.duckdns.org/projects/Jenux-2020.02.03-x86_64.iso
-> >>>> sha512sum -c Jenux-2020.02.03-x86_64.iso.sha512
-> >>>> On Thu, 7 May 2020,
-> >>>> Linux for blind general discussion wrote:
-> >>>>
-> >>>>> Date: Thu, 7 May 2020 06:22:56
-> >>>>> From: Linux for blind general discussion <blinux-list@redhat.com>
-> >>>>> To: Blinux-list@redhat.com
-> >>>>> Subject: Anything besides vanilla Arch?
-> >>>>>
-> >>>>> Hi there,
-> >>>>>
-> >>>>>
-> >>>>>
-> >>>>> I have been running Ubuntu and Ubuntu spins for a while now and am
-> >>>>> looking
-> >>>>> for something else for a change. I have installed vanilla Arch before,
-> >>>>> but
-> >>>>> that was when my system was only running Linux. Due to the work I do,
-> >>>>> NVDA
-> >>>>> certified expert, Training and tech support, et al, I have to have a
-> >>>>> Windows
-> >>>>> instance to boot in to. I am not comfortable installing vanilla Arch on
-> >>>>> here
-> >>>>> at this time.
-> >>>>>
-> >>>>>
-> >>>>>
-> >>>>> Are there any Arch based distros we can actually install without sited
-> >>>>> help?
-> >>>>>
-> >>>>>
-> >>>>>
-> >>>>> Warm regards/Groetnis/herzliche Gr??e,
-> >>>>>
-> >>>>>
-> >>>>>
-> >>>>> Brandt Steenkamp
-> >>>>>
-> >>>>>
-> >>>>>
-> >>>>> Contact/Kontak/Kontakt
-> >>>>>
-> >>>>>
-> >>>>>
-> >>>>> Twitter: www.twitter.com/brandtsteenkamp
-> >>>>> <http://www.twitter.com/brandtsteenkamp>
-> >>>>>
-> >>>>>
-> >>>>>
-> >>>>> Skype: brandt.steenkamp007
-> >>>>>
-> >>>>>
-> >>>>>
-> >>>>> _______________________________________________
-> >>>>> Blinux-list mailing list
-> >>>>> Blinux-list@redhat.com
-> >>>>> https://www.redhat.com/mailman/listinfo/blinux-list
-> >>>>>
-> >>>>>
-> >>>> --
-> >>>>
-> >>>>
-> >>>> _______________________________________________
-> >>>> Blinux-list mailing list
-> >>>> Blinux-list@redhat.com
-> >>>> https://www.redhat.com/mailman/listinfo/blinux-list
-> >>>>
-> >>>
-> >>> _______________________________________________
-> >>> Blinux-list mailing list
-> >>> Blinux-list@redhat.com
-> >>> https://www.redhat.com/mailman/listinfo/blinux-list
-> >>>
-> >>>
-> >> --
-> >>
-> >>
-> >> _______________________________________________
-> >> Blinux-list mailing list
-> >> Blinux-list@redhat.com
-> >> https://www.redhat.com/mailman/listinfo/blinux-list
-> >>
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://www.redhat.com/mailman/listinfo/blinux-list
-> >
->
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
-
--- 
-
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
+IMKgwqDCoCBUYWIgY29tcGxldGlvbiBpcyBmb3IgZmluZGluZyB0aGluZ3MgaW4gdGhlIGRpcmVj
+dG9yeSB5b3UgYXJlIApwb2ludGluZyB0by7CoCBUbyBmaW5kIG1hbnVhbCBlbnRyaWVzIGNvbnRh
+aW5pbmcgYSBzdHJpbmcgdHJ5OgoKbWFuIC1rIGx5bgoKb3IKCm1hbiAtayBvcmNhCgoKT24gNS83
+LzIwMjAgMTI6MDcgQU0sIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6
+Cj4gSnVzdCB0eXBpbmcKPiBtYW4gMSBseW4KPiBnaXZlIHNhbWUgcmVzdWx0cy4KPiBDaGltZQo+
+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJs
+aW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczov
+L3d3dy5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPgoKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxp
+bmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFp
+bG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
 
