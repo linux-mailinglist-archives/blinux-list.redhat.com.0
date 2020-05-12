@@ -1,70 +1,86 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
-	by mail.lfdr.de (Postfix) with ESMTP id CABDA1CE871
-	for <lists+blinux-list@lfdr.de>; Tue, 12 May 2020 00:50:45 +0200 (CEST)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by mail.lfdr.de (Postfix) with ESMTP id B13DF1CF783
+	for <lists+blinux-list@lfdr.de>; Tue, 12 May 2020 16:43:13 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1589237444;
+	s=mimecast20190719; t=1589294592;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=fXk0sATLrSdXXcYYsNPfER+PB2ol4IQUyYXNV5t1cW0=;
-	b=GArWX6fMuDy1XxWha2JsKnbCmYbiQ9QBAwnKlg+dwyDv0B7JO9AfUOsacEbynQwdSHaP3L
-	B4gtV+Q84KVQXX+e8pMgSyScSa4QpcUTlB/lROpKawTlwZ+oDOiKkeUenZpzc3VRysgdqJ
-	NLSWmyP3u9gieanJAIirB0udbSaVKWc=
+	bh=HFVrPY92NTNl5kKEXjvHMgPrfVnBLG95C3h5HnPDWXM=;
+	b=R4NYZj8S5GUUtbJnYKHCJTonc5NyRliTvWqIwZNy3Dj1vNakBA8qrJVlzfhnJZRsSjnpPr
+	BZADvcAgciqqXZ5A1/iCoe0Z7b67omveQVLrDA+6hYI9KAg0/DrClOInmRIEfGK4IpITPL
+	NOp30TKAtd64AEEM8U003JJZVrBF/h8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-224-cdupMlexOqyl5pxZ62x--Q-1; Mon, 11 May 2020 18:50:42 -0400
-X-MC-Unique: cdupMlexOqyl5pxZ62x--Q-1
+ us-mta-134-UpsWh_bUNwepb5IBIZyo1w-1; Tue, 12 May 2020 10:43:10 -0400
+X-MC-Unique: UpsWh_bUNwepb5IBIZyo1w-1
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B84DC8005AD;
-	Mon, 11 May 2020 22:50:38 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B28F438F;
-	Mon, 11 May 2020 22:50:35 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D4541108BD19;
+	Tue, 12 May 2020 14:43:05 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id F13543420B;
+	Tue, 12 May 2020 14:43:03 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4769B1809543;
-	Mon, 11 May 2020 22:50:30 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id DD64F4E984;
+	Tue, 12 May 2020 14:42:57 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 04BMoL6g016998 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 11 May 2020 18:50:21 -0400
+	id 04CEgoU9020246 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 12 May 2020 10:42:50 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id E829CDBB17; Mon, 11 May 2020 22:50:20 +0000 (UTC)
+	id 50D0E2166BA2; Tue, 12 May 2020 14:42:50 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E1B4FDBB11
-	for <blinux-list@redhat.com>; Mon, 11 May 2020 22:50:15 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4C5022166BA0
+	for <blinux-list@redhat.com>; Tue, 12 May 2020 14:42:48 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C7580811E7A
-	for <blinux-list@redhat.com>; Mon, 11 May 2020 22:50:15 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-442-pKd23-AXMPOJnke6W-YURQ-1; Mon, 11 May 2020 18:50:13 -0400
-X-MC-Unique: pKd23-AXMPOJnke6W-YURQ-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 49Lbjw6nHsz1nBF
-	for <blinux-list@redhat.com>; Mon, 11 May 2020 18:50:12 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 49Lbjw5jMwzcbc; Mon, 11 May 2020 18:50:12 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 49Lbjw58pxzcbV
-	for <blinux-list@redhat.com>; Mon, 11 May 2020 18:50:12 -0400 (EDT)
-Date: Mon, 11 May 2020 18:50:12 -0400
-To: blinux-list@redhat.com
-Subject: foldingathome-beta can't run here
-Message-ID: <alpine.NEB.2.21.2005111844500.10419@panix1.panix.com>
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4ECD3833B49
+	for <blinux-list@redhat.com>; Tue, 12 May 2020 14:42:48 +0000 (UTC)
+Received: from mail-ot1-f52.google.com (mail-ot1-f52.google.com
+	[209.85.210.52]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-217-JGaGJe08O2OGEvv9RsGasQ-1; Tue, 12 May 2020 10:42:45 -0400
+X-MC-Unique: JGaGJe08O2OGEvv9RsGasQ-1
+Received: by mail-ot1-f52.google.com with SMTP id 72so10699972otu.1
+	for <blinux-list@redhat.com>; Tue, 12 May 2020 07:42:45 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:from:content-transfer-encoding:mime-version
+	:subject:message-id:date:to;
+	bh=NM+8z2zS+H+ze8SbWRKN8b3D+3fgrDWftgcWlkQgjdM=;
+	b=DlWuJFwHpHjC4+iRCH+ycg7anc2ViTjf31kVkzJW/pQDW+FEEubRgANqqNS2ht6sqw
+	R1ue+R7kgwwzbtTHBQ0/0nW0pRlLR6qRtfFXQGoveHy9Fn5QM1eHFmAWFd4/atv/jtbC
+	Z2PVkd2y7Z0djqeuSsbn3UKDDQXl9v9m2O2whmnebJU5TYcWTzeAwOz/9RoH2oz2wkIR
+	zOy7EbA9/fuCmKZnYvvASzpNZf3P6IP8Y51S3vJR3zCIYEI51Uz6ot9NYLFZeTGmeZ0E
+	GDes89buXcU+ztvOf/ks03+sLZaJY4fcV4RKgIGxOrNZEyYcN44VvUnIUfYNaWa/lt6N
+	YztA==
+X-Gm-Message-State: AGi0PuY3zCaBq7DKerN3+/M++J902Ph1Z7ZP5BGIHlJ2ww6Oh/M8b2HR
+	qVuA8hmEoikPW48R/FL+6CfgPuZr
+X-Google-Smtp-Source: APiQypLD5E0YX//J8xiZOx6AKmTZdIHa7n5yHNbBI4imvRBHJzYxYsEvuZ8CfbobNEjesPFmaXIU+A==
+X-Received: by 2002:a9d:876:: with SMTP id 109mr17307759oty.327.1589294564658; 
+	Tue, 12 May 2020 07:42:44 -0700 (PDT)
+Received: from ?IPv6:2601:3c2:8200:9360:3180:26f:5f17:ba4b?
+	([2601:3c2:8200:9360:3180:26f:5f17:ba4b])
+	by smtp.gmail.com with ESMTPSA id v8sm3723588oos.0.2020.05.12.07.42.43
+	for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+	Tue, 12 May 2020 07:42:43 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.1\))
+Subject: b s d and orca
+Message-Id: <12986DCD-076F-4781-AC3C-DECFD69D5A1C@gmail.com>
+Date: Tue, 12 May 2020 09:42:42 -0500
+To: Linux for blind general discussion <blinux-list@redhat.com>
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -87,18 +103,8 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Just  one reason for that.  I don't know and cannot find out what gpu is
-used on this machine.  The foldingathome app refuses to work until this
-gpu is set correctly and I don't know what to query to discover this
-particular model.  radeontool cannot even find a radeon device and I have
-a radeon monitor but what this package may need to know is what's on the
-card in the computer in which case that'll be some form of intel or
-nvidia.  That foldingathome app if it's going to be useful needs to detect
-and select the correct gpu for users.
-
-
-
---
+Anyone know of a distribution of b s d with orca in its installer?
+I had never used b s d before, but thought of giving it a try.
 
 _______________________________________________
 Blinux-list mailing list
