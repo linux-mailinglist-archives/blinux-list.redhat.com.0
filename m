@@ -1,74 +1,84 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id 0168B1CFBC9
-	for <lists+blinux-list@lfdr.de>; Tue, 12 May 2020 19:16:19 +0200 (CEST)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	by mail.lfdr.de (Postfix) with ESMTP id 572861CFC17
+	for <lists+blinux-list@lfdr.de>; Tue, 12 May 2020 19:24:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1589303778;
+	s=mimecast20190719; t=1589304269;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=a3hjLoM9QPzWtXMJz6UXP5MGiQvAQTq7gU3cbCmdWMw=;
-	b=RNEt5fA630DYsDUhVbmUfP79zgZlLSQ5T46cUIWSPIvvRDJrnTkzfdgxtV2zEPXXOR7U2m
-	DbEOGMB/fNbTtHzNlrQlQMLyr6hd9p5Q6o2eb2SbRUXwnhPq2DHjb/reoN2oOVLx9May+u
-	WnMW8Gx+egDSFnbN2oLfTSGuK6aa+u4=
+	bh=cQdYwx20wKlXMouu5IKYY6wVPbKD0L76ahxGKpGAn/s=;
+	b=NXDpDAI7G0tCyiOaO78xQ0joGSu39UYW1fyvqduSgZU1JqyxufI39Y/VRgbkCmyS95wmO+
+	57RfzuH6jHD7GCXR5QbGIKln8EmqyhZraS1YK07mypu/SDX4maRmIPVb51ykdN5b7oGlAQ
+	Vs6HG2owSRrqEeWa6GfkTyJ1q8kx6uk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-158-zP2KVI9RPDi8LAU08zokNw-1; Tue, 12 May 2020 13:15:51 -0400
-X-MC-Unique: zP2KVI9RPDi8LAU08zokNw-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-335-gP3bFfdqNdKo176Ty3YDKA-1; Tue, 12 May 2020 13:24:27 -0400
+X-MC-Unique: gP3bFfdqNdKo176Ty3YDKA-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 897C3107ACF2;
-	Tue, 12 May 2020 17:15:46 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8A8A818CA270;
+	Tue, 12 May 2020 17:24:22 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2E99F1001920;
-	Tue, 12 May 2020 17:15:46 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 492104233;
+	Tue, 12 May 2020 17:24:22 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 332311809543;
-	Tue, 12 May 2020 17:15:45 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id AF7D01809543;
+	Tue, 12 May 2020 17:24:21 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 04CHFfSZ001368 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 12 May 2020 13:15:41 -0400
+	id 04CHOH8U003186 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 12 May 2020 13:24:17 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 67E232156A3C; Tue, 12 May 2020 17:15:41 +0000 (UTC)
+	id 1E2C2200A798; Tue, 12 May 2020 17:24:17 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 649042166BA4
-	for <blinux-list@redhat.com>; Tue, 12 May 2020 17:15:38 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1A187202683E
+	for <blinux-list@redhat.com>; Tue, 12 May 2020 17:24:14 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A34CC186E3A6
-	for <blinux-list@redhat.com>; Tue, 12 May 2020 17:15:38 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-184-8ShOrn1SONC_s7IvIDb12A-1; Tue, 12 May 2020 13:15:35 -0400
-X-MC-Unique: 8ShOrn1SONC_s7IvIDb12A-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 49M4FL5x5hz1YDX
-	for <blinux-list@redhat.com>; Tue, 12 May 2020 13:15:34 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 49M4FL55Z1zcbc; Tue, 12 May 2020 13:15:34 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 49M4FL4dxVzcbV
-	for <blinux-list@redhat.com>; Tue, 12 May 2020 13:15:34 -0400 (EDT)
-Date: Tue, 12 May 2020 13:15:34 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Manjaro linux
-In-Reply-To: <CAJKfDDEMOM793Q8gxkgzwVZo2-pfhLTWuQ4b5fRw6=u7C86PdA@mail.gmail.com>
-Message-ID: <alpine.NEB.2.21.2005121312150.86@panix1.panix.com>
-References: <E811AB13-AE96-4C85-93CB-894ED5675931@gmail.com>
-	<CAJKfDDEMOM793Q8gxkgzwVZo2-pfhLTWuQ4b5fRw6=u7C86PdA@mail.gmail.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4ADA9916106
+	for <blinux-list@redhat.com>; Tue, 12 May 2020 17:24:14 +0000 (UTC)
+Received: from gmmr2.centrum.cz (gmmr2.centrum.cz [46.255.227.252]) (Using
+	TLS) by relay.mimecast.com with ESMTP id
+	us-mta-377-Ea1y0AhVNvClW1jDKIZXpA-1; Tue, 12 May 2020 13:24:11 -0400
+X-MC-Unique: Ea1y0AhVNvClW1jDKIZXpA-1
+Received: from gmmr-2.centrum.cz (unknown [10.255.254.35])
+	by gmmr2.centrum.cz (Postfix) with ESMTP id C671160002C8
+	for <Blinux-list@redhat.com>; Tue, 12 May 2020 19:24:09 +0200 (CEST)
+Received: from out2.virusfree.cz (out2.virusfree.cz [79.133.37.42])
+	by gmmr-2.centrum.cz (Postfix) with QMQP id C05A4561A
+	for <Blinux-list@redhat.com>; Tue, 12 May 2020 19:24:09 +0200 (CEST)
+Received: from out2.virusfree.cz by out2.virusfree.cz
+	(VF-Scanner: Clear:RC:0(46.255.227.203):SC:0(3.0/5.0):CC:0:;
+	processed in 0.8 s); 12 May 2020 17:24:09 +0000
+X-VF-Scanner-ID: 20200512172408.912272.24313.out2.virusfree.cz.0
+Received: from gmmr-2.centrum.cz (46.255.227.203)
+	by out2.virusfree.cz with ESMTPS (TLSv1.3, TLS_AES_256_GCM_SHA384);
+	12 May 2020 19:24:08 +0200
+Received: from gm-smtp6.centrum.cz (unknown [10.255.254.20])
+	by gmmr-2.centrum.cz (Postfix) with ESMTP id B41D320055F50
+	for <Blinux-list@redhat.com>; Tue, 12 May 2020 19:24:08 +0200 (CEST)
+Received: from DESKTOPN6LG1HQ (unknown [85.70.144.247])
+	by gm-smtp6.centrum.cz (Postfix) with ESMTPA id 833779C000D1
+	for <Blinux-list@redhat.com>; Tue, 12 May 2020 19:24:08 +0200 (CEST)
+To: <Blinux-list@redhat.com>
+Subject: please help Me to build Shortwave radio player
+Date: Tue, 12 May 2020 19:24:08 +0200
+Message-ID: <DA67195033164EDE9AB2A7C2ED91E99C@DESKTOPN6LG1HQ>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+Thread-Index: AdYogiR/SmjwzoC1RUa5Nmj2u4Hoxg==
+X-MimeOLE: Produced By Microsoft MimeOLE
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -85,60 +95,44 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-You'll have much more of a direct path to getting a graphical user
-interface working on archlinux systems if you leave talkingarch alone
-and instead install jenux.  Talkingarch and tarch both lack menu choices
-to install graphical user interfaces in fact both talkingarch and tarch
-lack installation menus.  To install talkingarch and tarch you'll have
-to have familiarity with command line interface since you're going to be
-using several different tools to do those installations.
+Dear users and developers here,
+Who of us would have A good will and would help Me to build Shortwave radio
+player?
+I Am building it on Arch Linux ARM64 BIt edition by using Android device,
+Termux, Proot package and special Bash shell script which have been created
+by MR Rausty.
 
-wget -bc https://nashcentral.duckdns.org/projects/Jenux-2020.02.03-x86_64.iso.sha512
-wget -bc https://nashcentral.duckdns.org/projects/Jenux-2020.02.03-x86_64.iso
-sha512sum -c Jenux-2020.02.03-x86_64.iso.sha512
-On Tue, 12 May
-2020, Linux for blind general discussion wrote:
+The only one issue which I AM facing now is The following Libhandy available
+on Github.
 
-> Date: Tue, 12 May 2020 12:57:57
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list <blinux-list@redhat.com>
-> Subject: Re: Manjaro linux
->
-> Calamares installer is unaccessible, this killed Sonar Linux that moved to
-> it as base, the accessibility bug sit unfixed for over 3 years, it's a bit
-> why I am not fond of Manjaro since.
->
-> There's Talking Arch I think if you want Archlinux.
->
-> In my case, I tried to gatter vinux and sonar team to create a new
-> accessibility intended distribution with added features that I still keep
-> for myself since I aim to stop excessive fragmentation of Linux
-> distributions somehow and I need to have some features to grab enough
-> people to achieve my goals.
->
-> Le mar. 12 mai 2020 10:43, Linux for blind general discussion <
-> blinux-list@redhat.com> a ?crit :
->
-> > Does Manjaro linux have orca in its installer
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://www.redhat.com/mailman/listinfo/blinux-list
-> >
-> >
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
 
--- 
+https://gitlab.gnome.org/World/Rust/libhandy-rs"
+Meson can not build The project, because this library can not be updated
+from Github. I will try to remove The line
+
+features = ["v0_0_6"]
+But I Am afraid that it will not make sense.
+Removing whole dependency line also do not make sense. Since compiler
+require this library from many lines of Shortwave source code.
+
+Users who use normal Linux distribution can simply use Gnome-builder, but
+because GNome-builder communicate with System bus, which can not be operated
+from Android device, I Am helpless to use it.
+I also do not know where to run ARM64 Bit ArchLinux. Because some
+virtualisation engines do not support ARM64 on X86 or X64 platforms.
+
+https://gitlab.gnome.org/haarek/Shortwave
+
+I have also found out functioning way how to run Orca Espeak,
+Speech-dispatcher and even The most of Mate desktop environment. So if
+somebody would have An interest to experiment with Linux distros on Android
+devices, I Am ready to give you some step by step instructions.
 
 _______________________________________________
 Blinux-list mailing list
