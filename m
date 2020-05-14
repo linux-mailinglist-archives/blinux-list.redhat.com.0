@@ -1,71 +1,84 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
-	by mail.lfdr.de (Postfix) with ESMTP id 7AFE81D1CBF
-	for <lists+blinux-list@lfdr.de>; Wed, 13 May 2020 19:59:58 +0200 (CEST)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	by mail.lfdr.de (Postfix) with ESMTP id 528261D25E9
+	for <lists+blinux-list@lfdr.de>; Thu, 14 May 2020 06:38:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1589392797;
+	s=mimecast20190719; t=1589431121;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=38GSVEEoXkPprYWPabZqBV7ophspBolNNNYA4IWHto4=;
-	b=MhsEg8uNphA1ymofiBK8d2+M8IRQlqxaSQfCQU6EQfg4FyBkoabgIltk9KEgk/sGFGBUHO
-	kqZ8IRqncH394L7U61QwzUGORIPXwSGr0e4UsAyJUjrnA8qdwor0dx1vD58qIZCkKP1ND2
-	R14hU5mX+Zjxsf9ZEo8ygsqlQldZ1E4=
+	bh=U5fwoYsihPRt7NVPeExgmIxG6pjyFgLPdt4HN9Zea94=;
+	b=cBwO4XacCKcQafvRcK/AxF3vg2fWpb5eSabL/6W78Cu74Tle6xzizcay7V85g10DIG4GCo
+	2TbJ+OAx1cfxB9PxWetSdgQOt0RwfpSbEEeyJQHiOm4ou3CqO9AFmJXkUY6Ye+5EnGlcb2
+	j4kWk/jsh+a1VxxzVtJGE0HeW9p2dNk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-201-azmUjferO76CyqfvkX_PXQ-1; Wed, 13 May 2020 13:59:55 -0400
-X-MC-Unique: azmUjferO76CyqfvkX_PXQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-229-Bl9gCHEdOSCh2GBX8fLkqQ-1; Thu, 14 May 2020 00:38:39 -0400
+X-MC-Unique: Bl9gCHEdOSCh2GBX8fLkqQ-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id F2AE5474;
-	Wed, 13 May 2020 17:59:50 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9283E1C94D;
-	Wed, 13 May 2020 17:59:50 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C252F8014D7;
+	Thu, 14 May 2020 04:38:34 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0ED7B5C1BE;
+	Thu, 14 May 2020 04:38:32 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 444D94E984;
-	Wed, 13 May 2020 17:59:49 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 513E81809543;
+	Thu, 14 May 2020 04:38:29 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 04DHxjDo015199 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 13 May 2020 13:59:45 -0400
+	id 04E4cMGm023180 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 14 May 2020 00:38:22 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id D72E1117928; Wed, 13 May 2020 17:59:44 +0000 (UTC)
+	id D94852156A49; Thu, 14 May 2020 04:38:21 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CA8A9115E1C
-	for <blinux-list@redhat.com>; Wed, 13 May 2020 17:59:42 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A5A2F2157F25
+	for <blinux-list@redhat.com>; Thu, 14 May 2020 04:38:19 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E540A800677
-	for <blinux-list@redhat.com>; Wed, 13 May 2020 17:59:41 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-370-3CLjcUBZO6aB_j10gSsU4w-1; Wed, 13 May 2020 13:59:39 -0400
-X-MC-Unique: 3CLjcUBZO6aB_j10gSsU4w-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 49Mj9l0ksvzxXm
-	for <blinux-list@redhat.com>; Wed, 13 May 2020 13:59:39 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 49Mj9k71QLzcbc; Wed, 13 May 2020 13:59:38 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 49Mj9k6V8yzcbV
-	for <blinux-list@redhat.com>; Wed, 13 May 2020 13:59:38 -0400 (EDT)
-Date: Wed, 13 May 2020 13:59:38 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CADC0802641
+	for <blinux-list@redhat.com>; Thu, 14 May 2020 04:38:18 +0000 (UTC)
+Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com
+	[209.85.222.177]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-147-DZn7KK7lPiea2h5ccJsXmQ-1; Thu, 14 May 2020 00:37:48 -0400
+X-MC-Unique: DZn7KK7lPiea2h5ccJsXmQ-1
+Received: by mail-qk1-f177.google.com with SMTP id y22so1832620qki.3
+	for <blinux-list@redhat.com>; Wed, 13 May 2020 21:37:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding
+	:content-language;
+	bh=iR9r5Bdcv0oAM2losyppaWbPkpjHgfKknT89zXwpRvM=;
+	b=VW6ZMS09eGy6JhAEH1L81TzOrw7C5FgKSLVGkSICTqvbtB3ArDNVR/NxGFklNRlNkQ
+	jW7PEcm02Cre4dfV/+ZJMaOCKmBXI7fO4O5wkSffjFsUmi9TyjgYc8aq1efG+kBJYykt
+	GqP7aM55uIad0aJwBhU9domNb9YIfXwjkVTzUKsom7H3VpCJrPIwX/Luhbo0tsor0oy7
+	bIEzpkvtH/4c+YjITQ34hIsLMRU8fSsSBm42UGcJCMgKmiFQ4QK4HSZDkunNIxPPN8m5
+	lupvGAyaAhoFCtEewR81DvBI28wYaia1UFMmF6mYEGaFCIMqF0QM4S47nfDcoqjPqhAS
+	rBzQ==
+X-Gm-Message-State: AOAM530/K5XRHoBwF7X3hxlzy2bPwuGytvafETjE+3OgBjbdo3kwg5ZC
+	SXxO8awb5nNDzrZ102uy8VRfom5ITWQ=
+X-Google-Smtp-Source: ABdhPJyCtGsv0a5jSJwLr0Kj+3S51igzFR7aiHxkmBIuv8QRPiTKy2Rsw7rkGXKmb6msrXTBwyYSrg==
+X-Received: by 2002:a37:7302:: with SMTP id o2mr3106961qkc.474.1589431067728; 
+	Wed, 13 May 2020 21:37:47 -0700 (PDT)
+Received: from xu4.kyle.tk
+	(2606-a000-111a-8d0a-0000-0000-0000-065f.inf6.spectrum.com.
+	[2606:a000:111a:8d0a::65f]) by smtp.gmail.com with ESMTPSA id
+	v144sm1898772qka.69.2020.05.13.21.37.46 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Wed, 13 May 2020 21:37:47 -0700 (PDT)
 Subject: Re: b s d and orca
-In-Reply-To: <8e35d90a-e440-5198-5135-6f3e0a01bd40@gmail.com>
-Message-ID: <alpine.NEB.2.21.2005131357550.23538@panix1.panix.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <12986DCD-076F-4781-AC3C-DECFD69D5A1C@gmail.com>
 	<A3925F9E-75B0-4E9E-AF8E-EC29BF01496D@gmail.com>
 	<b12267b0-944d-d609-53dd-11e9375f002d@gmail.com>
@@ -73,8 +86,15 @@ References: <12986DCD-076F-4781-AC3C-DECFD69D5A1C@gmail.com>
 	<b85fb8d0-a4ac-e83f-c82c-38a7886b6bdf@gmail.com>
 	<8D288BBE-1C57-4394-AC55-653FD5B17442@gmail.com>
 	<8e35d90a-e440-5198-5135-6f3e0a01bd40@gmail.com>
+	<alpine.NEB.2.21.2005131357550.23538@panix1.panix.com>
+Message-ID: <def8715b-a2d0-a40a-1df8-af05a4fc345f@gmail.com>
+Date: Thu, 14 May 2020 00:37:45 -0400
+User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:68.0) Gecko/20100101
+	Thunderbird/68.8.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+In-Reply-To: <alpine.NEB.2.21.2005131357550.23538@panix1.panix.com>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -91,19 +111,21 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Content-Transfer-Encoding: 7bit
 
 Some earlier versions of mate called orca screen-reader and there was and
-maybe still is an f4 key that toggled accessibility on and off with system
-default set as off.
+> maybe still is an f4 key that toggled accessibility on and off with system
+> default set as off.
 
+Not sure about F4, but if enabled, the key should be alt_super_s. The 
+problem is that it appears to be disabled by default. Running orca from 
+the alt+f2 window should work though.
 
-
---
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
