@@ -1,97 +1,91 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	by mail.lfdr.de (Postfix) with ESMTP id 4E1F61F054C
-	for <lists+blinux-list@lfdr.de>; Sat,  6 Jun 2020 08:04:07 +0200 (CEST)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by mail.lfdr.de (Postfix) with ESMTP id A4CD11F060D
+	for <lists+blinux-list@lfdr.de>; Sat,  6 Jun 2020 12:14:34 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1591423446;
+	s=mimecast20190719; t=1591438473;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=U7mP/Pqw7lYyDPXZShunO5gEZ1rj+K1B5NWsoWkZ7HA=;
-	b=VG2ghap6Ty0j0vB54qHZK2Z4MkINoNO6qDlcCZKoRJiXXEDhelzfYDuUwltuvbzXfRTRUH
-	MiFWdbANg1PLVPfXGT1kjtwkNZO9Iyzj0YRsU9EEVyKfecAh71u7JuczjoWQ18xK9DAhUB
-	cWAIH02oGksFWOt6J8MsxGPIkGKkBzE=
+	bh=bROoFUN49R5TxC8HDNqs+7elIXeeytFxaDUyy5IVfjA=;
+	b=BkcEcxS0/hxYKSI2U0yU2LzvHz86KqIjdFjvaeHFBZ2ZZovscc9wQbAu87SpzQWcwZdhrf
+	PIVVoEbmjStqb7rxhqVsZWOOS4X7LcJLqCLfnzuh0WAhIJH6V8NkjZsNHrpoBDSQVOOsoL
+	sBvD7iFWK9WprimCKt5FcUiK6ciYYQc=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-493-VmfPQ1XINiWdI5Fnbkb2Qg-1; Sat, 06 Jun 2020 02:04:02 -0400
-X-MC-Unique: VmfPQ1XINiWdI5Fnbkb2Qg-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-302-gXnDamPfOJ6glsdkC5gGOw-1; Sat, 06 Jun 2020 06:14:31 -0400
+X-MC-Unique: gXnDamPfOJ6glsdkC5gGOw-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A1A87461;
-	Sat,  6 Jun 2020 06:03:58 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9C34E60BEC;
-	Sat,  6 Jun 2020 06:03:55 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 98E6B107ACCA;
+	Sat,  6 Jun 2020 10:14:26 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2D25F19C58;
+	Sat,  6 Jun 2020 10:14:25 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D84AD1809547;
-	Sat,  6 Jun 2020 06:03:50 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C206514CD7;
+	Sat,  6 Jun 2020 10:14:19 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 05663geo020189 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 6 Jun 2020 02:03:42 -0400
+	id 056AEAbn012101 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 6 Jun 2020 06:14:11 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 3C87F2166B28; Sat,  6 Jun 2020 06:03:42 +0000 (UTC)
+	id 8B4EE10EE944; Sat,  6 Jun 2020 10:14:10 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 385062166B27
-	for <blinux-list@redhat.com>; Sat,  6 Jun 2020 06:03:39 +0000 (UTC)
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8742510EE945
+	for <blinux-list@redhat.com>; Sat,  6 Jun 2020 10:14:07 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A2383101A525
-	for <blinux-list@redhat.com>; Sat,  6 Jun 2020 06:03:39 +0000 (UTC)
-Received: from mail-qk1-f174.google.com (mail-qk1-f174.google.com
-	[209.85.222.174]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-451-syBbnZH1PyK0wz4SM6uW2w-1; Sat, 06 Jun 2020 02:03:37 -0400
-X-MC-Unique: syBbnZH1PyK0wz4SM6uW2w-1
-Received: by mail-qk1-f174.google.com with SMTP id v79so12061876qkb.10
-	for <blinux-list@redhat.com>; Fri, 05 Jun 2020 23:03:36 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=V4JHy5dvGXj3qHSOkyrOfpYET4UnQGC+P8s05L0MYoc=;
-	b=bIQyKMsz6TBA0qA9QsfuwPQayXblYDC4KIK673HIVN7AJTqix68D+iCEY/s9SoPfs5
-	pouxA5Uy+8wUfid17SY3axtPVx5oQSBBAMjZYM8+KLKeXNY0wsepi1MPRuw9hP+5xw7H
-	kq9EfdGqh0ZjY9tuCMzk441D4+w9N1NNWDwQ0VdtUqlFaCOuKPyfcdC54ArwKwSYprfC
-	M5j+pghLubzxu4c52O61AeAv4Svqi5o8F5NISzYboCHFA9fP+pl1SP6BIN2lyz3txjAJ
-	UjxsI3arJly+evXRU+5TWYiZJ4TkxwDFGiX2jsqxBO5dGKTklmfFtHC7UBwQzN6D+RJT
-	B0nA==
-X-Gm-Message-State: AOAM531TJc7K2LYieN543MCRHxSyrekO9Wqaec3i80Mdcj8ZIwxaKGI3
-	fFuS6oC9QT+QCFQ5JoN2lFakkL6/Anw=
-X-Google-Smtp-Source: ABdhPJwxBc79c0Nh+i0RJl+fqvZvbxdN/IOHy2GqSafSdgAFQbaykH1MdO79aWsLGcWk416kSojEOQ==
-X-Received: by 2002:a05:620a:126c:: with SMTP id
-	b12mr13112090qkl.7.1591423416221; 
-	Fri, 05 Jun 2020 23:03:36 -0700 (PDT)
-Received: from ?IPv6:2606:a000:111a:8d0a::241?
-	(2606-a000-111a-8d0a-0000-0000-0000-0241.inf6.spectrum.com.
-	[2606:a000:111a:8d0a::241]) by smtp.gmail.com with ESMTPSA id
-	g64sm1824441qtd.39.2020.06.05.23.03.34 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Fri, 05 Jun 2020 23:03:35 -0700 (PDT)
-Subject: Re: Tiling WM with Orca, anyone?
-To: blinux-list@redhat.com
-References: <19fe1f20-9bc7-9fc7-6702-a34021279d54@gmail.com>
-	<AD0DEA51-255F-48CB-A427-C861671A73CC@gmail.com>
-	<016a01d63b65$ff8d8a10$fea89e30$@GMAIL.COM>
-Message-ID: <71f8bb6d-dbfe-508d-365e-d248e9eacf1e@gmail.com>
-Date: Sat, 6 Jun 2020 02:03:33 -0400
-User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:68.0) Gecko/20100101
-	Thunderbird/68.9.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A48441859160
+	for <blinux-list@redhat.com>; Sat,  6 Jun 2020 10:14:07 +0000 (UTC)
+Received: from gmmr3.centrum.cz (gmmr3.centrum.cz [46.255.225.251]) (Using
+	TLS) by relay.mimecast.com with ESMTP id
+	us-mta-18-3I5JGByNNQ6kwIl1GO3kIg-1; Sat, 06 Jun 2020 06:14:02 -0400
+X-MC-Unique: 3I5JGByNNQ6kwIl1GO3kIg-1
+Received: from gmmr-2.centrum.cz (unknown [10.255.254.33])
+	by gmmr3.centrum.cz (Postfix) with ESMTP id C233318008A48
+	for <blinux-list@redhat.com>; Sat,  6 Jun 2020 12:12:54 +0200 (CEST)
+Received: from out2.virusfree.cz (out2.virusfree.cz [79.133.37.42])
+	by gmmr-2.centrum.cz (Postfix) with QMQP id BD4AE689D
+	for <blinux-list@redhat.com>; Sat,  6 Jun 2020 12:12:54 +0200 (CEST)
+Received: from out2.virusfree.cz by out2.virusfree.cz
+	(VF-Scanner: Clear:RC:0(2a00:da80:1:502::7):SC:0(3.1/5.0):CC:0:;
+	processed in 0.3 s); 06 Jun 2020 10:12:54 +0000
+X-VF-Scanner-ID: 20200606101254.490585.20770.out2.virusfree.cz.0
+Received: from gmmr-2.centrum.cz (2a00:da80:1:502::7)
+	by out2.virusfree.cz with ESMTPS (TLSv1.3, TLS_AES_256_GCM_SHA384);
+	6 Jun 2020 12:12:54 +0200
+Received: from gm-smtp6.centrum.cz (unknown [10.255.254.26])
+	by gmmr-2.centrum.cz (Postfix) with ESMTP id 6185620055F50
+	for <blinux-list@redhat.com>; Sat,  6 Jun 2020 12:12:54 +0200 (CEST)
+Received: from DESKTOPN6LG1HQ (unknown [85.70.144.247])
+	by gm-smtp6.centrum.cz (Postfix) with ESMTPA id 475B79C000C7
+	for <blinux-list@redhat.com>; Sat,  6 Jun 2020 12:12:54 +0200 (CEST)
+To: <blinux-list@redhat.com>
+References: <19fe1f20-9bc7-9fc7-6702-a34021279d54@gmail.com><AD0DEA51-255F-48CB-A427-C861671A73CC@gmail.com><016a01d63b65$ff8d8a10$fea89e30$@GMAIL.COM>
+	<71f8bb6d-dbfe-508d-365e-d248e9eacf1e@gmail.com>
+In-Reply-To: <71f8bb6d-dbfe-508d-365e-d248e9eacf1e@gmail.com>
+Subject: who of us would be so advanced C programmer that would try to
+	increase the quality of this Android Shmem library?
+Date: Sat, 6 Jun 2020 12:12:53 +0200
+Message-ID: <0C1985EFC22E4AB5AB0B184483A8B522@DESKTOPN6LG1HQ>
 MIME-Version: 1.0
-In-Reply-To: <016a01d63b65$ff8d8a10$fea89e30$@GMAIL.COM>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+Thread-Index: AdY7yErkqt5vrlukStKc7Yv6SxWrIgAIaybA
+X-MimeOLE: Produced By Microsoft MimeOLE
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 056AEAbn012101
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -108,17 +102,47 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
 
-Arch with MATE does run on pretty much any 64-bit system. There are ways 
-to lighten the load so that it will run better, but still keep necessary 
-things that make it easier to use.
+Dear advanced C and C++ programmers here.
+Adroid devices are light veight, portable, consume lov energy when powering
+by using AC adapters. Modern 8 core CPUS are very professional and can be
+used for many tasks. Thanks to Termux and Proot, it is possible to safely
+use more and more Linux distributions.
+But some Linux apps have been coded that it can only use shared memory. Mat=
+e
+desktop have been coded that shared memory is not The needed condition to
+run this desktop environment. But some desktops or apps have been really
+coded by The way, that shared memory must be used. In other cases it will
+never run for you.
 
-~Kyle
+Some advanced C programmers have been so professional that they have decide=
+d
+to write native C libraries, which are working as A shared memory emulators=
+.
+Sure. Shared memory support, which hhave been incorporated to The standard
+Linux kernel, not to The Aneroid kernel can not be fully replaced by .so
+library, which try to do its best to emulate shared memory calls on Android
+devices while running Linux distro by suing Termux and Proot.
+Here is only shared library, which is legally available as opensource.
+
+https://github.com/pelya/android-shmem
+
+It have debugging enabled so when some app will try to use supported shared
+memory calls, it will display its work activity result to The terminal.
+
+Attention! This project is really advanced, it is not a toy and if you will
+not deeply understand C language to exte=B9nd it or improve it, you can get
+unexpectable results.
+I hope, that somebody advanced will look at The code.
+X11vnc is not supported if run without --noshm option, it uses may be
+unsupported shared memory function or it uses too many shared memory
+manipulations at A time.
+
 
 _______________________________________________
 Blinux-list mailing list
