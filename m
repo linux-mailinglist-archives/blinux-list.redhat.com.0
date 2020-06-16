@@ -1,80 +1,71 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	by mail.lfdr.de (Postfix) with ESMTP id AE29E1FA55A
-	for <lists+blinux-list@lfdr.de>; Tue, 16 Jun 2020 03:03:18 +0200 (CEST)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	by mail.lfdr.de (Postfix) with ESMTP id 48FC71FA955
+	for <lists+blinux-list@lfdr.de>; Tue, 16 Jun 2020 09:00:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1592269397;
+	s=mimecast20190719; t=1592290803;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=uRA5hG4RZRFZyi5owV7W9g2vd479GuZvXqb5VlhaNoQ=;
-	b=GZQQLDpP+ECnVa8sJS01zWieGM0ocXmXVNlF9bawbUrUvoZZDcaX42yM1ujiwTFufc8iPW
-	AvkjS+bV3Vb/YNp0S9zfXCWAQYdTibOtAF0BFjz4MRLUxZN2UMeNSmmCM43KBm2LtkHfpv
-	DXKRLdfrh9NbRO3EfNvnTE9BpDtHse0=
+	bh=V26nluRhQKJRBng9UmGyVpN6hsXJowgsRDsr3F06bAk=;
+	b=c4Tt637MO4GQb6k764b+VzqVq5WRwy2hmVKQ/GgFsedxEEzZ50nOJz8KzG3XOsbW35BQAl
+	ssu55PGplTeRD7v217iGUMsUFqUii11l1BA1Ar2W9eAa2csmXfbRWDk77G3Wa3LWQ+W3lx
+	/OpjqoakutKKc6e6Xx572hiWvdQHzKI=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-307-xOw6NDfmNp-cZa34NgspnA-1; Mon, 15 Jun 2020 21:03:15 -0400
-X-MC-Unique: xOw6NDfmNp-cZa34NgspnA-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-340-ab4wX9VvOQaZ90-fq7LrLQ-1; Tue, 16 Jun 2020 03:00:00 -0400
+X-MC-Unique: ab4wX9VvOQaZ90-fq7LrLQ-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 98A46184D15E;
-	Tue, 16 Jun 2020 01:03:11 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8A5D960C05;
-	Tue, 16 Jun 2020 01:03:06 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5976BE90E;
+	Tue, 16 Jun 2020 06:59:55 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2B18D707C6;
+	Tue, 16 Jun 2020 06:59:54 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E98AC833C8;
-	Tue, 16 Jun 2020 01:03:00 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 430E31809547;
+	Tue, 16 Jun 2020 06:59:50 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 05G12qgn024384 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 15 Jun 2020 21:02:52 -0400
+	id 05G6xf6M030501 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 16 Jun 2020 02:59:41 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id E827A111CD37; Tue, 16 Jun 2020 01:02:51 +0000 (UTC)
+	id 2A9CD82861; Tue, 16 Jun 2020 06:59:41 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E383C10F26EA
-	for <blinux-list@redhat.com>; Tue, 16 Jun 2020 01:02:50 +0000 (UTC)
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 252E08057D
+	for <blinux-list@redhat.com>; Tue, 16 Jun 2020 06:59:38 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DFBAF833B47
-	for <blinux-list@redhat.com>; Tue, 16 Jun 2020 01:02:49 +0000 (UTC)
-Received: from mail-oo1-f53.google.com (mail-oo1-f53.google.com
-	[209.85.161.53]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-454-qSoZF_z-NviCrXehisivLQ-1; Mon, 15 Jun 2020 21:02:47 -0400
-X-MC-Unique: qSoZF_z-NviCrXehisivLQ-1
-Received: by mail-oo1-f53.google.com with SMTP id e8so3757077ooi.11
-	for <blinux-list@redhat.com>; Mon, 15 Jun 2020 18:02:47 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to:content-transfer-encoding;
-	bh=OoHuExWualQwBscUctSMlTbIegVAnjJ7+6ZbF8XCHHU=;
-	b=hFGSReyrAzGR46mrKvY20A+tINZItW9zjRrOVPxmX2Ol5Mw1t6/jLhaDrjpYFy5vFp
-	UTnPt+YGF5nHWmVy9ZyI4LZzvX3rassJjwdzb209y68nf5SyiOXHELJBMFTNPsy+XTf8
-	XU8lkj6cJp4EsPTA5eudP2d8bGLOzyOcAbBQC1Jg8gQJwWaqTpC1FH/weKhNby1EwCWl
-	/UHiOncSi/y2eUohGdLM0hgPZk8tXXK58uSOuPUvyV7VpfRp4nP46bnFwH6ZUgccNboU
-	i20BHS7Gi+6p9cvAMHywXdnUndkSVa0SKSuWqt8R0qLcHvD48sXSxBzmfELneaO6L07J
-	FGYw==
-X-Gm-Message-State: AOAM5317jwQMWUhoN1jx26mUOPwpa1t9xa9HGRzXTvwxm7RQZl03tnQe
-	pdvpwTPca1fkjoWPU4cecWgxgmMiT3vl9jFfTzpOlzoK
-X-Google-Smtp-Source: ABdhPJy61gfdO2gnLj3jJXv4NdgLUzl8/+sEg0n0l54A/Oa5RGZfHzVs5wf1A7Wi+OIrHw2tSmUbIQjxicCLkY+Ki9Y=
-X-Received: by 2002:a4a:d6c6:: with SMTP id j6mr518635oot.26.1592269366538;
-	Mon, 15 Jun 2020 18:02:46 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:a9d:12d6:0:0:0:0:0 with HTTP; Mon, 15 Jun 2020 18:02:45
-	-0700 (PDT)
-In-Reply-To: <20200615100242.GC2180@rednote.net>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 852A985A5A3
+	for <blinux-list@redhat.com>; Tue, 16 Jun 2020 06:59:38 +0000 (UTC)
+Received: from opera.rednote.net (opera.rednote.net [66.228.34.147]) (Using
+	TLS) by relay.mimecast.com with ESMTP id
+	us-mta-433-gC_O1n_vPGyymSTRTMw6aA-1; Tue, 16 Jun 2020 02:59:34 -0400
+X-MC-Unique: gC_O1n_vPGyymSTRTMw6aA-1
+Received: from rednote.net (localhost [IPv6:0:0:0:0:0:0:0:1])
+	by opera.rednote.net (8.15.2/8.15.2) with ESMTPS id 05G6xXNI162322
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)
+	for <blinux-list@redhat.com>; Tue, 16 Jun 2020 06:59:33 GMT
+DMARC-Filter: OpenDMARC Filter v1.3.2 opera.rednote.net 05G6xXNI162322
+DKIM-Filter: OpenDKIM Filter v2.11.0 opera.rednote.net 05G6xXNI162322
+Received: (from janina@localhost)
+	by rednote.net (8.15.2/8.15.2/Submit) id 05G6xXLI162321
+	for blinux-list@redhat.com; Tue, 16 Jun 2020 02:59:33 -0400
+Date: Tue, 16 Jun 2020 02:59:33 -0400
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Prospects for an accessible and open version of Android?
+Message-ID: <20200616065933.GF2180@rednote.net>
 References: <CABKqQvFWNxksnpwQ0YfytwaYnd1bAkkWB9LjmnJtZWW_1zepyw@mail.gmail.com>
 	<498E62FA-D270-418F-91D0-003022B137B5@cfcl.com>
 	<DF019091-ECBE-48AC-8B3F-A85FCB13F98F@gmail.com>
@@ -84,13 +75,15 @@ References: <CABKqQvFWNxksnpwQ0YfytwaYnd1bAkkWB9LjmnJtZWW_1zepyw@mail.gmail.com>
 	<alpine.DEB.2.22.394.2006141355001.3348482@chime>
 	<eb770c6c-c8e6-84d6-973c-e3afc118ca1b@slint.fr>
 	<20200615100242.GC2180@rednote.net>
-Date: Mon, 15 Jun 2020 20:02:45 -0500
-Message-ID: <CABKqQvG5Nv14kAK-uipF1d4-mXqkea9Uk_0E8e+qbNGLN3XV=g@mail.gmail.com>
-Subject: Re: Prospects for an accessible and open version of Android?
-To: blinux-list@redhat.com
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+	<CABKqQvG5Nv14kAK-uipF1d4-mXqkea9Uk_0E8e+qbNGLN3XV=g@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CABKqQvG5Nv14kAK-uipF1d4-mXqkea9Uk_0E8e+qbNGLN3XV=g@mail.gmail.com>
+X-Operating-System: Linux opera.rednote.net 5.6.16-200.fc31.x86_64
+X-MIME-Autoconverted: from 8bit to quoted-printable by opera.rednote.net id
+	05G6xXNI162322
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 05G12qgn024384
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 05G6xf6M030501
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -107,59 +100,136 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
 
-T2theSwgc28gZm9yIGEgZnJlZSBMaW51eHkgT1MgcnVubmluZyBvbiBhbiBBbmRyb2lkIGRldmlj
-ZSwgY2FuIGFueW9uZQpzdWdnZXN0IGEgc3RhcnRpbmcgcG9pbnQ/CgpBbWFuZGEKCk9uIDYvMTUv
-MjAsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gPGJsaW51eC1saXN0QHJlZGhh
-dC5jb20+IHdyb3RlOgo+IERpZGllcjoKPgo+IEknbSBzdXJlIEhhbnMsIG91ciBsaXN0IG93bmVy
-IG9mIHJlY29yZCwgd291bGQgaGFwcGlseSBlbnRlcnRhaW4gYQo+IGJldHRlciBjb25maWd1cmF0
-aW9uLiBQbGVhc2Ugbm90ZSB0aGlzIGxpc3QgcnVucyBvbiBSZWRoYXQncyBsaXN0Cj4gc2VydmVy
-cyB3aGljaCBJIGJlbGlldmUgYXJlIHN0aWxsIG1haWxtYW4gYmFzZWQuIFNvLCBpdCdzIGEgcXVl
-c3Rpb24gb2YKPiB3aGF0IFJlZGhhdCBoYXMgaW1wbGVtZW50ZWQgdXBzdHJlYW0uCj4KPiBJZiB5
-b3Ugd2FudCBIYW5zJyBlbWFpbCwgSSBjYW4gcHJvYmFibHkgZGlnIGl0IHVwLgo+Cj4gQmVzdCwK
-Pgo+IEphbmluYQo+Cj4gTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cml0ZXM6
-Cj4+IE9yLCB0aGlzIGlzIHRvIGF2b2lkIFNQRi9ES0lNIGF1dGhlbnRpY2F0aW9uIGZhaWx1cmUu
-Cj4+Cj4+IEFzIGFuIGV4YW1wbGUsIEkgaGF2ZSBhbiBlbWFpbCBzZXJ2ZXIgd2l0aCBES0lNIGVu
-YWJsZWQgZm9yIHRoZSBkb21haW4KPj4gbmFtZSBzbGludC5mciB0aGF0IEkgb3duIGFuZCB1c2Ug
-Zm9yIHRoZSBTbGludCBkaXN0cmlidXRpb24sIGNmLjoKPj4gaHR0cHM6Ly9zbGludC5mcgo+Pgo+
-PiBTbywgdGhlIHJlY2VpdmVyIG9mIGFuIGVtYWlsIHNlbnQgd2l0aCBhIEZyb206IGFkZHJlc3Mg
-d2l0aCB0aGUgZG9tYWluCj4+IG5hbWUgc2xpbnQuZnIgY2FuIGF1dGhlbnRpY2F0ZSBpdCBjaGVj
-a2luZyB0aGF0IHRoZSBlbWFpbCB3YXMgc2VudCBmcm9tCj4+IG15IHNlcnZlcidzIElQIGFkZHJl
-c3MgYW5kIG5vdCBmdXJ0aGVyIG1vZGlmaWVkIGlmIHJlLXNlbnQgYnkgYSBtYWlsaW5nCj4+IGxp
-c3QgdG8gYWxsIHJlZ2lzdGVyZWQgdXNlcnMuCj4+Cj4+IE1hbnkgbWFpbGluZyBsaXN0cyBrZWVw
-IHRoZSBGcm9tOiBmaWVsZCBhcyBpcyAoZm9yIHRoaXMgZW1haWwgdGhhdCB3b3VsZAo+PiBiZTog
-ZGlkaWVyQHNsaW50LmZyKSBidXQgbW9kaWZ5IGl0cyBjb250ZW50LCBsaWtlIHRvIGFkZCBhIGZv
-b3Rlci4gVGhlbgo+PiB0aGUgZW1haWwgd2lsbCBmYWlsIHRoZSBhdXRoZW50aWNhdGlvbiBmYWls
-dXJlIGJ5IHRoZSBzZXJ2ZXIgdGhhdAo+PiByZWNlaXZlcyB0aGUgZW1haWwgc2VudCBieSB0aGUg
-bWFpbGluZyBsaXN0LCBhbmQgcG9zc2libHkgcmVqZWN0IGl0IG9yCj4+IHB1dCBpdCBpbiBhIHNw
-YW0gZm9sZGVyLCBhY2NvcmRpbmcgdG8gdGhlaXIgcG9saWN5IGFuZCB0aGUgaW5zdHJ1Y3Rpb25z
-Cj4+IGdpdmVuIGJ5IHRoZSBpbml0aWFsIHNlbmRpbmcgc2VydmVyLCB3cml0dGVuIGluIGEgRE1B
-UkMgcmVjb3JkLgo+Pgo+PiBJIGRvbid0IGtub3cgaWYgdGhpcyB0aGUgbWFpbiByZWFzb24sIGJ1
-dCBub3Qgd3JpdGluZyB0aGUgaW5pdGlhbAo+PiBwb3N0ZXIncyBlbWFpbCBhZGRyZXNzIGluIHRo
-ZSBGcm9tOiBmaWVsZCBwcmV2ZW50cyBhdXRoZW50aWNhdGlvbgo+PiBmYWlsdXJlcy4KPj4KPj4g
-VG8gY29wZSB3aXRoIHRoaXMgcG9saWN5LCBsZXQncyBpZGVudGlmeSBvdXJzZWx2ZXMgaW4gdGhl
-IGJvZHkgb2YgdGhlCj4+IGVtYWlscyB3ZSBzZW50IHRvIHRoZSBsaXN0Lgo+Pgo+PiBJIGRvIGl0
-IGJlbG93Ogo+PiBEaWRpZXIgU3BhaWVyCj4+IFNsaW50IG1haW50YWluZXIKPj4KPj4gTGUgMTQv
-MDYvMjAyMCDDoCAyMjo1NiwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOp
-Y3JpdMKgOgo+PiA+IEkgdGhpbmsgbWFueSB5ZWFycyBhZ28gdGhlcmUgd2VyZSBsb3RzIG9mIHNw
-YW0gd2hpY2ggY2FtZSB0aHJvdWdoIHRoaXMKPj4gPiBsaXN0LCBzbyB0aGV5IGFsdGVyZWQgdG8g
-dGhpcyBjdXJyZW50IHdheQo+PiA+IENoaW1lCj4+Cj4+Cj4+IF9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+
-PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+IGh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFpbG1h
-bi9saXN0aW5mby9ibGludXgtbGlzdAo+Cj4gLS0KPgo+IEphbmluYSBTYWprYQo+Cj4gTGludXgg
-Rm91bmRhdGlvbiBGZWxsb3cKPiBFeGVjdXRpdmUgQ2hhaXIsIEFjY2Vzc2liaWxpdHkgV29ya2dy
-b3VwOglodHRwOi8vYTExeS5vcmcKPgo+IFRoZSBXb3JsZCBXaWRlIFdlYiBDb25zb3J0aXVtIChX
-M0MpLCBXZWIgQWNjZXNzaWJpbGl0eSBJbml0aWF0aXZlIChXQUkpCj4gQ2hhaXIsIEFjY2Vzc2li
-bGUgUGxhdGZvcm0gQXJjaGl0ZWN0dXJlcwlodHRwOi8vd3d3LnczLm9yZy93YWkvYXBhCj4KPgo+
-IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQmxpbnV4
-LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8vd3d3
-LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+Cj4KCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5n
-IGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL3d3dy5yZWRoYXQuY29tL21haWxt
-YW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
+Hi, Amanda:
+
+I don't understand your question. An Android device is a Linux device.
+it runs on linux kernels, implements several Linux libraries. It's audio
+subsystem is driven by alsa.
+
+The user doesn't see this, of course, because all of that is under the
+hood, so to speak. The user interface on Android is written in Java, so
+bears no resemblance to the graphical desktop one might see on a typical
+Linux computer, typically GNOME or KDE.
+
+So, what are you asking? Please say more.
+
+Best,
+
+Janina
+
+Linux for blind general discussion writes:
+> Okay, so for a free Linuxy OS running on an Android device, can anyone
+> suggest a starting point?
+>=20
+> Amanda
+>=20
+> On 6/15/20, Linux for blind general discussion <blinux-list@redhat.com> w=
+rote:
+> > Didier:
+> >
+> > I'm sure Hans, our list owner of record, would happily entertain a
+> > better configuration. Please note this list runs on Redhat's list
+> > servers which I believe are still mailman based. So, it's a question of
+> > what Redhat has implemented upstream.
+> >
+> > If you want Hans' email, I can probably dig it up.
+> >
+> > Best,
+> >
+> > Janina
+> >
+> > Linux for blind general discussion writes:
+> >> Or, this is to avoid SPF/DKIM authentication failure.
+> >>
+> >> As an example, I have an email server with DKIM enabled for the domain
+> >> name slint.fr that I own and use for the Slint distribution, cf.:
+> >> https://slint.fr
+> >>
+> >> So, the receiver of an email sent with a From: address with the domain
+> >> name slint.fr can authenticate it checking that the email was sent fro=
+m
+> >> my server's IP address and not further modified if re-sent by a mailin=
+g
+> >> list to all registered users.
+> >>
+> >> Many mailing lists keep the From: field as is (for this email that wou=
+ld
+> >> be: didier@slint.fr) but modify its content, like to add a footer. The=
+n
+> >> the email will fail the authentication failure by the server that
+> >> receives the email sent by the mailing list, and possibly reject it or
+> >> put it in a spam folder, according to their policy and the instruction=
+s
+> >> given by the initial sending server, written in a DMARC record.
+> >>
+> >> I don't know if this the main reason, but not writing the initial
+> >> poster's email address in the From: field prevents authentication
+> >> failures.
+> >>
+> >> To cope with this policy, let's identify ourselves in the body of the
+> >> emails we sent to the list.
+> >>
+> >> I do it below:
+> >> Didier Spaier
+> >> Slint maintainer
+> >>
+> >> Le 14/06/2020 =E0 22:56, Linux for blind general discussion a =E9crit=
+=A0:
+> >> > I think many years ago there were lots of spam which came through th=
+is
+> >> > list, so they altered to this current way
+> >> > Chime
+> >>
+> >>
+> >> _______________________________________________
+> >> Blinux-list mailing list
+> >> Blinux-list@redhat.com
+> >> https://www.redhat.com/mailman/listinfo/blinux-list
+> >
+> > --
+> >
+> > Janina Sajka
+> >
+> > Linux Foundation Fellow
+> > Executive Chair, Accessibility Workgroup:=09http://a11y.org
+> >
+> > The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
+> > Chair, Accessible Platform Architectures=09http://www.w3.org/wai/apa
+> >
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://www.redhat.com/mailman/listinfo/blinux-list
+> >
+> >
+>=20
+>=20
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+
+--=20
+
+Janina Sajka
+
+Linux Foundation Fellow
+Executive Chair, Accessibility Workgroup:=09http://a11y.org
+
+The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
+Chair, Accessible Platform Architectures=09http://www.w3.org/wai/apa
+
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
 
