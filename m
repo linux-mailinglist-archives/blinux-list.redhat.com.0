@@ -1,68 +1,67 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id 5D46C1FBE48
-	for <lists+blinux-list@lfdr.de>; Tue, 16 Jun 2020 20:40:16 +0200 (CEST)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by mail.lfdr.de (Postfix) with ESMTP id 924831FBE52
+	for <lists+blinux-list@lfdr.de>; Tue, 16 Jun 2020 20:42:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1592332815;
+	s=mimecast20190719; t=1592332967;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ChMb8ElBQHf91MVITgVHXmjPovyDAyjeQ/KecKNQnaM=;
-	b=Boa2k1vbrorTIy6oNvAAnTZsAM6Iut50Jt0jNeZCENj5j+Kwhs6YW1cF5Bqs9TuMWIqivW
-	GkkkPpNedm3m2CdU/7JkWQyzN0PbHebkbrLLzjqefeyT3CsdHA9OavVzwojBS0VyG2RYAn
-	ZN5gzUE5Ee5fcGSKAOTB2Kmh/3aGH1s=
+	bh=cQmt29ZM3GxhDOKYy24XtkB/Pzs+9CgLQovVvDbkvMo=;
+	b=ELz2F+UopTCO00oqpM3Ktr6e8rLGCIqPIlwR8qtVqc2E81P8RCTLJB9AkmIi31izwD8rkL
+	FYwDQw+dONfQNLhI6j+bJERowXOxJmV/wnCPLI/NyBvsVkBYdYWhK+FVVWnJGoaWhBE7d3
+	HqPSwH8IImq5n0/xoCFvuHjJ58fr66E=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-474-V6-A7qdpNlq66jC8pJ4A8w-1; Tue, 16 Jun 2020 14:40:13 -0400
-X-MC-Unique: V6-A7qdpNlq66jC8pJ4A8w-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-502-loE5HgRLOp-EM0XDjYhIWw-1; Tue, 16 Jun 2020 14:42:45 -0400
+X-MC-Unique: loE5HgRLOp-EM0XDjYhIWw-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 4A28C18A8222;
-	Tue, 16 Jun 2020 18:40:08 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 875B95D9D3;
-	Tue, 16 Jun 2020 18:40:06 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7DCD2835B52;
+	Tue, 16 Jun 2020 18:42:41 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 198CB60CC0;
+	Tue, 16 Jun 2020 18:42:41 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 349D1833CC;
-	Tue, 16 Jun 2020 18:40:02 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BDCC41809547;
+	Tue, 16 Jun 2020 18:42:40 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 05GIdqJK019650 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 16 Jun 2020 14:39:52 -0400
+	id 05GIgaZk020008 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 16 Jun 2020 14:42:37 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 5CE2C2028CD2; Tue, 16 Jun 2020 18:39:52 +0000 (UTC)
+	id A4082B07B6; Tue, 16 Jun 2020 18:42:36 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5886320267F2
-	for <blinux-list@redhat.com>; Tue, 16 Jun 2020 18:39:49 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9F71E86D61
+	for <blinux-list@redhat.com>; Tue, 16 Jun 2020 18:42:33 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 11C0018A6663
-	for <blinux-list@redhat.com>; Tue, 16 Jun 2020 18:39:49 +0000 (UTC)
-Received: from mail.carmickle.com (mail.carmickle.com [69.164.218.211])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-284-WKCbzMF-PHi7gtWjhmvsdA-1; Tue, 16 Jun 2020 14:39:46 -0400
-X-MC-Unique: WKCbzMF-PHi7gtWjhmvsdA-1
-Received: from portkey.lan (unknown [176.230.58.68])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.carmickle.com (Postfix) with ESMTPSA id EC308672F6D4
-	for <blinux-list@redhat.com>; Tue, 16 Jun 2020 18:39:44 +0000 (UTC)
-Date: Tue, 16 Jun 2020 19:39:41 +0100 (BST)
-X-X-Sender: geoff@portkey.home
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C788D18A6663
+	for <blinux-list@redhat.com>; Tue, 16 Jun 2020 18:42:33 +0000 (UTC)
+Received: from mail-out-02.crystone.se (mail-out-02.crystone.se
+	[93.90.145.12]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-68-LTbut9DJP0O7GoOoiN_glQ-1; Tue, 16 Jun 2020 14:42:29 -0400
+X-MC-Unique: LTbut9DJP0O7GoOoiN_glQ-1
+X-Halon-ID: faecafa1-b000-11ea-a467-005056917149
+Authorized-sender: anders@pipkrokodil.se
+Received: from [10.5.0.3] (unknown [141.98.255.145])
+	by mail-out-01.crystone.se (Halon) with ESMTPSA
+	id faecafa1-b000-11ea-a467-005056917149;
+	Tue, 16 Jun 2020 20:41:25 +0200 (CEST)
+Mime-Version: 1.0 (Mac OS X Mail 13.4 \(3608.80.23.2.2\))
 Subject: Re: Prospects for an accessible and open version of Android?
-In-Reply-To: <20200615100242.GC2180@rednote.net>
-Message-ID: <alpine.DEB.2.11.2006161932480.1332@portkey.home>
+Date: Tue, 16 Jun 2020 20:41:23 +0200
 References: <CABKqQvFWNxksnpwQ0YfytwaYnd1bAkkWB9LjmnJtZWW_1zepyw@mail.gmail.com>
 	<498E62FA-D270-418F-91D0-003022B137B5@cfcl.com>
 	<DF019091-ECBE-48AC-8B3F-A85FCB13F98F@gmail.com>
@@ -72,9 +71,18 @@ References: <CABKqQvFWNxksnpwQ0YfytwaYnd1bAkkWB9LjmnJtZWW_1zepyw@mail.gmail.com>
 	<alpine.DEB.2.22.394.2006141355001.3348482@chime>
 	<eb770c6c-c8e6-84d6-973c-e3afc118ca1b@slint.fr>
 	<20200615100242.GC2180@rednote.net>
-User-Agent: Alpine 2.11 (DEB 23 2013-08-11)
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+	<CABKqQvG5Nv14kAK-uipF1d4-mXqkea9Uk_0E8e+qbNGLN3XV=g@mail.gmail.com>
+	<20200616065933.GF2180@rednote.net>
+	<843663A4-EEEA-4DB7-A1CB-56C6A65E41BC@cfcl.com>
+	<CAO2sX31RY2cas9Bg6sURkAWAuLvohJ6TBux4SE-NxAmaMuVPqg@mail.gmail.com>
+	<be1b173c-19e7-fe1f-d6a2-d7ecf3f264cf@gmail.com>
+	<C3FC0F8B-2F8D-47F0-A8F8-3660B1C280C1@cfcl.com>
+To: blinux-list@redhat.com
+In-Reply-To: <C3FC0F8B-2F8D-47F0-A8F8-3660B1C280C1@cfcl.com>
+Message-Id: <8D982AB7-B538-426D-845A-349E7A461BD7@pipkrokodil.se>
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 05GIgaZk020008
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -91,32 +99,46 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-On Mon, 15 Jun 2020, Linux for blind general discussion wrote:
+Hi!
+When i was on the eye-free list i actually saw a thread or message about a dualboot phone with buttons.
+If you remember the l Nokia E90 communicator there was a company that started to make that phone with both a Linux distro and a stock android version.
+If i find it i can forward the message here.
+/A
 
-> I'm sure Hans, our list owner of record, would happily entertain a
-> better configuration. Please note this list runs on Redhat's list
-> servers which I believe are still mailman based. So, it's a question of
-> what Redhat has implemented upstream.
+> 16 juni 2020 kl. 18:59 skrev Linux for blind general discussion <blinux-list@redhat.com>:
+> 
+> Someone said:
+>> ... you might be better off starting with a Raspberry Pi if you want a more vanilla Linux/GNU experience on a pocket-sized computer than what Android offers...
+> 
+> 
+> The Raspberry Pi is a great piece of hardware, with a truly amazing number of interface options.  I followed the F123/VOISS effort with great interest and am now following Stormux.  However, the RasPi isn't a great starting point for a truly portable (i.e., palmtop) computer system.  Size and weight issues aside, there is the problem of how to support "instant on" capability (e.g., for use as a notetaker).
+> 
+> Because my Android cell phone has power management and sleep mode support, it can run for more than a day on its built-in battery.  I haven't been able to find any reasonable way to get this kind of behavior on a RasPi.  Even idling, the power requirement over a day would drain any reasonable set of batteries.  Booting the device and shutting it down each time I want to use it would be very inconvenient.
+> 
+> A few billion Android cell phones have been manufactured and more are being made all the time.  After a few years, these get really cheap to buy, because the latest version of Android won't run on them.  So, why not repurpose them as blind-friendly computers, notetakers, etc?
+> 
+> And then said:
+>> ... unless there's some smartphones out there that support replacing their stock Android with the ARM version of more traditional distros.
+> 
+> Android phones can be reloaded with different boot and OS code.  My initial posting discussed several OS variants that start with the open source Android code, allowing them to use (some) APK apps (e.g., the Android Accessibility Suite).
+> 
+> The postmarketOS folks (https://postmarketos.org) are taking a somewhat different approach.  They install a complete Linux system, based on Alpine Linux (https://alpinelinux.org).  The system can't run APK apps yet, but this is a project goal.  For details, see the FAQ (https://postmarketos.org/faq.html).
+> 
+> - Rich Morin
+> 
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+> 
 
-Unfortunately, not only is it still Mailman 2 which is not the actively 
-developed Mailman version any more, but it is Mailman 2.1.12 which was 
-released in 2009.
-
-I used to be a bit of a Mailman guru, I'm a bit ashamed to say that I'm 
-not really anymore.  I do think that they added some SPf/DKIM/DMARC 
-friendly options to later 2.x releases, but they obviously aren't 
-available in this release.
-
-FWIW, the current Mailman 2.x release is 2.1.33.
-
-Cheers,
-Geoff.
 
 _______________________________________________
 Blinux-list mailing list
