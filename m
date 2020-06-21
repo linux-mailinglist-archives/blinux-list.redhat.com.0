@@ -1,81 +1,81 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id 9EFB4202B93
-	for <lists+blinux-list@lfdr.de>; Sun, 21 Jun 2020 18:36:06 +0200 (CEST)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+	by mail.lfdr.de (Postfix) with ESMTP id 8B06E202BB6
+	for <lists+blinux-list@lfdr.de>; Sun, 21 Jun 2020 19:11:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1592757365;
+	s=mimecast20190719; t=1592759466;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=N9oIqPi3aeQtGKk2St8Wl+ioxGS2cqr1a6tuIl6cBbk=;
-	b=ClAvd7AGJRrlo1/viUb3lPQEFZ6JxOp09cR/GOoSxxUP5rURC7KmWLO/6cB59/KWWl+2CF
-	uiHt0tcLNXnoZFCx/d/N6NcPyaadqaOnflMtLusdgBYmRz9FZxTVM2eO7mJAX78S794ExG
-	Et3d8iw3siqsP69i7i8wsK7uWwM6OtI=
+	bh=FEJA7Ov/0gTsP4vzt/40V4ar6T+z0ahqEQCUk2zwJPM=;
+	b=B3u+2V14XP8MrV8BS4qkxXG1GqSgd2xpEqP4Ab3Y8TpfxXHX01exKpkN5f5vXsv3eNUF+g
+	h6BWFaAoA5on+82oDUdZzaFgwZwOJ69bNwV8rFg2Nhvb1etUw8CT+g+xN1osdAKqs59B2M
+	RdSeZ4nXHfhyw8qMZZ8otBeemILDhmk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-214-ASoU6235MhySlwTfD-erdw-1; Sun, 21 Jun 2020 12:36:02 -0400
-X-MC-Unique: ASoU6235MhySlwTfD-erdw-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-134-21R3LIOoOY2VOspKTVwKQA-1; Sun, 21 Jun 2020 13:11:03 -0400
+X-MC-Unique: 21R3LIOoOY2VOspKTVwKQA-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id F081F835B41;
-	Sun, 21 Jun 2020 16:35:58 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7DBB25BAC1;
-	Sun, 21 Jun 2020 16:35:58 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id EF300184D162;
+	Sun, 21 Jun 2020 17:10:58 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6E0DB7166C;
+	Sun, 21 Jun 2020 17:10:57 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 09EFE1809547;
-	Sun, 21 Jun 2020 16:35:58 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 21BF4833C8;
+	Sun, 21 Jun 2020 17:10:52 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 05LGZtBK020963 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 21 Jun 2020 12:35:55 -0400
+	id 05LHAevl025508 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 21 Jun 2020 13:10:41 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id F363A2157F26; Sun, 21 Jun 2020 16:35:54 +0000 (UTC)
+	id C4471110F0B5; Sun, 21 Jun 2020 17:10:40 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id EF1092157F23
-	for <blinux-list@redhat.com>; Sun, 21 Jun 2020 16:35:53 +0000 (UTC)
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BF56F110F0B0
+	for <blinux-list@redhat.com>; Sun, 21 Jun 2020 17:10:37 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F1B8F8007C8
-	for <blinux-list@redhat.com>; Sun, 21 Jun 2020 16:35:52 +0000 (UTC)
-Received: from mail-ot1-f51.google.com (mail-ot1-f51.google.com
-	[209.85.210.51]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-197-VzTlrA54MfW8EMoMMhlSyA-1; Sun, 21 Jun 2020 12:35:50 -0400
-X-MC-Unique: VzTlrA54MfW8EMoMMhlSyA-1
-Received: by mail-ot1-f51.google.com with SMTP id d4so11206153otk.2
-	for <blinux-list@redhat.com>; Sun, 21 Jun 2020 09:35:50 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 927C285A5A3
+	for <blinux-list@redhat.com>; Sun, 21 Jun 2020 17:10:37 +0000 (UTC)
+Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com
+	[209.85.222.177]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-240-LGhsuFLZNLWRMDmo4N7HPw-1; Sun, 21 Jun 2020 13:10:33 -0400
+X-MC-Unique: LGhsuFLZNLWRMDmo4N7HPw-1
+Received: by mail-qk1-f177.google.com with SMTP id r22so12076566qke.13
+	for <blinux-list@redhat.com>; Sun, 21 Jun 2020 10:10:32 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
 	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
 	:message-id:subject:to;
-	bh=yzLC0S1dw4K+Fz0d9Azqxou5Ha/0m/Y+8JK79E20oM8=;
-	b=KktA1+Y/T9oyjEzcp4hwdaJ9zHO9xXa/K+Se4FVP/6l8V7GCvbZFkLS4eRTpQ93JNK
-	W1qTvGNxtUYKge/o78f+Ori/em/PGKIu9SkO0wpuIuvauWH2kQDiiw0Wc5UPfkvHQUZo
-	wr7Abw0mJtPx1OJLSLVAyIeLyRFwchAbGTtXeyQC7kuzncila5OWCCPA57Vj9EVuKxia
-	+SG1P1UP3K3sVMrJ921rRyr/K6QjRumSMQgVUK6t8RWlyVoPWXN1I7mcovzvWcXn4dCD
-	nxzLyiLoshF4CnmdgLSHBxahc1pQxUvPJZQDkNmj06XjiHqFyIx1i49FhqQmTTTTd5G3
-	Tocw==
-X-Gm-Message-State: AOAM530OJAux6VPtEQ6UifdFTlsS1ljbMnxVyxjgQ64zNSyc0aXfgtIq
-	VZ6BrcpnWRl/TZ5JXfiiaoQhiN1/IGlfpVa58Q6h2I9z
-X-Google-Smtp-Source: ABdhPJyJikqITU+2lSifEX93vFM3/qP0K0fEq17bI0b3cUsQin1aKXeYYH29UPSMXu3GNkwmgTEUoHaD1ki48X0l58o=
-X-Received: by 2002:a05:6830:1657:: with SMTP id
-	h23mr10474089otr.62.1592757349649; 
-	Sun, 21 Jun 2020 09:35:49 -0700 (PDT)
+	bh=OVOCvag3WbCnbguYJ2hrf3u0Y15b3QgGK5qq8ZVq3rQ=;
+	b=VzxuCwJZ/Xr1qahRQq9HR4z1lmTWZrECBr7vC0akb1MBdaTHvG4wdLT5cQa9SrR2Bg
+	KPAOhBlVHZN2ZzrLwACklDMInTal3ItuqrZ32SeV1KmpLm8EeekQkU/NI5tVeI2wFnGW
+	GDWd1+rjmCshTBOYW1ao9V17CqkoI3Jn9o7O3+1AyEtXGpBfgAq0CdVhzOapWNl6z4eC
+	PS9ui8vzvI5gik61+hdNjIQLoHWwJgzE99srhYrrI44DZuB3sgOOHJ+OJgl0nSauYE4t
+	9ct/39eMT9aO6qa9OObq4Z2m9JLeoGL+vustRPoXcuOYuG8t1r4s/eM+2SV5W/3AFVcJ
+	2lig==
+X-Gm-Message-State: AOAM5300BtN9c+IFNEA8up7eG91D7Ywni4dC2k6e7PUOPGLi2Gjf6sO6
+	I77/3jxigvFLELiQHY0fKH1Be59kQOKbvrWW+9t/rd1J
+X-Google-Smtp-Source: ABdhPJy0BFqmJpR8HaVBo++wCvXA66h3wcoa+bGZMTwhGY+Ys5ElzuytzXvCyvt5jlnJRLH/1Mp47l+RV7lVNe9NbOU=
+X-Received: by 2002:a05:620a:142a:: with SMTP id
+	k10mr12287086qkj.182.1592759432248; 
+	Sun, 21 Jun 2020 10:10:32 -0700 (PDT)
 MIME-Version: 1.0
-Received: by 2002:a9d:12d6:0:0:0:0:0 with HTTP; Sun, 21 Jun 2020 09:35:49
+Received: by 2002:a0c:ea4a:0:0:0:0:0 with HTTP; Sun, 21 Jun 2020 10:10:31
 	-0700 (PDT)
-In-Reply-To: <20200621074757.GA2690@rednote.net>
+In-Reply-To: <CABKqQvEyRFTSLg_38LtPaoUXgiz7Y8vsnM_d3No3fmQ2AmFEmw@mail.gmail.com>
 References: <DF019091-ECBE-48AC-8B3F-A85FCB13F98F@gmail.com>
 	<68F8B348-C5F3-4E40-9731-CB928C1E1786@cfcl.com>
 	<3FF9DFF0-EBA2-41FA-AF6D-41A15F7D96B3@gmail.com>
@@ -87,11 +87,12 @@ References: <DF019091-ECBE-48AC-8B3F-A85FCB13F98F@gmail.com>
 	<20200616065933.GF2180@rednote.net>
 	<843663A4-EEEA-4DB7-A1CB-56C6A65E41BC@cfcl.com>
 	<20200621074757.GA2690@rednote.net>
-Date: Sun, 21 Jun 2020 11:35:49 -0500
-Message-ID: <CABKqQvEyRFTSLg_38LtPaoUXgiz7Y8vsnM_d3No3fmQ2AmFEmw@mail.gmail.com>
+	<CABKqQvEyRFTSLg_38LtPaoUXgiz7Y8vsnM_d3No3fmQ2AmFEmw@mail.gmail.com>
+Date: Sun, 21 Jun 2020 17:10:31 +0000
+Message-ID: <CAO2sX30dXF-K0QJERmggECQwPgzk5i5HNWGxp+KnuPQyKPi=yg@mail.gmail.com>
 Subject: Re: Prospects for an accessible and open version of Android?
 To: blinux-list@redhat.com
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -108,105 +109,34 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-A couple of questions about the MeerKat:
-Do you have to plug in a mouse and/or monitor for it to work when it
-starts up? I had this experience on another Ubuntu system
-Can you get a built-in battery? I don't understand the point of a tiny
-device if you have to plug it in to use it.
+Yeah, I might could live with only 3 USB-A ports and having to use an
+external optical drive, but the MeerKat refusing to boot without a
+mouse and monitor would be an absolute deal breaker... also, I heard
+mention of HDMI when I checked out it's product page at System 76, but
+no mention of 3.5mm audio jacks, which sadly one can no longer take
+for granted will be found on new machines.
 
-Amanda
+Realistically, I'll probably stick with my 2011 HP until the
+motherboard dies and then panic due to lack of funds to replace it,
+but even if there's no practical way of making it battery powered, the
+MeerKat's size is appealing to me for two reasons:
 
-On 6/21/20, Linux for blind general discussion <blinux-list@redhat.com> wrote:
-> My apology for not keeping the initial question in mind.
->
-> However, I wonder if asking an Android phone to serve this function is
-> more an academic exercise than a practical one at this point?
->
-> I say this because I'm just now in the process of buying my next
-> (natively) Linux computer, and it's quite small. It comes pretty close
-> to the size of an Android phone. So, I suspect it might be the easier
-> path of practicality is the point.
->
-> I'm talking about the MeerKat 5 (small) from System76.com (which you can
-> get with up to a 10th generation Intel I7, 64Gb RAM, and 2Tb NVME
-> drive), all in a box about 4.5 inches by 4.5 inches by 1.5 inches tall.
-> The base price is very competitive with a new Android device, imo, with
-> far more going for it when portable Linux is the goal.
->
-> Which is not to put down academic exercies aimed at hacking Android into
-> something usable. I just think the two questions are worth treating
-> separately.
->
-> Best,
->
-> Janina
->
-> Linux for blind general discussion writes:
->> I think Amanda is trying to get back to the question I originally posted.
->> That is, she wants to set up a cell phone with a (mostly) FOSS Android
->> variant,
->> in order to have an accessible, extensible, and extremely portable
->> computer
->> that is under her (rather than Google's) control.
->>
->> Although she might use the Android UI for some tasks, the goal is to have
->> a
->> command-line interface and a set of blind-friendly commands that she can
->> enter
->> via Bluetooth, SSH, etc.  Longer term, entering commands by braille or
->> voice
->> might allow her to dispense with a separate keyboard.
->>
->> As my posting indicated, there are several candidates for a base OS, but
->> it's
->> hard to tell which one(s) would be a good fit for this use case.
->> Suggestions?
->>
->> - Rich Morin
->>
->> > On Jun 15, 2020, at 23:59, Linux for blind general discussion
->> > <blinux-list@redhat.com> wrote:
->> >
->> > I don't understand your question. An Android device is a Linux device.
->> > It runs on linux kernels, implements several Linux libraries. Its audio
->> > subsystem is driven by alsa.
->> >
->> > The user doesn't see this, of course, because all of that is under the
->> > hood, so to speak. The user interface on Android is written in Java, so
->> > bears no resemblance to the graphical desktop one might see on a
->> > typical
->> > Linux computer, typically GNOME or KDE.
->> >
->> > So, what are you asking? Please say more.
->>
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://www.redhat.com/mailman/listinfo/blinux-list
->
-> --
->
-> Janina Sajka
->
-> Linux Foundation Fellow
-> Executive Chair, Accessibility Workgroup:	http://a11y.org
->
-> The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
-> Chair, Accessible Platform Architectures	http://www.w3.org/wai/apa
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
->
+1. If I had the MeerKat has my primary workstation, it would be
+trivial to pack it up and take it with me if I ever have to travel.
+
+2. The room that currently doubles as my bedroom and home office is
+quite small, trading out my full-sized desktop for something like the
+MeerKat would free up a not insignificant amount of space.
+
+That said, it feels like there really isn't anything out there that
+isn't either crippled by high price, restrictive hardware, or the lack
+of a internal battery.
 
 _______________________________________________
 Blinux-list mailing list
