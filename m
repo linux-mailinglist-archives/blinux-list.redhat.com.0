@@ -1,80 +1,86 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id 63EDD203A31
-	for <lists+blinux-list@lfdr.de>; Mon, 22 Jun 2020 17:01:21 +0200 (CEST)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
+	by mail.lfdr.de (Postfix) with ESMTP id 4282F203E3D
+	for <lists+blinux-list@lfdr.de>; Mon, 22 Jun 2020 19:46:06 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1592838080;
+	s=mimecast20190719; t=1592847965;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=wTZ97DASt00pnf9BFO9TSCDIREuwbcNIME1ARDyb6Oc=;
-	b=N5E5uFvec4Zpt3cK6gkbRKCQKvBW+WSY/QwSrO0J209niFAmtmOBvwSf7QbLSJIrcdz1GT
-	KX7450xfNkcF0JznKjNqnOyrfhai2kB+s0SA5oCfeAFBkVe6TsAx9mRSGut+vlEXdoQDzT
-	nGHyIWtsLFSs2aKOd0502B2/zqcnBV0=
+	bh=318Wr/8Z3Iqk0q8sHF4GT8WLhGiFnS1c7uYn04jy/5o=;
+	b=H6V/4AkPQKf4/u4K5y9brPZPbAC2tNDbpLBPzsgXO9GEoc9hgpstq0bS5guqVlLisly0zo
+	lljzPAwVcAYyUk76Byn7vv9TblCi/HmDG7nOV9Kb6l1aVJng6EgO/b/lllal3N5ehHqcmg
+	Cy6Z9dKuRGZWwl4k9DePzQa6CIzUXHQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-48-HpPw0IssOl6I9Q8bndPt8g-1; Mon, 22 Jun 2020 11:01:17 -0400
-X-MC-Unique: HpPw0IssOl6I9Q8bndPt8g-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-435-UQm3J4OtPQiII1NsV7Cnig-1; Mon, 22 Jun 2020 13:46:02 -0400
+X-MC-Unique: UQm3J4OtPQiII1NsV7Cnig-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 05000A0C05;
-	Mon, 22 Jun 2020 15:01:13 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 50312184D142;
+	Mon, 22 Jun 2020 17:45:58 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4684C5C221;
-	Mon, 22 Jun 2020 15:01:12 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E88AB10013D2;
+	Mon, 22 Jun 2020 17:45:54 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 44FD4833B1;
-	Mon, 22 Jun 2020 15:01:10 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A8386833CB;
+	Mon, 22 Jun 2020 17:45:44 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 05MF14qK015513 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 22 Jun 2020 11:01:04 -0400
+	id 05MHjYK3003254 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 22 Jun 2020 13:45:34 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 8FDD62029F70; Mon, 22 Jun 2020 15:01:04 +0000 (UTC)
+	id 27DF72016F2C; Mon, 22 Jun 2020 17:45:34 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8B5A62016F2C
-	for <blinux-list@redhat.com>; Mon, 22 Jun 2020 15:01:02 +0000 (UTC)
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 213F82028CD2
+	for <blinux-list@redhat.com>; Mon, 22 Jun 2020 17:45:31 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8773F108C272
-	for <blinux-list@redhat.com>; Mon, 22 Jun 2020 15:01:02 +0000 (UTC)
-Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com
-	[209.85.222.178]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-67-SBRvlHjMMeyeAlp_-RL19w-1; Mon, 22 Jun 2020 11:00:59 -0400
-X-MC-Unique: SBRvlHjMMeyeAlp_-RL19w-1
-Received: by mail-qk1-f178.google.com with SMTP id j80so4426999qke.0
-	for <blinux-list@redhat.com>; Mon, 22 Jun 2020 08:00:59 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8BDCE858EFE
+	for <blinux-list@redhat.com>; Mon, 22 Jun 2020 17:45:31 +0000 (UTC)
+Received: from mail-ot1-f49.google.com (mail-ot1-f49.google.com
+	[209.85.210.49]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-181-xy-r-grqNVGs0Ipr9uoYBA-1; Mon, 22 Jun 2020 13:45:27 -0400
+X-MC-Unique: xy-r-grqNVGs0Ipr9uoYBA-1
+Received: by mail-ot1-f49.google.com with SMTP id e5so13727678ote.11
+	for <blinux-list@redhat.com>; Mon, 22 Jun 2020 10:45:27 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=HZK704izhtfcwWSCSTmOGz8nI0bRnyZBWgLc32ozYvY=;
-	b=hGAU4ZM3zHFI+pbTDYgIFScQZ0Rbu2kCHTJaZOgDxHjnH1tc7I+HUgN9J1YH10H6Bt
-	DPHBl1a6DX/eNIYXFwaWl8Qzax1e0pgA2eVZ7Kmt5I+CEUrgnq0KOLeiBA1a1H+S1qux
-	ryqDuPCj2JAyZR1zzT2+Ge3jTRcwCsfvjREv491ifzUyF7R10VP/KfRxu8zIpd6yyoPK
-	SuDddch7curQz4CV8zl0ijdCdq+3IXImPL2TLI2uJt/SZd4zHaADRHpP71uvlqCKqFGv
-	q1rHKvlT77GA85qYdU9yn5DstnaMyZlcJjNiHo96kBZIqX9UCuZZKnMPYMPZocYM4XVh
-	dPkQ==
-X-Gm-Message-State: AOAM533VXHGd8roy/D1sWSrOu0A462bPq4K/zGsNsNQZ1HWJKBvka8C9
-	bj2FsB88gNXJwUnVH5n/9IadUXnUC7XWtrhF/bj66xmm
-X-Google-Smtp-Source: ABdhPJzPqEBQQ4Mv9ssKpdnjWMgZyAt8cjo8k7Nsz7JK7Xg0kRGLzq6pcBgem/NUQmL+/doT9Ec2NqCAM0+eEa4f1Bc=
-X-Received: by 2002:a37:5bc3:: with SMTP id p186mr5564303qkb.401.1592838058921;
-	Mon, 22 Jun 2020 08:00:58 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:a0c:ea4a:0:0:0:0:0 with HTTP; Mon, 22 Jun 2020 08:00:58
-	-0700 (PDT)
-In-Reply-To: <2A1D7016-E760-46B1-BB5E-3A7C56B8BC88@gmail.com>
+	h=x-gm-message-state:from:content-transfer-encoding:mime-version
+	:subject:date:references:to:in-reply-to:message-id;
+	bh=WMggpK0VWnc2af/1w5hlY2kqYQ4yALuJ74hCxlbz59s=;
+	b=ePzcHTQ7B6/6YxJh/fYpZU/JV1kFqZBJ/cf6FWYootb78l4sHtcWqmR4x9usXLoxX4
+	aotkHRyI/QEObDwfQG9/OwU9N2UeUTfC56Mjilbxj7Rvf39i/2fB3WkEUXhzU7G1KOIo
+	KekCEVAx2QHVblxQ3MSpLmztffiiGtHdKyFoEjtgAUP13VCuMI4aEA/uiT/vjtov8WL9
+	3cfxoojazOxhTV6gM+kUPJFxdPxGHeeClia33iu6TcYUCNZk1JpRd0q6aJFyQ69UuEak
+	KGn+IXVFg7GZJmyTpbpsFQpaiKRyWUYMXLAMoCSm/7JOLrHNuuwTZrkRduglnRAo+8eY
+	ON6w==
+X-Gm-Message-State: AOAM531l1I/6fks4O6XxPNHvWsq1zFejQ0y02SkBUg5ajwbRrMylzcDk
+	GurlH/S7gmWSLmn7sOzLpoXfvJXK2eE=
+X-Google-Smtp-Source: ABdhPJwCY0rwjNCYJYTIbyUQMn8ehU+/yHVFJDLPy92ZPy6RWvAkv9fMnnyIURTB0c850pYj0IOrlw==
+X-Received: by 2002:a05:6830:1587:: with SMTP id
+	i7mr16090929otr.155.1592847926808; 
+	Mon, 22 Jun 2020 10:45:26 -0700 (PDT)
+Received: from ?IPv6:2601:3c2:8200:9360:146e:afd2:98ee:6d9b?
+	([2601:3c2:8200:9360:146e:afd2:98ee:6d9b])
+	by smtp.gmail.com with ESMTPSA id z6sm3453118oth.26.2020.06.22.10.45.25
+	for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+	Mon, 22 Jun 2020 10:45:26 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.5\))
+Subject: Re: Prospects for an accessible and open version of Android?
+Date: Mon, 22 Jun 2020 12:45:25 -0500
 References: <DF019091-ECBE-48AC-8B3F-A85FCB13F98F@gmail.com>
 	<68F8B348-C5F3-4E40-9731-CB928C1E1786@cfcl.com>
 	<3FF9DFF0-EBA2-41FA-AF6D-41A15F7D96B3@gmail.com>
@@ -95,11 +101,13 @@ References: <DF019091-ECBE-48AC-8B3F-A85FCB13F98F@gmail.com>
 	<0BA842DF-6DEA-4352-A635-B447ECB597E2@gmail.com>
 	<CAO2sX31aVwswLgsx=JjjjLGw8waC+hvBBVag60UBB5JbSFRYnQ@mail.gmail.com>
 	<2A1D7016-E760-46B1-BB5E-3A7C56B8BC88@gmail.com>
-Date: Mon, 22 Jun 2020 15:00:58 +0000
-Message-ID: <CAO2sX308N-y=iFGV53feLkM3_4BqEcTDdjSOXoSL+BLKh8KneA@mail.gmail.com>
-Subject: Re: Prospects for an accessible and open version of Android?
-To: blinux-list@redhat.com
+	<CAO2sX308N-y=iFGV53feLkM3_4BqEcTDdjSOXoSL+BLKh8KneA@mail.gmail.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+In-Reply-To: <CAO2sX308N-y=iFGV53feLkM3_4BqEcTDdjSOXoSL+BLKh8KneA@mail.gmail.com>
+Message-Id: <5DBEF5E4-43CB-4CD9-9B33-EBA335C5AEA1@gmail.com>
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 05MHjYK3003254
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -116,31 +124,42 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-Authentication-Results: relay.mimecast.com;
-	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-SBL is a console screen reader, and one of the reasons it's my
-favorite is that screen review is as simple as holding down caps lock
-and using the arrow keys(left/right for character-by-character,
-up/down for line-by-line).
+I thought of trying OpenSuse, leap.
+But after burning that to a dvd and using super alt s, I heard nothing.
+Did that distribution come with orca? 
 
-It's the default text-mode screen reader used by Knoppix when run in
-it's accessibility-focused Adriane mode and is also available as an
-RPM package in OpenSuSe, but to my knowledge, those are the only
-distros it's avaialable for.
+> On Jun 22, 2020, at 10:00 AM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> 
+> SBL is a console screen reader, and one of the reasons it's my
+> favorite is that screen review is as simple as holding down caps lock
+> and using the arrow keys(left/right for character-by-character,
+> up/down for line-by-line).
+> 
+> It's the default text-mode screen reader used by Knoppix when run in
+> it's accessibility-focused Adriane mode and is also available as an
+> RPM package in OpenSuSe, but to my knowledge, those are the only
+> distros it's avaialable for.
+> 
+> No clue where it lies on the kernel versus userspace spectrum(espeakup
+> depends on the speakup kernel module while part of the original
+> impetus for Fenrir was to create a fully userspace screen reader that
+> would work on systems that exclude speakup from their kernels(and
+> while I don't understand Kernel development much, I understand speakup
+> has been stuck in something called staging for years and that only the
+> more inclusive builds of Linux import anything from staging).
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+> 
 
-No clue where it lies on the kernel versus userspace spectrum(espeakup
-depends on the speakup kernel module while part of the original
-impetus for Fenrir was to create a fully userspace screen reader that
-would work on systems that exclude speakup from their kernels(and
-while I don't understand Kernel development much, I understand speakup
-has been stuck in something called staging for years and that only the
-more inclusive builds of Linux import anything from staging).
 
 _______________________________________________
 Blinux-list mailing list
