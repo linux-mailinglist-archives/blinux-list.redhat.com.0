@@ -2,86 +2,78 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id C1CD12053B4
-	for <lists+blinux-list@lfdr.de>; Tue, 23 Jun 2020 15:42:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id B0D51205447
+	for <lists+blinux-list@lfdr.de>; Tue, 23 Jun 2020 16:19:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1592919764;
+	s=mimecast20190719; t=1592921949;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ZVL+f2utaB+/u4B3SgSkmTV25+8oLXUf2Er2MFG/No4=;
-	b=X7xTI3Cszk5Qy+tA+nh+RQdaF/+fBHNYR5nU+2M7zC/8ge5H9k5rW/ge7U5jEteBrzInZb
-	Dw7bTAgEWrgd7GEhwmKxMsH2meXyvRZFIYkboQ/FGrodf9l14+/uvlyY7APHzAzHE/c8OU
-	81/8FSSHbXt6Tl+NteMIl6F6jKS7Oro=
+	bh=a4jdtay76NkS94sekgfSM7h8VS4akRzXQMr41rnmxEI=;
+	b=IjNrq7vw2eXV7w3M3ML5MbGsuBHDLhCqDoXOjbAe8SFBrtuUry97lP5AqugLOP73p+JEFe
+	5ATOdxK6Lt1RfyLtKJ+ku2ZU8FUgtK3Dx3Df27l2gc+H0vo4uGBj5tk1hZL36U5l83WkvP
+	+bjEehbNEuHjDwx/9KpR061zDyZA828=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-354-YJTGPygLOOORMC-0CF0TIQ-1; Tue, 23 Jun 2020 09:42:42 -0400
-X-MC-Unique: YJTGPygLOOORMC-0CF0TIQ-1
+ us-mta-260-6XlhJdH3OHSQOZg5wGXlGA-1; Tue, 23 Jun 2020 10:19:05 -0400
+X-MC-Unique: 6XlhJdH3OHSQOZg5wGXlGA-1
 Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 533738035AC;
-	Tue, 23 Jun 2020 13:42:38 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 131597FEAD;
-	Tue, 23 Jun 2020 13:42:38 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5E85E10059A3;
+	Tue, 23 Jun 2020 14:18:57 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5CA6E78EB3;
+	Tue, 23 Jun 2020 14:18:56 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B0A1D833D5;
-	Tue, 23 Jun 2020 13:42:37 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4C81E180954D;
+	Tue, 23 Jun 2020 14:18:54 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 05NDgW6Z007641 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 23 Jun 2020 09:42:32 -0400
+	id 05NEIl2O012757 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 23 Jun 2020 10:18:47 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 5770C217B436; Tue, 23 Jun 2020 13:42:32 +0000 (UTC)
+	id 22D7D20234B0; Tue, 23 Jun 2020 14:18:47 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 52F60217B437
-	for <blinux-list@redhat.com>; Tue, 23 Jun 2020 13:42:30 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1BE0320182A3
+	for <blinux-list@redhat.com>; Tue, 23 Jun 2020 14:18:45 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DD02D1859163
-	for <blinux-list@redhat.com>; Tue, 23 Jun 2020 13:42:29 +0000 (UTC)
-Received: from sonic303-2.consmr.mail.bf2.yahoo.com
-	(sonic303-2.consmr.mail.bf2.yahoo.com [74.6.131.41]) (Using TLS) by
-	relay.mimecast.com with ESMTP id us-mta-460-lTQTPJhgO9Knp87bbWsbNg-1;
-	Tue, 23 Jun 2020 09:42:27 -0400
-X-MC-Unique: lTQTPJhgO9Knp87bbWsbNg-1
-X-YMail-OSG: FtjI63cVM1lPhtW3VvwgssICoHNxNAinKnZBfj0UcRA2HaiHo..AuiDqaQZ.juV
-	0A5r.frkJtNKpASV5KoUwQtWJqlbY.9SEBPy0cGPgtN6iImUo9YPLnZXQAo7MXAO8w3gVZfV0ik4
-	cJ_howEZ5aGnPkxPq6up53Wb4Ky240buJapFbdh2qNzdLJWhYsK2754O6Tmu_9Ojx8Qi7yu3TxlM
-	wxvrEXBsDvrJ3U5K7YNPDQ__s_TAJ47QtST8w6pNl_yXXo8LkJKf.dNSdQg2MkredcCkDwJFVQ8B
-	LLdraTBCjAiB5QVFnMSqBygzPZ_FMP1gY3VzX6MxTvKOBkrfnAr1j_GcbmMWcP3LCBWoOsfD0AXP
-	xViNizunhRNSAxd5vWEjG.qQew9VEPyhwXlj4ibO8o2br8er2hBG9InCV7hE_odM5EfgO6F_ePO2
-	X3y9ZxC.u2ONznobgUYTJYGkNf5Hl8Bk3qXfyYG_PFJS8S_oi8JwFnAbK_0XaoPcTtLcdsmtQnbD
-	RWU0NLXLyTSpKQWRQdH.sdQYOOYImmcUxLBdMaASRTw9H2LrOGdDdQQQwlg21AxbURoexTeoBhEy
-	c55EqshhG4CN3bIcO6Pezu0MYx9rJ18EWgo6BhTMCPeNn2IuY3UX9skGQFP2kqwgP3Jtzo7T9wm9
-	QWtXK9tBfv_TfTnbNtOQakbCBpPPteUQzuaNa8cyLKbyw05BGQJx282w5B1xE9sLVKe1V9SOt..7
-	YbnIpUx9f1cB71uCy06zLmENRF4WF9jL48IJ4GkvAlM5emkc_8qG7wkwzguEViCHnaghKEWdNd0y
-	dMY.O.nTRtILuhsEALKsHnfMWBsaCpMdX6mZKfzV1mRCURn_Re2bLX6Q9K2Kx0o9tNFNEjMTUudL
-	zijiFjj32QV1zO3QrrzOj1B7mR4Y17dLu3QxzA4KMKjNgJEqaYxPdRrSt9fkeDy3XynLm_MQpOqY
-	Z75rJCNfvUSDkiuut0oEG2QvFvG8xjpQ4WlKQ7DNY4JYq74SsAAbUvp.pW4cahVo6SeEGIk17Fh_
-	mmC4R5SR6HFRmZr06XTGIEC6Ii4KzIyBMz.0Kgg56o9tYJHIw1Itr0dezQgzraJRi4Jg6HF1opyn
-	PY7HOljnd3XIM85b0BtZkit8mJWPHZX9pHLWNodV.eI2LFaHATr7i1YQjPJvOtm46C2EUs225eXs
-	V5jDuF.hwLZpyj8iXFDSyW2iUfl0In24XynAOZr9b.PvlqPoKH4FXM9CXtioj.OCTSCu0QiLVZMv
-	eMx8Tj1SBN3cBPZsLU4RFaLfmdhu2Nm5XnLXZX6ZRJ2T.J0Mo8TET_x0DkU4jzBF1vjSjO3DdOJ1
-	dv.PRyevoKYUn3Dg7NG._OaEachfFts9mYOUUbojGaPZy8SpJiMjtRa.WbP5tnMTUcko116TYHGe
-	Ik6K4ixQZUCroOMPCJ2BijPGbarxyHS2DTyNRIlURJzo-
-Received: from sonic.gate.mail.ne1.yahoo.com by
-	sonic303.consmr.mail.bf2.yahoo.com with HTTP;
-	Tue, 23 Jun 2020 13:42:27 +0000
-Received: by smtp420.mail.bf1.yahoo.com (VZM Hermes SMTP Server) with ESMTPA
-	ID 8ed74878251aee503aa0e7cd1a80dfd6; 
-	Tue, 23 Jun 2020 13:42:22 +0000 (UTC)
-Subject: Re: off list questions
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2B871858EFF
+	for <blinux-list@redhat.com>; Tue, 23 Jun 2020 14:18:45 +0000 (UTC)
+Received: from mail-qt1-f173.google.com (mail-qt1-f173.google.com
+	[209.85.160.173]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-464-6eQkAK_mPaucGkYCVsgm1Q-1; Tue, 23 Jun 2020 10:18:40 -0400
+X-MC-Unique: 6eQkAK_mPaucGkYCVsgm1Q-1
+Received: by mail-qt1-f173.google.com with SMTP id i3so5973937qtq.13
+	for <blinux-list@redhat.com>; Tue, 23 Jun 2020 07:18:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=1bHNwfvfbrd3eVxbUlZW31OFRoxF1e3oGICS6TKSCfU=;
+	b=ZLcd+8ozFLDdTG0axXKdg3h6zK3pKux220a5c2r5wwyA4VscY8eC5fnl6hRL4F1Xq5
+	o4Paf7JRyQECjedKHUmHusjHf/fAeyMX2AQKNVutdM5nQzSXJc+BSp3Scv5dJQfXstBd
+	ryqcwzLV2bXaj78MxnXZBJ2FEssoW6oUR26zEV2KBYd5JwT/YOR5Q6Prv+tzYhHaaCIv
+	yAkwyUqMQyyGrXaXils9xyH9DOxsev7J823ApEVFMOt0ww+icyP0qGB4yuf1eR5ESsyI
+	VgursLQDHmVA/q4WbGj084JOeg8mt8rcwWby99+WdmGoLd28MPFJ8qaYYjtcaL37B61o
+	+IOg==
+X-Gm-Message-State: AOAM533PnaUDzEiIg3+cKlb6mvqk5oiD7KFzOMi0rru2dp8ofRSuXavP
+	7PdlQbpdQTjMKwGhzl6F3dNVPnbEz72179SerlwZwJ2x
+X-Google-Smtp-Source: ABdhPJz3CSAdg7qtWWfH1SCVKICQNhMyHSwHwJV36njh6M2xGXdY9BXcp7OzUSzoPr6vNvyOhQvv7bGokQz6EHmHqKg=
+X-Received: by 2002:aed:2ba1:: with SMTP id e30mr11777997qtd.357.1592921918004;
+	Tue, 23 Jun 2020 07:18:38 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a0c:ea4a:0:0:0:0:0 with HTTP; Tue, 23 Jun 2020 07:18:37
+	-0700 (PDT)
+In-Reply-To: <1fdcb072-31fb-af97-f126-939175c776ae@verizon.net>
 References: <DF019091-ECBE-48AC-8B3F-A85FCB13F98F@gmail.com>
 	<eb770c6c-c8e6-84d6-973c-e3afc118ca1b@slint.fr>
 	<20200615100242.GC2180@rednote.net>
@@ -102,14 +94,12 @@ References: <DF019091-ECBE-48AC-8B3F-A85FCB13F98F@gmail.com>
 	<CAO2sX31=Tkng2Zms9yLK7gVEyz+HKHDck5PEbTqL4xCe+diK=w@mail.gmail.com>
 	<e606c651-4507-ad22-6a20-53753364f1f5@verizon.net>
 	<C89E4DED-1132-45C0-BE16-E42E2E9B6ACD@gmail.com>
-Message-ID: <1fdcb072-31fb-af97-f126-939175c776ae@verizon.net>
-Date: Tue, 23 Jun 2020 09:42:21 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Thunderbird/68.9.0
-MIME-Version: 1.0
-In-Reply-To: <C89E4DED-1132-45C0-BE16-E42E2E9B6ACD@gmail.com>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+	<1fdcb072-31fb-af97-f126-939175c776ae@verizon.net>
+Date: Tue, 23 Jun 2020 14:18:37 +0000
+Message-ID: <CAO2sX31z-VCStfSOPibjrY-kEHGpCYhdXG01aS4JLWutE-Zkew@mail.gmail.com>
+Subject: Re: off list questions
+To: blinux-list@redhat.com
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -129,61 +119,21 @@ Errors-To: blinux-list-bounces@redhat.com
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-I don't know, sorry to tell you.
-
-
-Al
-
-
-On 6/23/20 9:00 AM, Linux for blind general discussion wrote:
-> Hello Al and everyone else.
-> How may I write to someone, if I want to explore a linux topic with someone off list?
->
->> On Jun 22, 2020, at 8:03 PM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
->>
->> My objection to using "literally" figuratively is that we then have to find a new word for literally.  In the example here, "exploded" is enough and is figurative anyway.
->>
->>
->> I'll skip the other stuff, and take a second of amusement that this became a topic on a Linux list.  (Then again, computers are quite literal--in their numeric fashion.
->>
->>
->> Best!
->>
->> Al
->>
->>
->> On 6/22/20 6:47 PM, Linux for blind general discussion wrote:
->>> Yeah, I don't really get the objection to the word "share" in the
->>> context of telling someone about an experience, and while saying
->>> someone has issues is vaguer than saying someone's nuts, I don't
->>> really see such as euphemistic... granted, someone having issues could
->>> just as easily refer to everyday stress and/or bad luck.
->>>
->>> I'm also okay with the word "literally" being used figuratively(e.g.
->>> saying someone literally exploded as metaphor/hyperbole for a fit of
->>> anger).
->>>
->>> Then again, perhaps my inner linguist is just more of a descriptivist
->>> than a prescriptivist.
->>>
->>> _______________________________________________
->>> Blinux-list mailing list
->>> Blinux-list@redhat.com
->>> https://www.redhat.com/mailman/listinfo/blinux-list
->>>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://www.redhat.com/mailman/listinfo/blinux-list
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
+As this is an anonymous list, having an off-list conversation with
+another user would pretty much require you or the one you wish to
+e-mail off list to share their e-mail in a list message. Not sure how
+comfortable you or other users would be doing so, though considering
+the overlap between this and other accessibility mailing lists I'm on
+and how several of the others maintain the senders e-mail in the
+sender information(to the point I sometimes send stuff to the last
+respondent in a thread instead of the list and end up with stuff added
+to my address book without me wanting it thanks to Gmail being kind of
+dumb about replying to messages from mailing lists), I'd imagine many
+of the more prominent people would be fine with sharing contact
+details if asked.
 
 _______________________________________________
 Blinux-list mailing list
