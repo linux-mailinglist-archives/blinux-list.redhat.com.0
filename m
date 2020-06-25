@@ -1,99 +1,90 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id AB08820979C
-	for <lists+blinux-list@lfdr.de>; Thu, 25 Jun 2020 02:25:13 +0200 (CEST)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	by mail.lfdr.de (Postfix) with ESMTP id 96C3D209823
+	for <lists+blinux-list@lfdr.de>; Thu, 25 Jun 2020 03:16:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1593044712;
+	s=mimecast20190719; t=1593047780;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=thkhQRKlYemc4I6880pCNLhU13/oY2tAzh+P3nXJ3u4=;
-	b=BaqP7ZTBRioYeXzCnIM+2A319DeUo0kxdBgA0kl0RVO03cXJsUv6/etJdNtQfJOz4imdkp
-	Evh8DAoj4ajQAcwEeeqdZy8wXrUJSD7FE/GFuvyBjq4BJa+cIylrReZE7WowYMRQwfJw+8
-	yZhu01Fyf2HFu4jWvI6y46qGCwjxY0M=
+	bh=ufz3UTKp+WugWpfB/3HtVmZMQuEH9hxv3ClX9b+zPTM=;
+	b=PkhJCz6/e8MFsUCiKEbYckoMlzchsGG4LahjL3VGsERehdcA1pFwgJmndXHzOlwsviQ8J4
+	x+yB5A3M0dDMjhWGFBVE8bl3xi4akMjcMwD99EOO60eTV3yup9bU4otAFxxH02y5wy2z2m
+	msIFyYXutCnhQqA3o7NisjfdmxBLCbM=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-506-Tvr4y3JtOTW6WIAd5vYO8w-1; Wed, 24 Jun 2020 20:25:10 -0400
-X-MC-Unique: Tvr4y3JtOTW6WIAd5vYO8w-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-356-3EuzXLZ9Mzu1x139DFIPOQ-1; Wed, 24 Jun 2020 21:16:17 -0400
+X-MC-Unique: 3EuzXLZ9Mzu1x139DFIPOQ-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 880CA800C64;
-	Thu, 25 Jun 2020 00:25:05 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 29A8810059A7;
+	Thu, 25 Jun 2020 01:16:14 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 89A747CCD1;
-	Thu, 25 Jun 2020 00:25:00 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 117F417B16;
+	Thu, 25 Jun 2020 01:16:13 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E0BA1833D3;
-	Thu, 25 Jun 2020 00:24:54 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C20C887593;
+	Thu, 25 Jun 2020 01:16:11 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 05P0OhJf020421 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 24 Jun 2020 20:24:43 -0400
+	id 05P1G6bW026023 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 24 Jun 2020 21:16:06 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 567B72144B35; Thu, 25 Jun 2020 00:24:43 +0000 (UTC)
+	id 9BF11F4D28; Thu, 25 Jun 2020 01:16:06 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 510B92144B34
-	for <blinux-list@redhat.com>; Thu, 25 Jun 2020 00:24:37 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 91361176FF
+	for <blinux-list@redhat.com>; Thu, 25 Jun 2020 01:16:04 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4A0488007A4
-	for <blinux-list@redhat.com>; Thu, 25 Jun 2020 00:24:37 +0000 (UTC)
-Received: from mail-qv1-f46.google.com (mail-qv1-f46.google.com
-	[209.85.219.46]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-44-DOxUaikxNrKkJXazz2IGxA-1; Wed, 24 Jun 2020 20:24:35 -0400
-X-MC-Unique: DOxUaikxNrKkJXazz2IGxA-1
-Received: by mail-qv1-f46.google.com with SMTP id fc4so1996815qvb.1
-	for <blinux-list@redhat.com>; Wed, 24 Jun 2020 17:24:35 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1ADF3101A525
+	for <blinux-list@redhat.com>; Thu, 25 Jun 2020 01:16:04 +0000 (UTC)
+Received: from mail-qt1-f179.google.com (mail-qt1-f179.google.com
+	[209.85.160.179]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-446-AP1VQ3PFNpK9g_XVr7mlbw-1; Wed, 24 Jun 2020 21:16:01 -0400
+X-MC-Unique: AP1VQ3PFNpK9g_XVr7mlbw-1
+Received: by mail-qt1-f179.google.com with SMTP id v19so3377529qtq.10
+	for <blinux-list@redhat.com>; Wed, 24 Jun 2020 18:16:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=4FzjLMRb2AIRt97ZaNWSG8BnWg0yXthFrid0zpMWOuQ=;
-	b=WY20RgdiEUhfb6cbp7+ebsHHrC9CVZhOoB6zz8L0b5yh3wh6cfFdohHPUY22vEqJ4q
-	cJx4qpXMDn8CvpH6BM3iQt0c4hb+veoTpB7GookadYOe/DLD7DTnIF62ivpEdiecCXFH
-	7YcV2XZ1bDhrrO2rceQCWOPC664WcUo6Glh5cE+q0gOvo0i2qNWVBnVlwSowUmnaq2pG
-	Hu4Hm0c7fFMWF94KSXDzUcisybg+m5qa+fmriHBASa3tE60jlGutflZjVGMfVUqzqE3G
-	/9+SHWPWZL3RvkwXTYem6lefwGDIpnobaOKxfX54bLtz2yqtMyExN6NqNPWvHZfHeXYB
-	GuOA==
-X-Gm-Message-State: AOAM532Qz5xpc189BZPwHM14q9bUrqro5wGG+rVZQ6WUAy/hPkL0lIfM
-	U1pP3ZsZutvlkKG6SmTw5ICI4cr47ys=
-X-Google-Smtp-Source: ABdhPJzrYWcV+t8z7Pywv5+K2oURnzOsHfTRgKS69RWBxo2Ay/NqqM6VSVUBLx+mBZIs08ZH6rnbcw==
-X-Received: by 2002:a05:6214:9c8:: with SMTP id
-	dp8mr5395963qvb.127.1593044674290; 
-	Wed, 24 Jun 2020 17:24:34 -0700 (PDT)
-Received: from ?IPv6:2606:a000:111a:8d0a::433?
-	(2606-a000-111a-8d0a-0000-0000-0000-0433.inf6.spectrum.com.
-	[2606:a000:111a:8d0a::433]) by smtp.gmail.com with ESMTPSA id
-	r188sm4612181qkf.128.2020.06.24.17.24.32 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Wed, 24 Jun 2020 17:24:33 -0700 (PDT)
-Subject: Re: anonymity, threads, signatures, and confusion
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=42MOqX8M9Pk53sDNHo7RwMlRKEmVVh7MxB++WR7/TGM=;
+	b=JhdqQM1e4USaLrWab2NgyyAejwk9RKekFD89RQZoe6MhZx3QCdqq8dFbJEZQiGrhto
+	OzV94p3dujNLwXv3q6E+tItHu3mmDiCjzOmjXS+LJ9kN97aCMK2usV5YURXnC66GsQK5
+	iJFEEmsKGsw/NC0ZhK0ZP67M1S3+3738VGjvxbVmsxVCEObsOj+X2ojwwzvaJDV1V8iK
+	JJ8erySl47CaMuFu4NzJh6J0+oBZhgeSVDNX9ZXTtsefW5bhizGT8nsdhJQKe2lgTpOm
+	Uu3ZIKjzQb4GXCSxQEBJYbJN1Nz8GyAkBZeTJO0j88g+aFvaC3UEVuZmRyecBlKqicPE
+	sxng==
+X-Gm-Message-State: AOAM5309dtiaZ/JBjqk3tRwWY5BHA26k4Z0S+dkWqXIpDQRBJLIzTyOS
+	xVCkl88U3Vn8L1vJVr8g2hwlPZqpxIPNfupkuTADpXVK
+X-Google-Smtp-Source: ABdhPJwSOIMsC1Ec3QVnIIoGg2ELBqZ676QjMLax1cmc6XVRbBBM77K2+bnHUdBglILQbtkXEJE8tFlHOiUSeUhLPP0=
+X-Received: by 2002:ac8:320f:: with SMTP id x15mr4516020qta.6.1593047760639;
+	Wed, 24 Jun 2020 18:16:00 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a0c:ea4a:0:0:0:0:0 with HTTP; Wed, 24 Jun 2020 18:16:00
+	-0700 (PDT)
+In-Reply-To: <b57cf3a3-4587-197f-5026-342f6447a649@gmail.com>
 References: <CCAC71E7-DD5D-453C-BCCE-67BC02E9ECB0@cfcl.com>
 	<Pine.LNX.4.64.2006241341320.26460@server2.shellworld.net>
 	<435D6EB7-70C3-4C70-AAED-11CE64B93241@cfcl.com>
 	<Pine.LNX.4.64.2006241420050.27528@server2.shellworld.net>
 	<CAO2sX32BWM_Oxdme42Ok1_bG0Yok2hpAZDWSOoMM-tV3_bScBA@mail.gmail.com>
-Message-ID: <b57cf3a3-4587-197f-5026-342f6447a649@gmail.com>
-Date: Wed, 24 Jun 2020 20:24:31 -0400
-User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:68.0) Gecko/20100101
-	Thunderbird/68.9.0
-MIME-Version: 1.0
-In-Reply-To: <CAO2sX32BWM_Oxdme42Ok1_bG0Yok2hpAZDWSOoMM-tV3_bScBA@mail.gmail.com>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+	<b57cf3a3-4587-197f-5026-342f6447a649@gmail.com>
+Date: Thu, 25 Jun 2020 01:16:00 +0000
+Message-ID: <CAO2sX32RQmBC-LT1fcTg0Koe+d2ur7xpmyOVLWEzNuHfhoe_Gw@mail.gmail.com>
+Subject: Re: anonymity, threads, signatures, and confusion
+To: blinux-list@redhat.com
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -110,20 +101,31 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Lol Jeffery, what's wrong with MicroSD? I'm in total agreement with most 
-of the hardware stuff you mentioned, but I have no problem with MicroSD, 
-and in fact end up with too many full SD adapters I can't use. For those 
-things that do need full size SD, I can take a MicroSD and stick it into 
-the full size adapter. For what I do though, eMMC is usually better, at 
-least for internal OS's on the computers I build.
+Rich pretty much read my mind earlier, I find the tiny size of microSD
+make them hard to handle and way too easy to lose, and I've yet to
+come across a device where I felt like the extra bulk to fit a
+full-sized SD slot would harm the overall look and feel of the device.
 
-~Kyle
+Wouldn't be so bad if I could just install a card and then never touch
+it except to replace it when it fails or I need to upgrade to a larger
+capacity, but it seems like every device that I come across either
+straight up doesn't allow access to the SD card by connecting the
+device to my desktop over USB or the device doesn't act like USB mass
+storage, making it easier to move stuff to/from the SD card by popping
+it out of the device and into a card reader.
+
+Fortunately, my portable media player has a full-sized SD slot and
+works just fine with SDXC cards once formatted to fat32 on my desktop,
+though I fear the day it eventually fails as the trends it defies have
+only gotten more entrenched over the years I've had it.
+
+-Jeff
 
 _______________________________________________
 Blinux-list mailing list
