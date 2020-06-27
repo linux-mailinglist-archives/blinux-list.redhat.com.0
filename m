@@ -1,91 +1,88 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
-	by mail.lfdr.de (Postfix) with ESMTP id 63EE020A661
-	for <lists+blinux-list@lfdr.de>; Thu, 25 Jun 2020 22:10:59 +0200 (CEST)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by mail.lfdr.de (Postfix) with ESMTP id 86A7C20C11B
+	for <lists+blinux-list@lfdr.de>; Sat, 27 Jun 2020 13:48:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1593115858;
+	s=mimecast20190719; t=1593258494;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=yFYfM/RWRJRMxWS896nmTWwDpqX6jftdysOI2/4B9aM=;
-	b=RJdp3HzUP+Mb7FDYcmFKP+lMeEb77scMVooF042mO8olwDbZrDjswKH9bRglWiZ55YoRVG
-	TJToB/J6yVnItNqsbqqgvNXfGeBI/oAmdBIglAFKFzvM/oVXDToE6Toi33ODawJ/FhrQyd
-	RaVKSVw7/OgUiCwQF3SawBUHwu8scEw=
+	bh=Jh6ojlYjUd/8+6ec48/XWpwBasPyKrcWGXR/36sF2ZQ=;
+	b=NAqMvH/GC7eL47YSUR5eHTTKlUnVo7AhmjUxPRdvHVVxobf/BhaD+vFrplG46/RY9R4R7l
+	qXsXWYkEpq+nOsMM5UJ8kzQ8tRbwvWy9VfMPTnq3XcaIX2NktTXSLUKBf5giZDuAtLwo8L
+	FkJjVmbbibKwMlXHdQZ1kGCQjNA2rh0=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-247-64umrv_lMMuMV5WmTcI_4Q-1; Thu, 25 Jun 2020 16:10:56 -0400
-X-MC-Unique: 64umrv_lMMuMV5WmTcI_4Q-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-48-p9uOeh3_MPK1ZDvUC5RnYA-1; Sat, 27 Jun 2020 07:48:12 -0400
+X-MC-Unique: p9uOeh3_MPK1ZDvUC5RnYA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A4024A0BE2;
-	Thu, 25 Jun 2020 20:10:51 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 86DA210016DA;
-	Thu, 25 Jun 2020 20:10:51 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 029F8802ED6;
+	Sat, 27 Jun 2020 11:48:06 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A2EE760BF1;
+	Sat, 27 Jun 2020 11:48:02 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5511D1809547;
-	Thu, 25 Jun 2020 20:10:51 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 90BC387860;
+	Sat, 27 Jun 2020 11:47:53 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 05PKAm0Y010914 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 25 Jun 2020 16:10:48 -0400
+	id 05RBli6n028894 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 27 Jun 2020 07:47:45 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 902C6202B173; Thu, 25 Jun 2020 20:10:48 +0000 (UTC)
+	id 933BE1C0EFA; Sat, 27 Jun 2020 11:47:44 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8C3F8202B184
-	for <blinux-list@redhat.com>; Thu, 25 Jun 2020 20:10:46 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8EF43181507
+	for <blinux-list@redhat.com>; Sat, 27 Jun 2020 11:47:41 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 33322800143
-	for <blinux-list@redhat.com>; Thu, 25 Jun 2020 20:10:46 +0000 (UTC)
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com
-	[209.85.216.50]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-233-85S84hScNkiMOIuzFQ436w-1; Thu, 25 Jun 2020 16:10:43 -0400
-X-MC-Unique: 85S84hScNkiMOIuzFQ436w-1
-Received: by mail-pj1-f50.google.com with SMTP id b92so3832810pjc.4
-	for <blinux-list@redhat.com>; Thu, 25 Jun 2020 13:10:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:date:from:reply-to:to:subject:in-reply-to
-	:message-id:references:user-agent:mime-version;
-	bh=fCRl1gpMXwdbvOL1U1ol6H34jZWn4DmcUOCAa+SFBTw=;
-	b=FGnTg8z0L8BhT2q9Q5zaCse4D4njfE0mzjTORhek8JRlqdEABCm0ODaUpkGeQ9W/kv
-	3SfmRtUbJ9B1A/mlGmajFjbunaqYBNl9+lHEQBMU37yFQLMwTFEuvJ0n5OKR2GErtGE3
-	KGTSyVK9I5MWe4rONtFmTINKFOqwm4jeiH7otdJtEg3pR0dWlXUPm9U03Q/mWRAjswXs
-	a9PwlLGkj8/rGlgDuHDgpFvbIt8kILLi00PSZdrupWcloZeeobPtMT1cNnssHwMe+eOH
-	mpCo0uGeDyPL28bVTKui/LEF5LAyFAc6aNYFpvWvL2TR5SuaAOx2FT9kwjRXfWjkRmCe
-	GU3g==
-X-Gm-Message-State: AOAM533+p1X3qkBZ3Wl0lXVUxVH526+ELDYtNrBfsX/fxOK1FttvCGi4
-	2kc9dF1WG7SrfBpfpKFv1p7Z387n
-X-Google-Smtp-Source: ABdhPJw8UOLzw8pfZqGgCqx91syWF8eFsYyckoJwphXB/mCUOZG58AM87kgW8yvrzJ9KPccLL9rSVw==
-X-Received: by 2002:a17:902:b58f:: with SMTP id
-	a15mr35040838pls.106.1593115839178; 
-	Thu, 25 Jun 2020 13:10:39 -0700 (PDT)
-Received: from tom-M2800 (207-118-108-232.dyn.centurytel.net.
-	[207.118.108.232]) by smtp.gmail.com with ESMTPSA id
-	f6sm25820991pfe.174.2020.06.25.13.10.38 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-	Thu, 25 Jun 2020 13:10:38 -0700 (PDT)
-Date: Thu, 25 Jun 2020 13:10:37 -0700 (PDT)
-X-X-Sender: tom@tom-M2800
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D0C2B100CF81
+	for <blinux-list@redhat.com>; Sat, 27 Jun 2020 11:47:41 +0000 (UTC)
+Received: from opera.rednote.net (opera.rednote.net [66.228.34.147]) (Using
+	TLS) by relay.mimecast.com with ESMTP id
+	us-mta-336-bwNSYoKDOeSaU2t51pbhJQ-1; Sat, 27 Jun 2020 07:47:38 -0400
+X-MC-Unique: bwNSYoKDOeSaU2t51pbhJQ-1
+Received: from rednote.net (localhost [IPv6:0:0:0:0:0:0:0:1])
+	by opera.rednote.net (8.15.2/8.15.2) with ESMTPS id 05RBlbMP007789
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)
+	for <blinux-list@redhat.com>; Sat, 27 Jun 2020 11:47:37 GMT
+DMARC-Filter: OpenDMARC Filter v1.3.2 opera.rednote.net 05RBlbMP007789
+DKIM-Filter: OpenDKIM Filter v2.11.0 opera.rednote.net 05RBlbMP007789
+Received: (from janina@localhost)
+	by rednote.net (8.15.2/8.15.2/Submit) id 05RBlb7d007788
+	for blinux-list@redhat.com; Sat, 27 Jun 2020 07:47:37 -0400
+Date: Sat, 27 Jun 2020 07:47:37 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: problems with apache2 /var/www/html
-In-Reply-To: <CADj8JxdZpDra8wxg9UcjDjsG3CtcG0A7EWTRt6Pg6C4LU0bLvw@mail.gmail.com>
-Message-ID: <alpine.DEB.2.21.2006251309490.13727@tom-M2800>
-References: <CADj8JxdZpDra8wxg9UcjDjsG3CtcG0A7EWTRt6Pg6C4LU0bLvw@mail.gmail.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+Subject: Re: Prospects for an accessible and open version of Android?
+Message-ID: <20200627114737.GA2669@rednote.net>
+References: <e606c651-4507-ad22-6a20-53753364f1f5@verizon.net>
+	<CABKqQvEu6kC9SS7BCYK349DnxAh2moF1xLBFVoXBa1Hag5uHXA@mail.gmail.com>
+	<63801353-D7D0-43CF-B340-E95876634B1C@gmail.com>
+	<CAO2sX325iMBmhA4hs+iY5jNZ+weePFrRBgyk81BZT7Kyy23t8w@mail.gmail.com>
+	<20200624120822.GG2690@rednote.net>
+	<83CB53E7-F6D3-4B37-BA8D-EE7DBA340BF8@gmail.com>
+	<20200625121548.GB245455@rednote.net>
+	<CAO2sX30VsKxkCqGryAoqeqKHhs1Bi-dLMamNmz21+F-7VrmY6w@mail.gmail.com>
+	<CAO2sX32DGABVbzM0Fov2k+qkG=MqVc9EoBX9ZpN6490QNZY-XA@mail.gmail.com>
+	<9d29efe4-f30d-c73b-e69f-f21626113962@slint.fr>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+In-Reply-To: <9d29efe4-f30d-c73b-e69f-f21626113962@slint.fr>
+X-Operating-System: Linux opera.rednote.net 5.6.19-200.fc31.x86_64
+X-MIME-Autoconverted: from 8bit to quoted-printable by opera.rednote.net id
+	05RBlbMP007789
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 05RBli6n028894
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -102,29 +99,63 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+Authentication-Results: relay.mimecast.com;
+	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
 
-What are you getting for an error?  How are you trying to do the upload?
+Thanks for checking into this, Didier. With this established, I'l push
+them on that point.
 
-Tom
+PS: Their ordering page needs a little a11y love, too. I ultimately placed =
+my order
+by phone.Ostensibly, my machine will be stock Ubuntu 20.4, but we'll
+see.
 
-On Thu, 25 Jun 2020, Linux for blind general discussion wrote:
+Key request which they readily agreed to, is to enable sshd on boot.
+That should give me the best access to get things configured for speech,
+probably something I know more about than they
+! <smile>
 
-> So my web server is running apache2 php and mariadb but I can't upload
-> anything to the directory. www-data is the owner and it is a system
-> account. /var/www/html is my root directory. Is there something I'm
-> doing wrong?
->
+Best,
+
+Janina
+
+
+Linux for blind general discussion writes:
+> On 25/06/2020 =E0 15:32, Jeff wrote:
+> > Oh, and I also listen forward to reading about your experiences with
+> > the MeerKat.
+>=20
+> Off topic, but I have looked into the ISO of Pop!OS, the distribution
+> provided by System76, and it's clearly a customized Ubuntu 20.04, no
+> more, no less. It would be fair to clearly state that on their website
+> in my opinion.
+>=20
+> Didier Spaier
+> didier at slint dot fr
+>=20
+>=20
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://www.redhat.com/mailman/listinfo/blinux-list
->
->
+
+--=20
+
+Janina Sajka
+https://linkedin.com/in/jsajka
+
+Linux Foundation Fellow
+Executive Chair, Accessibility Workgroup:=09http://a11y.org
+
+The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
+Co-Chair, Accessible Platform Architectures=09http://www.w3.org/wai/apa
+
 
 _______________________________________________
 Blinux-list mailing list
