@@ -1,70 +1,76 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	by mail.lfdr.de (Postfix) with ESMTP id 51849211701
-	for <lists+blinux-list@lfdr.de>; Thu,  2 Jul 2020 02:08:32 +0200 (CEST)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	by mail.lfdr.de (Postfix) with ESMTP id DCDA62123D5
+	for <lists+blinux-list@lfdr.de>; Thu,  2 Jul 2020 14:58:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1593648511;
+	s=mimecast20190719; t=1593694700;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=eHqmK/tBWIW8iYkbAroSgfja/YEHl+tJ7z3LS6aRY3A=;
-	b=NSxYMBZ8dXlJ78n/IiwQkljndyQRK+VaYBc2tylnGEoEu+5qFLDia7c31cKp74o3v2qKzK
-	h0jPUpS73g9HFrukLgud2ofsAQUZMjsVgk+Aw2Y6qLHQazpEOEEPpxM4AkyNe3UkX48CHt
-	P4hTfLaaXkxX0gPz5acbPoiSEQGFdgU=
+	bh=fYH/LWBv+OkjrGRyD12JcWI5eTY3vJ9PoRYdcOWfzmk=;
+	b=J7ijlz/zJAAp69hrvmuQchYWgpJVxzlnYpa2AUvUi4DJo09SXEpo+3KLBgXugvYmd09FaB
+	A9X/K80enP8UUJVEYuB0ci7WY8vw99nJd4gFkU8VkhgFXAMuy8hfmjLimCKJOzowbqriYG
+	Oa2C+/6JhhwLicPyGZQZ8iEpyqVxxtY=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-211-KBNrCKOBNkyf_6F_Lz43kg-1; Wed, 01 Jul 2020 20:08:29 -0400
-X-MC-Unique: KBNrCKOBNkyf_6F_Lz43kg-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-453-0LQfS5IIMZ6kgS1OVDS-vA-1; Thu, 02 Jul 2020 08:58:19 -0400
+X-MC-Unique: 0LQfS5IIMZ6kgS1OVDS-vA-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6E5C7800C64;
-	Thu,  2 Jul 2020 00:08:24 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 93F5017D8F;
-	Thu,  2 Jul 2020 00:08:20 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5A88080183C;
+	Thu,  2 Jul 2020 12:58:14 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 89CD973FD3;
+	Thu,  2 Jul 2020 12:58:12 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B6BFC1809547;
-	Thu,  2 Jul 2020 00:08:12 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BC8236C9C7;
+	Thu,  2 Jul 2020 12:58:07 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 06207wMP029816 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 1 Jul 2020 20:08:01 -0400
+	id 062CuIVQ025879 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 2 Jul 2020 08:56:18 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id BAD58202B173; Thu,  2 Jul 2020 00:07:58 +0000 (UTC)
+	id 1B233F41A6; Thu,  2 Jul 2020 12:56:18 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B69922022EA2
-	for <blinux-list@redhat.com>; Thu,  2 Jul 2020 00:07:56 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 160FFF4D57
+	for <blinux-list@redhat.com>; Thu,  2 Jul 2020 12:56:12 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F32C5186E3A9
-	for <blinux-list@redhat.com>; Thu,  2 Jul 2020 00:07:55 +0000 (UTC)
-Received: from server2.shellworld.net (ip-66-172-12-120.chunkhost.com
-	[66.172.12.120]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-4-J2EpD0nGMayrbodnYYSwLg-1; Wed, 01 Jul 2020 20:07:53 -0400
-X-MC-Unique: J2EpD0nGMayrbodnYYSwLg-1
-Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id A8541541EC2; Thu,  2 Jul 2020 00:07:52 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id A7756541DD4
-	for <blinux-list@redhat.com>; Wed,  1 Jul 2020 20:07:52 -0400 (EDT)
-Date: Wed, 1 Jul 2020 20:07:52 -0400 (EDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 83BCE858EE9
+	for <blinux-list@redhat.com>; Thu,  2 Jul 2020 12:56:12 +0000 (UTC)
+Received: from opera.rednote.net (opera.rednote.net [66.228.34.147]) (Using
+	TLS) by relay.mimecast.com with ESMTP id
+	us-mta-331-oKZ9k7IgP7eINJdBtUfKiQ-1; Thu, 02 Jul 2020 08:56:10 -0400
+X-MC-Unique: oKZ9k7IgP7eINJdBtUfKiQ-1
+Received: from rednote.net (localhost [IPv6:0:0:0:0:0:0:0:1])
+	by opera.rednote.net (8.15.2/8.15.2) with ESMTPS id 062Cu9p1235568
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)
+	for <blinux-list@redhat.com>; Thu, 2 Jul 2020 12:56:09 GMT
+DMARC-Filter: OpenDMARC Filter v1.3.2 opera.rednote.net 062Cu9p1235568
+DKIM-Filter: OpenDKIM Filter v2.11.0 opera.rednote.net 062Cu9p1235568
+Received: (from janina@localhost)
+	by rednote.net (8.15.2/8.15.2/Submit) id 062Cu94W235567
+	for blinux-list@redhat.com; Thu, 2 Jul 2020 08:56:09 -0400
+Date: Thu, 2 Jul 2020 08:56:09 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: duckduckgo is now duckduckstop
-In-Reply-To: <alpine.NEB.2.22.394.2007010559480.7609@panix1.panix.com>
-Message-ID: <Pine.LNX.4.64.2007012006530.10772@server2.shellworld.net>
-References: <alpine.NEB.2.22.394.2007010559480.7609@panix1.panix.com>
+Subject: Re: using orca wile using jack
+Message-ID: <20200702125609.GB2669@rednote.net>
+References: <CADj8JxfchRF-=uX6bDxNyO+DE9fxUOygrV4E4GdLzEHoZYOPVg@mail.gmail.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+In-Reply-To: <CADj8JxfchRF-=uX6bDxNyO+DE9fxUOygrV4E4GdLzEHoZYOPVg@mail.gmail.com>
+X-Operating-System: Linux opera.rednote.net 5.6.19-200.fc31.x86_64
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -81,36 +87,42 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
-I wonder if the issue has been corrected?
-Just visited duckduckgo in lynx, and it worked as it does normally.
+I can tell you that I've done so, but not on the same audio device, of
+course.
 
+I did not use the graphical jack tools but the cli.
 
+Best,
 
-On Wed, 1 Jul 2020, Linux for blind general discussion wrote:
+Janina
 
-> It's possible to find results but not possible to access results.  I found
-> a sourceforge.net article on newsboat which lite.duckduckgo.com cannot
-> access.  I'll check other searches and see if they're also broken.  It
-> could be duckduckgo is having some server problems this morning.
->
->
->
-> --
->
+Linux for blind general discussion writes:
+> is it possible to use jack wile using orca? How should I configure it?
+> 
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://www.redhat.com/mailman/listinfo/blinux-list
->
->
+
+-- 
+
+Janina Sajka
+https://linkedin.com/in/jsajka
+
+Linux Foundation Fellow
+Executive Chair, Accessibility Workgroup:	http://a11y.org
+
+The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
+Co-Chair, Accessible Platform Architectures	http://www.w3.org/wai/apa
 
 _______________________________________________
 Blinux-list mailing list
