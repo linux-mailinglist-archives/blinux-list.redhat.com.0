@@ -1,90 +1,93 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	by mail.lfdr.de (Postfix) with ESMTP id 9ACF3228B86
-	for <lists+blinux-list@lfdr.de>; Tue, 21 Jul 2020 23:41:40 +0200 (CEST)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	by mail.lfdr.de (Postfix) with ESMTP id C9BDC228BA8
+	for <lists+blinux-list@lfdr.de>; Tue, 21 Jul 2020 23:49:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1595367699;
+	s=mimecast20190719; t=1595368197;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=4Z8888YHz99spH2emVZ3v/T+gnNLk0iWd9DtDSMAT2A=;
-	b=MviEA8hdZAhPYsJxI7ZlIjc6JJi2Mix6wwuNaagBXLXXOwINE1Y1xePnw4F7MUV3z7HH5R
-	g11Mukt+M/BvC1a50tU/hKWylRFdSaV1Szw/WjlfXyZom2bZIZEEEFGcG1oNrrsX3tY8bx
-	hC6uN4RZhoo2/Pm1BzBuIReg023hcKQ=
+	bh=L94vZuLzw2H4IYiwp09h0lVn9UPnE3RsdrwSoq88i4o=;
+	b=KndfgFNwPHQq1b7MXn0Lb0dw94EbLWRAaMkryA7ebiTifQEzaysv7Prh62+dNG7QWFM+1G
+	67Oby+IeksSfCLmEjDWjFX6YgfJbWpZGqsaZ5N+IWncYp3Jvu+3gV9+ZE2TDD6Yc200kX+
+	JJB6CEZx+8zu2Le7Z0BBRmEbCn5gGHY=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-143-sa2PSTD8MgOhxNloDgdjhA-1; Tue, 21 Jul 2020 17:41:37 -0400
-X-MC-Unique: sa2PSTD8MgOhxNloDgdjhA-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-294-Alz0W2DJMFqiS5vJkS3DKg-1; Tue, 21 Jul 2020 17:49:53 -0400
+X-MC-Unique: Alz0W2DJMFqiS5vJkS3DKg-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 51FDB10059A7;
-	Tue, 21 Jul 2020 21:41:08 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1A0AF60E1C;
-	Tue, 21 Jul 2020 21:41:06 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 21E18108E;
+	Tue, 21 Jul 2020 21:49:50 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 05D7C171EB;
+	Tue, 21 Jul 2020 21:49:50 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3BF291809557;
-	Tue, 21 Jul 2020 21:41:05 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id CF243730C4;
+	Tue, 21 Jul 2020 21:49:48 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 06LLewvd011883 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 21 Jul 2020 17:40:58 -0400
+	id 06LLiPqV012212 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 21 Jul 2020 17:44:25 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 68D2B2166BA2; Tue, 21 Jul 2020 21:40:58 +0000 (UTC)
+	id 61E52215671F; Tue, 21 Jul 2020 21:44:25 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 643802166B28
-	for <blinux-list@redhat.com>; Tue, 21 Jul 2020 21:40:56 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 381F92156A4A
+	for <blinux-list@redhat.com>; Tue, 21 Jul 2020 21:44:23 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 57ED18007C9
-	for <blinux-list@redhat.com>; Tue, 21 Jul 2020 21:40:56 +0000 (UTC)
-Received: from mail-oi1-f177.google.com (mail-oi1-f177.google.com
-	[209.85.167.177]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-273--Fq0CGaBNVK3p_wpwf1J_w-1; Tue, 21 Jul 2020 17:40:53 -0400
-X-MC-Unique: -Fq0CGaBNVK3p_wpwf1J_w-1
-Received: by mail-oi1-f177.google.com with SMTP id l63so18517637oih.13
-	for <blinux-list@redhat.com>; Tue, 21 Jul 2020 14:40:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:to:references:in-reply-to:subject:date
-	:message-id:mime-version:content-transfer-encoding:thread-index
-	:content-language;
-	bh=H2oxpF7wJ2IHRXgQ3FT7NBNWHkj9yjO6e9MhTbxb9uk=;
-	b=kiLVAgspdD2E4FWYkp8ASv19cW1GEcin9AW/+Z4d7n96a7euRFFBnE7w8CiNe6TPFa
-	nhSY2bF2cCerZfDd8S+OXGQW5BLvkZwZ41y8BgSzJZMpRrdG7vaom2npnbfZH4j+a+1V
-	SOlegu1GxE7VKnr1EPSOnK15kdsYfFqGWwx82wDruRFcQvtrFPCS405pHLH6f0Wg8cLL
-	Joqdtoxe2bKIrsp939kUBrTenKvMkCCoxCIVR8s9KTH8A7zc+WkdOyUPdCTr6prC0G9Z
-	hGCsjflgzt89xafbdz5wv0fB0PsLqs4Hj5Sok2G7nOdjjyernjFSVSWvPol/8qW5OVNH
-	nHyg==
-X-Gm-Message-State: AOAM532DdFVSxZjMgzt2gXstF4tT6Ca8c/1iWLSg4R/2fRKBupCrO0n0
-	Zoa/97FDic8OrcH/mhc3FELrMbp0KXY=
-X-Google-Smtp-Source: ABdhPJxlruquGYcje9XxpfKXGFs62nxNTZm8FUA4KhP+npxCIP/SykCHtEEq+hpaMBG2pxzuCXlIdg==
-X-Received: by 2002:aca:5347:: with SMTP id h68mr4847338oib.168.1595367652085; 
-	Tue, 21 Jul 2020 14:40:52 -0700 (PDT)
-Received: from DESKTOPIOCCUEU (74-194-137-49.gtwncmta01.res.dyn.suddenlink.net.
-	[74.194.137.49])
-	by smtp.gmail.com with ESMTPSA id t25sm918964ots.64.2020.07.21.14.40.51
-	for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-	Tue, 21 Jul 2020 14:40:51 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 06A6C86CB9F
+	for <blinux-list@redhat.com>; Tue, 21 Jul 2020 21:44:23 +0000 (UTC)
+Received: from sonic302-22.consmr.mail.ne1.yahoo.com
+	(sonic302-22.consmr.mail.ne1.yahoo.com [66.163.186.148]) (Using TLS) by
+	relay.mimecast.com with ESMTP id us-mta-355-jwRYhoIPO5avVz5yUprDnw-1;
+	Tue, 21 Jul 2020 17:44:19 -0400
+X-MC-Unique: jwRYhoIPO5avVz5yUprDnw-1
+X-YMail-OSG: EjHZFFoVM1kUq9JxFyPs2Y1Zl4TgGGuNkYzpHjyZmT2gbGTKh1YzIlQbMtdmsR9
+	Onunrd27.B.S5sHo5UFReL04F.pH4ofsH_N81w.stUcAVWMkSRx9aM9xrdki_Lg8LjKFcMVC_WMX
+	9GP0OC_eKzmbwc7T2GfJOUuESvKckLKP7RsyAM_DASl.yqzNczGwF.j3QmSsoeQ2Dx_rYTgms07o
+	yA0iElxlsxtzTIsYO.fDllzF99NcOnCL1.pDh.ylEdTcPyUfnWhZuNmKqKlmvtWWqEUR4QIxq115
+	e7QgpHhdH9UhKG7qwAGpePonR5xGfEofNc66opsBnKBLpMugBGxycnKuI5YAYAY4P4E3bBpaWlG3
+	oNmH6kXTbBXXrJiWV5qec2BaPAbVLbrLqXwOzRLC9uMe5z0wFPE1a9GijrbLgX6NQ4ipB1Qjd3hQ
+	MsM9QUFikyMizD5kbIOv6wbOQgg0OiYlLZ1qBxnTNtRXGvV1tfh94hCp08sBzXuqm51PvT.o7MJS
+	DaCKJHlOnE6Iu_IFuDMBWoCySU5qR2CDobZmHzLbhPhZknhh4yALU2XwFG3C1A_jXsjcJMO66n_5
+	X2MgPVWqRctp0GQ9UXMEc_KO89TENWhh415jYMlEr4oHvZBaBJzGHBp3o5BFxAZKh2yAcKPOwj_M
+	iL6QZQ.kac5ho7yNGwID6IGhyEYQX61mUWgXJIHn1RKkQLyOcqyP4OaqLfZNGL9pH3e7c3oik4fY
+	2NyIMYbLUKyXB4aV7WfKcDg1TXJM808_mWnZXH6cdm2TRGt_5tr80zUXl9czhaMvLBDmM2Q4qYrg
+	vcQ4hOLuvsGr_yMmEJp.gCPSXjMyKgGzvA6BkrfnQI3rTiVJgSCFISRJe7mXE40ywk8lHRsDNtav
+	LkvgG5xWXsxaz23xPTHo3v692u4_NMOS1gFZ54IOieS8.GVVZ7O6nFRZZYUM2Hqx.Jx1zGryOuea
+	KsqAMO0.Dr2OUtnzcCK1OoCUs1uS2xidq6X1MXrAUmj3eo8XEa05P1M_4pwIV22hMzvp0PwS2oWl
+	UFCP3HSaYL.RuXvF12Kn7LrghzCEZw2TDCv2nmX6DREpevrbsvbZmlGOymG91XTd.QFE22F7PZdf
+	LM9.32EuE38wV0m.DKtPtvlKQNbUSQ_0jzotT3KvVxnWcAg0IUNR8ihZPtiyAV_.LYuXrTgLoUrt
+	qaaLE5N9GRHyB4nw_eaGmoq56zsmOv9iqVe87x3vAlUGBraX4TZNvobfq7Z1d3E4mNwuvu1j0RJD
+	6RAj9h.cjgoAW2fhvai39aPAqdkDUaRL656pRljZse8RA9JbqG.tL7hbXev3LVD7ni0I2x33G8Hj
+	zYO8j7ngh905u1ryXWGBowij2yAwypr_4Ez1lWG5ZphWI7.EFFh7iwYnAqeIpWOIs4dsDGA--
+Received: from sonic.gate.mail.ne1.yahoo.com by
+	sonic302.consmr.mail.ne1.yahoo.com with HTTP;
+	Tue, 21 Jul 2020 21:44:18 +0000
+Received: by smtp408.mail.bf1.yahoo.com (VZM Hermes SMTP Server) with ESMTPA
+	ID 90022ed698f9d7d62542a926440f4af5; 
+	Tue, 21 Jul 2020 21:44:17 +0000 (UTC)
 To: <blinux-list@redhat.com>
-References: <747E6C6B-83F6-498A-904F-BD93B9E8FB94@gmail.com>
-In-Reply-To: <747E6C6B-83F6-498A-904F-BD93B9E8FB94@gmail.com>
-Subject: RE: Problems wealth the 2020 Version I of Ubuntu linux download.
-Date: Tue, 21 Jul 2020 16:40:48 -0500
-Message-ID: <010c01d65fa7$99953d00$ccbfb700$@gmail.com>
+References: <02d601d65bb9$cd357b80$67a07280$.ref@yahoo.com>	<02d601d65bb9$cd357b80$67a07280$@yahoo.com>
+	<20200718110724.GA2593@rednote.net>
+In-Reply-To: <20200718110724.GA2593@rednote.net>
+Subject: RE: installing speakup on RHEL 7/8
+Date: Tue, 21 Jul 2020 14:44:17 -0700
+Message-ID: <015301d65fa8$16604280$4320c780$@yahoo.com>
 MIME-Version: 1.0
-Thread-Index: AQL+bxMHMHjF2Jk2/p7h+6LQGLi0/qbCcFrA
+Thread-Index: AQNc5jLN+mdFGYYu0fUGJnDrgEEZpQIekfAKAdo7VQql5bnz4A==
 Content-Language: en-us
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
@@ -103,74 +106,96 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-It will be compatible with Intel architecture. AMD64 just means it's a
-64-bit distribution. The industry settled on AMD's 64-bit architecture, so
-this includes Intel as well.
 
---
-Christopher (AKA CJ)
-Chaltain at Gmail
+Thanks Janina for the info, I wonder if anyone we can ask inside Red hat to
+shed some light on this topic, as I am unable to find any contact info for
+their accessibility team.
 
-> -----Original Message-----
-> From: blinux-list-bounces@redhat.com <blinux-list-bounces@redhat.com> On
-> Behalf Of Linux for blind general discussion
-> Sent: Tuesday, July 21, 2020 3:28 PM
-> To: blinux-list@redhat.com
-> Subject: Problems wealth the 2020 Version I of Ubuntu linux download.
+I imagine I can't be the only one out there who is trying to use speakup
+with RHEL, or am I?
+
+--David
+
+
+-----Original Message-----
+From: blinux-list-bounces@redhat.com <blinux-list-bounces@redhat.com> On
+Behalf Of Linux for blind general discussion
+Sent: Saturday, July 18, 2020 4:07 AM
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: installing speakup on RHEL 7/8
+
+When he was still alive, Bill Acker routinely built Fedora kernels that
+included Speakup, both before and after Speakup became part of staging.
+I know for a fact that Bill tried, and never succeeded at building Speakup
+into RHEL. Now Bill's been gone for a few years, but I've no reason to
+believe the environment has suddenly become Speakup friendly, sorry to say.
+
+No, I don't recall what the block was/were.
+
+I know that's not what you wanted to hear, but it's the best answer I can
+provide and I don't believe you're going to find very much different info.
+I'll be happy to be proven wrong, of course.
+
+It'll be interesting to see what RHEL does when Speakup finally becomes a
+first class kernel citizen. If I understand the situation correctly, that
+should come fairly soon.
+
+Best,
+
+Janina
+
+Linux for blind general discussion writes:
+>  
 > 
-> Good afternoon I am I have a very interesting Ubuntu  installation
-problem.
-> Unfortunately this Iso Image is not downloading correctly. Just so that
-everyone
-> is aware I'm trying to install this distribution into a virtual Machine on
-my  Mac
-> by using I am using Vmware.
+> Hi there -
 > 
-> I can think of to possible issues that might be causing this problem. One
-I'm
-> downloading this Image from the main website, so network traffic might be
-too
-> high to get correct Image file. The other possibility is that this Version
-of Ubuntu
-> is not compatible with Intel architecture. Because the file name States it
-is four
-> AMD processors.
+>  
 > 
-> Does anyone no i'll be reliable alterNet download site four this Image?
-The other
-> question if people on the list Think that the version of Ubuntu is
-incorrect, what
-> version of this distribution wood be more appropriate four a virtual
-Machine
-> installation on  a 2020 MacBook Pro running at 2 GHz, this processor has
-turbo
-> boost up to 3.8 GHz. And has a 16 gig i'll be fast ram. Any suggestions,
-or advice
-> on how to solve my problem.
+> I am getting a workstation at work that will be running RHEL 7 or 8.  
+> From what I understand, speakup is not a package in yum, but it is now 
+> part of the kernel staging tree.
 > 
-> Sincerely Maurice Mines.
-> PS this is the 2020 Desktop Long support Version oh Ubuntu.
+>  
 > 
-> Please note the above text may have errors because I'm using apples
-built-in
-> dictation software. If there something written above that you did not
-> understand, please ask me what my original intent Wise? I will do my very
-best
-> to attempt to clear up any misunderstandings that may arise from the
-contents
-> i'll be above email. Thank you very much four Reading this.
+> Does anyone have instructions on how to get speakup installed and 
+> running on RHEL 7 or 8 using software speech?
 > 
+>  
+> 
+> Any help appreciated, thank you very much in advance
+> 
+>  
+> 
+> --David
+> 
+>  
 > 
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://www.redhat.com/mailman/listinfo/blinux-list
+
+-- 
+
+Janina Sajka
+https://linkedin.com/in/jsajka
+
+Linux Foundation Fellow
+Executive Chair, Accessibility Workgroup:	http://a11y.org
+
+The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
+Co-Chair, Accessible Platform Architectures	http://www.w3.org/wai/apa
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
 
 
 _______________________________________________
