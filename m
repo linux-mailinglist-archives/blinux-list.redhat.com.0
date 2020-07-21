@@ -1,90 +1,92 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
-	by mail.lfdr.de (Postfix) with ESMTP id 56974228A19
-	for <lists+blinux-list@lfdr.de>; Tue, 21 Jul 2020 22:40:56 +0200 (CEST)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	by mail.lfdr.de (Postfix) with ESMTP id 9ACF3228B86
+	for <lists+blinux-list@lfdr.de>; Tue, 21 Jul 2020 23:41:40 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1595364055;
+	s=mimecast20190719; t=1595367699;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=12tBBgs5B8/1BZCqObQQbzfiiNBo3ILQCANhSBdARXk=;
-	b=amhkY+80c4UbNr6sHNHWnHyLOKQJWphW8VvyflLgMGLwIZBxLW+ubQ2RhEOsZWSqHXjeV0
-	Ms5nDEIHa3cZExpj1IGpWGA/blxTEQu8RTjVO0YKSXsC9ASG6nrDhaJPwqFIL+yKDJA9DJ
-	2H9TPP0O4WFAdch5uT49QM3sw/T+EDs=
+	bh=4Z8888YHz99spH2emVZ3v/T+gnNLk0iWd9DtDSMAT2A=;
+	b=MviEA8hdZAhPYsJxI7ZlIjc6JJi2Mix6wwuNaagBXLXXOwINE1Y1xePnw4F7MUV3z7HH5R
+	g11Mukt+M/BvC1a50tU/hKWylRFdSaV1Szw/WjlfXyZom2bZIZEEEFGcG1oNrrsX3tY8bx
+	hC6uN4RZhoo2/Pm1BzBuIReg023hcKQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-283-kLJeMibrMKy-xFNtxbksWg-1; Tue, 21 Jul 2020 16:40:52 -0400
-X-MC-Unique: kLJeMibrMKy-xFNtxbksWg-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-143-sa2PSTD8MgOhxNloDgdjhA-1; Tue, 21 Jul 2020 17:41:37 -0400
+X-MC-Unique: sa2PSTD8MgOhxNloDgdjhA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B96FA189CEFB;
-	Tue, 21 Jul 2020 20:40:47 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D821278530;
-	Tue, 21 Jul 2020 20:40:44 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 51FDB10059A7;
+	Tue, 21 Jul 2020 21:41:08 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1A0AF60E1C;
+	Tue, 21 Jul 2020 21:41:06 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A3CED730C0;
-	Tue, 21 Jul 2020 20:40:36 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3BF291809557;
+	Tue, 21 Jul 2020 21:41:05 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 06LKSV4U032398 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 21 Jul 2020 16:28:31 -0400
+	id 06LLewvd011883 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 21 Jul 2020 17:40:58 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 869DD1040598; Tue, 21 Jul 2020 20:28:31 +0000 (UTC)
+	id 68D2B2166BA2; Tue, 21 Jul 2020 21:40:58 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 82470104059A
-	for <blinux-list@redhat.com>; Tue, 21 Jul 2020 20:28:29 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 643802166B28
+	for <blinux-list@redhat.com>; Tue, 21 Jul 2020 21:40:56 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E6F428007C8
-	for <blinux-list@redhat.com>; Tue, 21 Jul 2020 20:28:28 +0000 (UTC)
-Received: from mail-ot1-f45.google.com (mail-ot1-f45.google.com
-	[209.85.210.45]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-214-YEqJMztSOdGK4XEcRvCIUQ-1; Tue, 21 Jul 2020 16:28:26 -0400
-X-MC-Unique: YEqJMztSOdGK4XEcRvCIUQ-1
-Received: by mail-ot1-f45.google.com with SMTP id d4so158324otk.2
-	for <blinux-list@redhat.com>; Tue, 21 Jul 2020 13:28:25 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 57ED18007C9
+	for <blinux-list@redhat.com>; Tue, 21 Jul 2020 21:40:56 +0000 (UTC)
+Received: from mail-oi1-f177.google.com (mail-oi1-f177.google.com
+	[209.85.167.177]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-273--Fq0CGaBNVK3p_wpwf1J_w-1; Tue, 21 Jul 2020 17:40:53 -0400
+X-MC-Unique: -Fq0CGaBNVK3p_wpwf1J_w-1
+Received: by mail-oi1-f177.google.com with SMTP id l63so18517637oih.13
+	for <blinux-list@redhat.com>; Tue, 21 Jul 2020 14:40:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:content-transfer-encoding:mime-version:date
-	:subject:message-id:to;
-	bh=TKYHiDN+I2vYf8oL+Kx8WINjpMQoR5kpqaB84O86IaE=;
-	b=BJ3m69VwiDB/sFxRwRD9cisouvJpeRaFARk5CFZPbf4dpXke14CWZHC/xmrqlKhr2L
-	2YYMNUefUq69SlV/DsmAA9+RIstWscqNk57CHjCG+uz6MGeuu1764PtxckZ70nPkkPWF
-	igKcUVc4oC0OQ0OGwpkrJ1h8NMmoAhL7MTs7sGqQNAp2F0Lkxvtkovs+Lo+WJKhiujPs
-	j0zdQ/nF8ulhZeIJUL4AQ4/cVyClT7QhqNntnZVwelO4+0sh1JNUwNeSzOlLBh5ZQCLX
-	59Zntx2Jo8M7wzdx8q99xiB1COuWQPvDshcG5ow+IA5fQ1zNBDgyna9aiQBHNrvCskF3
-	SoDQ==
-X-Gm-Message-State: AOAM533Y1qUqEzFz3DQHRVb9Jpe4Ue3JBSjNrYYDPY5g0sdjetm6htkG
-	kQ34EWtzhx1a1fOuTKVNowwgwbZ3z6o=
-X-Google-Smtp-Source: ABdhPJy1lGl8cji5XmhYf+WVE6Cqdbmua1RmDnRQpz63tBg6SOclOQ46dzCNHQVmyjNx8HSywlKfog==
-X-Received: by 2002:a9d:eef:: with SMTP id 102mr25291654otj.225.1595363304983; 
-	Tue, 21 Jul 2020 13:28:24 -0700 (PDT)
-Received: from ?IPv6:2600:1700:81f0:1c10:f8b9:a2df:6990:a666?
-	([2600:1700:81f0:1c10:f8b9:a2df:6990:a666])
-	by smtp.gmail.com with ESMTPSA id
-	w131sm4880226oiw.4.2020.07.21.13.28.23
+	h=x-gm-message-state:from:to:references:in-reply-to:subject:date
+	:message-id:mime-version:content-transfer-encoding:thread-index
+	:content-language;
+	bh=H2oxpF7wJ2IHRXgQ3FT7NBNWHkj9yjO6e9MhTbxb9uk=;
+	b=kiLVAgspdD2E4FWYkp8ASv19cW1GEcin9AW/+Z4d7n96a7euRFFBnE7w8CiNe6TPFa
+	nhSY2bF2cCerZfDd8S+OXGQW5BLvkZwZ41y8BgSzJZMpRrdG7vaom2npnbfZH4j+a+1V
+	SOlegu1GxE7VKnr1EPSOnK15kdsYfFqGWwx82wDruRFcQvtrFPCS405pHLH6f0Wg8cLL
+	Joqdtoxe2bKIrsp939kUBrTenKvMkCCoxCIVR8s9KTH8A7zc+WkdOyUPdCTr6prC0G9Z
+	hGCsjflgzt89xafbdz5wv0fB0PsLqs4Hj5Sok2G7nOdjjyernjFSVSWvPol/8qW5OVNH
+	nHyg==
+X-Gm-Message-State: AOAM532DdFVSxZjMgzt2gXstF4tT6Ca8c/1iWLSg4R/2fRKBupCrO0n0
+	Zoa/97FDic8OrcH/mhc3FELrMbp0KXY=
+X-Google-Smtp-Source: ABdhPJxlruquGYcje9XxpfKXGFs62nxNTZm8FUA4KhP+npxCIP/SykCHtEEq+hpaMBG2pxzuCXlIdg==
+X-Received: by 2002:aca:5347:: with SMTP id h68mr4847338oib.168.1595367652085; 
+	Tue, 21 Jul 2020 14:40:52 -0700 (PDT)
+Received: from DESKTOPIOCCUEU (74-194-137-49.gtwncmta01.res.dyn.suddenlink.net.
+	[74.194.137.49])
+	by smtp.gmail.com with ESMTPSA id t25sm918964ots.64.2020.07.21.14.40.51
+	for <blinux-list@redhat.com>
 	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-	Tue, 21 Jul 2020 13:28:24 -0700 (PDT)
-X-Google-Original-From: Maurice Mines <Maurice.Mines@gmail.com>
-Mime-Version: 1.0 (Mac OS X Mail 13.4 \(3608.120.23.2.1\))
-Date: Tue, 21 Jul 2020 13:28:22 -0700
-Subject: Problems wealth the 2020 Version I of Ubuntu linux download.
-Message-Id: <747E6C6B-83F6-498A-904F-BD93B9E8FB94@gmail.com>
-To: blinux-list@redhat.com
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 06LKSV4U032398
+	Tue, 21 Jul 2020 14:40:51 -0700 (PDT)
+To: <blinux-list@redhat.com>
+References: <747E6C6B-83F6-498A-904F-BD93B9E8FB94@gmail.com>
+In-Reply-To: <747E6C6B-83F6-498A-904F-BD93B9E8FB94@gmail.com>
+Subject: RE: Problems wealth the 2020 Version I of Ubuntu linux download.
+Date: Tue, 21 Jul 2020 16:40:48 -0500
+Message-ID: <010c01d65fa7$99953d00$ccbfb700$@gmail.com>
+MIME-Version: 1.0
+Thread-Index: AQL+bxMHMHjF2Jk2/p7h+6LQGLi0/qbCcFrA
+Content-Language: en-us
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -101,22 +103,74 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Good afternoon I am I have a very interesting Ubuntu  installation problem. Unfortunately this Iso Image is not downloading correctly. Just so that everyone is aware I'm trying to install this distribution into a virtual Machine on  my  Mac by using I am using Vmware. 
+It will be compatible with Intel architecture. AMD64 just means it's a
+64-bit distribution. The industry settled on AMD's 64-bit architecture, so
+this includes Intel as well.
 
-I can think of to possible issues that might be causing this problem. One I'm downloading this Image from the main website, so network traffic might be too high to get correct Image file. The other possibility is that this Version of Ubuntu is not compatible with Intel architecture. Because the file name States it is four AMD processors.
+--
+Christopher (AKA CJ)
+Chaltain at Gmail
 
-Does anyone no i'll be reliable alterNet download site four this Image? The other question if people on the list Think that the version of Ubuntu is incorrect, what version of this distribution wood be more appropriate four a virtual Machine installation on  a 2020 MacBook Pro running at 2 GHz, this processor has turbo boost up to 3.8 GHz. And has a 16 gig i'll be fast ram. Any suggestions, or advice on how to solve my problem.
-
-Sincerely Maurice Mines.
-PS this is the 2020 Desktop Long support Version oh Ubuntu.
-
-Please note the above text may have errors because I'm using apples built-in dictation software. If there something written above that you did not understand, please ask me what my original intent Wise? I will do my very best to attempt to clear up any misunderstandings that may arise from the contents i'll be above email. Thank you very much four Reading this.
+> -----Original Message-----
+> From: blinux-list-bounces@redhat.com <blinux-list-bounces@redhat.com> On
+> Behalf Of Linux for blind general discussion
+> Sent: Tuesday, July 21, 2020 3:28 PM
+> To: blinux-list@redhat.com
+> Subject: Problems wealth the 2020 Version I of Ubuntu linux download.
+> 
+> Good afternoon I am I have a very interesting Ubuntu  installation
+problem.
+> Unfortunately this Iso Image is not downloading correctly. Just so that
+everyone
+> is aware I'm trying to install this distribution into a virtual Machine on
+my  Mac
+> by using I am using Vmware.
+> 
+> I can think of to possible issues that might be causing this problem. One
+I'm
+> downloading this Image from the main website, so network traffic might be
+too
+> high to get correct Image file. The other possibility is that this Version
+of Ubuntu
+> is not compatible with Intel architecture. Because the file name States it
+is four
+> AMD processors.
+> 
+> Does anyone no i'll be reliable alterNet download site four this Image?
+The other
+> question if people on the list Think that the version of Ubuntu is
+incorrect, what
+> version of this distribution wood be more appropriate four a virtual
+Machine
+> installation on  a 2020 MacBook Pro running at 2 GHz, this processor has
+turbo
+> boost up to 3.8 GHz. And has a 16 gig i'll be fast ram. Any suggestions,
+or advice
+> on how to solve my problem.
+> 
+> Sincerely Maurice Mines.
+> PS this is the 2020 Desktop Long support Version oh Ubuntu.
+> 
+> Please note the above text may have errors because I'm using apples
+built-in
+> dictation software. If there something written above that you did not
+> understand, please ask me what my original intent Wise? I will do my very
+best
+> to attempt to clear up any misunderstandings that may arise from the
+contents
+> i'll be above email. Thank you very much four Reading this.
+> 
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
 
 
 _______________________________________________
