@@ -1,73 +1,95 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	by mail.lfdr.de (Postfix) with ESMTP id 899142334D2
-	for <lists+blinux-list@lfdr.de>; Thu, 30 Jul 2020 16:56:21 +0200 (CEST)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+	by mail.lfdr.de (Postfix) with ESMTP id 8E65923376E
+	for <lists+blinux-list@lfdr.de>; Thu, 30 Jul 2020 19:12:45 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1596120980;
+	s=mimecast20190719; t=1596129164;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=9uu4ufmN3pmprV99HmUvGYxBkHAsAKzxNoz93j2yIzs=;
-	b=C7LBkvJLxDocAnn+9gmUBDEPmoc+a55K6I/g8d2EJfjTN6spxGcO+cHpKH2+pTTZCE0cjV
-	TBBgatKsPYrIdvuXIWye+RSnSWBYgHOLbbb3abWV8leRC+SeJWlwY0xg+AHGj6nFn36s2D
-	ZRwtlZVHSPkZS+ZJu0ich2aatAya13A=
+	bh=6w3IkTej4jR1OfiXc/jx8tJqkV6JVX1VIMDrrVzcvAc=;
+	b=MVdDHkIAD8dwfKRbsHyfPVEuF1SbsbrNlTYjdAM7QGZGtmLGxZVd9OHGfpnHj01GJH8Pkf
+	oOmG6oEVtiWlU5EcK4GbzElRaKUpYokfHJ4GA1WFvEFsMaSxt4m1/p1q+oal1jKdpRQwn4
+	BOO/e9qOQmWoBOT+0ym4cbR3SKxF4NI=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-399-OT5syYUvOO6m9gl2Ongrow-1; Thu, 30 Jul 2020 10:56:18 -0400
-X-MC-Unique: OT5syYUvOO6m9gl2Ongrow-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-114-MVNN4--iMI68ve9uoj33bQ-1; Thu, 30 Jul 2020 13:12:42 -0400
+X-MC-Unique: MVNN4--iMI68ve9uoj33bQ-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 962C81893DC7;
-	Thu, 30 Jul 2020 14:56:13 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 87AF38A197;
-	Thu, 30 Jul 2020 14:56:12 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A0314800487;
+	Thu, 30 Jul 2020 17:12:30 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4355C712D9;
+	Thu, 30 Jul 2020 17:12:29 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1870F1809554;
-	Thu, 30 Jul 2020 14:56:10 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id F347895A72;
+	Thu, 30 Jul 2020 17:12:20 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 06UEu37O027253 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 30 Jul 2020 10:56:03 -0400
+	id 06UHCCpv012198 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 30 Jul 2020 13:12:12 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 7C4792166BA4; Thu, 30 Jul 2020 14:56:03 +0000 (UTC)
+	id D67D7FED47; Thu, 30 Jul 2020 17:12:11 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7878A2166BA2
-	for <blinux-list@redhat.com>; Thu, 30 Jul 2020 14:56:01 +0000 (UTC)
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D163BFED35
+	for <blinux-list@redhat.com>; Thu, 30 Jul 2020 17:12:07 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E14888007D2
-	for <blinux-list@redhat.com>; Thu, 30 Jul 2020 14:56:00 +0000 (UTC)
-Received: from opera.rednote.net (opera.rednote.net [66.228.34.147]) (Using
-	TLS) by relay.mimecast.com with ESMTP id
-	us-mta-196-wruM9R0CMguy6hf3H90gPA-1; Thu, 30 Jul 2020 10:55:58 -0400
-X-MC-Unique: wruM9R0CMguy6hf3H90gPA-1
-Received: from rednote.net (localhost [IPv6:0:0:0:0:0:0:0:1])
-	by opera.rednote.net (8.15.2/8.15.2) with ESMTPS id 06UEtvoC285265
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO)
-	for <blinux-list@redhat.com>; Thu, 30 Jul 2020 14:55:57 GMT
-DMARC-Filter: OpenDMARC Filter v1.3.2 opera.rednote.net 06UEtvoC285265
-DKIM-Filter: OpenDKIM Filter v2.11.0 opera.rednote.net 06UEtvoC285265
-Received: (from janina@localhost)
-	by rednote.net (8.15.2/8.15.2/Submit) id 06UEtvwd285264
-	for blinux-list@redhat.com; Thu, 30 Jul 2020 10:55:57 -0400
-Date: Thu, 30 Jul 2020 10:55:57 -0400
-To: blinux-list@redhat.com
-Subject: System76 Meerkat Report
-Message-ID: <20200730145557.GD2791@rednote.net>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3B1D8800580
+	for <blinux-list@redhat.com>; Thu, 30 Jul 2020 17:12:07 +0000 (UTC)
+Received: from sonic310-24.consmr.mail.ne1.yahoo.com
+	(sonic310-24.consmr.mail.ne1.yahoo.com [66.163.186.205]) (Using TLS) by
+	relay.mimecast.com with ESMTP id us-mta-319-N7jp7fbwPNud4pionsR7Tw-1;
+	Thu, 30 Jul 2020 13:12:03 -0400
+X-MC-Unique: N7jp7fbwPNud4pionsR7Tw-1
+X-YMail-OSG: 9PKtLlUVM1l6YvrID2cXbYtqeUcTFqw0v75r86c3r30sAWvFGHKR8_K4YUhcpvQ
+	.4js5I7GvhXPJ0OAOaTC8_zOFcQVLKIbSASarrFqdBu2KGzBNl5IrBjzHtljCvLk7Ljd4z4jqaNB
+	7kj6Hyay.vHuRz6qLzjghM2Vx4O3BhDhwN7WcZA2NV01PVnyLvgRoijYpYYKaIjf1rYYBty.LsSY
+	cm_viqvWXVsS0wvuMaYvlpRJRjaouZU1USbHw2Drk_HD45eW.7vL0HAZKTmT8F2g5KAqrQKW0v06
+	PEj.i2Y5qjDKj6PEhNjzW6OEpjWbP8BgjQOqTWNaigVHkDoW6QnEP0Baf6LvD1OtHKH49HYlgYJy
+	Sxa8_mGAG_NlI9BBIKE6AwdVzzWBVcmKVbQAGIFweLePjTp9BLFhLC99RqxDYatD4SXkaRVOWzuA
+	ytPzGbaCAXXADnOKlL7SRbCiutm7_Vb3RDs2OoTW4xwUZNOkIeSkagbSJiOOByaRfxet5gjwiCVI
+	5YxNGV1G54JFjiXc3n2Will3r72PD2vG.PuiHhtZSOW323LBoV7M5Go2F04uwHB2QYrh5RCXnsAq
+	VUqkAaqEnt6EWY4TkbN5HgY_2vr2mN0jYtj2oMuytFu.VlU6P.zbWZLc9gZ4K46.TaFKUgTgPhCD
+	mvCAICnkqAwJweIF5hnNhrWNnN83rjnaaDIHilFkRzxl8gDNNb73UBZPSHEOFlYnVbUrBqRQjQSm
+	ohak8GAy7ialPSuih5otISqfy83yU8DX643rT3dkO9t9x8o0L7hFEXhMbLtnQ6VzoqhAk7t3B3gg
+	U9h0F8JHtsbRwNfRyHg9SFmUXZVXTDGYB6tXXddgBr4D_JMQ.coLkDKNpK9foc_T7940mSwOedx1
+	wZvrMIurhI9kyzJKkEabw575Cq8zqIH1ByuB7vxm5XjxrFyX_vlZdMCdFdmfY4FpaSmW0xaVirik
+	Y0vdKeobLWI6moq8AVIm9bDXepP36PGdlAxHrMYHVzRRGv_jSK8B4xX.2MCKjVVSZ6IoRx5x4Whj
+	9ZcAL6Hc8CcxzeVo2zW1Iwrmh2MQR8.z16DX7MHGJP1t6uOlLn5CNIdN.2mv7HQu14RURLsJoL_d
+	RyVbeFJpT9.IRag9fzURtJvrSBWiitLLcGAwzySvyJLf9NYOYnCizDtLyoB1UKMkvcbMZIPyTnML
+	.NSZZnMpu5xYQ7HXFvtw0_5mSOsWOLA4fSxYKo78gKrII5h8QdQI7MBql4Bo.ly5yNjCiiMcL7v5
+	rARS2y._.6mlFdBVkOZmUmOuGF..Al0QKoSs12.6eV.__B0ukdlSqxueo578ldRybQ8wHAyYE0UC
+	0O3HuNMnwSbuCwyRcm4GpVBNr3u3AK4xLVUE-
+Received: from sonic.gate.mail.ne1.yahoo.com by
+	sonic310.consmr.mail.ne1.yahoo.com with HTTP;
+	Thu, 30 Jul 2020 17:12:02 +0000
+Received: by smtp411.mail.bf1.yahoo.com (VZM Hermes SMTP Server) with ESMTPA
+	ID 7e9c145f1fbc91b812d6b6cf8f7f3a13; 
+	Thu, 30 Jul 2020 17:11:57 +0000 (UTC)
+To: <blinux-list@redhat.com>
+References: <02d601d65bb9$cd357b80$67a07280$.ref@yahoo.com>	<02d601d65bb9$cd357b80$67a07280$@yahoo.com>	<20200718110724.GA2593@rednote.net>	<015301d65fa8$16604280$4320c780$@yahoo.com>	<20200723165930.GB2593@rednote.net>	<00d901d6613a$4090d7c0$c1b28740$@yahoo.com>	<daba66f6-da1e-a915-dd5d-9569e5d3dcaf@slint.fr>	<20200726163624.y7loskvf3jg4nw65@function>	<54181004-f8ea-344a-29e7-ab437c03f22f@slint.fr>	<20200729154715.66njgipo7l3jxbdv@function>
+	<20200730134209.GA2791@rednote.net>
+In-Reply-To: <20200730134209.GA2791@rednote.net>
+Subject: RE: installing speakup on RHEL 7/8
+Date: Thu, 30 Jul 2020 10:11:55 -0700
+Message-ID: <026701d66694$87db2f90$97918eb0$@yahoo.com>
 MIME-Version: 1.0
-X-Operating-System: Linux opera.rednote.net 5.7.9-100.fc31.x86_64
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+Content-Language: en-us
+Thread-Index: AQNc5jLN+mdFGYYu0fUGJnDrgEEZpQIekfAKAdo7VQoCE/LScgG9pUF+AiUAoMkBggCcIQJx0bWRAoJ/rp4CncORxAFfrQMEpXA+udA=
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -84,72 +106,65 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+Authentication-Results: relay.mimecast.com;
+	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-Hi, All:
-
-A couple months ago I promissed the list a report on the System76
-Meerkat Intel-based NUC I had on order. Web link to the product is here:
-
-https://system76.com/desktops/meerkat
 
 
-My report was delayed because the first Meerkat I recieved turned out to
-have some kind of hardware flaw in its ethernet port--an unacceptable
-blemish. After filing a support ticket with System76 and talking with
-one of their engineers, we determined to replace my flawed unit.
+This is definitely great news!!  So what's next from here?
 
-The replacement arrived late this past Monday and is now up and running
-on my LAN with not a hint of ethernet problems. Meanwhile, the flawed
-unit has been packed in the box which brought its replacement and is
-awaiting UPS to ship it back to its maker.
+As you said Janina it's probably not going to help me in the short run, but
+at least we know it's coming [I hope]
 
-With that pesky little problem resolved, I can now say I'm a satisfied
-customer--for the most part. Here are the details, starting with a
-hardware overview.
+I have contacted IBM Accessibility and awaiting their response, let's hope
+someone over there knows something about speakup and RHEL
 
-The unit is approx 4.5 inches square and about 2 inches high. It sits
-next to my Apple Mac Mini which dwarfs it in size as well as in
-processing and storage.
+--David
 
-CPU is a 6 core tenth generation Intel I9 running at about 1.2 gHz with a that
-bursts up to 4.7 gHz as needed. lshw reports it as:
 
-Xeon E3-1200 v5/v6 / E3-1500 v5 / 6th/7th/8th Gen Core Processor
-Gaussian Mixture Model
+-----Original Message-----
+From: blinux-list-bounces@redhat.com <blinux-list-bounces@redhat.com> On
+Behalf Of Linux for blind general discussion
+Sent: Thursday, July 30, 2020 6:42 AM
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: installing speakup on RHEL 7/8
 
-I have 64Gb DDR4 RAM, so didn't bother creating a swap partition when
-repartitioning. The unit came with a single LVM partition which doesn't
-comport with my needs.
+Indeed, but this conversation started over the question of Speakup in a RHEL
+kernel.
 
-I have two Samsung drives: a model 970 2Tb NVME; and a 4Tb 860 SSD.
+So, now that we've established the technical objections are all cleared, it
+will be interesting whether Speakup is promoted to main or not. If it goes
+into main, RHEL would seemingly need to include it at long last. Or am I
+wrong about that?
 
-Ports include USB (including a couple USB-C), HDMI, 3.5mm audio out, and
-the aforementioned ethernet port. The unit also has builtin wifi and
-bluetooth 5.
-
-I found the System76 POP-OS unfriendly to Orca. I could force Orca to
-start, but I couldn't get it read anything on the graphical display. So,
-I blew it away and replaced it with Arch Linux and Mate for my desktop.
-
-This is one fast machine. It also boots fast, so fast that the login
-console appears about a second or two before the network is fully up (as
-confirmed by a ping from another machine).
-
-What's not to love? The lack of beep on backspace. There's just nothing
-available in hardware or software for that, including no snd-pcsp kernel
-module. <sigh>
-
-Total cost including shipping just over $2,600 USD.
+I'm watching to see whether we still have political opposition as we have in
+the past, by my memory of events. One would hope not, but it's deeds that
+count.
 
 Best,
 
 Janina
+
+Linux for blind general discussion writes:
+> Linux for blind general discussion, le mer. 29 juil. 2020 17:24:15 +0200,
+a ecrit:
+> > Not that it matters much for Slackware and derivatives as speakup 
+> > drivers have been provided in Slackware since version 8.0 released 
+> > on 2001-06-27, in kernel version 2.2.19...
+> 
+> Yes, Debian as well. Just one thing: remember to enable 
+> CONFIG_ACCESSIBILITY if it's not already.
+> 
+> Samuel
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
 
 -- 
 
@@ -161,6 +176,12 @@ Executive Chair, Accessibility Workgroup:	http://a11y.org
 
 The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
 Co-Chair, Accessible Platform Architectures	http://www.w3.org/wai/apa
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
+
 
 _______________________________________________
 Blinux-list mailing list
