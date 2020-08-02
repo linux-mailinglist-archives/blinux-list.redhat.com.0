@@ -1,80 +1,96 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	by mail.lfdr.de (Postfix) with ESMTP id 82236235648
-	for <lists+blinux-list@lfdr.de>; Sun,  2 Aug 2020 12:25:24 +0200 (CEST)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	by mail.lfdr.de (Postfix) with ESMTP id 5BEE723573F
+	for <lists+blinux-list@lfdr.de>; Sun,  2 Aug 2020 15:54:46 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1596363923;
+	s=mimecast20190719; t=1596376485;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=65MAci7m8svQuXFoYhrLITmXJCdLuYPRQc5CW9/pi/o=;
-	b=F8XYpU0XgWtvAw+NUaWzBZtO4PDk9fLS790NPkbIK6F8PpVT3Zfa81W+aXOCqCLdPZrUU8
-	+7vWRfiba37aq5LoGHN9p76HFcEagRCfXkR+T3x8qv2qwW+gwc4yXtLtSOzgmmEhX8B1fK
-	a5lzAugET21YtSTuUFCDvTwn9D7wa/k=
+	bh=pvbSkx5AZph2zbM/LdrPH4Gq50nLjZxg3HmgmCbTJRI=;
+	b=Cn9rw6t4ZCkQ0zJfg4TPIk8guwXDg4ZnmZVN4NlE6mMRHh7YtMGGmONJUGtl/DwYXF3NT3
+	SPVBhiD3TcJK7/+NP9DCIwtbJnpvUFdWvZuzKzzX1C9vOby5+QvahpMg8SNO7wOHKH6jwh
+	Z/IxCsyj9/5xuoqiK9eXtJb0eXK+AOQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-65-TV7VVYE-Pk6pfGrT08Xpwg-1; Sun, 02 Aug 2020 06:25:21 -0400
-X-MC-Unique: TV7VVYE-Pk6pfGrT08Xpwg-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-415-9uK13el-PyCt3-jZ_EV_rg-1; Sun, 02 Aug 2020 09:54:42 -0400
+X-MC-Unique: 9uK13el-PyCt3-jZ_EV_rg-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E69551893DC0;
-	Sun,  2 Aug 2020 10:25:15 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B18DD18C63C3;
+	Sun,  2 Aug 2020 13:54:37 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 519A07FEA9;
-	Sun,  2 Aug 2020 10:25:10 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8AEED87E1C;
+	Sun,  2 Aug 2020 13:54:36 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3897B1809554;
-	Sun,  2 Aug 2020 10:24:59 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8434C1809557;
+	Sun,  2 Aug 2020 13:54:33 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 072AOn7B007257 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 2 Aug 2020 06:24:49 -0400
+	id 072DsPYW007179 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 2 Aug 2020 09:54:26 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id A63BF11CC25A; Sun,  2 Aug 2020 10:24:49 +0000 (UTC)
+	id 9B82C2018296; Sun,  2 Aug 2020 13:54:25 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A1EAD114F26E
-	for <blinux-list@redhat.com>; Sun,  2 Aug 2020 10:24:46 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 824122026D67
+	for <blinux-list@redhat.com>; Sun,  2 Aug 2020 13:54:22 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C57EE8007CD
-	for <blinux-list@redhat.com>; Sun,  2 Aug 2020 10:24:46 +0000 (UTC)
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com
-	[209.85.128.53]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-140-j5hhYLOnNoS6K853HBQ5dg-1; Sun, 02 Aug 2020 06:24:44 -0400
-X-MC-Unique: j5hhYLOnNoS6K853HBQ5dg-1
-Received: by mail-wm1-f53.google.com with SMTP id f18so9237220wmc.0
-	for <blinux-list@redhat.com>; Sun, 02 Aug 2020 03:24:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
-	bh=1f2ETcNsXNN3zGXiKlGWLRs1wZOihh0SlpBxrGAO5z0=;
-	b=i1+q3uIPa2ucLQcitIddN+xaY+IsMedBnObao+QrbssLgFdenoW1Qsw2Nb2dBMH776
-	nBafOc2uvdW3jw05NQsP3nGmZGbxvqk2Dta+3Y4ULbe4YYU/hJ82oRO+ewCpuEbVD4cW
-	cN3MdLjZz9moJut96IXJYzdWtGbQZqA0H8ZNmDeRLVVJzItXKSml4dSwfhLcqeUeDh87
-	R4YLJYidIBU328DsZfELjgWN4WePY43bqj7WFpL/USz5fb8pxdUvTuzOu6ClXWYIbeMj
-	wkLknX6rFKcrtNIZE+HjITeTkOp7b2mIHVX1IGkJNqhPE5GVxMdqrJWuCycAwFsjEvJk
-	mkYA==
-X-Gm-Message-State: AOAM532L3DC4VvoMkAWvAun7o72FnH+d+shnGTaCJ6lomS4CXs1DR2IF
-	s2umaN5IVlkKUCeSWE8g5AQQNBipxNMTDbQ/PTz9aw==
-X-Google-Smtp-Source: ABdhPJz3lQUfRf1bHmu7Td8GmA02nmUQhKiZP6axtXLz0nAhLlkmSrQlLCL9pL3BKRZNr78TWYc6nvz5Lx8S1Lo/oUE=
-X-Received: by 2002:a7b:ce0e:: with SMTP id m14mr11830062wmc.160.1596363883024;
-	Sun, 02 Aug 2020 03:24:43 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:a05:6000:11cc:0:0:0:0 with HTTP; Sun, 2 Aug 2020 03:24:42
-	-0700 (PDT)
-Date: Sun, 2 Aug 2020 06:24:42 -0400
-Message-ID: <CADj8Jxeftx5wEP7BBgW5rgr2=vhn2R==8EyBd+QZWN4-1G8Stg@mail.gmail.com>
-Subject: tips for using gnucash
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 87F7D8007B3
+	for <blinux-list@redhat.com>; Sun,  2 Aug 2020 13:54:22 +0000 (UTC)
+Received: from gateway1.unifiedlayer.com (gateway1.unifiedlayer.com
+	[74.220.192.202]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-113-EXZXt2rfPEGnfrhgGYpPlg-1; Sun, 02 Aug 2020 09:54:20 -0400
+X-MC-Unique: EXZXt2rfPEGnfrhgGYpPlg-1
+Received: from cm4.websitewelcome.com (unknown [108.167.139.16])
+	by gateway1.unifiedlayer.com (Postfix) with ESMTP id 086B420095EE4
+	for <blinux-list@redhat.com>; Sun,  2 Aug 2020 08:09:13 -0500 (CDT)
+Received: from uscentral455.accountservergroup.com ([174.136.13.174])
+	by cmsmtp with ESMTP
+	id 2Djkk3EQHDhm02Djkk68DH; Sun, 02 Aug 2020 08:09:12 -0500
+X-Authority-Reason: nr=8
+Received: from 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
+	([172.0.250.193]:48104 helo=bigbox.attlocal.net)
+	by uscentral455.accountservergroup.com with esmtpsa
+	(TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.91)
+	(envelope-from <blinux.list@thechases.com>) id 1k2Djk-003qdS-Ii
+	for blinux-list@redhat.com; Sun, 02 Aug 2020 08:09:12 -0500
+Date: Sun, 2 Aug 2020 08:09:10 -0500
 To: blinux-list@redhat.com
+Subject: Re: tips for using gnucash
+Message-ID: <20200802080910.755ec1cd@bigbox.attlocal.net>
+In-Reply-To: <CADj8Jxeftx5wEP7BBgW5rgr2=vhn2R==8EyBd+QZWN4-1G8Stg@mail.gmail.com>
+References: <CADj8Jxeftx5wEP7BBgW5rgr2=vhn2R==8EyBd+QZWN4-1G8Stg@mail.gmail.com>
+MIME-Version: 1.0
+X-AntiAbuse: This header was added to track abuse,
+	please include it with any abuse report
+X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
+X-AntiAbuse: Original Domain - redhat.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - thechases.com
+X-BWhitelist: no
+X-Source-IP: 172.0.250.193
+X-Source-L: No
+X-Exim-ID: 1k2Djk-003qdS-Ii
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
+	(bigbox.attlocal.net) [172.0.250.193]:48104
+X-Source-Auth: tim@thechases.com
+X-Email-Count: 1
+X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
+X-Local-Domain: yes
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -83,7 +99,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false;
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Mimecast-Spam-Signature: yes
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -100,17 +117,44 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-Authentication-Results: relay.mimecast.com;
-	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-So I'm wondering if anyone has played around with gnucash? It is for
-the most part accessible but I am having a hard time entering
-transactions.
+Tim here.  Though not much direct experience with GnuCash, I've been
+tinkering a bit with "ledger" which does everything in plain-text
+files and runs from the command-line (allowing it to integrate with
+the whole host of Unix command-line tools).  There are a lot of
+resources at
+
+https://plaintextaccounting.org/
+
+which describes a family of programs including "ledger", "hledger",
+and "beancount" which all use the same format files.  There's also a
+pretty responsive group over on Reddit (if that works for you) over
+at
+
+https://www.reddit.com/r/plaintextaccounting/
+
+Sorry I can't be more helpful regarding GnuCash, but wanted to at
+least put other options on the table for you if you hadn't stumbled
+on them yet.
+
+-tim
+
+
+On August  2, 2020, Linux for blind general discussion wrote:
+> So I'm wondering if anyone has played around with gnucash? It is for
+> the most part accessible but I am having a hard time entering
+> transactions.
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
