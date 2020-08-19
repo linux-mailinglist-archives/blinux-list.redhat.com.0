@@ -1,86 +1,67 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	by mail.lfdr.de (Postfix) with ESMTP id C0CD2245616
-	for <lists+blinux-list@lfdr.de>; Sun, 16 Aug 2020 07:23:00 +0200 (CEST)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
+	by mail.lfdr.de (Postfix) with ESMTP id 5C2A324A7E4
+	for <lists+blinux-list@lfdr.de>; Wed, 19 Aug 2020 22:48:28 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1597555379;
+	s=mimecast20190719; t=1597870107;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=fnOxotpcPb00iRIo2fditVnwSpYEWxSbl1SJHTH16I0=;
-	b=VHlw6lcqIH1kIqMyVaryuiLAr/mg5cPJJI6xGWKE326TiM5IaCPwQnBasUtfAPpR5NTHMD
-	98xR0POhQT0vJO4LpTZuoOnp5dC/bJE20ESaJwguz0EPDWn/1FMayEGwLhbjmWbAFqCWyq
-	81pdRWGBdSknQq4ey/0GoiA3tMv2kic=
+	bh=cJAScq4/KJu4i86fgK0+s9Xgomoe3D4C6Gn0MuNUJ54=;
+	b=gBe77nQdaqJhdE50y6eYLlQyvbmCbAM47pUgZLxTOrt0CzaD1D/qG5IoeCw12q4XSxT4K6
+	/JhnLLBWAte0ZsJJIGqe4aoz6GLn2CVMOUt/RO5ZodASuiTLlrxEBsED7pFYLXwfjR77we
+	Pul+TwupHIKqlYev5KuzvQiCiGSZOM8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-519-bPT48Ex7Nc2cypTwejgSBQ-1; Sun, 16 Aug 2020 01:22:57 -0400
-X-MC-Unique: bPT48Ex7Nc2cypTwejgSBQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-479-Q5DqBHGTOVS82DXyx6BS4w-1; Wed, 19 Aug 2020 16:48:25 -0400
+X-MC-Unique: Q5DqBHGTOVS82DXyx6BS4w-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 597FD1005E5F;
-	Sun, 16 Aug 2020 05:22:50 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E4F571DDF7;
+	Wed, 19 Aug 2020 20:48:19 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B7F7A1C93B;
-	Sun, 16 Aug 2020 05:22:45 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4A65F100238C;
+	Wed, 19 Aug 2020 20:48:18 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 93D4F180B656;
-	Sun, 16 Aug 2020 05:22:33 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 442C61832FC2;
+	Wed, 19 Aug 2020 20:48:08 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 07G5LXHg013106 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 16 Aug 2020 01:21:33 -0400
+	id 07JKlvlt009811 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 19 Aug 2020 16:47:58 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 4705C205EB11; Sun, 16 Aug 2020 05:21:33 +0000 (UTC)
+	id DABA12017F02; Wed, 19 Aug 2020 20:47:57 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 331D9205EAE6
-	for <blinux-list@redhat.com>; Sun, 16 Aug 2020 05:21:30 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D6ACA2022797
+	for <blinux-list@redhat.com>; Wed, 19 Aug 2020 20:47:54 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B19FF80088F
-	for <blinux-list@redhat.com>; Sun, 16 Aug 2020 05:21:30 +0000 (UTC)
-Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com
-	[209.85.216.47]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-343-FFBMncPfPT-vQXutj2Xq-w-1; Sun, 16 Aug 2020 01:21:28 -0400
-X-MC-Unique: FFBMncPfPT-vQXutj2Xq-w-1
-Received: by mail-pj1-f47.google.com with SMTP id ep8so6128516pjb.3
-	for <blinux-list@redhat.com>; Sat, 15 Aug 2020 22:21:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:content-transfer-encoding:mime-version:date
-	:subject:message-id:to;
-	bh=LyznKE6GBDY0+mXamlIK1jgWdfVOqum80EIejkdizHE=;
-	b=MyonzRifGp/OiUToXAfm0Pmk2oBRHRm+8ZAhqz9YnohgLHerL/Tp242vyskTpfdGox
-	/iIC8jWb15+b667TMVJxln1miMexr7v7ZPsLE4qDl1MG/QgoW94ybVKQtOyafj/so4v3
-	zN++ApXuLemEhGjINbxSBcjavjTXYRIY5nJbnVXYjre6BDL6mj7Yt5MMLH4cCazDhOM+
-	D1r6niqVjQG6K/0rK/Go1m7/lv1BEF2tKbElzqnIi1AoEzkbg/K/pA7WM+xYYtov7GhF
-	zmj4IJeGK8m6H0iYzfKUiV6nrFWlu9S36DSkQDwKL25MtMQYtgtgE5/xOHJE+aYLCq6F
-	kRQA==
-X-Gm-Message-State: AOAM531X0QJUWUqHz8ey0taAj37XYCpEZffseggw16D6jfYO0UAadWpH
-	K7qaV4nFpQqr4Ms4wMgsVzOgauL7eIcH2A==
-X-Google-Smtp-Source: ABdhPJyxOpnPj4NPrXCG8e1fpV9Q6EPXOLCquKaG5kV4AhlFek2bUYNtPBphWvr6aV4aKmhw5E60IA==
-X-Received: by 2002:a17:90b:3603:: with SMTP id
-	ml3mr7951070pjb.207.1597555287023; 
-	Sat, 15 Aug 2020 22:21:27 -0700 (PDT)
-Received: from [192.168.0.4] (72-160-122-204.dyn.centurytel.net.
-	[72.160.122.204]) by smtp.gmail.com with ESMTPSA id
-	k23sm12416617pgb.92.2020.08.15.22.21.25 for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-	Sat, 15 Aug 2020 22:21:26 -0700 (PDT)
-Mime-Version: 1.0 (1.0)
-Date: Sat, 15 Aug 2020 22:21:24 -0700
-Subject: Grub rescue
-Message-Id: <F91A22C9-0D30-4653-AD7D-4C7643CA513B@gmail.com>
-To: blinux-list@redhat.com
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AA811800BED
+	for <blinux-list@redhat.com>; Wed, 19 Aug 2020 20:47:54 +0000 (UTC)
+Received: from cfcl.com (cpepool4cmts2-144.sanbrunocable.com
+	[24.143.248.144]) by relay.mimecast.com with ESMTP id
+	us-mta-273-QWiFbT3eObqKKbFT5nHr8A-1; Wed, 19 Aug 2020 16:47:51 -0400
+X-MC-Unique: QWiFbT3eObqKKbFT5nHr8A-1
+Received: from spot.local (spot.local [IPv6:fe80::108f:61b6:e9ea:e7ae])
+	by cfcl.com (Postfix) with ESMTP id B24C81355368
+	for <blinux-list@redhat.com>; Wed, 19 Aug 2020 13:47:50 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 13.0 \(3608.40.2.2.4\))
+Subject: Making postmarketOS blind-accessible
+Date: Wed, 19 Aug 2020 13:47:44 -0700
+References: <C23AB95B-05DB-4CEB-A7B4-DA94620BAFFF@cfcl.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+In-Reply-To: <C23AB95B-05DB-4CEB-A7B4-DA94620BAFFF@cfcl.com>
+Message-Id: <53219C05-82FA-4F84-AC63-5798A47B6CF4@cfcl.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -90,6 +71,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false;
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 07JKlvlt009811
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -106,7 +89,7 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0.502
@@ -114,11 +97,16 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Is there any way to get braille or speech at the grub rescue console?
+After some informal research and reflection, I've decided that postmarketOS is the most promising basis for a blind-accessible, Linux-based cell phone operating system.  Developers are working on getting it to support a large number of devices (https://wiki.postmarketos.org/wiki/Devices), many of which are available for very little money.
 
-Tom
+PostmarketOS is based on Alpine Linux (https://en.wikipedia.org/wiki/Alpine_Linux), a popular, but very minimalistic Linux variant.  For example, it uses BusyBox to replace the functions of more than 300 common commands.  So, postmarketOS should run pretty well, even on fairly old cell phones and tablets.
 
-Sent from my iPhone
+In an effort to get things moving, I've started an Accessibility page in the postmarketOS wiki.  The "Packages" section contains entries for plausible software packages (e.g., BRLTTY, Fenrir, Lynx, Orca, w3m), including short descriptions and porting status.  The "Resources" section contains links to other, related pages.
+
+To be clear, I don't expect that the base postmarketOS releases will ever contain these packages.  However, there should be a way to create a blind-accessible variant or upgrade path.  If you find this notion interesting, please check out the (WIP) Accessibility page  (https://wiki.postmarketos.org/wiki/Accessibility).  If the page is missing a favorite package, please add it yourself or email me so I can add it.  More generally, feel free to contact me off-list with comments, suggestions, etc.
+
+- Rich Morin (rdm@cfcl.com)
+
 
 _______________________________________________
 Blinux-list mailing list
