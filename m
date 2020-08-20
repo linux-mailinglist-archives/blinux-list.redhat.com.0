@@ -1,71 +1,85 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
-	by mail.lfdr.de (Postfix) with ESMTP id 27BCF24C3EB
-	for <lists+blinux-list@lfdr.de>; Thu, 20 Aug 2020 19:02:29 +0200 (CEST)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by mail.lfdr.de (Postfix) with ESMTP id 8ACA724C514
+	for <lists+blinux-list@lfdr.de>; Thu, 20 Aug 2020 20:06:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1597942948;
+	s=mimecast20190719; t=1597946800;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=yBYZXAaWsf47vGuIGcQ47AUPlhJCWfXEbQokaKYeO00=;
-	b=Il68Ucwtue9nstDGnp2g44CacVx79SmJttnN8rlUP/VD8xQKemGJ3+Yuv6iay3L52Daffy
-	c6oz8f+I0L6TJQOYhWReq5+Bsv3V0jGU9Jt+exKhI4YNkV/vPhKoBV3D0aMkVbG8q1MU5F
-	hILZjZnpDnBzvi9lV3usO2Z2QIO32tw=
+	bh=JExmZin2+KOGVzBhtf+DYwG2+FV5wPDVvzfhQ0SgVsk=;
+	b=FPeIRGWQmGyyA37H0gyM52d835nbLAO366qInMLLMJu/G+LpGMesbKybgpo1wiCbC7znu9
+	PhwnGKGr42fmuSSPa7tJyG8joQgXsETl1P1bAvU7QOEZ37q7Ha6WbB0m0TjosNpJ5IOeay
+	+OrSWx15mumvSIFdDTVnXihP+5k0mSc=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-53-2l4derFCONi4PoQVYtHuxA-1; Thu, 20 Aug 2020 13:02:12 -0400
-X-MC-Unique: 2l4derFCONi4PoQVYtHuxA-1
+ us-mta-256-4woYonqlPPGt51OQ08oeMw-1; Thu, 20 Aug 2020 14:06:38 -0400
+X-MC-Unique: 4woYonqlPPGt51OQ08oeMw-1
 Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 402FB801A9E;
-	Thu, 20 Aug 2020 17:02:08 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A66B48030BC;
+	Thu, 20 Aug 2020 18:06:33 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D232D7191C;
-	Thu, 20 Aug 2020 17:02:07 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C8D1B7E306;
+	Thu, 20 Aug 2020 18:06:32 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E8AD1662A8;
-	Thu, 20 Aug 2020 17:02:06 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8CF34662B0;
+	Thu, 20 Aug 2020 18:06:31 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 07KH22EI025852 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 20 Aug 2020 13:02:02 -0400
+	id 07KI6MvZ032550 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 20 Aug 2020 14:06:22 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 23BB02022796; Thu, 20 Aug 2020 17:02:02 +0000 (UTC)
+	id C92A4F49CD; Thu, 20 Aug 2020 18:06:21 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1E3F12016F2C
-	for <blinux-list@redhat.com>; Thu, 20 Aug 2020 17:01:57 +0000 (UTC)
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9080BF4EA2
+	for <blinux-list@redhat.com>; Thu, 20 Aug 2020 18:06:15 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 271DB101AA44
-	for <blinux-list@redhat.com>; Thu, 20 Aug 2020 17:01:57 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
-	relay.mimecast.com with ESMTP id us-mta-408-sQD_l6R8MdW3k4APhjppXg-1;
-	Thu, 20 Aug 2020 13:01:47 -0400
-X-MC-Unique: sQD_l6R8MdW3k4APhjppXg-1
-Received: from ici.slint.fr (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
-	[176.172.247.100])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id 1D820BE797
-	for <blinux-list@redhat.com>; Thu, 20 Aug 2020 18:01:08 +0200 (CEST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6B82E90184A
+	for <blinux-list@redhat.com>; Thu, 20 Aug 2020 18:06:14 +0000 (UTC)
+Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com
+	[209.85.160.180]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-236-cRlKwRSsNNKRQS_j2gVBIQ-1; Thu, 20 Aug 2020 14:06:11 -0400
+X-MC-Unique: cRlKwRSsNNKRQS_j2gVBIQ-1
+Received: by mail-qt1-f180.google.com with SMTP id f19so1867625qtp.2
+	for <blinux-list@redhat.com>; Thu, 20 Aug 2020 11:06:11 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=QdjyxEanTRaAtR5l3f0Fdcgxn8Li1FUyTanMFx1FQh4=;
+	b=ceu6QRphKszL89cyYCbuzoyp7FH0Gt8CvkBde010Vtofojh/RuAccwef8pSV5YxO2Q
+	sTrtaGuJn5T/1OaXf6LjI/Cd9mhskE7C6zkcqkQwA3MPWtmBQrqtD5l0bjWTF0xabyus
+	EHexhbI7gJfK7+Hvev1iSsV52hSnZ5zKsWPeQd/Qo07OfRor0c45DYvrID41+wKZ4fNS
+	+2TtMsbUThtMA1bjCByWAuToCM+dCAZkRvfWk1VJJ7KpUADXyVDtnw40eFwZAkOS9bSV
+	yAcqNZH7y283rMnMEgpy2b1kTsk7KtL3ES2W3twarYfUOJboiWZWzICn21MKHkOsKe1j
+	QxYg==
+X-Gm-Message-State: AOAM5335suos3HrTljzhHxU5m+qfvSJ8JGVRYERQLyzhQYB5Tf8Pr5Sy
+	c69draAue+rUdaYmZO2Npa9xxNe2cGLuf8q3NQfAjHO0cJE=
+X-Google-Smtp-Source: ABdhPJxONSbc/SGyn9z8dZGWf9wxc5M/qXtI6pbu4r4/BG2f0NN8r+6QFdPA7NiSgZzKvMQAi71wPv9JOUnmhiT8BtY=
+X-Received: by 2002:aed:3e86:: with SMTP id n6mr3916498qtf.357.1597946770560; 
+	Thu, 20 Aug 2020 11:06:10 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a0c:e807:0:0:0:0:0 with HTTP; Thu, 20 Aug 2020 11:06:09
+	-0700 (PDT)
+In-Reply-To: <alpine.NEB.2.23.451.2008201242490.28820@panix1.panix.com>
+References: <MFBaDor--3-2@tutanota.com>
+	<alpine.NEB.2.23.451.2008201242490.28820@panix1.panix.com>
+Date: Thu, 20 Aug 2020 18:06:09 +0000
+Message-ID: <CAO2sX31nhBAtXumURx=+8qkJ1muWGyzauovLL-dK_wTMxfKPeQ@mail.gmail.com>
 Subject: Re: Accessible Distros for a beginner?
 To: blinux-list@redhat.com
-References: <MFBaDor--3-2@tutanota.com>
-Message-ID: <0ea2c046-97d0-64ea-ba02-f651326a157f@slint.fr>
-Date: Thu, 20 Aug 2020 19:01:45 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Thunderbird/68.11.0
-MIME-Version: 1.0
-In-Reply-To: <MFBaDor--3-2@tutanota.com>
-Content-Language: fr
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -74,9 +88,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false;
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 07KH22EI025852
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -96,114 +108,61 @@ Errors-To: blinux-list-bounces@redhat.com
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
-X-Mimecast-Spam-Score: 0.002
+X-Mimecast-Spam-Score: 0.003
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SGVsbG8sCgpJIGFtIERpZGllciBTcGFpZXIsIExpbnV4IG1haW50YWluZXIsIHNvIG1heWJlIG15
-IGFuc3dlciB3aWxsIGJlIGEgbGl0dGxlIGJpYWlzZWQgPHNtaWxlPgouCkluZGVlZCBTbGludCBp
-cyBhY2Nlc3NpYmxlIHRvIHRoZSBibGluZCwgZnJvbSBpbnN0YWxsYXRpb24gdG8gdXNhZ2UgYW5k
-IGFkbWluaXN0cmF0aW9uLCBpbmNsdWRpbmcgc29mdHdhcmUgbWFuYWdlbWVudCwgYW5kIHNoaXAg
-YWxsIHRoZSBzb2Z0d2FyZSBvZiB0aGUga2luZHMgeW91IG1lbnRpb25lZC4KCkZvciBhIGNvbXBl
-dGUgYmVnaW5uZXIgaW4gTGludXggdGhlIGluc3RhbGxlciBtYXkgYmUgYSBsaXR0bGUgZnJpZ2h0
-ZW5pbmcsIGJ1dCBpZiB5b3UgY2FuIGdldCBoZWxwIHRoZSBmaXJzdCB0aW1lIHRoYXQgc2hvdWxk
-IGJlIE9LLgoKQWxzbywgSSBhbSByaWdodCBub3cgYWRkaW5nIHRvIHRoZSBpbnN0YWxsZXIgYSAi
-Z3VpZGVkIiBtb2RlIHRoYXQgd2lsbCBiZSBlYXNpZXIgdG8gdXNlIGZvciBuZXdjb21lcnMgaW4g
-TGludXggbGFuZC4gSG9wZWZ1bGx5IGl0IHdpbGwgYmUgcmVhZHkgaW4gc29tZSB3ZWVrcy4KCldl
-IGhhdmUgYSBmcmllbmRseSBtYWlsaW5nIGxpc3QsIHRvIHJlZ2lzdGVyIHJlYWQ6Cmh0dHBzOi8v
-c2xpbnQuZnIvYmxvZy93ZWxjb21lLXRvLXRoZS1uZXctc2xpbnQtbWFpbGluZy1saXN0Lmh0bWwK
-Ck91ciB3ZWJpc3RlOiAgaHR0cHM6Ly9zbGludC5mcgpHZW5lcmFsIGRvY3VtZW50YXRpb246IGh0
-dHBzOi8vc2xhY2t3YXJlLnVrL3NsaW50L3g4Nl82NC9zbGludC0xNC4yLjEvZG9jLwpHZW5lcmlj
-IGluc3RydWN0aW9ucyBmb3IgaW5zdGFsbGF0aW9uOiBodHRwczovL3NsYWNrd2FyZS51ay9zbGlu
-dC94ODZfNjQvc2xpbnQtMTQuMi4xL1JFQURNRS5pbnN0YWxsYXRpb24KKHRoaXMgd2lsbCBiZSBz
-aW1wbGVyIHdpdGggdGhlIG5ldyBpbnN0YWxsZXIsIHdoaWNoIHdpbGwgcGFydGl0aW9uIHRoZSBk
-aXNrIGlmIHlvdSB3YW50KQpBY2Nlc3NpYmlsdHkgSG93LXRvOiBodHRwczovL3NsYWNrd2FyZS51
-ay9zbGludC94ODZfNjQvc2xpbnQtMTQuMi4xL2RvYy9BY2Nlc3NpYmlsaXR5L0FjY2Vzc2liaWxp
-dHkKCkJlc3QgcmVnYXJkcywKRGlkaWVyIFNwYWllcgpkaWRpZXJAc2xpbnQuZnIKCkxlIDIwLzA4
-LzIwMjAgw6AgMTc6NTksIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gYSDDqWNy
-aXTCoDoKPiBIaSwKPiBJIGFtIG5ldyB0byB0aGlzIG1haWxpbmdsaXN0IGFuZCBuZXcgdG8gTGlu
-dXguIEkgaGF2ZSBiZWVuIHVzaW5nIFdpbmRvd3MgZm9yIHllYXJzIGJ1dCBub3cgSSB3YW50IHRv
-IHN3aXRjaCBpbnRvIGEgZnJlZSBvcGVuIHNvdXJjZSBzb2Z0d2FyZSBMaW51eCBlbnZpcm9ubWVu
-dC4gQWZ0ZXIgcXVpdGUgYSB3aGlsZSBvZiByZXNlYXJjaCwgSSBhbSBmaW5kaW5nIHBsZW50eSBv
-ZiBnZW5lcmFsIGluZm9ybWF0aW9uIG9uIERpc3Ryb3MgYnkgc2lnaHRlZCBMaW51eCB1c2Vycywg
-YnV0IG5vdCBhIGxvdCBvZiBjdXJyZW50IGluZm8gZnJvbSBibGluZCBMaW51eCB1c2Vycy4gU28g
-SSdtIHNlbmRpbmcgdGhpcyBpbiBob3BlcyB0byBnZXQgc29tZSBpbnB1dCBmcm9tIGFueSBibGlu
-ZCBMaW51eCB1c2VycywgYXMgdG8gd2hhdCB5b3UgbWlnaHQgc3VnZ2VzdCBhcyBhbiBhY2Nlc3Np
-YmxlIERpc3RybyBmb3IgYSBiZWdpbm5lciwgZXNwZWNpYWxseSBpZiBpdCBpcyBzb21ldGhpbmcg
-b3RoZXIgdGhhbiBzdGFuZGFyZCBVYnVudHUuCj4gwqBJIGFtIHBhcnRpY3VsYXJseSBpbnRlcmVz
-dGVkIGluIFNsaW50LCBQYXJhYm9sYSwgRGV2dWFuLCBvciBUcmlzcXVlbC4gSSBrbm93IFNsaW50
-IHdhcyBjcmVhdGVkIGZvciBibGluZCBMaW51eCB1c2VycyBzbyBJIGFzc3VtZSB0aGF0IGl0IG11
-c3QgYmUgcXVpdGUgYWNjZXNzaWJsZSwgYnV0IEkgZG9uJ3Qga25vdyBpZiBpdCBpcyBpbnRlbmRl
-ZCBtb3JlIGZvciBhZHZhbmNlZCB1c2Vycywgb3IgaWYgYW55IG9mIHlvdSBzdGFydGVkIG91dCB3
-aXRoIFNsaW50IGFzIGEgYmVnaW5uZXI/IEkgYW0gaW50ZXJlc3RlZCBpbiB0aGUgb3RoZXIgRGlz
-dHJvcyBJIGxpc3RlZCwgYnV0IEkgZG9uJ3Qga25vdyBob3cgYWNjZXNzaWJsZSB0aGV5IGFyZS4g
-RG8gYW55IG9mIHlvdSBrbm93IGlmIHRob3NlIERpc3Ryb3MgaGF2ZSBPcmNhIHNwZWFraW5nIGR1
-cmluZyB0aGUgaW5zdGFsbGF0aW9uPwo+IERvIGFueSBvZiB5b3UgaGF2ZSBleHBlcmllbmNlIHdp
-dGggU2xpbnQsIFBhcmFib2xhLCBEZXZ1YW4sIG9yIFRyaXNxdWVsPyBXb3VsZCB5b3UgcmVjb21t
-ZW5kIGVpdGhlciBvZiB0aGVtIGFzIGEgc3RhcnQgb3V0IERpc3RybyBmb3IgYSBiZWdpbm5lcj8g
-T3IgZG8geW91IHVzZSBhIGRpZmZlcmVudCBEaXN0cm8gdGhhdCB5b3UgY291bGQgc3VnZ2VzdD8K
-PiDCoEkga25vdyB0aGF0IHBpY2tpbmcgYSBEaXN0cm8gaXMgYSBwZXJzb25hbCBjaG9pY2UgYW5k
-IGFwcGFyZW50bHkgRGlzdHJvcyBjYW4gaGF2ZSB2YXJ5aW5nIGRlZ3JlZXMgb2YgYWNjZXNzaWJp
-bGl0eSBmZWF0dXJlcyBhY2NvcmRpbmcgdG8gaG93IHRoZXkgYXJlIGNvbmZpZ3VyZWQuIEJ1dCBt
-eSB1bmRlcnN0YW5kaW5nIGlzIHRoYXQgc29tZSBEaXN0cm9zIGFyZSBtb3JlIGFjY2Vzc2libGUg
-b3V0IG9mIHRoZSBib3ggc28gdG8gc3BlYWsgdGhhbiBvdGhlcnMuCj4gSSBrbm93IHRoYXQgc3Rh
-bmRhcmQgVWJ1bnR1IGlzIG9mdGVuIHJlY29tbWVuZGVkIGZvciBiZWdpbm5lcnMgZm9yIGl0cyBl
-YXNlIG9mIHVzZSwgYXQgbGVhc3QsIGl0IHNlZW1zIHRvIGJlIGEgcG9wdWxhciByZWNvbW1lbmRh
-dGlvbiBhbW9uZ3N0IHNpZ2h0ZWQgTGludXggdXNlcnMsIEkgZG9uJ3Qga25vdyBpZiB0aGF0IGlz
-IGFsc28gdGhlIGNhc2Ugd2l0aCBibGluZCBMaW51eCB1c2Vycy4gSSByZXNwZWN0IHRob3NlIHdo
-byBwcmVmZXIgVWJ1bnR1LCBob3dldmVyLCBJIGFtIG5vdCBjb21mb3J0YWJsZSB3aXRoIHRoZSBj
-b3Jwb3JhdGUgY29ubmVjdGlvbiB0byBDYW5vbmljYWwuIEkgYW0gb25seSBpbnRlcmVzdGVkIGlu
-IERpc3Ryb3Mgd2l0aCBhIHN0cm9uZyBmb2N1cyBvbiBmcmVlZG9tIG9mIG9wZW4gc291cmNlIHNv
-ZnR3YXJlIHdpdGggbm8gY29ycG9yYXRlIGFmZmlsaWF0aW9ucy4gCj4gSSBhbSBsb29raW5nIGZv
-ciBhIHNpbXBsaXN0aWMgYW5kIHN0cmVhbWxpbmUgRGlzdHJvLiAKPiBBbGwgSSB3YW50IGlzIGEg
-RGlzdHJvIHRoYXQgd2lsbCBydW4gRmlyZWZveCwgTGlicmVPZmZpY2UsIFB5dGhvbiAzLCBhIHRl
-eHQgZWRpdG9yLCBhbmQgYSBmaWxlIG1hbmFnZXIuIElmIEkgY2FuIGZpbmQgYSBEaXN0cm8gdGhh
-dCB3aWxsIHJ1biB0aG9zZSB0aGluZ3MgYW5kIGlzIGF0IGxlYXN0IHNvbWV3aGF0IGJlZ2lubmVy
-IGZyaWVuZGx5LCBJJ2xsIGJlIHNldC4KPiBJJ2xsIGJlIGtlZXBpbmcgbXkgV2luZG93cyBsYXB0
-b3AgYW5kIGJ1eWluZyBhIHNlcGFyYXRlIGxhcHRvcCB3aXRoIGhhcmR3YXJlIHRoYXQgaXMgY29t
-cGF0aWJsZSB3aXRoIHdoYXRldmVyIERpc3RybyBJIGNob29zZSwgc28gdGhhdCBJIGNhbiBzd2l0
-Y2ggb3ZlciB0byBMaW51eCBpbmNyZW1lbnRhbGx5IGF0IG15IHBhY2UuIFNvIEkgYW0gbm90IGlu
-dGVyZXN0ZWQgaW4gZHVhbCBib290IG9yIFZNLiBJIGFtIGRldGVybWluZWQgdG8gbGVhcm4gTGlu
-dXgsIGV2ZW4gaWYgdGhlIGZpcnN0IERpc3RybyBkb2Vzbid0IHdvcmsgb3V0IHNvIHdlbGwgZm9y
-IG1lLCB0aGVuIEkgd2lsbCB0cnkgYW5vdGhlciBvbmUuIFNvIHRvIG1lLCBpdCBpcyB3b3J0aCBo
-YXZpbmcgYSBkZWRpY2F0ZWQgbGFwdG9wLgo+IEkndmUgYmVlbiBpbiBjb250YWN0IHdpdGggYSBs
-YXB0b3Agb3JnYW5pemF0aW9uIHNwZWNpYWxpemluZyBpbiBMaW51eCBjb21wYXRpYmxlIGhhcmR3
-YXJlIHNldHVwcywgYW5kIHRoZXkgd2lsbCBpbnN0YWxsIGEgRGlzdHJvIG9mIG15IGNob2ljZSwg
-bWFraW5nIHN1cmUgdGhlIGFjY2Vzc2liaWxpdHkgZmVhdHVyZXMgYXJlIGVuYWJsZWQuIEkgY2Fu
-IGxlYXJuIGhvdyB0byBkbyBpbnN0YWxsYXRpb25zIGluZGVwZW5kZW50bHkgb25jZSBJIGdhaW4g
-dGhlIGV4cGVyaWVuY2UgYW5kIHNraWxscyBvdmVyIHRpbWUuIEJ1dCBmb3Igbm93IEkganVzdCB3
-YW50IHRvIHN0YXJ0IHNvbWV3aGVyZSwgd2l0aCBzb21ldGhpbmcgdGhhdCBpcyBhcyBhY2Nlc3Np
-YmxlIGFzIHBvc3NpYmxlIG91dCBvZiB0aGUgYm94IGFuZCB0aGV5IGNhbiBpbnN0YWxsIGl0IGZv
-ciBtZSB0aGUgZmlyc3QgdGltZSBhcm91bmQuCj4gwqBGcm9tIHdoYXQgSSBoYXZlIHJlYWQgb25s
-aW5lLCB0aGVyZSBpcyBvZnRlbiBhIHN0ZWVwIGxlYXJuaW5nIGN1cnZlIHdoZW4gYWRqdXN0aW5n
-IGZyb20gYSBXaW5kb3dzIGVudmlyb25tZW50IHRvIGEgTGludXggZW52aXJvbm1lbnQuIFdoZXJl
-YXMgV2luZG93cyBqdXN0IGNvbWVzIHdpdGggbW9zdCBzb2Z0d2FyZSBwcmVjb25maWd1cmVkIG91
-dCBvZiB0aGUgYm94LCBMaW51eCBpcyBjdXN0b21pemFibGUgc28gc29tZSBiZWdpbm5lcnMgY2Fu
-IGhhdmUgYSBoYXJkIHRpbWUgYWRqdXN0aW5nIHRvIGl0LiBTbyBJIGFtIG5vdCBleHBlY3Rpbmcg
-TGludXggdG8ganVzdCBpbnN0YW50bHkgd29yayBvbmUgaHVuZHJlZCBwZXJjZW50IHNlYW1sZXNz
-bHksIGVzcGVjaWFsbHkgd2hlbiBhZGRpbmcgYWNjZXNzaWJpbGl0eSBmZWF0dXJlcyBpbnRvIHRo
-ZSBlcXVhdGlvbi4gVGhlcmUgd2lsbCBwcm9iYWJseSBiZSBzb21lIGNoYWxsZW5nZXMgYWxvbmcg
-dGhlIHdheS4gQnV0IGl0IHNlZW1zIHRoYXQgc29tZSBEaXN0cm9zIGFyZSBtb3JlIHN0cmVhbWxp
-bmUsIG1pbmltYWxpc3RpYywgYW5kIGJlZ2lubmVyIGZyaWVuZGx5IHRoYW4gb3RoZXJzLiBJIGp1
-c3QgZG9uJ3Qgd2FudCB0byB1bmtub3dpbmdseSBwaWNrIHRoZSBtb3N0IGRhdW50aW5nIERpc3Ry
-byB0aGF0IExpbnV4IGhhcyB0byBvZmZlciBsb2wuIAo+IMKgSSB3YW50IHNvbWV0aGluZyB3aGVy
-ZSB0aGUgaW5zdGFsbGF0aW9uIHBhY2thZ2UgYW5kIGJvb3QgcHJvY2VzcyBpcyBhY2Nlc3NpYmxl
-IHNvIHRoYXQgd2hlbiBJIHBhdGNoIGl0IGluIHRoZSBmdXR1cmUsIG9yIGV2ZXIgbmVlZCB0byBk
-byBhIHJlaW5zdGFsbCwgSSB3aWxsIGJlIGFibGUgdG8gZG8gdGhhdCBpbmRlcGVuZGVudGx5Lgo+
-IEkgd2FudCBzb21ldGhpbmcgd2hlcmUgT3JjYSBzcGVha3MgY29uc2lzdGVudGx5IGluIGVzc2Vu
-dGlhbCBhcHBzIGxpa2UgRmlyZWZveCwgYW5kIGFsc28gaGFzIGdvb2QgYnJhaWxsZSBvdXRwdXQg
-YXMgSSB3aWxsIGV2ZW50dWFsbHkgY29ubmVjdCBpdCB0byBhIGJyYWlsbGUgZGlzcGxheSBhdCBz
-b21lIHBvaW50Lgo+IERvIGFueSBvZiB5b3UgdXNlIFNsaW50LCBQYXJhYm9sYSwgRGV2dWFuLCBv
-ciBUcmlzcXVlbD8KPiBQZXJoYXBzIHlvdSBwcmVmZXIgb3RoZXIgRGlzdHJvcyB0aGF0IEkgaGF2
-bid0IGhlYXJkIG9mIHlldC4gSSBhbSBvcGVuIHRvIGFsbCBzdWdnZXN0aW9ucyBmb3IgYW55dGhp
-bmcgb3RoZXIgdGhhbiBzdGFuZGFyZCBVYnVudHUuCj4gVGhhbmtzIGluIGFkdmFuY2UgZm9yIGFu
-eSBpbmZvIHlvdSBjb3VsZCBzaGFyZSB3aXRoIGEgYmVnaW5uZXIgbG9va2luZyBmb3IgYSBEaXN0
-cm8gd2l0aCBhbiBhY2Nlc3NpYmxlIGluc3RhbGwgYW5kIGJvb3QgcHJvY2Vzcy4KPiBSZWdhcmRz
-LAo+IFNMCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4gaHR0
-cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4gCgoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0
-IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vd3d3LnJlZGhhdC5j
-b20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
+I'd say vanilla Knoppix running in Adriane mode would be a good choice
+for a blind Linux beginner... though there's a few caveats:
+
+1. There hasn't been an official Knoppix ISO with Adriane as the
+default boot option for several years... It's just a one line change
+to a single plain-text config file to make Adriane the default, but
+I'm aware of no simple means of making this change. I usually end up
+mounting the iso, copying it's contents to a folder, making the
+change, and building a new ISO everytime I need to make a new
+LiveDVD... things might be simpler if you're comfortable writing an
+iso to flash media.
+
+2. Knoppix can be installed to harddrive, and my running system is a
+highly customized harddrive install of Knoppix, but Knoppix is
+designed as a Live environment first and foremost and lacks a few
+things you generally want in a harddrive-installed OS. For one, the
+default knoppix user doesn't have to sign-in when booting into Adriane
+mode and doesn't have to enter a password when running sudo to perform
+administrative tasks.
+
+3. New public releases are infrequent and with no clear schedule.
+Knoppix uses the software repositories of Debian, so if you're
+familiar with apt and are running from a Flash drive or hard drive,
+you can keep things up to date, but if you're running a Live DVD, you
+might have to wait a year or more for a new version of the whole
+system to be made available.
+
+That said, when booted in Adriane mode, Knoppix presents a text-based
+menu that's very accessible and serves as a front-end for performing
+several common tasks using various console applications, the menus
+being navigatible with arrow keys or by typing the first digit of a
+menu item's entry number to jump to it and with the 0th entry being a
+guide on how to operate SBL, the text-mode screen reader Knoppix uses
+for console speech. The menu also includes an option for dropping down
+to the command line where typing exit will take you back to the menu
+and the option of launching graphical applictions with the option to
+launch Firefox or LibreOffice as stand-alone with Orca or to launch a
+full desktop environment(Knoppix defaults to LXDE, though the disc
+also contains Gnome and KDE if I remember correctly).
+
+Admittedly, I don't use most of Adriane's features myself due to
+familiarity with the command line, but I continue using Knoppix
+because I have no idea how to get SBL running on vanilla Debian or how
+to replicate Adriane launching Firefox+Orca without needing to bother
+with the rest of the Desktop environment.
+
+-Jeffery
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
 
