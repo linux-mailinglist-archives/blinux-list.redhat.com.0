@@ -1,80 +1,69 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 60E0E24D80B
-	for <lists+blinux-list@lfdr.de>; Fri, 21 Aug 2020 17:09:07 +0200 (CEST)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	by mail.lfdr.de (Postfix) with ESMTP id 1F02A24D8C2
+	for <lists+blinux-list@lfdr.de>; Fri, 21 Aug 2020 17:37:31 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1598022546;
+	s=mimecast20190719; t=1598024250;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=7JFpUktRi8JyqQew7Twz5FPnclCkNWGi1+C1f1lJlmE=;
-	b=Zh56mhcnHGVOaFVS3+wZrfc1MMlhyNDw03lnSFvrNi+WHkhky2KfP3gqax24ZLZLlbX4kp
-	JwA6/U65hDiPKmy6SAQdCs4cnbunhE1R9DgAooic5DQGaotgeakjmFuu+rjkd0uGG5PcLj
-	dYbLwBx5BYib+2bijXuaYh4jd+5oAyw=
+	bh=m+UJ2mOrFB/TYP/gKPzIExQTsH4/ilYgEudmPvBOpyM=;
+	b=J5+B0NdGwyzJJpKH8RMBDIXf0Og/A+aaRPthYEdDFoj8/9ohLzv0H3kIsYPL5HnVM8mswH
+	Bv+Lw2PgZ8xqZCZyQeBNCOmYgN8bpkSm1Tf81IiZyHK7xx8i9Kk8mm3p3kSBA1bqglgOhc
+	MsrJ5SYGi8B4kDjiTi6DYgmHdrXZtms=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-548-GowvyTAwMrqWbwaK_NIJAA-1; Fri, 21 Aug 2020 11:09:04 -0400
-X-MC-Unique: GowvyTAwMrqWbwaK_NIJAA-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-525-54XSqHY8Mpyut3Jp_tiX6Q-1; Fri, 21 Aug 2020 11:37:27 -0400
+X-MC-Unique: 54XSqHY8Mpyut3Jp_tiX6Q-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1A5F4425EF;
-	Fri, 21 Aug 2020 15:08:58 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A781C1055A54;
-	Fri, 21 Aug 2020 15:08:57 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A02E1801AAE;
+	Fri, 21 Aug 2020 15:37:22 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 88B9C7E30F;
+	Fri, 21 Aug 2020 15:37:22 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C9B28181A06D;
-	Fri, 21 Aug 2020 15:08:54 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 65901662BB;
+	Fri, 21 Aug 2020 15:37:22 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 07LF8la2011521 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 21 Aug 2020 11:08:48 -0400
+	id 07LFbKi2015578 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 21 Aug 2020 11:37:20 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id D18782166BDD; Fri, 21 Aug 2020 15:08:47 +0000 (UTC)
+	id 3EC01100BCB2; Fri, 21 Aug 2020 15:37:19 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CD0D92166BA3
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 15:08:45 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 80924100BFF6
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 15:37:13 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 96F71186E135
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 15:08:45 +0000 (UTC)
-Received: from mail-qk1-f180.google.com (mail-qk1-f180.google.com
-	[209.85.222.180]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-354-ITEjqwJWPyyrf-yh3cxfpg-1; Fri, 21 Aug 2020 11:08:42 -0400
-X-MC-Unique: ITEjqwJWPyyrf-yh3cxfpg-1
-Received: by mail-qk1-f180.google.com with SMTP id 2so1624873qkf.10
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 08:08:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=V3o8CFCIOjcaGCVcXxdyail4yGImjZPxtT/6BipR8F4=;
-	b=C0VMi+fJiaTCmL5jHpROgf21AbrqZJoUk7qo2hy9bRKacZui8+vF0LVXRjsQLbw12v
-	8bd8b3jDcF4gUgYbXwOutpZUE9O9hUP0nie907BUl5Uq44luwAU+0rcOruepQgXqL4up
-	QJmVMkTrQ7GFH4L22odvEXS9X5XsLitnhTy2T5HkkA0R2MTC9ky3ZkRNaxcOGDBpE4/d
-	pTQfWK1E/TReShs21v8FiYM/7aKi6OPoDRaqKJjBcXkdDx6yGcnmnOogWAa8CPx4VlKS
-	r1JtxkNQVTgSE0+cK0TUbNJbdaVdnmgAzENczJ6vpptd5Kzv804E6yvwRzAfMjcpBOdN
-	HkCg==
-X-Gm-Message-State: AOAM5334St8UZ92QgZFXIdNlEnQwqjkpE2iISTTrb6Uq5HNyYZZ7V2Il
-	n5XSB0bHVuSN5LKSr+0jVYdxriwNEAPSgJr6PZVhVcQ8n0w=
-X-Google-Smtp-Source: ABdhPJwHDE8x45MywJMbVjiRU0SRLlk4RaQQBoX1Ivuijm5FZNqI1kXfE5WG/QSNcDxhdDG/lFTbheLpJ/wZvXbv9ak=
-X-Received: by 2002:a05:620a:2041:: with SMTP id
-	d1mr1517494qka.401.1598022521966; 
-	Fri, 21 Aug 2020 08:08:41 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:a0c:e807:0:0:0:0:0 with HTTP; Fri, 21 Aug 2020 08:08:41
-	-0700 (PDT)
-In-Reply-To: <CAGJxbF42w1GYaWYJooTreuJV1hSC3BKQ9h8gUpKWOx7D2VAz_A@mail.gmail.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9E1A7901856
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 15:37:13 +0000 (UTC)
+Received: from mail.carmickle.com (mail.carmickle.com [69.164.218.211])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-278-LsgSsyWUP2Ol_OHNOpzJSA-1; Fri, 21 Aug 2020 11:37:10 -0400
+X-MC-Unique: LsgSsyWUP2Ol_OHNOpzJSA-1
+Received: from [192.168.116.128] (unknown [176.230.58.250])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.carmickle.com (Postfix) with ESMTPSA id 121586BB6B35
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 15:31:01 +0000 (UTC)
+Date: Fri, 21 Aug 2020 18:30:57 +0300 (IDT)
+X-X-Sender: gshang@debian.work
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Accessible Distros for a beginner?
+In-Reply-To: <CAO2sX30HjWEB+pTv-K_9acVVEX0WSd1bE+j7v4PwRcoGQTeMhA@mail.gmail.com>
+Message-ID: <alpine.DEB.2.11.2008211827450.12135@debian.work>
 References: <MFBaDor--3-2@tutanota.com>
 	<alpine.NEB.2.23.451.2008201242490.28820@panix1.panix.com>
 	<CAO2sX31nhBAtXumURx=+8qkJ1muWGyzauovLL-dK_wTMxfKPeQ@mail.gmail.com>
@@ -91,10 +80,9 @@ References: <MFBaDor--3-2@tutanota.com>
 	<alpine.NEB.2.23.451.2008210753520.27701@panix1.panix.com>
 	<4F89BBB0-1421-4170-8530-C321A454A097@schoeppi.net>
 	<CAGJxbF42w1GYaWYJooTreuJV1hSC3BKQ9h8gUpKWOx7D2VAz_A@mail.gmail.com>
-Date: Fri, 21 Aug 2020 15:08:41 +0000
-Message-ID: <CAO2sX30HjWEB+pTv-K_9acVVEX0WSd1bE+j7v4PwRcoGQTeMhA@mail.gmail.com>
-Subject: Re: Accessible Distros for a beginner?
-To: blinux-list@redhat.com
+	<CAO2sX30HjWEB+pTv-K_9acVVEX0WSd1bE+j7v4PwRcoGQTeMhA@mail.gmail.com>
+User-Agent: Alpine 2.11 (DEB 23 2013-08-11)
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -103,7 +91,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false;
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -120,64 +108,33 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0.002
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Content-Transfer-Encoding: 7bit
 
-I feel like the criticisms leveled against Debian here are a bit unfair.
+On Fri, 21 Aug 2020, Linux for blind general discussion wrote:
 
-Yes, Debian Stable is rather out of date by the middle of Debian's
-development cycle, but the same can be said of ubuntu LTS and pretty
-much every other LTS edition of a distro that offers an LTS release.
-And that comparison is probably the most important thing to remember
-about Debian stable: What Debian calls Stable, just about any other
-distro would call LTS.
+> Debian Testing, while not fully up-to-date, generally has the latest
+> stable release of most actively maintained packages, and sometimes
+> even release candidate or solid beta versions.
 
-Debian Testing, while not fully up-to-date, generally has the latest
-stable release of most actively maintained packages, and sometimes
-even release candidate or solid beta versions. If there's a newer
-version and it's not in testing, usually it's either completely new or
-unstable stumbled upon a release critical bug(e.g. Orca 3.36.4 never
-made it to Testing due to the breakage it caused, but Testing now has
-Orca 3.36.5). I'm pretty sure Debian actively discourages people from
-running Testing on production workstations, but my experience back
-when I used Vanilla Debian and upgrading everything
-non-Knoppix-specific to the version provided by Testing on my
-Knoppix-based setup suggests Testing is, on average, at least as
-stable as many STS releases of other distros, a sentiment I've heard
-echoed by many other Debian Testing users...
+For those who want a stable system with  the occasional newer package, 
+Debian Backports may be the best way to go.
 
-And while it's a bit more advanced, though still infinitely easier
-than compiling everything yourself, you can have both stable and
-testing in your sources.list, set stable as the default release, and
-then manually upgrade just select packages to their Testing version,
-which will only upgrade other packages if the testing version of the
-selected package depends on a newer version. This method also leaves
-open an easy downgrade path if a new version does break
-something(though again, if the package was already sourced from
-testing, and there's a broken upgrade, you might be downgrading
-further than the previous testing version).
+Backports are packages from Testing which are compiled for the stable 
+release.  So it won't suck in a whole lot of newer library dependencies 
+just to install the testing version.
 
-Debian Unstable is where you start risking random package upgrades
-breaking important stuff, and even then, my ventures into Debian
-Unstable have been smoother than what I remember from running Ubuntu
-Unstable back in the day or with Windows 98 or vanilla XP before I
-freed myself from Microsoft's shackles.
+Orca 3.36.5 is currently available in backports.
 
-If there was an official Debian package for SBL and switching from
-espeakup to SBL as the default console screen reader was as simple as
-install SBL, run a script that makes it the default, and reboot and I
-could figure out how to launch Firefox+Orca as a stand-alone
-application without the need for a full desktop, I'd switch back to
-Vanilla Debian in a heartbeat... though I'd probably still keep a DVD
-of the latest Knoppix configured to boot in Adriane by default around
-as a rescue disc(unless someone has a better suggestion for a Live
-environment to boot up and use partimage from for backing up and
-restoring images of a root partition).
+For more info about Debian Backports, see https://backports.debian.org
+
+Cheers,
+Geoff.
 
 _______________________________________________
 Blinux-list mailing list
