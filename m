@@ -1,70 +1,80 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id 77DCD24D8FF
-	for <lists+blinux-list@lfdr.de>; Fri, 21 Aug 2020 17:45:36 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id CA23124DA25
+	for <lists+blinux-list@lfdr.de>; Fri, 21 Aug 2020 18:18:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1598024735;
+	s=mimecast20190719; t=1598026733;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=DK4Q1/C68XmvxVLUGD3EUI32YPDWiPaqD2yfb3pWmdE=;
-	b=iBSt8CWlgCEK0qVbAGflLCl3dqgld2UY9+i/CPy78+QiFJJzHaKVkWUZ3xAcO7rU99gUmZ
-	T5gp9Q1LJBzW4DanaYJRsNrv9aJvWpla0ov6uWoH9zP8c+vDEj/fN5FwVigng7q7oYpxG1
-	dBz52vKkx79FNuVZkawJWhKcxjmKg0M=
+	bh=IRqMUFc+lcux6JZZ3HcQbL0nm+x1/EaoCr75tAWyEdU=;
+	b=JhJE2Er0UuIYbLcktAhiOVQ5yFPCDBwuiLeZG7KpZz4TuU9wIMZz4TA/qIXZGaQ6fbvpp/
+	TkpwJiQwtt62EeD+MvktvNr8wrqVcXryfoXVelBUmeq88W/TSIHuaRvA+wSqUxy9AkWRtT
+	L4dJkDxvVprX7JLPt7M+2n8uaEJ+kUk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-302-UmIQs8BsOfKrhwM0vUc4yQ-1; Fri, 21 Aug 2020 11:45:33 -0400
-X-MC-Unique: UmIQs8BsOfKrhwM0vUc4yQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-543-rz25nO3pMl6-LHDHxmcnwQ-1; Fri, 21 Aug 2020 12:18:28 -0400
+X-MC-Unique: rz25nO3pMl6-LHDHxmcnwQ-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 00A4E873084;
-	Fri, 21 Aug 2020 15:45:29 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D810919D6C;
-	Fri, 21 Aug 2020 15:45:28 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7AC46107465B;
+	Fri, 21 Aug 2020 16:18:21 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 36314756C0;
+	Fri, 21 Aug 2020 16:18:18 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7940C662BB;
-	Fri, 21 Aug 2020 15:45:28 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A2C41181A06B;
+	Fri, 21 Aug 2020 16:18:12 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 07LFh8ja016520 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 21 Aug 2020 11:43:09 -0400
+	id 07LGI4gc020028 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 21 Aug 2020 12:18:04 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id D701CF8969; Fri, 21 Aug 2020 15:43:08 +0000 (UTC)
+	id 0CBA9F5692; Fri, 21 Aug 2020 16:18:04 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D2BABF77BE
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 15:43:06 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0897FAE7CE
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 16:18:01 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A5F94857028
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 15:43:06 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-293-Ff3W-aHsPgGA6Z14omPRTw-1; Fri, 21 Aug 2020 11:43:03 -0400
-X-MC-Unique: Ff3W-aHsPgGA6Z14omPRTw-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4BY5Pz3cs8z11bC
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 11:43:03 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4BY5Pz2drszcbY; Fri, 21 Aug 2020 11:43:03 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4BY5Pz27rszcbV
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 11:43:03 -0400 (EDT)
-Date: Fri, 21 Aug 2020 11:43:03 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Accessible Distros for a beginner?
-In-Reply-To: <20200821.140441.108.39@[192.168.1.130]>
-Message-ID: <alpine.NEB.2.23.451.2008211141270.8148@panix1.panix.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D67C5901844
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 16:18:01 +0000 (UTC)
+Received: from mail-qk1-f176.google.com (mail-qk1-f176.google.com
+	[209.85.222.176]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-50-_dJojH1LMfCyTdseFFVmlA-1; Fri, 21 Aug 2020 12:17:58 -0400
+X-MC-Unique: _dJojH1LMfCyTdseFFVmlA-1
+Received: by mail-qk1-f176.google.com with SMTP id n129so1840678qkd.6
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 09:17:58 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=uAPmwime+9U2w0rqbJfftK3IDYUeXaNvQasqDwtBeYQ=;
+	b=hV/HjElctfsruY1mF5/TPCLQyfm5n7MP1Nbcf5RHmsDGlQm/v8GR5T5Kj2TpM3g7PX
+	Q0f7D//y7Ud1BzW8tzOfVbfJ8HDginE1gVP1C6VydWXIL+k32Qtrl9CyCjOPpedmYSRi
+	4x6AFnCtesnn0LKj4eO01vr5pyfR1IEcX3GAeIdP7jJM+AHRogROZp+vrtQ9YzYQJbWi
+	+T/whKlEjxuUF0xuEfT6ArPSVMlQsgTL3b8+Xd4BwUPvOlGJrW3CJLOq/bcKM1qoFPal
+	mZfhuh47zPkYA36GSKz6hie3uejbIqwFQvhl4g/KdaQAmb/svN3IegfL9ZA6hdBg+mlH
+	OMMg==
+X-Gm-Message-State: AOAM5334zgZPCC4Z8g6vdiVaqAkZWtWAdMjSJf48h5OQ7ChLhmRQflo7
+	Ams8aq/fEn8wM0CxhYdLWqN52/DvYc3WECqehHoKW9cneGw=
+X-Google-Smtp-Source: ABdhPJy4FuKiaUuuAPvJfrgUbsyM6uNBsRhBi1//rLbUxG5vsij5/A+6l/RZ1TunbfLFdAoOzcTnF444pWZRWoEe8aY=
+X-Received: by 2002:ae9:e00b:: with SMTP id m11mr3517215qkk.341.1598026678191; 
+	Fri, 21 Aug 2020 09:17:58 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a0c:e807:0:0:0:0:0 with HTTP; Fri, 21 Aug 2020 09:17:57
+	-0700 (PDT)
+In-Reply-To: <alpine.NEB.2.23.451.2008211141270.8148@panix1.panix.com>
 References: <MFBaDor--3-2@tutanota.com>
 	<CAO2sX31nhBAtXumURx=+8qkJ1muWGyzauovLL-dK_wTMxfKPeQ@mail.gmail.com>
 	<d875a786-aee9-42ba-204b-72f0b32da766@gmail.com>
@@ -79,8 +89,12 @@ References: <MFBaDor--3-2@tutanota.com>
 	<99a3d6ab-1abf-cf35-42ab-84b9fba7f4c2@gmail.com>
 	<alpine.NEB.2.23.451.2008210753520.27701@panix1.panix.com>
 	<4F89BBB0-1421-4170-8530-C321A454A097@schoeppi.net>
-	<20200821.140441.108.39@[192.168.1.130]>
-MIME-Version: 1.0
+	<20200821.140441.108.39@192.168.1.130>
+	<alpine.NEB.2.23.451.2008211141270.8148@panix1.panix.com>
+Date: Fri, 21 Aug 2020 16:17:57 +0000
+Message-ID: <CAO2sX33OVxtLrSrxpfTT5JGks9KVBcfX6zc130VhHmVqM3evSg@mail.gmail.com>
+Subject: Re: Accessible Distros for a beginner?
+To: blinux-list@redhat.com
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -106,7 +120,7 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0.002
@@ -114,50 +128,16 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Being way behind in lots of packages means security exposures galore.
-Exim was hacked by the Russians already and ssh servers world-wide have
-malware attacking them now too.
+Ah, I keep forgetting Backports are a thing in Debian, probably due to
+the fact I've never used them and spend most of my time sourcing
+everything from Testing directly.
 
-On Fri, 21 Aug 2020, Linux for blind general discussion wrote:
+Also, I thought security updates were the one thing Debian Stable
+actually kept up with... or are some of the base versions of some
+packages so out of date by the time Debian Stable reaches late life
+that only newer versions are getting security updates?
 
-> Date: Fri, 21 Aug 2020 10:04:41
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Subject: Re: Accessible Distros for a beginner?
->
-> Biggest reason is because, being a, stable, distro, debian is way behind in a lot of packages. I remember last year, for example, trying to get wireguard running. I had to build my own kernel because the one in stable debian was too old.
-> But for the average user, I guess, debian would do just fine.
-> ----- Original Message -----
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Date: Fri, 21 Aug 2020 15:29:51 +0200
-> Subject: Re: Accessible Distros for a beginner?
->
-> > Why not just using Debian? IMHO this is still the most accessible distro with a large community and a active team who cares about accessibility. And for a beginner its not more difficult to learn how Debian is working then learning to use another distro.
-> >
-> > For me Debian is still the best and I wonder why this is not the case for other users? Why do you prefere other distros?
-> >
-> > Ciao,
-> >
-> >   Schoepp
-> >
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://www.redhat.com/mailman/listinfo/blinux-list
-> >
-> >
->
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
->
-
--- 
+-Jeffery
 
 _______________________________________________
 Blinux-list mailing list
