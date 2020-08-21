@@ -1,71 +1,71 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id D14F024D8AB
-	for <lists+blinux-list@lfdr.de>; Fri, 21 Aug 2020 17:34:33 +0200 (CEST)
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	by mail.lfdr.de (Postfix) with ESMTP id 69B2F24D8AC
+	for <lists+blinux-list@lfdr.de>; Fri, 21 Aug 2020 17:35:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1598024072;
+	s=mimecast20190719; t=1598024138;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=LOM7fiTGx8KMIfNGAtY41pMCLj83hU605hsnrwWwgew=;
-	b=PDe8JXo59Sb0ZRjGBHUaveZsppIQPgQm2TXjr8PeYJOwUFalDrlxWe6zBmk8vIbdO39cXJ
-	C55oBMCoTACGZNyZvLFwFM4THgjZ67kdXETE/lNTz5yjKwTZNntYBqKxJlkLEIl6DPkQTJ
-	9CmKjlnRS30qR8KadDWiyaO20aNHcs4=
+	bh=/SczLwTj744nezQa9Ao3Z9HvhRhG1QcnWTnUODp4ntA=;
+	b=Sdf7FxOcq/+gz6b/0A76igdE2hVF2/WPjr+5THf2biaXRlT3amuteyXSGRONEK2+Xt5CFp
+	LlLwdRQeGkQQzKZwhgcD1glA5Oc7dni0JyTyujKzRUN7OdSCPaGITRwK1AQAGpqNulutKd
+	LNEYmoBLtpTvT4cYAv6LflmUJf3jVOA=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-549-h9eJAupIMOeoyGqlOuOtkA-1; Fri, 21 Aug 2020 11:34:30 -0400
-X-MC-Unique: h9eJAupIMOeoyGqlOuOtkA-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-397-2KjdDUW0MrWYnOuMVN7oFg-1; Fri, 21 Aug 2020 11:35:36 -0400
+X-MC-Unique: 2KjdDUW0MrWYnOuMVN7oFg-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6069D1084C96;
-	Fri, 21 Aug 2020 15:34:25 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B53A95D9CC;
-	Fri, 21 Aug 2020 15:34:24 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A23D51084C91;
+	Fri, 21 Aug 2020 15:35:32 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 873FF5C89C;
+	Fri, 21 Aug 2020 15:35:32 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D128C181A050;
-	Fri, 21 Aug 2020 15:34:23 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4B8EE662BB;
+	Fri, 21 Aug 2020 15:35:32 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 07LFYJQc014127 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 21 Aug 2020 11:34:19 -0400
+	id 07LFZRLj014214 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 21 Aug 2020 11:35:27 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 28A48100BC8C; Fri, 21 Aug 2020 15:34:19 +0000 (UTC)
+	id 11CFA2157F24; Fri, 21 Aug 2020 15:35:27 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2500E100BCA3
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 15:34:16 +0000 (UTC)
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0D9812166BA4
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 15:35:24 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C34C7888BE0
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 15:34:16 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9930518AE958
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 15:35:24 +0000 (UTC)
 Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-554-oYnEE8ZwNNitFKqh2-Y93A-1; Fri, 21 Aug 2020 11:34:13 -0400
-X-MC-Unique: oYnEE8ZwNNitFKqh2-Y93A-1
+	us-mta-60-G2ABGytmMIyd6wviQrx6NQ-1; Fri, 21 Aug 2020 11:35:21 -0400
+X-MC-Unique: G2ABGytmMIyd6wviQrx6NQ-1
 Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4BY5Cm6GPXz10gf
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 11:34:12 -0400 (EDT)
+	by mailbackend.panix.com (Postfix) with ESMTP id 4BY5Dn1L5Xz10ly
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 11:35:05 -0400 (EDT)
 Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4BY5Cm5WfxzcbY; Fri, 21 Aug 2020 11:34:12 -0400 (EDT)
+	id 4BY5Dn14zvzcbY; Fri, 21 Aug 2020 11:35:05 -0400 (EDT)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4BY5Cm5156zcbV
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 11:34:12 -0400 (EDT)
-Date: Fri, 21 Aug 2020 11:34:12 -0400
+	by panix1.panix.com (Postfix) with ESMTP id 4BY5Dn120RzcbV
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 11:35:05 -0400 (EDT)
+Date: Fri, 21 Aug 2020 11:35:05 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Accessible Distros for a beginner?
 In-Reply-To: <CAO2sX32A8QuCvc_o8QERqgjr4k_w_CRq0nwpSLosESQ1mLkzAA@mail.gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2008211132180.8148@panix1.panix.com>
+Message-ID: <alpine.NEB.2.23.451.2008211134250.8148@panix1.panix.com>
 References: <MFBaDor--3-2@tutanota.com>
 	<alpine.NEB.2.23.451.2008201242490.28820@panix1.panix.com>
 	<CAO2sX31nhBAtXumURx=+8qkJ1muWGyzauovLL-dK_wTMxfKPeQ@mail.gmail.com>
@@ -91,7 +91,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false;
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -108,7 +108,7 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0.002
@@ -116,9 +116,7 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-There is thunder screen reader and lightning screen reader available and
-those did work on older versions of windows so may work on wine.
-Lightning requires some vision and thunder is for those with no vision.
+Another possibility may be satogo that though is a web application.
 
 On Fri, 21 Aug 2020, Linux for blind general discussion wrote:
 
