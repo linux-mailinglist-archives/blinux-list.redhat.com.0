@@ -1,71 +1,70 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
-	by mail.lfdr.de (Postfix) with ESMTP id BE70C24E396
-	for <lists+blinux-list@lfdr.de>; Sat, 22 Aug 2020 00:46:42 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 2643524E41A
+	for <lists+blinux-list@lfdr.de>; Sat, 22 Aug 2020 02:22:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1598050001;
+	s=mimecast20190719; t=1598055723;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=y4DeCfvm8b2I7tbIB/IKTlyfBozaSuF2Or3tLPGW7MM=;
-	b=BfVA3ASyIFi3MbRQdLIpFSv+oxGItA7/mrKihtAWR6go9W/hqgROxEz9rJi1Of5iXlfonE
-	CG8yqySntvdOZDzi9RvxxnDLbLvYPVzJ/as57rMANpYIKHwAWW3yJgC9JjfBMChg1XjgOf
-	kZ9nRWsoCdhpIOrENAC/oZSzgt4HZRk=
+	bh=pTPucHR43MHd74IsGeixqQqdsACN9AeJBU7hk/6yhu0=;
+	b=dv+aA+fv2sXEfQSYUcFhUt6XqTd3/PKrjW2aLpYRBLTpm9DfXFWmpOpd08FR23HBJ3M54w
+	U9cGsoX5UtktrZgTjWEHu1HyAoNAxQIOkunQkTYDfrhD/mYW6+KbLKKstzIg2atlskr02O
+	X47F8HZJSWKLAJ5pGi1OTlyBS3SfdE4=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-68-u0Tcyke-OqOEmK2yCI91Mw-1; Fri, 21 Aug 2020 18:46:39 -0400
-X-MC-Unique: u0Tcyke-OqOEmK2yCI91Mw-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-144-5GSVcNObPwa4gJH6xEGsPQ-1; Fri, 21 Aug 2020 20:22:00 -0400
+X-MC-Unique: 5GSVcNObPwa4gJH6xEGsPQ-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8D4411074659;
-	Fri, 21 Aug 2020 22:46:34 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DD99A8030DF;
+	Sat, 22 Aug 2020 00:21:55 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6189A2C724;
-	Fri, 21 Aug 2020 22:46:33 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6F87B7C0AC;
+	Sat, 22 Aug 2020 00:21:54 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 110291832FC5;
-	Fri, 21 Aug 2020 22:46:31 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 571B11832FC3;
+	Sat, 22 Aug 2020 00:21:51 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 07LMiY2X002525 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 21 Aug 2020 18:44:34 -0400
+	id 07M0LgB6012792 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 21 Aug 2020 20:21:43 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 6435510769A; Fri, 21 Aug 2020 22:44:34 +0000 (UTC)
+	id A1EAF10769F; Sat, 22 Aug 2020 00:21:42 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 492C6F6435
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 22:44:32 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9DEACF97F6
+	for <blinux-list@redhat.com>; Sat, 22 Aug 2020 00:21:40 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2CC44811E93
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 22:44:32 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8ECE2800883
+	for <blinux-list@redhat.com>; Sat, 22 Aug 2020 00:21:40 +0000 (UTC)
 Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-42-j_grcwUrNj6p9C9lzINWJg-1; Fri, 21 Aug 2020 18:44:30 -0400
-X-MC-Unique: j_grcwUrNj6p9C9lzINWJg-1
+	us-mta-482-LzE2ed6mMEu4_Eenyn7vMQ-1; Fri, 21 Aug 2020 20:21:38 -0400
+X-MC-Unique: LzE2ed6mMEu4_Eenyn7vMQ-1
 Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4BYGmF5KYhzcHN
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 18:44:29 -0400 (EDT)
+	by mailbackend.panix.com (Postfix) with ESMTP id 4BYJwK5yY0zhXc
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 20:21:37 -0400 (EDT)
 Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4BYGmF4k1kzcbY; Fri, 21 Aug 2020 18:44:29 -0400 (EDT)
+	id 4BYJwK4x3PzcbY; Fri, 21 Aug 2020 20:21:37 -0400 (EDT)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4BYGmF4J9pzcbV
-	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 18:44:29 -0400 (EDT)
-Date: Fri, 21 Aug 2020 18:44:29 -0400
+	by panix1.panix.com (Postfix) with ESMTP id 4BYJwK4RxRzcbV
+	for <blinux-list@redhat.com>; Fri, 21 Aug 2020 20:21:37 -0400 (EDT)
+Date: Fri, 21 Aug 2020 20:21:37 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Accessible Distros for a beginner?
-In-Reply-To: <alpine.DEB.2.11.2008212337110.12135@debian.work>
-Message-ID: <alpine.NEB.2.23.451.2008211841370.29494@panix1.panix.com>
+In-Reply-To: <alpine.NEB.2.23.451.2008211841370.29494@panix1.panix.com>
+Message-ID: <alpine.NEB.2.23.451.2008212019210.29494@panix1.panix.com>
 References: <MFBaDor--3-2@tutanota.com>
 	<CAO2sX31nhBAtXumURx=+8qkJ1muWGyzauovLL-dK_wTMxfKPeQ@mail.gmail.com>
 	<d875a786-aee9-42ba-204b-72f0b32da766@gmail.com>
@@ -83,6 +82,7 @@ References: <MFBaDor--3-2@tutanota.com>
 	<20200821.140441.108.39@[192.168.1.130]>
 	<alpine.NEB.2.23.451.2008211141270.8148@panix1.panix.com>
 	<alpine.DEB.2.11.2008212337110.12135@debian.work>
+	<alpine.NEB.2.23.451.2008211841370.29494@panix1.panix.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -109,7 +109,7 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0.002
@@ -117,68 +117,82 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-The working assumption behind within a reasonable time is that the
-security team either has or finds a good fix for the vulnerabilities
-exposed.  Microsoft which has way better funding than Debian has let
-vulnerabilities continue for months in some cases.
+You know when it gets really interesting for the Security Teams?  When
+they fix one vulnerability and discover they opened up a continuous
+chain of vulnerabilities emanating from the fix they just made.  That's
+when those teams get to earn their pay.
 
-On Sat, 22 Aug 2020, Linux for blind general discussion wrote:
+On Fri, 21 Aug 2020, Linux for blind general discussion wrote:
 
-> Date: Fri, 21 Aug 2020 17:10:21
+> Date: Fri, 21 Aug 2020 18:44:29
 > From: Linux for blind general discussion <blinux-list@redhat.com>
 > To: Linux for blind general discussion <blinux-list@redhat.com>
 > Subject: Re: Accessible Distros for a beginner?
 >
-> On Fri, 21 Aug 2020, Linux for blind general discussion wrote:
+> The working assumption behind within a reasonable time is that the
+> security team either has or finds a good fix for the vulnerabilities
+> exposed.  Microsoft which has way better funding than Debian has let
+> vulnerabilities continue for months in some cases.
 >
-> > Being way behind in lots of packages means security exposures galore.
-> > Exim was hacked by the Russians already and ssh servers world-wide have
-> > malware attacking them now too.
+> On Sat, 22 Aug 2020, Linux for blind general discussion wrote:
 >
-> This is why you subscribe to Debian security updates, which should be
-> configured by default.
->
-> >From their security page:
->
->    Debian takes security very seriously. We handle all security problems
-> brought to our
->    attention and ensure that they are corrected within a reasonable timeframe.
-> Many advisories
->    are coordinated with other free software vendors and are published the same
-> day a
->    vulnerability is made public and we also have a Security Audit team that
-> reviews the
->    archive looking for new or unfixed security bugs.
->
-> Security fixes are provided for a year after the next stable version of Debian
-> is released.  In practice, this tends to mean that a Debian release will get
-> regular security fixes for three years.
->
-> Following this, LTS security updates for certain architectures will be
-> provided for an additional two years or so.
->
-> You can get Debian security notices via email if you wish.
->
-> For more information, see https://security.debian.org and
-> https://wiki.debian.org/LTS
->
-> Both Exim and SSh have had several security fixes applied since Debian Buster
-> was released.
->
-> If you are concerned about a specific vulnerability, you can use its CVE
-> number and the resources at security.debian.org to see if these have been
-> fixed in Debian.
->
-> For Debian installations, you can also see which security updates have been
-> applied by reading /usr/share/doc/<packagename>/changelog.debian.gz
->
-> HTH,
-> Geoff.
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
+> > Date: Fri, 21 Aug 2020 17:10:21
+> > From: Linux for blind general discussion <blinux-list@redhat.com>
+> > To: Linux for blind general discussion <blinux-list@redhat.com>
+> > Subject: Re: Accessible Distros for a beginner?
+> >
+> > On Fri, 21 Aug 2020, Linux for blind general discussion wrote:
+> >
+> > > Being way behind in lots of packages means security exposures galore.
+> > > Exim was hacked by the Russians already and ssh servers world-wide have
+> > > malware attacking them now too.
+> >
+> > This is why you subscribe to Debian security updates, which should be
+> > configured by default.
+> >
+> > >From their security page:
+> >
+> >    Debian takes security very seriously. We handle all security problems
+> > brought to our
+> >    attention and ensure that they are corrected within a reasonable timeframe.
+> > Many advisories
+> >    are coordinated with other free software vendors and are published the same
+> > day a
+> >    vulnerability is made public and we also have a Security Audit team that
+> > reviews the
+> >    archive looking for new or unfixed security bugs.
+> >
+> > Security fixes are provided for a year after the next stable version of Debian
+> > is released.  In practice, this tends to mean that a Debian release will get
+> > regular security fixes for three years.
+> >
+> > Following this, LTS security updates for certain architectures will be
+> > provided for an additional two years or so.
+> >
+> > You can get Debian security notices via email if you wish.
+> >
+> > For more information, see https://security.debian.org and
+> > https://wiki.debian.org/LTS
+> >
+> > Both Exim and SSh have had several security fixes applied since Debian Buster
+> > was released.
+> >
+> > If you are concerned about a specific vulnerability, you can use its CVE
+> > number and the resources at security.debian.org to see if these have been
+> > fixed in Debian.
+> >
+> > For Debian installations, you can also see which security updates have been
+> > applied by reading /usr/share/doc/<packagename>/changelog.debian.gz
+> >
+> > HTH,
+> > Geoff.
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://www.redhat.com/mailman/listinfo/blinux-list
+> >
+> >
 >
 >
 
