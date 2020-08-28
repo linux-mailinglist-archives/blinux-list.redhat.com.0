@@ -1,75 +1,67 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 911BB252CE3
-	for <lists+blinux-list@lfdr.de>; Wed, 26 Aug 2020 13:51:47 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 779A4255277
+	for <lists+blinux-list@lfdr.de>; Fri, 28 Aug 2020 03:17:47 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1598442706;
+	s=mimecast20190719; t=1598577466;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=472xGnC92mVHUfWzgwytLw6DhCTtVXrkyzqYtOKzrq4=;
-	b=aDrMZeKYZptg/hbozCfzwE2RbTAdPsmq71yXQZET3jJEnslMrgVf9GW2J+/s/6OU2KB8tG
-	e/RVqkKjvENWEFcxC6jpIOkViEg3FeygOemUcv3VprvEyfIedXIfMxFJmgM14U1GC9dwLQ
-	2xuZE/LAXA2381no4Z5lgRRHgOvI1jg=
+	bh=28ARKjtLTRcadgZTtdqwM2I51BvO93kgrAUwU1hliDs=;
+	b=Txa1U4l0xPCCEpQGLWjMB67PWM2gcIs875NSlttvGXOsc1nNclVcoCvpuPzldAdZuQkmY6
+	GrUNeQemhkvCX33d/SJf6sCzTAvzi9fbTLxbAvzoyR22H13iT2QS3407hNVnWBnATa2lSe
+	12i/jgOkpYcJ4P3lu5sTLDAr/FWlH+o=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-457-D8l85QbjN6KVcVKs0CzewA-1; Wed, 26 Aug 2020 07:51:44 -0400
-X-MC-Unique: D8l85QbjN6KVcVKs0CzewA-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-220-E3wGa-GbOZq7iHSZIbB4QQ-1; Thu, 27 Aug 2020 21:17:44 -0400
+X-MC-Unique: E3wGa-GbOZq7iHSZIbB4QQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D1BFF801AE7;
-	Wed, 26 Aug 2020 11:51:39 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 874DB7BE79;
-	Wed, 26 Aug 2020 11:51:38 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9FD5D189E615;
+	Fri, 28 Aug 2020 01:17:39 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A71245D9E8;
+	Fri, 28 Aug 2020 01:17:34 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 41438181A050;
-	Wed, 26 Aug 2020 11:51:37 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id F3E19668F1;
+	Fri, 28 Aug 2020 01:17:25 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 07QBpWiQ010878 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 26 Aug 2020 07:51:32 -0400
+	id 07S1G3Qa005133 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 27 Aug 2020 21:16:03 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 0A979206322E; Wed, 26 Aug 2020 11:51:31 +0000 (UTC)
+	id 9A24C2166BA0; Fri, 28 Aug 2020 01:16:03 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8C209203B864
-	for <blinux-list@redhat.com>; Wed, 26 Aug 2020 11:51:26 +0000 (UTC)
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 94CC72166B28
+	for <blinux-list@redhat.com>; Fri, 28 Aug 2020 01:15:59 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 22DFB8007D9
-	for <blinux-list@redhat.com>; Wed, 26 Aug 2020 11:51:26 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 21645185A78B
+	for <blinux-list@redhat.com>; Fri, 28 Aug 2020 01:15:59 +0000 (UTC)
+Received: from mx1.simplelogin.co (mx1.simplelogin.co [94.237.86.150])
 	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-152-sLInVCupN0eV0jaP8iH_hA-1; Wed, 26 Aug 2020 07:51:23 -0400
-X-MC-Unique: sLInVCupN0eV0jaP8iH_hA-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4Bc42M26bQzslr
-	for <blinux-list@redhat.com>; Wed, 26 Aug 2020 07:51:23 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4Bc42M1DMYzcbY; Wed, 26 Aug 2020 07:51:23 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4Bc42M0nG1zcbV
-	for <blinux-list@redhat.com>; Wed, 26 Aug 2020 07:51:23 -0400 (EDT)
-Date: Wed, 26 Aug 2020 07:51:22 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: tried accessible coconut
-In-Reply-To: <CAK2wa2mqJK8XBzyn7u-t81XguptkaO=ybuVOkE4Kfwn8ei8AxA@mail.gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2008260748290.11258@panix1.panix.com>
-References: <alpine.NEB.2.23.451.2008251743310.9959@panix1.panix.com>
-	<CAO2sX32zY8fraBaxNamf2f83y4d2F_OBMNVf6ruUKDC_GYi93g@mail.gmail.com>
-	<alpine.NEB.2.23.451.2008252259200.29637@panix1.panix.com>
-	<CAK2wa2mqJK8XBzyn7u-t81XguptkaO=ybuVOkE4Kfwn8ei8AxA@mail.gmail.com>
+	us-mta-378-TvWj5LAtPlGYyY85UC5utg-1; Thu, 27 Aug 2020 21:15:55 -0400
+X-MC-Unique: TvWj5LAtPlGYyY85UC5utg-1
+X-SimpleLogin-Client-IP: 172.17.0.4
+Received: from [172.17.0.4] (unknown [172.17.0.4])
+	by mx1.simplelogin.co (Postfix) with ESMTP id 122EC3F1C1
+	for <blinux-list@redhat.com>; Fri, 28 Aug 2020 01:15:54 +0000 (UTC)
+Date: Fri, 28 Aug 2020 03:15:52 +0200 (CEST)
+Subject: braille display question
 MIME-Version: 1.0
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Message-ID: <159857735399.6.4830934744852641473.711949@slmail.me>
+X-SimpleLogin-EmailLog-ID: 711949
+X-SimpleLogin-Type: Reply
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -78,8 +70,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false;
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -95,73 +88,21 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
-X-Mimecast-Spam-Score: 0.003
+X-Mimecast-Spam-Score: 0.002
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-This is a tower not a laptop.  I got logged in and after I reset my
-router the router accepted my password so got onto the internet and
-updated software.
-Interestingly, on next boot of accessible coconut I got a talking login
-to use.
-
-On Wed, 26 Aug 2020, Linux for blind general discussion wrote:
-
-> Date: Wed, 26 Aug 2020 07:19:07
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Subject: Re: tried accessible coconut
->
-> Friend,
-> Let me know whether you have i installed coconut in a laptop or what.
-> Again 18 or 20. If you can listen to grub tune, installation may be
-> correct. In 20 login window is not supported therefore check you reach
-> the login window. If so enter password and login. Thanking you.
-> Sathyan.
->
-> On 8/26/20, Linux for blind general discussion <blinux-list@redhat.com> wrote:
-> > You can make things like that happen with Fedora, and even with a
-> > monitor connected and operating if a mouse wasn't on the system back in
-> > redhat 5.0 the system wouldn't work.
-> >
-> > On Tue, 25 Aug 2020, Linux for blind general discussion wrote:
-> >
-> >> Date: Tue, 25 Aug 2020 18:13:26
-> >> From: Linux for blind general discussion <blinux-list@redhat.com>
-> >> To: blinux-list@redhat.com
-> >> Subject: Re: tried accessible coconut
-> >>
-> >> That's odd... I've never used accessible Coconut, and I've really only
-> >> tried Knoppix and Debian for x86 and Raspbian on the Raspberry Pi when
-> >> it comes to trying to set a Linux System up with speech, but I've
-> >> never had an issue with something refusing to boot or a screenreader
-> >> failing to launch because of no monitor being connected.
-> >>
-> >> _______________________________________________
-> >> Blinux-list mailing list
-> >> Blinux-list@redhat.com
-> >> https://www.redhat.com/mailman/listinfo/blinux-list
-> >>
-> >>
-> >
-> > --
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://www.redhat.com/mailman/listinfo/blinux-list
-> >
-> >
->
->
->
-
--- 
-
+Hi everyone,
+I have a quick question about braille displays.
+Have any of you used the Pacmate 40 cell display with Linux? Especially those of you who use Slint as I am really interested in that Distro.
+I was thinking of using an Optelec Braille Voyager 40 but I don't see it supported on the BRLTTY list.
+Pacmate 40 does actually seem to be supported on the BRLTTY list so I'm thinking of getting that one, and just wanted to know if any of you use Pacmate 40, particularly with Slint?
+Thanks,
+SL
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
