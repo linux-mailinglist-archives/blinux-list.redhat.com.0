@@ -1,97 +1,87 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	by mail.lfdr.de (Postfix) with ESMTP id 6F33B255FC0
-	for <lists+blinux-list@lfdr.de>; Fri, 28 Aug 2020 19:32:00 +0200 (CEST)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+	by mail.lfdr.de (Postfix) with ESMTP id EB5E2256722
+	for <lists+blinux-list@lfdr.de>; Sat, 29 Aug 2020 13:33:13 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1598635919;
+	s=mimecast20190719; t=1598700792;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=hEKn+w7Q/ZRKZ55AraVPSDG1Jo5nr3MJTv3IQJHImYQ=;
-	b=KFAVxZlV1h+rLy3Wg60lpw1Y14SVTKI3q3koUGMCMCg+IlrYfSwpVyiLnaLlZSHk7HnYC6
-	uhfXIin+Yb19PyqJI+hfwFqEDYDG2CVyk9VZe2iKAmat5sV9qPBXx0bYnqXE6jbahbtaCp
-	ZgF30C5EV5VPK3BIlKz5jhKAix966XE=
+	bh=l/n9GUKVqCDvDJjtUCLaa0OnnzoJJa1ybZ60l8cuI1Y=;
+	b=AH8w0ie3Ic+Qci9Ui4tI7+JJBPgMxPwvxXVb2juY7dYuXLOt6RAc02Hj1wlW9ohbL0EUv5
+	N78mKWMvbTfGdDR891wjD3b84u1Wat4GjwMHmJEzJlys3uCwDU0szDk7vYN//p59EKlio5
+	XLPL5rGVSq3TJGp8nnLYoiqMQ4IdNHU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-222-KJlgHHQnN6mG14nIq6hwNg-1; Fri, 28 Aug 2020 13:31:55 -0400
-X-MC-Unique: KJlgHHQnN6mG14nIq6hwNg-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-422-lr3OHQTLOJKVOeteek06rw-1; Sat, 29 Aug 2020 07:33:10 -0400
+X-MC-Unique: lr3OHQTLOJKVOeteek06rw-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A801E10082E7;
-	Fri, 28 Aug 2020 17:31:49 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 908DD1009636;
+	Sat, 29 Aug 2020 11:33:04 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 19CC15DA30;
-	Fri, 28 Aug 2020 17:31:49 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 92BCA2C334;
+	Sat, 29 Aug 2020 11:33:02 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 9BCC4181A869;
-	Fri, 28 Aug 2020 17:31:47 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EF507180B655;
+	Sat, 29 Aug 2020 11:32:52 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 07SHVcqn023289 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 28 Aug 2020 13:31:39 -0400
+	id 07TBWgRY005368 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 29 Aug 2020 07:32:42 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id DE2972156A23; Fri, 28 Aug 2020 17:31:38 +0000 (UTC)
+	id 501412018034; Sat, 29 Aug 2020 11:32:42 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D551E2166B27
-	for <blinux-list@redhat.com>; Fri, 28 Aug 2020 17:31:34 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4B0A4200AF70
+	for <blinux-list@redhat.com>; Sat, 29 Aug 2020 11:32:37 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C039A18AE948
-	for <blinux-list@redhat.com>; Fri, 28 Aug 2020 17:31:34 +0000 (UTC)
-Received: from mail-il1-f179.google.com (mail-il1-f179.google.com
-	[209.85.166.179]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-111-yd6Ai61HPESDxZcXbcq5VA-1; Fri, 28 Aug 2020 13:31:31 -0400
-X-MC-Unique: yd6Ai61HPESDxZcXbcq5VA-1
-Received: by mail-il1-f179.google.com with SMTP id t4so1361040iln.1
-	for <blinux-list@redhat.com>; Fri, 28 Aug 2020 10:31:31 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C915C811E78
+	for <blinux-list@redhat.com>; Sat, 29 Aug 2020 11:32:37 +0000 (UTC)
+Received: from mail-io1-f41.google.com (mail-io1-f41.google.com
+	[209.85.166.41]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-490-go4t_SDLPNCR2jnWnj3vHQ-1; Sat, 29 Aug 2020 07:32:34 -0400
+X-MC-Unique: go4t_SDLPNCR2jnWnj3vHQ-1
+Received: by mail-io1-f41.google.com with SMTP id u126so1598511iod.12
+	for <blinux-list@redhat.com>; Sat, 29 Aug 2020 04:32:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:to:subject:thread-topic:thread-index:date
-	:message-id:references:in-reply-to:accept-language:content-language
-	:mime-version;
-	bh=cYcdW/YnSQZoB0OOWceAewrdDhEI8d0t3P93Elur3Cs=;
-	b=Dut5rSobdOj9c/U24LOKP6rZsYXwwy67mQSIeIkPWmfjLBib0fF9WYAUYJNwaoOWxL
-	vz7J616VYbMEFwCRDM0bG8FIEiOcAzw7fOsxQRMadhEqwDrAEfxCyjJh9n2VRE6RA7Vd
-	KZPqUov95t7sc0hO5anVmLmMOhN3yVpktaNxH9HoAPh09a9Lew85ofhep0PT2Ph54JbK
-	WAd7yiCYXXLBw3U2nWg/YD88jbMF99khJdbVZPIqr+2XjlHTR00ksGwNJrWw2HAnirC4
-	Gvrd7LJZr/uYkzO7mLMJioaxKt+L9Qa11P9uFQd4OB8tWmPCQ0Mjcb3tQwBfq5ujw80t
-	tU/g==
-X-Gm-Message-State: AOAM531W9Res8LIYWEnmYyloCfeHG92rmhWtUpDkbUQcspDTO2K382ng
-	wbhceU3BxSw3Vh61sXs+VXQ6ihk+cDM=
-X-Google-Smtp-Source: ABdhPJwxWPiSJDuDkshrx4dmq/hBXEwTkOusBF+TsQrZ48q/SvSeCEIfZl4m5HCOQPL2fx01BIvIzA==
-X-Received: by 2002:a92:bb13:: with SMTP id w19mr2052921ili.300.1598635890657; 
-	Fri, 28 Aug 2020 10:31:30 -0700 (PDT)
-Received: from CY4PR19MB0136.namprd19.prod.outlook.com ([2603:1036:906:7d::5])
-	by smtp.gmail.com with ESMTPSA id
-	x9sm853482ior.12.2020.08.28.10.31.29 for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-	Fri, 28 Aug 2020 10:31:30 -0700 (PDT)
-To: "blinux-list@redhat.com" <blinux-list@redhat.com>
-Subject: Re: ORCA user guide?
-Thread-Topic: ORCA user guide?
-Thread-Index: AWYzMDlkPfrpJZFTEipNV6yzghXuRiRhNiRkMEQ1MzA=
-X-MS-Exchange-MessageSentRepresentingType: 1
-Date: Fri, 28 Aug 2020 17:31:29 +0000
-Message-ID: <CY4PR19MB01363003E9F0A651054ABDE9A7520@CY4PR19MB0136.namprd19.prod.outlook.com>
-References: <02cd01d67d59$993866a0$cba933e0$.ref@yahoo.com>,
-	<02cd01d67d59$993866a0$cba933e0$@yahoo.com>
-In-Reply-To: <02cd01d67d59$993866a0$cba933e0$@yahoo.com>
-Accept-Language: en-US
-X-MS-Has-Attach: 
-X-MS-Exchange-Organization-SCL: -1
-X-MS-TNEF-Correlator: 
-X-MS-Exchange-Organization-RecordReviewCfmType: 0
+	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
+	:mime-version:content-transfer-encoding:content-language;
+	bh=HqfO9HsTTUPj5wAx4n+s5NYlPey6rVke3v6ZYIL/YXQ=;
+	b=ptPdDZax0EUThZej5n1y7v2IRCWfHkNFbRR4YlGfLzlkBk0fkVtkcSKtc4koolES9f
+	b4k64plyLh8gRPYgcps6yvQqfnP6YfyDwQyMEeUdEBV5XZN4aTADHTr/oxVrve5Zt9wS
+	n99oOjoNsS8vvMN5whhNIan/VNIFFwWpc/831Z1t65MbWuUItdpGOxi95KnHtSmpJBHs
+	IgDjrl/pHoUVG/UB9rLalyEt6vszcBtt8p+z848NWr9C6KoogK3XICzP2QE/PZUNzlRt
+	TrDsECj11BkCNIz4H10+TbaGw8w6P52KFn/PPZLSlWPBiuJb/PpZrGtTLWgxRHZCmCFe
+	A+rA==
+X-Gm-Message-State: AOAM531PEeTKLgeu1qT1nFC31z7HAXFQM4e40Fjvu/zyTYXdtzLCz7rj
+	+D24GtbnDyLVz8z88BCd/vtWD0vr9ZU4ig==
+X-Google-Smtp-Source: ABdhPJz0mOyENKNBQiCMUnp4rTl+Y3zGaAX+ICFRAB7jeEn4Wma4/0/DJjPTfMYmy+xWkO+OMi8QhQ==
+X-Received: by 2002:a05:6638:218a:: with SMTP id
+	s10mr4922182jaj.117.1598700753464; 
+	Sat, 29 Aug 2020 04:32:33 -0700 (PDT)
+Received: from ?IPv6:2601:249:c000:3ca0:b03c:c422:636b:51ba?
+	([2601:249:c000:3ca0:b03c:c422:636b:51ba])
+	by smtp.gmail.com with ESMTPSA id 3sm1197903ilz.26.2020.08.29.04.32.32
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Sat, 29 Aug 2020 04:32:32 -0700 (PDT)
+To: blinux-list@redhat.com
+Subject: dm 420 as external soundcard
+Message-ID: <c43c9c7f-cc5f-8c22-cf2a-856721537d4a@gmail.com>
+Date: Sat, 29 Aug 2020 07:32:30 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+	Thunderbird/78.1.1
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -101,9 +91,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false;
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
-X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -119,81 +108,18 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
-X-Mimecast-Spam-Score: 0.003
+X-Mimecast-Spam-Score: 0.002
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: base64
 Content-Language: en-US
 
-Here is the section on flat review from the orca manual:
-
-
-https://help.gnome.org/users/orca/stable/howto_flat_review.html.en
-
-There is no terminal help page as far as I know.
-
-
-Get Outlook for iOS<https://aka.ms/o0ukef>
-________________________________
-From: blinux-list-bounces@redhat.com <blinux-list-bounces@redhat.com> on behalf of Linux for blind general discussion <blinux-list@redhat.com>
-Sent: Friday, August 28, 2020 10:38:01 AM
-To: blinux-list@redhat.com <blinux-list@redhat.com>
-Subject: ORCA user guide?
-
-
-
-[I apologize for the cross post, truly sorry if you received more than 1
-copy of this]
-
-
-
-Is there a user guide on how to use ORCA, specifically how to move around
-the terminal screen?
-
-
-
-It appears I will not be able to get speakup installed on an upcoming
-installation of RHEL on my new desktop workstation, and ORCA would be the
-only screen reader option, since 'yasr' and 'fenrir' is not supported by Red
-Hat either.  I was able to spin up a Raspberry PI over the weekend, and was
-able to get the terminal screen to read anything new, but is unable to go
-back to review what is on the screen.
-
-
-
-For those who might be curious, no I cannot have anything installed that is
-not supported by Red Hat in their yum repos, and no I cannot use another
-distribution other than RHEL either, so I am kind of stuck.
-
-
-
-Lastly, for those who are interested, I have a case opened with IBM
-Accessibility, and a case opened with IBM linux support team, and there
-isn't much they can do beside referring me back to Red Hat.  I now have a
-'feature enhancement request' opened with Red Hat to have speakup be
-supported by Red Hat officially, let's hope that happens soon.
-
-
-
-Again, thanks everyone for your advice and help this far, and thanks in
-advance for any further advice and help you can provide
-
-
-
---David
-
-
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
+IMKgwqDCoCBIYXMgYW55b25lIHRlc3RlZCBpZiB5b3UgYXJlIGFibGUgdG8gdXNlIHRoZSBkbSA0
+MjAgZGlnaXRhbCAKcmVjb3JkZXIgYXMgYSBleHRlcm5hbCBzb3VuZGNhcmQgb24gTGludXg/Cgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlz
+dCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL3d3dy5yZWRoYXQu
+Y29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
 
