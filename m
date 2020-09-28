@@ -2,92 +2,72 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id CE88A27B02B
-	for <lists+blinux-list@lfdr.de>; Mon, 28 Sep 2020 16:44:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 228BF27B048
+	for <lists+blinux-list@lfdr.de>; Mon, 28 Sep 2020 16:50:14 +0200 (CEST)
 Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1601304260;
+	s=mimecast20190719; t=1601304613;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=FEvrCU4I81rehNm5R2z0RNcpOMnH/RbajdijgmuavZc=;
-	b=JtL1gJSYPLa9s40YCsiBhlipX4YZBb9VSzSnj7LX4DySYdAUxc/7+adOMHBiLXYtLmNxPS
-	E1FU+F/+FnY8Q2XsgsA0S+1F8sZpbQqCH2r/XwxlrkxzjBIAmlVLm5G0WBhRnr7lIbXVx8
-	gXXA9nf3tezzb1LFstKlCTMpg/JzLMk=
+	bh=jhqGS9R+ywGYiYWjHxYJmdxyQ7cqWennrQ+zrz7/szk=;
+	b=b1yS2rsnAMRanGAgeF7g8+ftCiFE4i0dpjv5EBJGODG2z2rrzxu3P9t0g7xUL+093Zl5xe
+	VrbZLkLB/GXIGWudZhT00WB+mx9iyIIadcXhcx3c8OwPwWlITRubRtn9JFh0ZDLGMEAYpR
+	Cnt0SdQM8qp4w3IpBb4RySlOFxpU1rw=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-432-1-sEfa3jN5OZusjnDALX6w-1; Mon, 28 Sep 2020 10:44:17 -0400
-X-MC-Unique: 1-sEfa3jN5OZusjnDALX6w-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-436-i6mytaSBPV6QQCZFLPso2Q-1; Mon, 28 Sep 2020 10:50:11 -0400
+X-MC-Unique: i6mytaSBPV6QQCZFLPso2Q-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CF293EDA63;
-	Mon, 28 Sep 2020 14:44:12 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 992F9186DD2E;
+	Mon, 28 Sep 2020 14:50:07 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A666010013BD;
-	Mon, 28 Sep 2020 14:44:12 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 47E7E5D9CA;
+	Mon, 28 Sep 2020 14:50:07 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 9D20218408A1;
-	Mon, 28 Sep 2020 14:44:11 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 02A5618408A5;
+	Mon, 28 Sep 2020 14:50:06 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 08SEi9O8009091 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 28 Sep 2020 10:44:09 -0400
+	id 08SEo25a009536 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 28 Sep 2020 10:50:02 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 39FF72023451; Mon, 28 Sep 2020 14:44:09 +0000 (UTC)
+	id 933BB2023451; Mon, 28 Sep 2020 14:50:02 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 35797202348E
-	for <blinux-list@redhat.com>; Mon, 28 Sep 2020 14:44:06 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8C5292023598
+	for <blinux-list@redhat.com>; Mon, 28 Sep 2020 14:50:00 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BBA2085829C
-	for <blinux-list@redhat.com>; Mon, 28 Sep 2020 14:44:06 +0000 (UTC)
-Received: from mail-qk1-f171.google.com (mail-qk1-f171.google.com
-	[209.85.222.171]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-586-F0tGUJMKPEeYr7-U__3Qdw-1; Mon, 28 Sep 2020 10:44:04 -0400
-X-MC-Unique: F0tGUJMKPEeYr7-U__3Qdw-1
-Received: by mail-qk1-f171.google.com with SMTP id w12so1147918qki.6
-	for <blinux-list@redhat.com>; Mon, 28 Sep 2020 07:44:04 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=SSd6sYOELyMR3MyStuofrN23hQHHQ1ttmtutRHPL1cQ=;
-	b=M6ZuMmSJRk8nnEVXId0wvxf66V7F+1s2nDWqQ8vVCFv1XVcd37bEPxq956UjBEJtcP
-	Rl3UZ8Pmy5JgCothniVDJzG/G5s4wWXOOnAQOn28dxsV/83TQPmAAVwGHBXyqanGPqSc
-	i0zxzp2eD3t+4OTbjteEGER4p9HfuMST8gq6x6wJOKgGf2mNlvQjmOOvwWhSJqh/yzUo
-	14UoVjgPV0ohdkEmK8ZzRI7LwNJNIBJ/nOMCDfhOsL3Ilioo/EB480vDU0aW99EgmpxJ
-	CHnMGXl01+h0HtJ/Rp0A90voTl7/RKAlnIk393rrtU5wWk0oPhS7Zc2gWNKPAeJ+RhGF
-	yxYw==
-X-Gm-Message-State: AOAM530CtDZbADXPOh6jrRLlmeoPE5tJlKI1bbzFUBgyuqWBTM+JCPKT
-	UGskJeTe6jniqbVBp1izEoa1jVqk7wkLmA==
-X-Google-Smtp-Source: ABdhPJxV54OXjyYZ8pnw/x70Y2LLnPm8HvlMeJkuMouYWpHVXR8FMBYpFWrxz8pUQxxjyxU8FmoXNw==
-X-Received: by 2002:a05:620a:101a:: with SMTP id
-	z26mr1752811qkj.300.1601304243926; 
-	Mon, 28 Sep 2020 07:44:03 -0700 (PDT)
-Received: from ?IPv6:2606:a000:111a:8d0a::5d7?
-	(2606-a000-111a-8d0a-0000-0000-0000-05d7.inf6.spectrum.com.
-	[2606:a000:111a:8d0a::5d7]) by smtp.gmail.com with ESMTPSA id
-	a52sm1463755qtc.22.2020.09.28.07.44.02 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Mon, 28 Sep 2020 07:44:03 -0700 (PDT)
-Subject: Re: gentoo!
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F3273811E83
+	for <blinux-list@redhat.com>; Mon, 28 Sep 2020 14:49:59 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-502-Ugrt0tk2P7yjZ8PNwdk3QA-1; Mon, 28 Sep 2020 10:49:57 -0400
+X-MC-Unique: Ugrt0tk2P7yjZ8PNwdk3QA-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4C0QR9289Cz1j5r
+	for <blinux-list@redhat.com>; Mon, 28 Sep 2020 10:49:57 -0400 (EDT)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4C0QR913G7zcbc; Mon, 28 Sep 2020 10:49:57 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4C0QR90fdGzcbW
+	for <blinux-list@redhat.com>; Mon, 28 Sep 2020 10:49:57 -0400 (EDT)
+Date: Mon, 28 Sep 2020 10:49:56 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: gentoo!
+In-Reply-To: <5545aa4f-68da-b49a-6456-23387aca2caf@gmail.com>
+Message-ID: <alpine.NEB.2.23.451.2009281046441.11282@panix1.panix.com>
 References: <alpine.NEB.2.23.451.2009281038260.10367@panix1.panix.com>
-Message-ID: <5545aa4f-68da-b49a-6456-23387aca2caf@gmail.com>
-Date: Mon, 28 Sep 2020 10:44:01 -0400
-User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:68.0) Gecko/20100101
-	Thunderbird/68.12.0
+	<5545aa4f-68da-b49a-6456-23387aca2caf@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <alpine.NEB.2.23.451.2009281038260.10367@panix1.panix.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -113,22 +93,43 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Try something like
+Thanks!  That made the system go silent for a little while and I now
+have several more subdirectories in /mnt/gentoo that were not present
+earlier.  That J has to be upper-case and it's possible that instruction
+on the complete amd64 handbook on the gentoo wiki needs fixing.  If I'm
+not mistaken, the j on that handbook was lower-case.
 
-tar xfJ <filename>.tar.xz
+On Mon, 28 Sep 2020, Linux for blind general discussion wrote:
 
-Hope it helps.
+> Date: Mon, 28 Sep 2020 10:44:01
+> From: Linux for blind general discussion <blinux-list@redhat.com>
+> To: Linux for blind general discussion <blinux-list@redhat.com>
+> Subject: Re: gentoo!
+>
+> Try something like
+>
+> tar xfJ <filename>.tar.xz
+>
+> Hope it helps.
+>
+> ~Kyle
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+>
 
-~Kyle
+-- 
 
 _______________________________________________
 Blinux-list mailing list
