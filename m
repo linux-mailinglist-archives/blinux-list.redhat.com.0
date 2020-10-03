@@ -2,81 +2,72 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id A9365282544
-	for <lists+blinux-list@lfdr.de>; Sat,  3 Oct 2020 17:59:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 5E00B2824FA
+	for <lists+blinux-list@lfdr.de>; Sat,  3 Oct 2020 17:11:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1601740784;
+	s=mimecast20190719; t=1601737860;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=hW7fv+9yIvZq1CyOl8m4OtmkCksn9tCR1MhsRZ6Yaag=;
-	b=Kbeoxivl5FL+/wsmpzJc4FWx9A6pQhEqWkVspS3lsqzLixl5MKp7JEHhRC1HQxx0o9ggwU
-	pVSQQxdaJs39nrv0RHQ0auqos8ml06M9sprE48JGPQ8+TfDm+x2L2o2ZQCeRfT4aflqucN
-	1dRcc/8/7Sr+AGWhYSz6nGZlqSYYJ/U=
+	bh=f0wcEEZZZ97f+bHSJZ0NwRHRcWFbXAyoLPOouzwFTkA=;
+	b=YR1OQF0BFJ1dDBlFFsG8yq1R6nCdQeGi2fhfT2CqHO8jqixkmSqqKCt9rOQb366Dxo1jzy
+	xhjxYttTKSTUJw41NAxz77alHT6yWW9bCami17Ha59OD6v2ReXFR+5AfwxCOJFgPSUAz2N
+	HpJs4KXVbA+XHK6Fypc75pHWwIZca+8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-14--UZYP8kKOH-VLj4nIEoz3w-1; Sat, 03 Oct 2020 11:59:42 -0400
-X-MC-Unique: -UZYP8kKOH-VLj4nIEoz3w-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-468--ipz--joMWS5YM3gKAmafQ-1; Sat, 03 Oct 2020 11:10:57 -0400
+X-MC-Unique: -ipz--joMWS5YM3gKAmafQ-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7A2591074641;
-	Sat,  3 Oct 2020 15:59:38 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 3558C1868401;
+	Sat,  3 Oct 2020 15:10:54 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id ED33478837;
-	Sat,  3 Oct 2020 15:59:36 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5ACB760BF4;
+	Sat,  3 Oct 2020 15:10:53 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B9C0544A44;
-	Sat,  3 Oct 2020 15:59:34 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 174EE44A4A;
+	Sat,  3 Oct 2020 15:10:51 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 093Fpils004275 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 3 Oct 2020 11:51:44 -0400
+	id 093F5B69030463 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 3 Oct 2020 11:05:11 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 258CDF49A2; Sat,  3 Oct 2020 15:51:44 +0000 (UTC)
+	id 8655D200AF70; Sat,  3 Oct 2020 15:05:11 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1F588F49A1
-	for <blinux-list@redhat.com>; Sat,  3 Oct 2020 15:51:41 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 807B4201C0DC
+	for <blinux-list@redhat.com>; Sat,  3 Oct 2020 15:05:08 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 83787811E76
-	for <blinux-list@redhat.com>; Sat,  3 Oct 2020 15:51:41 +0000 (UTC)
-Received: from gateway2.unifiedlayer.com (gateway2.unifiedlayer.com
-	[66.147.246.89]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-308-If3Cxt8YM4eL_lAuRWtCUA-1; Sat, 03 Oct 2020 11:51:38 -0400
-X-MC-Unique: If3Cxt8YM4eL_lAuRWtCUA-1
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 14B57811E76
+	for <blinux-list@redhat.com>; Sat,  3 Oct 2020 15:05:08 +0000 (UTC)
+Received: from gateway10.unifiedlayer.com (gateway10.unifiedlayer.com
+	[69.89.30.85]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-116-IMIuWgGHMwGbOUTpNiKUmw-1; Sat, 03 Oct 2020 11:05:05 -0400
+X-MC-Unique: IMIuWgGHMwGbOUTpNiKUmw-1
 Received: from cm1.websitewelcome.com (unknown [192.185.0.102])
-	by gateway2.unifiedlayer.com (Postfix) with ESMTP id D70DE200C5D69
-	for <blinux-list@redhat.com>; Sat,  3 Oct 2020 10:02:35 -0500 (CDT)
+	by gateway10.unifiedlayer.com (Postfix) with ESMTP id 93F0920099134
+	for <blinux-list@redhat.com>; Sat,  3 Oct 2020 10:05:04 -0500 (CDT)
 Received: from uscentral455.accountservergroup.com ([174.136.13.174])
 	by cmsmtp with ESMTP
-	id Oj3Tk0PtmwLnQOj3Tk9Rcy; Sat, 03 Oct 2020 10:02:35 -0500
+	id Oj5sk0QlmwLnQOj5sk9SU0; Sat, 03 Oct 2020 10:05:04 -0500
 X-Authority-Reason: nr=8
 Received: from 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
-	([172.0.250.193]:11690 helo=bigbox.attlocal.net)
+	([172.0.250.193]:50020 helo=bigbox.attlocal.net)
 	by uscentral455.accountservergroup.com with esmtpsa
 	(TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.91)
-	(envelope-from <blinux.list@thechases.com>) id 1kOj3T-001bAq-GH
-	for blinux-list@redhat.com; Sat, 03 Oct 2020 10:02:35 -0500
-Date: Sat, 3 Oct 2020 10:02:34 -0500
+	(envelope-from <blinux.list@thechases.com>) id 1kOj5s-001dJ0-AY
+	for blinux-list@redhat.com; Sat, 03 Oct 2020 10:05:04 -0500
+Date: Sat, 3 Oct 2020 10:05:02 -0500
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Console screenreaders
-Message-ID: <20201003100234.4f71a96d@bigbox.attlocal.net>
-In-Reply-To: <alpine.DEB.2.23.453.2010030632540.2247242@chime>
-References: <1409d60b-0be5-783a-d490-0501585ead96@gmail.com>
-	<5b699b56-2241-b1ef-18c3-3d05614e9b8a@slint.fr>
-	<20200930121251.7d6b8c35@bigbox.attlocal.net>
-	<87tuvf2km3.fsf@cmbmachine.messageid.invalid>
-	<20201003130430.GA2173@rednote.net>
-	<alpine.DEB.2.23.453.2010030632540.2247242@chime>
+Subject: diffspeak for making diff output easier for screen-readers
+Message-ID: <20201003100502.37ccd317@bigbox.attlocal.net>
 MIME-Version: 1.0
 X-AntiAbuse: This header was added to track abuse,
 	please include it with any abuse report
@@ -87,14 +78,14 @@ X-AntiAbuse: Sender Address Domain - thechases.com
 X-BWhitelist: no
 X-Source-IP: 172.0.250.193
 X-Source-L: No
-X-Exim-ID: 1kOj3T-001bAq-GH
+X-Exim-ID: 1kOj5s-001dJ0-AY
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
 X-Source-Sender: 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
-	(bigbox.attlocal.net) [172.0.250.193]:11690
+	(bigbox.attlocal.net) [172.0.250.193]:50020
 X-Source-Auth: tim@thechases.com
-X-Email-Count: 1
+X-Email-Count: 3
 X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
 X-Local-Domain: yes
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
@@ -106,7 +97,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
 X-Mimecast-Spam-Signature: yes
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -123,7 +114,7 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -131,29 +122,17 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Tim here.  If you need a larger cut-and-paste buffer, I strongly
-suggest tinkering with a terminal multiplexer like either tmux or GNU
-screen.  I use tmux primarily for the multiplexing, split windows,
-the ability to detach & reattach, and the silence/activity monitoring.
-But as an added benefit, I can set my scroll-back buffer-size to
-thousands of lines letting me copy/paste from it, even if my actual
-terminal is only 80 by 25.
+This crossed my feeds today
+
+https://prgmr.com/blog/2020/10/03/diffspeak.html
+
+and it sounded like something that folks here might find useful.  You
+pipe the output of diff(1) through it and it makes it easier to
+determine indentation when using a screen-reader.  Particularly
+useful if working with Python or YAML or Makefiles where leading
+whitespace matters.
 
 -tim
-
-On October  3, 2020, Linux for blind general discussion wrote:
-> Well Janina, I found that if I set my console at more than
-> 135lines, I would have strange results useing alpine with writing
-> longer messages. In that case it was a challenge knowing where I am
-> in a larger message. NANO didn't seem an issue. Obviously I find a
-> larger screen helpful in useing the Speakup cut-and-paste feature.
-> Chime
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
-> 
 
 _______________________________________________
 Blinux-list mailing list
