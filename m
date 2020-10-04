@@ -1,74 +1,69 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 91521282557
-	for <lists+blinux-list@lfdr.de>; Sat,  3 Oct 2020 18:27:19 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 7FD47282A08
+	for <lists+blinux-list@lfdr.de>; Sun,  4 Oct 2020 12:00:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1601742438;
+	s=mimecast20190719; t=1601805625;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=K1eVunsKzFM9YDJSDMD5qxPtKYhddvu3NSCEEG8xaLg=;
-	b=OxfI3xqgxkqnTxIow5sfk/Z1JZRIoY1kp8izKL9eG/g2xAXqZvxwW3XNWA63eltXiBTBsz
-	v3lUQtucHTAKWdgLsOahvF6vdWXvJfCj3dJaJj4JsvDjwPWPBNxhEUlFJlc+3wHZvHFXsY
-	HcSl4QJDsqgUpDSeh4zskIDFCSrNeb8=
+	bh=JdACacPe5pgopGSPa48PAQ2bjSbVm4pKVbOS+8QPqXc=;
+	b=h/Fp4yQiDMXvgPt4Xk8ilP/HGiJpsJqWztEqUGDEISAG21MAEzFthBWGJpKIZSb7o/S386
+	TYk8bhCZh+zxarocth5QDouXZqhNdyXY3oHnRfZm2k4z+JLprLHKY1j2zYpXAsjqgISqXi
+	7tZnx9UzeUFXPfjIcclbW61jIBmiVhI=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-317-Luf_cQamN7mNef8QqW7KJQ-1; Sat, 03 Oct 2020 12:27:16 -0400
-X-MC-Unique: Luf_cQamN7mNef8QqW7KJQ-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-294-V9gl9AxENrismZzQ9wC9fA-1; Sun, 04 Oct 2020 06:00:23 -0400
+X-MC-Unique: V9gl9AxENrismZzQ9wC9fA-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A6256802B7F;
-	Sat,  3 Oct 2020 16:27:11 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E5F1A5578C;
-	Sat,  3 Oct 2020 16:27:10 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 700901DDE2;
+	Sun,  4 Oct 2020 10:00:17 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 88C547E731;
+	Sun,  4 Oct 2020 10:00:15 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BA53944A46;
-	Sat,  3 Oct 2020 16:27:08 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 38899180B657;
+	Sun,  4 Oct 2020 10:00:09 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 093GR2uP009735 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 3 Oct 2020 12:27:03 -0400
+	id 0949xx2F011187 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 4 Oct 2020 05:59:59 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id BD19E1003330; Sat,  3 Oct 2020 16:27:02 +0000 (UTC)
+	id 4E9CC100296B; Sun,  4 Oct 2020 09:59:59 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B940A100335C
-	for <blinux-list@redhat.com>; Sat,  3 Oct 2020 16:27:00 +0000 (UTC)
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4ADAC110E99E
+	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 09:59:56 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B6A10858290
-	for <blinux-list@redhat.com>; Sat,  3 Oct 2020 16:27:00 +0000 (UTC)
-Received: from hurricane.the-brannons.com (hurricane.the-brannons.com
-	[71.19.155.94]) by relay.mimecast.com with ESMTP id
-	us-mta-244-TzhCw-u6OJaJ3dVMlwKk_w-1; Sat, 03 Oct 2020 12:26:58 -0400
-X-MC-Unique: TzhCw-u6OJaJ3dVMlwKk_w-1
-Received: from localhost (unknown [63.224.249.220])
-	by hurricane.the-brannons.com (Postfix) with ESMTPSA id A152421DE04
-	for <blinux-list@redhat.com>; Sat,  3 Oct 2020 09:26:57 -0700 (PDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Console screenreaders
-References: <1409d60b-0be5-783a-d490-0501585ead96@gmail.com>
-	<5b699b56-2241-b1ef-18c3-3d05614e9b8a@slint.fr>
-	<20200930121251.7d6b8c35@bigbox.attlocal.net>
-	<87tuvf2km3.fsf@cmbmachine.messageid.invalid>
-	<20201003130430.GA2173@rednote.net>
-	<alpine.DEB.2.23.453.2010030632540.2247242@chime>
-	<20201003100234.4f71a96d@bigbox.attlocal.net>
-Date: Sat, 03 Oct 2020 09:26:57 -0700
-In-Reply-To: <20201003100234.4f71a96d@bigbox.attlocal.net> (Linux for blind
-	general discussion's message of "Sat, 3 Oct 2020 10:02:34 -0500")
-Message-ID: <87y2knjmwe.fsf@cmbmachine.messageid.invalid>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 39C1C80088F
+	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 09:59:56 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-197-pS-ol5jvOHGlNHOcQr9otQ-1; Sun, 04 Oct 2020 05:59:53 -0400
+X-MC-Unique: pS-ol5jvOHGlNHOcQr9otQ-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4C3zjj06rVz1ZVt
+	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 05:59:53 -0400 (EDT)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4C3zjh6Mgdzcbc; Sun,  4 Oct 2020 05:59:52 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4C3zjh5Gl7zcbV
+	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 05:59:52 -0400 (EDT)
+Date: Sun, 4 Oct 2020 05:59:52 -0400
+To: blinux-list@redhat.com
+Subject: speakup and links browser
+Message-ID: <alpine.NEB.2.23.451.2010040553040.14816@panix1.panix.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -95,7 +90,7 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -103,23 +98,29 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Linux for blind general discussion <blinux-list@redhat.com> writes:
+I tried downloading a file from a website using links and couldn't
+download the file.
+Using speakup I was able to cursor onto the desired file or that's what
+speakup told me.
+However when I tried to download that file I got offered an image file
+from another cursor location on the screen I did not want.
+I think this is more of a links problem than a speakup problem and am
+wondering if it's possible to configure links in some way to clear this
+problem.
+I don't know what the braille setting would have bought me since I have no
+braille display.
+As things stand, I had more success with wget and a bash script I wrote.
+For that reason I'm going to share this one with the list.
+The script could probably be improved by adding a site variable to the
+download variable for wget to process but I haven't done that yet.
 
-> Tim here.  If you need a larger cut-and-paste buffer, I strongly
-> suggest tinkering with a terminal multiplexer like either tmux or GNU
-> screen.  I use tmux primarily for the multiplexing, split windows,
-> the ability to detach & reattach, and the silence/activity monitoring.
-> But as an added benefit, I can set my scroll-back buffer-size to
-> thousands of lines letting me copy/paste from it, even if my actual
-> terminal is only 80 by 25.
+#!/usr/bin/env bash
+# file: s3.sh - gentoo stage3 download script
+download="stage3-amd64-20201001T120249Z.tar.xz"
+wget -bc https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/current-stage3-amd64/$download
 
-When I've tried tmux, I've found oddities that made it slightly less
-pleasant to use with a console screen reader.  I know in my case the
-split windows and status bars etc are not wanted.  I wonder if anyone
-has tried to work out screen-reader-friendly configurations.  I haven't;
-GNU Screen has been good enough for me, and I've used it for many years.
 
--- Chris
+-- 
 
 _______________________________________________
 Blinux-list mailing list
