@@ -1,95 +1,77 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 27196282CEC
-	for <lists+blinux-list@lfdr.de>; Sun,  4 Oct 2020 21:15:03 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 26F10282D51
+	for <lists+blinux-list@lfdr.de>; Sun,  4 Oct 2020 21:39:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1601838902;
+	s=mimecast20190719; t=1601840383;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=eq5Jl1I9fHOxKO8l3XjcgGq9QfYmPJw+E2LcW043aWY=;
-	b=Rxm2E0sBki344l6BVXmsLi1U2cxdlAF4XpuNJF7SYA/8XsLlcYYT60KEizzKBuPCdtHB6Z
-	UhgYffGw6vBpn276CCTHkrLXZEMnRWm91SYDoM37RogBqN89UbdqBRo+SFN8YeNTU68Jna
-	DD1vmuz+G8Mx1bIBiTi6TUcW8HhnHJA=
+	bh=0Voe3937oMwkzNgsk6CpU+IT50RlTsKeCuMSeetKqGk=;
+	b=EskGx6izSQZgZUD4kogFq8y5iIxPsx1WbNvRb7GGN70cTwb9OQ8G/QHdscS8qqLCdLuZd1
+	r5xX3zjm5S/iPfpC6sbyq1BNcWIa4cb4ghO9urTi8jytWxJe5jLvtgo7Jwd6SsoN751RlW
+	oGriRNq6iFqAo2HRGVtDPfdOdXO44vQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-592-ear8xSKVN4eO6T-D7EmCog-1; Sun, 04 Oct 2020 15:14:59 -0400
-X-MC-Unique: ear8xSKVN4eO6T-D7EmCog-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-165-DLhPKAEpNkajP_cLuWHlOw-1; Sun, 04 Oct 2020 15:39:41 -0400
+X-MC-Unique: DLhPKAEpNkajP_cLuWHlOw-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 00C701005504;
-	Sun,  4 Oct 2020 19:14:56 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4042773683;
-	Sun,  4 Oct 2020 19:14:55 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id EBE591868403;
+	Sun,  4 Oct 2020 19:39:36 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 09FCE78811;
+	Sun,  4 Oct 2020 19:39:36 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id DF61718184AE;
-	Sun,  4 Oct 2020 19:14:53 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B4E8344A47;
+	Sun,  4 Oct 2020 19:39:34 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 094JEnwM012215 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 4 Oct 2020 15:14:49 -0400
+	id 094JYUJR015031 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 4 Oct 2020 15:34:31 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 02F814C82F; Sun,  4 Oct 2020 19:14:49 +0000 (UTC)
+	id D0DD71111439; Sun,  4 Oct 2020 19:34:30 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F176349C1A
-	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 19:14:46 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CC39E1111438
+	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 19:34:28 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E3254800161
-	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 19:14:45 +0000 (UTC)
-Received: from mail-qk1-f174.google.com (mail-qk1-f174.google.com
-	[209.85.222.174]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-230-K781oIQKMJCxlUYyvHL_Qg-1; Sun, 04 Oct 2020 15:14:44 -0400
-X-MC-Unique: K781oIQKMJCxlUYyvHL_Qg-1
-Received: by mail-qk1-f174.google.com with SMTP id q5so9385148qkc.2
-	for <blinux-list@redhat.com>; Sun, 04 Oct 2020 12:14:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=8pEpdFJqbq8+uXFGr0He4iS4SEerRlrAh5r46CBhRr4=;
-	b=UBf7+cRxJ6WyV7ZyvkStheXb7CD5TQlQeJctGGS+ADX471qu7149dF8JvVMSYnr4cQ
-	0IxZ8ZoFd4eBXUNV+fhC76YhnJeVhkMRP8JXxmfGDoFNFoe95x4Npqd1r3WJVr1t++Sw
-	vKB0d5vupzXy1uL/Qby5U2RH8FvcD2iI9g8QYvBO1S4DwoOI0SY5PAM3wAAXRxSxfPx7
-	9AAUPlNKYK/jWIzIw2tz78TV+jigNtE1O95HvHfOL9axb9Lp4tgXLODJLg44+v4Ogmcy
-	VvC2h6VUBEWxM9gixOJ6SPLUdecLpxjvBlR1bg8GHAw2RWMvUc9RH5Wsbku0RiQE5vFw
-	ZySg==
-X-Gm-Message-State: AOAM532W/b3fUaWRRocc3JXOipXGSRkVHmFuDxpljYI8ViC/JW7J7Og/
-	TyCzSfdmtU41kxK5pmX7MYEjM4BddrFko+P73q4VB//b4Dg=
-X-Google-Smtp-Source: ABdhPJwJT28R6kdcvSTg72HZyCh+y+d+ai8VKoNmglXFWElh0bxnk78rea5spWjvK6i5Is9o4z2dxYMxejZ6ZK0egUU=
-X-Received: by 2002:a37:7687:: with SMTP id
-	r129mr11136723qkc.264.1601838883405; 
-	Sun, 04 Oct 2020 12:14:43 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:a0c:cd91:0:0:0:0:0 with HTTP;
-	Sun, 4 Oct 2020 12:14:42 -0700 (PDT)
-In-Reply-To: <20201004130414.6b75be74@bigbox.attlocal.net>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D2696803913
+	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 19:34:28 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-132-njzVtgObMbezoUTpH69fzw-1;
+	Sun, 04 Oct 2020 15:34:25 -0400
+X-MC-Unique: njzVtgObMbezoUTpH69fzw-1
+Received: from darkstar.machine.fr (sfa89-1-78-208-157-71.fbx.proxad.net
+	[78.208.157.71])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 1F157BE27E
+	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 20:33:38 +0200 (CEST)
+Subject: Re: Console screenreaders
+To: blinux-list@redhat.com
 References: <1409d60b-0be5-783a-d490-0501585ead96@gmail.com>
 	<5b699b56-2241-b1ef-18c3-3d05614e9b8a@slint.fr>
 	<20200930121251.7d6b8c35@bigbox.attlocal.net>
-	<87tuvf2km3.fsf@cmbmachine.messageid.invalid>
-	<20201003130430.GA2173@rednote.net>
-	<alpine.DEB.2.23.453.2010030632540.2247242@chime>
-	<20201003100234.4f71a96d@bigbox.attlocal.net>
-	<87y2knjmwe.fsf@cmbmachine.messageid.invalid>
-	<20201004132601.GA9202@rednote.net>
-	<20201004.134338.155.30@192.168.1.130>
-	<20201004130414.6b75be74@bigbox.attlocal.net>
-Date: Sun, 4 Oct 2020 19:14:42 +0000
-Message-ID: <CAO2sX30sh2cLHnm3AUCRP2iYFByeCZ7SHxHrHwoZFw9RVJb5rg@mail.gmail.com>
-Subject: Re: Console screenreaders
-To: blinux-list@redhat.com
+	<Pine.LNX.4.64.2009301423450.2145@server2.shellworld.net>
+	<CAO2sX33+gs2H_+cV+iux-TdnbVga46Kn0fQi4ePens9LC-QuWQ@mail.gmail.com>
+	<e034b2f1-bfc5-d766-da46-5d14bbc587f4@slint.fr>
+	<20201003131142.GC2173@rednote.net>
+Message-ID: <b9ca7f9c-ae39-997f-d0bb-16a326a3e322@slint.fr>
+Date: Sun, 4 Oct 2020 21:34:13 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
+MIME-Version: 1.0
+In-Reply-To: <20201003131142.GC2173@rednote.net>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -98,7 +80,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 094JYUJR015031
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -115,40 +99,35 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: fr
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-I've never used Tmux, but that sounds like a prime example of why I
-prefer SBL's less chatty nature to espeakup. To give a similar example
-with a program I use regularly, Nano defaults to having a title bar on
-the top and a status bar on the third line from the bottom(the bottom
-two lines are a command quick reference). Espeakup will read these
-everytime they change, but SBL will only read them if I use screen
-review to read them, and in most cases, I prefer not to hear what's on
-those lines(the one exception I can think of where I would prefer
-espeakup's chattier behavior is in the case of pressing ctrl+C, which
-prints current position on the status line(I also often care about the
-lines written when saving a file, but since I'm usually at the end of
-a file when saving, I can usually just use caps+pageDown to read from
-current position to end of screen instead of having to manully
-navigate to the status line with caps and up/down arrows like I
-usually have to do with current position since I usually do ctrl+c in
-the middle of a file).
-
-Admittedly, there are cases I wish I could switch between "read all
-newly displayed text" and "read only what I tell you to read" on the
-fly. I find the latter better for most things, but the former is nice
-when playing text adventures.
-
--Jeffery
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
+SGksCgp0aGFua3MgSmFuaW5hLAoKYWN0dWFsbHkgSSBjb3VsZCBidWlsZCBTQkwgb24gU2xpbnQs
+IGJ1dCBhcyBpdCB3b3VsZCBuZWVkIHRpbWUgdG8KbWFrZSBhIGdvb2QgcGFja2FnZSB3aXRoIHRo
+ZSBhc3NvY2lhdGVkIGRvY3VtZW50YXRpb24gaW5jbHVkaW5nCmluZGVlZCB0aGUga2V5IGJpbmRp
+bmdzIGFuZCBhcyBJIGFscmVhZHkgc2hpcCAzIGNvbnNvbGUgc2NyZWVuCnJlYWRlcnMgaW4gU2xp
+bnQgKGZlbnJpciwgZXNwZWFrdXAvc3BlYWt1cCBhbmQgc3BlZWNoZC11cCkKdGhpcyB3aWxsIGhh
+dmUgdG8gd2FpdCBhZnRlciB0aGUgcmVsZWFzZSBvZiB0aGUgbmV3IFNsaW50IGluc3RhbGxlci4K
+Ckhvd2V2ZXIsIHBsZWFzZSBzZW5kIG1lIHByaXZhdGVseSBNYXJjbydzIGVtYWlsIGFkZHJlc3Mu
+CkkgcmVtaW5kIHlvdSB0aGF0IG1pbmUgaXMgZGlkaWVyYXRzbGludGRvdGZyLiAKCkNoZWVycywg
+RGlkaWVyCgpQUyBJIGFsc28gcmVhZCBpbiB0aGUgQVVUSE9SUyBmaWxlIG9mIHNwZWVjaC1kaXNw
+YXRjaGVyOgoiVGhhbmtzIHRvIE1hcmNvIFNrYW1icmFrcyBmb3IgdGhlIGxpYmFvIGF1ZGlvIG91
+dHB1dCBtb2R1bGUuIgoKUFBTIFRoZXJlIGlzIHNvbWUgZG9jdWxlbnRhdGlvbiBhbHNvIGF2YWls
+YWJsZSBoZXJlOgpodHRwOi8vd3d3Lm9wZW5ibGludXguZGUvZW4vaW5kZXgucGhwP3BhZ2U9c2Js
+ZG9jCkkgaGF2ZSBubyBpZGVhIGlmIGl0cyB1cCB0byBkYXRlLgoKCkxlIDAzLzEwLzIwMjAgw6Ag
+MTU6MTEsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gYSDDqWNyaXTCoDoKPiBJ
+IHdhcyBwcmVzZW50IG9uY2Ugd2hlbiB0aGUgZGV2ZWxvcGVyIG9mIFNCTCwgTWFyY28gU2thbWJy
+YWtzLCBkaWQgYQo+IGRlbW8uIEhlIHNob3dlZCBob3cgU0JMIGNvdWxkIGxldCB5b3Ugd29yayB3
+aXRoIE1pZG5pZ2h0IENvbW1hbmRlci4gSQo+IHdhcyBqZWFsb3VzIHRvIHRyeSBTQkwgYWZ0ZXIg
+dGhhdCwgYnV0IEkgbmV2ZXIgZ290IGl0IGdvaW5nIGF0IHRoZSB0aW1lLgo+IAo+IEphbmluYQo+
+IAo+IFBTOiBEaWRpZXIsIEkgaGF2ZSBhbiBlbWFpbCBhZGRyZXNzIGZvciBoaW0sIHNob3VsZCB5
+b3UgbmVlZC4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczov
+L3d3dy5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
 
