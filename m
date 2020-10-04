@@ -2,68 +2,89 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id B4684282E32
-	for <lists+blinux-list@lfdr.de>; Mon,  5 Oct 2020 00:51:30 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 37A8C282E34
+	for <lists+blinux-list@lfdr.de>; Mon,  5 Oct 2020 00:59:29 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1601851889;
+	s=mimecast20190719; t=1601852368;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=eWvpT2OchvTLmz/uorGhYHbK7F9VFqTC+ZfDlbj2GSI=;
-	b=Dc5TThJcQfwc6YWDwxWNtJXXyyniJH/4ZXyP/8U+QOr05zR5uOhiFJXJFbsR6Li//xdemC
-	hHFQPtkCZ6dbL19y6mX/iyrIxLqd/P3N/qeiRSFDs+h6Zp83egtwBzcC4x87rG29gFOmUi
-	xPUbz1FLFq+6HoeFiqjEw3SPxe0fMvM=
+	bh=fLw5XfagkOVTXo86BNPXX9bpTYiuL7bXplWGwl3eFMU=;
+	b=PssTbV7SXzxjxlcqc+OVbYUVCsypI4ql3HKfTbujvbnsatM+0KiFX9tu7PHEFV0HfWnaOu
+	9NWMYFXP0SmwfGFwPbRofxpCkMd6p20XqBQ1eZLp+Dcs5vJrtHh6iaXrl1wGycf6ysXAxl
+	8qn6KLRVv9wYQxdHMH2GtwB8VDWmAlU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-494-f3fhEGTRMs-UwqtD5s0GxA-1; Sun, 04 Oct 2020 18:51:27 -0400
-X-MC-Unique: f3fhEGTRMs-UwqtD5s0GxA-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-162-7BINME9KOXWHpWxsr4nRVA-1; Sun, 04 Oct 2020 18:59:26 -0400
+X-MC-Unique: 7BINME9KOXWHpWxsr4nRVA-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B22EC80EFA5;
-	Sun,  4 Oct 2020 22:51:23 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 878061DDE7;
+	Sun,  4 Oct 2020 22:59:21 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5515310013D7;
-	Sun,  4 Oct 2020 22:51:22 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E6D1A5C1BD;
+	Sun,  4 Oct 2020 22:59:20 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C334F181A870;
-	Sun,  4 Oct 2020 22:51:19 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B4F6F181A86E;
+	Sun,  4 Oct 2020 22:59:19 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 094Moqmu003736 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 4 Oct 2020 18:50:53 -0400
+	id 094MxFt5004681 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 4 Oct 2020 18:59:15 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id AD31844076; Sun,  4 Oct 2020 22:50:52 +0000 (UTC)
+	id 8CBC32166B44; Sun,  4 Oct 2020 22:59:15 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A77544401F
-	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 22:50:50 +0000 (UTC)
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 877C02166B28
+	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 22:59:11 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 23FCD18A070E
-	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 22:50:50 +0000 (UTC)
-Received: from server2.shellworld.net (ip-66-172-12-120.chunkhost.com
-	[66.172.12.120]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-463-NHAEcUKkOcycp2AhadujSg-1; Sun, 04 Oct 2020 18:50:47 -0400
-X-MC-Unique: NHAEcUKkOcycp2AhadujSg-1
-Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id DC0655401DD; Sun,  4 Oct 2020 22:45:08 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id D79455400FF
-	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 18:45:08 -0400 (EDT)
-Date: Sun, 4 Oct 2020 18:45:08 -0400 (EDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CD38A101A53F
+	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 22:59:11 +0000 (UTC)
+Received: from out3-smtp.messagingengine.com (out3-smtp.messagingengine.com
+	[66.111.4.27]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-505-jje3c3t7PHiHc4K-RBntdQ-1; Sun, 04 Oct 2020 18:59:09 -0400
+X-MC-Unique: jje3c3t7PHiHc4K-RBntdQ-1
+Received: from compute2.internal (compute2.nyi.internal [10.202.2.42])
+	by mailout.nyi.internal (Postfix) with ESMTP id 64F9F5C00DD
+	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 18:59:09 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+	by compute2.internal (MEProxy); Sun, 04 Oct 2020 18:59:09 -0400
+X-ME-Sender: <xms:vVN6X8ouaBnylOnPoBnRHZpNTaJMt1MgUIlXZSIn-Xx4f9llR8AITA>
+	<xme:vVN6XyqEkwFkwdHka3isHfktu8QmxNwQBNiS-0Ytz8yjm2u2f4jNpmhCZ143ZdOeF
+	m50IG2k9lk4ndvnLPI>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedujedrgedugddujecutefuodetggdotefrodftvf
+	curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+	uegrihhlohhuthemuceftddtnecunecujfgurhepfffhvffujgfkfhgfgggtsehttdertd
+	dtredvnecuhfhrohhmpeevhhhimhgvucfjrghrthcuoegthhhimhgvsehhuhgsvghrthdq
+	hhhumhhphhhrvgihrdgtohhmqeenucggtffrrghtthgvrhhnpeefuddvuddvvefffeevge
+	ejfffggfeiiefgtdeugfehgfejhedtieelhfeuleelffenucfkphepuddtgedrudejvddr
+	fedrieefnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
+	eptghhihhmvgeshhhusggvrhhtqdhhuhhmphhhrhgvhidrtghomh
+X-ME-Proxy: <xmx:vVN6XxNapW5lc3GLpbq8TLGSPAVr1CHQhGs2Pwf4rmH_duEJnMgnog>
+	<xmx:vVN6Xz7Yu3PHdSkmYIRQz71vY6FKojKZaEsyrUmmeakaeZtPgi7YGg>
+	<xmx:vVN6X76KrmQfbKATarEfeYkEwCtWoJVphdZoHZOJu6XBzNJ5eDOCbw>
+	<xmx:vVN6X9Ho_8DGufrzVUUsh6MUeHm75F13jrYKbfd-FWiyopAyg5l-Eg>
+Received: from chime.lan (cpe-104-172-3-63.socal.res.rr.com [104.172.3.63])
+	by mail.messagingengine.com (Postfix) with ESMTPA id B440D3064674
+	for <blinux-list@redhat.com>; Sun,  4 Oct 2020 18:59:08 -0400 (EDT)
+Date: Sun, 4 Oct 2020 15:59:07 -0700 (PDT)
+X-X-Sender: chime@chime
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: speakup and links browser
-In-Reply-To: <alpine.NEB.2.23.451.2010040553040.14816@panix1.panix.com>
-Message-ID: <Pine.LNX.4.64.2010041843340.25048@server2.shellworld.net>
+In-Reply-To: <Pine.LNX.4.64.2010041843340.25048@server2.shellworld.net>
+Message-ID: <alpine.DEB.2.23.453.2010041557060.1431872@chime>
 References: <alpine.NEB.2.23.451.2010040553040.14816@panix1.panix.com>
+	<Pine.LNX.4.64.2010041843340.25048@server2.shellworld.net>
+User-Agent: Alpine 2.23 (DEB 453 2020-06-18)
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -73,7 +94,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -90,7 +111,7 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -98,44 +119,10 @@ X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-How about share the location  so others
-can see if they have the same download issue?
-no idea about speakup, but I use links the chain for downloading often.
-
-
-
-On Sun, 4 Oct 2020, Linux for blind general discussion wrote:
-
-> I tried downloading a file from a website using links and couldn't
-> download the file.
-> Using speakup I was able to cursor onto the desired file or that's what
-> speakup told me.
-> However when I tried to download that file I got offered an image file
-> from another cursor location on the screen I did not want.
-> I think this is more of a links problem than a speakup problem and am
-> wondering if it's possible to configure links in some way to clear this
-> problem.
-> I don't know what the braille setting would have bought me since I have no
-> braille display.
-> As things stand, I had more success with wget and a bash script I wrote.
-> For that reason I'm going to share this one with the list.
-> The script could probably be improved by adding a site variable to the
-> download variable for wget to process but I haven't done that yet.
->
-> #!/usr/bin/env bash
-> # file: s3.sh - gentoo stage3 download script
-> download="stage3-amd64-20201001T120249Z.tar.xz"
-> wget -bc https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/current-stage3-amd64/$download
->
->
-> -- 
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
->
+I think with l i n k s  you hit an escape to receive a menu? As far as e l 
+i n k s you must alter a config so you can tab from link2link as you can 
+natively in l y n x
+Chime
 
 _______________________________________________
 Blinux-list mailing list
