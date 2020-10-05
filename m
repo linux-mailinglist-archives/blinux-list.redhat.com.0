@@ -1,73 +1,72 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id F3D1028362F
-	for <lists+blinux-list@lfdr.de>; Mon,  5 Oct 2020 15:04:49 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 125442836BE
+	for <lists+blinux-list@lfdr.de>; Mon,  5 Oct 2020 15:41:20 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1601903089;
+	s=mimecast20190719; t=1601905280;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=P9eP/AVjiHdZ8y8nNz4t42hQRpCNLaYgzfz+nvQYwkI=;
-	b=fw0GRSIcUbf+5iEjSD/eIL/oT7AiioRuwqc2j6I1OsbpQTpwbXw/qua/fmZzdvW7cbkRm9
-	2h3cq+QMguVATHBTVh8Y8PVIumAsOTOLpQjSPgCDbyKtnZ6nqOEwSBiHR1Uf/8sv6Wxd6t
-	Sw48eYH6rCp8k7Kiz0r5zTkgTSz7Ku8=
+	bh=XzKsnGGBu8GkUJIMfRrca/P8rW9ZurPTrG2nuJT7LCw=;
+	b=jWzOAZTPWaa8+9uAZd/59qZUdNY4pAcmjY+uxqqOSGHEY3CmcD15E5NYYn9h0EyO3OPD3W
+	inJrhxvoV6BCXZWNOdA3SRgznjVSu5mvMMom+dgTtyp0ImtgqaGgVcBvBlOLs/oCluD3ig
+	TvlUXyDsCrGZ2SpQl2fCamJxnCE8H2w=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-381-B0Jo5fb8NACLyaAGLj2-YQ-1; Mon, 05 Oct 2020 09:04:46 -0400
-X-MC-Unique: B0Jo5fb8NACLyaAGLj2-YQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-42-1w4NHkm3OvKXoGMRlRdpfQ-1; Mon, 05 Oct 2020 09:41:17 -0400
+X-MC-Unique: 1w4NHkm3OvKXoGMRlRdpfQ-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 18F2F8015F6;
-	Mon,  5 Oct 2020 13:04:42 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3460326185;
-	Mon,  5 Oct 2020 13:04:41 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CA83B64159;
+	Mon,  5 Oct 2020 13:41:08 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 71AA43A40;
+	Mon,  5 Oct 2020 13:41:07 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7A81944A5F;
-	Mon,  5 Oct 2020 13:04:39 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 482B71800B72;
+	Mon,  5 Oct 2020 13:41:05 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 095D4UHd006225 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 5 Oct 2020 09:04:30 -0400
+	id 095Df1bK011801 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 5 Oct 2020 09:41:01 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 2347D2166BD9; Mon,  5 Oct 2020 13:04:30 +0000 (UTC)
+	id F0A799C61B; Mon,  5 Oct 2020 13:41:00 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1A18C2166BA2
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 13:04:28 +0000 (UTC)
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id EAFF7A34FB
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 13:40:58 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 05025805F4D
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 13:04:28 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D9655101AA44
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 13:40:58 +0000 (UTC)
 Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-467-ynBdKq0jOOW9M37NWz8G7w-1; Mon, 05 Oct 2020 09:04:24 -0400
-X-MC-Unique: ynBdKq0jOOW9M37NWz8G7w-1
+	us-mta-313-QRXXWaLFMiCi44HaH7g0oQ-1; Mon, 05 Oct 2020 09:40:54 -0400
+X-MC-Unique: QRXXWaLFMiCi44HaH7g0oQ-1
 Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4C4gm83TKpz1Xw9
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 09:04:24 -0400 (EDT)
+	by mailbackend.panix.com (Postfix) with ESMTP id 4C4hZG2YxGz1cQZ
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 09:40:54 -0400 (EDT)
 Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4C4gm82Nl4zcbc; Mon,  5 Oct 2020 09:04:24 -0400 (EDT)
+	id 4C4hZG1KGYzcbc; Mon,  5 Oct 2020 09:40:54 -0400 (EDT)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4C4gm8226RzcbW
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 09:04:24 -0400 (EDT)
-Date: Mon, 5 Oct 2020 09:04:24 -0400
+	by panix1.panix.com (Postfix) with ESMTP id 4C4hZG0gZkzcbV
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 09:40:54 -0400 (EDT)
+Date: Mon, 5 Oct 2020 09:40:53 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: RE: Does anyone have a guide to the E speak screen reader?
-In-Reply-To: <001801d69b0a$f4c7ee90$de57cbb0$@gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2010050902450.22871@panix1.panix.com>
-References: <A0FF8B2A-8F06-4EB2-BA56-9E060425EB7B.ref@yahoo.com>
-	<A0FF8B2A-8F06-4EB2-BA56-9E060425EB7B@yahoo.com>
-	<001801d69b0a$f4c7ee90$de57cbb0$@gmail.com>
+Subject: Re: speakup and links browser
+In-Reply-To: <Pine.LNX.4.64.2010041843340.25048@server2.shellworld.net>
+Message-ID: <alpine.NEB.2.23.451.2010050931590.22871@panix1.panix.com>
+References: <alpine.NEB.2.23.451.2010040553040.14816@panix1.panix.com>
+	<Pine.LNX.4.64.2010041843340.25048@server2.shellworld.net>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -77,7 +76,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -94,7 +93,7 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -102,55 +101,79 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-duckduckgo is your friend.
-http://linux-speakup.org/spkguide.txt
-There is no espeak screen reader.  espeak is a component enabling
-speakup to work on a system.  speakup is the screen reader.
+https://bouncer.gentoo/org/fetch/root/all/releases/amd64/autobuilds/current-stage3-amd64/
 
-On Mon, 5 Oct 2020, Linux for blind general discussion wrote:
+What I did with speakup was to try moving with the tab key onto the
+first stage3 link andthat didn't work.  So I tried with the arrow keys
+and that didn't work either.  Speakup said it had worked, but speakup
+lied.  How I know is the stage3 file ends in .tar.xz and the only thing
+links was willing to download was an image file from that location.  So
+next I left braille terminal alone since I had enabled that before going
+into the site and it didn't do anything for me.  Finally, I numbered
+links in the links configuration settings under html options then saved
+those html options two separate menu entries then I keyed in the correct
+number for the stage3 file to download and that was the only way links
+would get the job done.  What's worse, I got no notification that the
+download was complete from links.
+The other way that's possible is with a bash script where site and
+download are two variables defined and using wget with the -bc options
+since that way you can know when your download is complete.
+You use grep to search wget-log for the word saved and that line will
+let you know your file download is complete.  No comment on validity of
+the download, that's a matter for sha512sum.
 
-> Date: Mon, 5 Oct 2020 07:30:40
+On Sun, 4 Oct 2020, Linux for blind general discussion wrote:
+
+> Date: Sun, 4 Oct 2020 18:45:08
 > From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Subject: RE: Does anyone have a guide to the E speak screen reader?
+> To: Linux for blind general discussion <blinux-list@redhat.com>
+> Subject: Re: speakup and links browser
 >
-> There is a TTS called eSpeak but there isn't a screen reader called eSpeak.
-> Are you asking for information on the TTS called eSpeak or are you looking
-> for information on a screen reader, like Speackup?
+> How about share the location  so others
+> can see if they have the same download issue?
+> no idea about speakup, but I use links the chain for downloading often.
 >
-> --
-> Christopher (AKA CJ)
-> Chaltain at Gmail
 >
-> > -----Original Message-----
-> > From: blinux-list-bounces@redhat.com <blinux-list-bounces@redhat.com> On
-> > Behalf Of Linux for blind general discussion
-> > Sent: Sunday, October 4, 2020 12:27 PM
-> > To: Linux <blinux-list@redhat.com>
-> > Subject: Does anyone have a guide to the E speak screen reader?
+>
+> On Sun, 4 Oct 2020, Linux for blind general discussion wrote:
+>
+> > I tried downloading a file from a website using links and couldn't
+> > download the file.
+> > Using speakup I was able to cursor onto the desired file or that's what
+> > speakup told me.
+> > However when I tried to download that file I got offered an image file
+> > from another cursor location on the screen I did not want.
+> > I think this is more of a links problem than a speakup problem and am
+> > wondering if it's possible to configure links in some way to clear this
+> > problem.
+> > I don't know what the braille setting would have bought me since I have no
+> > braille display.
+> > As things stand, I had more success with wget and a bash script I wrote.
+> > For that reason I'm going to share this one with the list.
+> > The script could probably be improved by adding a site variable to the
+> > download variable for wget to process but I haven't done that yet.
 > >
-> > Hi guys,
-> > I was wondering if anyone had a user guide for this screen reader? I am
-> new to
-> > Linux and I just started taking a college course for it and still
-> exploring possible
-> > options to navigate.
-> > Any help would be greatly appreciated. Thanks,
+> > #!/usr/bin/env bash
+> > #file: s3.sh - gentoo stage3 download script
+> > download="stage3-amd64-20201001T120249Z.tar.xz"
+> > wget -bc
+> > https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/current-stage3-amd64/$download
 > >
 > >
-> > Ashley Breger
-> >
+> > --
 > >
 > > _______________________________________________
 > > Blinux-list mailing list
 > > Blinux-list@redhat.com
 > > https://www.redhat.com/mailman/listinfo/blinux-list
->
+> >
+> >
 >
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://www.redhat.com/mailman/listinfo/blinux-list
+>
 >
 >
 
