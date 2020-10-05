@@ -2,92 +2,90 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 2880028326E
-	for <lists+blinux-list@lfdr.de>; Mon,  5 Oct 2020 10:47:50 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 8724F2834FF
+	for <lists+blinux-list@lfdr.de>; Mon,  5 Oct 2020 13:31:14 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1601887669;
+	s=mimecast20190719; t=1601897473;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=J3dKr13iYNkoH0HoC9NP9U5FzVDmuVbgXfZddqKiQTU=;
-	b=DadWrqoGG5CHk+yDrh1KgaIKJA8k/IZaDqWRH/Sj9hmTfMjVpKj/yWuNR83/E8MBhhOQFl
-	vE22VqxtonSs1FNoc8qZRc+uRiq0opf+dNvp5gqIiIDatCFQhbzFZjHJppYlYnBJrBRzIK
-	UYHb+bo4JtBn9B29GCwQkXeVjMHlVwU=
+	bh=0iQSJqWdEmglpRdC52oUqtYy8SjIcosVyXDhithvMek=;
+	b=OmP0jZnbiQ5qSR/H5qhcAsk/5SQuZvlZVWE5nO1V7BMy1AxkpNyzIv/kamOoT+tnu6Axnv
+	AI1b6RUheuDc+QMhXrgrpc2iOw+8BeL2Vrm7eCUZdKpnMSXAQzlTJ1+JnGAUoChbmVzZE1
+	PfBfj2MPPnvkge0481fOD8MUgWn3ecU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-30-XuxS-NLSOeG8i58AI_Na_w-1; Mon, 05 Oct 2020 04:47:47 -0400
-X-MC-Unique: XuxS-NLSOeG8i58AI_Na_w-1
+ us-mta-126-tG8RgELjNROb1CX0jzgm2w-1; Mon, 05 Oct 2020 07:31:11 -0400
+X-MC-Unique: tG8RgELjNROb1CX0jzgm2w-1
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DB6F6186840B;
-	Mon,  5 Oct 2020 08:47:42 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 53CAA801ADF;
+	Mon,  5 Oct 2020 11:31:06 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D988E9CBA;
-	Mon,  5 Oct 2020 08:47:41 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5959A78818;
+	Mon,  5 Oct 2020 11:31:04 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7B38F44A4A;
-	Mon,  5 Oct 2020 08:47:39 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 496A444A4A;
+	Mon,  5 Oct 2020 11:31:00 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 0958lTui004674 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 5 Oct 2020 04:47:29 -0400
+	id 095BUpnq026549 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 5 Oct 2020 07:30:51 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 9BB8E2157F23; Mon,  5 Oct 2020 08:47:29 +0000 (UTC)
+	id 2D18C111145A; Mon,  5 Oct 2020 11:30:51 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 96D342166B28
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 08:47:27 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 28D8A100335C
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 11:30:49 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1500318AE949
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 08:47:27 +0000 (UTC)
-Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com
-	[209.85.222.172]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-480-mWmKpzEaNoyQGN768C7PpA-1; Mon, 05 Oct 2020 04:47:23 -0400
-X-MC-Unique: mWmKpzEaNoyQGN768C7PpA-1
-Received: by mail-qk1-f172.google.com with SMTP id q5so11070625qkc.2
-	for <blinux-list@redhat.com>; Mon, 05 Oct 2020 01:47:23 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0FCFB8582A7
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 11:30:49 +0000 (UTC)
+Received: from mail-oi1-f173.google.com (mail-oi1-f173.google.com
+	[209.85.167.173]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-186-Ju3mZ6YsP2CRMq5q774FsQ-1; Mon, 05 Oct 2020 07:30:46 -0400
+X-MC-Unique: Ju3mZ6YsP2CRMq5q774FsQ-1
+Received: by mail-oi1-f173.google.com with SMTP id u17so2184894oie.3
+	for <blinux-list@redhat.com>; Mon, 05 Oct 2020 04:30:46 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to;
-	bh=JxZDIDz+Mo/MKc8oqq3GG/SNQBrqnmfVJhORPj4Tpr4=;
-	b=T/wuXjKGS8sDdqBiluHVpHBsotwG93b7Cj9o7gsSDYA0/CdFSfxd6eHasqNLN8u+TX
-	kYvPzV4eY6eh63MpO2TqCUbiCm/IssCnAwPCqUvjx7muBdlJQPm6bzqpX6+3FJ0lp8Xs
-	fxJf8LI7oCljSVPjETwlD1O3JCcrbYQYFuFKN6tnXUDyD/Qxc+qE8ZTChtbPButq+g1G
-	xs2m02FeqgY4c/MV7cMhSsuZNLZ7HItk8iCwkvrS8bQSmdn0yRLXZLKkai/weItEPRzz
-	lM/CAW/f/jMx1fWMT67CM5tXksBBWNvRwi7ys9BXqm6jxkTa5mQmym7MbhwWjdNQjZu9
-	nggQ==
-X-Gm-Message-State: AOAM533OaK4m0Xy/L8pzQtjC5x9shQ22Gksdo4oLnsTdqASbAKc0M4jH
-	yXrxrT2ihO0Ll09AL4P2nLTAhz1NVLuqdLrDcznZjzPO
-X-Google-Smtp-Source: ABdhPJyuVSVuteztTnu0Bgxs0/oGqO/V4aFssDHrBsCkiuQkGBRSmU8wlkP+bNRFdVbr8tXkB3IoXVBucjxDsEdWYP8=
-X-Received: by 2002:a37:480f:: with SMTP id v15mr13146943qka.279.1601887642767;
-	Mon, 05 Oct 2020 01:47:22 -0700 (PDT)
+	h=x-gm-message-state:from:to:references:in-reply-to:subject:date
+	:message-id:mime-version:content-transfer-encoding:content-language
+	:thread-index;
+	bh=ge6323PYj6HumySkaQ2+v8Uo/5MQK/8Vpe3jTbPjIYQ=;
+	b=NMesBd/6TkCa0jz4A+/vRFfdEEnVr5WB1ZMGNZ08U/3pfEudKAcB4i1XAlxraOxJJS
+	oJ3hCIFni+2tIMI2oCEvHItPhO7v6bB/ECH0eXAbhgq0Qzyv0NIdqw0OEOzOlrNPVQT/
+	K8pObEvU578m3yHbMSD7SM3KpXJWBCA4DfHOZoUo1jlmy1bbsq5CQngPQWKk5G/fnw5V
+	R++bJ/SVkJ44f/5eBXVmz8IbYYc5i8Afpx6oLhpAgiHttK24wHie2sCnM0aPqawPKEW3
+	kbSUc8RBmtR7wIeNjCrwcX5j4okKNbNw+9QN/Mthw3men+lEar20ShCgCWPdWxm9UqWA
+	19kw==
+X-Gm-Message-State: AOAM5326WoC4bIUnZyNuXQ22knzwBqRlXTytc96MrO58qUmbelJwCDtE
+	/t2Mocxo23LSCl8I5mo//dxaed4Kn3RTxQ==
+X-Google-Smtp-Source: ABdhPJyG62solbHfGf1ZrMvX8DyRbDJv+vPYSuqAZREl74G5E9v4dAn3BrX2SqdrGQ6P58QCxg8Zsw==
+X-Received: by 2002:aca:aa8d:: with SMTP id t135mr5631342oie.76.1601897445441; 
+	Mon, 05 Oct 2020 04:30:45 -0700 (PDT)
+Received: from DESKTOPIOCCUEU (74-194-137-49.gtwncmta01.res.dyn.suddenlink.net.
+	[74.194.137.49]) by smtp.gmail.com with ESMTPSA id
+	p20sm2800690oth.48.2020.10.05.04.30.44 for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+	Mon, 05 Oct 2020 04:30:44 -0700 (PDT)
+To: <blinux-list@redhat.com>
+References: <A0FF8B2A-8F06-4EB2-BA56-9E060425EB7B.ref@yahoo.com>
+	<A0FF8B2A-8F06-4EB2-BA56-9E060425EB7B@yahoo.com>
+In-Reply-To: <A0FF8B2A-8F06-4EB2-BA56-9E060425EB7B@yahoo.com>
+Subject: RE: Does anyone have a guide to the E speak screen reader?
+Date: Mon, 5 Oct 2020 06:30:40 -0500
+Message-ID: <001801d69b0a$f4c7ee90$de57cbb0$@gmail.com>
 MIME-Version: 1.0
-References: <1409d60b-0be5-783a-d490-0501585ead96@gmail.com>
-	<5b699b56-2241-b1ef-18c3-3d05614e9b8a@slint.fr>
-	<20200930121251.7d6b8c35@bigbox.attlocal.net>
-	<87tuvf2km3.fsf@cmbmachine.messageid.invalid>
-	<20201003130430.GA2173@rednote.net>
-	<alpine.DEB.2.23.453.2010030632540.2247242@chime>
-	<20201003100234.4f71a96d@bigbox.attlocal.net>
-	<87y2knjmwe.fsf@cmbmachine.messageid.invalid>
-	<20201004132601.GA9202@rednote.net>
-	<20201004.134338.155.30@192.168.1.130>
-	<20201004130414.6b75be74@bigbox.attlocal.net>
-	<CAO2sX30sh2cLHnm3AUCRP2iYFByeCZ7SHxHrHwoZFw9RVJb5rg@mail.gmail.com>
-In-Reply-To: <CAO2sX30sh2cLHnm3AUCRP2iYFByeCZ7SHxHrHwoZFw9RVJb5rg@mail.gmail.com>
-Date: Mon, 5 Oct 2020 10:47:13 +0200
-Message-ID: <CAPo=n--CSkWCtp0Vc-XW+JT9w2aU4T0h4dyMU0NF1wAwZh-JgA@mail.gmail.com>
-Subject: Re: Console screenreaders
-To: Linux for blind general discussion <blinux-list@redhat.com>
+Thread-Index: AQFdo7fQmihV15abBugW3WGkSO4wGAGzVAG5qm0zhIA=
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -96,9 +94,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
-X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -119,50 +116,43 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Language: en-us
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-With Speakup you can turn the automatic reading of updated content on and
-off with speakupkey+keypad-enter, or control+speakupkey+normal-enter.
-Fenrir has a similar mechanism.
+There is a TTS called eSpeak but there isn't a screen reader called eSpeak.
+Are you asking for information on the TTS called eSpeak or are you looking
+for information on a screen reader, like Speackup?
 
-Regards,
+--
+Christopher (AKA CJ)
+Chaltain at Gmail
 
-Rynhardt
-
-On Sun, 4 Oct 2020, 21:15 Linux for blind general discussion, <
-blinux-list@redhat.com> wrote:
-
-> I've never used Tmux, but that sounds like a prime example of why I
-> prefer SBL's less chatty nature to espeakup. To give a similar example
-> with a program I use regularly, Nano defaults to having a title bar on
-> the top and a status bar on the third line from the bottom(the bottom
-> two lines are a command quick reference). Espeakup will read these
-> everytime they change, but SBL will only read them if I use screen
-> review to read them, and in most cases, I prefer not to hear what's on
-> those lines(the one exception I can think of where I would prefer
-> espeakup's chattier behavior is in the case of pressing ctrl+C, which
-> prints current position on the status line(I also often care about the
-> lines written when saving a file, but since I'm usually at the end of
-> a file when saving, I can usually just use caps+pageDown to read from
-> current position to end of screen instead of having to manully
-> navigate to the status line with caps and up/down arrows like I
-> usually have to do with current position since I usually do ctrl+c in
-> the middle of a file).
->
-> Admittedly, there are cases I wish I could switch between "read all
-> newly displayed text" and "read only what I tell you to read" on the
-> fly. I find the latter better for most things, but the former is nice
-> when playing text adventures.
->
-> -Jeffery
->
+> -----Original Message-----
+> From: blinux-list-bounces@redhat.com <blinux-list-bounces@redhat.com> On
+> Behalf Of Linux for blind general discussion
+> Sent: Sunday, October 4, 2020 12:27 PM
+> To: Linux <blinux-list@redhat.com>
+> Subject: Does anyone have a guide to the E speak screen reader?
+> 
+> Hi guys,
+> I was wondering if anyone had a user guide for this screen reader? I am
+new to
+> Linux and I just started taking a college course for it and still
+exploring possible
+> options to navigate.
+> Any help would be greatly appreciated. Thanks,
+> 
+> 
+> Ashley Breger
+> 
+> 
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://www.redhat.com/mailman/listinfo/blinux-list
->
->
+
+
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
