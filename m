@@ -1,68 +1,67 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 5C3B8283BC0
-	for <lists+blinux-list@lfdr.de>; Mon,  5 Oct 2020 17:56:19 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 53474283CA3
+	for <lists+blinux-list@lfdr.de>; Mon,  5 Oct 2020 18:40:05 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1601913378;
+	s=mimecast20190719; t=1601916004;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=IZVgUtRb6q2L/BTZZ/cdvyVW2WOWURZXvqUSUVJ/cB8=;
-	b=SVOmPbmfKr5h46ArP0eZVuv583I4fNS8ilg/Q1KBkrOqifGwFoVxrwmkUr2QBs/d81nmCT
-	7lpfAXFT6MpljrKKt9ohvaktWuq0vBEotMPQufiTVNJujk96GqfY4lRlPnXUezwqu8TPwA
-	jxFc+8Tc++4E5F63FEOBf+aoJbaBy2I=
+	bh=J+lPd3GkA8Ghr4S8t0qNip6dnN3bdSmcBWQM3YogDvw=;
+	b=K2K87Ly/LJ5ANseP4yiYpBjlnr/Vxyq8nnNufHCexEPf7HMwoKg9lAD3GixBRD6Zk+4yPt
+	TPLSiJy1fbn5R3HNTtfkqP4IwyL/7xY+rL0gpV0YAhIeWV4Yv3+txSRPZuw0nwF20O2I85
+	FakMfmq/yZyg329+V/Rz1fZ0HeWod2w=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-264-DHuFTfayPN60a_ffSS585Q-1; Mon, 05 Oct 2020 11:56:15 -0400
-X-MC-Unique: DHuFTfayPN60a_ffSS585Q-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-345-dwNWiHkiMN-xs4pWUlXu_w-1; Mon, 05 Oct 2020 12:40:02 -0400
+X-MC-Unique: dwNWiHkiMN-xs4pWUlXu_w-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 48396107ACF5;
-	Mon,  5 Oct 2020 15:56:11 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 490C65C1BD;
-	Mon,  5 Oct 2020 15:56:10 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 485B61800D4A;
+	Mon,  5 Oct 2020 16:39:57 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0DC2778820;
+	Mon,  5 Oct 2020 16:39:56 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BAEB244A64;
-	Mon,  5 Oct 2020 15:56:08 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 88A391826D30;
+	Mon,  5 Oct 2020 16:39:54 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 095Fu3FT031895 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 5 Oct 2020 11:56:03 -0400
+	id 095Gdlct006929 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 5 Oct 2020 12:39:47 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 36931201EB53; Mon,  5 Oct 2020 15:56:03 +0000 (UTC)
+	id 2E2C539CCE; Mon,  5 Oct 2020 16:39:47 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 31E1F2028CCE
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 15:56:01 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 28F18A9E68
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 16:39:45 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 25509858289
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 15:56:01 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0AE8E800CAF
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 16:39:45 +0000 (UTC)
 Received: from server2.shellworld.net (ip-66-172-12-120.chunkhost.com
 	[66.172.12.120]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-435-1Z22YU7dPZ2-cqhHW741xw-1; Mon, 05 Oct 2020 11:55:58 -0400
-X-MC-Unique: 1Z22YU7dPZ2-cqhHW741xw-1
+	us-mta-103-A7_L9pxaOY6bUvUsUIoDEw-1; Mon, 05 Oct 2020 12:39:42 -0400
+X-MC-Unique: A7_L9pxaOY6bUvUsUIoDEw-1
 Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id 0B6FE54015C; Mon,  5 Oct 2020 15:55:57 +0000 (UTC)
+	id B55EE54015C; Mon,  5 Oct 2020 16:39:41 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id 06767540108
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 11:55:57 -0400 (EDT)
-Date: Mon, 5 Oct 2020 11:55:56 -0400 (EDT)
+	by server2.shellworld.net (Postfix) with ESMTP id B07FE540105
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 12:39:41 -0400 (EDT)
+Date: Mon, 5 Oct 2020 12:39:41 -0400 (EDT)
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: speakup and links browser
 In-Reply-To: <alpine.NEB.2.23.451.2010050931590.22871@panix1.panix.com>
-Message-ID: <Pine.LNX.4.64.2010051142180.19952@server2.shellworld.net>
+Message-ID: <Pine.LNX.4.64.2010051237020.21245@server2.shellworld.net>
 References: <alpine.NEB.2.23.451.2010040553040.14816@panix1.panix.com>
 	<Pine.LNX.4.64.2010041843340.25048@server2.shellworld.net>
 	<alpine.NEB.2.23.451.2010050931590.22871@panix1.panix.com>
@@ -75,7 +74,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -92,7 +91,7 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -100,33 +99,11 @@ X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi there,
-Okay, after fixing the link so there was no slash before the org part of 
-the  path, here is what I did.
-Granted, as stated, I am not using speakup, but if you have links the 
-chain configured to its best advantage, this sould not be a problem.
-by which I mean you have the links are numbered feature turned on.  Much 
-as with lynx the cat, numbering the links lets you skip past images 
-without issue.
-I have no idea which file  you desired, there is allot of them.
-Still, I used my arrow keys past the things like parent directory and the 
-like to reach one of the  binary images listed.
-When I hit entre I got the message
-download,
-details of the file name is a binary image, would you like to save or 
-display   this file?
-Such is what I normally get when downloading, if you move your arrow key 
-to the right you get an s for save, a d for display, sometimes an extra 
-like  show full headers, and c to cancel the  process.
-I cannot imagine why speakup would prevent that from working 
-comparatively.
-Indeed the files menu, I hit escape and arrow down, is there, but i am 
-unsure it is the best choice here.  When I am saving a formatted document I 
-use the files menu.  but other files like this one or audio or whatever 
-hitting the entre key starts the process for me, and I have links are 
-numbered set so I can reach the desired download.
-Does this resonate?
-Karen
+Further checking produces .zip files for download.  again all from simply 
+selecting the enter key on the desired option.
+I did not correctly  provide the message.
+It says "unknown type," before stating that the file name is .zip or 
+whatever.  The options are the same however, to save, display  or council.
 
 
 
