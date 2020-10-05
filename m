@@ -1,71 +1,74 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 72B3C28388A
-	for <lists+blinux-list@lfdr.de>; Mon,  5 Oct 2020 16:54:09 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id D3438283967
+	for <lists+blinux-list@lfdr.de>; Mon,  5 Oct 2020 17:19:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1601909648;
+	s=mimecast20190719; t=1601911160;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ttVbzq/2aqQezbbtcYXs/J4RwSzgEbqNqAHnAnNJUNU=;
-	b=btDVP8w05qY+/uBe8ydeqZ2tGp2XvGn2pYnyONkjRcsBsHZJHFL+0GpeiGaAsF5RYqXGT4
-	8XscRNMCo7g6XUVgJB/UhteAleZxam32yptus6D3fOzahBQGqXJUPpMgwofG5eHqCUeaM7
-	h9ErxIZiVJ7NdxA/4/JLRS+h+uJpCTw=
+	bh=9NyzoSLfES1XTp/Ia8jCD26zeG/WDJ0VuGl2P8akrWE=;
+	b=NvhMbdIMIKVHehlTLpC44Lx9GDzCAU/cI+UU4vowvU8VqwkMQzYvzbBiBpnnuZsKNeftiC
+	NitlC3uDVILR8o3SvtL35buExikR8VTWUH7F2889pEV3Ii6NjoJfhGKqbcjVGDE+rmdm12
+	Wj2KaRnNfAAjU6rB+WZsKXVgE+rf5bw=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-454-mzHE-iClNqqWPmPtFBa1Iw-1; Mon, 05 Oct 2020 10:54:06 -0400
-X-MC-Unique: mzHE-iClNqqWPmPtFBa1Iw-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-483-WIarYON3ORCneMmVZMWIZg-1; Mon, 05 Oct 2020 11:19:18 -0400
+X-MC-Unique: WIarYON3ORCneMmVZMWIZg-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 37BEE18BE165;
-	Mon,  5 Oct 2020 14:54:02 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 71D5418A8225;
+	Mon,  5 Oct 2020 15:19:13 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BECBE5D9CC;
-	Mon,  5 Oct 2020 14:54:01 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D281C19930;
+	Mon,  5 Oct 2020 15:19:12 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 53A91181A050;
-	Mon,  5 Oct 2020 14:54:00 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 9FD8D181A270;
+	Mon,  5 Oct 2020 15:19:11 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 095Epdja021631 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 5 Oct 2020 10:51:40 -0400
+	id 095FJ3So025412 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 5 Oct 2020 11:19:04 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id A623A2023598; Mon,  5 Oct 2020 14:51:39 +0000 (UTC)
+	id CEF0C110F0AD; Mon,  5 Oct 2020 15:19:03 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A0C59202450E
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 14:51:36 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CAD49110F0AC
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 15:19:01 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4471F1848929
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 14:51:36 +0000 (UTC)
-Received: from server2.shellworld.net (ip-66-172-12-120.chunkhost.com
-	[66.172.12.120]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-473-nHTB-GnXPg6A-OcB5oOvjw-1; Mon, 05 Oct 2020 10:51:33 -0400
-X-MC-Unique: nHTB-GnXPg6A-OcB5oOvjw-1
-Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id B0E2154015C; Mon,  5 Oct 2020 14:51:32 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id B0154540108
-	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 10:51:32 -0400 (EDT)
-Date: Mon, 5 Oct 2020 10:51:32 -0400 (EDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: speakup and links browser
-In-Reply-To: <alpine.NEB.2.23.451.2010050931590.22871@panix1.panix.com>
-Message-ID: <Pine.LNX.4.64.2010051050380.18831@server2.shellworld.net>
-References: <alpine.NEB.2.23.451.2010040553040.14816@panix1.panix.com>
-	<Pine.LNX.4.64.2010041843340.25048@server2.shellworld.net>
-	<alpine.NEB.2.23.451.2010050931590.22871@panix1.panix.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A2F9A18A070F
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 15:19:01 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-25-0MneITJHPgCTfTm6j524qg-1;
+	Mon, 05 Oct 2020 11:18:58 -0400
+X-MC-Unique: 0MneITJHPgCTfTm6j524qg-1
+Received: from darkstar.machine.fr (sfa89-1-78-208-157-71.fbx.proxad.net
+	[78.208.157.71])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id CA6D9BE280
+	for <blinux-list@redhat.com>; Mon,  5 Oct 2020 16:18:10 +0200 (CEST)
+Subject: Re: Does anyone have a guide to the E speak screen reader?
+To: blinux-list@redhat.com
+References: <A0FF8B2A-8F06-4EB2-BA56-9E060425EB7B.ref@yahoo.com>
+	<A0FF8B2A-8F06-4EB2-BA56-9E060425EB7B@yahoo.com>
+	<001801d69b0a$f4c7ee90$de57cbb0$@gmail.com>
+	<alpine.NEB.2.23.451.2010050902450.22871@panix1.panix.com>
+	<CAO2sX30JVeJvOmNvasyHw_SymZy+aHG51SEurM7G461Fn+0mQw@mail.gmail.com>
+Message-ID: <8e7419d5-d628-cdd3-072e-109deb1c494d@slint.fr>
+Date: Mon, 5 Oct 2020 17:18:45 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
+In-Reply-To: <CAO2sX30JVeJvOmNvasyHw_SymZy+aHG51SEurM7G461Fn+0mQw@mail.gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -74,7 +77,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 095FJ3So025412
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -91,108 +96,50 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Language: fr
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-is there supposed to be a / before org here?
-Going to try corecting that since the link is giving me a host not found.
-
-
-
-On Mon, 5 Oct 2020, Linux for blind general discussion wrote:
-
-> https://bouncer.gentoo/org/fetch/root/all/releases/amd64/autobuilds/current-stage3-amd64/
->
-> What I did with speakup was to try moving with the tab key onto the
-> first stage3 link andthat didn't work.  So I tried with the arrow keys
-> and that didn't work either.  Speakup said it had worked, but speakup
-> lied.  How I know is the stage3 file ends in .tar.xz and the only thing
-> links was willing to download was an image file from that location.  So
-> next I left braille terminal alone since I had enabled that before going
-> into the site and it didn't do anything for me.  Finally, I numbered
-> links in the links configuration settings under html options then saved
-> those html options two separate menu entries then I keyed in the correct
-> number for the stage3 file to download and that was the only way links
-> would get the job done.  What's worse, I got no notification that the
-> download was complete from links.
-> The other way that's possible is with a bash script where site and
-> download are two variables defined and using wget with the -bc options
-> since that way you can know when your download is complete.
-> You use grep to search wget-log for the word saved and that line will
-> let you know your file download is complete.  No comment on validity of
-> the download, that's a matter for sha512sum.
->
-> On Sun, 4 Oct 2020, Linux for blind general discussion wrote:
->
->> Date: Sun, 4 Oct 2020 18:45:08
->> From: Linux for blind general discussion <blinux-list@redhat.com>
->> To: Linux for blind general discussion <blinux-list@redhat.com>
->> Subject: Re: speakup and links browser
->>
->> How about share the location  so others
->> can see if they have the same download issue?
->> no idea about speakup, but I use links the chain for downloading often.
->>
->>
->>
->> On Sun, 4 Oct 2020, Linux for blind general discussion wrote:
->>
->>> I tried downloading a file from a website using links and couldn't
->>> download the file.
->>> Using speakup I was able to cursor onto the desired file or that's what
->>> speakup told me.
->>> However when I tried to download that file I got offered an image file
->>> from another cursor location on the screen I did not want.
->>> I think this is more of a links problem than a speakup problem and am
->>> wondering if it's possible to configure links in some way to clear this
->>> problem.
->>> I don't know what the braille setting would have bought me since I have no
->>> braille display.
->>> As things stand, I had more success with wget and a bash script I wrote.
->>> For that reason I'm going to share this one with the list.
->>> The script could probably be improved by adding a site variable to the
->>> download variable for wget to process but I haven't done that yet.
->>>
->>> #!/usr/bin/env bash
->>> #file: s3.sh - gentoo stage3 download script
->>> download="stage3-amd64-20201001T120249Z.tar.xz"
->>> wget -bc
->>> https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/current-stage3-amd64/$download
->>>
->>>
->>> --
->>>
->>> _______________________________________________
->>> Blinux-list mailing list
->>> Blinux-list@redhat.com
->>> https://www.redhat.com/mailman/listinfo/blinux-list
->>>
->>>
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://www.redhat.com/mailman/listinfo/blinux-list
->>
->>
->>
->
-> -- 
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
+R29vZCBzdW1tYXJ5IQoKSnVzdCBhbiBhZGRpdGlvbmFsIG5vdGU6IHRoZSBzcGVha3VwIGtlcm5l
+bCBkcml2ZXIgY2FuIGJlIHVzZWQgd2l0aAphIGhhcmR3YXJlIHN5bnRoZXNpemVyLCB3aXRob3V0
+IGFueSBzb2Z0d2FyZSBzeW50aGVzaXplci4KCkNoZWVycywgRGlkaWVyCgpMZSAwNS8xMC8yMDIw
+IMOgIDE2OjEwLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIGEgw6ljcml0wqA6
+Cj4gSG9uZXN0bHksIEkgY2FuJ3QgYmxhbWUgdGhlIE9QIGZvciBnZXR0aW5nIHRoZSBuYW1lIHdy
+b25nLCB0aGVyZSBhcmUKPiBxdWl0ZSBhIG51bWJlciBvZiBwYWNrYWdlcyB0aGF0IHdvcmsgdG9n
+ZXRoZXIgd2l0aCByYXRoZXIgY29uZnVzaW5nCj4gbmFtZXMuCj4gCj4gVGhhdCBzYWlkLCBoZSdz
+IGEgYnJlYWsgZG93biBmb3IgdGhlIE9QOgo+IAo+IDEuIHNwZWFrdXAgaXMgYSBrZXJuZWwgbW9k
+dWxlIHRoYXQgcHJvdmlkZXMgc2NyZWVucmVhZGVyCj4gZnVuY3Rpb25hbGl0eSwgYnV0IHdoaWNo
+IGlzIHJhdGhlciB1c2VsZXNzIG9uIGl0cyBvd24uCj4gMi4gZXNwZWFrIGlzIG9uZSBvZiBzZXZl
+cmFsIHRleHQtdG8tc3BlZWNoIGVuZ2luZXMgYXZhaWxhYmxlIGZvcgo+IExpbnV4LiBUZWNobmlj
+YWxseSBkZXByZWNhdGVkIGFuZCBzdXBlcmNlZGVkIGJ5IGVzcGVhay1uZywgYnV0IG5vdAo+IHF1
+aXRlIGV2ZXJ5dGhpbmcgdGhhdCB1c2VzIGl0IGhhcyBtaWdyYXRlZCB5ZXQuCj4gMy4gZXNwZWFr
+dXAgc2VydmVzIGFzIGEgYnJpZGdlIGJldHdlZW4gc3BlYWt1cCBhbmQgZXNwZWFrLCBhbGxvd2lu
+Zwo+IHRoZSBmb3JtZXIgdG8gdXNlIHRoZSBsYXR0ZXIgdG8gYWN0dWFsbHkgc3ludGhlc2l6ZSB3
+aGF0IGl0J3MgcmVhZGluZy4KPiAKPiBBbGwgdGhyZWUgY29tYmluZWQgZm9ybSB3aGF0IGlzIHBy
+b2JhYmx5ICB0aGUgbW9zdCB3aWRlbHkgdXNlZAo+IGFjY2Vzc2liaWxpdHkgc3RhY2sgb24gdGFs
+a2luZywgY29tbWFuZC1saW5lIG9ubHkgTGludXggc3lzdGVtcywgYnV0Cj4gYXJlIGZhciBmcm9t
+IHRoZSBvbmx5IG9wdGlvbiBhdmFpbGFibGUuIFVuZm9ydHVuYXRlbHksIGJlY2F1c2Ugb2YKPiB0
+aGVpciBzaW1pbGFyIG5hbWVzLCBwZW9wbGUgZnJlcXVlbnRseSByZWZlciB0byB0aGUgd2hvbGUg
+c3RhY2sgYnkgb25lCj4gb2YgaXQncyBjb21wb25lbnRzIG9yIGdldCB0aGUgbmFtZXMgb2YgZGlm
+ZmVyZW50IGNvbXBvbmVudHMgbWl4ZWQgdXAKPiBhbmQgZXZlbiBJIHNvbWV0aW1lcyBnZXQgY29u
+ZnVzZWQgYXMgdG8gd2hldGhlciBhIHBvc3RlciBpcyB0YWxraW5nCj4gYWJvdXQgdGhlIHN0YWNr
+IGFzIGEgd2hvbGUsIG9uZSBvZiBpdHMgY29tcG9uZW50cywgb3Igd2hpY2ggY29tcG9uZW50Cj4g
+dGhleSdyZSB0YWxraW5nIGFib3V0Lgo+IAo+IFRvIGFkZCB0byB0aGUgY29uZnVzaW9uLCB0aGVy
+ZSdzIGFsc28gc3BlZWNoZC11cCwgd2hpY2ggc2VydmVzIGEKPiBzaW1pbGFyIHB1cnBvc2UgdG8g
+ZXNwZWFrdXAsIGJ1dCBicmlkZ2VzIHNwZWFrdXAgdG8gc3BlZWNoLWRpc3BhdGNoZXIsCj4gaXRz
+ZWxmIGEgYnJpZGdlIHRoYXQgcHJvdmlkZXMgYSBjb25zaXN0ZW50IGludGVyZmFjZSBiZXR3ZWVu
+IHNjcmVlbgo+IHJlYWRlcnMgYW5kIHNwZWVjaCBzeW50aHMsIGFuZCB0aGVyZSdzIHBpZXNwZWFr
+dXAsIGEgZm9yayBvZiBlc3BlYWt1cAo+IHdyaXR0ZW4gZm9yIHRoZSBSYXNwYmVycnkgUGkgdG8g
+Z2V0IGFyb3VuZCBzb21lIGJ1Z3MgaW4gdGhlIFBpJ3Mgc291bmQKPiBzeXN0ZW0uCj4gCj4gX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBCbGludXgtbGlz
+dCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4gaHR0cHM6Ly93d3cucmVk
+aGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4gCgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0
+CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly93d3cucmVkaGF0LmNvbS9tYWlsbWFuL2xp
+c3RpbmZvL2JsaW51eC1saXN0
 
