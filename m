@@ -1,86 +1,91 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id E7D50284C90
-	for <lists+blinux-list@lfdr.de>; Tue,  6 Oct 2020 15:30:45 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 48C47284C9B
+	for <lists+blinux-list@lfdr.de>; Tue,  6 Oct 2020 15:37:14 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1601991045;
+	s=mimecast20190719; t=1601991433;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=RI33aAhbPGFJ5ByTBzp4Yh2y3EVp6XCH3immTZo5DBE=;
-	b=K9k1uBx/nJlSKtRmXagOe6SpW3sd0bC67lLfNNbOwoLtqQDNqOltF3R49ptpMdvm0j5dFg
-	ckfVZTmu9RnPbiQDY/yxp/48D8Ui7AEz4y4tkKsruYdwxwHPjXmwcCBQfWCFyBfXPgvYlS
-	95z9kbsaDK2eCsZxbYD1Yp/9/XFcf2Q=
+	bh=2P7fMiHI+nkR1gJhCwPkO3qSfLoWqdYRGXsIYsGQJYU=;
+	b=igHw366IfNlHEFQSeSXDf7MqUH2Y/EiTYzOk3z4CPX+35ULfvW/IaDcITkblkhhqFdcGSt
+	dbH0Mkm0R+EjW313YfeRM3NgIrxguT+1o2Uxd9rg6eE5qjCEkPK+ZHHBCjPVwHlw21ifwn
+	JT/f96/+kNOca7L0mZDXw85rZAc0rnI=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-227-c588tO2fNky_df9zP6F_pg-1; Tue, 06 Oct 2020 09:30:41 -0400
-X-MC-Unique: c588tO2fNky_df9zP6F_pg-1
+ us-mta-158-LlHRu557Oim1XPYT1TPnyA-1; Tue, 06 Oct 2020 09:37:11 -0400
+X-MC-Unique: LlHRu557Oim1XPYT1TPnyA-1
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A73801074657;
-	Tue,  6 Oct 2020 13:30:36 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4124127CC5;
-	Tue,  6 Oct 2020 13:30:35 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 73E31804015;
+	Tue,  6 Oct 2020 13:37:07 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2DAF038A;
+	Tue,  6 Oct 2020 13:37:07 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3316B44A6D;
-	Tue,  6 Oct 2020 13:30:31 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id AC20A1832FC1;
+	Tue,  6 Oct 2020 13:37:05 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 096DUHYJ001871 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 6 Oct 2020 09:30:17 -0400
+	id 096Db1KK002877 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 6 Oct 2020 09:37:01 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id C4C8ECF635; Tue,  6 Oct 2020 13:30:17 +0000 (UTC)
+	id 77CD010064E1; Tue,  6 Oct 2020 13:37:01 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BEE7ACF62C
-	for <blinux-list@redhat.com>; Tue,  6 Oct 2020 13:30:14 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 718B210064F2
+	for <blinux-list@redhat.com>; Tue,  6 Oct 2020 13:36:56 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5E5BA18AE948
-	for <blinux-list@redhat.com>; Tue,  6 Oct 2020 13:30:14 +0000 (UTC)
-Received: from mail-qk1-f180.google.com (mail-qk1-f180.google.com
-	[209.85.222.180]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-24-ibgboNtaPFO9jP238fKS7g-1; Tue, 06 Oct 2020 09:30:11 -0400
-X-MC-Unique: ibgboNtaPFO9jP238fKS7g-1
-Received: by mail-qk1-f180.google.com with SMTP id z6so8083843qkz.4
-	for <blinux-list@redhat.com>; Tue, 06 Oct 2020 06:30:11 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A808F102F1E7
+	for <blinux-list@redhat.com>; Tue,  6 Oct 2020 13:36:56 +0000 (UTC)
+Received: from mail-qk1-f171.google.com (mail-qk1-f171.google.com
+	[209.85.222.171]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-360-qrNTQH5kMwWG8cUjidJyNw-1; Tue, 06 Oct 2020 09:36:54 -0400
+X-MC-Unique: qrNTQH5kMwWG8cUjidJyNw-1
+Received: by mail-qk1-f171.google.com with SMTP id s4so2330163qkf.7
+	for <blinux-list@redhat.com>; Tue, 06 Oct 2020 06:36:54 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:date:from:to:subject:message-id:user-agent
-	:mime-version;
-	bh=+9hVquK7pdYMeGoniAhB8ygeAXhErD/HjD9MPt06oa8=;
-	b=i8LwgDcQa2MJ4FBnmgMDDya6GHuXF5RVXbDKKbzoGIQEhH8/iw+br1Era0LpBy1u/m
-	SHehDLU3VwBDfJBB681zxnlUEvgew6Ltw9lVcKxo9cESxj4yH/QOgc2JRhnUCBjRixK7
-	yVxgWDApLk3s/KUl+aqP0CNnXQ3gjAI5vkC5kQ7cObCUwG2yxdMIhSPKdsqVjoENwe74
-	uEOMLqr3jcZKcVDfmQ+Bq7hSNBiCpVTTCpuRxuI+SVwtTqKTsfzXoPI18rgsbmrCCw+P
-	erPQAfp65kLVUGlT5uPChevxH4akL4MfKHf2Qn+HgQrH5DaVgNiTeghBo3TMXEBtXXuE
-	Gb+w==
-X-Gm-Message-State: AOAM531mlDwBUsl1Pv5FmB6QG/eTJo3/mBjUXmf/nBZTjH3rt5B0EVey
-	3y48a6KTigLmu9Yhum1jkziBrM9vFQEeZg==
-X-Google-Smtp-Source: ABdhPJy3BicdcJWyw04SnRWSGq4F+XR1HRk+53scqGycS7/OQVkwKf2bbDEDGmOU/OPMKfdEuVnXzg==
-X-Received: by 2002:a37:6407:: with SMTP id y7mr4869319qkb.404.1601991010601; 
-	Tue, 06 Oct 2020 06:30:10 -0700 (PDT)
-Received: from dans-mac-mini.home (pool-74-98-222-165.pitbpa.ftas.verizon.net.
-	[74.98.222.165])
-	by smtp.gmail.com with ESMTPSA id l5sm2328525qtc.28.2020.10.06.06.30.08
-	for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-	Tue, 06 Oct 2020 06:30:09 -0700 (PDT)
-Date: Tue, 6 Oct 2020 09:30:08 -0400 (EDT)
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding
+	:content-language;
+	bh=vO6anNhs10oXBXmZG8hDHuqOyp48fe9tiqHcTeQJbdU=;
+	b=EUgHUQdt4At9SOriZ4bPOXmw4K7PHFZ/82/3PvZ6lpnE1kIh1Kw7a8n8pV8XQ+42Cy
+	bvhphsbQV2nSn3aG7xKkNtkHmOZ3aZlGnWhN7eVBcHrcmp3OUE4H7wOrpzrJqhQ/iSXc
+	hsY2Z0R+fJ7iHuIDYLgmIv7jX3UsuWMI89w1soeT3kztSiraNt0NCLsjNj1g7nmtw6WE
+	skQfCUtFWhKiRMv36U8YxAWBRAoFT7gwGwondvpf/d9w4siQvw41dwhLTuJzGbNNIrmj
+	XGSe/qjkRjtFadSuW30vk84ASiIhTG0WrRN3YWnHQM/RbLB+33Lsj5K192TI2s0KLHiN
+	OfOA==
+X-Gm-Message-State: AOAM530flaNbZSDWOTCEC67b5fUjI+kKep3bVrXY0TcYh6ICjF+yXWpt
+	fd8w5BS5M0xhgJ28DzqaXu00RNpWlLFOcA==
+X-Google-Smtp-Source: ABdhPJwQxC9xrmtquB/1XZBq9Twv9A3TTlodDsVTDtifhQ/PZSc+zvUa95shYec5UgIT1vO8oBSo5Q==
+X-Received: by 2002:a37:9e87:: with SMTP id h129mr5296569qke.276.1601991413555;
+	Tue, 06 Oct 2020 06:36:53 -0700 (PDT)
+Received: from ?IPv6:2606:a000:111a:8d0a::5d7?
+	(2606-a000-111a-8d0a-0000-0000-0000-05d7.inf6.spectrum.com.
+	[2606:a000:111a:8d0a::5d7]) by smtp.gmail.com with ESMTPSA id
+	g203sm2518722qkb.51.2020.10.06.06.36.52 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Tue, 06 Oct 2020 06:36:53 -0700 (PDT)
+Subject: Re: VPN accessibility?
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: speakup and links browser
-Message-ID: <alpine.OSX.2.23.453.2010060924400.5318@dans-mac-mini.home>
-User-Agent: Alpine 2.23 (OSX 453 2020-06-18)
+References: <160195898709.6.4515232516938989079.1173897@slmail.me>
+Message-ID: <b84e2a71-99a9-1e39-8b6d-a505b80a9c58@gmail.com>
+Date: Tue, 6 Oct 2020 09:36:51 -0400
+User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
+In-Reply-To: <160195898709.6.4515232516938989079.1173897@slmail.me>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -89,7 +94,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -109,144 +114,24 @@ Errors-To: blinux-list-bounces@redhat.com
 X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
-X-Mimecast-Spam-Score: 1
+X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Lynx the cat has two options that greatly inhibit inline images and image file links:
-
-Show images (!)                  : [ignore___]
-Verbose images                   : [OFF__________]
-
-On Mon, 5 Oct 2020, Linux for blind general discussion wrote:
-
-> Hi there,
-> Okay, after fixing the link so there was no slash before the org part of
-> the  path, here is what I did.
-> Granted, as stated, I am not using speakup, but if you have links the
-> chain configured to its best advantage, this sould not be a problem.
-> by which I mean you have the links are numbered feature turned on.  Much
-> as with lynx the cat, numbering the links lets you skip past images
-> without issue.
-> I have no idea which file  you desired, there is allot of them.
-> Still, I used my arrow keys past the things like parent directory and the
-> like to reach one of the  binary images listed.
-> When I hit entre I got the message
-> download,
-> details of the file name is a binary image, would you like to save or
-> display   this file?
-> Such is what I normally get when downloading, if you move your arrow key
-> to the right you get an s for save, a d for display, sometimes an extra
-> like  show full headers, and c to cancel the  process.
-> I cannot imagine why speakup would prevent that from working
-> comparatively.
-> Indeed the files menu, I hit escape and arrow down, is there, but i am
-> unsure it is the best choice here.  When I am saving a formatted document I
-> use the files menu.  but other files like this one or audio or whatever
-> hitting the entre key starts the process for me, and I have links are
-> numbered set so I can reach the desired download.
-> Does this resonate?
-> Karen
->
->
->
-> On Mon, 5 Oct 2020, Linux for blind general discussion wrote:
->
-> > https://bouncer.gentoo/org/fetch/root/all/releases/amd64/autobuilds/current-stage3-amd64/
-> >
-> > What I did with speakup was to try moving with the tab key onto the
-> > first stage3 link andthat didn't work.  So I tried with the arrow keys
-> > and that didn't work either.  Speakup said it had worked, but speakup
-> > lied.  How I know is the stage3 file ends in .tar.xz and the only thing
-> > links was willing to download was an image file from that location.  So
-> > next I left braille terminal alone since I had enabled that before going
-> > into the site and it didn't do anything for me.  Finally, I numbered
-> > links in the links configuration settings under html options then saved
-> > those html options two separate menu entries then I keyed in the correct
-> > number for the stage3 file to download and that was the only way links
-> > would get the job done.  What's worse, I got no notification that the
-> > download was complete from links.
-> > The other way that's possible is with a bash script where site and
-> > download are two variables defined and using wget with the -bc options
-> > since that way you can know when your download is complete.
-> > You use grep to search wget-log for the word saved and that line will
-> > let you know your file download is complete.  No comment on validity of
-> > the download, that's a matter for sha512sum.
-> >
-> > On Sun, 4 Oct 2020, Linux for blind general discussion wrote:
-> >
-> >> Date: Sun, 4 Oct 2020 18:45:08
-> >> From: Linux for blind general discussion <blinux-list@redhat.com>
-> >> To: Linux for blind general discussion <blinux-list@redhat.com>
-> >> Subject: Re: speakup and links browser
-> >>
-> >> How about share the location  so others
-> >> can see if they have the same download issue?
-> >> no idea about speakup, but I use links the chain for downloading often.
-> >>
-> >>
-> >>
-> >> On Sun, 4 Oct 2020, Linux for blind general discussion wrote:
-> >>
-> >>> I tried downloading a file from a website using links and couldn't
-> >>> download the file.
-> >>> Using speakup I was able to cursor onto the desired file or that's what
-> >>> speakup told me.
-> >>> However when I tried to download that file I got offered an image file
-> >>> from another cursor location on the screen I did not want.
-> >>> I think this is more of a links problem than a speakup problem and am
-> >>> wondering if it's possible to configure links in some way to clear this
-> >>> problem.
-> >>> I don't know what the braille setting would have bought me since I have no
-> >>> braille display.
-> >>> As things stand, I had more success with wget and a bash script I wrote.
-> >>> For that reason I'm going to share this one with the list.
-> >>> The script could probably be improved by adding a site variable to the
-> >>> download variable for wget to process but I haven't done that yet.
-> >>>
-> >>> #!/usr/bin/env bash
-> >>> #file: s3.sh - gentoo stage3 download script
-> >>> download="stage3-amd64-20201001T120249Z.tar.xz"
-> >>> wget -bc
-> >>> https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/current-stage3-amd64/$download
-> >>>
-> >>>
-> >>> --
-> >>>
-> >>> _______________________________________________
-> >>> Blinux-list mailing list
-> >>> Blinux-list@redhat.com
-> >>> https://www.redhat.com/mailman/listinfo/blinux-list
-> >>>
-> >>>
-> >>
-> >> _______________________________________________
-> >> Blinux-list mailing list
-> >> Blinux-list@redhat.com
-> >> https://www.redhat.com/mailman/listinfo/blinux-list
-> >>
-> >>
-> >>
-> >
-> > --
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://www.redhat.com/mailman/listinfo/blinux-list
-> >
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
->
-
--- 
-XR
+My advice would be never to trust a third-party VPN provider that wants 
+your financial information. It's better to get a cheap VPS and run your 
+own VPN on that. This way you are in full control of your VPN, and only 
+you can see your logs, if you keep them at all. I've heard that 
+Wireguard is one of the best VPN packages available for self-hosting, 
+but I haven't tried it. OpenVPN isn't bad either. If this seems like too 
+much hassle, then it would still be better to find someone who can set 
+it up for you and then just change your passwords or something so that 
+no one can gain access to your server or your VPN. Call me paranoid, but 
+I just can't trust any company that says they want to keep me save 
+online, but they hold my banking info on their servers and I can't see 
+the logs they keep.
 
 _______________________________________________
 Blinux-list mailing list
