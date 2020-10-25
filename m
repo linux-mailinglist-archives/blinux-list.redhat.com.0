@@ -2,90 +2,81 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id E5BD929814E
-	for <lists+blinux-list@lfdr.de>; Sun, 25 Oct 2020 11:28:40 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id B2849298154
+	for <lists+blinux-list@lfdr.de>; Sun, 25 Oct 2020 11:41:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1603621719;
+	s=mimecast20190719; t=1603622510;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=VzNVlALsV8iqf2T59OkLS8kxjTr0DWUfpFZ1hNdZYPY=;
-	b=ht3+K1Dk8LBzEv3gy8gETWeYopKE9xvqJN21/dNVBwBpt2sPK8oGDKdj33suftLDRy0bGw
-	WLJ/kA0/CjrPJip6r1cunoxHzeN9bhEAgq8NkKF93h3IqSXR22LLyv4wYMIXbbNKC8K49f
-	jChZMc8XdaDIn5ki1PS869nB09QRI60=
+	bh=exMvoNLHtsiGydAipfNxD3DjD7EhbtFC7Ng7LkZfzBw=;
+	b=h1sZuICdPHn5QVfxrVCNv5nBSLhLPlPO72N5gYN4+pIB4UBy8zlfbSc62CaxSKHUlg6aCM
+	PbwFsizIAfMvi898zGBQXsv7KMEQT6eAxXQKvbfufd6mJYPEF2fwDaj0vnTsT4MXsqzBEb
+	6CZdoq7L15DK6LVuzHfr7YGKomPfZqA=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-94-3hoDE9hsMsW8vU9xO9HstQ-1; Sun, 25 Oct 2020 06:28:37 -0400
-X-MC-Unique: 3hoDE9hsMsW8vU9xO9HstQ-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-310-vqE-TZNVMae_dOQaNgA07Q-1; Sun, 25 Oct 2020 06:41:48 -0400
+X-MC-Unique: vqE-TZNVMae_dOQaNgA07Q-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1221B1006CB2;
-	Sun, 25 Oct 2020 10:28:34 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 3F8A62FD11;
+	Sun, 25 Oct 2020 10:41:44 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8B6055C1DC;
-	Sun, 25 Oct 2020 10:28:31 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C3E9555796;
+	Sun, 25 Oct 2020 10:41:43 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 819B744A43;
-	Sun, 25 Oct 2020 10:28:26 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3D78058128;
+	Sun, 25 Oct 2020 10:41:42 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 09PASHr1030489 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 25 Oct 2020 06:28:17 -0400
+	id 09PAZZaK030946 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 25 Oct 2020 06:35:35 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 24D32217B40F; Sun, 25 Oct 2020 10:28:17 +0000 (UTC)
+	id 59DC3217B40F; Sun, 25 Oct 2020 10:35:35 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1F86D217B40D
-	for <blinux-list@redhat.com>; Sun, 25 Oct 2020 10:28:14 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 55048217B40D
+	for <blinux-list@redhat.com>; Sun, 25 Oct 2020 10:35:33 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B6C3D8007D9
-	for <blinux-list@redhat.com>; Sun, 25 Oct 2020 10:28:14 +0000 (UTC)
-Received: from wout2-smtp.messagingengine.com
-	(wout2-smtp.messagingengine.com [64.147.123.25]) (Using TLS) by
-	relay.mimecast.com with ESMTP id us-mta-314-aYuFP-TMNa-Vaee6X98w5w-1;
-	Sun, 25 Oct 2020 06:28:11 -0400
-X-MC-Unique: aYuFP-TMNa-Vaee6X98w5w-1
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.42])
-	by mailout.west.internal (Postfix) with ESMTP id D403B6DD
-	for <blinux-list@redhat.com>; Sun, 25 Oct 2020 06:28:09 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
-	by compute2.internal (MEProxy); Sun, 25 Oct 2020 06:28:09 -0400
-X-ME-Sender: <xms:OVOVXzzfm6TzcU-1sue3mbUZiOck09v0XwupEKpAbHdi_U4f5pDjSg>
-	<xme:OVOVX7QQNDysb38-5XiSA1upg_Ne1ME5RWqCe45QgN4opJ4NbxoNc-vvg6zSv8wo6
-	gHxz7u4CKDLNgfANQY>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedujedrkeeggddujecutefuodetggdotefrodftvf
-	curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-	uegrihhlohhuthemuceftddtnecunecujfgurhepfffhvffujgfkfhggtgesthdtredttd
-	dtvdenucfhrhhomhepvehhihhmvgcujfgrrhhtuceotghhihhmvgeshhhusggvrhhtqdhh
-	uhhmphhhrhgvhidrtghomheqnecuggftrfgrthhtvghrnhepffehtdfhvddvueeuieehvd
-	efffeutdegueduhffgleetledvuddugfelkeevtdevnecukfhppedutdegrddujedvrdef
-	rdeifeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-	gthhhimhgvsehhuhgsvghrthdqhhhumhhphhhrvgihrdgtohhm
-X-ME-Proxy: <xmx:OVOVX9Usfd6NYRjGvk_cIgoxIGy2cK0GmpyvgrzblPvgQAeSORGd9g>
-	<xmx:OVOVX9jg0oBpHXNVvYkT-_JfynyWflthq6l9JO-vszyNc4sXhjRYnw>
-	<xmx:OVOVX1CQLyNXi6X3rEcMXobBIcPZfflj-aMprnMe1lrjjeRgR1yXgw>
-	<xmx:OVOVX4N1uhsJhS97JxD8RiMZDiaXhIxd6WWJHSAMbLJZeTUZWNhdMA>
-Received: from chime.lan (cpe-104-172-3-63.socal.res.rr.com [104.172.3.63])
-	by mail.messagingengine.com (Postfix) with ESMTPA id E43203064610
-	for <blinux-list@redhat.com>; Sun, 25 Oct 2020 06:28:08 -0400 (EDT)
-Date: Sun, 25 Oct 2020 03:28:07 -0700 (PDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1F99E185A790
+	for <blinux-list@redhat.com>; Sun, 25 Oct 2020 10:35:33 +0000 (UTC)
+Received: from mail.opopanax.net (mail.opopanax.net [208.113.134.41]) (Using
+	TLS) by relay.mimecast.com with ESMTP id
+	us-mta-197-lwQuQXe1MQudmbsMueDShg-1; Sun, 25 Oct 2020 06:35:30 -0400
+X-MC-Unique: lwQuQXe1MQudmbsMueDShg-1
+Received: from mail.opopanax.net (localhost [127.0.0.1])
+	by mail.opopanax.net (Postfix) with ESMTP id 4CJvW61s88z21n1
+	for <blinux-list@redhat.com>; Sun, 25 Oct 2020 10:35:30 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.opopanax.net
+Received: from mail.opopanax.net ([127.0.0.1])
+	by mail.opopanax.net (mail.opopanax.net [127.0.0.1]) (amavisd-new,
+	port 10026) with ESMTP id EUukaVg2Y4YQ for <blinux-list@redhat.com>;
+	Sun, 25 Oct 2020 10:34:25 +0000 (UTC)
+Received: from [192.168.1.130] (24-220-234-87-dynamic.midco.net
+	[24.220.234.87])
+	by mail.opopanax.net (Postfix) with ESMTPSA id 4CJvTr5yF6z21gH
+	for <blinux-list@redhat.com>; Sun, 25 Oct 2020 10:34:24 +0000 (UTC)
+Message-ID: <20201025.103442.696.9@[192.168.1.130]>
+To: blinux-list@redhat.com
 Subject: Re: How do I install Voxin on an Ubuntu based Distro?
-In-Reply-To: <160360335129.6.5638435422909367922.1438135@slmail.me>
-Message-ID: <d5c3a72f-6dd0-5c83-c2-60a13f3d4ec5@hubert-humphrey.com>
+Date: Sun, 25 Oct 2020 05:34:42 -0500
+MIME-Version: 1.0
+In-Reply-To: <d5c3a72f-6dd0-5c83-c2-60a13f3d4ec5@hubert-humphrey.com>
 References: <160352425235.6.1944557228384903424.1427650@slmail.me>
 	<20201024.073231.148.6@[192.168.1.130]>
 	<160355389674.6.9713551340879186352.1432620@simplelogin.co>
 	<160360335129.6.5638435422909367922.1438135@slmail.me>
-MIME-Version: 1.0
+	<d5c3a72f-6dd0-5c83-c2-60a13f3d4ec5@hubert-humphrey.com>
+User-Agent: POP Peeper Pro (5.0.0.0)
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -95,6 +86,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 09PAZZaK030946
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -111,18 +104,37 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Well SL, I don't think "American English" is part of the file name, so 
-once you type that command without that, as they say "you should be good 
-to go"
-Chime
+Try something like
+tar xf vox
+and then hit tab key on vox
+
+
+----- Original Message -----
+From: Linux for blind general discussion <blinux-list@redhat.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Date: Sun, 25 Oct 2020 03:28:07 -0700 (PDT)
+Subject: Re: How do I install Voxin on an Ubuntu based Distro?
+
+> Well SL, I don't think "American English" is part of the file name, so 
+> once you type that command without that, as they say "you should be good 
+> to go"
+> Chime
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+> 
+> 
+
 
 _______________________________________________
 Blinux-list mailing list
