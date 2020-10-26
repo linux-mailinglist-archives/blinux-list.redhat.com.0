@@ -2,75 +2,68 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 13A92298A94
-	for <lists+blinux-list@lfdr.de>; Mon, 26 Oct 2020 11:42:45 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id E303E298B31
+	for <lists+blinux-list@lfdr.de>; Mon, 26 Oct 2020 12:01:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1603708965;
+	s=mimecast20190719; t=1603710068;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=6ae/mF6xXmf3t4XKIIq+t/Xwr6yUqQQFY+ya9eKbQEw=;
-	b=EHclzPohJDUykMsvOdBgep+i5grgZ7aUyMtRWEfTRL/DE+Lag7SNdfjnYxjouV0uj0bQMr
-	kMo3ZOXLtdcgebcxCrOrF81WeVxPogZDc3OaQiOs/Wx50Oo4JJsdLrrQFXRLkKFu+uZU5K
-	CdzSu5/CwnuT/1BWqkmqg06SJ4P1Tuk=
+	bh=LDegk3rShnLfxK4mUgq4oAYsVCBz6ld6MkAYL7w1BuE=;
+	b=hBGOteBZw6MqNRIEKDX4/sVkF3pYYkNZKOJKwlVAXJJopMnYrXM+bkH1+kfVkeFhz8BFx2
+	xM+SQwxPn5SKlYos4pYuKF0sTSzvsdpMoPR765mvtqrkIwFq4PakUYGtI/fWErqd01zMp0
+	HEEhAbiEK9pbrR3ArVWVddhNQMNgTVs=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-53-VKecDR6QNuS5iyQ-AFyrzg-1; Mon, 26 Oct 2020 06:42:42 -0400
-X-MC-Unique: VKecDR6QNuS5iyQ-AFyrzg-1
+ us-mta-517-RWw6rF1CMp65IaBL4bw4YQ-1; Mon, 26 Oct 2020 07:01:06 -0400
+X-MC-Unique: RWw6rF1CMp65IaBL4bw4YQ-1
 Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8EA9E427FB;
-	Mon, 26 Oct 2020 10:42:38 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 4DED01009E27;
+	Mon, 26 Oct 2020 11:01:01 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CDA9060BF3;
-	Mon, 26 Oct 2020 10:42:37 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B2E1060C13;
+	Mon, 26 Oct 2020 11:01:00 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D081492F27;
-	Mon, 26 Oct 2020 10:42:36 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1B4F792F26;
+	Mon, 26 Oct 2020 11:01:00 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 09QAgMVS009675 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 26 Oct 2020 06:42:22 -0400
+	id 09QAtbqX011884 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 26 Oct 2020 06:55:37 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 14931110FBEE; Mon, 26 Oct 2020 10:42:22 +0000 (UTC)
+	id 96F842166B27; Mon, 26 Oct 2020 10:55:37 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1063B110FBE0
-	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 10:42:18 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9200D2166B28
+	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 10:55:35 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7FB9C1021F60
-	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 10:42:18 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2B9D7185A78B
+	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 10:55:35 +0000 (UTC)
 Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-135-MwHjTfcHOUiwOBuDqK-HdA-1; Mon, 26 Oct 2020 06:42:16 -0400
-X-MC-Unique: MwHjTfcHOUiwOBuDqK-HdA-1
+	us-mta-59-JiI__faqP7q0eSHGXOZh5w-1; Mon, 26 Oct 2020 06:55:32 -0400
+X-MC-Unique: JiI__faqP7q0eSHGXOZh5w-1
 Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4CKWcR4t2Nz10ZJ
-	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 06:42:15 -0400 (EDT)
+	by mailbackend.panix.com (Postfix) with ESMTP id 4CKWvm3YHjz10yD
+	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 06:55:32 -0400 (EDT)
 Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4CKWcR405Rzcbc; Mon, 26 Oct 2020 06:42:15 -0400 (EDT)
+	id 4CKWvm2g2szcbc; Mon, 26 Oct 2020 06:55:32 -0400 (EDT)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4CKWcR3d5mzcbV
-	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 06:42:15 -0400 (EDT)
-Date: Mon, 26 Oct 2020 06:42:15 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: building kernel for ac97 sound card
-In-Reply-To: <alpine.NEB.2.23.451.2010260625330.593@panix1.panix.com>
-Message-ID: <alpine.NEB.2.23.451.2010260635110.593@panix1.panix.com>
-References: <alpine.NEB.2.23.451.2010230909460.7641@panix1.panix.com>
-	<alpine.DEB.2.21.1.2010231616570.26808@willempc.meraka.csir.co.za>
-	<20201024180518.GB2013@rednote.net>
-	<alpine.NEB.2.23.451.2010241438040.3794@panix1.panix.com>
-	<20201026084445.GC2013@rednote.net>
-	<alpine.NEB.2.23.451.2010260625330.593@panix1.panix.com>
+	by panix1.panix.com (Postfix) with ESMTP id 4CKWvm2JLRzcbV
+	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 06:55:32 -0400 (EDT)
+Date: Mon, 26 Oct 2020 06:55:32 -0400
+To: blinux-list@redhat.com
+Subject: new website old unicorn back again
+Message-ID: <alpine.NEB.2.23.451.2010260654350.593@panix1.panix.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -80,7 +73,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -105,19 +98,11 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-I found /usr/src/linux/.config which if I have this right is where make
-menuconfig stores your choices as they're made.  So erasing that file gets
-you a clean start when necessary.  Reading through lsmod output I find
-several sound card elements on lines in that output.  What I'm going to
-try next time is to enable each element starting at the end of each of
-those lines and going to the beginning of those lines.  Sound card
-elements are either in first position in lines or later positions and the
-later positioned elements use the earlier positioned elements.  This is a
-strictly proper order problem open the doors in the proper order and you
-get to the treasure room.
+https://orgmode.org/
+New content too.
 
 
---
+-- 
 
 _______________________________________________
 Blinux-list mailing list
