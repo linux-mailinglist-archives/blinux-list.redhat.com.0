@@ -2,80 +2,107 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 2EBE529919D
-	for <lists+blinux-list@lfdr.de>; Mon, 26 Oct 2020 16:59:58 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id E1ADB299C51
+	for <lists+blinux-list@lfdr.de>; Tue, 27 Oct 2020 00:57:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1603727997;
+	s=mimecast20190719; t=1603756619;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
-	 list-unsubscribe:list-subscribe:list-post;
-	bh=TzXecnPgRcfW2vR/92QV9shHv+GNSYxfmS2ZQzAFVnw=;
-	b=ekAeQudRGQPfbGRS4ypZqkfExoj6sD98DviIOluD10p09HEXMXc4NqwXPO03ycNoa4/8nc
-	RsNxgwtzs5PiOQEBeluOw6U/C8NkiQH13JBjJobzvHm9KZdAH+2eZ0hmONM4cjcIBeI+lj
-	UXTwNLG7BBsGU4V3eRG25I8GQbHS/so=
+	 references:references:list-id:list-help:list-unsubscribe:
+	 list-subscribe:list-post; bh=d+z+tPV32mnaPKB3WAveuheJDFKanfhobWgYLTyPI4M=;
+	b=D1Ka8mzdRIUvZxEymLWQI199pJH5SCENmnE73rXFldViA1Mtf+/zsqhiLUqXMdLSlxxxzx
+	47pjRD2f4WhVh+kMpMgFiT30czs3lDrT0sai2iz7s6d6UDiepEBdQJWP2c0plxg4V2JOHI
+	6l5YxRzNbqjgPBOHAMZvw29oSAZo62U=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-210-c_v7HizFM36RaeKwH4_hHA-1; Mon, 26 Oct 2020 11:59:54 -0400
-X-MC-Unique: c_v7HizFM36RaeKwH4_hHA-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-170-ijudJoZLPSKTjaZqznWG_A-1; Mon, 26 Oct 2020 19:56:57 -0400
+X-MC-Unique: ijudJoZLPSKTjaZqznWG_A-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 73C8D1882FB3;
-	Mon, 26 Oct 2020 15:59:50 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 39EC85D9E4;
-	Mon, 26 Oct 2020 15:59:49 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8519F1800D41;
+	Mon, 26 Oct 2020 23:56:53 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A90C15B4B1;
+	Mon, 26 Oct 2020 23:56:52 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8A903181A86E;
-	Mon, 26 Oct 2020 15:59:46 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 53C9292F2E;
+	Mon, 26 Oct 2020 23:56:49 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 09QFudp8021282 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 26 Oct 2020 11:56:39 -0400
+	id 09QNLuKw015737 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 26 Oct 2020 19:21:56 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 6F753110DBD9; Mon, 26 Oct 2020 15:56:39 +0000 (UTC)
+	id 573BC110F755; Mon, 26 Oct 2020 23:21:56 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 69205110DBE1
-	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 15:56:35 +0000 (UTC)
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 52CF8110F753
+	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 23:21:54 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 40D42102F1E8
-	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 15:56:35 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-104-ZiHZ77zCP_aUtNhTGlaXeg-1; Mon, 26 Oct 2020 11:56:31 -0400
-X-MC-Unique: ZiHZ77zCP_aUtNhTGlaXeg-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4CKfb339hkz1g7W
-	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 11:56:31 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4CKfb32s40zcbc; Mon, 26 Oct 2020 11:56:31 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4CKfb32mxczcbV
-	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 11:56:31 -0400 (EDT)
-Date: Mon, 26 Oct 2020 11:56:31 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: building kernel for ac97 sound card
-In-Reply-To: <alpine.DEB.2.21.1.2010261532350.5700@willempc.meraka.csir.co.za>
-Message-ID: <alpine.NEB.2.23.451.2010261155080.12598@panix1.panix.com>
-References: <alpine.NEB.2.23.451.2010230909460.7641@panix1.panix.com>
-	<alpine.DEB.2.21.1.2010231616570.26808@willempc.meraka.csir.co.za>
-	<20201024180518.GB2013@rednote.net>
-	<alpine.NEB.2.23.451.2010241438040.3794@panix1.panix.com>
-	<20201026084445.GC2013@rednote.net>
-	<alpine.NEB.2.23.451.2010260625330.593@panix1.panix.com>
-	<alpine.NEB.2.23.451.2010260635110.593@panix1.panix.com>
-	<alpine.DEB.2.21.1.2010261426360.5078@willempc.meraka.csir.co.za>
-	<alpine.NEB.2.23.451.2010260847430.15848@panix1.panix.com>
-	<alpine.DEB.2.21.1.2010261532350.5700@willempc.meraka.csir.co.za>
-MIME-Version: 1.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E385E8007DF
+	for <blinux-list@redhat.com>; Mon, 26 Oct 2020 23:21:53 +0000 (UTC)
+Received: from sonic303-3.consmr.mail.bf2.yahoo.com
+	(sonic303-3.consmr.mail.bf2.yahoo.com [74.6.131.42]) (Using TLS) by
+	relay.mimecast.com with ESMTP id us-mta-320-Q636Omd9MfuYOZMojUJeYA-1;
+	Mon, 26 Oct 2020 19:21:51 -0400
+X-MC-Unique: Q636Omd9MfuYOZMojUJeYA-1
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048;
+	t=1603754510; bh=GHASb0EdsnyfDaF7cQsDsiwxO6rS9TUqR+1qYjUOWmx=;
+	h=From:Date:Subject:To;
+	b=PEFz+e2LwzM4nRMmIZHOThXPJMAofikGkt5k9B5xBKoO3m0+11gwWCvq0tslnRUM3cwRxCBKuNHlnjRcq1eCDncX3PK33JbkYkJzcoLonlrISpOcMDuIyVT7QUmgOlgqv8beCx0K+3ZnVJjV/jW5Dh4VryCG7Td/xPNZ/th9glzkL7uHESxFYxLbQPSaWrgK+fTKVtclLmE/kE0ACfZ+v/0GPzYN/eOWnN632fdW5AGm/NHob4I+8KDGm7wg+mhEREKnBVa+JLPRAvB3YmsscLhcWLO0VgolMap0wByR2esOTiv0QYXPyxPYg+SBFSpMns8OO/UeY3CxeO9wuUkyyQ==
+X-YMail-OSG: 708Y0hQVM1lLqGTgC8fsO84LGpwD5YIgbXYQ4vmRHAWxwVlQ_ug2Rwe1rNdAZSE
+	eklu4oV1z2363eZ6wYp_F._rnks6gzv523iieYPZlFZ8OpCbAn8n_rMNRpTPimjwkqXcJRX39nDj
+	pIdaqNpN.kEi1Gs_M.v7K1yEj9T2vijb8m52KO7UYbGyBLNbNOb1UHxvLdYbqiIC7c7QeDg8YoXZ
+	O0l6GVmPAv2m9NPFIMzKi8BXFV60xscIUae_9Z.qGRitALEsMNys8KcAgZnnI7s2HgTNZOWO9kAv
+	RLHbKPmXeQRb4TQ4woxyQiROZxAKvsIeEdLqQ6XRWGKdRJYBKUyZnkSpA8pmJFH5kKTUWfjeJZfn
+	vz_QBwbbj3AtTI3sgyseGfz4u10FejpgutKgA63iqJEFvHs2xeo6V4qvBrzpaKMXQ4mLMLIzio3c
+	QtAPls9DObESavVH2X3DReiV80l4K5penrlLMAc66HDUrCewy2XNPQDRY88haChyx.XYW4GSnoIz
+	0VnAqurxzp7wGrqjgQGmDkfkOjBr2fubQDJz0PhAvx._QR3iKVdQsmVa1HA_peUSdh_n6qrBvAm0
+	sbxKQlnTCdytul8_QFuFyT0tseh8wA7s9Q.17u8OMh6dU_260TWxoK_nJ0Z_a7MCm8qYY4gzyJy1
+	6.IGCHccpdAj_F4QpM77GxGft8LUoK.3sczfkn0vZJD_TQ7_r7BlbpD7vkWa6dq2m3RDeJSgw6o9
+	VcmLFzazOfqfCEqgb6hWVV0fQJjiGpgKKLcToWT.dwm1_TfHZOJHtfJdW8qC.5CQtvMWBJImJ7fw
+	UfXwWvMCA8EG_aPghgkpu5_G3q0wXreIXyU8ORv6pHBroj3L6woe0wO2VK_2NVv9jbv6WAnWcN4g
+	DCEYvrgQR0D0jdnq0gk0Pu.Nr2C_oeePXboGA_6E9VqVH9UPonJdgZ4Mjc_Gh1On9I7pnWsMn.XE
+	iKYotzyuqiGX_Hcl3IikTC6IfliD.GUSfkk1VQeEG6364AYLYPIHGQNJHTMQmJox5tO0z_S9u4Z8
+	fwx.48vZ78TpPsWc3i_kQh.b0aK86gtTtA_wQmohEgifrQ5RB0S_LzN1ceW2vfQcZJTlWIPalkfi
+	EnVYH6eab90Akscabuodo2Jzce4DkyDrsrbrMG8mySj0vz01qV8UP2IPwLyUnn.x.6cyNm2DRSQk
+	1mNZXtzycLrYhFPNdmbL1CnEru_V7EF09YG9faur4MVQnFXY85d1LgFiV5KJ.MV6AC55hr2_vWUH
+	Xsqx6uChX1R1EhfK1OkzbIvkmeJqbpzbMtX51WUEa8zDFpgTwRrBfN7ArFu1s2T_w73AUvNacTJz
+	kN9.mKCImbWolH_Mq4.Ca2PZAkWlQqVNqrHl4q9xKv5qThvmgBw8yMPZsl9a4056uYwL5gm5wBtZ
+	vVNDcQA6EYu3fcH_7LA_1kpN7pwfWPtbKmXXUApqmo0IldkdaOB8sjeZJ6.paoVN6ecWzjsNCNVS
+	QJUkCrL5WSBW2LgV70A3GeIMAITzhT71hiX2cez3iF4Qp5iCHhwixYkOspco4Ipht8qasFwdEKei
+	UjaAkMcoPwuuEmR3AlURw9XtFUZPrFPtFEw9onxDQJ4H66XEtAgFvrWvaGhu8MqH9cktb3_PbztC
+	OYEr6tj7Vppnxz.UjrQjVs.uo7ODN82y4Pt_fd94RcgOujlVAAhxDxvg1z3ytD2aQNuGh2ilvGSt
+	NEDc6VnQZl1v_2uIMvpKgjw3H7bC6k6hy2PKsq5L5o7qELncDxD8k9l_2HdGE85Uli9fZZGD3h6B
+	Xaerl91jQtPHldtWI2dDy2fLb483IM5GACu3ga7IbK2ymK3a031oKNyNee.dzzP7htfMrG.xFG7t
+	3UO_xYsBuCf5Yr6bm.NdfySwQ6K_1FfoZOIQkQha1pchpm03PNu2nYo_ZhSb7uXicEwxZv6NOhx9
+	8b21Uvyyk6fddb_iWKRpxtQ_D7Md1DIarWfDRuVnPFeJVLaXuLy4lKFvBdEMOV92u4yaPsFLq_mD
+	nwJtBIenEIFvoDfRTn9k7hZNQ3l9ghFINpQgm0JjkzYoNyxyZsB30u8Y9xGWdmm.rpUg11KZLwm8
+	EBo6_IMvtMsXGFQT0eDYkXxMbQJ5V.W0itKSRoakAbtwzckXVXiQLzkNsW6xVX0p938JY05N.riP
+	87NGwUw9_cCpUVe3WC47QaqF9ZuF0_yO7g0uC7KH5rD4zHEE3V.oORfpGdDdNP6GlKXE9a43x7hc
+	BugRA6Dr3g31kV7HNJoqttIPkZ5.IZ70bMK27Wqb8HdZF7LIZWg.hTPToXc2fqf2LJybQkoojiBB
+	HHZDCiWKknsOcNjegcfAN67.mfkueXbKGByiEV_7Qf0wjDfVaokdiZIarR.MGQyZ4c7Sm8gdpj08
+	0Ny..E6qDS5UiFRit7.hbe3eKnf1pbcgTbOhdvSB4kI.G2I0LJXOR3QtmxMqlUicb.fgemnJd5lg
+	4DqGNUUOM6oZK.xnMzv6zxskrZ.zFUpvuqibVoTp2Zs6Xapoo6wr8nJHBOH2N3iLxImsuPppm8ap
+	zXo_5QOtj2_pehCI-
+Received: from sonic.gate.mail.ne1.yahoo.com by
+	sonic303.consmr.mail.bf2.yahoo.com with HTTP;
+	Mon, 26 Oct 2020 23:21:50 +0000
+Received: by smtp413.mail.gq1.yahoo.com (VZM Hermes SMTP Server) with ESMTPA
+	ID 828d82d71319acd61ee4d059e55abe03; 
+	Mon, 26 Oct 2020 23:21:45 +0000 (UTC)
+Mime-Version: 1.0 (1.0)
+Date: Mon, 26 Oct 2020 18:21:44 -0500
+Subject: Working in a WS with jaws
+Message-Id: <07C9A138-5900-4138-9663-B659A1DC7D74@yahoo.com>
+To: Linux <blinux-list@redhat.com>
+References: <07C9A138-5900-4138-9663-B659A1DC7D74.ref@yahoo.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -85,6 +112,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 09QNLuKw015737
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -101,7 +130,7 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -109,90 +138,12 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-No need to set up an ssh connection if same machine is used with a
-talking distro working.  I need to write what I find in braille and do a
-unique sort on all of it to have any chance of finding what to enable.
+Hello, I am working with an EC2 instance in a WS and in the terminal jaws will not read the entire. Terminal. Terminal on my braille display. Terminal on my braille display and I was wondering if there is any possible way. Terminal on my braille display and I was wondering if there is any possible way to do this. Terminal on my braille display and I was wondering if there is any possible way to do this?. Terminal on my braille display and I was wondering if there is any possible way to do this?
+Any help would be greatly appreciated.
+Thanks,
 
-On Mon, 26 Oct 2020, Linux for blind general discussion wrote:
+Ashley Breger
 
-> Date: Mon, 26 Oct 2020 09:33:39
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: Linux for blind general discussion <blinux-list@redhat.com>
-> Subject: Re: building kernel for ac97 sound card
->
-> Can't you ssh into your Gentoo box and do a lsmod there?
->
-> On Mon, 26 Oct 2020, Linux for blind general discussion wrote:
->
-> > It does if you understand I am using another version of Linux on this
-> > machine that does speak and the only way I'm ever going to find out what
-> > lsmod did or didn't load on gentoo is to actually get gentoo talking and
-> > the sound card working first. On Mon, 26 Oct 2020, Linux for blind general
-> > discussion wrote:
-> >
-> >> Date: Mon, 26 Oct 2020 08:28:48
-> >> From: Linux for blind general discussion <blinux-list@redhat.com>
-> >> To: Linux for blind general discussion <blinux-list@redhat.com>
-> >> Subject: Re: building kernel for ac97 sound card
-> >>
-> >> If you see an entry for your sound card in the output of lsmod, it means
-> >> that
-> >> your kernel successfully loaded the module for your sound card.
-> >> So what you suggest to do does not make sens at all.
-> >> Regards, Willem
-> >>
-> >>
-> >> On Mon, 26 Oct 2020, Linux for blind general discussion wrote:
-> >>
-> >>> I found /usr/src/linux/.config which if I have this right is where make
-> >>> menuconfig stores your choices as they're made.  So erasing that file gets
-> >>> you a clean start when necessary.  Reading through lsmod output I find
-> >>> several sound card elements on lines in that output.  What I'm going to
-> >>> try next time is to enable each element starting at the end of each of
-> >>> those lines and going to the beginning of those lines.  Sound card
-> >>> elements are either in first position in lines or later positions and the
-> >>> later positioned elements use the earlier positioned elements.  This is a
-> >>> strictly proper order problem open the doors in the proper order and you
-> >>> get to the treasure room.
-> >>>
-> >>>
-> >>> --
-> >>>
-> >>> _______________________________________________
-> >>> Blinux-list mailing list
-> >>> Blinux-list@redhat.com
-> >>> https://www.redhat.com/mailman/listinfo/blinux-list
-> >>>
-> >>>
-> >>
-> >> _______________________________________________
-> >> Blinux-list mailing list
-> >> Blinux-list@redhat.com
-> >> https://www.redhat.com/mailman/listinfo/blinux-list
-> >>
-> >>
-> >>
-> >
-> > --
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://www.redhat.com/mailman/listinfo/blinux-list
-> >
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
->
->
-
--- 
-United States has 633 Billionaires with only 10 doing any annual
-significant giving.
 
 _______________________________________________
 Blinux-list mailing list
