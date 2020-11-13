@@ -1,84 +1,72 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id BDCA22B1E88
-	for <lists+blinux-list@lfdr.de>; Fri, 13 Nov 2020 16:24:54 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 741302B1EE8
+	for <lists+blinux-list@lfdr.de>; Fri, 13 Nov 2020 16:37:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1605281093;
+	s=mimecast20190719; t=1605281827;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=vS2dhAi7cAjX+KIRhSf/Hpi4r92hB0BMvzIScEGwzGs=;
-	b=KeTC+SqsYCA9G13uVNvRkwgb6XMLHznmD9SGdOcqm+O0ktlDvoyM3xRDef5kxsdyJGCdfb
-	NwegABjkEz6S1ZAogzOeNf9Zt8QNYV6Y3CkIiP3g/qqCIE9qbLIuTJUdGyJ+RyR8OzmJ4j
-	i/2C7Fz8FaiNEEvKUoy8W6Ae/cOizY8=
+	bh=qDitoBTZb+yBNN0KcVWes2VmyqkMh74QvgWWXlvl7+U=;
+	b=GB0rhaIHnyBq+3Yz4+8XjwGEgGcpfokq7N+C7FNeIJ99J/JdR7RX5jfVd44vwAqdQo9RHu
+	4VPAyOOFpmsui0CGi7+k6aZDaYJOp2osTZOFJ7vZCVGx9fYJcGbjZZYYdexNKYUoT81bEm
+	LuTGz1aqsXOmzQx0CUPie1AAO78jxVs=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-136-XRKSU5dGMLmsO0nrTjwlRQ-1; Fri, 13 Nov 2020 10:24:51 -0500
-X-MC-Unique: XRKSU5dGMLmsO0nrTjwlRQ-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-513-zYTNW84zNmmGeairFxNmsQ-1; Fri, 13 Nov 2020 10:37:04 -0500
+X-MC-Unique: zYTNW84zNmmGeairFxNmsQ-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5929F42394;
-	Fri, 13 Nov 2020 15:24:46 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5E20657083;
+	Fri, 13 Nov 2020 15:37:00 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0749055785;
-	Fri, 13 Nov 2020 15:24:46 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 834B96EF5D;
+	Fri, 13 Nov 2020 15:36:59 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3995F58103;
-	Fri, 13 Nov 2020 15:24:43 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3EC9B58104;
+	Fri, 13 Nov 2020 15:36:58 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 0ADFOd0v020830 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 13 Nov 2020 10:24:39 -0500
+	id 0ADFarp8021639 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 13 Nov 2020 10:36:53 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id DF1D1205EB1B; Fri, 13 Nov 2020 15:24:38 +0000 (UTC)
+	id E6468100BFF1; Fri, 13 Nov 2020 15:36:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D915A2023438
-	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 15:24:36 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E2836100BFEF
+	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 15:36:50 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 86BE990E433
-	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 15:24:36 +0000 (UTC)
-Received: from mail-il1-f182.google.com (mail-il1-f182.google.com
-	[209.85.166.182]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-256-Z9FDuH4yOKaz0nEgMQXu-Q-1; Fri, 13 Nov 2020 10:24:33 -0500
-X-MC-Unique: Z9FDuH4yOKaz0nEgMQXu-Q-1
-Received: by mail-il1-f182.google.com with SMTP id p10so8810808ile.3
-	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 07:24:33 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to:cc;
-	bh=YlcATwLPIzW6NnCOkr6siBnPANnzapm0LuBlf6Yolow=;
-	b=f5FkJACUr1zzrd8/T+XWsGvomYg8RSKuHpq16Oo4px56BTxiz3L8xcdQaoLyWPh6J9
-	khPpPGVc9NwG9/ocsyac58gehvdD+WlhDOe86PesryYqd9p9WtXhpSkn7qUy3flzDNg7
-	9ABeY2oNLXYgSj5n/Uia7IPrMtF9Mza+Q/BDjkNY24K9FMfxlT4X4y+ut75DiIAIZesC
-	UUkXG2h10YIAssH+SRa8st2g31Wqea+vV2OdNulgMsdyfBX54my2T5MUvb2lpiX1zHek
-	dTY4JLy2SEBogSxd5KlAN7JvUVp/6Gx8FIb70vJP+tkfrijg1L/BHHCXotOrttSicrws
-	SoZg==
-X-Gm-Message-State: AOAM530HGLy9+DZzE0geEa49iPPuS60peDtGxRDbANPgY7Aq5eNX7HhR
-	zwGV5rlnlC/EtKjBkG42H0yuuh1BAqglWYErsdixoL0ScBQ=
-X-Google-Smtp-Source: ABdhPJwiFcbUC71yX6XvxGugPcn10nfTc6jr4HYi46qY8bh520/xkd+0kHomLFdkZhCwaEauEnhotwsRGlY8xau3ISU=
-X-Received: by 2002:a92:650c:: with SMTP id z12mr246724ilb.53.1605281068002;
-	Fri, 13 Nov 2020 07:24:28 -0800 (PST)
-MIME-Version: 1.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BB72D803522
+	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 15:36:50 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-545-PzhcY7b_PIyXEOKiacJyWQ-1; Fri, 13 Nov 2020 10:36:47 -0500
+X-MC-Unique: PzhcY7b_PIyXEOKiacJyWQ-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4CXjHz3ML0zTMk
+	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 10:36:47 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4CXjHz34ppzcbc; Fri, 13 Nov 2020 10:36:47 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4CXjHz2ywBzcbV
+	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 10:36:47 -0500 (EST)
+Date: Fri, 13 Nov 2020 10:36:47 -0500
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Possibly Off-Topic: Earphone recommendations.
+In-Reply-To: <CAO2sX31vKWFMQmjUJqv7jSKqL+hqGB0T45-R8xMT42WiPHx_UA@mail.gmail.com>
+Message-ID: <alpine.NEB.2.23.451.2011131034020.24898@panix1.panix.com>
 References: <CAO2sX31vKWFMQmjUJqv7jSKqL+hqGB0T45-R8xMT42WiPHx_UA@mail.gmail.com>
-	<79AC4C3D-02AF-4682-88C3-E45D6FE47757@gmail.com>
-In-Reply-To: <79AC4C3D-02AF-4682-88C3-E45D6FE47757@gmail.com>
-Date: Fri, 13 Nov 2020 09:24:14 -0600
-Message-ID: <CAGJxbF7eV9uwyuk-e27HwnLgW6Dc54viVanc5N9R86xB3sE-eQ@mail.gmail.com>
-Subject: Re: [raspberry-vi] Re: Possibly Off-Topic: Earphone recommendations.
-To: raspberry-vi@freelists.org
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -87,11 +75,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
-X-Content-Filtered-By: Mailman/MimeDel 2.1.12
-Cc: Linux for blind general discussion <blinux-list@redhat.com>,
-	Orca List <orca-list@gnome.org>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -107,106 +92,89 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SSB3YW50ZWQgYSBwYWlyIGZvciBteSBjb21wdXRlciwgYW5kIGJvdWdodCBhIHBhaXIgb2YgVHVy
-dGxlIEJlYWNoIGdhbWluZwpoZWFkcGhvbmVzLiBBbWF6aW5nIGJhc2UsIGJ1dCB5b3UgaGF2ZSB0
-byBjaGFyZ2UgdGhlbSwgZXZlbiB0aG91Z2ggdGhleSdyZQp3aXJlZC4gVGhleSBkbyBsYXN0IGZv
-ciBhIGdvb2QgMTUgaG91cnMgdGhvdWdoLiBUaGV5IGNvbm5lY3QgdGhyb3VnaCBhIDMuNQpNTSBo
-ZWFkcGhvbmUgamFjay4KRGV2aW4gUHJhdGVyCnIuZC50LnByYXRlckBnbWFpbC5jb20KCgpPbiBG
-cmksIE5vdiAxMywgMjAyMCBhdCA5OjIyIEFNIFNjb3R0IEdyYW5hZG9zIDxzY290dC5ncmFuYWRv
-c0BnbWFpbC5jb20+Cndyb3RlOgoKPiBTbyB0aGUgaXNzdWUgaXMgdGhlIGNvc3QuICBJIGp1c3Qg
-Ym91Z2h0IGEgZ3JlYXQgcGFpciBidXQgdGhleSB3ZXJlCj4gc2V2ZXJhbCBodW5kcmVkLgo+ICAg
-ICAgICAgSWYgeW91IHdvdWxkIHNwZW5kIG1vcmUgbW9uZXkgb3IgY29uc2lkZXIgaXQsIHRoZSBT
-b255IFcxMDAwLVhNNAo+IGFyZSBwcmV0dHkgZ3JlYXQgY2Fucy4gIEZhbnRhc3RpYyBub2lzZSBj
-YW5jZWxhdGlvbiwgZ3JlYXQgYmx1ZXRvb3RoCj4gc3VwcG9ydCwgdmVyeSB0dW5hYmxlIGZvciBp
-bmRpdmlkdWFsIGVhcnMsIDM1KyBob3VyIGJhdHRlcnkgbGlmZSwgZ3JlYXQKPiBhdWRpbyBjaGFy
-YWN0ZXJpc3RpY3MsIGFuZCBhbHNvIGFsbG93cyBmb3IgdXNlIG9mIGEgY2FibGUgaW5zdGVhZCBv
-Zgo+IGJsdWV0b290aC4KPiAgICAgICAgIFBsYW50cm9uaWNzIG1ha2VzIGEgcGFpciBjYWxsZWQg
-dGhlIDgyMjAgdGhhdCBoYXZlIHNpbWlsYXIKPiBmZWF0dXJlcyBhcmUgYXJlIGFsc28gd29uZGVy
-ZnVsLgo+Cj4gSSBkb27igJl0IGtub3cgd2hhdCB0byBzdWdnZXN0IGluIGxvd2VyIGNvc3Qgb3B0
-aW9ucyBidXQgdGhpcyBpcyB0aGUga2l0IEnigJltCj4gdXNpbmcgcmlnaHQgbm93Lgo+Cj4gVGhh
-bmtzCj4KPgo+ID4gT24gTm92IDEzLCAyMDIwLCBhdCAxMDoxMCBBTSwgTWV3dGFtZXIgPG1ld3Rh
-bWVyQGdtYWlsLmNvbT4gd3JvdGU6Cj4gPgo+ID4gU29ycnkgaWYgdGhpcyBxdWFsaWZpZXMgYXMg
-b2ZmLXRvcGljIGZvciBhbnkgb2YgdGhlIG1haWxpbmcgbGlzdHMgSSdtCj4gPiBzZW5kaW5nIGl0
-IHRvLCBidXQgSSBmaWd1cmUgSSdtIG5vdCB0aGUgb25seSBvbmUgb24gYW55IG9mIHRoZXNlIGxp
-c3RzCj4gPiB3aG8gd2VhcnMgZWFycGhvbmVzIGFsbW9zdCBldmVyeSB3YWtpbmcgbW9tZW50IGFu
-ZCBjb25zaWRlcnMgdGhlbSBvbmUKPiA+IG9mIHRoZSBtb3N0IGVzc2VudGlhbCBwaWVjZXMgb2Yg
-dGVjaG5vbG9neSB0aGV5IHVzZSBvbiBhIGRhaWx5IGJhc2lzLgo+ID4KPiA+IEFueXdheXMsIGFz
-IHNvIG9mdGVuIGhhcHBlbnMsIGZyZXF1ZW50IHBsdWdnaW5nIGFuZCB1biBwbHVnZ2luZyBsZWFk
-Cj4gPiB0byB0aGUgd2lyZXMgb24gdGhlIHBsdWcgb2YgbXkgUGFuYXNvbmljIGVhciBjbGlwcyB0
-byBmcmF5IHRvIHRoZQo+ID4gcG9pbnQgb25lIGVhcnBpZWNlICBpcyBzaWxlbnQgbW9zdCBvZiB0
-aGUgdGltZSwgYW5kIGkgaGF2ZSBubyBzcGFyZQo+ID4gZWFycGhvbmVzLCBzbyBJJ20gaW4gdGhl
-IG1hcmtldCBmb3IgYSBuZXcgcGFpci4KPiA+Cj4gPiBNeSBpbml0aWFsIHRob3VnaHQgaXMgdG8g
-anVzdCBvcmRlciBhIGNvdXBsZSBwYWlycyBvZiB0aGUgc2FtZQo+ID4gUGFuYXNvbmljIGVhcmNs
-aXBzIEkndmUgYmVlbiB1c2luZyBmb3IgeWVhcnMuIFRoZXkncmUgY29tZm9ydGFibGUKPiA+IGVu
-b3VnaCBmb3IgYWxsIGRheSB3ZWFyLCBoYXZlIG5vIHNvdW5kIHF1YWxpdHkgaXNzdWVzIEkgY2Fu
-IGRldGVjdCwKPiA+IGFyZSBmYWlybHkgaW5leHBlbnNpdmUofiQxMi0xNSBvbiBBbWF6b24gZGVw
-ZW5kaW5nIG9uIGNvbG9yIGNob2ljZSksCj4gPiBhbmQgSSBrbm93IHdoYXQgSSdtIGdvaW5nIHRv
-IGdldC4KPiA+Cj4gPiBPbiB0aGUgb3RoZXIgaGFuZCwgdGhlIFBhbmFzb25pY3MgSSd2ZSBiZWVu
-IHVzaW5nIGZvciB0aGUgbGFzdCA1IHllYXJzCj4gPiBvciBzbyBoYXZlIGFsd2F5cyBoYWQgYW4g
-YW5ub3lpbmdseSBzaG9ydCB3aXJlKEkgbmVlZCB0byBoaWtlIHVwIG15Cj4gPiBwYW50cyBmb3Ig
-dGhlIHdpcmUgdG8gcmVhY2ggbXkgcG9ydGFibGUgbWVkaWEgcGxheWVyIGluIG15IHBvY2tldCBh
-bmQKPiA+IEkgbW9yZSBvZnRlbiB0aGFuIG5vdCBoYXZlIHRvIHVzZSBhbiBleHRlbnNpb24gY2Fi
-bGUgd2l0aCBteSBkZXNrdG9wKSwKPiA+IHdyYXBwaW5nIHRoZSB3aXJlIGFyb3VuZCBteSBuZWNr
-IHdoZW4gbm8gcGx1Z2dlZCBpbnRvIGFueXRoaW5nIGlzIGtpbmQKPiA+IG9mIGFubm95aW5nLCBh
-bmQgdGhleSBzZWVtIHRvIGJlIGdldHRpbmcgbGVzcyBkdXJhYmxlKEkndmUgZ29uZQo+ID4gdGhy
-b3VnaCB0d28gcGFpcnMgc2luY2UgbGFzdCBEZWNlbWJlciwgdGhlIHRocmVlIHByZXZpb3VzIHBh
-aXJzIGVhY2gKPiA+IGF2ZXJhZ2VkIGFib3V0IGEgeWVhci1hbmQtYS1oYWxmIGJhc2VkIG9uIG15
-IEFtYXpvbiBvcmRlciBoaXN0b3J5KSwKPiA+IGFuZCBpdCB3b3VsZCBiZSBuaWNlIHRvIGJlIGFi
-bGUgdG8gZGl0Y2ggdGhlIHdpcmUgd2hlbiBpdCBpc24ndAo+ID4gbmVlZGVkLgo+ID4KPiA+IEJ1
-dCBpdCdzIG5lYXJseSBpbXBvc3NpYmxlIHRvIGZpbmQgd2lyZWxlc3MgZWFycGhvbmVzIHRoYXQg
-YXJlIGVhcgo+ID4gY2xpcCBzdHlsZSwgYW5kIGV2ZW4gZXhwYW5kaW5nIHRvIG90aGVyIGZvcm0g
-ZmFjdG9ycywgaXQncyBoYXJkIHRvCj4gPiBmaW5kIGEgcGFpciB3aXRoIGhhbGZ3YXkgZGVjZW50
-IGJhdHRlcnkgbGlmZSwgZm9yIHVuZGVyICQzMCwgYW5kIEkndmUKPiA+IHlldCB0byBmaW5kIGEg
-cGFpciB0aGF0IGVpdGhlciBoYWQgdGhlIG9wdGlvbiBvZiB1c2luZyBhbiBhdXggY2FibGUKPiA+
-IGZvciBjb25uZWN0aW5nIHRvIGRldmljZXMgd2l0aG91dCBCbHVldG9vdGggb3IgYSBkb25nbGUg
-eW91IGNvdWxkIGp1c3QKPiA+IHBsdWcgaW50byBhIDMuNW1tIGphY2ssIGFuZCBiZXN0IEkgY2Fu
-IHRlbGwsIEJsdWV0b290aCBhZGFwdG9ycyBhcmVuJ3QKPiA+IGFsbCB0aGF0IGFmZm9yZGFibGUg
-ZWl0aGVyLgo+ID4KPiA+IFNvIGFueW9uZSBoYXZlIGFueSByZWNvbW1lbmRhdGlvbnMgZm9yIGEg
-Z29vZCwgaW5leHBlbnNpdmUgcGFpciBvZgo+ID4gZWFycGhvbmVzIHRoYXQgZWl0aGVyIGhhcyBh
-IGxvbmcsIHJ1Z2dlZCB3aXJlIG9yIHdoaWNoIGlzIHdpcmVsZXNzCj4gPiB3aXRoIGdvb2QgYmF0
-dGVyeSBsaWZlIGFuZCBhIGdvb2Qgc29sdXRpb24gZm9yIGJhY2t3YXJkcyBjb21wYXRpYmlsaXR5
-Cj4gPiB3aXRoIHdpcmVkLW9ubHkgYXVkaW8gc291cmNlcz8gUHJlZmVyYWJseSBvZiB0aGUgZWFy
-IGNsaXAKPiA+IHN0eWxlKHJlZ3VsYXIgZWFyYnVkcyBhcmUgdG9vIGluc2VjdXJlIGZvciBteSBs
-aWtpbmcsIGVhcnBsdWcgc3R5bGUKPiA+IGVhcmJ1ZHMgaXJyaXRhdGUgbXkgZWFyIGNhbmFscyBh
-bmQgbGVhdmUgbWUgcHJvbmUgdG8gZWFyIGluZmVjdGlvbnMsIEkKPiA+IGhhdmUgYmlnIGVhcnMs
-IHNvIHJldHJvIGVhcm11ZmYgc3R5bGUgaGVhZHBob25lcyBsZWF2ZSBtZSB3aXRoIHNvcmUKPiA+
-IGNhcnRpbGFnZSBhZnRlciBhIGZldyBob3VycywgYW5kIGJlaGluZCB0aGUgaGVhZCBlYXJwaG9u
-ZXMgc291bmQgbGlrZQo+ID4gdGhleSdkIGJlIHVuY29tZm9ydGFibGUgd2l0aCBob3cgbXVjaCBv
-ZiBteSB0aW1lIGlzIHNwZW50IGVpdGhlcgo+ID4gbGF5aW5nIGRvd24gd2l0aCBteSBoZWFkIG9u
-IGEgcGlsbG93LCBpbiBhIHJlY2xpbmVyIHdpdGggbXkgaGFkIG9uIHRoZQo+ID4gaGVhZHJlc3Qs
-IG9yIGxlYW5pbmcgYWdhaW5zdCBhIHdhbGwuKS4gQW5kIGZvciB3aXJlZCBzb2x1dGlvbnMsCj4g
-PiBzb21ldGhpbmcgd2l0aCBhIGJ1aWx0LWluIGNvcmQgc3Bvb2wgb3IgcmVjb21tZW5kYXRpb25z
-IGZvciBhIHRoaXJkCj4gPiBwYXJ0IHNwb29sIHRoYXQgY291bGQgYmUgYWRkZWQgd291bGQgYmUg
-YXBwcmVjaWF0ZWQuCj4gPiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PQo+ID4gVGhlIHJhc3BiZXJyeS12aSBtYWlsaW5nIGxpc3QKPiA+
-IEFyY2hpdmVzOiBodHRwOi8vd3d3LmZyZWVsaXN0cy5vcmcvYXJjaGl2ZXMvcmFzcGJlcnJ5LXZp
-Cj4gPiBBZG1pbmlzdHJhdGl2ZSBjb250YWN0OiA8bWlrZS5yYXlAYnRpbnRlcm5ldC5jb20+Cj4g
-PiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLQo+ID4gUmFzcGJlcnJ5IFBpIGFuZCB0aGUgUmFzcGJlcnJ5IFBpIGxvZ28gYXJlIHRyYWRl
-bWFya3Mgb2YgdGhlIFJhc3BiZXJyeQo+IFBpIEZvdW5kYXRpb24uCj4gPgo+ID4gVGhpcyBsaXN0
-IGlzIG5vdCBhZmZpbGlhdGVkIHRvIHRoZSBSYXNwYmVycnkgUGkgRm91bmRhdGlvbiBhbmQgdGhl
-IHZpZXdzCj4gYW5kIGF0dGl0dWRlcyBleHByZXNzZWQgYnkgdGhlIHN1YnNjcmliZXJzIHRvIHRo
-aXMgbGlzdCBkbyBub3QgcmVmbGVjdAo+IHRob3NlIG9mIHRoZSBGb3VuZGF0aW9uLgo+ID4KPiA+
-IE1pa2UgUmF5LCBsaXN0IGNyZWF0b3IsIEphbnVhcnkgMjAxMwo+ID4KPgo+ID09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Cj4gVGhlIHJh
-c3BiZXJyeS12aSBtYWlsaW5nIGxpc3QKPiBBcmNoaXZlczogaHR0cDovL3d3dy5mcmVlbGlzdHMu
-b3JnL2FyY2hpdmVzL3Jhc3BiZXJyeS12aQo+IEFkbWluaXN0cmF0aXZlIGNvbnRhY3Q6IDxtaWtl
-LnJheUBidGludGVybmV0LmNvbT4KPiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+IFJhc3BiZXJyeSBQaSBhbmQgdGhlIFJhc3BiZXJy
-eSBQaSBsb2dvIGFyZSB0cmFkZW1hcmtzIG9mIHRoZSBSYXNwYmVycnkgUGkKPiBGb3VuZGF0aW9u
-Lgo+Cj4gVGhpcyBsaXN0IGlzIG5vdCBhZmZpbGlhdGVkIHRvIHRoZSBSYXNwYmVycnkgUGkgRm91
-bmRhdGlvbiBhbmQgdGhlIHZpZXdzCj4gYW5kIGF0dGl0dWRlcyBleHByZXNzZWQgYnkgdGhlIHN1
-YnNjcmliZXJzIHRvIHRoaXMgbGlzdCBkbyBub3QgcmVmbGVjdAo+IHRob3NlIG9mIHRoZSBGb3Vu
-ZGF0aW9uLgo+Cj4gTWlrZSBSYXksIGxpc3QgY3JlYXRvciwgSmFudWFyeSAyMDEzCj4KPgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBt
-YWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL3d3dy5yZWRoYXQuY29t
-L21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
+Why not blow a few more bucks and go bluetooth?  Given all of the tech
+you have your media player might pair and your computer would pair with
+a bluetooth card plugged into a usb slot.  This question would have
+better been asked on electronics-talk@nfbnet.org.
+
+On Fri, 13 Nov 2020, Linux for blind general discussion wrote:
+
+> Date: Fri, 13 Nov 2020 10:10:34
+> From: Linux for blind general discussion <blinux-list@redhat.com>
+> To: Linux for blind general discussion <blinux-list@redhat.com>,
+>     Orca List <orca-list@gnome.org>, raspberry-vi@freelists.org
+> Subject: Possibly Off-Topic: Earphone recommendations.
+>
+> Sorry if this qualifies as off-topic for any of the mailing lists I'm
+> sending it to, but I figure I'm not the only one on any of these lists
+> who wears earphones almost every waking moment and considers them one
+> of the most essential pieces of technology they use on a daily basis.
+>
+> Anyways, as so often happens, frequent plugging and un plugging lead
+> to the wires on the plug of my Panasonic ear clips to fray to the
+> point one earpiece  is silent most of the time, and i have no spare
+> earphones, so I'm in the market for a new pair.
+>
+> My initial thought is to just order a couple pairs of the same
+> Panasonic earclips I've been using for years. They're comfortable
+> enough for all day wear, have no sound quality issues I can detect,
+> are fairly inexpensive(~$12-15 on Amazon depending on color choice),
+> and I know what I'm going to get.
+>
+> On the other hand, the Panasonics I've been using for the last 5 years
+> or so have always had an annoyingly short wire(I need to hike up my
+> pants for the wire to reach my portable media player in my pocket and
+> I more often than not have to use an extension cable with my desktop),
+> wrapping the wire around my neck when no plugged into anything is kind
+> of annoying, and they seem to be getting less durable(I've gone
+> through two pairs since last December, the three previous pairs each
+> averaged about a year-and-a-half based on my Amazon order history),
+> and it would be nice to be able to ditch the wire when it isn't
+> needed.
+>
+> But it's nearly impossible to find wireless earphones that are ear
+> clip style, and even expanding to other form factors, it's hard to
+> find a pair with halfway decent battery life, for under $30, and I've
+> yet to find a pair that either had the option of using an aux cable
+> for connecting to devices without Bluetooth or a dongle you could just
+> plug into a 3.5mm jack, and best I can tell, Bluetooth adaptors aren't
+> all that affordable either.
+>
+> So anyone have any recommendations for a good, inexpensive pair of
+> earphones that either has a long, rugged wire or which is wireless
+> with good battery life and a good solution for backwards compatibility
+> with wired-only audio sources? Preferably of the ear clip
+> style(regular earbuds are too insecure for my liking, earplug style
+> earbuds irritate my ear canals and leave me prone to ear infections, I
+> have big ears, so retro earmuff style headphones leave me with sore
+> cartilage after a few hours, and behind the head earphones sound like
+> they'd be uncomfortable with how much of my time is spent either
+> laying down with my head on a pillow, in a recliner with my had on the
+> headrest, or leaning against a wall.). And for wired solutions,
+> something with a built-in cord spool or recommendations for a third
+> part spool that could be added would be appreciated.
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+>
+
+-- 
+United States has 633 Billionaires with only 10 doing any annual
+significant giving.
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
 
