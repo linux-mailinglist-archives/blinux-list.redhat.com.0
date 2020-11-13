@@ -2,69 +2,66 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 741302B1EE8
-	for <lists+blinux-list@lfdr.de>; Fri, 13 Nov 2020 16:37:08 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id 77C4C2B245A
+	for <lists+blinux-list@lfdr.de>; Fri, 13 Nov 2020 20:19:41 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1605281827;
+	s=mimecast20190719; t=1605295180;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=qDitoBTZb+yBNN0KcVWes2VmyqkMh74QvgWWXlvl7+U=;
-	b=GB0rhaIHnyBq+3Yz4+8XjwGEgGcpfokq7N+C7FNeIJ99J/JdR7RX5jfVd44vwAqdQo9RHu
-	4VPAyOOFpmsui0CGi7+k6aZDaYJOp2osTZOFJ7vZCVGx9fYJcGbjZZYYdexNKYUoT81bEm
-	LuTGz1aqsXOmzQx0CUPie1AAO78jxVs=
+	bh=WN8qdM4jjuP9IPPrxyLmaPqGjIPzYRPQ4TpwvRy4Brk=;
+	b=Jbj7Ej7p6ujkDs/Mc4DiiQvUsaLEYgGW3I8MFnErG4qQmWcjSA7obmgmM/QcpB4m+SoPht
+	NZvKedmMVynM6z+1v0PfGtfKPUApGYU9SnImAun2BDh/i8gCAo7Nh30vlHvZ0h/iyj5Sk5
+	y8CXse1ukdaM8bl7PPBPdRnL8HlwD0Y=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-513-zYTNW84zNmmGeairFxNmsQ-1; Fri, 13 Nov 2020 10:37:04 -0500
-X-MC-Unique: zYTNW84zNmmGeairFxNmsQ-1
+ us-mta-339-K8uXp-tdOV292uh2yCyCDQ-1; Fri, 13 Nov 2020 14:19:38 -0500
+X-MC-Unique: K8uXp-tdOV292uh2yCyCDQ-1
 Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5E20657083;
-	Fri, 13 Nov 2020 15:37:00 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 834B96EF5D;
-	Fri, 13 Nov 2020 15:36:59 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 337581868406;
+	Fri, 13 Nov 2020 19:19:34 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1AE6B6EF5D;
+	Fri, 13 Nov 2020 19:19:33 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3EC9B58104;
-	Fri, 13 Nov 2020 15:36:58 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id CD2C3180B657;
+	Fri, 13 Nov 2020 19:19:30 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 0ADFarp8021639 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 13 Nov 2020 10:36:53 -0500
+	id 0ADJIvUU015203 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 13 Nov 2020 14:18:58 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id E6468100BFF1; Fri, 13 Nov 2020 15:36:52 +0000 (UTC)
+	id A2D66215688E; Fri, 13 Nov 2020 19:18:57 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E2836100BFEF
-	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 15:36:50 +0000 (UTC)
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9D1282156A50
+	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 19:18:53 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BB72D803522
-	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 15:36:50 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-545-PzhcY7b_PIyXEOKiacJyWQ-1; Fri, 13 Nov 2020 10:36:47 -0500
-X-MC-Unique: PzhcY7b_PIyXEOKiacJyWQ-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4CXjHz3ML0zTMk
-	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 10:36:47 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4CXjHz34ppzcbc; Fri, 13 Nov 2020 10:36:47 -0500 (EST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EC4E3185A79C
+	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 19:18:52 +0000 (UTC)
+Received: from server2.shellworld.net (ip-66-172-12-120.chunkhost.com
+	[66.172.12.120]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-511-tXWP1xNYN5qMbphjdrlTmw-1; Fri, 13 Nov 2020 14:18:50 -0500
+X-MC-Unique: tXWP1xNYN5qMbphjdrlTmw-1
+Received: by server2.shellworld.net (Postfix, from userid 1005)
+	id 605F05401E9; Fri, 13 Nov 2020 19:18:49 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4CXjHz2ywBzcbV
-	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 10:36:47 -0500 (EST)
-Date: Fri, 13 Nov 2020 10:36:47 -0500
+	by server2.shellworld.net (Postfix) with ESMTP id 5F474540105
+	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 14:18:49 -0500 (EST)
+Date: Fri, 13 Nov 2020 14:18:49 -0500 (EST)
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Possibly Off-Topic: Earphone recommendations.
 In-Reply-To: <CAO2sX31vKWFMQmjUJqv7jSKqL+hqGB0T45-R8xMT42WiPHx_UA@mail.gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2011131034020.24898@panix1.panix.com>
+Message-ID: <Pine.LNX.4.64.2011131416180.3220255@server2.shellworld.net>
 References: <CAO2sX31vKWFMQmjUJqv7jSKqL+hqGB0T45-R8xMT42WiPHx_UA@mail.gmail.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
@@ -75,7 +72,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -97,22 +94,20 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Why not blow a few more bucks and go bluetooth?  Given all of the tech
-you have your media player might pair and your computer would pair with
-a bluetooth card plugged into a usb slot.  This question would have
-better been asked on electronics-talk@nfbnet.org.
+Oh speaking personally, I feel it is on topic.
+Do you  mind sharing the model of Panasonic ear clip  headphones you have 
+been  buying?
+I resonate with all you said about earbuds and the like, so would welcome 
+a chance to research your clips.
+Thanks,
+
+
 
 On Fri, 13 Nov 2020, Linux for blind general discussion wrote:
 
-> Date: Fri, 13 Nov 2020 10:10:34
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: Linux for blind general discussion <blinux-list@redhat.com>,
->     Orca List <orca-list@gnome.org>, raspberry-vi@freelists.org
-> Subject: Possibly Off-Topic: Earphone recommendations.
->
 > Sorry if this qualifies as off-topic for any of the mailing lists I'm
 > sending it to, but I figure I'm not the only one on any of these lists
 > who wears earphones almost every waking moment and considers them one
@@ -168,10 +163,6 @@ On Fri, 13 Nov 2020, Linux for blind general discussion wrote:
 > https://www.redhat.com/mailman/listinfo/blinux-list
 >
 >
-
--- 
-United States has 633 Billionaires with only 10 doing any annual
-significant giving.
 
 _______________________________________________
 Blinux-list mailing list
