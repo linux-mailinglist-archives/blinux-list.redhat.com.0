@@ -2,102 +2,80 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id B5F942A8B30
-	for <lists+blinux-list@lfdr.de>; Fri,  6 Nov 2020 01:14:49 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id 28CE02B1E54
+	for <lists+blinux-list@lfdr.de>; Fri, 13 Nov 2020 16:11:11 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1604621688;
+	s=mimecast20190719; t=1605280270;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=I5JIeGV4JTVLi6vBIKQeI/ZFFyi9vbXpWSv05t/0swM=;
-	b=J2qP/7DsKeqIiTAJNx8fFjLvhQlYG87OelxQFDvE0a/QYsuWpF55oP8StmCGwPO+re8zsy
-	HPa/8hU/Ihz6xYkfs3XP5X9PHo2eHIBRdKL9DK7giUh+AjYhdWMycoDY4A6FHwaO7CnKPS
-	84f+EvPw9B8VAAPGN0OvHK7g/+I3RY0=
+	bh=t+t+x6N+6aTClxvDIbHvAyvA7ef973tG32cg8Id/jy0=;
+	b=iE9cAhSbi1HAygJng7SFk6UFh9/Wkoa05DnpogoeKshXlPQfS3X+bi4sotzkOdlXtEDTcq
+	YBSjDKmyUasZxI4V4eK0fSpw0y+F4GuJhcYofByHzaaA1/0mF8fj49TPXzihvYS/Ofuyel
+	uUpZLAQvwpxPx/4thtMZL6awSPHABDk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-247-9uFzAURWPfGzvs5yFXpeIg-1; Thu, 05 Nov 2020 19:14:45 -0500
-X-MC-Unique: 9uFzAURWPfGzvs5yFXpeIg-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-403-o2RIZwzWMli1jZb1J5K8rA-1; Fri, 13 Nov 2020 10:11:07 -0500
+X-MC-Unique: o2RIZwzWMli1jZb1J5K8rA-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8EACC804B7D;
-	Fri,  6 Nov 2020 00:14:40 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C14325C893;
-	Fri,  6 Nov 2020 00:14:39 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5B0A5805EFC;
+	Fri, 13 Nov 2020 15:11:02 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C55461002C0C;
+	Fri, 13 Nov 2020 15:10:58 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 32DC0180B658;
-	Fri,  6 Nov 2020 00:14:38 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3AE175810D;
+	Fri, 13 Nov 2020 15:10:52 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 0A60EF0N020704 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 5 Nov 2020 19:14:15 -0500
+	id 0ADFAhsu018295 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 13 Nov 2020 10:10:43 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 87B4D1175404; Fri,  6 Nov 2020 00:14:15 +0000 (UTC)
+	id A1FA6215688E; Fri, 13 Nov 2020 15:10:43 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 836DF11753FC
-	for <blinux-list@redhat.com>; Fri,  6 Nov 2020 00:14:13 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9D0FF2156A54
+	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 15:10:40 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3816E8007D9
-	for <blinux-list@redhat.com>; Fri,  6 Nov 2020 00:14:13 +0000 (UTC)
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com
-	[209.85.221.52]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-99-PuW0OyKzMjmj_dvJEiKhoA-1; Thu, 05 Nov 2020 19:14:11 -0500
-X-MC-Unique: PuW0OyKzMjmj_dvJEiKhoA-1
-Received: by mail-wr1-f52.google.com with SMTP id e6so3750529wro.1
-	for <blinux-list@redhat.com>; Thu, 05 Nov 2020 16:14:11 -0800 (PST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 48EEE811E82
+	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 15:10:40 +0000 (UTC)
+Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com
+	[209.85.160.180]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-414-T0kINNlbMlKAACRdgD2hPw-1; Fri, 13 Nov 2020 10:10:37 -0500
+X-MC-Unique: T0kINNlbMlKAACRdgD2hPw-1
+Received: by mail-qt1-f180.google.com with SMTP id n63so6855497qte.4
+	for <blinux-list@redhat.com>; Fri, 13 Nov 2020 07:10:37 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=J2LLjV4YPpZPwWEx3TujPec0E2YByGZwoB6KQTCf9MM=;
-	b=gmiiEWlIIdrvG0yJvfB3pA8aUcdEDBUZmhz+8CqV/hzwynS7u6VUmRfP+PQuDdvw+n
-	gkLv0iz8j5BaoRr/vHyOTXTtMZd7dC2Mpjeqii08noxh7epTjZCsdzmUY5KADs/4cLrA
-	ziyAtgZdz6BqydH1vZIW7R68gmz38+qqVL3ByDZROvtvaVD6cjhIpJr5rNxCpeVHAJ5h
-	CtXdWHj77H5nqo37YJOantm5diZm9NuMw6hTr9qWMnQ2hZAculmmuy06lUheDjqsN5X4
-	R5X5G/KKdx8P1NcttRf6s4S3jgiNjjxIuST8+9Ah6RHr++AJTuwqqo3TPTy8xq6CbVll
-	A25w==
-X-Gm-Message-State: AOAM5311lHV5F8T16qkY9AnTJ+E5K2LZBL784wEdRpYk4KN2qFOl/vsV
-	3yhimUGrF4Y31QMloJfyhqilPl9HrWsZNw==
-X-Google-Smtp-Source: ABdhPJy42F6uIUxB+MupzgPm9zmeU3v/md2BypVAkiGtdGf+lQZjeAgLiCDJyxfHgAaX5aK43S0X9w==
-X-Received: by 2002:a5d:5752:: with SMTP id q18mr5509107wrw.176.1604621650094; 
-	Thu, 05 Nov 2020 16:14:10 -0800 (PST)
-Received: from ?IPv6:2603:6080:6304:450a::433?
-	(2603-6080-6304-450a-0000-0000-0000-0433.res6.spectrum.com.
-	[2603:6080:6304:450a::433]) by smtp.gmail.com with ESMTPSA id
-	d20sm5300541wra.38.2020.11.05.16.14.09 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 05 Nov 2020 16:14:09 -0800 (PST)
-Subject: Re: arch linux and broadcom
-To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <00B86B11-5D22-4EAA-A7DC-FF8194FBD424@gmail.com>
-	<cfc665bf-d6f8-3866-2ccb-94c3ee2a52db@gmail.com>
-	<6B4DDB3E-A5E2-47BB-A364-B34A3E8D7A91@gmail.com>
-	<25d5c276-94a5-ad3a-c521-4b25ecf87ef5@gmail.com>
-	<3CA05D86-33B3-4781-A7E4-ABC3888B131E@gmail.com>
-	<45711af3-5f7e-e420-b34e-48867e9f1e73@gmail.com>
-	<81F35FE2-70DA-49E6-ADC9-3FBE0ECE0811@gmail.com>
-	<b45ce6b8-b401-404c-618a-4ca60653e313@gmail.com>
-	<DB0DA0B5-8B36-4A87-946C-5A199459B675@gmail.com>
-	<9a624111-d302-090d-2de1-cf19db0d44ca@gmail.com>
-	<eee49b61-350f-e13b-f18b-06914680b795@gmail.com>
-	<34C421AB-100B-40A8-9E89-AF50983F4A41@gmail.com>
-Message-ID: <d574e2c6-737f-738f-b65a-c1324db5ab51@gmail.com>
-Date: Thu, 5 Nov 2020 19:14:06 -0500
-User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:68.0) Gecko/20100101
-	Thunderbird/68.12.0
+	h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+	bh=HC/4SMGHD75Zn4mjRE5FsR+ULgFWEqEMW6bm1r+Hr9M=;
+	b=uSLAD3pR7IyzMXx5NBRVvKUE63IsdTc5UidBtKYvHMtzBQoLJhma0T8PP13Unlc30z
+	umV/2Lr6GPiMVejRpHCvcmHEwQZRJNSdk/A5QVYSafc9Flm3S8Mu4WHCbSRxnuYP2dOQ
+	D3YBMydnQF3m6ktUanEHMnZjXyGCQLgAaIa6ZCXKAMUNhpGGxusWDArwdJwSWagBKrap
+	JttIQwFNkFLxCosU27WFSdrq/wMDiB3gIjOAkRJq4Qaaqa3yiNjS/MfC+rBDA+2K2EqY
+	AIBjlS8SpBybEpdg6FAG6aWFMq8ROnUvF7Zg+IdvECZrsNZy6dKinDegbD7oeyDVI1dP
+	Yjiw==
+X-Gm-Message-State: AOAM530QAM2Y+fY0ksKtPVNJV0wKclmwBqG5QXwhd4cl2ZFezROYD8mR
+	W/ocz7Z30YtffLJiQaj19YJGkf2BE/K5XhF4JrRz8LSr
+X-Google-Smtp-Source: ABdhPJy6PBehF4Mb/mL1ol9Kde0SVnQAVT6mL6sUsLDTpyMzOKPvljS+7ZS9LUlX2dQ+Q/j1IWchQ+PaC/mFrHsLrS4=
+X-Received: by 2002:ac8:5046:: with SMTP id h6mr2366776qtm.349.1605280235395; 
+	Fri, 13 Nov 2020 07:10:35 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <34C421AB-100B-40A8-9E89-AF50983F4A41@gmail.com>
+Received: by 2002:a0c:a889:0:0:0:0:0 with HTTP; Fri, 13 Nov 2020 07:10:34
+	-0800 (PST)
+Date: Fri, 13 Nov 2020 15:10:34 +0000
+Message-ID: <CAO2sX31vKWFMQmjUJqv7jSKqL+hqGB0T45-R8xMT42WiPHx_UA@mail.gmail.com>
+Subject: Possibly Off-Topic: Earphone recommendations.
+To: Linux for blind general discussion <blinux-list@redhat.com>,
+	Orca List <orca-list@gnome.org>, raspberry-vi@freelists.org
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -106,7 +84,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -123,21 +101,62 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-The symbol you used is fine. It only becomes a problem if you want a new 
-file and pipe out to an existing file using it, because it will add to 
-the file. But as long as your file doesn't exist, you will be fine to 
-use the >> pipe. | is only for piping output from one program into 
-another.~Kyle
+Sorry if this qualifies as off-topic for any of the mailing lists I'm
+sending it to, but I figure I'm not the only one on any of these lists
+who wears earphones almost every waking moment and considers them one
+of the most essential pieces of technology they use on a daily basis.
 
+Anyways, as so often happens, frequent plugging and un plugging lead
+to the wires on the plug of my Panasonic ear clips to fray to the
+point one earpiece  is silent most of the time, and i have no spare
+earphones, so I'm in the market for a new pair.
+
+My initial thought is to just order a couple pairs of the same
+Panasonic earclips I've been using for years. They're comfortable
+enough for all day wear, have no sound quality issues I can detect,
+are fairly inexpensive(~$12-15 on Amazon depending on color choice),
+and I know what I'm going to get.
+
+On the other hand, the Panasonics I've been using for the last 5 years
+or so have always had an annoyingly short wire(I need to hike up my
+pants for the wire to reach my portable media player in my pocket and
+I more often than not have to use an extension cable with my desktop),
+wrapping the wire around my neck when no plugged into anything is kind
+of annoying, and they seem to be getting less durable(I've gone
+through two pairs since last December, the three previous pairs each
+averaged about a year-and-a-half based on my Amazon order history),
+and it would be nice to be able to ditch the wire when it isn't
+needed.
+
+But it's nearly impossible to find wireless earphones that are ear
+clip style, and even expanding to other form factors, it's hard to
+find a pair with halfway decent battery life, for under $30, and I've
+yet to find a pair that either had the option of using an aux cable
+for connecting to devices without Bluetooth or a dongle you could just
+plug into a 3.5mm jack, and best I can tell, Bluetooth adaptors aren't
+all that affordable either.
+
+So anyone have any recommendations for a good, inexpensive pair of
+earphones that either has a long, rugged wire or which is wireless
+with good battery life and a good solution for backwards compatibility
+with wired-only audio sources? Preferably of the ear clip
+style(regular earbuds are too insecure for my liking, earplug style
+earbuds irritate my ear canals and leave me prone to ear infections, I
+have big ears, so retro earmuff style headphones leave me with sore
+cartilage after a few hours, and behind the head earphones sound like
+they'd be uncomfortable with how much of my time is spent either
+laying down with my head on a pillow, in a recliner with my had on the
+headrest, or leaning against a wall.). And for wired solutions,
+something with a built-in cord spool or recommendations for a third
+part spool that could be added would be appreciated.
 
 _______________________________________________
 Blinux-list mailing list
