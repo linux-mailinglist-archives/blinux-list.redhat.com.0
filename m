@@ -1,92 +1,86 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 8979C2B6AB8
-	for <lists+blinux-list@lfdr.de>; Tue, 17 Nov 2020 17:54:49 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 19C4B2B6B6E
+	for <lists+blinux-list@lfdr.de>; Tue, 17 Nov 2020 18:14:07 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1605632088;
+	s=mimecast20190719; t=1605633246;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=8MLxk3STBCs7Tr43KwZuDKx8j3yoS1mWRYuERtkCOKk=;
-	b=Io2XpLHpO9EgSgcrDgzwdu4JoXaqXPF17tl+lzzDSq+HjTP8okOQ+NSs0R977YgEHv6bYz
-	agt3CSOYiXaWV7ucw0SBt0uDzqgRFy9Uam//OMBIEFNgW6f/kXll9dWXkWfZvXu1MGpgzI
-	EcSsBtVpcKMjwN1v069MBhw+0vz1xSE=
+	bh=Ax224QyBMKK5UDkJFwzu69gTQE8MdX2a1bujVdy1dOs=;
+	b=IzDYwCqjWsAmETpLjAzIssYre7AasRl5PasBjLmTv8/5KMrFCvGospOKuVpjQuG0sGsR8D
+	ohgzvprbVryPrsKExJt+XvpxvARf4/1eIN7tz8Lcwfd5r5BYNSyoApm9V0srq/GqklKLoU
+	YkIAakBoXyOFZ2Dn+YCUN1SmTSe5Pvo=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-463-AtKVBc6-O7eFvVT_7advqg-1; Tue, 17 Nov 2020 11:54:46 -0500
-X-MC-Unique: AtKVBc6-O7eFvVT_7advqg-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-596-3v3DqDYVMMStTzO8xRLVQA-1; Tue, 17 Nov 2020 12:14:04 -0500
+X-MC-Unique: 3v3DqDYVMMStTzO8xRLVQA-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 0B12E59;
-	Tue, 17 Nov 2020 16:54:41 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3ACB3619C4;
-	Tue, 17 Nov 2020 16:54:37 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 920B06D258;
+	Tue, 17 Nov 2020 17:14:00 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D24C15C1CF;
+	Tue, 17 Nov 2020 17:13:59 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4FAFF180C5A2;
-	Tue, 17 Nov 2020 16:54:32 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 61AD78C7A2;
+	Tue, 17 Nov 2020 17:13:58 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 0AHFFq9K017973 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 17 Nov 2020 10:15:52 -0500
+	id 0AHHDqHs010803 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 17 Nov 2020 12:13:52 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id A9C91207AEB5; Tue, 17 Nov 2020 15:15:52 +0000 (UTC)
+	id 0A628110E982; Tue, 17 Nov 2020 17:13:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A597B207AEB2
-	for <blinux-list@redhat.com>; Tue, 17 Nov 2020 15:15:49 +0000 (UTC)
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 02E8A110E984
+	for <blinux-list@redhat.com>; Tue, 17 Nov 2020 17:13:47 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 35BB685828F
-	for <blinux-list@redhat.com>; Tue, 17 Nov 2020 15:15:49 +0000 (UTC)
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.15]) (Using TLS) by
-	relay.mimecast.com with ESMTP id us-mta-465--R5-atWZMseswoA5wRXx9Q-1;
-	Tue, 17 Nov 2020 10:15:45 -0500
-X-MC-Unique: -R5-atWZMseswoA5wRXx9Q-1
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [192.168.1.133] ([87.150.202.141]) by mail.gmx.com (mrgmx004
-	[212.227.17.190]) with ESMTPSA (Nemesis) id 1MGz1V-1kQzr80OSB-00E1dY
-	for <blinux-list@redhat.com>; Tue, 17 Nov 2020 16:10:41 +0100
-Subject: Re: latest iso of jenux?
-To: blinux-list@redhat.com
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5906B81DBF1
+	for <blinux-list@redhat.com>; Tue, 17 Nov 2020 17:13:47 +0000 (UTC)
+Received: from mail-io1-f49.google.com (mail-io1-f49.google.com
+	[209.85.166.49]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-243-rivp36i5OKC8j7mLLT9Zew-1; Tue, 17 Nov 2020 12:13:42 -0500
+X-MC-Unique: rivp36i5OKC8j7mLLT9Zew-1
+Received: by mail-io1-f49.google.com with SMTP id j23so6048400iog.6
+	for <blinux-list@redhat.com>; Tue, 17 Nov 2020 09:13:42 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+	:message-id:subject:to;
+	bh=wTBRWu1F/sLeoCoxZUeudVu8cisaq33ZWQKZYlcPupU=;
+	b=o/w2oygbHWrtGsNA5fmOlcBjZpHedwfS/mbMO7bBBGwMK1HLnMalhsZOpa+YRznf0i
+	s3Tzv6eivTuT7KSP2sxkeXBPfFahP1QAFulX9YLt06ToPLkyVfbIAGQgM5bdtaAven/3
+	7+RwAZ+KW7LI+AKB9yiw6YP3t1349at98Y2hJdysy4852UYOWy+UAJUSEoX5gNguYe+0
+	yPPDDOyLAAQMJjTceeQ8GzRgoj0YmWZhW2H5zSSNb8NVjZLv7mSWqET7rE4z1f6eGdcF
+	87SqgOwKZExPneX7kmu/MML5e/ve+ZTj+/fZTq3OXME5gw6nwvoqHVYEMl3jsT3pvc+2
+	D0sw==
+X-Gm-Message-State: AOAM533Upykkvr2hXHjQjIZPKoKyU/x9IL8sInrRUWUfNWr7SQl2qDwc
+	gi+3+S5eYNOoE1w6WHJyDGZtOtS8KQhhb4TbjV8hh8lGDQQ9gA==
+X-Google-Smtp-Source: ABdhPJykBcmgIlzdtugY/j5BumVczELhDNLaTJEZTTTcDUozGeuQ84aA6qu97BuRZmHSn9olkVwl0P3jhZr5v2MOG4o=
+X-Received: by 2002:a05:6638:639:: with SMTP id
+	h25mr4333151jar.71.1605633220964; 
+	Tue, 17 Nov 2020 09:13:40 -0800 (PST)
+MIME-Version: 1.0
 References: <fea4d0e7-5caf-f5b7-cf0a-5f3b313acb3e@gmail.com>
 	<alpine.NEB.2.23.451.2011150949060.18575@panix1.panix.com>
-Message-ID: <203c187e-eb51-f55b-17b7-2d34a6c0bbf8@gmx.net>
-Date: Tue, 17 Nov 2020 16:10:39 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
-	Thunderbird/78.4.0
-MIME-Version: 1.0
-In-Reply-To: <alpine.NEB.2.23.451.2011150949060.18575@panix1.panix.com>
-X-Provags-ID: V03:K1:9bBO9TnUF+1US9m2Il550BUPRboJ7X6thjlusN5oCWSzUKvB3dC
-	KKLjHQ1KaGy9lspy3Txkrsgx/Xc3mQkuEdZlXn384xqJIypD/jIkPswiGlYvuGCEsnSavOC
-	ofjBJatPfjIdslPZH7PWmDVEvEU8MPhStwk7gppFzNtgRW/2yqTUYW1642zSDe8odHi15Ms
-	QyDtONnkW3VtCKyBr4ptQ==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:xl5sLpgU7Xw=:g3TkSKoGJdqQcjwakdlOim
-	yQQI+oVeKlQQ/9gir6s1aLs0pZybibgKhMmXGlfEMLTH+JuDX8r1I7qBz9IgkOezwVCzVJlV5
-	UP9OdmISsDKby6lhZd9BUX6INw/2FTjcOJvap0+dvk+wM7erSyAKZ9K+SuuvftKtaGga2qaaq
-	DtcwjGXgr2tOn71CQplselodCyQzOQwcBHzmWVqMi0vGherHCnvP+a8YXpdL4iJ0IitAkBtIA
-	D838p+lXzVwdE6v33eK13SsE+JBwnSJw12mS2NXoLrX5gEQ/0uWz0hl1v/O9Iv3qyCQPDZqcy
-	Ke10I5LYlz+OGOSWinDjoIxBjCBCbAPqlsEcBCLP2hhmNCJOVtILmwtO87Lu6TYc/xLjn/l6t
-	Z4sNnCtx0pbchqwvh6MDqf3UnGFtri2t3Iwyf8gV+RIlefXi9kKdfd/iO3GM1iifIzDeGa84V
-	Dii2DywqiJcI8xUiS+UlpeaoZECVWR3KcBp2Ek2r9LD+LMVsCLnYxXO1oAVunz9jogRbuREk9
-	5WglKKZH1+3tFw2pd+B6WbCwLqW6x9HxlBaZLq/sWRrWyvgDK9GX2anT9t9cxXvcvM5VVuL8z
-	w+kpq2SUR8mkZZkfzpgM6rBbCSlL7Jrg+chBh1wDu2skrwNkYyjJv65M6Uh5jmBRVT/nITl6X
-	hD0KSZrvLAxC10HZhchKmddveO/jP9cgWvHW+9ALmagn7L2FeBWsAup9qsuWDWWBX003kYAbv
-	63cB2uticY6HJU6CeU3qNXz6cGarcfakr6RHLOtuZwwcmAbS8IMMkZD0DOOPD19OlUHk8lR5U
-	aNXrRrI7Aaq8NGEK+8eSQq6RI0JWQ/BStFvzZVUmelKdL2GkP6cukwZsqb7Yx5glYneOqwQlF
-	95BEYatvj+KxUTXlQgJaP2c8rIEnfrjlwIUaDDoosjbdJNv8dp0i2X1nh04FJNZrPLhP0ohju
-	hjqX0OthGZS0rPnNEUzV5lP0MANs90gM=
+	<203c187e-eb51-f55b-17b7-2d34a6c0bbf8@gmx.net>
+In-Reply-To: <203c187e-eb51-f55b-17b7-2d34a6c0bbf8@gmx.net>
+Date: Tue, 17 Nov 2020 11:13:29 -0600
+Message-ID: <CAGJxbF7V7Q=OJfr7ZJ3xSbROiXG0soXjB6Fm_ovaqcrDj-rVnw@mail.gmail.com>
+Subject: Re: latest iso of jenux?
+To: Linux for blind general discussion <blinux-list@redhat.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -95,10 +89,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 0AHFFq9K017973
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -114,48 +107,66 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: de-DE
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hi,
-the given link says 404.
-guenter
-Am 15.11.20 um 15:49 schrieb Linux for blind general discussion:
-> Try
-> https://nashcentral.duckdns.org/projects/Jenux-2020.11.12-dual.iso
-> On Sat,
-> 14 Nov 2020, Linux for blind general discussion wrote:
+Try links on this thread, but I'd recommend reading the whole thread to get
+user feedback on this, as some users report problems.
+
+https://forum.audiogames.net/topic/26881/jenux-os-news-and-discussion-hub/
+
+
+Devin Prater
+r.d.t.prater@gmail.com
+
+
+On Tue, Nov 17, 2020 at 10:54 AM Linux for blind general discussion <
+blinux-list@redhat.com> wrote:
+
+> Hi,
+> the given link says 404.
+> guenter
+> Am 15.11.20 um 15:49 schrieb Linux for blind general discussion:
+> > Try
+> > https://nashcentral.duckdns.org/projects/Jenux-2020.11.12-dual.iso
+> > On Sat,
+> > 14 Nov 2020, Linux for blind general discussion wrote:
+> >
+> >> Date: Sat, 14 Nov 2020 23:19:40
+> >> From: Linux for blind general discussion <blinux-list@redhat.com>
+> >> To: Linux for blind general discussion <blinux-list@redhat.com>
+> >> Subject: latest iso of jenux?
+> >>
+> >> Hello can I please get the iso to the latest jenux?
+> >>
+> >> Hank
+> >>
+> >>
+> >> _______________________________________________
+> >> Blinux-list mailing list
+> >> Blinux-list@redhat.com
+> >> https://www.redhat.com/mailman/listinfo/blinux-list
+> >>
+> >>
+> >>
+> >
 >
->> Date: Sat, 14 Nov 2020 23:19:40
->> From: Linux for blind general discussion <blinux-list@redhat.com>
->> To: Linux for blind general discussion <blinux-list@redhat.com>
->> Subject: latest iso of jenux?
->>
->> Hello can I please get the iso to the latest jenux?
->>
->> Hank
->>
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://www.redhat.com/mailman/listinfo/blinux-list
->>
->>
->>
 >
-
-
---
-.
-
-
+> --
+> .
+>
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://www.redhat.com/mailman/listinfo/blinux-list
+>
+>
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
