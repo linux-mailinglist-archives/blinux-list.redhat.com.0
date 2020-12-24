@@ -2,86 +2,91 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 195962E2803
-	for <lists+blinux-list@lfdr.de>; Thu, 24 Dec 2020 17:14:32 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id C0FB72E28AA
+	for <lists+blinux-list@lfdr.de>; Thu, 24 Dec 2020 19:58:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1608826471;
+	s=mimecast20190719; t=1608836289;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=OawgOZk6q1E3q8S65rwOVqF58MffbV7lLV+OreZHPJE=;
-	b=I8VRjtuzvwMmbXXGZbeERj9qvEwEjYutMf//iixKLQTDNP4Kc5bGbPAdxabpfca10g9YX/
-	M5Cxk/2Sb1/wVW3XQHD3AvgCEJ+ju8SJkh7/+qJYss0d5GyxNSdk3M9EvvZqCMimtQSq9n
-	r8rcrQsYL7N8cDhw+SG5QD0uTnRWUgI=
+	bh=krVy/yCTel0/xSPw3kX3ucS8N4gQ0C829t/8r5c8HbQ=;
+	b=LDddSA1TX05dGyrsgRFzjmba2mBHkbSE17IWzpPnHOw4VUWpFW3LDtaFNmXZqf7KMRVNbm
+	Nx6lUQVR6iR3vB0rpor9as8xB5pIZLqlVI7lKbdRRLYcsiABNHfZZZwFPGrDSLodXJ0ibH
+	06yNxsZu4x0MyFaBI2U3zNKJHs9yWT8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-590-atxDBA1OPuWQ6dLnukBEPA-1; Thu, 24 Dec 2020 11:14:29 -0500
-X-MC-Unique: atxDBA1OPuWQ6dLnukBEPA-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-240-XpSjWheZMeaXvivbsJU6Fw-1; Thu, 24 Dec 2020 13:58:07 -0500
+X-MC-Unique: XpSjWheZMeaXvivbsJU6Fw-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7F3F3107ACE8;
-	Thu, 24 Dec 2020 16:14:22 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E983B5D9C6;
-	Thu, 24 Dec 2020 16:14:17 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 4FACE1005513;
+	Thu, 24 Dec 2020 18:58:03 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6EE741F476;
+	Thu, 24 Dec 2020 18:58:00 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 72B3F4E58E;
-	Thu, 24 Dec 2020 16:14:08 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A6584180954D;
+	Thu, 24 Dec 2020 18:57:55 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 0BOGDwq4016145 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 24 Dec 2020 11:13:58 -0500
+	id 0BOIvljD032254 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 24 Dec 2020 13:57:47 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 883B410060FA; Thu, 24 Dec 2020 16:13:58 +0000 (UTC)
+	id 74695AB417; Thu, 24 Dec 2020 18:57:47 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8442C1111A5C
-	for <blinux-list@redhat.com>; Thu, 24 Dec 2020 16:13:56 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6E32FAB413
+	for <blinux-list@redhat.com>; Thu, 24 Dec 2020 18:57:45 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 284B2186E120
-	for <blinux-list@redhat.com>; Thu, 24 Dec 2020 16:13:56 +0000 (UTC)
-Received: from mail-qk1-f173.google.com (mail-qk1-f173.google.com
-	[209.85.222.173]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-444-cnhpBtk8OCKqZpjeD26AYA-1; Thu, 24 Dec 2020 11:13:54 -0500
-X-MC-Unique: cnhpBtk8OCKqZpjeD26AYA-1
-Received: by mail-qk1-f173.google.com with SMTP id 22so2369001qkf.9
-	for <blinux-list@redhat.com>; Thu, 24 Dec 2020 08:13:53 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
-	:mime-version:content-transfer-encoding:content-language;
-	bh=kzM8bNQ4trIB+GsVxEsatnzXOesvKmjj4i0scMwTALM=;
-	b=eI80rL2OfImdvY5I0N0TJw687iXL8z1hfr19Yj/TzdJicXlPxtvff9ZtwYw7guiv3y
-	/EB9B1nX0H8SPiXX2v2PF5yLfoCe+Jvt4sMbQZdeHTZxaMLoaVtarJC2OfLK6/UqPNri
-	fZ+rFkW1Mm6B3I5LvErnsFyQ3KNKhuTkOJAkHgXfjh8YPtBJdVhSwSRgOizpDssISEZ1
-	KrizAQHMNR8X2BTzBKx/cqpIqSmXMn1fil/ZNIGP51+aCjvT98U4PmcshfA9KlEslXBD
-	ycOifj8Rm5MdVTen0Adi4WVoLjC/4DiO44obHdg1iyRPSZ9dh99n5UkA8Qu5r2oAX5b5
-	1d4Q==
-X-Gm-Message-State: AOAM5326C2inpnOEyaKMK4G/OeTp9Cfkq+H6zxgo7YjSvfJroZmRtD1+
-	/wsMahItO3M52+sUjklvEfesoYJO+vU=
-X-Google-Smtp-Source: ABdhPJxUFv99uFCQgghK2uO6uuKlhyMG6tpfYPe84Zug3cZMNzi7Ag7ijtzSXX6GoDx8YPF6fqmrhQ==
-X-Received: by 2002:ae9:eb8b:: with SMTP id
-	b133mr31465821qkg.399.1608826433303; 
-	Thu, 24 Dec 2020 08:13:53 -0800 (PST)
-Received: from [192.168.0.64] (71-32-159-114.chyn.qwest.net. [71.32.159.114])
-	by smtp.gmail.com with ESMTPSA id
-	n4sm17005834qtl.22.2020.12.24.08.13.52 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 24 Dec 2020 08:13:52 -0800 (PST)
-To: blinux-list@redhat.com
-Subject: jack
-Message-ID: <27178e12-3650-cc8f-94c7-8749f1e6303c@gmail.com>
-Date: Thu, 24 Dec 2020 11:13:51 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
-	Thunderbird/78.6.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1DB0F811E78
+	for <blinux-list@redhat.com>; Thu, 24 Dec 2020 18:57:45 +0000 (UTC)
+Received: from gateway36.websitewelcome.com (gateway36.websitewelcome.com
+	[192.185.192.36]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-402-QNqF1Gy-P46VYxmttZdo_w-1; Thu, 24 Dec 2020 13:57:42 -0500
+X-MC-Unique: QNqF1Gy-P46VYxmttZdo_w-1
+Received: from cm13.websitewelcome.com (cm13.websitewelcome.com [100.42.49.6])
+	by gateway36.websitewelcome.com (Postfix) with ESMTP id B4563400D3DB0
+	for <blinux-list@redhat.com>; Thu, 24 Dec 2020 12:09:58 -0600 (CST)
+Received: from box2167.bluehost.com ([50.87.253.68]) by cmsmtp with SMTP
+	id sV3mk92dYoE4DsV3mkWavd; Thu, 24 Dec 2020 12:09:58 -0600
+X-Authority-Reason: nr=8
+Received: from [104.60.194.40] (port=49597 helo=BREWCREW)
+	by box2167.bluehost.com with esmtpsa (TLS1.2) tls
+	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+	(envelope-from <kelly@kellford.com>) id 1ksV3l-003Rhb-RU
+	for blinux-list@redhat.com; Thu, 24 Dec 2020 11:09:57 -0700
+To: <blinux-list@redhat.com>
+Subject: Getting Reacquainted with Linux
+Date: Thu, 24 Dec 2020 12:09:57 -0600
+Message-ID: <02c701d6da1f$fdf1c550$f9d54ff0$@kellford.com>
 MIME-Version: 1.0
+Thread-Index: AdbaFjE8viPEhHzmQ7ipUbj/FiBJTQ==
+X-AntiAbuse: This header was added to track abuse,
+	please include it with any abuse report
+X-AntiAbuse: Primary Hostname - box2167.bluehost.com
+X-AntiAbuse: Original Domain - redhat.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - kellford.com
+X-BWhitelist: no
+X-Source-IP: 104.60.194.40
+X-Source-L: No
+X-Exim-ID: 1ksV3l-003Rhb-RU
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: (BREWCREW) [104.60.194.40]:49597
+X-Source-Auth: kelly@kellford.com
+X-Email-Count: 1
+X-Source-Cap: a2VsbHlmb3I7a2VsbHlmb3I7Ym94MjE2Ny5ibHVlaG9zdC5jb20=
+X-Local-Domain: yes
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -90,8 +95,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -107,18 +113,41 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Language: en-us
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-So I managed to get some headway with jack. But when I still start the 
-server it takes orca over and I get no speech so I can't connect my 
-pulseaudio ports. I tryed what you said and still got no speech.
+Hi,
+
+ 
+
+It has been a while since I have created a Linux environment but I got a
+Debian install loaded by booting from a CD and using the talking installer
+that was one of the options.
+
+ 
+
+All that is great but now the install has finished and I'm trying to get
+Orca going.
+
+ 
+
+I've brought up the command entry with alt+f2 and entered orca.  If the
+screen reader is starting I'm not getting any speech output.  I've tried
+orca -s and can get the Orca preferences and speech and braille are both on.
+
+ 
+
+Does anyone have thoughts on what I might try here?
+
+ 
+
+Kelly
 
 _______________________________________________
 Blinux-list mailing list
