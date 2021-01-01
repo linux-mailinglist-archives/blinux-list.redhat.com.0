@@ -2,91 +2,98 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 4750A2E8347
-	for <lists+blinux-list@lfdr.de>; Fri,  1 Jan 2021 08:18:43 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id AD43D2E840A
+	for <lists+blinux-list@lfdr.de>; Fri,  1 Jan 2021 16:04:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1609485522;
+	s=mimecast20190719; t=1609513469;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=HGZmFpaLEsLtoGv3jMQ+ANYPq4ZscrHbu9yhNxkLwvY=;
-	b=KauvTHEnyvs6fUJZjMYY8g9nis4YzWVPvI3wvPw/+E9DbpyTKjt7pWleo+tRVZiDGTV2Qj
-	4LWT5/cJW7fdBhOn6RxSC1kzPeh+I2Mrb5Zptbf/O+Igf+sLw7cdKbLPwO4vwEIEQ339bq
-	xUWJfeo7qHf3FvaePyhRocGCDqseT70=
+	bh=ERyvDBdq7DV+NC5bPX1wAumCyY2OPo8lT/TZ3PUdP8g=;
+	b=Fucdn5ihilE/SGeMU2thRzBKP59dWmhA4mdj8erT21O8zxKsKf1sXQmu607gfeFVmynmP1
+	01o+LFX/hLMqHRUQhIodSARtL64Qn8P9L2U6cmGixRkSg8Auo8oHJdL0OY1SdmwGYseOXj
+	0nRZFdkGcaKqWu4UifiyP/t1aheuB1M=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-196-_zkAslxsPoiiXxjyKQVFCQ-1; Fri, 01 Jan 2021 02:18:40 -0500
-X-MC-Unique: _zkAslxsPoiiXxjyKQVFCQ-1
+ us-mta-340-z-2rBridMv2iokFbzNhhTA-1; Fri, 01 Jan 2021 10:04:27 -0500
+X-MC-Unique: z-2rBridMv2iokFbzNhhTA-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1C0D1107ACE3;
-	Fri,  1 Jan 2021 07:18:35 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 128088014C1;
+	Fri,  1 Jan 2021 15:04:23 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CDE975C230;
-	Fri,  1 Jan 2021 07:18:28 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 81B475C1D1;
+	Fri,  1 Jan 2021 15:04:20 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7831618095FF;
-	Fri,  1 Jan 2021 07:18:14 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0BEB618095FF;
+	Fri,  1 Jan 2021 15:04:10 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1017I4rv006383 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 1 Jan 2021 02:18:04 -0500
+	id 101F3xYn030048 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 1 Jan 2021 10:03:59 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 41FE0110F73D; Fri,  1 Jan 2021 07:18:04 +0000 (UTC)
+	id 2E4182166B2A; Fri,  1 Jan 2021 15:03:59 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3DEBE110F73C
-	for <blinux-list@redhat.com>; Fri,  1 Jan 2021 07:18:02 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 288172166B28
+	for <blinux-list@redhat.com>; Fri,  1 Jan 2021 15:03:55 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1A131185A794
-	for <blinux-list@redhat.com>; Fri,  1 Jan 2021 07:18:02 +0000 (UTC)
-Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com
-	[209.85.215.178]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-543-OgnvDZiEO_SXwISPMXJsWA-1; Fri, 01 Jan 2021 02:18:00 -0500
-X-MC-Unique: OgnvDZiEO_SXwISPMXJsWA-1
-Received: by mail-pg1-f178.google.com with SMTP id z21so14195712pgj.4
-	for <blinux-list@redhat.com>; Thu, 31 Dec 2020 23:17:59 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=+5fe4g9kGOv4lxxwLELbN+QbC9fWVcCHzKvK5Gz9abw=;
-	b=GXBCcHabaQcXNHN3PMRzEqULReK5cvleDIftYthm5x+iNlBw6ueajCojJWDSqMrxsK
-	kfBUeW/z5ZUnNNn6rKVZ4XXYgyAdnJT925g96kEScOXf6lFdLkwU7qk0ve+z/JcZNY2D
-	6kKAq7ztqN+IfsMWNcjnPY4HFq5eorC6GI9pZrRbVTj4/nbeJnULfi/CbATJ4FbWTP51
-	Xw3TcIiXewWcnPeMWzuwVI5lm6dyEq6jc7ZoE5yrjA9zCh8ol1MhtF2vW6YmmT2LlKKY
-	q4fcCwCbu/UH/GUxFTyzovzlU646OJcTXtrAFnxsHJjwCGbk+T5w8plWpSS49MDEvABV
-	yF/Q==
-X-Gm-Message-State: AOAM533wCHObpfaAptrf96erW3xm/6YV4sHxDqnKnynRA1PTnHxz1BOj
-	7a3qbkgq/6CGz1nqfzvBCPptJ57BYwgAzw==
-X-Google-Smtp-Source: ABdhPJw8NVAhcubG3VLcMbWBBX8qrBBOib/7fthlAJin/waBxHB7yNzRzOBjM9W5RwZGClHoqILv7A==
-X-Received: by 2002:a63:24c4:: with SMTP id
-	k187mr12189812pgk.238.1609485478708; 
-	Thu, 31 Dec 2020 23:17:58 -0800 (PST)
-Received: from [10.109.0.190] ([45.56.150.132])
-	by smtp.gmail.com with ESMTPSA id
-	f7sm12718307pjs.25.2020.12.31.23.17.57 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 31 Dec 2020 23:17:58 -0800 (PST)
-Subject: Re: Remote Desktop Under Linux
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6545F800140
+	for <blinux-list@redhat.com>; Fri,  1 Jan 2021 15:03:55 +0000 (UTC)
+Received: from gateway4.unifiedlayer.com (gateway4.unifiedlayer.com
+	[69.89.16.181]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-569-0CR1xh3NP5q7rw5p8ku6aw-1; Fri, 01 Jan 2021 10:03:52 -0500
+X-MC-Unique: 0CR1xh3NP5q7rw5p8ku6aw-1
+Received: from cm1.websitewelcome.com (unknown [192.185.0.102])
+	by gateway4.unifiedlayer.com (Postfix) with ESMTP id 94CF5200A11BE
+	for <blinux-list@redhat.com>; Fri,  1 Jan 2021 08:41:58 -0600 (CST)
+Received: from uscentral455.accountservergroup.com ([174.136.13.174])
+	by cmsmtp with ESMTP
+	id vLcskQuEXwLnQvLcskJLNj; Fri, 01 Jan 2021 08:41:58 -0600
+X-Authority-Reason: nr=8
+Received: from 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
+	([172.0.250.193]:45272 helo=bigbox.attlocal.net)
+	by uscentral455.accountservergroup.com with esmtpsa
+	(TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.91)
+	(envelope-from <blinux.list@thechases.com>) id 1kvLcs-000vgx-90
+	for blinux-list@redhat.com; Fri, 01 Jan 2021 08:41:58 -0600
+Date: Fri, 1 Jan 2021 08:41:56 -0600
 To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Remote Desktop Under Linux
+Message-ID: <20210101084156.4fe4a73d@bigbox.attlocal.net>
+In-Reply-To: <20201231234142.GA5255@rednote.net>
 References: <2e9e01d6dfbf$56add9f0$04098dd0$@kellford.com>
 	<20201231163535.72cc6332@bigbox.attlocal.net>
-Message-ID: <413a93bc-060e-e8f7-21b0-54d9e0c06e21@gmail.com>
-Date: Fri, 1 Jan 2021 00:17:57 -0700
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
-	Thunderbird/78.6.0
+	<20201231234142.GA5255@rednote.net>
 MIME-Version: 1.0
-In-Reply-To: <20201231163535.72cc6332@bigbox.attlocal.net>
+X-AntiAbuse: This header was added to track abuse,
+	please include it with any abuse report
+X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
+X-AntiAbuse: Original Domain - redhat.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - thechases.com
+X-BWhitelist: no
+X-Source-IP: 172.0.250.193
+X-Source-L: No
+X-Exim-ID: 1kvLcs-000vgx-90
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
+	(bigbox.attlocal.net) [172.0.250.193]:45272
+X-Source-Auth: tim@thechases.com
+X-Email-Count: 1
+X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
+X-Local-Domain: yes
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -95,7 +102,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Mimecast-Spam-Signature: yes
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -117,133 +125,32 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-what rdp client would you suggest?
+Tim here.  Indeed, as far as I know, VNC and `ssh -X` both convey the
+graphics without sound.  To do that, you'd need to run a sound-server
+on Windows
 
-On 12/31/2020 3:35 PM, Linux for blind general discussion wrote:
-> Tim here.  There are multiple ways to do remote access of which
-> Remote Desktop (RDP) is only one of them.  I've never tried to use
-> RDP to serve my Linux/BSD machines' GUI to another (Windows or
-> otherwise) machine.  However, I can confirm that if you're sitting at
-> the Linux/BSD machine, you can use RDP to access a remote Windows
-> machine.  However, accessibility may vary if you need access to
-> underlying accessibility data that a screen-reader might use.
->
-> For accessing a Linux/BSD machine's GUI from another machine, the two
-> most common ways I've encountered are to use VNC or to forward the X
-> protocol.  For the former, you'd install something like the
-> "tightvncserver" package on the Linux machine and install a VNC
-> viewer on your local machine.  You can then connect to it from your
-> local machine.  Note that this might leave your VNC/GUI login prompt
-> up for others to hammer on, so I'd either enable it via SSH manually
-> as-needed, or set up a secure tunnel (either a SSH tunnel or a VPN
-> tunnel) to the machine and ensure that VNC only listens on localhost.
->
-> In a similar fashion, if you have a local X server, you can use ssh's
-> "-X" parameter tunnel to the remote machine and open windows on your
-> local machine desktop. For example, issuing
->
->    local$ ssh -X user@remote.example.com
->
-> creates a virtual X connection on the remote server, and then when
-> SSH'ed into that machine, I can launch programs there that display
-> locally such as:
->
->    user@remote$ xcalc
->
-> Again, accessibility for either of them may be limited to the
-> graphics, so a screen-reader might face difficulty.  But a
-> screen-magnifier should still be of assistance.
->
-> Hope this helps,
->
-> -tim
->
->
->
-> On December 31, 2020, Linux for blind general discussion wrote:
->> Hi,
->>
->>   
->>
->> I have my ssh access and local GUI desktop working for my Linux
->> machine quite well.  I also have ssh access to a Linux machine on
->> the Microsoft Azure service working.
->>
->>   
->>
->> Before I go down the path of trying to get remote desktop access to
->> the GUI, does this actually work.
->>
->>   
->>
->> The article at Linux - Microsoft Azure
->> <https://portal.azure.com/#@kellykellford.onmicrosoft.com/resource/subscript
->> ions/968d4c66-18eb-48df-87b5-6d1918a03749/resourceGroups/linux/providers/Mic
->> rosoft.Compute/virtualMachines/linux/connect>  has details on what
->> you need to do to connect to the GUI for a machine running on
->> Azure.  I am hoping to use the Windows RDP client to connect and
->> just get the Gnome audio.  I know it won't be perfect.
->>
->>   
->>
->> If this does actually work, does anyone know the syntax to tell the
->> XRDP service on the Linux machine to use Gnome as the desktop
->> session?  The article shows this command but it is for a different
->> desktop.
->>
->>   
->>
->> Tell xrdp what desktop environment to use when you start your
->> session. Configure xrdp to use xfce as your desktop environment as
->> follows:
->>
->>   
->>
->> echo xfce4-session >~/.xsession
->>
->> Restart the xrdp service for the changes to take effect as follows:
->>
->> sudo service xrdp restart
->>
->>   
->>
->> Also, thanks for the answers to my other questions here.  I haven't
->> contributed much here but will offer one tidbit, on the off chance
->> anyone here is trying to use Microsoft Teams on Linux.  You have to
->> start the Linux version of Teams with the additional command line of
->> -force-renderer-accessibility.  This instructs Chrome and software
->> using Chromium, to ensure things go through the accessibility API.
->> If you don't, Orca won't read anything when Teams loads.  If you do
->> add this, Teams works fairly similar to how it does on other
->> platforms.
->>
->>   
->>
->> I know I do not post here often so in full disclosure, my day job
->> is working for Microsoft running  a service known as the enterprise
->> Disability Answer Desk that works to resolve accessibility issues
->> for business, government, education and other enterprise customers.
->>   I've wanted to understand how our technology works on Linux, where
->> we have it available.
->>
->>   
->>
->> Kelly
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://www.redhat.com/mailman/listinfo/blinux-list
->>
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://www.redhat.com/mailman/listinfo/blinux-list
->
+https://www.freedesktop.org/wiki/Software/PulseAudio/Ports/Windows/Support/
+
+and then configure your Linux audio to use that remote server for
+sound.  I'm afraid I can't be of much more help than directing you to
+the parts since I don't have a configuration in which I can test it.
+
+It might be suitable for streaming audio but I imagine that the audio
+latency would be pretty horrible making it difficult to use a
+screen-reader unless you have a great deal of patience.
+
+I know that the Remote Desktop (RDP) protocol has provisions for
+forwarding the audio too, though it requires a fairly high-bandwidth
+connection and would also be subject to latency concerns.
+
+-tim
+
+On December 31, 2020, Janina wrote:
+> I am unfamiliar with RDP. However, I believe the 'ssh -x' approach
+> onlyh conveys the graphics, not any audio associated with screen
 
 _______________________________________________
 Blinux-list mailing list
