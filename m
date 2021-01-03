@@ -1,69 +1,70 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id E05A12E8D6A
-	for <lists+blinux-list@lfdr.de>; Sun,  3 Jan 2021 18:05:49 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
+	by mail.lfdr.de (Postfix) with ESMTP id ACFDE2E8DC1
+	for <lists+blinux-list@lfdr.de>; Sun,  3 Jan 2021 19:25:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1609693548;
+	s=mimecast20190719; t=1609698339;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=4PEvbQoZwmzLD8dINLUqTmp4ce6ndMl5W88h6mFKZ9s=;
-	b=dJSQIq/Zob3q6tZ1cvhfjTuGbEEGNWxhZGTpSb0gYvAJgMD43zblgtvdbcRj8IzVtjzU6d
-	ikG5bE2y/1UDUCVfo5jGHHy6KAsdRt0MOzK5NAGFjTk76eS1YANfy3goqPjUoF2eGniq0Z
-	u1XRG6eS2sx5rkUKIv6OpzN2SXLIFg8=
+	bh=iNyDFZrOBy4jym9bO87cH1Fta5urRUhoc7LG7dY+X7M=;
+	b=eicgB1KhVeoFhYs++HMSr5eIIFSDABi8vM5fk4VUytPi5obkezT+3MsNJMBxIUdTaOGlti
+	k7Swie69zXnSf+Z+a/RugF2f0+hpcTTWkJBkhN+dzymIHG8GoDaz2Pz+xKc/7GENnaaWfW
+	t6YF8nG6SmeEV50t0NGbGLkbEGCia1E=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-187-iZXtVsP_OhSOVHnFfv-CEw-1; Sun, 03 Jan 2021 12:05:46 -0500
-X-MC-Unique: iZXtVsP_OhSOVHnFfv-CEw-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-270-XT0wGLjUNgekex3LtaM_tQ-1; Sun, 03 Jan 2021 13:25:37 -0500
+X-MC-Unique: XT0wGLjUNgekex3LtaM_tQ-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E47E410054FF;
-	Sun,  3 Jan 2021 17:05:41 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5CC3D180A095;
+	Sun,  3 Jan 2021 18:25:33 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 901C060C13;
-	Sun,  3 Jan 2021 17:05:41 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CED325F9C8;
+	Sun,  3 Jan 2021 18:25:30 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 928024BB7B;
-	Sun,  3 Jan 2021 17:05:35 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 419EA5002C;
+	Sun,  3 Jan 2021 18:25:23 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 103H5SVL032315 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 3 Jan 2021 12:05:29 -0500
+	id 103IPCfC006735 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 3 Jan 2021 13:25:13 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id C081C2166B2A; Sun,  3 Jan 2021 17:05:28 +0000 (UTC)
+	id CFAA77AD9; Sun,  3 Jan 2021 18:25:12 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BBF752166B27
-	for <blinux-list@redhat.com>; Sun,  3 Jan 2021 17:05:26 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C8EBA9D486
+	for <blinux-list@redhat.com>; Sun,  3 Jan 2021 18:25:10 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 523A1101A53F
-	for <blinux-list@redhat.com>; Sun,  3 Jan 2021 17:05:26 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-179-hajIsrjMPjieUox6RUMxWQ-1; Sun, 03 Jan 2021 12:05:24 -0500
-X-MC-Unique: hajIsrjMPjieUox6RUMxWQ-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4D84rg3jjBzYGm
-	for <blinux-list@redhat.com>; Sun,  3 Jan 2021 12:05:23 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4D84rg35d2zcbc; Sun,  3 Jan 2021 12:05:23 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4D84rg2v9yzcbV
-	for <blinux-list@redhat.com>; Sun,  3 Jan 2021 12:05:23 -0500 (EST)
-Date: Sun, 3 Jan 2021 12:05:23 -0500
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 818B9186E120
+	for <blinux-list@redhat.com>; Sun,  3 Jan 2021 18:25:10 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-382-ml-NnucrM4aNPugmtO0kpw-1;
+	Sun, 03 Jan 2021 13:25:06 -0500
+X-MC-Unique: ml-NnucrM4aNPugmtO0kpw-1
+Received: from darkstar.example.slint
+	(men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr [176.172.247.100])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 0A39BBE2FB
+	for <blinux-list@redhat.com>; Sun,  3 Jan 2021 18:16:31 +0100 (CET)
+Subject: Re: cli-party package
 To: blinux-list@redhat.com
-Subject: re: cli-party package
-Message-ID: <alpine.NEB.2.23.451.2101031201590.11812@panix1.panix.com>
+References: <alpine.NEB.2.23.451.2101031201590.11812@panix1.panix.com>
+Message-ID: <4693c1cb-57db-dd49-c2bd-1421d53467d8@slint.fr>
+Date: Sun, 3 Jan 2021 19:17:31 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
+In-Reply-To: <alpine.NEB.2.23.451.2101031201590.11812@panix1.panix.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -72,7 +73,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 103IPCfC006735
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -89,25 +92,36 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
-X-Mimecast-Spam-Score: 1
+X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-It turns out the package needed xidel and html2text.  I found that out by 
-analyzing a typescript file in which cli-party was run.  Only problem is I 
-installed html2text on slint and the cli-party game doesn't find 
-html2text.  Python is in such a mess now lots of things including pip 
-searches no longer work, so it may be necessary to give python some time 
-to sort its mess and for distros to get the replacement packages for all 
-of those deprecated packages.
-
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://www.redhat.com/mailman/listinfo/blinux-list
+SGksCgpUaGlzIHBhZ2U6Cmh0dHBzOi8vZ2l0bGFiLmNvbS9zdG9ybWRyYWdvbjI5NzYvY2xpLXBh
+cnR5Ly0vYmxvYi9tYXN0ZXIvY2xpLXBhcnR5Cm1lbnRpb25zIGFzIGRlcGVuZGVuY2llczoKYmMK
+ZGlhbG9nCmVzcGVhay1uZwpodG1sMnRleHQKc294CnhpZGVsCgpBbGwgYXJlIGluY2x1ZGVkIGlu
+IFNsaW50IGJ1dCBodG1sMnRleHQgYW5kIHhpZGVsIHRoYXQgeW91IGNhbiBnZXQKdXNpbmcgc2Jv
+cGtnCgpCZSBhd2FyZSB0aGF0IHhpZGVsIChtYWludGFpbmVkIGJ5IEIuIFdhdHNvbiBAIGh0dHBz
+Oi8vc2xhY2tidWlsZHNvcmcpCnJlcXVpcmVzIGZwYywgYWxzbyBhdmFpbGFibGUgZm9tIFNCby4K
+CkJlc3QgcmVnYXJkcywKCkRpZGllcgotLQpEaWRpZXIgU3BhaWVyClNsaW50IG1haW50YWluZXIK
+CkxlIDAzLzAxLzIwMjEgw6AgMTg6MDUsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Np
+b24gYSDDqWNyaXTCoDoKPiBJdCB0dXJucyBvdXQgdGhlIHBhY2thZ2UgbmVlZGVkIHhpZGVsIGFu
+ZCBodG1sMnRleHQuwqAgSSBmb3VuZCB0aGF0IG91dCAKPiBieSBhbmFseXppbmcgYSB0eXBlc2Ny
+aXB0IGZpbGUgaW4gd2hpY2ggY2xpLXBhcnR5IHdhcyBydW4uwqAgT25seSBwcm9ibGVtIAo+IGlz
+IEkgaW5zdGFsbGVkIGh0bWwydGV4dCBvbiBzbGludCBhbmQgdGhlIGNsaS1wYXJ0eSBnYW1lIGRv
+ZXNuJ3QgZmluZCAKPiBodG1sMnRleHQuwqAgUHl0aG9uIGlzIGluIHN1Y2ggYSBtZXNzIG5vdyBs
+b3RzIG9mIHRoaW5ncyBpbmNsdWRpbmcgcGlwIAo+IHNlYXJjaGVzIG5vIGxvbmdlciB3b3JrLCBz
+byBpdCBtYXkgYmUgbmVjZXNzYXJ5IHRvIGdpdmUgcHl0aG9uIHNvbWUgdGltZSAKPiB0byBzb3J0
+IGl0cyBtZXNzIGFuZCBmb3IgZGlzdHJvcyB0byBnZXQgdGhlIHJlcGxhY2VtZW50IHBhY2thZ2Vz
+IGZvciBhbGwgCj4gb2YgdGhvc2UgZGVwcmVjYXRlZCBwYWNrYWdlcy4KPiAKPiAKPiBfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1h
+aWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL3d3dy5yZWRoYXQu
+Y29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPiAKCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxp
+bnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL3d3dy5yZWRoYXQuY29tL21haWxtYW4vbGlzdGlu
+Zm8vYmxpbnV4LWxpc3Q=
 
