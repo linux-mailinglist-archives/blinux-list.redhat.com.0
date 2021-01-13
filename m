@@ -2,74 +2,85 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 265902F44DB
-	for <lists+blinux-list@lfdr.de>; Wed, 13 Jan 2021 08:10:46 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id C8ABC2F4914
+	for <lists+blinux-list@lfdr.de>; Wed, 13 Jan 2021 11:58:37 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1610521845;
+	s=mimecast20190719; t=1610535516;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=moUmPnJk9QW4OBc7Gi3Vy74AY8e45uvHdjk1LvbqPSM=;
-	b=GicGTSMZI9oWR8o0rsFkscRuPOTMup4+78DAA9pZGMJJnZF/cOvlcb7f7kq5vaVpynHJxe
-	bSR8JipqYrpoCYqx6rFIfztoWtfqm/h7l3NLAttDhZVQYYGp+DIPr9hcVUIz82mFoxHRCz
-	CQVPj1QiIunbfU78RFYGyALDPe8B/Q4=
+	bh=yHSuTJJ70VjRU7092h7RNuy4ZSLVzlVnFvN+8J8Hgww=;
+	b=b+fbILBrg56TtqjKGczFJrbdBTkTVW20AGHiEkdSpyvIErNX4MBYbaQzPJHsL0U7JA8HF6
+	ReiHP+wwwo8V/E8344ysC8PM7cRWZQaYzz29LZWxXVITONCa18A55H2OLXx3y+59e9n0ok
+	k8T4qGMr6rnBI+jI/nxdaTG/sFPiP1A=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-336-w050zQ1bOxaSFA-730qdQA-1; Wed, 13 Jan 2021 02:10:42 -0500
-X-MC-Unique: w050zQ1bOxaSFA-730qdQA-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-480-MYz21rJ1MX2nrA1FwTE8Ag-1; Wed, 13 Jan 2021 05:58:34 -0500
+X-MC-Unique: MYz21rJ1MX2nrA1FwTE8Ag-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 359158066E2;
-	Wed, 13 Jan 2021 07:10:39 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2A278C7400;
+	Wed, 13 Jan 2021 10:58:29 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F0AFA5C239;
-	Wed, 13 Jan 2021 07:10:37 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2985C100AE31;
+	Wed, 13 Jan 2021 10:58:26 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 16FCF4BB7B;
-	Wed, 13 Jan 2021 07:10:37 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 811F24BB40;
+	Wed, 13 Jan 2021 10:58:20 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 10D7AVYj032063 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 13 Jan 2021 02:10:32 -0500
+	id 10DAw9Hn021159 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 13 Jan 2021 05:58:09 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id A76CB2166B2C; Wed, 13 Jan 2021 07:10:31 +0000 (UTC)
+	id 25531C77FA; Wed, 13 Jan 2021 10:58:09 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A21FD2166B2B
-	for <blinux-list@redhat.com>; Wed, 13 Jan 2021 07:10:29 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1F7B5CF616
+	for <blinux-list@redhat.com>; Wed, 13 Jan 2021 10:58:06 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 25339811E84
-	for <blinux-list@redhat.com>; Wed, 13 Jan 2021 07:10:29 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-265-L4r3q0yYOjOeb3kCY1ZjxQ-1; Wed, 13 Jan 2021 02:10:26 -0500
-X-MC-Unique: L4r3q0yYOjOeb3kCY1ZjxQ-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4DFz9Z1WBYzSjc
-	for <blinux-list@redhat.com>; Wed, 13 Jan 2021 02:10:26 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4DFz9Z0vxNzcbc; Wed, 13 Jan 2021 02:10:26 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4DFz9Z0MRvzcbW
-	for <blinux-list@redhat.com>; Wed, 13 Jan 2021 02:10:26 -0500 (EST)
-Date: Wed, 13 Jan 2021 02:10:25 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Fwd: Does anyone on here read code in braille?
-In-Reply-To: <alpine.NEB.2.23.451.2101130145520.19038@panix1.panix.com>
-Message-ID: <alpine.NEB.2.23.451.2101130207450.27464@panix1.panix.com>
-References: <198C0090-F028-4CA8-BE77-B90F609E3433@ivytech.edu>
-	<A03EAED5-689D-45DB-892F-7DBDCBE70CA3@yahoo.com>
-	<alpine.NEB.2.23.451.2101130145520.19038@panix1.panix.com>
-MIME-Version: 1.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 41E76811E87
+	for <blinux-list@redhat.com>; Wed, 13 Jan 2021 10:58:06 +0000 (UTC)
+Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com
+	[209.85.160.174]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-504-dPZ85RutPZevJkdhtja4jw-1; Wed, 13 Jan 2021 05:58:04 -0500
+X-MC-Unique: dPZ85RutPZevJkdhtja4jw-1
+Received: by mail-qt1-f174.google.com with SMTP id y15so804686qtv.5
+	for <Blinux-list@redhat.com>; Wed, 13 Jan 2021 02:58:04 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:content-transfer-encoding:from:mime-version:date
+	:subject:message-id:to;
+	bh=zvA2rRiGgsHJtWw5Mb5+wbejTe8ExCtd/GLCC7Mb9dU=;
+	b=jtjygTf0Nyo9WlmKPpaMdR0gJOiXRAvMo4sW2+Yc0hQz2T9hIQp2rRw61+Lr0n4yAw
+	hbnjKFZYjIFlmpi3kYM3TYYVGOcpaLYKHXw300Hpn1u2VIYq7DnyQweRo9k8/KzxJ3u2
+	FyZZwPfIs2QiLcHYOAPr6KCB0op3mgD2HoBJ+YMXVc+i9Dax+xDMihg/6gB+QC7yPOGC
+	Xojchp+ss8FThl7SQP+JHfpGty0zB9dqfzIx1zUvlMtqd89QbMKm2BDiS8i1uDcvdPj5
+	0L0viyvrO0DLVFFyL3BcKifn3q+KnHF5QjXe6kMbXquSqqP+fXcN+YniISMRenRkqe+i
+	L8Tw==
+X-Gm-Message-State: AOAM531sBbmx/O1hTS/4VFklf2PoANFhdxwjhBRIPL7FwHzxdkVQMJRQ
+	H0AKATHnplbwG8Vx6sZ9mzBEzVDhaKg=
+X-Google-Smtp-Source: ABdhPJxWAE3LH4Uj+0h1I87IjbcNI5XN1lAGKZp0G7hU0IEtUxg3I76vIWIodUpLFBrlzOqNNowtYg==
+X-Received: by 2002:ac8:bc8:: with SMTP id p8mr1500637qti.135.1610535483527;
+	Wed, 13 Jan 2021 02:58:03 -0800 (PST)
+Received: from ?IPv6:2603:9002:306:2200:a4d4:75d1:250d:48ad?
+	(2603-9002-0306-2200-a4d4-75d1-250d-48ad.inf6.spectrum.com.
+	[2603:9002:306:2200:a4d4:75d1:250d:48ad])
+	by smtp.gmail.com with ESMTPSA id l20sm764660qtu.25.2021.01.13.02.58.02
+	for <Blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Wed, 13 Jan 2021 02:58:02 -0800 (PST)
+Mime-Version: 1.0 (1.0)
+Date: Wed, 13 Jan 2021 04:58:02 -0600
+Subject: Fwd: Does anyone on here read code in braille?
+Message-Id: <3F62765C-1C87-4A27-BBB9-C648DEF35090@gmail.com>
+To: Blinux-list@redhat.com
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -78,9 +89,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 10D7AVYj032063
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -97,46 +106,22 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-VGhlIG9ubHkgbXVsdGktbGluZSBicmFpbGxlIGRpc3BsYXlzIGFyZSB2ZXJ5IGV4cGVuc2l2ZS4g
-IEV2ZW4gdGhlIApzaW5nbGUtbGluZSBkaXNwbGF5cyBhcmUgZXhwZW5zaXZlIGJ1dCBtb3N0IGJy
-YWlsbGUgZGlzcGxheXMgaW4gdXNlIGFuZCBvbiAKdGhlIG1hcmtldCBhcmUgc2luZ2xlLWxpbmUg
-ZGlzcGxheXMuICBXaGVuIEkgcmVhZCBjb2RlIGFuZCBicmFpbGxlIEkgb25seSAKdXNlIG15IGZp
-bmdlcnRpcHMgdG8gZG8gdGhhdCBhbmQgSSBkbyBub3QgaGF2ZSBnbHVjb3NlIHRlc3RpbmcgZG9u
-ZSBvbiAKdGhvc2UgZmluZ2VycyBlaXRoZXIuICBHb29kIHdheSB0byBsb29zZSBzZW5zaXRpdml0
-eSBoYXZpbmcgaW5kZXggZmluZ2VycyAKcG9rZWQuCgoKCk9uIFdlZCwgMTMgSmFuIDIwMjEsIExp
-bnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cgo+IFllcywgSSByZWFkIGNv
-ZGUgaW4gYnJhaWxsZS4gIEkgdXNlIGJyYWlsbGUgcGFwZXIgYXMgYSBkaXNwbGF5IHNpbmNlIGhh
-dmVuJ3QgCj4gaGFkIHRoZSBmdW5kcyBmb3IgdGhlIGVsZWN0cm9uaWMgdmVyc2lvbnMuICBXaGVu
-IEkgcmVhZCwgSSByZWFkIG9uZSBsaW5lIGF0IGEgCj4gdGltZS4KPgo+Cj4KPiBPbiBXZWQsIDEz
-IEphbiAyMDIxLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Cj4+
-IAo+Pgo+PiAgQXNobGV5Cj4+Cj4+ICBCZWdpbiBmb3J3YXJkZWQgbWVzc2FnZToKPj4KPj4+ICBG
-cm9tOiBBc2hsZXkgQnJlZ2VyIDxhYnJlZ2VyQGl2eXRlY2guZWR1Pgo+Pj4gIERhdGU6IEphbnVh
-cnkgMTMsIDIwMjEgYXQgMTI6MzU6MTkgQU0gQ1NUCj4+PiAgVG86IEFzaGxleSBCcmVnZXIgPGFz
-aGJyZWdlckB5YWhvby5jb20+Cj4+PiAgU3ViamVjdDogRndkOiBEb2VzIGFueW9uZSBvbiBoZXJl
-IHJlYWQgY29kZSBpbiBicmFpbGxlPwo+Pj4KPj4+Cj4+Pgo+Pj4gIEFzaGxleQo+Pj4KPj4+ICBC
-ZWdpbiBmb3J3YXJkZWQgbWVzc2FnZToKPj4+Cj4+Pj4gIEZyb206IEFzaGxleSBCcmVnZXIgPGFi
-cmVnZXJAaXZ5dGVjaC5lZHU+Cj4+Pj4gIERhdGU6IEphbnVhcnkgMTMsIDIwMjEgYXQgMTI6MjU6
-MTEgQU0gQ1NUCj4+Pj4gIFRvOiBMaW51eCA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4KPj4+PiAg
-U3ViamVjdDogRG9lcyBhbnlvbmUgb24gaGVyZSByZWFkIGNvZGUgaW4gYnJhaWxsZT8KPj4+Pgo+
-Pj4+ICDvu79IaSBndXlzIEkgd2FzIHdvbmRlcmluZyBpZiBhbnlvbmUgb24gaGVyZSByZWFkcyBj
-b2RlIGluIGJyYWlsbGU/IElmIHNvCj4+Pj4gIGRvIHlvdSByZWFkIGl0IGxpbmUgYnkgbGluZSBv
-ciBhcmUgeW91IGFibGUgdG8gcmVhZCBtdWx0aXBsZSBsaW5lcyBhdAo+Pj4+ICBvbmNlPyBBbmQg
-d2hhdCBkaXNwbGF5cyBkbyB5b3UgdXNlIGZvciByZWFkaW5nIGNvZGU/Cj4+Pj4KPj4+Pgo+Pj4+
-ICBBc2hsZXkKPj4gIF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCj4+ICBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4gIEJsaW51eC1saXN0QHJlZGhhdC5j
-b20KPj4gIGh0dHBzOi8vd3d3LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlz
-dAo+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+
-IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRw
-czovL3d3dy5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPgoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1h
-aWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vd3d3LnJlZGhhdC5jb20v
-bWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
+The canute display is cheap for a multi-line display.
+Nine lines of 40 cells I think.
+I have read some code in the past but not lately.
+
+--Brian Tew
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
 
