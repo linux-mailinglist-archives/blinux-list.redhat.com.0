@@ -1,73 +1,70 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id A4E842F5AE0
-	for <lists+blinux-list@lfdr.de>; Thu, 14 Jan 2021 07:46:59 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
+	by mail.lfdr.de (Postfix) with ESMTP id AB6312F60C3
+	for <lists+blinux-list@lfdr.de>; Thu, 14 Jan 2021 13:09:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1610606818;
+	s=mimecast20190719; t=1610626149;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Fb43ee27q4d5jSXGPupNrCEreinZKaU1VBL+IoxXu/Y=;
-	b=MFYbkPTIlOrgMsWaHdQXaU53BFnB0Hf264drmGk5JvVfnS0D+BzHRi8gKSB0+fioiNyAFi
-	oya/0/M5C95KiA+6T5kokEAZ0xeyiJusg+U8Om8rCv94uL5L6Va4rVKXn8vUVF+CcfkbgO
-	NiV8jA7GVX8e9dQx3O+4SPoXcInvYMs=
+	bh=7JYJgmy3CkwLDHQEbAqdG0W+2cc9hosm1p/XsEEsad0=;
+	b=hStqOJG2Qswhupp3bkRlgR4fess/DO5Dwv6Hd/bMAZhYGYtuOnFRMCWSzNX1ZCU9GlfzBX
+	54ogA6JhyTd75dpvFpjH1K1KP5p3eWMIItnOGKL1RSeN2yeSFwcM/M1U4AtcrzVq41d5Ky
+	Y06tb3te4JXkbO5CiX5Y/atzRHgG/Nw=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-575-Ah8H7x2ROSC2sI3ipnx_MQ-1; Thu, 14 Jan 2021 01:46:16 -0500
-X-MC-Unique: Ah8H7x2ROSC2sI3ipnx_MQ-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-40-rtV62DhxPIKI0bNxTWXIxw-1; Thu, 14 Jan 2021 07:09:06 -0500
+X-MC-Unique: rtV62DhxPIKI0bNxTWXIxw-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A2462806665;
-	Thu, 14 Jan 2021 06:46:11 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 3731310151E3;
+	Thu, 14 Jan 2021 12:09:01 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 23D2670497;
-	Thu, 14 Jan 2021 06:46:11 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 101805D6AD;
+	Thu, 14 Jan 2021 12:08:58 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C591C4A7C6;
-	Thu, 14 Jan 2021 06:46:09 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 959975002C;
+	Thu, 14 Jan 2021 12:08:54 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 10E6k3au011944 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 14 Jan 2021 01:46:03 -0500
+	id 10EC50Aj009579 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 14 Jan 2021 07:05:00 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 95BBB2166B2A; Thu, 14 Jan 2021 06:46:03 +0000 (UTC)
+	id 63398102044F; Thu, 14 Jan 2021 12:05:00 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8F4BD2166B2D
-	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 06:46:01 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5E6621020434
+	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 12:04:58 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 40CF9186E123
-	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 06:46:01 +0000 (UTC)
-Received: from mx2.simplelogin.co (mx2.simplelogin.co [94.237.125.28])
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0683F800296
+	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 12:04:58 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-207-oAwymloYNeWsrIoJ5ydsEA-1; Thu, 14 Jan 2021 01:45:57 -0500
-X-MC-Unique: oAwymloYNeWsrIoJ5ydsEA-1
-X-SimpleLogin-Client-IP: 2a04:3542:1000:910:8c7a:9cff:fe3c:20ac
-Received: from [172.17.0.8] (mx1.simplelogin.co
-	[IPv6:2a04:3542:1000:910:8c7a:9cff:fe3c:20ac])
-	by mx2.simplelogin.co (Postfix) with ESMTP id 4E4315DE0E
-	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 06:36:47 +0000 (UTC)
-In-Reply-To: <CAO2sX30taDZzLWFMKMZY-pzWhWqVKTm_ZbBku77tO5CAxKhJQg@mail.gmail.com>
-References: <161058501163.6.3631318214282253314.3039996@slmail.me>
-	<CAO2sX30taDZzLWFMKMZY-pzWhWqVKTm_ZbBku77tO5CAxKhJQg@mail.gmail.com>
-Subject: Re: How to activate a "clickable" icon?
-MIME-Version: 1.0
+	us-mta-437-3XCw7mluPwyzjDC3xOIBtw-1; Thu, 14 Jan 2021 07:04:55 -0500
+X-MC-Unique: 3XCw7mluPwyzjDC3xOIBtw-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4DGjfv3bHhz1dN6
+	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 07:04:55 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4DGjfv3M6czcbc; Thu, 14 Jan 2021 07:04:55 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4DGjfv3KXTzcbV
+	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 07:04:55 -0500 (EST)
+Date: Thu, 14 Jan 2021 07:04:55 -0500
 To: blinux-list@redhat.com
-Cc: blinux-list@redhat.com
-Message-ID: <161060620711.6.6273027773023556597.3043286@slmail.me>
-Date: Thu, 14 Jan 2021 06:36:47 -0000
-X-SimpleLogin-Type: Reply
-X-SimpleLogin-EmailLog-ID: 3043286
+Subject: [arch-announce] Manual pages indexing service (fwd)
+Message-ID: <alpine.NEB.2.23.451.2101140704440.12318@panix1.panix.com>
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -76,9 +73,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
-X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -94,17 +90,37 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hey,
-Thank you so much for those detailed shortkeys. Orca key, which is capslock on my laptop, so capslock and 7 activated that clickable icon.
-Thank you so much!
+
+
+---------- Forwarded message ----------
+Date: Wed, 13 Jan 2021 21:45:21
+From: "Arch Linux: Recent news updates: Sven-Hendrik Haase via arch-announce"
+     <arch-announce@lists.archlinux.org>
+To: arch-announce@archlinux.org
+Cc: "Arch Linux: Recent news updates: Sven-Hendrik Haase"
+     <arch-announce@archlinux.org>
+Subject: [arch-announce] Manual pages indexing service
+
+We are happy to announce our newest public service: A manual pages indexing site at [man.archlinux.org](https://man.archlinux.org) that publishes the man pages of all our packages and allows you to [search](https://man.archlinux.org/search) and [browse](https://man.archlinux.org/listing) them. Check out, for example, the [man page of tar](https://man.archlinux.org/man/core/tar/tar.1.en).
+
+You can also find this service linked to in the sidebar as well as on every package detail page. Thanks to Wiki Admin [lahwaacz](https://wiki.archlinux.org/index.php/User:Lahwaacz) for developing [archmanweb](https://gitlab.archlinux.org/archlinux/archmanweb) for this purpose.
+
+While there are other man page indexing sites out there, it is our hope that publishing man pages matching the versions of our released packages further improves Arch accessibility and documentation.
+
+URL: https://www.archlinux.org/news/manual-pages-indexing-service/
+_______________________________________________
+arch-announce mailing list
+arch-announce@lists.archlinux.org
+https://lists.archlinux.org/listinfo/arch-announce
+
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
