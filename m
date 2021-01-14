@@ -2,68 +2,83 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id B3C212F55AB
-	for <lists+blinux-list@lfdr.de>; Thu, 14 Jan 2021 01:51:28 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id 9B22D2F55C2
+	for <lists+blinux-list@lfdr.de>; Thu, 14 Jan 2021 02:19:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1610585487;
+	s=mimecast20190719; t=1610587140;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=5hQ9sROlIlpCZZ3bCYCJdNC+ItCG/jKGcWuE/JROTNI=;
-	b=WsAH0+PmMaIYPqEgrZGHXuHIfdxF3kZnmehxy0Ea/MmnRw0Mqf/41te5yCt8BBYvkpCIkF
-	LdPqhlHhYqx5zvYypqnWFMLr4vInyFWUH6FQXyZio3pLQFiJnPRVx7MzimC0t/+dua1yLn
-	KbT3K7jAIiJgtgXiPbyQpCowk20Kdi0=
+	bh=jywUHTMHb9Oa+Z9y1X8hsw4HDyYy8Plub8oaIFM1Ywg=;
+	b=QHU+4GxvFflAW1+sruXz++KyY6f0qSf6/euyNJXtZgTrtdyZ85y/1cuhC250fZBZ4ZrtP1
+	tDfmt3hTV/Nt4UE0QlJrFdkJqdJYVB7205b5+6LCGo0NnjuvxvrsMJaOuDsxfePugb0Eo2
+	DhTm4+0UZxe1jSancPVCshR2m8ys3Co=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-454-O5b51-BlPvqTNUbtXKejsQ-1; Wed, 13 Jan 2021 19:51:24 -0500
-X-MC-Unique: O5b51-BlPvqTNUbtXKejsQ-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-420-Eu7xpX-wOmSk63FrmFD0Bg-1; Wed, 13 Jan 2021 20:18:54 -0500
+X-MC-Unique: Eu7xpX-wOmSk63FrmFD0Bg-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8308615725;
-	Thu, 14 Jan 2021 00:51:19 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 12F731005D50;
+	Thu, 14 Jan 2021 01:18:47 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9E2A46F959;
-	Thu, 14 Jan 2021 00:51:18 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 83A8160BF1;
+	Thu, 14 Jan 2021 01:18:46 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id DE020180954D;
-	Thu, 14 Jan 2021 00:51:15 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1B349180954D;
+	Thu, 14 Jan 2021 01:18:45 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 10E0p1Ie012512 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 13 Jan 2021 19:51:01 -0500
+	id 10E1IduH014771 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 13 Jan 2021 20:18:40 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 765182166B2C; Thu, 14 Jan 2021 00:51:01 +0000 (UTC)
+	id C944C10F8E22; Thu, 14 Jan 2021 01:18:39 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 713102166B2A
-	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 00:50:59 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C4F8910F8E1F
+	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 01:18:37 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 79708811E76
-	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 00:50:59 +0000 (UTC)
-Received: from mx2.simplelogin.co (mx2.simplelogin.co [94.237.125.28])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-373-3UkeVI1DPduX7Zbr_xvZEw-1; Wed, 13 Jan 2021 19:50:56 -0500
-X-MC-Unique: 3UkeVI1DPduX7Zbr_xvZEw-1
-X-SimpleLogin-Client-IP: 2a04:3542:1000:910:8c7a:9cff:fe3c:20ac
-Received: from [172.17.0.9] (mx1.simplelogin.co
-	[IPv6:2a04:3542:1000:910:8c7a:9cff:fe3c:20ac])
-	by mx2.simplelogin.co (Postfix) with ESMTP id CD90B5E18D
-	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 00:43:31 +0000 (UTC)
-Subject: How to activate a "clickable" icon?
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 55F38800140
+	for <blinux-list@redhat.com>; Thu, 14 Jan 2021 01:18:37 +0000 (UTC)
+Received: from mail-ua1-f41.google.com (mail-ua1-f41.google.com
+	[209.85.222.41]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-219-B5m-y38qOdihGeGBqIHTbw-1; Wed, 13 Jan 2021 20:18:35 -0500
+X-MC-Unique: B5m-y38qOdihGeGBqIHTbw-1
+Received: by mail-ua1-f41.google.com with SMTP id y21so1312022uag.2
+	for <blinux-list@redhat.com>; Wed, 13 Jan 2021 17:18:34 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=P5PBNe9gJBkbx/w8MSLKacMSWIa9p52xRa6Ihxfo/+c=;
+	b=aURpdyuBcHRHyDJUY+N5OLGXgvaiO03p2NVFREri+lMYMp0BP0EmQ6ohSDMeNmEYsA
+	T1dUXfzGHSQiAcZoAgKwod3S+eTEMpx7BDqBpMW6UMVJbR+bHrlT089cikBknlCKzsvC
+	0eyT62SuQDessfGABVZR88n3Lz3onCPsU8AbhxFEDAi1e3cc1pbuzjCgf1rO4zrET0Py
+	k2e6X5wRnEsSWMWBXWPVF9Elh6IHn4tPLZOkfLgynub7vLHdjI3EpGozsXUu9Mjohpta
+	sBXxAPCnA2g2+LpK6xbsWXOjAzn1A+6+wN18gLo61jyNk13Ufk3+Ztp9dBamYmJv6QBq
+	neeg==
+X-Gm-Message-State: AOAM5302ln0Gs0dn8eVkXdtdbYK8aAi/90yASWiyeC+qPLbKeczQvIEe
+	IjxVxl5+ilQWap6sM+EnZnLZi70mbvmi9jD+x2tCdcPhqb0=
+X-Google-Smtp-Source: ABdhPJzU2sd2xFa2rAvA8LdIDM+NCM+SOCqhNc0lyU/aPucTyRhWqvtvXuLBHLBK4RlryAyZjRsgAVLtLxbOXPMNQ38=
+X-Received: by 2002:ab0:2a1a:: with SMTP id o26mr4391094uar.101.1610587114393; 
+	Wed, 13 Jan 2021 17:18:34 -0800 (PST)
 MIME-Version: 1.0
+Received: by 2002:ab0:645:0:0:0:0:0 with HTTP;
+	Wed, 13 Jan 2021 17:18:33 -0800 (PST)
+In-Reply-To: <161058501163.6.3631318214282253314.3039996@slmail.me>
+References: <161058501163.6.3631318214282253314.3039996@slmail.me>
+Date: Thu, 14 Jan 2021 01:18:33 +0000
+Message-ID: <CAO2sX30taDZzLWFMKMZY-pzWhWqVKTm_ZbBku77tO5CAxKhJQg@mail.gmail.com>
+Subject: Re: How to activate a "clickable" icon?
 To: blinux-list@redhat.com
-Message-ID: <161058501163.6.3631318214282253314.3039996@slmail.me>
-Date: Thu, 14 Jan 2021 00:43:31 -0000
-X-SimpleLogin-Type: Reply
-X-SimpleLogin-EmailLog-ID: 3039996
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -72,9 +87,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
-X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -90,25 +104,55 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SGksCldoaWxlIG9ubGluZSBJIHdhcyBvbiBhIHNpdGUgdGhhdCBoYXMgbGlrZSBhIGZpbHRlciB5
-b3VyIG9wdGlvbnMgc2VnbWVudC4gSXQgaXMgYSBjbGlja2FibGUgaWNvbiB0aGF0IHNheXMgImZp
-bHRlciwgY2xpY2thYmxlIi4gCkl0IGlzIG5vdCBhIGxpbmssIGFuZCBub3QgYSBidXR0b24uIEl0
-IGlzIHNpbXBseSBhIGNsaWNrYWJsZSBpY29uIHRoYXQgc2F5cyAiZmlsdGVyLCBjbGlja2FibGUi
-LgpPbiBXaW5kb3dzIHdpdGggTlZEQSwgSSBjYW4gcHJlc3MgZW50ZXIgb24gdGhlIGNsaWNrYWJs
-ZSBpY29uwqAgYW5kIGl0IHdpbGwgb3BlbiB1cCB0aGUgY2hvaWNlcy4KQnV0IG9uIExpbnV4IE1p
-bnQgTUFURSB3aXRoIE9yY2EsIHdoZW4gSSBwcmVzcyBlbnRlciBvciBzcGFjZSBvbiB0aGUgImNs
-aWNrYWJsZSIgaWNvbiwgaXQgZG9lcyBub3RoaW5nLgpEbyB5b3UgZ3V5cyBrbm93IGlmIHRoZXJl
-IGlzIGEgc3BlY2lhbCBrZXkgY29tYmluYXRpb24gdG8gYWN0aXZhdGUgImNsaWNrYWJsZSIgcmVn
-aW9ucyB0aGF0IGFyZSBub3QgbGlua3MsIG5vdCBidXR0b25zLCBqdXN0IGNsaWNrYWJsZSBpY29u
-cz8KVGhhbmtzLApTTApfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRw
-czovL3d3dy5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
+A few things that might be helpful to know here:
+
+a is the navigational hot key to jump between clickables and is
+arguably the only one that isn't self-explanatory in English.
+
+shift+a jumps between clickables going backwards.
+
+alt+shift+a will bring up the list of clickables on the current page.
+Tabbing when you have the list open will cycle between the list
+itself, cancel, jump to, and activate. Pressing enter on cancel will
+close the list and put you where you where when you pressed
+alt+shift+a, jump to will close the list and take you to the selected
+clickable. Activate will simulate a left mouse click on the clickable.
+
+Orca+9 will move the mouse cursor to where Orca's reading cursor is.
+Orca+8 will simulate a right mouse click. This is usually redundant
+since the context menu key usually does the same thing.
+Orca+7 will simulate a left mouse click. This is useful when you need
+to click something that appears to be plain text. Can have unexpected
+results if you don't use Orca+9 first.
+
+Note: the above keystrokes work with the number row. I don't have a
+numpad, so I don't know if they work with the numpad as well. Orca
+refers to the Orca Key, which is usually set to insert(for desktop
+mode) or Caps lock(for Laptop mode)
+
+Orca+A will toggle between browse and focus mode... not sure if
+jumping to a clickable and switching to focus mode will make enter
+and/or space work on the clickable if it lacks explicit keyboard
+functions, but it's useful for entering/exiting things like text boxes
+and comboboxes while staying in the same place, so you might find it
+useful even if it doesn't help with clickables.
+
+I usually use the alt+shift+A method when I need to activate a
+clickable, usually after using a or shift+a to get to the right part
+of the page if there are multiple clickables on the page(bringing up a
+list of elements, clickables or otherwise, tends to make the
+highlighted list item the one closest to your current position).
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
 
