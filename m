@@ -1,85 +1,84 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id D37D5300CC0
-	for <lists+blinux-list@lfdr.de>; Fri, 22 Jan 2021 20:39:30 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 89356300D3C
+	for <lists+blinux-list@lfdr.de>; Fri, 22 Jan 2021 21:02:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1611344369;
+	s=mimecast20190719; t=1611345749;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=+pdcmsHRXov+s3Am/rSTUgYcRXYz6oqYtzEdjtx7f0s=;
-	b=TpD1O6p/VmESde1Os1E/Rt8ghO88Gl5tCjoTxvu9bGIg3CeVV6/PZrDvPJKwb3ixI7lGJd
-	jbwjoCSs2XagL7d/vqMGet+Qy6yFKB/yR2DFZEo/BliC6g8iPVYvo8HERdreDgaX5YrqF5
-	RxJjH1Skb8nyGRE/TU1SzG9zi360h6c=
+	bh=Kfrc7ocCu+8TWLw3/9d80Bprc3QBOSQpzp9qZOu8mow=;
+	b=e/86pl8i16L8gQmyNOHdxkx98fy1WsAxAicaZMDAnGZHosuu6pU893WqRwEDrd3RzTbiUr
+	nO4oVfFO0UUeRL6VQEmlsalLhb+biLX01aDCQZSx6Rs5164TenZWv4N/Gseg16qkNSOcvu
+	Qf+DW8MIxJfL9Q/CrwVCiUjni3mH0jM=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-554-4oN4CbcVMFupbjGnzRfVZg-1; Fri, 22 Jan 2021 14:39:28 -0500
-X-MC-Unique: 4oN4CbcVMFupbjGnzRfVZg-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-335-ThMQZ3FDPaqA8Zj0sH1Wrw-1; Fri, 22 Jan 2021 15:02:26 -0500
+X-MC-Unique: ThMQZ3FDPaqA8Zj0sH1Wrw-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C4705806661;
-	Fri, 22 Jan 2021 19:39:20 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7F40160855;
-	Fri, 22 Jan 2021 19:39:16 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 055808735D2;
+	Fri, 22 Jan 2021 20:02:22 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1F9DC60BE5;
+	Fri, 22 Jan 2021 20:02:21 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 12B3F18095FF;
-	Fri, 22 Jan 2021 19:39:06 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2210E4BB7B;
+	Fri, 22 Jan 2021 20:02:19 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 10MJcsv1026155 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 22 Jan 2021 14:38:54 -0500
+	id 10MK2DVZ029232 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 22 Jan 2021 15:02:13 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 01CF1101B54F; Fri, 22 Jan 2021 19:38:54 +0000 (UTC)
+	id 83D0C2166B32; Fri, 22 Jan 2021 20:02:13 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F08851031F26
-	for <blinux-list@redhat.com>; Fri, 22 Jan 2021 19:38:51 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7F0712166B2F
+	for <blinux-list@redhat.com>; Fri, 22 Jan 2021 20:02:11 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 32FF6858EEC
-	for <blinux-list@redhat.com>; Fri, 22 Jan 2021 19:38:51 +0000 (UTC)
-Received: from mail-oi1-f170.google.com (mail-oi1-f170.google.com
-	[209.85.167.170]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-464--e1UgjnJNM2f-g3BSDZS-Q-1; Fri, 22 Jan 2021 14:38:49 -0500
-X-MC-Unique: -e1UgjnJNM2f-g3BSDZS-Q-1
-Received: by mail-oi1-f170.google.com with SMTP id w8so7278535oie.2
-	for <blinux-list@redhat.com>; Fri, 22 Jan 2021 11:38:48 -0800 (PST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EAA6C858EEC
+	for <blinux-list@redhat.com>; Fri, 22 Jan 2021 20:02:10 +0000 (UTC)
+Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com
+	[209.85.222.181]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-318-IkEO5wg0MkGVSm2BwaGawQ-1; Fri, 22 Jan 2021 15:02:08 -0500
+X-MC-Unique: IkEO5wg0MkGVSm2BwaGawQ-1
+Received: by mail-qk1-f181.google.com with SMTP id h22so6400658qkk.4
+	for <blinux-list@redhat.com>; Fri, 22 Jan 2021 12:02:08 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:content-transfer-encoding:mime-version
-	:subject:message-id:date:to;
-	bh=YnZqIW0l4x1nlaFpV2yahvI6QpW4xwjDr4gU7Joketk=;
-	b=AovTThyX3O5PcYTsFDSWNQcnIiP9i6ywQdQm0FoDG+PKT3nIg0opl6rbuFxPxvx26Z
-	sMU9UsfnayPyKHXG726R+Bu9/3W7O5hDQhDuzqx2rfnK7OXfq+ul0KPt51JNyPFpk/6o
-	+ewfmAp7L7IyJyJsdHcBRory0uEOOoFrC/ItNiWfAwhvvr1DvXDT+RIrxqw/1rSbTYt4
-	0Oqhatsc8TNoMzayROkmcZFUB1Q4v0220LG+5nEZB5bjbHFkhRiAEv56MUWBrtdyHVvW
-	m46qubNlZIPqIs5SXCgrTXVUBGtzAnRbkOrSWL4YVwgl3EhLCzSXWG0Y9sC11T5GkGDI
-	JQyQ==
-X-Gm-Message-State: AOAM532ogL2PYuATgPUqlFkQ88cr3aZV9NnsfkfA7EU1sy315KQbR5xv
-	RK5vtF6AULj1FELeoImQ0kG+1Of6BL3pnA==
-X-Google-Smtp-Source: ABdhPJw6nth5x8zTq1AUhw55EXJZJrEbmw4Sx0LluiUC2RihH16l6G9CrKEeLii05Fmg76vW3269mg==
-X-Received: by 2002:aca:b5d6:: with SMTP id e205mr4310137oif.15.1611344328087; 
-	Fri, 22 Jan 2021 11:38:48 -0800 (PST)
-Received: from ?IPv6:2601:3c2:8200:9360:796d:88d0:db62:c65c?
-	([2601:3c2:8200:9360:796d:88d0:db62:c65c])
-	by smtp.gmail.com with ESMTPSA id
-	y84sm1944312oig.36.2021.01.22.11.38.46 for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-	Fri, 22 Jan 2021 11:38:47 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
-Subject: renaming many files
-Message-Id: <465180FE-6581-48FA-9EFD-23329FE3906A@gmail.com>
-Date: Fri, 22 Jan 2021 13:38:46 -0600
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=3SJInEZQrPmO7y/BR+FKN3QcCpDfWwqrs8RXnnCpg7Q=;
+	b=COXP6dRzDDVViuGzGJdvlb4KtE6K9Wlg7GBIDFgiLUcudQx5UwgcJhUWG9zVCAvMY3
+	t/yyysnR9u82EOdhF9ybvuTqoCPtBYe9Jp2uVlUWgKFQdoexK53Horn8c1M8BHv9qYCE
+	l387CEw5Q6wKmMwILAAU/HKUREn+qEap4+cm++Ukhkxt1qrAtpSSBwmEK5lf0hu3G9ts
+	PeB0oQTLs682yjm1HFM0SkDJduu8rb7/hRBJmdifJmVzrT60DMe+44R9W3GDHPeErMSV
+	CA0kyt6Tu0b6114cIepeM01uO8oTL2GuWsV169RASYc+1gi4ZdVnbr6dvsKukvNZn2mY
+	Aucg==
+X-Gm-Message-State: AOAM530Qnz7MlhDPXEL2EiCvXyrmnmSNUSbd0Y9iVC9UZrhYi6OMlqVg
+	xLT6lu7XDzbeMhoq79Y9gpSuqxHlZdUppsDhS40FXDbfNcA=
+X-Google-Smtp-Source: ABdhPJxMP80uRECRQlTPC0Hk5+uYI25j0d1laa+8ByoHo1VYl33aPHDHUX8Niz1ZUrsb4DkzuR0rSitnVxtEqDd6sAE=
+X-Received: by 2002:a37:6395:: with SMTP id x143mr6680218qkb.182.1611345728053;
+	Fri, 22 Jan 2021 12:02:08 -0800 (PST)
+MIME-Version: 1.0
+Received: by 2002:ad4:46c2:0:0:0:0:0 with HTTP; Fri, 22 Jan 2021 12:02:07
+	-0800 (PST)
+In-Reply-To: <465180FE-6581-48FA-9EFD-23329FE3906A@gmail.com>
+References: <465180FE-6581-48FA-9EFD-23329FE3906A@gmail.com>
+Date: Fri, 22 Jan 2021 20:02:07 +0000
+Message-ID: <CAO2sX33ZW1wJge7tbP_nfuu2OOyxy9gFyVKnTGSpaT=y-qdJXg@mail.gmail.com>
+Subject: Re: renaming many files
+To: blinux-list@redhat.com
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -88,9 +87,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 10MJcsv1026155
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -107,20 +104,42 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SSBoYXZlIG1hbnkgZmlsZXMgaW4gb25lIGRpcmVjdG9yeSB3aGljaCBoYXZlIHRoZSBzYW1lIHR3
-byB3b3JkcyBpbiB0aGUgYmVnaW5uaW5nIG9mIHRoZSBuYW1lLgpyZW5ld2FsIHRhbGsgMDEgZWF0
-aW5nIGJldHRlcgpyZW5ld2FsIHRhbGsgMDIgZXhlcmNpc2UKYW5kIHNvIG9uLgpXaXRoIHRoZSBj
-b21tYW5kIGxpbmUsIGlzIHRoZXJlIGEgd2F5IG9mIGdldHRpbmcgcmlkIG9mIOKAmHJlbmV3YWwg
-dGFsa+KAmSBmb3IgYWxsIGZpbGVzIGFuZCBrZWVwaW5nIHRoZSBvdGhlciB3b3JkcyBpbiB0aGVp
-ciBuYW1lcz8KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczov
-L3d3dy5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
+I'm not sure which package provides the command, but if you have
+rename.ul on your system, then
+
+rename.ul "[oldText]" "newText" *
+
+will replace the first instance of [oldText] with [newText] in every
+filename in the working directory.
+
+Naturally, you can replace * with, for example, *.txt if you only want
+to rename text files.
+
+If you just want to delete a common string, just make [newText] empty
+by putting two double quotes with nothign between them.
+
+Note: single quotes work as well for delimiting [oldText] and
+[newText], and if there's a dash(-) in either [oldText] or [newText],
+you'll need to include double dash(--) before them to avoid the shell
+trying to read the dashes as flag markers. Do note that rename.ul also
+only changes the first instance, so if you're using it to, for example
+replace underscores in web safe filenames with spaces, you'll need to
+run the command until all instances have been changed.
+
+There are other rename tools out there, but rename.ul is particularly
+good at removing a common prefix from a bunch of related files, which
+sounds like your situation.
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://www.redhat.com/mailman/listinfo/blinux-list
 
