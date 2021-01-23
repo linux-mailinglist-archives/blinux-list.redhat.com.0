@@ -1,69 +1,69 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 60D463013A4
-	for <lists+blinux-list@lfdr.de>; Sat, 23 Jan 2021 08:01:41 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 4414A301477
+	for <lists+blinux-list@lfdr.de>; Sat, 23 Jan 2021 11:11:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1611385300;
+	s=mimecast20190719; t=1611396713;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=dyJEjsaX8oEMUf3BxUFXw52wejbMx7liJXjukpm2MH4=;
-	b=AFxnNDi/x+EdJgNGCe0TXv1FubDp7Sa+vmHzvYuBSqGmbEixI0nDFs8IvK7HxDSGIkTeY1
-	CUc2cVYDThQ6TCUScPkXqlI/QqFlmQppEyTigYM2DBSjPTSuj8pcGXa8/RXUhrb2nrK9jc
-	A+eRcWZctQDWlSjIN/W30pLhgis+/gE=
+	bh=nxNoej2lPcTqwt9p2nyaqbDtA+XQE730pxlZe0Ub3aQ=;
+	b=Q0CxlLlH3p4Rz3nIdA0z8Er5yL7UIG1V04/hm5rCxoluE90FyqogpL+dnIhZ+nNAOCrx5M
+	ObndY1BaKTSMb7+ukVtVJA2kB7TLzMtexyPDzZBSfLEEhcCur0WG+kSoR1ue6kKIQU1kQG
+	wVDNNMeVItnw/Ugrx4+0smeNDOJFrGQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-102-mZRe9MJxMqeLGevhM8epGA-1; Sat, 23 Jan 2021 02:01:35 -0500
-X-MC-Unique: mZRe9MJxMqeLGevhM8epGA-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-111-VUK2uM-jPTmxKZo4GOR3Qw-1; Sat, 23 Jan 2021 05:11:50 -0500
+X-MC-Unique: VUK2uM-jPTmxKZo4GOR3Qw-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B7E4110054FF;
-	Sat, 23 Jan 2021 07:01:29 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4FF45100AE43;
-	Sat, 23 Jan 2021 07:01:27 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CBAA7E74F;
+	Sat, 23 Jan 2021 10:11:43 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id EEF3071CBF;
+	Sat, 23 Jan 2021 10:11:40 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5395D1809C9F;
-	Sat, 23 Jan 2021 07:01:21 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 40F284BB7B;
+	Sat, 23 Jan 2021 10:11:34 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 10N6wucq005218 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 23 Jan 2021 01:58:56 -0500
+	id 10NABNUD026325 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 23 Jan 2021 05:11:23 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id E4BE3E2A76; Sat, 23 Jan 2021 06:58:55 +0000 (UTC)
+	id 37EAB2166B2F; Sat, 23 Jan 2021 10:11:23 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id DFC47E77AB
-	for <blinux-list@redhat.com>; Sat, 23 Jan 2021 06:58:53 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 32CBA2166B27
+	for <blinux-list@redhat.com>; Sat, 23 Jan 2021 10:11:20 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 900F5811E76
-	for <blinux-list@redhat.com>; Sat, 23 Jan 2021 06:58:53 +0000 (UTC)
-Received: from nntp.AegisInfoSys.com (nntp.AegisInfoSys.com [65.242.138.29])
-	by relay.mimecast.com with ESMTP id us-mta-320-EdYD7WQGMRaxUHAJfkmAvQ-1;
-	Sat, 23 Jan 2021 01:58:51 -0500
-X-MC-Unique: EdYD7WQGMRaxUHAJfkmAvQ-1
-Received: (from henry@localhost) by nntp.AegisInfoSys.com (8.6.9/8.6.9) id
-	BAA12498 for blinux-list@redhat.com; Sat, 23 Jan 2021 01:58:49 -0500
-Date: Sat, 23 Jan 2021 01:58:48 -0500
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1E7F8811E76
+	for <blinux-list@redhat.com>; Sat, 23 Jan 2021 10:11:20 +0000 (UTC)
+Received: from mx2.simplelogin.co (mx2.simplelogin.co [94.237.125.28])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-426-fjvS298rPCCJKMaKeK734g-1; Sat, 23 Jan 2021 05:11:16 -0500
+X-MC-Unique: fjvS298rPCCJKMaKeK734g-1
+X-SimpleLogin-Client-IP: 2a04:3542:1000:910:8c7a:9cff:fe3c:20ac
+Received: from [172.17.0.8] (mx1.simplelogin.co
+	[IPv6:2a04:3542:1000:910:8c7a:9cff:fe3c:20ac])
+	by mx2.simplelogin.co (Postfix) with ESMTP id 457CD5D730
+	for <blinux-list@redhat.com>; Sat, 23 Jan 2021 10:05:57 +0000 (UTC)
+Subject: Is there an easy to use Equalizer for Ubuntu based Distros?
+MIME-Version: 1.0
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: renaming many files
-Message-ID: <20210123065835.GR12763@nntp.AegisInfoSys.com>
-References: <465180FE-6581-48FA-9EFD-23329FE3906A@gmail.com>
-	<20210122203026.GN12763@nntp.AegisInfoSys.com>
-	<20210122154602.55d4e4a7@bigbox.attlocal.net>
-Mime-Version: 1.0
-In-Reply-To: <20210122154602.55d4e4a7@bigbox.attlocal.net>
-User-Agent: Mutt/1.4.2.3i
+Message-ID: <161139635710.6.15346525701550806542.3266624@slmail.me>
+Date: Sat, 23 Jan 2021 10:05:57 -0000
+X-SimpleLogin-Type: Reply
+X-SimpleLogin-EmailLog-ID: 3266624
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -72,8 +72,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -89,40 +90,25 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-i disagree. that's not a small issue, it's a big issue.
-
-everyone, please read the correction about the asterisk and quotes.
-
-sorry for the blooper.
-
-On Fri, Jan 22, 2021 at 15:46:02PM -0600, Linux for blind general discussion wrote:
-> On January 22, 2021, Linux for blind general discussion wrote:
-> >    rename -v -n 's/^renewal talk //' "renewal talk *"
-> 
-> One small issue here...you will likely need the asterisk outside the
-> quotes:
-> 
->   rename -v -n 's/^renewal talk //' "renewal talk "*
-> 
-> otherwise, this is my favorite solution for doing such renames.
-> 
-> If you use bash as your shell, you can even use the caret notation to
-> remove the -n when you're ready to run
-> 
->   $ ^-n
-> 
-> -tim
-> 
-
+Hey guys,
+I'm looking for an equalizer for Ubuntu based Distros that I can use to adjust the bass.
+I tried Pulse Effects but it made my TTS synth sound all crackly.
+I was hoping that an equalizer would be included in alsamixer but it doesn't seem like it.
+In doing some searches it seems like I would have to install an additional plugin called alsaequal.
+But after you install alsaequal, you apparently have to configure it in a conf file.
+I don't know how to edit conf files yet and I was hoping for a simpler solution than that.
+I eventually want to learn how to edit conf files but that sounds like a big project just to get the equalizer to work and for now I'd prefer something that functions without extensive configuration.
+I was wondering if any of you know of an easy to use equalizer?
+Thanks,
+SL
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
