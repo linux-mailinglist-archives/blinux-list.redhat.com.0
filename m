@@ -1,69 +1,71 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 55708315ACB
-	for <lists+blinux-list@lfdr.de>; Wed, 10 Feb 2021 01:15:17 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 769B8315ADA
+	for <lists+blinux-list@lfdr.de>; Wed, 10 Feb 2021 01:17:43 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1612916116;
+	s=mimecast20190719; t=1612916262;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=+UFQSkN42n2CmPi63F9KMDXfpeW8Gr3olzK16iIaK4Q=;
-	b=OauP+fSRdi3PkLyRjOLHIMFaPsahrWYL+crje+2OAjv6865x5cFqwUsAOW2WFXuabdINR8
-	cjNxE7xjrhBOnffj2gLiCck/M0SAIJYi7YQ5UfxcxvCku6qQZB4biLcYtkLLhk6j7fK8fU
-	on+xXGxGTP7uL/OMFBe6+peu7innvlA=
+	bh=wq66lrBy5+0RD2w/IZnkakrFwXCbuwf/7371kcWZ+wg=;
+	b=DS+ypRQ3B1SAVAi3KT9yfZokB0yvIl2sVFGNVE9NvQuXHZXCMNMVVPF0A5IXjvkB4lljxI
+	R3KLHntvFP6pYmkBw+s5c2yZ4ngN4O6As3oeOhrZPyitKn47Sk4CG8HHsN2HgeHVOY5i8y
+	4oDXdouX8iXS6bsag3ZYaOXS01VDI6Q=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-534-EO335QaiOJChwqsukgf30Q-1; Tue, 09 Feb 2021 19:15:14 -0500
-X-MC-Unique: EO335QaiOJChwqsukgf30Q-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-599-qcmfMsxHMwmvI6u6sUDEIA-1; Tue, 09 Feb 2021 19:17:39 -0500
+X-MC-Unique: qcmfMsxHMwmvI6u6sUDEIA-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2E4C2189DF4E;
-	Wed, 10 Feb 2021 00:15:11 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1CE95801965;
+	Wed, 10 Feb 2021 00:17:35 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CCBB319C59;
-	Wed, 10 Feb 2021 00:15:10 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id F3E4C5D745;
+	Wed, 10 Feb 2021 00:17:34 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id F154F4E58E;
-	Wed, 10 Feb 2021 00:15:09 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 54A404E58E;
+	Wed, 10 Feb 2021 00:17:34 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 11A0F5ci009932 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 9 Feb 2021 19:15:05 -0500
+	id 11A0HUUh010288 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 9 Feb 2021 19:17:31 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 5332D2026D16; Wed, 10 Feb 2021 00:15:05 +0000 (UTC)
+	id D83071134CD2; Wed, 10 Feb 2021 00:17:30 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4E06D2026D11
-	for <blinux-list@redhat.com>; Wed, 10 Feb 2021 00:15:02 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D3D381134CC8
+	for <blinux-list@redhat.com>; Wed, 10 Feb 2021 00:17:27 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CD66C185A78E
-	for <blinux-list@redhat.com>; Wed, 10 Feb 2021 00:15:02 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 663C6801233
+	for <blinux-list@redhat.com>; Wed, 10 Feb 2021 00:17:27 +0000 (UTC)
 Received: from server2.shellworld.net (server2.shellworld.net
 	[66.172.12.120]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-547-Va8VojvSNmWW2NYSq6wN0w-1; Tue, 09 Feb 2021 19:15:00 -0500
-X-MC-Unique: Va8VojvSNmWW2NYSq6wN0w-1
+	us-mta-40-N6p8bAjrMMio4uRXoBb7zg-1; Tue, 09 Feb 2021 19:17:25 -0500
+X-MC-Unique: N6p8bAjrMMio4uRXoBb7zg-1
 Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id 50C32621C75; Wed, 10 Feb 2021 00:14:59 +0000 (UTC)
+	id 68717621C75; Wed, 10 Feb 2021 00:17:24 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id 4FDB3620222
-	for <blinux-list@redhat.com>; Tue,  9 Feb 2021 19:14:59 -0500 (EST)
-Date: Tue, 9 Feb 2021 19:14:59 -0500 (EST)
+	by server2.shellworld.net (Postfix) with ESMTP id 67A0C620222
+	for <blinux-list@redhat.com>; Tue,  9 Feb 2021 19:17:24 -0500 (EST)
+Date: Tue, 9 Feb 2021 19:17:24 -0500 (EST)
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: simple Ubintu question?
-In-Reply-To: <alpine.NEB.2.23.451.2102091850210.1378@panix1.panix.com>
-Message-ID: <Pine.LNX.4.64.2102091913540.25258@server2.shellworld.net>
+In-Reply-To: <CAO2sX33i8aRFCVssjX-LvVeprgUnXHiFhT8T6ruGJtWuQy+TTg@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.2102091917010.25258@server2.shellworld.net>
 References: <Pine.LNX.4.64.2102091827530.24393@server2.shellworld.net>
 	<alpine.NEB.2.23.451.2102091850210.1378@panix1.panix.com>
+	<CAO2sX33i8aRFCVssjX-LvVeprgUnXHiFhT8T6ruGJtWuQy+TTg@mail.gmail.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -73,7 +75,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -90,7 +92,7 @@ List-Subscribe: <https://www.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -98,41 +100,22 @@ X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Perhaps I need to ask that differently then.
-using what method of producing speech?
-sound cards are how the sound is made, not a tool like espeak or 
-something.
+..and there is my answer.
+Thanks.
 
 
 
-On Tue, 9 Feb 2021, Linux for blind general discussion wrote:
+On Wed, 10 Feb 2021, Linux for blind general discussion wrote:
 
-> It's whatever sound card ubuntu finds.
->
->
->
-> On Tue, 9 Feb 2021, Linux for blind general discussion wrote:
->
->>  Hi all,
->>  On another list an individual indicated that the desktop installation of
->>  Ubuntu allows for speech with a keystroke at the start.
->>  If this is correct, what is the synthesizer in use?
->>  thanks
->> 
->>
->>  _______________________________________________
->>  Blinux-list mailing list
->>  Blinux-list@redhat.com
->>  https://www.redhat.com/mailman/listinfo/blinux-list
->> 
->> 
->> 
+> I'm pretty sure most distros default to espeak or espeak-ng for
+> handling text-to-speech. Also, regardless of the TTS used on the back
+> end, Orca uses Speech Dispatcher as a go between between itself and
+> the TTS.
 >
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://www.redhat.com/mailman/listinfo/blinux-list
->
 >
 >
 
