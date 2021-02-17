@@ -1,107 +1,94 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 37C5131DDC6
-	for <lists+blinux-list@lfdr.de>; Wed, 17 Feb 2021 18:00:00 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 7D26831DDEB
+	for <lists+blinux-list@lfdr.de>; Wed, 17 Feb 2021 18:08:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1613581199;
+	s=mimecast20190719; t=1613581733;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 references:references:list-id:list-help:list-unsubscribe:
-	 list-subscribe:list-post; bh=6uU1GBoey1PrdsTGdgoTmHKrYvMHPe8YNym0LE+r+Pc=;
-	b=X8K/aPJH4p83HLCxyYD6h6oLul7+1iOCP6alwkbT9zuFXnbNVySAvt/bafncu5ES8HVadB
-	yK7cQ76gGiJ3H7GcVbBnaLEZcoTAMWXuH846z+qNbxVFHJz0Ipn/15AoH4KHZpXl7RlzYX
-	mQOcyRfufb31FpukULscFLMTPLGDyYk=
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 list-unsubscribe:list-subscribe:list-post;
+	bh=GhGv7zpD9TEdwoajl//RQHqkvnyTSUkH4ccYFeehHuw=;
+	b=aCrtV7TIstAte+doebKykSQzV0GfVlOVTYzTFCi17zEB8rh6Ls6YIA5t6N42ByZDWIctg7
+	6aqbNmuzM5eSJtaF9qDWcWK53qTP5NalkSZcsCqsMKtsM8i0EctdqubA5P22SkThFDopdM
+	25YIH8bEr4Vke8mZTRcGrQ4hCN0Rqus=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-322-xggb80_-O2SgMsulUcgSyA-1; Wed, 17 Feb 2021 11:59:56 -0500
-X-MC-Unique: xggb80_-O2SgMsulUcgSyA-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-111-gUtDchYfOXCJaaRNawgvJQ-1; Wed, 17 Feb 2021 12:08:51 -0500
+X-MC-Unique: gUtDchYfOXCJaaRNawgvJQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C40EA192CC44;
-	Wed, 17 Feb 2021 16:59:52 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6FC6F5C3E4;
-	Wed, 17 Feb 2021 16:59:52 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 4E7D5107ACE3;
+	Wed, 17 Feb 2021 17:08:47 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E9CB25D9C2;
+	Wed, 17 Feb 2021 17:08:46 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 08B6018095CB;
-	Wed, 17 Feb 2021 16:59:52 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C6BD858074;
+	Wed, 17 Feb 2021 17:08:45 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 11HGxll8001700 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 17 Feb 2021 11:59:47 -0500
+	id 11HH10e4001966 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 17 Feb 2021 12:01:01 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 4590310484A; Wed, 17 Feb 2021 16:59:47 +0000 (UTC)
+	id C4AC22026D46; Wed, 17 Feb 2021 17:01:00 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3FF2E10624F
-	for <blinux-list@redhat.com>; Wed, 17 Feb 2021 16:59:45 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BF350202F4F4
+	for <blinux-list@redhat.com>; Wed, 17 Feb 2021 17:00:57 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E46F8185A7BC
-	for <blinux-list@redhat.com>; Wed, 17 Feb 2021 16:59:44 +0000 (UTC)
-Received: from sonic310-14.consmr.mail.bf2.yahoo.com
-	(sonic310-14.consmr.mail.bf2.yahoo.com [74.6.135.124]) (Using TLS) by
-	relay.mimecast.com with ESMTP id us-mta-339-0bxD1uekNMCxMZOw3AE2nQ-1;
-	Wed, 17 Feb 2021 11:59:42 -0500
-X-MC-Unique: 0bxD1uekNMCxMZOw3AE2nQ-1
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048;
-	t=1613581182; bh=/z4ib9fMjCSzt0tVlESLI3OGHW00/pXZ6R4V4b+MjxB=;
-	h=X-Sonic-MF:From:To:Subject:Date:From:Subject;
-	b=A4mtwGw9hS+kfgSh+BfgS2FFfbFldyC+T7oIMFFeyvWW76aZFeST+M0bj6bwIPSWiUGYDjt85d17n7cO1uM9b9J5oXfx7+wkMblzmIDTcNnDc+snbRqIc8xhJqxUJojjslaU+td0f4haWTRQl3R1rEJS2LVgzQxrS1KE0UgspIhA5nd9S4GV5XFSqZWZwqiAGTtrX6C23JDQSJlf7xt7XP0yB7bsgM+06pfNkogRD4bzG197rf8REY+VxoX7J6OwSdV2YUsd2xXT0WmmZ4ZbVnMI92S+TIWScEVVEn3pgM7jqfKrPa4wpqeKYlQsHlql7uO7g/SIW5XBesLxlSGWdg==
-X-YMail-OSG: 01pg2XsVM1lX58Y1UYkpD1_PcTW5h4OiWijJo4NZwdA5_E4bETu7D0vhjMG4kQe
-	ivBhTx4_eeTYUZMj0WxSzUVCx2xhAbbKfMqJcz.Gql.wPdFaF_Ze969SHYBM9dZHvm1NUwaavfYm
-	tSXiH3ONKGPKhYNLz9L7m5qOJ3c_XO9d0C.lxbpFi.w1dCjoSu6q8MzYFS6SpJxfrlMeZ8uH.aZZ
-	tP8.ZyNEeDRemK920Sb1_yQbXWJ96DecvOQ5z4.LtDViHEukdS_76kwBOpQON6aikElwoWgYnxR9
-	rE1ZhkpMb7CWt1pOIBL_dEFzfXfy8yd0q0YgFhwhCZTIAgaGX6Hv.1LaZeDx6tro5OvlIIHqBOBg
-	Nj_jaF3FKQuU5T8w8SYrmCWZMhyRKP4Bkg12mg_VS78M2uV3W6Jc._.AYDc7c4NZ_Qw71FwZR.8A
-	31I1qFSLUEcht1gfnzItwsumaPsM4qaDDXeg.gfQ7NTLwGpAYLNdNY3542taMU9QHW3kGjoiSyLj
-	vTcRB0R9cfSC1dzKyAWi7WPwAreTy4psBLDFob.x5c76lXFijMXXB38WhVG7NqIc8QSOlhcvWH5J
-	t1vsTGsAwBfeeCVBljaiap4RGSwYo1QxLfE8iJ9rbn_Lq4kjoC7hwnr.ObWGdTNiLcuEdCYh8NpD
-	rn4b9FE8Q3c6AWrv6Y160.OL59Phm81ozmxGP8SD_Jf0.TSrJhtNbfo1LwkmtteMvQ6etWF9DvUx
-	gySMn42Li.3JJMA0hpN12PHHOqHM3jtD2VtdYvFsAiywdG1Ljhu_y_HoVAd.eD6HDi4ReVO6r5Sl
-	vXORYM3inxOJQ6UUrTq17QFC3I_rlDfm71E2dtSStpjgUhawFZPggR0JoWUKWHmFbPVVCTXLBYSZ
-	b8JbTJEO8dbj5EXKlcIXp9Ve01NSiBgn9utb4L.2Wkv8Zym0R_G1gWqedzWTQ2MxUV_eKVe.J.X0
-	VxMMMWEwPeGLWbBqRng8Wes0.tmulT9chVosx99RcK6WOJi8ZIpn0M35qIP5uSuz76b57y5DiRPU
-	dMJI4tmQ0fmp80zzSjNTf8IZ9wYXrHhleftOC8d8g8n4r1t16Cf6MFFrZCwx9WmAFi4ZQhZk5TtB
-	98Gb4f1.UJsILbmT8DSCKJyBV3sylQEsCy_PgoGd1DUG.20qUwTQrWP26Esr3xyGwZ7NDw07Q4y2
-	owISnNR8ozN39f3LvS9UrZVBQahjs9vr93BNrRSu7I3vlFXG6GfwwzoAKirDzrJ88rrsDf8OuYkf
-	iZStWRJJ6YWDMiWY4veqqRwf8pmeFr7iEny.dzoLIKGr22MgDht9MCUSbwfcsHAvYFLjR9jznb7J
-	wGPS1PC_KUpNsScnp7WCoJf5H7GORVUQysdFBB561YLipLK8kI19RaGI_zfjpnyYDrToE9BLEHI0
-	1K68VdIbq3hFbTYKBDTlNWGtNoEn00C.UaGMOZ5s.3ZwDijYwjl0pv8wSiWlBjxH_BXPlalhVbcg
-	736G.wCohouMUMkhReGM15A0iiafFwPULQoM.j9wwcv.ilS1VmyCgCazzMteC.9KI7NP3JqkKPV2
-	6.P4_diMCASpkGEJFbtOnmFaHAnl_zSTiyLnTaoREmtzJ9qycMNXmWvQG5IrgN6SWcO1RlTK_NrN
-	KmY3.3fnuHKpLKODhTn2NhsDwK17jPUepsloJGGN43rPremwGzujf1vcR93E9XVV88FmasebVipY
-	RsTVN4VIdzWnKA2ez.QiaUeS21ADXp436cGBW._JCsKr1tGctinAK53OJDWLunCfYEgf1DGDWnrN
-	0Cq9lbx95tnP_oVI5T5V5bjeAoo02GhVHdMc1nkv6uGp1pxDNcyVU30ZF17o7O.R9maF9s_qiY8j
-	tU1V_yNaOHnu3MNL2x6tJ_ohEzu9Y.2w98Xmp0.UZTO7Y.GtIjBPmJM_6VHojr8J78qVCEqE0tAV
-	ojdCHr1prg8OJKtZSuJwzZ9d78GeyLfocGBZN4bf0vA.P8P8UIim7_EFZ0sWMshybAwqQRU..CuS
-	NACvGeGLT8Zktsn3gDtVhIMsGh4MDBXJfzpqDh_4fUq6JQkX5xi78KRVFdk4wNqXwMwM7hZlMIeK
-	7PBmWigc7LwHs8eK2wBJ61xHrCKaHhBrX0t46K_VpFEaJWM9fK1kfJWbQSEKe8Sh.xSJBydu4PEZ
-	uTYaLU.KpvhlPzgppRRqw8K1KaABfm0JMV0Rv1DpZ.VvSDv3pL21wLcsL1MU6JR9LJUQjlRX7Ony
-	rwMu8LPq5bgUTAEchrHp.OwR_CTWBRGmKZ7EAQlikfi90t1At7CI-
-X-Sonic-MF: <ishechinyoka@yahoo.com>
-Received: from sonic.gate.mail.ne1.yahoo.com by
-	sonic310.consmr.mail.bf2.yahoo.com with HTTP;
-	Wed, 17 Feb 2021 16:59:42 +0000
-Received: by smtp406.mail.gq1.yahoo.com (VZM Hermes SMTP Server) with ESMTPA
-	ID 4dad09b74974639fe5c15ed401806baf; 
-	Wed, 17 Feb 2021 16:59:37 +0000 (UTC)
-User-agent: mu4e 1.4.15; emacs 27.1
-To: blinux-list@redhat.com
-Subject: Starting Ubuntu Linux in Text Mode with Speech
-Message-ID: <87tuqad40d.fsf@yahoo.com>
-Date: Wed, 17 Feb 2021 18:59:30 +0200
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7C6F78919C2
+	for <blinux-list@redhat.com>; Wed, 17 Feb 2021 17:00:57 +0000 (UTC)
+Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com
+	[209.85.210.169]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-18-Hr4DFpGyOeyg5wt7OSjlOg-1; Wed, 17 Feb 2021 12:00:55 -0500
+X-MC-Unique: Hr4DFpGyOeyg5wt7OSjlOg-1
+Received: by mail-pf1-f169.google.com with SMTP id q20so8787169pfu.8
+	for <blinux-list@redhat.com>; Wed, 17 Feb 2021 09:00:54 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:date:from:reply-to:to:subject:in-reply-to
+	:message-id:references:user-agent:mime-version;
+	bh=mGL0H1orVeLGTUuPHnfdBwq6RKUZKDyF6TH7XNVXXEU=;
+	b=Fqppawsu8/+rv9wcx3IG3FK9Hjdvigl7/+kLmtwV1t2mLr+div3IaXcJXdRZKwN9gq
+	puUhpQ2RPVJP8eTv+uWz95AljcIt+7yeugu06dPJZ7Poq1QGWW78sbKt8azpcjq3u51w
+	0QCW/K7ukH7EJFnn3UtpnqLJskEeeSu+PUiJ4zqkqySvWdeplQ3csONvWHFHkxumavv7
+	EpQMm1lFXgVf14wOOv3C+E2ajMO3O2jFhZPQgqlsDc8K1v63m9lGcnUSb1jbo+BdAmMR
+	LaC3SVSIkXsBcYPP8xcjJ6/ZysZDLnET3746VWra14zbVZqPFPjST3GwBMNJiYwPYCiw
+	dpzw==
+X-Gm-Message-State: AOAM5331GVo9APgjSRcTFbX4VKbSzcDlFEvRZBN3T6Av4c13G9Tl81BQ
+	YUTqBAsZM8uzhNK5r1JYc0fjwxLv2b8=
+X-Google-Smtp-Source: ABdhPJyabIhYw7wVxMatGeIDDkMasku6KEJrXkndgCkHDwrhVB7EhUfOJZ6bwIUWZlB4JC9XNfy7iA==
+X-Received: by 2002:a62:c302:0:b029:1d0:3720:328c with SMTP id
+	v2-20020a62c3020000b02901d03720328cmr222506pfg.48.1613581253693;
+	Wed, 17 Feb 2021 09:00:53 -0800 (PST)
+Received: from precision-M2800 (207-118-104-175.dyn.centurytel.net.
+	[207.118.104.175]) by smtp.gmail.com with ESMTPSA id
+	q18sm3365296pfg.72.2021.02.17.09.00.53 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+	Wed, 17 Feb 2021 09:00:53 -0800 (PST)
+Date: Wed, 17 Feb 2021 09:00:52 -0800 (PST)
+X-X-Sender: tom@precision-M2800
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Is this possible?
+In-Reply-To: <Pine.LNX.4.64.2102171145160.1320379@server2.shellworld.net>
+Message-ID: <alpine.DEB.2.22.394.2102170856360.36595@precision-M2800>
+References: <Pine.LNX.4.64.2102170148140.1176343@server2.shellworld.net>
+	<alpine.NEB.2.23.451.2102171111070.5642@panix1.panix.com>
+	<Pine.LNX.4.64.2102171119510.1319856@server2.shellworld.net>
+	<alpine.DEB.2.22.394.2102170827320.36595@precision-M2800>
+	<Pine.LNX.4.64.2102171145160.1320379@server2.shellworld.net>
+User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
 MIME-Version: 1.0
-References: <87tuqad40d.fsf.ref@yahoo.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -110,7 +97,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -127,37 +114,105 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi,
+Correct.  You can use a remote desktop application to get to a graphical 
+desktop (assuming the machine you are trying to get to is configured for 
+that).  Ssh is not a graphical relay though you can do some port 
+forwarding things to make it possible to use a remote desktop.
 
-I am running Ubuntu Linux 20.04 for the past twelve months. However, I
-am having problems when trying to set it to start in text mode with
-speech. Doing:
+As I really dislike graphical things I would hav to look up the setting 
+again but I do know that years ago I was able to use a remote desktop to 
+access both linux and windows machines.  If they require accessibility 
+then you have to have things like orca running on those machines and 
+forward sound.
 
-sudo systemctl set-default multi-user.target
+Tom
 
-will boot into text mode, but then there will be no speech. So My
-question is: Can we run Ubuntu in text mode with speech? For those who
-successfully booted into text mode, can you please share some tips on
-how I can configure my system to always run in text mode but with
-speech, whether it be Speakup or Fenrir? By the way, both of these are
-installed, but they are not triggered when I log in virtual console
-mode.
 
-Thanks in advance for your help,
+On Wed, 17 Feb 2021, Linux for blind general discussion wrote:
 
--- 
-Ishe
-
-Pure mathematics is, in its way, the poetry of logical ideas. :
-   Albert Einstein
+> ..ding ding ding!
+> And here is the answer.
+> You cannot   ssh  into  a graphical desktop.
+> which was actually the question.  I understood that one can do so with any 
+> shell, but since my associate was asking about reaching a graphical desktop, 
+> that was the focus of my question.
+>
+>
+>
+> On Wed, 17 Feb 2021, Linux for blind general discussion wrote:
+>
+>> As far as I know all additions of ubuntu have a shell of some sort.  All 
+>> the graphical stuff run on top of a shell.  If ssh is installed and 
+>> configured then you should be able to ssh into any version of ubuntu.  You 
+>> will, of course not have the graphical desktop.  I do this with virtual 
+>> machines all the time some running as servers without graphics and some 
+>> running a desktop.
+>> 
+>> Tom
+>> 
+>> 
+>> On Wed, 17 Feb 2021, Linux for blind general discussion wrote:
+>>
+>>>  I am not talking about shellworld, as I am using it now.
+>>>  In fact I  can ssh into shellworld from my DOS computer.
+>>>  However, shellworld is a shell, not a graphical desktop  edition of
+>>>  Ubuntu.
+>>>  same can be said for the shell dreamhost, who is the hosting service for
+>>>  my office, provides its clients.
+>>>  My question is related to an entirely different issue, where a work
+>>>  associate asked if one could do what I do, but into a strictly graphical
+>>>  desktop of Ubuntu.
+>>> 
+>>> 
+>>>
+>>>  On Wed, 17 Feb 2021, Linux for blind general discussion wrote:
+>>> 
+>>> >  shellworld.net is running ubuntu, so that ought to be possible unless > 
+>>> misconfigured.
+>>> > > >  On Wed, 17 Feb 2021, Linux for blind general discussion wrote:
+>>> > > >   Hi folks,
+>>> > >   Is it possible to ssh into a graphical desktop edition of Linux, > > 
+>>> Ubuntu
+>>> > >   for example?
+>>> > >   Karen
+>>> > > > > > >   _______________________________________________
+>>> > >   Blinux-list mailing list
+>>> > >   Blinux-list@listman.redhat.com
+>>> > >   https://listman.redhat.com/mailman/listinfo/blinux-list
+>>> > > > > > >  _______________________________________________
+>>> >  Blinux-list mailing list
+>>> >  Blinux-list@redhat.com
+>>> >  https://listman.redhat.com/mailman/listinfo/blinux-list
+>>> > > >
+>>>  _______________________________________________
+>>>  Blinux-list mailing list
+>>>  Blinux-list@redhat.com
+>>>  https://listman.redhat.com/mailman/listinfo/blinux-list
+>>> 
+>>> 
+>> 
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>> 
+>> 
+>> 
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
 
 _______________________________________________
 Blinux-list mailing list
