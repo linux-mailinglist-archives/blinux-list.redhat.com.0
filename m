@@ -2,81 +2,95 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 75D1D324902
-	for <lists+blinux-list@lfdr.de>; Thu, 25 Feb 2021 03:53:48 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id A0E2B324997
+	for <lists+blinux-list@lfdr.de>; Thu, 25 Feb 2021 04:50:44 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1614221627;
+	s=mimecast20190719; t=1614225043;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=k9bCNbs+/ot2/t4j0LMgcGYm2t2p9yRzrz95TgZCZEs=;
-	b=S4eCyy+Fyuq/YYc77V5KUvPG/CawcRLg8TcLcVOF3jF0QGsmQLi7ft/GMF5l6l3WTMjnC5
-	0mZiTjymzOe5JE0k7ACybZPZBBQeV62gtXdyvuDDrMHAlMc9F6mMDEBHIkI8Tti9gd8HlZ
-	Li12n32IgJUUFsNzD+nfkIaXbpKrvdo=
+	bh=Mo7xUkuuWd3gtf41UOgyhcaxyBtgDY5LW+JpsirX1Gs=;
+	b=bDVGzaPaTci8JpyuxVfHWZFwNnJSZIGg2CnBM2InNtXmMylqbt6nxOWVyaf3gpCoAp5Bil
+	8DCq4sOaMTFSYJ+VPfAKy3QKfqPLVVMb0eDLTCe46cwZ7GHB8QBEsSoSn5hwQ/Tr7iEwmj
+	lBY8a16D0obvAvmvSrGwTWDCQaffud4=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-396-yDMF_7fPNzS1Ju6TZpbh1w-1; Wed, 24 Feb 2021 21:53:45 -0500
-X-MC-Unique: yDMF_7fPNzS1Ju6TZpbh1w-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-506-JU8d8nTfPhqj55TxsZcOag-1; Wed, 24 Feb 2021 22:50:41 -0500
+X-MC-Unique: JU8d8nTfPhqj55TxsZcOag-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 089B5107ACF2;
-	Thu, 25 Feb 2021 02:53:42 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 17C4E5C23E;
-	Thu, 25 Feb 2021 02:53:41 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1645B10082F8;
+	Thu, 25 Feb 2021 03:50:37 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4DAA260855;
+	Thu, 25 Feb 2021 03:50:36 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 38E2D4E58E;
-	Thu, 25 Feb 2021 02:53:40 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C29A018095CB;
+	Thu, 25 Feb 2021 03:50:32 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 11P2rYM4002662 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 24 Feb 2021 21:53:34 -0500
+	id 11P3oORn009927 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 24 Feb 2021 22:50:24 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 75705202A422; Thu, 25 Feb 2021 02:53:34 +0000 (UTC)
+	id E2733202A422; Thu, 25 Feb 2021 03:50:23 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 70D2D2026D48
-	for <blinux-list@redhat.com>; Thu, 25 Feb 2021 02:53:31 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id DC6112026D48
+	for <blinux-list@redhat.com>; Thu, 25 Feb 2021 03:50:20 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 267BD9988E0
-	for <blinux-list@redhat.com>; Thu, 25 Feb 2021 02:53:31 +0000 (UTC)
-Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com
-	[209.85.160.171]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-202-NR5RPf1EOmKkz7eUf2Q5LA-1; Wed, 24 Feb 2021 21:53:29 -0500
-X-MC-Unique: NR5RPf1EOmKkz7eUf2Q5LA-1
-Received: by mail-qt1-f171.google.com with SMTP id f17so3138420qth.7
-	for <blinux-list@redhat.com>; Wed, 24 Feb 2021 18:53:29 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to:content-transfer-encoding;
-	bh=vTmfiDxOa5plrGhDhyLLm50rDuVN7w8mBUg+CQ6yVKg=;
-	b=uZ/WOs20phpH/5MipVif3QOtQo3gFaw2WNVmlCFk0jgUbi9S3I2NB1nlqcAx/PAY/O
-	Idg0eYdBciBZ2ANXXvhkcfntKndfCENAwd8imP50PBp61BsOzvuBC6PCYjBY0QXX8qS8
-	5ikg0c6OwfpFATS+oAWPADm/IItpv+C63rhaaDVOWWemuF9Kzkoo/0Dr5xz2Bb5lGM8J
-	loCA57dwMrUK4jBMZUBZqDGv6eVRAmx4Uvw0SFtejxYgc8fHkBkLdoRzO04lNbhx44NR
-	lA0/7Yc+8zfWbgud7p15jh14/GZzz5J3BguRoj1tFH/FBLKJomOWDM++VYO7D6BczBSo
-	hjRw==
-X-Gm-Message-State: AOAM532yejSuuzzuJYKne3PUGdJ7HcQFou7Byr4EbCFreBK5rpgxXC4F
-	pMfjafjGcfybywYIFwbRkE0++01J99GjKpoJzL5BQHNRUqChwg==
-X-Google-Smtp-Source: ABdhPJxQd8wcoMJxcFy6ynjhv1il2gAFubJrJf3UUQcDIZGzXOvRISRpI35DPnu8zNo7CAs4Y8+M3V/xD2mOa31v+rM=
-X-Received: by 2002:aed:2e42:: with SMTP id j60mr725258qtd.189.1614221608712; 
-	Wed, 24 Feb 2021 18:53:28 -0800 (PST)
-MIME-Version: 1.0
-References: <alpine.NEB.2.23.451.2102242144590.1365@panix1.panix.com>
-In-Reply-To: <alpine.NEB.2.23.451.2102242144590.1365@panix1.panix.com>
-Date: Wed, 24 Feb 2021 18:53:18 -0800
-Message-ID: <CAJ1g4g8wBF270d7E1xg+MY1yB_SvnqBdhkbzYPc0PrWGQf7q4A@mail.gmail.com>
-Subject: Re: cut or similar utility
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AC8678007D9
+	for <blinux-list@redhat.com>; Thu, 25 Feb 2021 03:50:20 +0000 (UTC)
+Received: from gateway2.unifiedlayer.com (gateway2.unifiedlayer.com
+	[69.89.25.8]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-490-vZgwiNXCMF6ZExEH1UlTtA-1; Wed, 24 Feb 2021 22:50:17 -0500
+X-MC-Unique: vZgwiNXCMF6ZExEH1UlTtA-1
+Received: from cm6.websitewelcome.com (unknown [108.167.139.19])
+	by gateway2.unifiedlayer.com (Postfix) with ESMTP id B9270200D63BB
+	for <blinux-list@redhat.com>; Wed, 24 Feb 2021 21:04:28 -0600 (CST)
+Received: from uscentral455.accountservergroup.com ([174.136.13.174])
+	by cmsmtp with ESMTP
+	id F6x2l69PLaJ23F6x2l2GnY; Wed, 24 Feb 2021 21:04:28 -0600
+X-Authority-Reason: nr=8
+Received: from 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
+	([172.0.250.193]:32018 helo=bigbox.attlocal.net)
+	by uscentral455.accountservergroup.com with esmtpsa
+	(TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.91)
+	(envelope-from <blinux.list@thechases.com>) id 1lF6x2-003RvY-ET
+	for blinux-list@redhat.com; Wed, 24 Feb 2021 21:04:28 -0600
+Date: Wed, 24 Feb 2021 21:04:26 -0600
 To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: cut or similar utility
+Message-ID: <20210224210426.427356b6@bigbox.attlocal.net>
+In-Reply-To: <alpine.NEB.2.23.451.2102242144590.1365@panix1.panix.com>
+References: <alpine.NEB.2.23.451.2102242144590.1365@panix1.panix.com>
+MIME-Version: 1.0
+X-AntiAbuse: This header was added to track abuse,
+	please include it with any abuse report
+X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
+X-AntiAbuse: Original Domain - redhat.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - thechases.com
+X-BWhitelist: no
+X-Source-IP: 172.0.250.193
+X-Source-L: No
+X-Exim-ID: 1lF6x2-003RvY-ET
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
+	(bigbox.attlocal.net) [172.0.250.193]:32018
+X-Source-Auth: tim@thechases.com
+X-Email-Count: 1
+X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
+X-Local-Domain: yes
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -85,9 +99,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
+X-Mimecast-Spam-Signature: yes
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 11P2rYM4002662
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -104,27 +117,62 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-T24gV2VkLCBGZWIgMjQsIDIwMjEgYXQgNjo0NiBQTSBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBk
-aXNjdXNzaW9uCjxibGludXgtbGlzdEByZWRoYXQuY29tPiB3cm90ZToKPgo+IGlzIGN1dCBvciBh
-IHNpbWlsYXIgdXRpbGl0eSBvbmNlIHBhc3NlZCBhIGZpbGUgYWJsZSB0byBhbmFseXplIHRoZSBm
-aWxlCj4gYW5kIHJldHVybiB0aGUgbnVtYmVyIG9mIGZpZWxkcyBpbiB0aGF0IGZpbGUgaXQgY291
-bGQgZmluZD8KCjxodHRwczovL3d3dy5nb29nbGUuY29tL3NlYXJjaD9xPUxpbnV4K2hvdyt0bytj
-b3VudCtmaWVsZHMraW4rYStmaWxlJnJsej0xQzFHRVdHX2VuVVM5MzRVUzkzNCZvcT1MaW51eCto
-b3crdG8rY291bnQrZmllbGRzK2luK2ErZmlsZSZhcXM9Y2hyb21lLi42OWk1N2o2OWk2NC4xMDU0
-MmowajQmc291cmNlaWQ9Y2hyb21lJmllPVVURi04TD4KCi0tIApbTm90aWNlIG5vdCBpbmNsdWRl
-ZCBpbiB0aGUgYWJvdmUgb3JpZ2luYWwgbWVzc2FnZTogIFRoZSBVLlMuIE5hdGlvbmFsClNlY3Vy
-aXR5IEFnZW5jeSBuZWl0aGVyIGNvbmZpcm1zIG5vciBkZW5pZXMgdGhhdCBpdCBpbnRlcmNlcHRl
-ZCB0aGlzCm1lc3NhZ2UuXQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICDCr1xfKOODhClfL8KvCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhh
-dC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgt
-bGlzdA==
+Tim here.  Awk will get you where you want to go.  The "NF" variable
+contains the number of fields on any given row, so if you just want
+the number of fields in the first row:
+
+  $ awk '{print NF; exit}' file.txt
+
+However, if your rows can have differing numbers of fields, it gets a
+bit more complex.  Do you want the number of fields in the longest
+one?
+
+  $ awk 'NF>m{m=NF}END{print m}' file.txt
+
+The shortest one?
+
+  $ awk 'NF<m || NR==1{m=NF}END{print m}' file.txt
+
+The stats on each of them?
+
+  $ awk '{++a[NF]}END{for (k in a) print a[k], k}' file.txt | sort -n
+
+(that's the count followed by the number of fields, sorted by
+increasing frequency)
+
+By default awk considers things "fields" if they're separated by one
+or more spaces or tabs, but you can change the delimiter by passing
+the -F option, so if your file is delimited by colons, you could use:
+
+  $ awk -F":" '{print NF; exit}' /etc/passwd
+
+Hopefully that gives you some material to start with.  I'm a bit of
+an awk junkie, so if one of those doesn't work for you, let me know
+and I can tweak it pretty readily.
+
+-Tim
+
+On February 24, 2021, Linux for blind general discussion wrote:
+> is cut or a similar utility once passed a file able to analyze the
+> file and return the number of fields in that file it could find?
+> 
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
