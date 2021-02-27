@@ -1,92 +1,75 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 6EB81326F76
-	for <lists+blinux-list@lfdr.de>; Sat, 27 Feb 2021 23:45:15 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id AE067326F79
+	for <lists+blinux-list@lfdr.de>; Sat, 27 Feb 2021 23:51:29 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1614465914;
+	s=mimecast20190719; t=1614466288;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=daNUK3RFEVJz0NRrIrzT4s9hxomEcC00soqPMTEuRmM=;
-	b=hmVliGuPt2VlRfrEa9es1L1crma/x6XuiMcMdzHa0bG0pI6BHN6myICs3iyxfbCclyaGOP
-	mAKYQqZePM1bbURi7av8ddtFscJsRgYx4JeNIf0RK7h7fqY5EprZH9JpSFcj96bO84JWGH
-	6pDqSyMrNKHS8IgHk17sk/WJ6CRwaOI=
+	bh=2CIOoQZbeLiTh3wmyBbuw13SB9T+am1FtwLJp7Qo/pw=;
+	b=S47kEc2FI1f0U0lWyUB61oPtnZvL5g9sOlWXSw6FQ4utlMl5BBr9VX6ZM2ANURODXmfXMJ
+	5V1pn8EU8p2S22gpqCM57/RJUQ6rjUslN5Jx9as/sAYbJy7OhyjGda/ipb2P3I/ZkzNjiC
+	pNgzJxf0eWzkjDq7qyiqNSiQ9DH9tFQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-32-Bk2kv8EINw6MMCBKJegeaQ-1; Sat, 27 Feb 2021 17:45:12 -0500
-X-MC-Unique: Bk2kv8EINw6MMCBKJegeaQ-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-575-ANZkpWSDMWSqBWUywruH-A-1; Sat, 27 Feb 2021 17:51:25 -0500
+X-MC-Unique: ANZkpWSDMWSqBWUywruH-A-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D39AD18C35BE;
-	Sat, 27 Feb 2021 22:45:07 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id AFB8610066F0;
+	Sat, 27 Feb 2021 22:51:21 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D95B260C70;
-	Sat, 27 Feb 2021 22:45:06 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 91BA01A44A;
+	Sat, 27 Feb 2021 22:51:21 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 95DEC18095CB;
-	Sat, 27 Feb 2021 22:45:05 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6CE1118095CB;
+	Sat, 27 Feb 2021 22:51:21 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 11RMj05a019362 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 27 Feb 2021 17:45:00 -0500
+	id 11RMpJmN019730 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 27 Feb 2021 17:51:19 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 27A99202A424; Sat, 27 Feb 2021 22:45:00 +0000 (UTC)
+	id 19BB3112D170; Sat, 27 Feb 2021 22:51:19 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 21A9A2026D46
-	for <blinux-list@redhat.com>; Sat, 27 Feb 2021 22:44:57 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 15264112D165
+	for <blinux-list@redhat.com>; Sat, 27 Feb 2021 22:51:15 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 815C81022F09
-	for <blinux-list@redhat.com>; Sat, 27 Feb 2021 22:44:57 +0000 (UTC)
-Received: from wout1-smtp.messagingengine.com
-	(wout1-smtp.messagingengine.com [64.147.123.24]) (Using TLS) by
-	relay.mimecast.com with ESMTP id us-mta-177-_TvamNcAONaMKwtDZbeCnw-1;
-	Sat, 27 Feb 2021 17:44:55 -0500
-X-MC-Unique: _TvamNcAONaMKwtDZbeCnw-1
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.42])
-	by mailout.west.internal (Postfix) with ESMTP id 52A31605
-	for <blinux-list@redhat.com>; Sat, 27 Feb 2021 17:44:53 -0500 (EST)
-Received: from mailfrontend2 ([10.202.2.163])
-	by compute2.internal (MEProxy); Sat, 27 Feb 2021 17:44:53 -0500
-X-ME-Sender: <xms:ZMs6YMAUil42R_nREcT39N9JOv6dPQCIP7fZhCT0rc9AS6A6VsY9gw>
-	<xme:ZMs6YOhxZTg4ifrhlseJwfAo8aJWPfXUcuCy-opEN550E_t_Z7a8WFbGfj-4qEweR
-	MbZ9H7KONxAwqhGHZ8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrleeggddtvdcutefuodetggdotefrodftvf
-	curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-	uegrihhlohhuthemuceftddtnecunecujfgurhepfffhvffujgfkfhggtgesthdtredttd
-	dtvdenucfhrhhomhepvehhihhmvgcujfgrrhhtuceotghhihhmvgeshhhusggvrhhtqdhh
-	uhhmphhhrhgvhidrtghomheqnecuggftrfgrthhtvghrnhepffehtdfhvddvueeuieehvd
-	efffeutdegueduhffgleetledvuddugfelkeevtdevnecukfhppedutdegrddujedvrdef
-	rdeifeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-	gthhhimhgvsehhuhgsvghrthdqhhhumhhphhhrvgihrdgtohhm
-X-ME-Proxy: <xmx:ZMs6YPlHyFBbwZJlms4_WPx2-z1RA8QJJbtZ4utsX-Yms9h-p1e72A>
-	<xmx:ZMs6YCzHX-JlLg5hcVhjEk3RphN5q4-0ukwGB3M5pz9WJQSZjgRwXQ>
-	<xmx:ZMs6YBQajXA9cPtLzE6B8FIi4rrAoNqXmmLDUH90rZpRHSsb6LBInA>
-	<xmx:ZMs6YIdXwL4S-xidPL3UvPPcWgccheWc8CYyjUlOnP4SYQwK6r59ag>
-Received: from chime.lan (cpe-104-172-3-63.socal.res.rr.com [104.172.3.63])
-	by mail.messagingengine.com (Postfix) with ESMTPA id 6C3231080054
-	for <blinux-list@redhat.com>; Sat, 27 Feb 2021 17:44:52 -0500 (EST)
-Date: Sat, 27 Feb 2021 14:44:51 -0800 (PST)
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6B369185A7BC
+	for <blinux-list@redhat.com>; Sat, 27 Feb 2021 22:51:15 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-202-24Mcq78bO-WZghcgqwTn4Q-1;
+	Sat, 27 Feb 2021 17:51:13 -0500
+X-MC-Unique: 24Mcq78bO-WZghcgqwTn4Q-1
+Received: from darkstar.example.slint
+	(men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr [176.172.247.100])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 6FBC7BE49B
+	for <blinux-list@redhat.com>; Sat, 27 Feb 2021 22:50:00 +0100 (CET)
 Subject: Re: Running Android Voices in Linux?
-In-Reply-To: <161446448778.8.10629460359382025123.4270314@slmail.me>
-Message-ID: <73c85e2-c3b5-dc82-93ac-8ec1ec176d63@hubert-humphrey.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <161402110590.7.5238133071708249059.4109089@simplelogin.co>
 	<161444854854.8.6967526014575932372.4265918@slmail.me>
-	<161444979750.8.5402375494901459390.4266338@simplelogin.co>
-	<161446448778.8.10629460359382025123.4270314@slmail.me>
+	<e522fc17-0959-e498-347d-d0e55e57d529@gmail.com>
+	<e0a3d579-6450-a6be-deaf-f1ea92cc8e82@hubert-humphrey.com>
+	<5f2b4e21-b876-167a-1553-d58f45f0b460@gmail.com>
+	<88ac7718-75d3-17b8-7bcd-73f33a71a80@hubert-humphrey.com>
+Message-ID: <1b3ff7d3-e481-c6b2-1093-3ccea5d68905@slint.fr>
+Date: Sat, 27 Feb 2021 23:50:14 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
+In-Reply-To: <88ac7718-75d3-17b8-7bcd-73f33a71a80@hubert-humphrey.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -95,7 +78,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 11RMpJmN019730
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -112,27 +97,28 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Well, SL, I would be happy to send you
-ivona-voices.tgz
-but since this list blocks real e-mail addresses, otherwise an entire list 
-would receive it. So, please write directly
-chime at hubert dash humphrey dot com
-Replace some words with symbols. If I still had my web-site hosted on 
-shellworld, I could just give you a direct link, but now my site is through 
-fastmail, need to setup something through webdav so I can upload items in an 
-ftp interface.
-Chime
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+b3Igd2hhdCBpdCdzIHdvcmssIGhlcmUgaXMgdGhlIFNMS0JVSUxEIEkgdXNlZCB0byBidWlsZCB0
+aGUKY3VycmVudCBTbGludCBwYWNrYWdlIG9yIFJIVm9pY2UuCmh0dHBzOi8vc2xpbnQuZnIvQ2hp
+bWUvU0xLQlVJTEQKQmVzdCwKRGlkaWVyCgpMZSAyNy8wMi8yMDIxIMOgIDIzOjMwLCBMaW51eCBm
+b3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIGEgw6ljcml0wqA6Cj4gVGhhbmsgeW91IEt5bGUt
+YW5kLURpZGllcjogQWZ0ZXIgaW5zdGFsbGluZyBzb21lIHBvcnRhdWRpbyBpdGVtcywgaWYgSSAK
+PiBydW5zIGFueSBjb21iaW5hdGlvbiBvZgo+IHNjb25zIGluc3RhbGwKPiBvciBvcHRpb25zIGlu
+IHRoZSBoZWxwIGZpbGUsIGl0IHNheXM6Cj4gc2NvbnM6ICoqKiBObyBTQ29uc3RydWN0IGZpbGUg
+Zm91bmQuCj4gRmlsZSAiL3Vzci9saWIvcHl0aG9uMy9kaXN0LXBhY2thZ2VzL1NDb25zL1Njcmlw
+dC9NYWluLnB5IiwgbGluZSA5NDcsIGluIAo+IF9tYWluCj4gQmFjayBhZ2FpbiBsaXZlLCB0aGF0
+IGxpbmUgOTQ3IHNheXMKPiByYWlzZSBTQ29ucy5FcnJvcnMuVXNlckVycm9yKCJObyBTQ29uc3Ry
+dWN0IGZpbGUgZm91bmQuIikKPiBUaGFua3Mgc28gbXVjaCBpbiBhZHZhbmNlLWFuZC10aGlzIGlz
+IGNlcnRhaW5seSBhbiBlbmpveWFibGUgZXhwZXJpZW5jZS4KPiBDaGltZQoKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcg
+bGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21h
+aWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
 
