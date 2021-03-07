@@ -2,63 +2,73 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
-	by mail.lfdr.de (Postfix) with ESMTP id E03CA3303DB
-	for <lists+blinux-list@lfdr.de>; Sun,  7 Mar 2021 19:19:09 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTP id 481613303D6
+	for <lists+blinux-list@lfdr.de>; Sun,  7 Mar 2021 19:12:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1615141149;
+	s=mimecast20190719; t=1615140719;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=tVoLkN4yZuZJWkCzp8hQooizEad0c8P45VgkOonQKVQ=;
-	b=FDR/iTlzcfWrozIAA1nGqZb/HIAM/eo5D9yqrGQzzLKPSLx/OqJ1G2IclQ8dH3bsTVJpDW
-	WdG5/7kbzMbc2N/9OEYjBxv9u3ghrf751T/RIi3ZaeIAHiq8a1CKW6bLCI8GhuENH4vWhD
-	D/xgl3CNY6a1cLXXEfS0fu4l6AJnjv0=
+	bh=wIXg7NUAKKGM2MMxq0gnc/4pIuxw7ostVU7LvgIfC58=;
+	b=YZc4mnZO0MrQH5GDpgZpTDhmHgj3lo1XAm0C37mjpDfrXcCrQVi4UcqXIXgnjWhI64Rmz0
+	4XpFebv0Xv1WnMpXOJuJb1RM+I+CQXkosupUqkoGAh3cVHzAntf/KYRSd7YE9NZsf12AeX
+	xtbKAZElGwtS1cnQsHdSrJ0iYKpw6Ec=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-206-eCOOL3owMjm-3L4TGve8SA-1; Sun, 07 Mar 2021 13:19:06 -0500
-X-MC-Unique: eCOOL3owMjm-3L4TGve8SA-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-574-63o4GoN3PquRV7Hk8kN5RA-1; Sun, 07 Mar 2021 13:11:57 -0500
+X-MC-Unique: 63o4GoN3PquRV7Hk8kN5RA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 01049108BD08;
-	Sun,  7 Mar 2021 18:19:03 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4F2D92BFE8;
-	Sun,  7 Mar 2021 18:19:02 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D26EC804331;
+	Sun,  7 Mar 2021 18:11:53 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B41535D9D0;
+	Sun,  7 Mar 2021 18:11:53 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E3B151809C86;
-	Sun,  7 Mar 2021 18:19:00 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8E6564EEE1;
+	Sun,  7 Mar 2021 18:11:53 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 127IIKi0013642 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 7 Mar 2021 13:18:20 -0500
+	id 127IBpoY013148 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 7 Mar 2021 13:11:51 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 538792166BA2; Sun,  7 Mar 2021 18:18:20 +0000 (UTC)
+	id 60BEF200E264; Sun,  7 Mar 2021 18:11:51 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4E35E2166B2D
-	for <blinux-list@redhat.com>; Sun,  7 Mar 2021 18:18:18 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5B240200E263
+	for <blinux-list@redhat.com>; Sun,  7 Mar 2021 18:11:49 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E0108800B21
-	for <blinux-list@redhat.com>; Sun,  7 Mar 2021 18:18:17 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
-	relay.mimecast.com with ESMTP id us-mta-334-x6zhmpf4Pj-9zkJ2bZPDdg-1;
-	Sun, 07 Mar 2021 13:18:15 -0500
-X-MC-Unique: x6zhmpf4Pj-9zkJ2bZPDdg-1
-Received: from darkstar.example.slint
-	(men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr [176.172.247.100])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id D7034BE497
-	for <blinux-list@redhat.com>; Sun,  7 Mar 2021 18:17:00 +0100 (CET)
-Subject: Re: Running Android Voices in Linux?
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 30A67800296
+	for <blinux-list@redhat.com>; Sun,  7 Mar 2021 18:11:49 +0000 (UTC)
+Received: from mail.opopanax.net (mail.opopanax.net [66.172.33.24]) (Using
+	TLS) by relay.mimecast.com with ESMTP id
+	us-mta-566-4etQS-xpP824Yfh-XtlqLQ-1; Sun, 07 Mar 2021 13:11:46 -0500
+X-MC-Unique: 4etQS-xpP824Yfh-XtlqLQ-1
+Received: from mail.opopanax.net (localhost [127.0.0.1])
+	by mail.opopanax.net (Postfix) with ESMTP id 4Dtq7P2WtHz8wLh
+	for <blinux-list@redhat.com>; Sun,  7 Mar 2021 18:02:25 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail
+Received: from mail.opopanax.net ([127.0.0.1])
+	by mail.opopanax.net (mail.opopanax.net [127.0.0.1]) (amavisd-new,
+	port 10026) with ESMTP id bX8gZYyK3UGV for <blinux-list@redhat.com>;
+	Sun,  7 Mar 2021 18:02:24 +0000 (UTC)
+Received: from [0.0.0.0] (184-169-119-73-dynamic.midco.net [184.169.119.73])
+	by mail.opopanax.net (Postfix) with ESMTPSA id 4Dtq7N38tfz8wLZ
+	for <blinux-list@redhat.com>; Sun,  7 Mar 2021 18:02:24 +0000 (UTC)
+Message-ID: <20210307.200214.512.2@[0.0.0.0]>
 To: blinux-list@redhat.com
+Subject: Re: Running Android Voices in Linux?
+Date: Sun, 07 Mar 2021 12:02:14 -0800
+MIME-Version: 1.0
+In-Reply-To: <ec4c2a3-3c6-79e4-bf4-cfdf16e45095@hubert-humphrey.com>
 References: <e0a3d579-6450-a6be-deaf-f1ea92cc8e82@hubert-humphrey.com>
 	<88ac7718-75d3-17b8-7bcd-73f33a71a80@hubert-humphrey.com>
 	<1dd528c9-d7ee-9140-d54a-903c2a208d79@gmail.com>
@@ -71,13 +81,7 @@ References: <e0a3d579-6450-a6be-deaf-f1ea92cc8e82@hubert-humphrey.com>
 	<161513774886.7.2076841472683858930.4509753@slmail.me>
 	<8b45ab0e-2199-96f6-58f1-72b7c14aa680@slint.fr>
 	<ec4c2a3-3c6-79e4-bf4-cfdf16e45095@hubert-humphrey.com>
-	<20210307.200214.512.2@[0.0.0.0]>
-Message-ID: <fcbef57b-9d55-234f-d53c-56d7310de87c@slint.fr>
-Date: Sun, 7 Mar 2021 19:17:12 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Thunderbird/68.12.0
-MIME-Version: 1.0
-In-Reply-To: <20210307.200214.512.2@[0.0.0.0]>
+User-Agent: POP Peeper Pro (5.0.3.0)
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -86,9 +90,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 127IIKi0013642
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 127IBpoY013148
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -105,30 +109,37 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SXQncyBiZXN0IHRvIHVzZSBpdCBpbiBhIChwb3NzaWJseSBwcml2YXRlKSBjaGF0LCBvciB0aGUg
-c2VuZGVyCmNvbW11bmljYXRpbmcgdGhlIGNvZGUgdG8gdHlwZSBieSB0aGUgcmVjZWl2ZXIgYnkg
-cGhvbmUuCkRpZGllcgoKTGUgMDcvMDMvMjAyMSDDoCAyMTowMiwgTGludXggZm9yIGJsaW5kIGdl
-bmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3JpdMKgOgo+IGFwdC1nZXQgaW5zdGFsbCBtYWdpYy13b3Jt
-aG9sZQo+IEJlIGF3YXJlIHRoaXMgcHJvdG9jb2wgZG9lcyBub3QgYWxsb3cgcmVzdW1pbmcsIGFu
-ZCBpdCdzIGEgb25lIHVzZSB0aGluZy4KPiAtLS0tLSBPcmlnaW5hbCBNZXNzYWdlIC0tLS0tCj4g
-RnJvbTogTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8YmxpbnV4LWxpc3RAcmVk
-aGF0LmNvbT4KPiBUbzogTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8YmxpbnV4
-LWxpc3RAcmVkaGF0LmNvbT4KPiBEYXRlOiBTdW4sIDcgTWFyIDIwMjEgMDk6NDg6MTMgLTA4MDAg
-KFBTVCkKPiBTdWJqZWN0OiBSZTogUnVubmluZyBBbmRyb2lkIFZvaWNlcyBpbiBMaW51eD8KPiAK
-Pj4gSGkgRGlkaWVyOiBUaGFuayB5b3UsIHdoaWxlIHlvdSBtZW50aW9uZWQgdGhpcyBsYXN0IHRp
-bWUgSSBicm91Z2h0IHRoaXMgdXAsIEkKPj4gYW0gb25seSBpbiBjb25zb2xlLCBleGFjdGx5IHdo
-YXQgd2lsbCBJIHJ1biBhbiBhcHQgZ2V0IGZvcj8gVGhhbmtzIGFnYWluLCB3b3VsZAo+PiBsb3Zl
-IHRvIHRyeSB0aGlzLgo+PiBDaGltZQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRo
-YXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4
-LWxpc3Q=
+apt-get install magic-wormhole
+Be aware this protocol does not allow resuming, and it's a one use thing. 
+----- Original Message -----
+From: Linux for blind general discussion <blinux-list@redhat.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Date: Sun, 7 Mar 2021 09:48:13 -0800 (PST)
+Subject: Re: Running Android Voices in Linux?
+
+> Hi Didier: Thank you, while you mentioned this last time I brought this up, I 
+> am only in console, exactly what will I run an apt get for? Thanks again, would 
+> love to try this.
+> Chime
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
+> 
+
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
