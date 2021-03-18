@@ -1,86 +1,93 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 3991C340857
-	for <lists+blinux-list@lfdr.de>; Thu, 18 Mar 2021 16:02:14 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 782BE3408E7
+	for <lists+blinux-list@lfdr.de>; Thu, 18 Mar 2021 16:29:07 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1616079733;
+	s=mimecast20190719; t=1616081346;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=pJHDSuN5N+MJuVC06kIPSE2LEYXnBMV800gdhVy94xg=;
-	b=PBHF6JG4rh8rGLFsMxjoIsHewebzLhs1422fWLN2PSzNzjVXvLrEziOfEc8o4jj9LcXRAB
-	KI6X1ofEMLHYw9LT0tEcXos3lXk1vhCiKxTKbUehs+3kE7ocJ69UCNMaVL7qa4omWXaiv9
-	WtCiDFT/kzQWHvC997C9cjIxXpDkEdQ=
+	bh=ZWyO/QucxtAiMgwv0M5yWgGZQzwThX7ZV/EQ/N9nurQ=;
+	b=CzPdIJ5qduYCj9EWoR5p5/iD9isLhHHashGoMRRklCrjQ/bLj8t5gwrlsnXRkLC6QvH262
+	3z9o5vZpXyImLmN8kjPF2TW81bzCv5DCAtc8hSnoBPhqcxBp/Icmr6Q+tp8rXjrOcwFcme
+	j4VW4AfR6i+9lYjhRdQ3dPDv7PNAbSQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-561-DoDw_dsWOS6z6xZiIeQ5Iw-1; Thu, 18 Mar 2021 11:02:10 -0400
-X-MC-Unique: DoDw_dsWOS6z6xZiIeQ5Iw-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-120-__CMdtLZMmme0IHwTH9l2w-1; Thu, 18 Mar 2021 11:29:04 -0400
+X-MC-Unique: __CMdtLZMmme0IHwTH9l2w-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id BE5B281629;
-	Thu, 18 Mar 2021 15:02:04 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 064BB50A8D;
-	Thu, 18 Mar 2021 15:02:03 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 899B6180FCBA;
+	Thu, 18 Mar 2021 15:28:59 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7FB251F445;
+	Thu, 18 Mar 2021 15:28:58 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1E1C218095C9;
-	Thu, 18 Mar 2021 15:01:55 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BF9D24A7C8;
+	Thu, 18 Mar 2021 15:28:56 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 12IF1jKx013175 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 18 Mar 2021 11:01:45 -0400
+	id 12IFLmQd016401 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 18 Mar 2021 11:21:49 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 16981F8074; Thu, 18 Mar 2021 15:01:45 +0000 (UTC)
+	id D06992024CD1; Thu, 18 Mar 2021 15:21:48 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0DD27F8081
-	for <blinux-list@redhat.com>; Thu, 18 Mar 2021 15:01:40 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4949280B91F
-	for <blinux-list@redhat.com>; Thu, 18 Mar 2021 15:01:40 +0000 (UTC)
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com
-	[209.85.221.53]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-171-160l0jH7MyKj1OidzYwa4w-1; Thu, 18 Mar 2021 11:01:37 -0400
-X-MC-Unique: 160l0jH7MyKj1OidzYwa4w-1
-Received: by mail-wr1-f53.google.com with SMTP id z2so5873023wrl.5
-	for <blinux-list@redhat.com>; Thu, 18 Mar 2021 08:01:36 -0700 (PDT)
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CA45E2026D6A
+	for <blinux-list@redhat.com>; Thu, 18 Mar 2021 15:21:46 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4B43C892D3C
+	for <blinux-list@redhat.com>; Thu, 18 Mar 2021 15:21:46 +0000 (UTC)
+Received: from mail-qv1-f44.google.com (mail-qv1-f44.google.com
+	[209.85.219.44]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-210-FHtLoJ_CP7-cI6EOrIvtKA-1; Thu, 18 Mar 2021 11:21:44 -0400
+X-MC-Unique: FHtLoJ_CP7-cI6EOrIvtKA-1
+Received: by mail-qv1-f44.google.com with SMTP id o19so3398643qvu.0
+	for <blinux-list@redhat.com>; Thu, 18 Mar 2021 08:21:44 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
-	:mime-version:content-transfer-encoding:content-language;
-	bh=k6oFze5sMIbCIyX8fh6bNVbWvONUXk9CXFY3LU86/3w=;
-	b=paZr67FhP5F9rysIK1Yq0RGiDbLJOBRi2vqYKUdydbvh7Md2SzwPNt6bgDAqormGic
-	f+YnfMET+nJaNs9XmCXXSHKhzECgbBh1hPtwNtjfA88/uqIqEtMtx1So/9um+Ct0Ydxq
-	lZs5LeoNaAm2XGNFda2ZvAtHv4WScHJvBhtZYEMn4Q+63Sz1Xje7lasGnoWxcd4SuuA7
-	wiBSAyHjTT/CvWc5RyfqjMlybxFfmNiDgp7mY1ssFnIUmTVW4xNzqGgTevIEkNmG8ZPP
-	xhM3wKyXCeY/RpUdBfJU6U8MRaL8eyI2dzba4dudMPoPnI5FEIlhlMdTtcWecXNOaaag
-	Ni9A==
-X-Gm-Message-State: AOAM532S4vnrJvUhorvb1VMFxx9kzDftdqfcCn4HtLlEgAM2ezMq5Jbk
-	X4G8pepmmxO0HWSfX0f3x2IWwCmiWyQ=
-X-Google-Smtp-Source: ABdhPJyaEDjjJvB9xvT42L8WsaUootbIiy5VKAAklac5MbnsuYONoHxpA0xNWGXGkvayPJYLftwNhw==
-X-Received: by 2002:adf:bc01:: with SMTP id s1mr10213962wrg.240.1616079695149; 
-	Thu, 18 Mar 2021 08:01:35 -0700 (PDT)
-Received: from [192.168.1.130] ([87.74.160.207])
-	by smtp.gmail.com with ESMTPSA id
-	c131sm2627443wma.37.2021.03.18.08.01.33 for <blinux-list@redhat.com>
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding
+	:content-language;
+	bh=dROMmlS6wO14HaKuape4tQYgcmusX7a3CTXmNFsre/k=;
+	b=IuN2jNB1+9VNEO+RnKxwEx+AYXOBD0Hi6ZhZxvuJQDHf9kExC3vSvqHniefw7CKJlZ
+	KZEUq89g30lonXjTHiX/CTdm42gJsZuzCLhLYTMghXXkKpqClEIffSfagh+P3PJPkCVK
+	ISSIG855Spty1C0pGkkAvUYiSpHTO49Zeqs4j+TY5RniX5HWPq6hmf1kwjlbOfUl14Lm
+	zbBtUZxaVTZvU/gkXtoDfFyk0OVsBxx4zEFoUFSt+xHnkMzwrWOCTTGKgMVWTwifoW43
+	5r19dpi2DfE5d5Ri+VfXBm+9gfsvKRLHoI2bOZIK1N7Js7lTSYhwYGjKsQOvVEgPRYUM
+	2QQA==
+X-Gm-Message-State: AOAM530guaIIhLNHLxrZb2BZ4xXm9cymGOdYkqD/eyyeZ62ofHJeYX/2
+	piWzDG1LUO+fxQFxCn0ic1XyyynTTIg=
+X-Google-Smtp-Source: ABdhPJzeMQo1MUJTf4hgInRCOl8Msj9YtCQg0UN27Me09xAkn18rGOqx/8VMfA3YjZB1Nl9u2NRvUA==
+X-Received: by 2002:a05:6214:1c47:: with SMTP id
+	if7mr4885914qvb.50.1616080903507; 
+	Thu, 18 Mar 2021 08:21:43 -0700 (PDT)
+Received: from ?IPv6:2603:6080:6304:450a::f84?
+	(2603-6080-6304-450a-0000-0000-0000-0f84.res6.spectrum.com.
+	[2603:6080:6304:450a::f84])
+	by smtp.gmail.com with ESMTPSA id j3sm1976327qki.84.2021.03.18.08.21.41
+	for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 18 Mar 2021 08:01:34 -0700 (PDT)
+	Thu, 18 Mar 2021 08:21:42 -0700 (PDT)
+Subject: Re: Decluttering Thunderbird/other alternatives?
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Decluttering Thunderbird/other alternatives?
-Message-ID: <bfe62c6d-2e03-2175-0a5d-21a398151040@gmail.com>
-Date: Thu, 18 Mar 2021 15:01:33 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
-	Thunderbird/78.7.1
+References: <bfe62c6d-2e03-2175-0a5d-21a398151040@gmail.com>
+Message-ID: <983d4d9d-2e6d-8209-2203-35345d6fd2b5@gmail.com>
+Date: Thu, 18 Mar 2021 11:21:39 -0400
+User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:78.0) Gecko/20100101
+	Thunderbird/78.8.1
 MIME-Version: 1.0
+In-Reply-To: <bfe62c6d-2e03-2175-0a5d-21a398151040@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -89,7 +96,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -106,7 +113,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -115,13 +122,40 @@ Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-So is there a way I can declutter Thunderbird to be simpler/easier to 
-navigate? I don't /need/ Lightningtaking up space, or having to tab 
-twice in writing a message to get to the subject field.
+You can disable the calendar by going to view -> Today Pane -> Show 
+Today Pane. It's ticked by default, and pressing the enter key on that 
+option will untick it. You may also want to speed things up quite a bit 
+by going to view -> Layout -> Message Pane and turning that off as well. 
+Threading is another time saver, which I turned on at View -> Sort By -> 
+Threaded, but this needs to be selected in every folder where you want 
+threading. This just groups emails into conversations, and you can 
+easily expand or collapse the conversation using the left and right 
+arrow keys and delete an entire conversation that you are not interested 
+in reading if it's collapsed with a single press of the delete key. Just 
+be sure to expand a conversation before trying to open a message, or you 
+could get inundated by message windows.
 
-So can I do anything to declutter Thunderbird. Or are there any 
-alternative email programs that are just as good as Thunderbird that 
-work great with Orca?
+
+I know of no way to skip pressing the tab key a second time to get to 
+the subject field when writing a message. The reason this is done is to 
+allow you to write your message to more than one address. The first tab 
+takes you to a field where you can begin writing a second email 
+recipient. If you write something in that field, you will of course be 
+allowed to tab to another empty recipient field. This feature does 
+appear to be fairly new, as you used to have buttons to add a To: or CC: 
+recipient to the message, but you just change the address type by 
+pressing the "Other types of addressing" button now, which I believe 
+just adds that type of field to your message, which can also take 
+multiple recipients by tabbing off the first one and just writing in a 
+second address. Usually just double tapping the tab key in this 
+situation doesn't bother me much. I do hope these suggestions help you 
+get the most from Thunderbird, as the only alternatives I know to mostly 
+work are Seamonkey, which is similar in many ways to Thunderbird but 
+seems to crash rather often, and Evolution, which works most of the time 
+and is very fast, but for some reason Orca will sometimes randomly skip 
+a paragraph in some messages.
+
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
