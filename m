@@ -2,70 +2,70 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 91B04362B1D
-	for <lists+blinux-list@lfdr.de>; Sat, 17 Apr 2021 00:33:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 83D33362BAD
+	for <lists+blinux-list@lfdr.de>; Sat, 17 Apr 2021 01:01:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1618612400;
+	s=mimecast20190719; t=1618614115;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=P+IUO41P3eL+dfHKJa3fe9iGRS9wRqCzNp24oDM5YfU=;
-	b=hdZEQiA1oIF0nDA06Szo/UxLGuyVmyKhqjBX1rvXBBgO65RlMTitbcW+h8XCETLPs8E0EW
-	zihnxpfrEeiK0I0iRf+7Jc2QNrnzYl46OJsOEdFeTc1PrI0A1n09JePDBkUo2/9QzprwhO
-	hcJlKxINO2tIAjU6utXW/JRAgDe4n6g=
+	bh=GkaDXUWRMw8MLccvLlh9rmuDCwCPxm/UTIQT93tweOA=;
+	b=N+5/w/HKocfLYJFQCJMOceyQxqwpRu91Kl+wtgmYAfrO/jcm05TcQbccq21my1RBIh6pcu
+	yclY08RVTmKNp2Kh61w87Z5MB+UBBvAeF/y2xmC+Urw93XRn1QnBjxHMtE6WmWyk1TpAlL
+	7EWTSk1SvuK3rlpzlVakw7+iNt3MUJc=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-163-OvoBcaOEMJqwI4xlhjRCvQ-1; Fri, 16 Apr 2021 18:33:18 -0400
-X-MC-Unique: OvoBcaOEMJqwI4xlhjRCvQ-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-287-LkaulsbAPbCXM-R_6HpWRQ-1; Fri, 16 Apr 2021 19:01:53 -0400
+X-MC-Unique: LkaulsbAPbCXM-R_6HpWRQ-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E908E107ACE4;
-	Fri, 16 Apr 2021 22:33:13 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CFE1418397A5;
+	Fri, 16 Apr 2021 23:01:48 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CF7B6437F;
-	Fri, 16 Apr 2021 22:33:13 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3517E60BE5;
+	Fri, 16 Apr 2021 23:01:48 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 029D01806D0F;
-	Fri, 16 Apr 2021 22:33:13 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 123841806D0F;
+	Fri, 16 Apr 2021 23:01:43 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 13GMX56q013010 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 16 Apr 2021 18:33:06 -0400
+	id 13GN1YdF014946 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 16 Apr 2021 19:01:34 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id B471920FE6D9; Fri, 16 Apr 2021 22:33:05 +0000 (UTC)
+	id 8C87B103CDD; Fri, 16 Apr 2021 23:01:34 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id AE7B120FE6DD
-	for <blinux-list@redhat.com>; Fri, 16 Apr 2021 22:33:02 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 85ADE104821
+	for <blinux-list@redhat.com>; Fri, 16 Apr 2021 23:01:31 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CDB60100DE77
-	for <blinux-list@redhat.com>; Fri, 16 Apr 2021 22:33:02 +0000 (UTC)
-Received: from server2.shellworld.net (server2.shellworld.net
-	[66.172.12.120]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-394-qObfFWyjMmeze1gj5hGxTQ-1; Fri, 16 Apr 2021 18:33:00 -0400
-X-MC-Unique: qObfFWyjMmeze1gj5hGxTQ-1
-Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id 330B2621C36; Fri, 16 Apr 2021 22:32:59 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id 2FA77621C27
-	for <blinux-list@redhat.com>; Fri, 16 Apr 2021 18:32:59 -0400 (EDT)
-Date: Fri, 16 Apr 2021 18:32:59 -0400 (EDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 626898001A6
+	for <blinux-list@redhat.com>; Fri, 16 Apr 2021 23:01:31 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-338-VhvtBTI3NUC6x7Y1jm_wVQ-1;
+	Fri, 16 Apr 2021 19:01:28 -0400
+X-MC-Unique: VhvtBTI3NUC6x7Y1jm_wVQ-1
+Received: from ici.slint.fr (sfa89-1-78-208-157-71.fbx.proxad.net
+	[78.208.157.71])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 3C1DEA3E67
+	for <blinux-list@redhat.com>; Sat, 17 Apr 2021 00:01:20 +0200 (CEST)
 Subject: Re: SL's response to all inquiries re: Readspeaker voices
-In-Reply-To: <CAGPwheCWWcnB4Z2ta0v-odFSizObwNtgud-QdOhLc6=a0fVjfA@mail.gmail.com>
-Message-ID: <Pine.LNX.4.64.2104161830480.2349084@server2.shellworld.net>
+To: blinux-list@redhat.com
 References: <161860978196.7.10178583994303054677.5934759@slmail.me>
 	<CAGPwheCWWcnB4Z2ta0v-odFSizObwNtgud-QdOhLc6=a0fVjfA@mail.gmail.com>
+Message-ID: <c76c70c5-5b7c-8e7b-0337-dd3564bd9d88@slint.fr>
+Date: Sat, 17 Apr 2021 01:00:46 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
+In-Reply-To: <CAGPwheCWWcnB4Z2ta0v-odFSizObwNtgud-QdOhLc6=a0fVjfA@mail.gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -74,7 +74,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 13GN1YdF014946
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -91,221 +93,183 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Further, I believe?, that tdsr is recommended for the mac terminal, since 
-voiceover cannot run effortlessly in terminal.
-Mac is a Unix based system, like Linux.
-
-
-On Fri, 16 Apr 2021, Linux for blind general discussion wrote:
-
-> If you made this synthesizer compatible with Speech Dispatcher then it
-> could be compatible with any screen reader that used Speech Dispatcher.  I
-> know that Orca and TDSR use Speech Dispatcher and others are probably able
-> to use it as well.
->
-> On Fri, Apr 16, 2021, 5:56 PM Linux for blind general discussion <
-> blinux-list@redhat.com> wrote:
->
->>
->> Hi all,
->>
->> Thanks for yourinterest and for all your good questions. It seems like
->> maybe some ofyou missed the link to the demos that was posted in the first
->> email.So for those who didn't see it, I am pasting it again here for you
->> toclick and listen. I'm putting the link first so you don't miss it.But
->> then, under that, I will endeavor to answer each of yourquestions as best I
->> can. So please continue reading after clickingthe link:
->>
->>
->>
->>
->> https://www.readspeaker.com/text-to-speech-demo/
->>
->>
->>
->>
->> To Rudy:
->>
->> Hopefully the linkin this email will give you an idea of how the voices
->> sound. When youclick it, it brings you to Readspeaker's official demo page
->> where youcan hear short samples of the voices available. If they are not
->> longenough for you to get a sense of the flow with longer text, you
->> canemail me for some samples in mp3 format. I tried to include my
->> emailbefore but it just blanks out the punctuation. So I will spell outthe
->> punctuation, and you will know to just insert the actual symbolsinstead. My
->> email is:
->>
->> software dotliberators at slmail dot me
->>
->> To A:
->>
->> If there is enoughinterest in this project to make it official, then the
->> goal is tomake Readspeakr  voices available to any of the most widely
->> usedDistros that have Orca or Speakup. Similar to how Voxin offers
->> Nuancevoices that you can install on most Distros with screenreaders.
->>
->> Yes, Readspeakerdoes offer both Swedish and Finnish along with many other
->> languages.
->>
->> Please click on thelink I included at the top of this email. On that page,
->> you will seea combo box to select your language for a demo. Scroll up in
->> thatcombo box and you will find Swedish and Finnish, then, once youselect
->> the language, tab down, and press enter on "listen".
->>
->> To the person whosuggested further platforms of usage such as Mac
->> terminals and Linuxon Windows, I appreciate the suggestion and this is
->> certainlysomething to look into.
->>
->> Personally I onlyhave experience with stand alone Windows, and stand alone
->> Linux.
->>
->> I really don't knowanything about the workings of Mac OS, but if a Mac
->> terminal runs onLinux compatible software, then it might be possible to
->> incorporateReadspeaker voices. However, with Mac, I'm assuming you're
->> dealingwith Apple and whatever protocols they have as a company to
->> approveof third party TTS providers. That is an avenue that I am really
->> notfamiliar with, but if anyone hear is a Mac afficionado withexperience
->> with Apple's protocols for approving third partyproviders, please feel free
->> to share that knowledge with me.
->>
->>  Mac and Windowsalready have so many natural sounding speech options
->> available thatI'm really focusing on trying to bring Readspeaker to Linux
->> inparticular, to give Linux users more choices for natural soundingspeech.
->> So if Apple already provides natural voices for the Macterminal, then it
->> may be better to focus solely on stand alone Linuxsystems.
->>
->>  However, it seemsthat the Linux on Windows that you speak of, should be
->> able toutilize these voices if its essentially still Linux software.
->>
->> I'm still open toany ideas about Mac terminal and Linux on Windows, its
->> just that Idon't have any experience with that, I don't know if there
->> arealready existing natural voices for them seeing as it seems to be Linux
->> software but running on top of Mac or Windows, but any input on that would
->> be great.
->>
->>  To Chime:
->>
->> We might be able torequest Heather if we get enough interest to get this
->> project up andgoing. Although the only place where I have seen Heather
->> utilized isin their web-reader solutions which are a bit different from
->> theirLinux compatible SDK. They do offer the option to have
->> customizedvoices though, so we might be able to request Heather if we
->> reallywant that. Personally, for US English I like the Julie voice which
->> isavailable to demo on the Readspeaker site, as well as the Sophievoice
->> which is what they used to record that mp3 file for Consoleusers that you
->> listened to.
->>
->> Let me know if youever end up finding any samples of the Voxygen Hypra
->> voices, I'd liketo know what they sound like in English and I havn't found
->> any Hyprasamples either.
->>
->> To Debin Prater:
->>
->> Thanks for theinput.
->>
->> I'm a beginnerso I don't have experience with the Emacspeak servers you
->> speak of.But if we move forward with a project with Readspeaker, the
->> goalwould be to offer the voices for the most widely used Distros
->> thatinclude Orca or Speakup for people to install the voices and use on
->> their localsystem.
->>
->> I really havn'tsmoothed out the finite details on that as to how exactly
->> the interface making Readspeaker available for Linux screenreaders would
->> work in terms of the technicalities. For example, how to make it available
->> both for Debian based systems and for something like Arch, just throwing
->> out examples. But Voxin has done it with Nuance, so it should be doable
->> with Readspeaker and the guys at Readspeaker are apparently willing to
->> consider developing an interface to make it possible, as long as there is
->> enough interest in the community, and so long  as it would be commercially
->> viable for them.
->>
->> My first step is to simply find out ifthere is any interest, which, it
->> seems like there is a small handful here on this list that would be
->> interested.
->>
->> Other Consolereaders might be considered as well, and would be mentioned
->> in an officialsurvey before actually getting started on the project, to
->> determinewhat is the most popular Console screenreader for Linux users
->> andstart with that. Hopefully offering voices for Orca graphical, and
->> atleast the most widely used Console reader. I know there's quite a
->> fewConsole readers out there, but we'd have to really decide where
->> thedevelopers at Readspeaker would focus their time and effort intomaking
->> their Linux compatible interface to bring Readspeaker voicesto
->> screenreaders.
->>
->>
->>  I think startingwith Orca for Graphical, and then one Console Reader,
->> would be good.
->>
->> Havn't even gotteninto Emacs yet, but if that uses a seperate screenreader
->> and iswidely used, then that would be something to consider including
->> ifpossible. I'm just trying to cover the basics of something forgraphical,
->> and something for console. As far as I know, isn't Emacslike a text editor
->> and used for programming etc? Do people also useit like a screenreader to
->> access daily tasks on Linux instead of OrcaOr Espeakup?
->>
->> To Didier:
->>
->> Wow, didn't know youalso reached out to Readspeaker as an Ivona
->> distributor back in theday. Good to know. Its too bad that something can't
->> be done to bringIvona to Linux seeing as one of their original pages said
->> that anIvona SDK was compatible. But when I asked them, I got the
->> sameresponse that Ivona is linked with Amazon now so Ivona is not an option.
->>
->>  I'm not the only oneto inquire. You asked them years before me, and I
->> wouldn't besurprised if we're not the only ones to ask for Ivona.
->> Quitefrustrating that Ivona is not more open to collaborating
->> foraccessibility solutions on multiple platforms. Even from a
->> strictlybusiness standpoint, Ivona could make additional proffits from
->> selling solutions to Linux users. Oh well.
->>
->> As for theReadspeaker brand voices, when I contacted them, they did say
->> thatthey usually only sell to businesses, not individuals; but they
->> saidthat in this case, they would be willing to consider developing
->> aninterface to bring Readspeaker voices to Linux screenreaders providedthat
->> there is enough interest in the community, and that it would becommercially
->> viable. Thats why I'm trying to get a baseline ofinterest, to see if its
->> worthwhile to try to move forward with this.
->>
->> To Francisco:
->>
->> Yes, I totally agreewith you. Thats why I started this endeavor, first
->> trying to bringIvona to Linux but that didn't work out. Now trying to
->> bringReadspeaker's own brand of voices  to Linux. I too want to see
->> morenatural sounding voices become available to Linux. Allowing Linuxusers
->> to have a similar range of natural TTS choices as Windowsusers, and in
->> return, more people may decide to give Linux a try.
->>
->> Thanks to all forthe inquiries, hope I was able to answer at least some of
->> yourquestions, feel free to keep asking questions or sharing ideas, andfor
->> those of you who missed the link the first time around, please dotry
->> listening to the demos available on Readspeaker's web page.
->>
->> Thanks,
->>
->> SL
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+U28gaXQgd291bGQgYmUgdXNhYmxlIHdpdGggZmVucmlyIGFuZCBzcGVlY2hkLXVwIHRvby4KCkFu
+ZCBlbWFjc3BlYWsgSUlSQy4KCkRpZGllcgoKTGUgMTcvMDQvMjAyMSDDoCAwMDoxNSwgTGludXgg
+Zm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3JpdMKgOgo+IElmIHlvdSBtYWRlIHRo
+aXMgc3ludGhlc2l6ZXIgY29tcGF0aWJsZSB3aXRoIFNwZWVjaCBEaXNwYXRjaGVyIHRoZW4gaXQK
+PiBjb3VsZCBiZSBjb21wYXRpYmxlIHdpdGggYW55IHNjcmVlbiByZWFkZXIgdGhhdCB1c2VkIFNw
+ZWVjaCBEaXNwYXRjaGVyLiAgSQo+IGtub3cgdGhhdCBPcmNhIGFuZCBURFNSIHVzZSBTcGVlY2gg
+RGlzcGF0Y2hlciBhbmQgb3RoZXJzIGFyZSBwcm9iYWJseSBhYmxlCj4gdG8gdXNlIGl0IGFzIHdl
+bGwuCj4gCj4gT24gRnJpLCBBcHIgMTYsIDIwMjEsIDU6NTYgUE0gTGludXggZm9yIGJsaW5kIGdl
+bmVyYWwgZGlzY3Vzc2lvbiA8Cj4gYmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gd3JvdGU6Cj4gCj4+
+Cj4+IEhpIGFsbCwKPj4KPj4gVGhhbmtzIGZvciB5b3VyaW50ZXJlc3QgYW5kIGZvciBhbGwgeW91
+ciBnb29kIHF1ZXN0aW9ucy4gSXQgc2VlbXMgbGlrZQo+PiBtYXliZSBzb21lIG9meW91IG1pc3Nl
+ZCB0aGUgbGluayB0byB0aGUgZGVtb3MgdGhhdCB3YXMgcG9zdGVkIGluIHRoZSBmaXJzdAo+PiBl
+bWFpbC5TbyBmb3IgdGhvc2Ugd2hvIGRpZG4ndCBzZWUgaXQsIEkgYW0gcGFzdGluZyBpdCBhZ2Fp
+biBoZXJlIGZvciB5b3UKPj4gdG9jbGljayBhbmQgbGlzdGVuLiBJJ20gcHV0dGluZyB0aGUgbGlu
+ayBmaXJzdCBzbyB5b3UgZG9uJ3QgbWlzcyBpdC5CdXQKPj4gdGhlbiwgdW5kZXIgdGhhdCwgSSB3
+aWxsIGVuZGVhdm9yIHRvIGFuc3dlciBlYWNoIG9mIHlvdXJxdWVzdGlvbnMgYXMgYmVzdCBJCj4+
+IGNhbi4gU28gcGxlYXNlIGNvbnRpbnVlIHJlYWRpbmcgYWZ0ZXIgY2xpY2tpbmd0aGUgbGluazoK
+Pj4KPj4KPj4KPj4KPj4gaHR0cHM6Ly93d3cucmVhZHNwZWFrZXIuY29tL3RleHQtdG8tc3BlZWNo
+LWRlbW8vCj4+Cj4+Cj4+Cj4+Cj4+IFRvIFJ1ZHk6Cj4+Cj4+IEhvcGVmdWxseSB0aGUgbGlua2lu
+IHRoaXMgZW1haWwgd2lsbCBnaXZlIHlvdSBhbiBpZGVhIG9mIGhvdyB0aGUgdm9pY2VzCj4+IHNv
+dW5kLiBXaGVuIHlvdWNsaWNrIGl0LCBpdCBicmluZ3MgeW91IHRvIFJlYWRzcGVha2VyJ3Mgb2Zm
+aWNpYWwgZGVtbyBwYWdlCj4+IHdoZXJlIHlvdWNhbiBoZWFyIHNob3J0IHNhbXBsZXMgb2YgdGhl
+IHZvaWNlcyBhdmFpbGFibGUuIElmIHRoZXkgYXJlIG5vdAo+PiBsb25nZW5vdWdoIGZvciB5b3Ug
+dG8gZ2V0IGEgc2Vuc2Ugb2YgdGhlIGZsb3cgd2l0aCBsb25nZXIgdGV4dCwgeW91Cj4+IGNhbmVt
+YWlsIG1lIGZvciBzb21lIHNhbXBsZXMgaW4gbXAzIGZvcm1hdC4gSSB0cmllZCB0byBpbmNsdWRl
+IG15Cj4+IGVtYWlsYmVmb3JlIGJ1dCBpdCBqdXN0IGJsbmtzIG91dCB0aGUgcHVuY3R1YXRpb24u
+IFNvIEkgd2lsbCBzcGVsbCBvdXR0aGUKPj4gcHVuY3R1YXRpb24sIGFuZCB5b3Ugd2lsbCBrbm93
+IHRvIGp1c3QgaW5zZXJ0IHRoZSBhY3R1YWwgc3ltYm9sc2luc3RlYWQuIE15Cj4+IGVtYWlsIGlz
+Ogo+Pgo+PiBzb2Z0d2FyZSBkb3RsaWJlcmF0b3JzIGF0IHNsbWFpbCBkb3QgbWUKPj4KPj4gVG8g
+QToKPj4KPj4gSWYgdGhlcmUgaXMgZW5vdWdoaW50ZXJlc3QgaW4gdGhpcyBwcm9qZWN0IHRvIG1h
+a2UgaXQgb2ZmaWNpYWwsIHRoZW4gdGhlCj4+IGdvYWwgaXMgdG9tYWtlIFJlYWRzcGVha3IgIHZv
+aWNlcyBhdmFpbGFibGUgdG8gYW55IG9mIHRoZSBtb3N0IHdpZGVseQo+PiB1c2VkRGlzdHJvcyB0
+aGF0IGhhdmUgT3JjYSBvciBTcGVha3VwLiBTaW1pbGFyIHRvIGhvdyBWb3hpbiBvZmZlcnMKPj4g
+TnVhbmNldm9pY2VzIHRoYXQgeW91IGNhbiBpbnN0YWxsIG9uIG1vc3QgRGlzdHJvcyB3aXRoIHNj
+cmVlbnJlYWRlcnMuCj4+Cj4+IFllcywgUmVhZHNwZWFrZXJkb2VzIG9mZmVyIGJvdGggU3dlZGlz
+aCBhbmQgRmlubmlzaCBhbG9uZyB3aXRoIG1hbnkgb3RoZXIKPj4gbGFuZ3VhZ2VzLgo+Pgo+PiBQ
+bGVhc2UgY2xpY2sgb24gdGhlbGluayBJIGluY2x1ZGVkIGF0IHRoZSB0b3Agb2YgdGhpcyBlbWFp
+bC4gT24gdGhhdCBwYWdlLAo+PiB5b3Ugd2lsbCBzZWVhIGNvbWJvIGJveCB0byBzZWxlY3QgeW91
+ciBsYW5ndWFnZSBmb3IgYSBkZW1vLiBTY3JvbGwgdXAgaW4KPj4gdGhhdGNvbWJvIGJveCBhbmQg
+eW91IHdpbGwgZmluZCBTd2VkaXNoIGFuZCBGaW5uaXNoLCB0aGVuLCBvbmNlIHlvdXNlbGVjdAo+
+PiB0aGUgbGFuZ3VhZ2UsIHRhYiBkb3duLCBhbmQgcHJlc3MgZW50ZXIgb24gImxpc3RlbiIuCj4+
+Cj4+IFRvIHRoZSBwZXJzb24gd2hvc3VnZ2VzdGVkIGZ1cnRoZXIgcGxhdGZvcm1zIG9mIHVzYWdl
+IHN1Y2ggYXMgTWFjCj4+IHRlcm1pbmFscyBhbmQgTGludXhvbiBXaW5kb3dzLCBJIGFwcHJlY2lh
+dGUgdGhlIHN1Z2dlc3Rpb24gYW5kIHRoaXMgaXMKPj4gY2VydGFpbmx5c29tZXRoaW5nIHRvIGxv
+b2sgaW50by4KPj4KPj4gUGVyc29uYWxseSBJIG9ubHloYXZlIGV4cGVyaWVuY2Ugd2l0aCBzdGFu
+ZCBhbG9uZSBXaW5kb3dzLCBhbmQgc3RhbmQgYWxvbmUKPj4gTGludXguCj4+Cj4+IEkgcmVhbGx5
+IGRvbid0IGtub3dhbnl0aGluZyBhYm91dCB0aGUgd29ya2luZ3Mgb2YgTWFjIE9TLCBidXQgaWYg
+YSBNYWMKPj4gdGVybWluYWwgcnVucyBvbkxpbnV4IGNvbXBhdGlibGUgc29mdHdhcmUsIHRoZW4g
+aXQgbWlnaHQgYmUgcG9zc2libGUgdG8KPj4gaW5jb3Jwb3JhdGVSZWFkc3BlYWtlciB2b2ljZXMu
+IEhvd2V2ZXIsIHdpdGggTWFjLCBJJ20gYXNzdW1pbmcgeW91J3JlCj4+IGRlYWxpbmd3aXRoIEFw
+cGxlIGFuZCB3aGF0ZXZlciBwcm90b2NvbHMgdGhleSBoYXZlIGFzIGEgY29tcGFueSB0bwo+PiBh
+cHByb3Zlb2YgdGhpcmQgcGFydHkgVFRTIHByb3ZpZGVycy4gVGhhdCBpcyBhbiBhdmVudWUgdGhh
+dCBJIGFtIHJlYWxseQo+PiBub3RmYW1pbGlhciB3aXRoLCBidXQgaWYgYW55b25lIGhlYXIgaXMg
+YSBNYWMgYWZmaWNpb25hZG8gd2l0aGV4cGVyaWVuY2UKPj4gd2l0aCBBcHBsZSdzIHByb3RvY29s
+cyBmb3IgYXBwcm92aW5nIHRoaXJkIHBhcnR5cHJvdmlkZXJzLCBwbGVhc2UgZmVlbCBmcmVlCj4+
+IHRvIHNoYXJlIHRoYXQga25vd2xlZGdlIHdpdGggbWUuCj4+Cj4+ICAgTWFjIGFuZCBXaW5kb3dz
+YWxyZWFkeSBoYXZlIHNvIG1hbnkgbmF0dXJhbCBzb3VuZGluZyBzcGVlY2ggb3B0aW9ucwo+PiBh
+dmFpbGFibGUgdGhhdEknbSByZWFsbHkgZm9jdXNpbmcgb24gdHJ5aW5nIHRvIGJyaW5nIFJlYWRz
+cGVha2VyIHRvIExpbnV4Cj4+IGlucGFydGljdWxhciwgdG8gZ2l2ZSBMaW51eCB1c2VycyBtb3Jl
+IGNob2ljZXMgZm9yIG5hdHVyYWwgc291bmRpbmdzcGVlY2guCj4+IFNvIGlmIEFwcGxlIGFscmVh
+ZHkgcHJvdmlkZXMgbmF0dXJhbCB2b2ljZXMgZm9yIHRoZSBNYWN0ZXJtaW5hbCwgdGhlbiBpdAo+
+PiBtYXkgYmUgYmV0dGVyIHRvIGZvY3VzIHNvbGVseSBvbiBzdGFuZCBhbG9uZSBMaW51eHN5c3Rl
+bXMuCj4+Cj4+ICAgSG93ZXZlciwgaXQgc2VlbXN0aGF0IHRoZSBMaW51eCBvbiBXaW5kb3dzIHRo
+YXQgeW91IHNwZWFrIG9mLCBzaG91bGQgYmUKPj4gYWJsZSB0b3V0aWxpemUgdGhlc2Ugdm9pY2Vz
+IGlmIGl0cyBlc3NlbnRpYWxseSBzdGlsbCBMaW51eCBzb2Z0d2FyZS4KPj4KPj4gSSdtIHN0aWxs
+IG9wZW4gdG9hbnkgaWRlYXMgYWJvdXQgTWFjIHRlcm1pbmFsIGFuZCBMaW51eCBvbiBXaW5kb3dz
+LCBpdHMKPj4ganVzdCB0aGF0IElkb24ndCBoYXZlIGFueSBleHBlcmllbmNlIHdpdGggdGhhdCwg
+SSBkb24ndCBrbm93IGlmIHRoZXJlCj4+IGFyZWFscmVhZHkgZXhpc3RpbmcgbmF0dXJhbCB2b2lj
+ZXMgZm9yIHRoZW0gc2VlaW5nIGFzIGl0IHNlZW1zIHRvIGJlIExpbnV4Cj4+IHNvZnR3YXJlIGJ1
+dCBydW5uaW5nIG9uIHRvcCBvZiBNYWMgb3IgV2luZG93cywgYnV0IGFueSBpbnB1dCBvbiB0aGF0
+IHdvdWxkCj4+IGJlIGdyZWF0Lgo+Pgo+PiAgIFRvIENoaW1lOgo+Pgo+PiBXZSBtaWdodCBiZSBh
+YmxlIHRvcmVxdWVzdCBIZWF0aGVyIGlmIHdlIGdldCBlbm91Z2ggaW50ZXJlc3QgdG8gZ2V0IHRo
+aXMKPj4gcHJvamVjdCB1cCBhbmRnb2luZy4gQWx0aG91Z2ggdGhlIG9ubHkgcGxhY2Ugd2hlcmUg
+SSBoYXZlIHNlZW4gSGVhdGhlcgo+PiB1dGlsaXplZCBpc2luIHRoZWlyIHdlYi1yZWFkZXIgc29s
+dXRpb25zIHdoaWNoIGFyZSBhIGJpdCBkaWZmZXJlbnQgZnJvbQo+PiB0aGVpckxpbnV4IGNvbXBh
+dGlibGUgU0RLLiBUaGV5IGRvIG9mZmVyIHRoZSBvcHRpb24gdG8gaGF2ZQo+PiBjdXN0b21pemVk
+dm9pY2VzIHRob3VnaCwgc28gd2UgbWlnaHQgYmUgYWJsZSB0byByZXF1ZXN0IEhlYXRoZXIgaWYg
+d2UKPj4gcmVhbGx5d2FudCB0aGF0LiBQZXJzb25hbGx5LCBmb3IgVVMgRW5nbGlzaCBJIGxpa2Ug
+dGhlIEp1bGllIHZvaWNlIHdoaWNoCj4+IGlzYXZhaWxhYmxlIHRvIGRlbW8gb24gdGhlIFJlYWRz
+cGVha2VyIHNpdGUsIGFzIHdlbGwgYXMgdGhlIFNvcGhpZXZvaWNlCj4+IHdoaWNoIGlzIHdoYXQg
+dGhleSB1c2VkIHRvIHJlY29yZCB0aGF0IG1wMyBmaWxlIGZvciBDb25zb2xldXNlcnMgdGhhdCB5
+b3UKPj4gbGlzdGVuZWQgdG8uCj4+Cj4+IExldCBtZSBrbm93IGlmIHlvdWV2ZXIgZW5kIHVwIGZp
+bmRpbmcgYW55IHNhbXBsZXMgb2YgdGhlIFZveHlnZW4gSHlwcmEKPj4gdm9pY2VzLCBJJ2QgbGlr
+ZXRvIGtub3cgd2hhdCB0aGV5IHNvdW5kIGxpa2UgaW4gRW5nbGlzaCBhbmQgSSBoYXZuJ3QgZm91
+bmQKPj4gYW55IEh5cHJhc2FtcGxlcyBlaXRoZXIuCj4+Cj4+IFRvIERlYmluIFByYXRlcjoKPj4K
+Pj4gVGhhbmtzIGZvciB0aGVpbnB1dC4KPj4KPj4gSSdtIGEgYmVnaW5uZXJzbyBJIGRvbid0IGhh
+dmUgZXhwZXJpZW5jZSB3aXRoIHRoZSBFbWFjc3BlYWsgc2VydmVycyB5b3UKPj4gc3BlYWsgb2Yu
+QnV0IGlmIHdlIG1vdmUgZm9yd2FyZCB3aXRoIGEgcHJvamVjdCB3aXRoIFJlYWRzcGVha2VyLCB0
+aGUKPj4gZ29hbHdvdWxkIGJlIHRvIG9mZmVyIHRoZSB2b2ljZXMgZm9yIHRoZSBtb3N0IHdpZGVs
+eSB1c2VkIERpc3Ryb3MKPj4gdGhhdGluY2x1ZGUgT3JjYSBvciBTcGVha3VwIGZvciBwZW9wbGUg
+dG8gaW5zdGFsbCB0aGUgdm9pY2VzIGFuZCB1c2Ugb24KPj4gdGhlaXIgbG9jYWxzeXN0ZW0uCj4+
+Cj4+IEkgcmVhbGx5IGhhdm4ndHNtb290aGVkIG91dCB0aGUgZmluaXRlIGRldGFpbHMgb24gdGhh
+dCBhcyB0byBob3cgZXhhY3RseQo+PiB0aGUgaW50ZXJmYWNlIG1ha2luZyBSZWFkc3BlYWtlciBh
+dmFpbGFibGUgZm9yIExpbnV4IHNjcmVlbnJlYWRlcnMgd291bGQKPj4gd29yayBpbiB0ZXJtcyBv
+ZiB0aGUgdGVjaG5pY2FsaXRpZXMuIEZvciBleGFtcGxlLCBob3cgdG8gbWFrZSBpdCBhdmFpbGFi
+bGUKPj4gYm90aCBmb3IgRGViaWFuIGJhc2VkIHN5c3RlbXMgYW5kIGZvciBzb21ldGhpbmcgbGlr
+ZSBBcmNoLCBqdXN0IHRocm93aW5nCj4+IG91dCBleGFtcGxlcy4gQnV0IFZveGluIGhhcyBkb25l
+IGl0IHdpdGggTnVhbmNlLCBzbyBpdCBzaG91bGQgYmUgZG9hYmxlCj4+IHdpdGggUmVhZHNwZWFr
+ZXIgYW5kIHRoZSBndXlzIGF0IFJlYWRzcGVha2VyIGFyZSBhcHBhcmVudGx5IHdpbGxpbmcgdG8K
+Pj4gY29uc2lkZXIgZGV2ZWxvcGluZyBhbiBpbnRlcmZhY2UgdG8gbWFrZSBpdCBwb3NzaWJsZSwg
+YXMgbG9uZyBhcyB0aGVyZSBpcwo+PiBlbm91Z2ggaW50ZXJlc3QgaW4gdGhlIGNvbW11bml0eSwg
+YW5kIHNvIGxvbmcgIGFzIGl0IHdvdWxkIGJlIGNvbW1lcmNpYWxseQo+PiB2aWFibGUgZm9yIHRo
+ZW0uCj4+Cj4+IE15IGZpcnN0IHN0ZXAgaXMgdG8gc2ltcGx5IGZpbmQgb3V0IGlmdGhlcmUgaXMg
+YW55IGludGVyZXN0LCB3aGljaCwgaXQKPj4gc2VlbXMgbGlrZSB0aGVyZSBpcyBhIHNtYWxsIGhh
+bmRmdWwgaGVyZSBvbiB0aGlzIGxpc3QgdGhhdCB3b3VsZCBiZQo+PiBpbnRlcmVzdGVkLgo+Pgo+
+PiBPdGhlciBDb25zb2xlcmVhZGVycyBtaWdodCBiZSBjb25zaWRlcmVkIGFzIHdlbGwsIGFuZCB3
+b3VsZCBiZSBtZW50aW9uZWQKPj4gaW4gYW4gb2ZmaWNpYWxzdXJ2ZXkgYmVmb3JlIGFjdHVhbGx5
+IGdldHRpbmcgc3RhcnRlZCBvbiB0aGUgcHJvamVjdCwgdG8KPj4gZGV0ZXJtaW5ld2hhdCBpcyB0
+aGUgbW9zdCBwb3B1bGFyIENvbnNvbGUgc2NyZWVucmVhZGVyIGZvciBMaW51eCB1c2Vycwo+PiBh
+bmRzdGFydCB3aXRoIHRoYXQuIEhvcGVmdWxseSBvZmZlcmluZyB2b2ljZXMgZm9yIE9yY2EgZ3Jh
+cGhpY2FsLCBhbmQKPj4gYXRsZWFzdCB0aGUgbW9zdCB3aWRlbHkgdXNlZCBDb25zb2xlIHJlYWRl
+ci4gSSBrbm93IHRoZXJlJ3MgcXVpdGUgYQo+PiBmZXdDb25zb2xlIHJlYWRlcnMgb3V0IHRoZXJl
+LCBidXQgd2UnZCBoYXZlIHRvIHJlYWxseSBkZWNpZGUgd2hlcmUKPj4gdGhlZGV2ZWxvcGVycyBh
+dCBSZWFkc3BlYWtlciB3b3VsZCBmb2N1cyB0aGVpciB0aW1lIGFuZCBlZmZvcnQgaW50b21ha2lu
+Zwo+PiB0aGVpciBMaW51eCBjb21wYXRpYmxlIGludGVyZmFjZSB0byBicmluZyBSZWFkc3BlYWtl
+ciB2b2ljZXN0bwo+PiBzY3JlZW5yZWFkZXJzLgo+Pgo+Pgo+PiAgIEkgdGhpbmsgc3RhcnRpbmd3
+aXRoIE9yY2EgZm9yIEdyYXBoaWNhbCwgYW5kIHRoZW4gb25lIENvbnNvbGUgUmVhZGVyLAo+PiB3
+b3VsZCBiZSBnb29kLgo+Pgo+PiBIYXZuJ3QgZXZlbiBnb3R0ZW5pbnRvIEVtYWNzIHlldCwgYnV0
+IGlmIHRoYXQgdXNlcyBhIHNlcGVyYXRlIHNjcmVlbnJlYWRlcgo+PiBhbmQgaXN3aWRlbHkgdXNl
+ZCwgdGhlbiB0aGF0IHdvdWxkIGJlIHNvbWV0aGluZyB0byBjb25zaWRlciBpbmNsdWRpbmcKPj4g
+aWZwb3NzaWJsZS4gSSdtIGp1c3QgdHJ5aW5nIHRvIGNvdmVyIHRoZSBiYXNpY3Mgb2Ygc29tZXRo
+aW5nIGZvcmdyYXBoaWNhbCwKPj4gYW5kIHNvbWV0aGluZyBmb3IgY29uc29sZS4gQXMgZmFyIGFz
+IEkga25vdywgaXNuJ3QgRW1hY3NsaWtlIGEgdGV4dCBlZGl0b3IKPj4gYW5kIHVzZWQgZm9yIHBy
+b2dyYW1taW5nIGV0Yz8gRG8gcGVvcGxlIGFsc28gdXNlaXQgbGlrZSBhIHNjcmVlbnJlYWRlciB0
+bwo+PiBhY2Nlc3MgZGFpbHkgdGFza3Mgb24gTGludXggaW5zdGVhZCBvZiBPcmNhT3IgRXNwZWFr
+dXA/Cj4+Cj4+IFRvIERpZGllcjoKPj4KPj4gV293LCBkaWRuJ3Qga25vdyB5b3VhbHNvIHJlYWNo
+ZWQgb3V0IHRvIFJlYWRzcGVha2VyIGFzIGFuIEl2b25hCj4+IGRpc3RyaWJ1dG9yIGJhY2sgaW4g
+dGhlZGF5LiBHb29kIHRvIGtub3cuIEl0cyB0b28gYmFkIHRoYXQgc29tZXRoaW5nIGNhbid0Cj4+
+IGJlIGRvbmUgdG8gYnJpbmdJdm9uYSB0byBMaW51eCBzZWVpbmcgYXMgb25lIG9mIHRoZWlyIG9y
+aWdpbmFsIHBhZ2VzIHNhaWQKPj4gdGhhdCBhbkl2b25hIFNESyB3YXMgY29tcGF0aWJsZS4gQnV0
+IHdoZW4gSSBhc2tlZCB0aGVtLCBJIGdvdCB0aGUKPj4gc2FtZXJlc3BvbnNlIHRoYXQgSXZvbmEg
+aXMgbGlua2VkIHdpdGggQW1hem9uIG5vdyBzbyBJdm9uYSBpcyBub3QgYW4gb3B0aW9uLgo+Pgo+
+PiAgIEknbSBub3QgdGhlIG9ubHkgb25ldG8gaW5xdWlyZS4gWW91IGFza2VkIHRoZW0geWVhcnMg
+YmVmb3JlIG1lLCBhbmQgSQo+PiB3b3VsZG4ndCBiZXN1cnByaXNlZCBpZiB3ZSdyZSBub3QgdGhl
+IG9ubHkgb25lcyB0byBhc2sgZm9yIEl2b25hLgo+PiBRdWl0ZWZydXN0cmF0aW5nIHRoYXQgSXZv
+bmEgaXMgbm90IG1vcmUgb3BlbiB0byBjb2xsYWJvcmF0aW5nCj4+IGZvcmFjY2Vzc2liaWxpdHkg
+c29sdXRpb25zIG9uIG11bHRpcGxlIHBsYXRmb3Jtcy4gRXZlbiBmcm9tIGEKPj4gc3RyaWN0bHli
+dXNpbmVzcyBzdGFuZHBvaW50LCBJdm9uYSBjb3VsZCBtYWtlIGFkZGl0aW9uYWwgcHJvZmZpdHMg
+ZnJvbQo+PiBzZWxsaW5nIHNvbHV0aW9ucyB0byBMaW51eCB1c2Vycy4gT2ggd2VsbC4KPj4KPj4g
+QXMgZm9yIHRoZVJlYWRzcGVha2VyIGJyYW5kIHZvaWNlcywgd2hlbiBJIGNvbnRhY3RlZCB0aGVt
+LCB0aGV5IGRpZCBzYXkKPj4gdGhhdHRoZXkgdXN1YWxseSBvbmx5IHNlbGwgdG8gYnVzaW5lc3Nl
+cywgbm90IGluZGl2aWR1YWxzOyBidXQgdGhleQo+PiBzYWlkdGhhdCBpbiB0aGlzIGNhc2UsIHRo
+ZXkgd291bGQgYmUgd2lsbGluZyB0byBjb25zaWRlciBkZXZlbG9waW5nCj4+IGFuaW50ZXJmYWNl
+IHRvIGJyaW5nIFJlYWRzcGVha2VyIHZvaWNlcyB0byBMaW51eCBzY3JlZW5yZWFkZXJzIHByb3Zp
+ZGVkdGhhdAo+PiB0aGVyZSBpcyBlbm91Z2ggaW50ZXJlc3QgaW4gdGhlIGNvbW11bml0eSwgYW5k
+IHRoYXQgaXQgd291bGQgYmVjb21tZXJjaWFsbHkKPj4gdmlhYmxlLiBUaGF0cyB3aHkgSSdtIHRy
+eWluZyB0byBnZXQgYSBiYXNlbGluZSBvZmludGVyZXN0LCB0byBzZWUgaWYgaXRzCj4+IHdvcnRo
+d2hpbGUgdG8gdHJ5IHRvIG1vdmUgZm9yd2FyZCB3aXRoIHRoaXMuCj4+Cj4+IFRvIEZyYW5jaXNj
+bzoKPj4KPj4gWWVzLCBJIHRvdGFsbHkgYWdyZWV3aXRoIHlvdS4gVGhhdHMgd2h5IEkgc3RhcnRl
+ZCB0aGlzIGVuZGVhdm9yLCBmaXJzdAo+PiB0cnlpbmcgdG8gYnJpbmdJdm9uYSB0byBMaW51eCBi
+dXQgdGhhdCBkaWRuJ3Qgd29yayBvdXQuIE5vdyB0cnlpbmcgdG8KPj4gYnJpbmdSZWFkc3BlYWtl
+cidzIG93biBicmFuZCBvZiB2b2ljZXMgIHRvIExpbnV4LiBJIHRvbyB3YW50IHRvIHNlZQo+PiBt
+b3JlbmF0dXJhbCBzb3VuZGluZyB2b2ljZXMgYmVjb21lIGF2YWlsYWJsZSB0byBMaW51eC4gQWxs
+b3dpbmcgTGludXh1c2Vycwo+PiB0byBoYXZlIGEgc2ltaWxhciByYW5nZSBvZiBuYXR1cmFsIFRU
+UyBjaG9pY2VzIGFzIFdpbmRvd3N1c2VycywgYW5kIGluCj4+IHJldHVybiwgbW9yZSBwZW9wbGUg
+bWF5IGRlY2lkZSB0byBnaXZlIExpbnV4IGEgdHJ5Lgo+Pgo+PiBUaGFua3MgdG8gYWxsIGZvcnRo
+ZSBpbnF1aXJpZXMsIGhvcGUgSSB3YXMgYWJsZSB0byBhbnN3ZXIgYXQgbGVhc3Qgc29tZSBvZgo+
+PiB5b3VycXVlc3Rpb25zLCBmZWVsIGZyZWUgdG8ga2VlcCBhc2tpbmcgcXVlc3Rpb25zIG9yIHNo
+YXJpbmcgaWRlYXMsIGFuZGZvcgo+PiB0aG9zZSBvZiB5b3Ugd2hvIG1pc3NlZCB0aGUgbGluayB0
+aGUgZmlyc3QgdGltZSBhcm91bmQsIHBsZWFzZSBkb3RyeQo+PiBsaXN0ZW5pbmcgdG8gdGhlIGRl
+bW9zIGF2YWlsYWJsZSBvbiBSZWFkc3BlYWtlcidzIHdlYiBwYWdlLgo+Pgo+PiBUaGFua3MsCj4+
+Cj4+IFNMCj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+PiBCbGludXgtbGlzdEByZWRoYXQuY29t
+Cj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxp
+c3QKPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJs
+aW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczov
+L2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4gCgoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3Qg
+bWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhh
+dC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
 
