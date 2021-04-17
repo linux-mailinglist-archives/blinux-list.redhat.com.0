@@ -1,72 +1,91 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 83957362C42
-	for <lists+blinux-list@lfdr.de>; Sat, 17 Apr 2021 02:08:30 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 82549362C67
+	for <lists+blinux-list@lfdr.de>; Sat, 17 Apr 2021 02:23:35 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1618618109;
+	s=mimecast20190719; t=1618619014;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=bLRs/JUs5QVdeLfhBF+nJ4Qt7JUcliARHxO0g7mEi7k=;
-	b=K49grDqlZL91iu6r7UQHc2rIfwUoWL3Tp1vJ+8TJ8qeUs9w8C/VT1Ys2Rn2/ecWNN1bQxq
-	MzzvsvRA7hx/HAGkZg5Axe8JBp9LiuuJD/AdYiSXRFUAlAgPX6IFf4+G5sqw9+YO9/rGYP
-	mvuc4P+n6SqA2cSVIXYqSOz0+D00jIU=
+	bh=Ae52zY6QvB3BJyOnQiPaXGFPWwqwJKiNq8E9pKbCWkA=;
+	b=ER65daGv/pmj0NJcoyc+wEwZt8nkfCNklX2QoDglD7oY1x4vU1O4MTqQ3o6iUzZOYYVZYb
+	0pLPYVT5hxsWH34JNV0s4i6U50X/1hL65Nd2CpW5QX0q2kymKi5YdoTPamWEAL+8Mk2vSQ
+	oetKxBdwqdhjCJBwjM6PILyMFnlntF0=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-79-NnF_ZDe9NXycrxz7Gb51JQ-1; Fri, 16 Apr 2021 20:08:27 -0400
-X-MC-Unique: NnF_ZDe9NXycrxz7Gb51JQ-1
+ us-mta-478-amIeHR5XM9GBk7WTeet7Lw-1; Fri, 16 Apr 2021 20:23:32 -0400
+X-MC-Unique: amIeHR5XM9GBk7WTeet7Lw-1
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B595218397A9;
-	Sat, 17 Apr 2021 00:08:22 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6FFDE5D9C0;
-	Sat, 17 Apr 2021 00:08:21 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1F72E8030BB;
+	Sat, 17 Apr 2021 00:23:29 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 90D2C5D9C0;
+	Sat, 17 Apr 2021 00:23:27 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 72B0F44A5E;
-	Sat, 17 Apr 2021 00:08:17 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4DE9C1806D0F;
+	Sat, 17 Apr 2021 00:23:26 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 13H06R3J019944 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 16 Apr 2021 20:06:27 -0400
+	id 13H0Kro4020690 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 16 Apr 2021 20:20:53 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 10918103CB0; Sat, 17 Apr 2021 00:06:27 +0000 (UTC)
+	id E52AC202147F; Sat, 17 Apr 2021 00:20:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0B22B103412
-	for <blinux-list@redhat.com>; Sat, 17 Apr 2021 00:06:23 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id DF9C72021470
+	for <blinux-list@redhat.com>; Sat, 17 Apr 2021 00:20:50 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D53AA8001A6
-	for <blinux-list@redhat.com>; Sat, 17 Apr 2021 00:06:23 +0000 (UTC)
-Received: from mx1.simplelogin.co (mx1.simplelogin.co [94.237.111.15])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-574-zWWpxVZXNw-KipOsFwjcaw-1; Fri, 16 Apr 2021 20:06:20 -0400
-X-MC-Unique: zWWpxVZXNw-KipOsFwjcaw-1
-X-SimpleLogin-Client-IP: 2a04:3544:1000:1510:8c7a:9cff:fe3c:4b2c
-Received: from [172.17.0.6] (mx1.simplelogin.co
-	[IPv6:2a04:3544:1000:1510:8c7a:9cff:fe3c:4b2c])
-	by mx1.simplelogin.co (Postfix) with ESMTP id D96966046D
-	for <blinux-list@redhat.com>; Fri, 16 Apr 2021 23:57:37 +0000 (UTC)
-In-Reply-To: <161861134168.7.8725593548099427193.5935596@simplelogin.co>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1715A185A79C
+	for <blinux-list@redhat.com>; Sat, 17 Apr 2021 00:20:50 +0000 (UTC)
+Received: from wout4-smtp.messagingengine.com
+	(wout4-smtp.messagingengine.com [64.147.123.20]) (Using TLS) by
+	relay.mimecast.com with ESMTP id us-mta-144-FtJ09gW9OzOCFiNP6XqFUw-1;
+	Fri, 16 Apr 2021 20:20:47 -0400
+X-MC-Unique: FtJ09gW9OzOCFiNP6XqFUw-1
+Received: from compute2.internal (compute2.nyi.internal [10.202.2.42])
+	by mailout.west.internal (Postfix) with ESMTP id 722F512E4
+	for <blinux-list@redhat.com>; Fri, 16 Apr 2021 20:20:46 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+	by compute2.internal (MEProxy); Fri, 16 Apr 2021 20:20:46 -0400
+X-ME-Sender: <xms:3Sl6YHDNOU-b4-59Z-wDRRWa1cPtAmsU-IcAQieBVipHG46vuWZnKg>
+	<xme:3Sl6YNg0ZXWF4W9aHB2Ae_QfBOCHU8u3eUUDpvJIqODH69km3weh0YyKAEneF8wo-
+	LM-FFZhraW0T4tpLWU>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrudeliedgfeefucetufdoteggodetrfdotf
+	fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+	uceurghilhhouhhtmecufedttdenucenucfjughrpeffhffvufgjkfhfgggtsehttdertd
+	dttddvnecuhfhrohhmpeevhhhimhgvucfjrghrthcuoegthhhimhgvsehhuhgsvghrthdq
+	hhhumhhphhhrvgihrdgtohhmqeenucggtffrrghtthgvrhhnpeffhedthfdvvdeuueeihe
+	dvfeffuedtgeeuudfhgfelteelvdduudfgleekvedtveenucfkphepuddtgedrudejvddr
+	fedrieefnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
+	eptghhihhmvgeshhhusggvrhhtqdhhuhhmphhhrhgvhidrtghomh
+X-ME-Proxy: <xmx:3Sl6YCnoEehLr2Fy8WewWAtwUka_g7X6JgGlAqYJhWZl1gOb6dgLAg>
+	<xmx:3Sl6YJwb5L4WBfdmXEEJ_1f2EHtJbE9GrLykUoNGky8XHMpzRU44Tw>
+	<xmx:3Sl6YMStATB79lk_0fKUHq9heSEZBVegJUKGUK2VxT8ozDTrajohtA>
+	<xmx:3il6YDd2jOqeScEUWGrHPkuq5mDZ2n1dZfRa-AP7wJvI9AQCvqRwPg>
+Received: from chime.lan (cpe-104-172-3-63.socal.res.rr.com [104.172.3.63])
+	by mail.messagingengine.com (Postfix) with ESMTPA id 7C216240054
+	for <blinux-list@redhat.com>; Fri, 16 Apr 2021 20:20:45 -0400 (EDT)
+Date: Fri, 16 Apr 2021 17:20:44 -0700 (PDT)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: SL's response to all inquiries re: Readspeaker voices
+In-Reply-To: <161861745773.6.10221248550300079442.5937580@slmail.me>
+Message-ID: <2d84575-10dc-a8b6-d46d-60773d4fafc8@hubert-humphrey.com>
 References: <161860978196.7.10178583994303054677.5934759@slmail.me>
 	<161861134168.7.8725593548099427193.5935596@simplelogin.co>
-Subject: Re: SL's response to all inquiries re: Readspeaker voices
+	<161861745773.6.10221248550300079442.5937580@slmail.me>
 MIME-Version: 1.0
-To: blinux-list@redhat.com
-Message-ID: <161861745773.6.10221248550300079442.5937580@slmail.me>
-Date: Fri, 16 Apr 2021 23:57:37 -0000
-X-SimpleLogin-Type: Reply
-X-SimpleLogin-EmailLog-ID: 5937580
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -75,9 +94,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
-X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -98,16 +116,14 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi,
-Thank you. I didn't know that about Speech Dispatcher. That is great to know as it would make the creation of something like a Readspeaker plugin much easier for the developers to create as it would be compatible with all screenreaders using Dispatcher. Thanks so much for that.
-On a different note, it looks like the same thing happened with pasting into the email client, where it completely messed up the format of the message I posted to this list... again. Making it look like I have no clue how to use a space bar lol. Believe me... I definitely do know how to use the space bar... I put all the spaces where they are supposed to be and it just deletes them and smashes my words together once the message is sent.
-The only way I was able to fix it last time was put the message on a USB card, transfer it out of Slint and into Windows, paste it into a Windows word processor, edit out all the places where my email client doesn't seem to agree with my formatting of things in Slint, and then re-send it on Windows.
-Quite frustrating. I don't know why this is happening anytime I paste what I have written in LibreOffice on Slint into my email client.
-Are you guys able to make sense out of what was sent at all in regards to my responses to the inquiries?
-I can try to reformat it on Windows and re-send it but it will take a while.
+Well, yes SL, I was able to make out all your concepts, but maybe you want to 
+try another strategy. Why not just type your comments live, with no pasting? 
+You can still most likely sample before sending.
+Chime
+
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
