@@ -1,74 +1,76 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 7BA533633D5
-	for <lists+blinux-list@lfdr.de>; Sun, 18 Apr 2021 07:30:24 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [63.128.21.124])
+	by mail.lfdr.de (Postfix) with ESMTP id D97793633D6
+	for <lists+blinux-list@lfdr.de>; Sun, 18 Apr 2021 07:31:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1618723823;
+	s=mimecast20190719; t=1618723899;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:mime-version:mime-version:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=UMn6DMQe1DFiRMY5U8Z9MRrD7ZzRPA0HxwBxQ3qiI3A=;
-	b=PT2Ck3nPa0MaNjrT8eF00kXCgpQ4RpWNJVxl9TSrutEogv1g9wNep/VP6GzwlkIDAHZhfL
-	KQ5dCYEMJPpvZvlCX9ShmgdwONz42WLb1GpRtJA2o8xG+OztP1GyItcpkaPOH9V7akFirU
-	2aMCs1wsneqSnjD7uHpl0Bo65SmSN18=
+	bh=2TSJbZ01VfBttT/6hsogFonDch8j8SdxgvQlEmTLy1U=;
+	b=hWyBa5fjYTPYcZzrpgUUU8XddyF+Tcetml4JASUGjqmMJfx6ntQKQ8HLyhMzGMihHFjrcx
+	jmB96wiTyRH1JBQlYYV2NBllEs+k4pQYztA4i1pTixIVCdS/VCWyMl1cV/RN+BV7VA1mQC
+	Om0RPL1LOTY3/VDCkjuBLoAt8FuES6o=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-530-ewxATzqrN6Go_4z4ZKWUPg-1; Sun, 18 Apr 2021 01:30:20 -0400
-X-MC-Unique: ewxATzqrN6Go_4z4ZKWUPg-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-568-19RojH0ANFyoroFKs34tQQ-1; Sun, 18 Apr 2021 01:31:37 -0400
+X-MC-Unique: 19RojH0ANFyoroFKs34tQQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id AE5E18030B5;
-	Sun, 18 Apr 2021 05:30:15 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C546219C66;
-	Sun, 18 Apr 2021 05:30:12 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DE7C850204;
+	Sun, 18 Apr 2021 05:31:33 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CCCEC5D9CD;
+	Sun, 18 Apr 2021 05:31:32 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5B2D8383C;
-	Sun, 18 Apr 2021 05:30:07 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A303A1806D16;
+	Sun, 18 Apr 2021 05:31:32 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 13I5TtU5025082 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 18 Apr 2021 01:29:55 -0400
+	id 13I5VTnx025196 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 18 Apr 2021 01:31:29 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 36AA82087A40; Sun, 18 Apr 2021 05:29:55 +0000 (UTC)
+	id 0A4802087A5B; Sun, 18 Apr 2021 05:31:29 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 314FC2095BA9
-	for <blinux-list@redhat.com>; Sun, 18 Apr 2021 05:29:53 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0511D2087A40
+	for <blinux-list@redhat.com>; Sun, 18 Apr 2021 05:31:26 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EA4BF185A7A5
-	for <blinux-list@redhat.com>; Sun, 18 Apr 2021 05:29:52 +0000 (UTC)
-Received: from server2.shellworld.net (server2.shellworld.net
-	[66.172.12.120]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-580-zRwfeVDFNb2WUwkkbM5_mA-1; Sun, 18 Apr 2021 01:29:50 -0400
-X-MC-Unique: zRwfeVDFNb2WUwkkbM5_mA-1
-Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id 3FEDA621C3A; Sun, 18 Apr 2021 05:29:49 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id 3C5A0621C28
-	for <blinux-list@redhat.com>; Sun, 18 Apr 2021 01:29:49 -0400 (EDT)
-Date: Sun, 18 Apr 2021 01:29:49 -0400 (EDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Formatting - was Would you be interested in having natural
-	sounding TTS voices by Readspeaker on Linux? demo link included
-In-Reply-To: <20210418.010302.720.1@[0.0.0.0]>
-Message-ID: <Pine.LNX.4.64.2104180111320.2518410@server2.shellworld.net>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BCDE6101A52C
+	for <blinux-list@redhat.com>; Sun, 18 Apr 2021 05:31:26 +0000 (UTC)
+Received: from mx1.simplelogin.co (mx1.simplelogin.co [94.237.111.15])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-578-IXcvzzz1Oka-yKK6rgognw-1; Sun, 18 Apr 2021 01:31:23 -0400
+X-MC-Unique: IXcvzzz1Oka-yKK6rgognw-1
+X-SimpleLogin-Client-IP: 2a04:3544:1000:1510:8c7a:9cff:fe3c:4b2c
+Received: from [172.17.0.3] (mx1.simplelogin.co
+	[IPv6:2a04:3544:1000:1510:8c7a:9cff:fe3c:4b2c])
+	by mx1.simplelogin.co (Postfix) with ESMTP id 4120F5E7FA
+	for <blinux-list@redhat.com>; Sun, 18 Apr 2021 05:25:27 +0000 (UTC)
+In-Reply-To: <161870783828.7.7052329592837058755.5970391@simplelogin.co>
 References: <161866688954.6.12074603936546144678.5956995@simplelogin.co>
 	<161870350119.8.17896736538043458897.5969450@slmail.me>
 	<CAO2sX33vz_y4yBAAy7JDdv5PWmRoS_QvTXxV+ghoWpyuhuRSig@mail.gmail.com>
-	<20210418.010302.720.1@[0.0.0.0]>
+	<161870783828.7.7052329592837058755.5970391@simplelogin.co>
+Subject: Re: Formatting - was Would you be interested in having natural
+	sounding TTS voices by Readspeaker on Linux? demo link included
 MIME-Version: 1.0
+To: blinux-list@redhat.com
+Cc: blinux-list@redhat.com
+Message-ID: <161872352710.7.7198123855397945809.5973213@slmail.me>
+Date: Sun, 18 Apr 2021 05:25:27 -0000
+X-SimpleLogin-Type: Reply
+X-SimpleLogin-EmailLog-ID: 5973213
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -79,6 +81,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -94,85 +97,44 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-But this is one thing I find confusing...at least for Linux.
-tts is not a screen reader program.
-One may incorporate a tts  module into the workings of a screen reader 
-program, the way drivers were written to allow hardware synthesizers to 
-communicate with said program, but the tts itself is not going to, on its 
-own, manage things like responsiveness while typing and the like...and 
-that is before you talk of latency problem possibilities.
-It is the screen reader program itself that, in my experience, takes care 
-of inflection, allowing the user to get more or less, same thing with 
-punctuation marks, pitch and speed.
-If speak reader is strictly a tts, the company   may not understand the 
-need for  things like making sure the tts can follow activity and control 
-of the  computer itself.
-  before  writing this email I did a quick google  using the phrase tts 
-defined?
-with  the first several options discussing how those with reading 
-challenges   like dyslexia use tts to manage small blocks of words on the 
-screen  with the recommended rate of 180 words per minute..or less.
-It is, speaking personally, very unfortunate that some think a tts is a 
-screen reader program, when in reality they are different.
-I have a friend who likes to use her amazon kindle to read fanfiction 
-aloud.
-We have these discussions because my screen reader has  no issue  properly 
-pronouncing say  the name of Ron Weasley from the harry Potter books, but 
-the Kindle tts cannot pronounce the word correctly at all.
-Do not be surprised if you end up needing to demonstrate how your screen 
-reader, orca or speakup, does more than just read text, which for many  is 
-the only   purpose of a tts    tool.
-Does that make sense?
-
-
-
-On Sat, 17 Apr 2021, Linux for blind general discussion wrote:
-
-> The problem is that all the so called human voices are spliced together syllables and word fragments taped together. So you get emphasis on the wrong parts of the sentences, pauses in the wrong place, and stuff like that. If they would devote more machine learning time into proper text to speech rendering instead of sensorship and other nonsense, we might get somewhere.
->
-> ----- Original Message -----
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Date: Sun, 18 Apr 2021 00:42:25 +0000
-> Subject: Re: Formatting - was Would you be interested in having natural sounding TTS voices by Readspeaker on Linux? demo link included
->
->> Don't get me wrong, more natural sounding TTS with proper inflection
->> would be great, and for me, the holy grail would be TTS capable of
->> reading a digitized novel in real-time or reading subtitles on foreign
->> media in real-time and be indistinguishable from a human cast
->> recording a audio dramatization or dubbed vocal track... but unless
->> there's been massive improvements in recent years I'm unaware of, the
->> natural voices are at that point where they almost sound human but
->> fail in a subtle but unsettling way that's hard to qualify, and until
->> we get over that hurdle, I'll take the obviously robotic monotone over
->> the almost, but not quite, passes for a human reader voices for daily
->> work.
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->>
->>
->
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+WWVhaCwgc29tZXRpbWVzIHRoZSBzcGxpY2luZyB3aXRoIG5hdHVyYWwtbGlrZSB2b2ljZXMgY2Fu
+IGJlIHF1aXRlIGlycml0YXRpbmcuIEknZCBzdGlsbCByYXRoZXIgdGhhdCB0aGFuIGNvbXB1dGVy
+aXplZCB2b2ljZXMgdGhvdWdoIGxvbC4KwqAgSSB0aGluayBJdm9uYSBkaWQgcHJldHR5IGdvb2Qg
+YXQgbWFraW5nIGFsbW9zdCBodW1hbi1saWtlIHZvaWNlcy4gSSBoYXZuJ3QgZm91bmQgYW55IG90
+aGVyIFRUUyB0aGF0IGNvbXBhcmVzIHRvIEl2b25hLiBMaWtlLCBpZiB5b3UgZXZlciBoYXZlIHRo
+ZSBjaGFuY2UgdG8gbGlzdGVuIHRvIHRoZSBJdm9uYSB2b2ljZSBjYWxsZWQgS2VuZHJhLCBvZiBj
+b3Vyc2UsIGl0cyBub3QgY29tcGxldGVseSBodW1hbiwgYnV0IGl0IGhhcyBzb21lIG9mIHRoZSBt
+b3N0IG5hdHVyYWwgZmxvdyBhbmQgYWNjdXJhdGUgaW5mbGVjdGlvbiBJJ3ZlIGV2ZXIgaGVhcmQg
+aW4gYSBUVFMuIEkgaGF2ZSBJdm9uYSdzIEtlbmRyYSBvbiBXaW5kb3dzIHdpdGggTlZEQSBhbmQg
+SSBqdXN0IGluY3JlYXNlIHRoZSBzcGVlZCBhIGxpdHRsZSBiaXQgKHN0aWxsIGF0IG5vcm1hbCBo
+dW1hbiBzcGVha2luZyBzcGVlZCBqdXN0IGEgYml0IGZhc3RlciB0aGFuIHRoZSBkZWZhdWx0IHJh
+dGUpIGFuZCB0byBtZSwgdGhhdCBzb3VuZHMgZXZlbiBtb3JlIG5hdHVyYWwgdGhhbiB0aGUgZGVm
+YXVsdCBzcGVlZCB1c2VkIG9uIEJvb2tzaGFyZSBmb3IgZXhhbXBsZS4gTGFzdCBJIGNoZWNrZWQs
+IEJvb2tzaGFyZSB1c2VkIEl2b25hIEtlbmRyYSB0byB2b2ljZSBpdHMgYm9va3Mgd2hlbiB5b3Ug
+Y2hvb3NlIGF1ZGlvLiAKQnV0IHdoZW4gSSBsaXN0ZW4gdG8gc29tZXRoaW5nIGxpa2UgdGhlIE51
+YW5jZSB2b2ljZXMsIHRoZSBpbmZsZWN0aW9uIGp1c3QgZG9lc24ndCBjb21wYXJlIHRvIHRoZSBm
+bG93IG9mIEl2b25hLiBUaGF0cyB3aHkgaXRzIHNvIGZydXN0cmF0aW5nIHRoYXQgd2UgY2FuJ3Qg
+c2VlbSB0byBnZXQgSXZvbmEgb24gTGludXguClN0aWxsLCBJIHdvdWxkwqAgdGFrZSBOdWFuY2Ug
+b3IganVzdCBhYm91dCBhbnkgb3RoZXIgbmF0dXJhbCBUVFMgc3ludGgsIGV2ZW4gaWYgaXQgaGFz
+IHNvbWUgYXVrd2FyZCBpbmZsZWN0aW9ucywgSSdkIHN0aWxsIHRha2UgdGhhdCBhbnkgZGF5LCBv
+dmVyIEVzcGVhayBvciBFbG9xdWVuY2UsIGJ1dCB0aGF0cyBqdXN0IG1lIGxvbC4gSSBjYW4gdG9s
+bGVyYXRlIHNob3J0IHRhc2tzIHdpdGggY29tcHV0ZXJpemVkIHNwZWVjaCwgYnV0IGlmIGl0cyBh
+IGxvbmdlciBwaWVjZSBvZiB0ZXh0LCBhbnl0aGluZyB0aGF0IEkgYW0gc3VwcG9zZWQgdG8gZm9j
+dXMgb24gb3IgZW5qb3ksIHRoZW4gSSB3YW50IGEgbmF0dXJhbCBUVFMgZm9yIHRoYXQuIEJ1dCBJ
+J20gZ2xhZCB0aGUgY29tcHV0ZXJpemVkIHZvaWNlcyBhcmUgYXZhaWxhYmxlLiBJdHMgcmVhbGx5
+IGp1c3QgYSBwZXJzb25hbCBwcmVmZXJlbmNlLiBTb21lIGxpa2UgdGhlIGNvbXB1dGVyaXplZCBv
+bmVzLCBhbmQgc29tZSBsaWtlIHRoZSBuYXR1cmFsLWlzaCBvbmVzLiBJJ3ZlIGFsd2F5cyBjaG9z
+ZSB0aGUgbmF0dXJhbCBvbmVzIHdoZW5ldmVyIEkgaGF2ZSB0aGUgY2hvaWNlLiBFdmVuIHRob3Vn
+aCB0aGV5J3JlIG5vdCBxdWl0ZSBodW1hbiwgdG8gbWUgSSBqdXN0IGZpbmQgdGhlbSBlYXNpZXIg
+dG8gbGlzdGVuIHRvLgpTTApfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpo
+dHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
 
