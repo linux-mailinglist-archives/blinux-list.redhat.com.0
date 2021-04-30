@@ -2,90 +2,86 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id C1B32370024
-	for <lists+blinux-list@lfdr.de>; Fri, 30 Apr 2021 20:05:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id B46D4370093
+	for <lists+blinux-list@lfdr.de>; Fri, 30 Apr 2021 20:34:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1619805908;
+	s=mimecast20190719; t=1619807657;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=U8+W0fXBIQdisMJoJ9ssU/iTnxT9x8xDIRe2FPeVVuw=;
-	b=hVcxL1Q5HZrEaKW0WJyK58A4Ak8BA+pwoa+evVJnUmxvIbqu+ViPgtNdYua/YRmb6ZLGAe
-	svjExtP48zo6J+yyifDCa2x+MzGnQfOww/4pZt1UTAycAp1/V7LppCZRo/rztLZKBQB26S
-	DS2q/GkH6TKaK9/qzwJ++KVLlzpHCko=
+	bh=eUYnAbl/CVElrVIulSS43H6vfRkWWAL6/uFo7DOKjr0=;
+	b=JetsoP10Jxt90/syC3/VqX2Q7AiRXr2J4uPz5LZe5+nMiCqtiEDa01WhmDcsKAzP4vxaNi
+	nx+B+nSDb2aYYrmU2h/sL1YIIBo0XsdHc3dFTryrXFgfILxrV22ZHY9BGdIjKGJFzX3030
+	j5/kfo+6ZE/EPyObvu8bxtIchwp183E=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-566-LtfmkfEDPJqH7mg19Uhehw-1; Fri, 30 Apr 2021 14:05:05 -0400
-X-MC-Unique: LtfmkfEDPJqH7mg19Uhehw-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-580-MhL2DLQXMJyP1prRG7isuQ-1; Fri, 30 Apr 2021 14:34:15 -0400
+X-MC-Unique: MhL2DLQXMJyP1prRG7isuQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 72B8E1052BA5;
-	Fri, 30 Apr 2021 18:05:01 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9C281107ACE4;
+	Fri, 30 Apr 2021 18:34:10 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 175F82C6F4;
-	Fri, 30 Apr 2021 18:05:01 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 055695D9CC;
+	Fri, 30 Apr 2021 18:34:09 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id DB1DB180B463;
-	Fri, 30 Apr 2021 18:04:59 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 289781800BB8;
+	Fri, 30 Apr 2021 18:34:06 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 13UI4uPY013860 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 30 Apr 2021 14:04:56 -0400
+	id 13UIVeIp016641 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 30 Apr 2021 14:31:40 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 0994011EB3C; Fri, 30 Apr 2021 18:04:56 +0000 (UTC)
+	id 17B5821602A3; Fri, 30 Apr 2021 18:31:40 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 04CEB11F4D1
-	for <blinux-list@redhat.com>; Fri, 30 Apr 2021 18:04:53 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9C510802A59
-	for <blinux-list@redhat.com>; Fri, 30 Apr 2021 18:04:53 +0000 (UTC)
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com
-	[209.85.208.45]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-385-f_VtWcY0MZiKgavSwtyoSw-1; Fri, 30 Apr 2021 14:04:51 -0400
-X-MC-Unique: f_VtWcY0MZiKgavSwtyoSw-1
-Received: by mail-ed1-f45.google.com with SMTP id i3so57938212edt.1
-	for <blinux-list@redhat.com>; Fri, 30 Apr 2021 11:04:51 -0700 (PDT)
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1364021602A0
+	for <blinux-list@redhat.com>; Fri, 30 Apr 2021 18:31:37 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C8302858290
+	for <blinux-list@redhat.com>; Fri, 30 Apr 2021 18:31:37 +0000 (UTC)
+Received: from mail-qk1-f174.google.com (mail-qk1-f174.google.com
+	[209.85.222.174]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-296-kzKsUsBeMfibTieCkd3IZA-1; Fri, 30 Apr 2021 14:31:35 -0400
+X-MC-Unique: kzKsUsBeMfibTieCkd3IZA-1
+Received: by mail-qk1-f174.google.com with SMTP id v23so19655830qkj.13
+	for <blinux-list@redhat.com>; Fri, 30 Apr 2021 11:31:35 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=xQMRpLJeXnvDuOgoLmQNtMbFhZFUnvEq/ACLwAGHGMM=;
-	b=aCol/wsLpzjiZbqtakIeuU87y6jKxyJaoVzxByV6EoWdxGT8vw8B7ZpG2S6OMiaapw
-	KFQ+8BrY6yg0GVTo+JRIFTjRXNA0atdb5XVltXR6Wmo9IXebSKkQYfyJOjoBHvrBSufI
-	5fv19teYl46NPOUm5FpjGHBt4mAEfh1mk/g27bhc0Wk/MSJ50u2Yu9yJBj++KS5a6NpV
-	XiyYb3ELrsbOd6vjDk48XpKPuUn2xwMN6nN9fZOAQLmnvPstuCFa2gFT+uohQlOSGKGB
-	DzwnvK4CxneST/IXGz3VG+XZCnN9RZy04arI+fXIBHdET0Xx1P/6nFTEHF+JqER/iOu6
-	AcNQ==
-X-Gm-Message-State: AOAM533vkDOZMknzV7zcslSmW0sVsEGMJsYbVK5WpQ0CgzbUxHHAuaX9
-	/gzrXLRrctWHUEwfvbuBRqoQh6PX2ZcVig==
-X-Google-Smtp-Source: ABdhPJx+VPGvDog2QyzIBJcqApgyVO59aC+gRj9gYEo/sBkQ/YedwCgK4YNRrobCi0gxFaAOgOqWuA==
-X-Received: by 2002:a05:6402:c98:: with SMTP id
-	cm24mr7642115edb.18.1619805889871; 
-	Fri, 30 Apr 2021 11:04:49 -0700 (PDT)
-Received: from [192.168.1.7] (net-188-153-130-61.cust.vodafonedsl.it.
-	[188.153.130.61]) by smtp.gmail.com with ESMTPSA id
-	kt21sm1918594ejb.5.2021.04.30.11.04.49 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Fri, 30 Apr 2021 11:04:49 -0700 (PDT)
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=cS0G/Gc1hlApmdBsnQTakluYZoB/hOwvUTrroWNK/pg=;
+	b=tSYitKdFT+hZYbps8jub+rXVROrAxPMFvvlgrEuNIsd+pR7LadWisKTLUn+xwmjc7g
+	VAFHUqnpZg4XdSsCSzCSwVSaUl1/DVEvLroN2nNA3ZB7Gi48xmV+GJX8LbHJRYjUMErr
+	qETFlEUiufs4mT49gNCmnGFFrqUlxzIKnbuQvtaTOTHfD/Wvqm3rAqIl0RlHJ+Ee9EZl
+	9/6u1ZvH+8WDGHMES2qK+NtNeoX8kPLqfX4rJv0yuvkRtiZQ/BUN4qzCg/X9MYE5qroh
+	Zk1ocURX3twhL3KiBNyhVjO719kJtzODS7syX+BR87BQTv7KwVoYtXry+m8+EYWylx/t
+	iPOA==
+X-Gm-Message-State: AOAM533HdZc0E5G5I1aDLASBesb0eYmWfNMkJ58lfWcCIPBQnd6QRRc0
+	jbEoSR4Xp/bn6bGG/JTj9ptlA5BmjsUhu1HFpNG/xruJk/w=
+X-Google-Smtp-Source: ABdhPJyJc4R/wN7M+t5q1yE6l7gRo6o7qc651/T+bV2CAHOlDaJwkJr7iYVlNiwQPT8TFqCQ1VSqZnigInOgZbfmfbM=
+X-Received: by 2002:a05:620a:1657:: with SMTP id
+	c23mr6731133qko.264.1619807494971; 
+	Fri, 30 Apr 2021 11:31:34 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:ad4:576e:0:0:0:0:0 with HTTP; Fri, 30 Apr 2021 11:31:34
+	-0700 (PDT)
+In-Reply-To: <YIxCF1C83HFrpbkN@panix.com>
+References: <4a0283bb-6247-cba9-28b5-3562a4ebaf6b@gmail.com>
+	<YIxCF1C83HFrpbkN@panix.com>
+Date: Fri, 30 Apr 2021 18:31:34 +0000
+Message-ID: <CAO2sX33xYLcdO7pDhYJ9L2_7T8_mv4Bhu6Msr4oRuqj1bk3WuA@mail.gmail.com>
 Subject: Re: Best Distro for Blind
 To: blinux-list@redhat.com
-References: <4a0283bb-6247-cba9-28b5-3562a4ebaf6b@gmail.com>
-Message-ID: <bfaafb21-2e97-f24e-cbe5-d9b9e56814c6@gmail.com>
-Date: Fri, 30 Apr 2021 20:04:48 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
-	Thunderbird/78.8.1
-MIME-Version: 1.0
-In-Reply-To: <4a0283bb-6247-cba9-28b5-3562a4ebaf6b@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -94,7 +90,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -111,41 +107,71 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SGVsbG8gdGhlcmUsCgoKUmlnaHQgbm93LCBJIGFtIHVzaW5nIEZlZG9yYSBhcyBteSBkYXkgdG8g
-ZGF5IExpbnV4IGRpc3RybywgYW5kIEknbSAKZG9pbmcgZXZlcnl0aGluZyBmcm9tIHJlYWRpbmcs
-IHdyaXRpbmcsIGJyb3dzaW5nIHRoZSB3ZWIsIHNlbmRpbmcgCmVtYWlscywgYW5kIGV2ZW4gc2No
-b29sIHdvcmsgd2l0aG91dCBhIGdsaXRjaCwgSSBoYXZlIGJlZW4gdXNpbmcgRmVkb3JhIApmb3Ig
-b3ZlciBhIG1vbnRoIG5vdy4KCklmIHlvdSwgaG93IGV2ZXIsIHdhbnQgcmVjb21tZW5kYXRpb25z
-IG9uIGRpc3Ryb2VzIHNwZWNpZmljYWxseSBtYWRlIGZvciAKdGhlIGJsaW5kLCBJJ2QgcmVjb21t
-ZW5kIFNsaW50LCBhbmQgYWNjZXNzaWJsZSBDb2NvbnV0LCBhIGRpc3RybyBiYXNlZCAKb24gVWJ1
-bnR1IDIwLjA0IExUUywgbG9uZyB0aXJtIHN1cHBvcnQuCgpIb3BlIHRoaXMgaGVscHMuCgpCZXN0
-IHJlZ2FyZHMuCgpGcmFuY2lzY28uCgpPbiA0LzMwLzIxIDc6MjAgUE0sIExpbnV4IGZvciBibGlu
-ZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gSGVsbG8sCj4KPgo+IEkgYW0gYSB0b3RhbGx5
-IGJsaW5kIHBlcnNvbiBhbmQgYSBMT05HIHRpbWUgV2luZG93cy9KYXdzL05WREEgdXNlci4gSSAK
-PiBhbSB3b25kZXJpbmcgd2hhdCB3b3VsZCBiZSBhIHJlY29tbWVuZGF0aW9uIGZvciB0aGUgYmVz
-dCBkaXN0cm8vR1VJIAo+IGVudmlyb25tZW50IHRvIGJlZ2luIHVzaW5nP8KgIEkgd291bGQgbG92
-ZSB0byBiZSBhYmxlIHRvIG1vdmUgYXdheSBmcm9tIAo+IFdpbmRvd3MgYW5kIHVzZSBMaW51eCBm
-dWxsIHRpbWUgZm9yIGJyb3dzaW5nLCBlbWFpbCwgd29yZCBwcm9jZXNzaW5nIAo+IGFuZCBzcHJl
-YWRzaGVldHMuIEkgaGF2ZSBhIFRoaW5rcGFkIFgyMjAgdGhhdCBJIGNhbiB1c2UgZm9yIExpbnV4
-LiAKPiBBYm91dCAxNSB5ZWFycyBhZ28sIEkgcGxheWVkIGFyb3VuZCB3aXRoIFZlbnV4LCBidXQg
-dGhhdCBwcm9qZWN0IHNlZW1zIAo+IHRvIGJlIGRvcm1hbnQgbm93LiBJIGhhdmUgYSBQaSAzQisg
-cnVubmluZyBzb21lIGhhbSByYWRpbyBzb2Z0d2FyZSBhbmQgCj4gSSBoYXZlIHRvIFNTSCBpbnRv
-IGl0IG9jY2FzaW9uYWxseSBhbmQgcGVyZm9ybSBzb21lIGNvbW1hbmQgbGluZSAKPiBzdHVmZi4g
-Rm9yIGRhaWx5IHVzYWdlLCBJIHdhbnQgYSBmdWxsIEdVSSBlbnZpcm9ubWVudC4KPgo+Cj4gVGhh
-bmtzIGluIGFkdmFuY2UgZm9yIGFueSBzdWdnZXN0aW9ucy4KPgo+Cj4gSm9obgo+Cj4KPgo+IF9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQmxpbnV4LWxp
-c3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1h
-bi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlz
-dApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxt
-YW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
+Orca is the primary, perhaps sole, graphical screen reader for Linux
+that is in active development and is generally considered highly
+compatible with Gnome and Mate, moderately compatible with other
+GTK-based Desktop Envrionments and Window Manager, and poorly
+compatible with KDE, QT, and other non-GTK based graphical setups,
+though the latter has made massive improvements in recent months.
+
+As Orca is nominally part of Gnome, just about any distro that has a
+Gnome flavor should have a package for Orca, and once things are
+setup, I'm not convinced the choice of distro makes much difference on
+how well Orca works with your chosen Desktop Environment.
+
+Where things do vary is in how accessible a Distro's installer is and
+how easily Orca can be made to launch automatically.
+
+My setup is based on the Debian-based Knoppix running in Adriane mode,
+but the main reasons I do this is that Adriane uses a console-screen
+reader that isn't readily available on most distros and allows one to
+launch Fierfox+Orca without the need to launch a full Desktop, which I
+find handy since Firefox is the only graphical application I use.
+Probably not the best option if you plan to hang out in the Desktop
+all the time as Knoppix, being designed primarily as a LiveDVD, has
+some quirks that make it less than ideal for installing to a
+Harddrive.
+
+Debian is a good option for an accessible installer and easily getting
+Orca up and running(the Installer can be made to talk, and I'm pretty
+sure choosing to install a Desktop Enviornment makes the system come
+up with Orca talking), but Debian's slow and steady development cycle
+means Debian Stable is often well behind on software upgrades,
+especially in the area of accessibility, though this can be somewhat
+alleviated by adding Debian Backports to a Debian Stable system or
+upgrading to Debian Testing or Debian Unstable. Knoppix sources most
+of its software from Debian and I can attest to Debian Testing being
+pretty stable... If you need Wi-Fi, you probably want to seek out the
+unofficial images that include non-free firmware as that is one area
+where Debian's reluctance to include non-free software in the core
+system can be a unworkable hindrance.
+
+I've heard mixed reviews for both Ubuntu and Fedora when it comes to
+accessibility.
+
+Slint is probably the best alround distro for out of the box
+accessibility, but be warned that it is based on Slackware, a distro
+with a bit of a reputation for being less beginner friendly than
+Debian and its deriatives.
+
+I understand that there are several projects offering easy setup of
+Arch with screen readers, but again, Arch is a distro with a
+reputation for being for more experienced Linux users.
+
+Please note, Knoppix is the only distro I have current experience with
+and the above is just a summary of what I've read on this and other
+accessibility-related mailing lists.
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
