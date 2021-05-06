@@ -2,93 +2,71 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 3E64B374CC8
-	for <lists+blinux-list@lfdr.de>; Thu,  6 May 2021 03:13:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 147CD375D0C
+	for <lists+blinux-list@lfdr.de>; Fri,  7 May 2021 00:05:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1620263583;
+	s=mimecast20190719; t=1620338718;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
-	 list-unsubscribe:list-subscribe:list-post;
-	bh=kYJsmyRNAs53dXPYba1KDFpoB7CflE5g5OCqtnHFYq4=;
-	b=Fmu9ljn3AneAX6/U0ankq2J0sqU2j0YOpQ1KzLtJ/v95uYeHBgclihI0E71kUtQdAOHAgt
-	HF0nhtKNlE7oPKujOshYEICY+iAzC3yvi816kkQ5mO5vY/+dQS8hzNCIVCHRLSg8bMRgL8
-	Gx+XGGjT7YqialL5GdyGfl9fHZvRvq8=
+	 content-type:content-type:in-reply-to:in-reply-to:
+	 references:references:list-id:list-help:list-unsubscribe:
+	 list-subscribe:list-post; bh=lB42fUru22EKUiqLQ0277/TJo5rdY3TUV6/f0qekm/w=;
+	b=hy6Nz2PSuNKpsYMFlPaxV4Cs4jA9HxbBaIrxoSYfZNqQfYkyZZG1IgcXIoj82XNvi75cPC
+	6bWcFTIRJNjgjte1GB2E1kJ6bTijSrBJ1YEsUCAeqHzLmYU//kU1XNq7uBPtBjo7vrS+Xu
+	DYuNR0YbAKk8sWxvOXHXCInjJivgAmk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-373-BQCNCNr9OfaMdVC_kzS0cw-1; Wed, 05 May 2021 21:13:01 -0400
-X-MC-Unique: BQCNCNr9OfaMdVC_kzS0cw-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-575-tSOes4ulN8qWTUpne4rdIA-1; Thu, 06 May 2021 18:05:14 -0400
+X-MC-Unique: tSOes4ulN8qWTUpne4rdIA-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 4B0D1801AC1;
-	Thu,  6 May 2021 01:12:55 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 352B6C73A7;
+	Thu,  6 May 2021 22:05:10 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7798017A70;
-	Thu,  6 May 2021 01:12:52 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5BBF010023AF;
+	Thu,  6 May 2021 22:05:07 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C00A81800BB0;
-	Thu,  6 May 2021 01:12:45 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 072C018095C4;
+	Thu,  6 May 2021 22:04:58 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1461CZEP017056 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 5 May 2021 21:12:35 -0400
+	id 146M4l8c013773 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 6 May 2021 18:04:47 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 8B48811EB1A; Thu,  6 May 2021 01:12:35 +0000 (UTC)
+	id 525751649F4; Thu,  6 May 2021 22:04:47 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 85F4011EB29
-	for <blinux-list@redhat.com>; Thu,  6 May 2021 01:12:32 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 91A99805F0F
-	for <blinux-list@redhat.com>; Thu,  6 May 2021 01:12:32 +0000 (UTC)
-Received: from mail-il1-f180.google.com (mail-il1-f180.google.com
-	[209.85.166.180]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-308-DKR6J9ccPdSQIXCUCSwhew-1; Wed, 05 May 2021 21:12:30 -0400
-X-MC-Unique: DKR6J9ccPdSQIXCUCSwhew-1
-Received: by mail-il1-f180.google.com with SMTP id v13so3368903ilj.8
-	for <blinux-list@redhat.com>; Wed, 05 May 2021 18:12:30 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=T6VQnaCwmALZ2oH9PGtkCvP5nmByfTWgunAe/LG4Rg0=;
-	b=E7cQgeusbh41ju0/8uqXX3jte+AmnWKVPSP7Xl6a1Sr1ixvSczs/zz8kRsRcigdDlX
-	0rtP76zHAnyG19u2aWgzWH6N8uqPqNJlTLjk0buzLMvnc7s4MwD4D8+UGeaMvYyQseeQ
-	TH3JbJRAFI0y08UvDWywpLue/jHxJGMMQFRVF+Ld5KB/8w5jYxYIDn5HfV/6YJlcrOCD
-	MMUBoOvG4eZgzOiX4DQgbPOhKST36FBROBzUhcOeQmvEPFlhCeSAn492gbUq4AFqhbIO
-	+xkFK5Bott7iSuKyBKDxW6plhqSgHZTJ2SbB1KRH6RRP+bxg9H146UdnezympvJkREW0
-	cL7g==
-X-Gm-Message-State: AOAM530EJR1e3vU3SAhRNJ2D6T6TLBQ9VbMleyDyWf/TQANFLAZdCHfm
-	muCL5Xr6x4HljsyWzvMtqNZTdrhHKU/G4Et+ilTTGRBM
-X-Google-Smtp-Source: ABdhPJwyXPm98aYL8yCbvIJUJs4l69oBWMl79FB/eR7eUZFdsYBlqR+Br54LCWst47hTtcKyyzSDcX6TGdaf1DXqpNA=
-X-Received: by 2002:a92:da06:: with SMTP id z6mr1743714ilm.129.1620263549384; 
-	Wed, 05 May 2021 18:12:29 -0700 (PDT)
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4CE441692BE
+	for <blinux-list@redhat.com>; Thu,  6 May 2021 22:04:44 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CC369857AA4
+	for <blinux-list@redhat.com>; Thu,  6 May 2021 22:04:44 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-581-JF4if3QGNZi1yeZylg-QlA-1;
+	Thu, 06 May 2021 18:04:41 -0400
+X-MC-Unique: JF4if3QGNZi1yeZylg-QlA-1
+Received: from ici.slint.fr (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
+	[176.172.247.100])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 4AD59A1CC5
+	for <blinux-list@redhat.com>; Thu,  6 May 2021 23:04:23 +0200 (CEST)
+Subject: Fwd: [slint] Dae, Digital Audio Editor
+References: <YJRjp4APH7G5Rpk9@gungnir.localdomain>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+X-Forwarded-Message-Id: <YJRjp4APH7G5Rpk9@gungnir.localdomain>
+Message-ID: <8c454734-b1fa-dcc7-56fc-d26120f43385@slint.fr>
+Date: Fri, 7 May 2021 00:03:44 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
-Received: by 2002:a5d:9cd6:0:0:0:0:0 with HTTP;
-	Wed, 5 May 2021 18:12:28 -0700 (PDT)
-In-Reply-To: <4a0283bb-6247-cba9-28b5-3562a4ebaf6b@gmail.com>
-References: <4a0283bb-6247-cba9-28b5-3562a4ebaf6b@gmail.com>
-Date: Thu, 6 May 2021 06:42:28 +0530
-Message-ID: <CAK2wa2k689tKs481z=QM6nbEwt7uGjH3y4oVEhmfkWWSAfuAxg@mail.gmail.com>
-Subject: Re: Best Distro for Blind
-To: blinux-list@redhat.com
-X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
-	Definition; Similar Internal Domain=false;
-	Similar Monitored External Domain=false;
-	Custom External Domain=false; Mimecast External Domain=false;
-	Newly Observed Domain=false; Internal User Name=false;
-	Custom Display Name List=false; Reply-to Address Mismatch=false;
-	Targeted Threat Dictionary=false;
-	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
+In-Reply-To: <YJRjp4APH7G5Rpk9@gungnir.localdomain>
 X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -104,53 +82,73 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Type: multipart/mixed; boundary="------------DCBB1D2CCF3DDB76C7E7B647"
+Content-Language: en-US
+
+This is a multi-part message in MIME format.
+--------------DCBB1D2CCF3DDB76C7E7B647
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+I forward below a message that could interest for this list, as
+dae is accessible.
+
+A Storm is not registered to this list please CC him your answers.
+
+-------- Forwarded message --------
+Sujet=C2=A0: Dae, Digital Audio Editor
+Date=C2=A0: Thu, 6 May 2021 17:46:15 -0400
+De=C2=A0: Storm Dragon <storm_dragon@linux-a11y.org>
+R=C3=A9pondre =C3=A0=C2=A0: slint@freelists.org
+Pour=C2=A0: slint@freelists.org, Stormux <stormux@groups.io>, orca-list@gno=
+me.org
+
+Howdy All,
+
+A while ago, Willem van der Walt wrote a piece of software called dae. I=20
+was wondering if anyone knows if it was ever updated to python3?
+
+It is included in Slint, and the current version uses python2.7. Of=20
+course, as you know if you are on the Slint list, there's a major python=20
+upgrade and cleanup under way. As part of that, dae needs to be updated.=20
+It looks easy enough to do. I was just wondering if it has already been=20
+done.
+
+The second part of this is, how many people are currently using dae. If=20
+we have 0 users, I probably won't put forth the effort of updating the=20
+code. So, if you do use it please let me know so if there is no response=20
+regarding a python3 version, I will know that it actually needs doing.
+
+Thanks,
+Storm
+
+--=20
+=E2=9B=88=F0=9F=90=B2
+Accessible low cost computers for everyone! https://stormux.org
+Stormux on Ko-fi: https://ko-fi.com/stormux
+Get my public PGP key: gpg --recv-key 43DDC193
+Most of you are familiar with the virtues of a programmer. There are=20
+three, of course: laziness, impatience, and hubris.
+
+Become a Stormux Patron: https://patreon.com/stormux
+
+
+--------------DCBB1D2CCF3DDB76C7E7B647
 Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-
-try accessible-coconut which is hosted at sourceforge.net. Latest
-version is accessible-coconut 20.4.4.
-download the iso and and it is worth.
-Thanking you Sathyan.
-
-On 4/30/21, Linux for blind general discussion <blinux-list@redhat.com> wrote:
-> Hello,
->
->
-> I am a totally blind person and a LONG time Windows/Jaws/NVDA user. I am
-> wondering what would be a recommendation for the best distro/GUI
-> environment to begin using?  I would love to be able to move away from
-> Windows and use Linux full time for browsing, email, word processing and
-> spreadsheets. I have a Thinkpad X220 that I can use for Linux. About 15
-> years ago, I played around with Venux, but that project seems to be
-> dormant now. I have a Pi 3B+ running some ham radio software and I have
-> to SSH into it occasionally and perform some command line stuff. For
-> daily usage, I want a full GUI environment.
->
->
-> Thanks in advance for any suggestions.
->
->
-> John
->
->
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-
-
--- 
-*Mob : +919446012215
-FREE SOFTWARE FREE SOCIETY *
+Content-Disposition: inline
 
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
 https://listman.redhat.com/mailman/listinfo/blinux-list
+--------------DCBB1D2CCF3DDB76C7E7B647--
 
