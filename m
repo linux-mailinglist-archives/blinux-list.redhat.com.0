@@ -1,73 +1,69 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id A8FB2381C40
-	for <lists+blinux-list@lfdr.de>; Sun, 16 May 2021 05:38:07 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 69287381C41
+	for <lists+blinux-list@lfdr.de>; Sun, 16 May 2021 05:40:38 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1621136286;
+	s=mimecast20190719; t=1621136437;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=RYxjFnCU6XwW3JlgYMcPU5y8mM9RD7uj+9gxrzqwF6M=;
-	b=DXPZqrBIGxb+7ey+MyAnyKwsaM38iZrf/HZp8N5oPADeo087OaMYj/ao5V9KXMtvOjOuEc
-	ELAdmp3pmsPuwcyM0z7mGrBo+5cOlFmd7CoxgaqQkXfrymQ4qLhbZUcH37ywGnqCUn5HW0
-	jdiuSHAShhs+ZIrrGUSt5wi8DOKeLhw=
+	bh=R9zmbiIA+l1zfO2RkhUJ7Od1vMgSu3mwBYmkt706bP4=;
+	b=QpOQ0EIj8fNS6Uoc+wlNjlQ9f0IXemF41KSQeZrHWdWPBgsYnTnuMBgSe4d4L/z5fBPGAp
+	sGNQmVJKTgbrGfysN/D4swReIJlTDIw5/kAPDIzHw7O1dMBLdCwLRYUvQ9VPDznXtv+yJp
+	Tg3DnjKcZwmo1BW9HEiSOPLNJah+8Yc=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-327-wrWW_aoBO7yUXL2xDa75Xg-1; Sat, 15 May 2021 23:38:04 -0400
-X-MC-Unique: wrWW_aoBO7yUXL2xDa75Xg-1
+ us-mta-266-DDnMf2IjOX-xtm8HN7Q6yw-1; Sat, 15 May 2021 23:40:35 -0400
+X-MC-Unique: DDnMf2IjOX-xtm8HN7Q6yw-1
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CEC89800FF0;
-	Sun, 16 May 2021 03:38:00 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4742419D9B;
-	Sun, 16 May 2021 03:38:00 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9D9971854E25;
+	Sun, 16 May 2021 03:40:32 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6043719D9B;
+	Sun, 16 May 2021 03:40:32 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id F396D55344;
-	Sun, 16 May 2021 03:37:59 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D8A121801028;
+	Sun, 16 May 2021 03:40:31 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 14G3btmB024600 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 15 May 2021 23:37:55 -0400
+	id 14G3eRFG024728 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 15 May 2021 23:40:28 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 2948D2034256; Sun, 16 May 2021 03:37:55 +0000 (UTC)
+	id D9B5A1134CA5; Sun, 16 May 2021 03:40:27 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 24C87203424D
-	for <blinux-list@redhat.com>; Sun, 16 May 2021 03:37:52 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D51341134CA2
+	for <blinux-list@redhat.com>; Sun, 16 May 2021 03:40:24 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CD368101A531
-	for <blinux-list@redhat.com>; Sun, 16 May 2021 03:37:52 +0000 (UTC)
-Received: from server2.shellworld.net (server2.shellworld.net
-	[66.172.12.120]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-536-2Q6r_KMNMQm4_ET49p4fuA-1; Sat, 15 May 2021 23:37:50 -0400
-X-MC-Unique: 2Q6r_KMNMQm4_ET49p4fuA-1
-Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id 04275621D7B; Sun, 16 May 2021 03:37:47 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D7E63101A531
+	for <blinux-list@redhat.com>; Sun, 16 May 2021 03:40:24 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-342-sbXmn86YMECvuzPcHfQtBA-1; Sat, 15 May 2021 23:40:22 -0400
+X-MC-Unique: sbXmn86YMECvuzPcHfQtBA-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4FjShP6PLmz2WSZ;
+	Sat, 15 May 2021 23:40:21 -0400 (EDT)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4FjShP5M1rzcbc; Sat, 15 May 2021 23:40:21 -0400 (EDT)
 Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id F33D7620219;
-	Sat, 15 May 2021 23:37:47 -0400 (EDT)
-Date: Sat, 15 May 2021 23:37:47 -0400 (EDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Vox.com: Why captchas are getting harder (fwd)
-In-Reply-To: <alpine.NEB.2.23.451.2105152322030.25128@panix1.panix.com>
-Message-ID: <Pine.LNX.4.64.2105152336590.2852249@server2.shellworld.net>
-References: <alpine.NEB.2.23.451.2105152044590.9861@panix1.panix.com>
-	<Pine.LNX.4.64.2105152115100.2849188@server2.shellworld.net>
-	<alpine.NEB.2.23.451.2105152219530.27440@panix1.panix.com>
-	<Pine.LNX.4.64.2105152253500.2851470@server2.shellworld.net>
-	<ae4b711d-2c14-1bb3-f751-4ca4171277e@hubert-humphrey.com>
-	<alpine.NEB.2.23.451.2105152322030.25128@panix1.panix.com>
+	by panix1.panix.com (Postfix) with ESMTP id 4FjShP4pZKzcbW;
+	Sat, 15 May 2021 23:40:21 -0400 (EDT)
+Date: Sat, 15 May 2021 23:40:21 -0400
+To: blinux-list@redhat.com
+Subject: InfoWorld: 11 tips for speeding up Python programs (fwd)
+Message-ID: <alpine.NEB.2.23.451.2105152340010.25128@panix1.panix.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -77,9 +73,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
-Cc: blindtlk@nfbnet.org
+Cc: orca-list@gnome.org
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -100,40 +96,20 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
-
-Which is why nothing beats a good old fashioned transcript.
-Little privacy trade off required smiles.
 
 
 
-On Sat, 15 May 2021, Linux for blind general discussion wrote:
+---------- Forwarded message ----------
+Date: Thu, 13 May 2021 16:05:17
+From: Jude DaShiell <dashielljude@gmail.com>
+To: fidel.viegas@gmail.com, peter youssef <kingtut41@gmail.com>,
+    Joel Ralon <jralon@comcast.net>, Jude DaShiell <jdashiel@panix.com>
+Subject: InfoWorld: 11 tips for speeding up Python programs
 
-> I don't know what happened to straw-viewer it may still be supported but
-> pipe-viewer seems to have replaced it on archlinux.  There's mention of
-> straw-viewer but no package so far as I can tell.
->
->
-> On Sat, 15 May 2021, Linux for blind general discussion wrote:
->
->> Well, youtube-viewer works well to play, search, or download items from
->> youtube, also, youtube-dl which is updated rather frequently.
->> Chime
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->>
->>
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+InfoWorld: 11 tips for speeding up Python programs.
+https://www.infoworld.com/article/3044088/11-tips-for-speeding-up-python-programs.html
 
 _______________________________________________
 Blinux-list mailing list
