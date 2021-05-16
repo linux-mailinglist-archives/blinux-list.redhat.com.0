@@ -1,69 +1,77 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 28424381C45
-	for <lists+blinux-list@lfdr.de>; Sun, 16 May 2021 05:43:38 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 7D125381CF7
+	for <lists+blinux-list@lfdr.de>; Sun, 16 May 2021 07:13:27 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1621136617;
+	s=mimecast20190719; t=1621142006;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:mime-version:mime-version:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=hIftr/EJ6heOA8JN6FASTHHDw5GbczZL8n2+9aHGDyQ=;
-	b=OcQD2UjJxYmnm9giHiDCCSTKW1bC4oZ/wzyp0scf0e9OzOYv0VzRoD2aYbjxOoD2CdawhV
-	k6cQa+ELazMGd87vv2pEsz7J4yeT5/6bBEL2jxjxc5me4LUh/POCPt09Kn80O/ky2rBkiX
-	VPL4ZQ7XJTqBF5ugiBkPbH6HcjBMTlY=
+	bh=gJ+jUsDYr5QFS6HEP609dhz3UxPxLiMe6EPPtO2E2uU=;
+	b=N/BR++JFB33ZGFBkKl+qFYTQv5gsG86jPJrMqAumCtdYc+bdlK+BlfTKnWuF5aeYTw5bL2
+	NErwrz9dwqSlgKocJb0Wk/hG1d4Cq/1AeJiDAig8rg51L7MezgH3lQ1j4zIjKVsqAt7IqM
+	2MeoAkYvk2hYQrBkiYW91t3NGWm8t+g=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-585-SoSWv29oMdKYl-f9ViIp6w-1; Sat, 15 May 2021 23:43:35 -0400
-X-MC-Unique: SoSWv29oMdKYl-f9ViIp6w-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-196-nowLMvseP7KoR7iQpi_p2g-1; Sun, 16 May 2021 01:13:23 -0400
+X-MC-Unique: nowLMvseP7KoR7iQpi_p2g-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 44CC2801AE6;
-	Sun, 16 May 2021 03:43:31 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id AD13A800D62;
+	Sun, 16 May 2021 05:13:19 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2FE6959451;
-	Sun, 16 May 2021 03:43:31 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 532F619C79;
+	Sun, 16 May 2021 05:13:18 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 069EA55344;
-	Sun, 16 May 2021 03:43:31 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B70425534B;
+	Sun, 16 May 2021 05:13:10 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 14G3hSDn025346 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 15 May 2021 23:43:28 -0400
+	id 14G5D0sW001332 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 16 May 2021 01:13:00 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 0804F1134CA5; Sun, 16 May 2021 03:43:28 +0000 (UTC)
+	id 23A38110DBA8; Sun, 16 May 2021 05:13:00 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 027C51134CA2
-	for <blinux-list@redhat.com>; Sun, 16 May 2021 03:43:24 +0000 (UTC)
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1DD64110DBA2
+	for <blinux-list@redhat.com>; Sun, 16 May 2021 05:12:56 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D8465101A531
-	for <blinux-list@redhat.com>; Sun, 16 May 2021 03:43:24 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B074F1857F28
+	for <blinux-list@redhat.com>; Sun, 16 May 2021 05:12:56 +0000 (UTC)
 Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-86-TMTRvGlRMHq8JHFd8lODXQ-1; Sat, 15 May 2021 23:43:22 -0400
-X-MC-Unique: TMTRvGlRMHq8JHFd8lODXQ-1
+	us-mta-554-T2_GNczmPCK_uliT3n2pOw-1; Sun, 16 May 2021 01:12:53 -0400
+X-MC-Unique: T2_GNczmPCK_uliT3n2pOw-1
 Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4FjSlt08wZz2WVJ
-	for <blinux-list@redhat.com>; Sat, 15 May 2021 23:43:22 -0400 (EDT)
+	by mailbackend.panix.com (Postfix) with ESMTP id 4FjVl91zs4z2Xm3;
+	Sun, 16 May 2021 01:12:53 -0400 (EDT)
 Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4FjSls6SgWzcbc; Sat, 15 May 2021 23:43:21 -0400 (EDT)
+	id 4FjVl910lczcbc; Sun, 16 May 2021 01:12:53 -0400 (EDT)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4FjSls63XbzcbW
-	for <blinux-list@redhat.com>; Sat, 15 May 2021 23:43:21 -0400 (EDT)
-Date: Sat, 15 May 2021 23:43:21 -0400
-To: blinux-list@redhat.com
-Subject: ypl.sh
-Message-ID: <alpine.NEB.2.23.451.2105152342150.9643@panix1.panix.com>
+	by panix1.panix.com (Postfix) with ESMTP id 4FjVl90SmdzcbV;
+	Sun, 16 May 2021 01:12:53 -0400 (EDT)
+Date: Sun, 16 May 2021 01:12:52 -0400
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Vox.com: Why captchas are getting harder (fwd)
+In-Reply-To: <82b5a1c7-993d-9683-2a5a-309c353a9069@gmail.com>
+Message-ID: <alpine.NEB.2.23.451.2105160111160.16763@panix1.panix.com>
+References: <alpine.NEB.2.23.451.2105152044590.9861@panix1.panix.com>
+	<Pine.LNX.4.64.2105152115100.2849188@server2.shellworld.net>
+	<alpine.NEB.2.23.451.2105152219530.27440@panix1.panix.com>
+	<Pine.LNX.4.64.2105152253500.2851470@server2.shellworld.net>
+	<alpine.NEB.2.23.451.2105152327400.25128@panix1.panix.com>
+	<82b5a1c7-993d-9683-2a5a-309c353a9069@gmail.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -75,6 +83,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
+Cc: blindtlk@nfbnet.org
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -90,7 +99,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -98,13 +107,27 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Here's that script I wrote about earlier.  It needs youtube-dl and ffmpeg.
+I did downloads and conversions you described using ypl.sh.  I did reading
+of the youtube-dl man page then wrote that script.  I probably will
+improve that in a little bit of time.
 
-cut here.
-#!/usr/bin/env bash
-# file: ypl.sh - download youtube playlist and clean filenames
-playlist=""
-youtube-dl -o '%(title)s.%(ext)s' -x --restrict-filenames --audio-format mp3 --prefer-ffmpeg -a $playlist
+
+
+On Sat, 15 May 2021, Linux for blind general discussion wrote:
+
+> I think youtube-dl can download audio files from Youtube and convert them to
+> mp3. It uses ffmpeg to do it as I recall. It can even clean up the filenames
+> for you based on the information on the youtube page for the video. Last I
+> knew, Youtube has no captcha, and youtube-dl still works as of the past week.
+>
+> ~Kyle
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
 
 _______________________________________________
 Blinux-list mailing list
