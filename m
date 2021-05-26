@@ -2,89 +2,67 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 99D29391138
-	for <lists+blinux-list@lfdr.de>; Wed, 26 May 2021 09:11:44 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 49314391221
+	for <lists+blinux-list@lfdr.de>; Wed, 26 May 2021 10:16:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1622013103;
+	s=mimecast20190719; t=1622017011;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=p0qMFt8d+OJP04GrqUL6x6RRKDQHrS1i6pBZ91rNCiY=;
-	b=gWB8jT1xyS+qXFoAn+RzEXkATkZ3R0YeQnDEPNQRVFameWhZJJw6IJL427AbxIwGN1ZbHN
-	Orrsz7G+2jSk7SwaoB48T2NRlcXfiqcMmDXjG4pTrp6kcWtMk6Tg2gNgMN0dGOvGNtRjOF
-	LKckt0PB+PQthwas8m9PSTFySsBgz+I=
+	bh=DV2yWqY9r7ZtaaZZtbo86cb0tbCCRTsytF8nC6FpNQA=;
+	b=UT0rw+djnjLq3QyMD8lM9ejjiBOGlDg1H0vhpl1VQpi3nyp1WDiuNOBSdON9QI5zu53Wzi
+	zKCI+JysHESei5npZbQLLctAkVVmrpRLPcrTT5VhFvIZ2JdfSKbHCCUFyHIWoIZ2pz7NEC
+	r+ybfCzwt+BIJUSIQ8ko8iiqOTyF17Y=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-447-3neCDu-SPuKMquBXVkufoA-1; Wed, 26 May 2021 03:11:41 -0400
-X-MC-Unique: 3neCDu-SPuKMquBXVkufoA-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-147-oumqs3JJMY6QekY1H8x6UA-1; Wed, 26 May 2021 04:16:48 -0400
+X-MC-Unique: oumqs3JJMY6QekY1H8x6UA-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 98B09800D62;
-	Wed, 26 May 2021 07:11:36 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1ADB2107ACC7;
+	Wed, 26 May 2021 08:16:45 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CB7B219718;
-	Wed, 26 May 2021 07:11:33 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9B5555946E;
+	Wed, 26 May 2021 08:16:42 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id ED6401800BB8;
-	Wed, 26 May 2021 07:11:27 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 098F31800BB8;
+	Wed, 26 May 2021 08:16:37 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 14Q7BGVK015287 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 26 May 2021 03:11:16 -0400
+	id 14Q8GRlP021120 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 26 May 2021 04:16:27 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 5EEDA208AB9B; Wed, 26 May 2021 07:11:16 +0000 (UTC)
+	id 192D710F2703; Wed, 26 May 2021 08:16:27 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5A875208AB93
-	for <blinux-list@redhat.com>; Wed, 26 May 2021 07:11:13 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9CEF1833959
-	for <blinux-list@redhat.com>; Wed, 26 May 2021 07:11:13 +0000 (UTC)
-Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com
-	[209.85.218.42]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-185-K33I7kM9PN6sHh1DOzGaYA-1; Wed, 26 May 2021 03:11:11 -0400
-X-MC-Unique: K33I7kM9PN6sHh1DOzGaYA-1
-Received: by mail-ej1-f42.google.com with SMTP id lz27so739500ejb.11
-	for <blinux-list@redhat.com>; Wed, 26 May 2021 00:11:10 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=LXVyMshUn2zliB3URPGRZSSx4zYIhC8btwg3zYfP9O0=;
-	b=kgc5S0XJm6DdoCMcBFBhyb/3PlLjQvbQWJwmPYu3Ta/QeWaqx7n0vUVKkmMaefaCR9
-	cWDeQnHF+G/3Zk1qIzZeIOW8gmqmAAgrdLRinXcVKd0ZbkW/W7Pokx6Qtq61zUcYu9Sv
-	h54El3/ax/bKCj8xYkuFD8sHiLPgepNNV66Ic4w7ENGPBTdQjsYdkxshm+BYWhfMljwO
-	5zOCgRMs9OBh2hYB4X3X5YuvbOfbZoQ4HFxeeh51gZzx4Lmmoe2nvSb0zu8cdURjLrpY
-	OzVRD4AuVQ7J0LmkxpXnrn9EY6GijmAdUtMEEH71enbtBGTScpoTRXWb80ghhy/NEKLO
-	bBRQ==
-X-Gm-Message-State: AOAM530JHpK4paqwwGwupIKs9t442vcMFKr2GJulfgpVHnoRUIDnK+Sy
-	EWmoBIaH3Z9uXlef+V8fOUpnn4SR5y1/SA==
-X-Google-Smtp-Source: ABdhPJx4m/PZw7Cuu+I9D/3lPNBFNHwqBhgUzwCYutEizFcfZV8mJaLqFyLwoMmibv0rCGU+yZMNwg==
-X-Received: by 2002:a17:906:d1d1:: with SMTP id
-	bs17mr32582029ejb.492.1622013069898; 
-	Wed, 26 May 2021 00:11:09 -0700 (PDT)
-Received: from [192.168.1.73] ([91.77.167.245])
-	by smtp.gmail.com with ESMTPSA id l6sm175654edr.47.2021.05.26.00.11.09
-	for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Wed, 26 May 2021 00:11:09 -0700 (PDT)
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 141911000DB4
+	for <blinux-list@redhat.com>; Wed, 26 May 2021 08:16:22 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1FC9A800B26
+	for <blinux-list@redhat.com>; Wed, 26 May 2021 08:16:22 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-267-7-8SasyXP3edSedo1QGdAQ-1;
+	Wed, 26 May 2021 04:16:19 -0400
+X-MC-Unique: 7-8SasyXP3edSedo1QGdAQ-1
+Received: from ici.slint.fr (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
+	[176.172.247.100])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 698F7A2C38
+	for <blinux-list@redhat.com>; Wed, 26 May 2021 09:16:00 +0200 (CEST)
 Subject: Re: Arch linux not in boot menu
 To: blinux-list@redhat.com
 References: <20210526.014710.170.3@[192.168.1.100]>
-Message-ID: <bb2c1ab7-e54a-ddd2-5d88-549c3c8ae5f2@gmail.com>
-Date: Wed, 26 May 2021 10:11:08 +0300
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
-	Thunderbird/78.10.2
+Message-ID: <6c811774-534f-56c9-fd1f-08eda5004689@slint.fr>
+Date: Wed, 26 May 2021 10:16:16 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
 In-Reply-To: <20210526.014710.170.3@[192.168.1.100]>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
@@ -95,7 +73,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -112,30 +90,74 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-MjYuMDUuMjAyMSA0OjQ3LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uINC/0LjR
-iNC10YI6Cj4gSSBoYXZlIDMgb3BlcmF0aW5nIHN5c3RlbXMgb24gdGhlIHNhbWUgZGlzay4gV2lu
-ZG93cywgc2xpbnQgYW5kLCBhcyBvZiB0aGlzIG1vcm5pbmcsIGFyY2guIEluc3RhbGxlZCBpbiBq
-dXN0IHRoYXQgb3JkZXIuIFRoZSBiaW9zIHR5cGUgaXMgVUVGSS4KPiBTbGludCBydW5zIGdydWIs
-IHNvIEkgZGlkIG5vdCBpbnN0YWxsIGl0IGluIGFyY2guCj4gQWZ0ZXIgY29tcGxldGluZyB0aGUg
-YXJjaCBpbnN0YWxsLCBJIGdvdCBiYWNrIGludG8gc2xpbnQgYW5kIHJhbgo+IHVwZGF0ZS1ncnVi
-Cj4gSXQgZm91bmQgYXJjaCBvbiAvZGV2L3NkYTcKPiBXaGVuICBJIHJhbgo+IGVmaWJvb3RtZ3IK
-PiBBcmNoIHdhcyBub3QgbGlzdGVkIHRoZXJlLCBob3dldmVyLgo+IFdoYXQgc3RlcCBkaWQgSSBt
-aXNzPwo+Cj4KeW91IHNob3VsZCB0YWtlIGludG8gYWNjb3VudCB0aGF0IGVmaWJvb3RtZ3Igc2hv
-d3MgdGhlIGJvb3QgbGlzdCBpbiBlZmkuIAp0aGUgdXBkYXRlLWdydWIgY29tbWFuZCB1cGRhdGVk
-IHRoZSBsaXN0IGluIHRoZSBncnViIGJvb3Rsb2FkZXIuCnRoZXNlIGFyZSB0d28gZGlmZmVyZW50
-IGxpc3RzLgppZiB5b3Ugd2FudCB0byBzZWxlY3Qgb3MgdmlhIHRoZSBlZmkgbGlzdCwgdGhlbiBJ
-IHdvdWxkIHJlY29tbWVuZCAKaW5zdGFsbGluZyBzb21lIGtpbmQgb2YgYm9vdGxvYWRlciBpbiBh
-cmNoLiBpIHdvdWxkIHVzZSBzeXN0ZW1kLWJvb3QgZm9yIAp0aGlzLgoKLS0gClNpbmNlcmVseSwg
-QWxleGFuZGVyLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6
-Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
+Hi,
+
+As Alexander pointed out, you don't miss anything. Let me elaborate a bit.
+
+The Slint  installer runs grub-install which among other things writes 
+an EFI OS
+loader grubx64.efi in an EFI System Partition, that you can see from 
+Slint as
+boot/efi/EFI/slint/grubx64.efi and a boot entry in the firmware menu, 
+which is
+actually a link to grubx64.efi.
+
+grubx64.efi looks for the grub configuration file grub.cfg in the /boot/grub
+directory of the system from which grub-install ran (or or from the 
+directory
+argument of the --boot-directory option of the grub-install command).
+
+So if you really want a boot entry for Arch in the firmware's boot menu 
+you will
+need to write an EFI OS loader able to boot Arch in ten EFI system 
+partition, to
+which this boot entry would link to. This can be done several ways, but...
+Why would you need that, as long as the GRUB menu built from Slint allows to
+boot Arch?
+
+As an aside, in Slint you can run grub-emu to display the grub menu that 
+will be
+displayed at next boot and check the boot entries it includes.
+
+This comes handy for blind users as the menu displayed by grub-emu is 
+accessible
+to the blind, but not the menu displayed when booting.
+
+Also I am guilty of something called EFI3M 
+https://github.com/DidierSpaier/EFI3M
+
+Cheers,
+Didier
+
+On 26/05/2021 03:47, Linux for blind general discussion wrote:
+> I have 3 operating systems on the same disk. Windows, slint and, as of this morning, arch. Installed in just that order. The bios type is UEFI.
+> Slint runs grub, so I did not install it in arch.
+> After completing the arch install, I got back into slint and ran
+> update-grub
+> It found arch on /dev/sda7
+> When  I ran
+> efibootmgr
+> Arch was not listed there, however.
+> What step did I miss?
+> 
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
