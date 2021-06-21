@@ -1,85 +1,71 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 7A84F3AF6CF
-	for <lists+blinux-list@lfdr.de>; Mon, 21 Jun 2021 22:25:10 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 1DF6C3AF6E8
+	for <lists+blinux-list@lfdr.de>; Mon, 21 Jun 2021 22:42:32 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1624307109;
+	s=mimecast20190719; t=1624308151;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=usj4MA4KW+Gb08pMr/QFe2yrfDURupDnB5l8dQMQbn0=;
-	b=NGxGyOhObjxDNXVneFS3AgHD7BMtQcb7BtX9CPKb8lAc9b1UyJKlEWM6syZlWQyP22QRft
-	cgK1ET509aPgZlzcCIGpomTk+9qf17rgSy9m0+HRaiZP98kuCJtzOi5tcG54h5pMTZ64lq
-	h2GNdPCJ562xdqpTk4fiCprTyPjCeQo=
+	bh=gM0BCcEJeOk90KLsXFgihBR11Wo3nytGIfbHycOyVEg=;
+	b=BTw8pRcijOyzfaByq4BWqTSBU5/DzdneVKOmamQi047Ej5LIDyy1uFv4Yihq1Ww4iv0m0F
+	8hsYhn+s8tUZ3TbP/jtygdQg2HsIyBM2+Idlq1n7zOMbVppPgDSNAa9SgAmsBblJdHQxks
+	ETiC7SRi+6hiOh/Pv+SQgDy2SQkUxi4=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-470-uybnLalyMJisxRQPqujGvg-1; Mon, 21 Jun 2021 16:25:06 -0400
-X-MC-Unique: uybnLalyMJisxRQPqujGvg-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-177-ir20lVMjMNyu81phmmoBlg-1; Mon, 21 Jun 2021 16:42:29 -0400
+X-MC-Unique: ir20lVMjMNyu81phmmoBlg-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 219CB800D62;
-	Mon, 21 Jun 2021 20:25:02 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E396B5D705;
-	Mon, 21 Jun 2021 20:24:55 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 17EE9804142;
+	Mon, 21 Jun 2021 20:42:24 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id F36F560C13;
+	Mon, 21 Jun 2021 20:42:23 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5B3254EA2A;
-	Mon, 21 Jun 2021 20:24:43 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 623711809C99;
+	Mon, 21 Jun 2021 20:42:21 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 15LKOV3O023208 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 21 Jun 2021 16:24:31 -0400
+	id 15LKg9vm025445 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 21 Jun 2021 16:42:09 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id E7353201EE2E; Mon, 21 Jun 2021 20:24:30 +0000 (UTC)
+	id 8421B63F91; Mon, 21 Jun 2021 20:42:09 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E1BA1201EF0F
-	for <blinux-list@redhat.com>; Mon, 21 Jun 2021 20:24:28 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E0579108C0ED
-	for <blinux-list@redhat.com>; Mon, 21 Jun 2021 20:24:27 +0000 (UTC)
-Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com
-	[209.85.210.174]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-439-oWvxe5LWM5qLcEjJNWbxsg-1; Mon, 21 Jun 2021 16:24:25 -0400
-X-MC-Unique: oWvxe5LWM5qLcEjJNWbxsg-1
-Received: by mail-pf1-f174.google.com with SMTP id g6so14588592pfq.1
-	for <blinux-list@redhat.com>; Mon, 21 Jun 2021 13:24:25 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:content-transfer-encoding:mime-version:date
-	:subject:message-id:to;
-	bh=GfuzC9SzfIkMXkksyAQvEj+AF0CsYXKkshFuGuLew88=;
-	b=n1x9Q3hJtOoNv6Voz8cAPjD78p+qOneKeYVga39NKq/CTLHPlm8dqvAFZOa4YKXSDR
-	GdPnVt2Vk6gfs2+rVWND0c4ERTIUYXT0AFM5ANGk9D7MG/GZODEX16FXHhNkTeYJ5OpC
-	Exfn7vg156oD8INHRtWZ60cnQ3wfyrt+V+Q6vBZprWhMqP2h+6dvCHQCtIg44Js8pH6r
-	MzXJonyna7aYxAmm5j9TlF9sPD3B6VDdACFsiZhAaZcVRQpz2JrrVhmYkIEGsMB8Bcyg
-	O5xLYXVLwBmiah6Ibf6HTKw3HEG4ZITxxR8usvehH4hZOMrgb6gdDSJrrHncAY1+mms1
-	M8VQ==
-X-Gm-Message-State: AOAM530TMtDbvFHvta8w7N/x7BvBdhlbf+yCUGycei0YLcXY5DID5iRH
-	JLBqyzMycjP6uC59lrdjNyJ9TDPXiAkeEQ==
-X-Google-Smtp-Source: ABdhPJzHJX2zTVK7f8Nhr/mkavFhRVyOYjgZ/Iagg9zBRnxnAdQsmVYZAm3b1sjAezIqd0B2jMCJZw==
-X-Received: by 2002:aa7:9521:0:b029:303:90ba:1a21 with SMTP id
-	c1-20020aa795210000b029030390ba1a21mr14069pfp.9.1624307064183; 
-	Mon, 21 Jun 2021 13:24:24 -0700 (PDT)
-Received: from [192.168.4.38] (24-113-81-134.wavecable.com. [24.113.81.134])
-	by smtp.gmail.com with ESMTPSA id
-	d131sm16541368pfd.176.2021.06.21.13.24.23
-	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-	Mon, 21 Jun 2021 13:24:23 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 13.4 \(3608.120.23.2.4\))
-Date: Mon, 21 Jun 2021 13:24:21 -0700
-Subject: making an accessible version of Nushell
-Message-Id: <39E7FC5D-C61C-4EE2-8199-F0D94711EF71@cfcl.com>
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7A8B963F8A
+	for <blinux-list@redhat.com>; Mon, 21 Jun 2021 20:42:01 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B3E7F1064C96
+	for <blinux-list@redhat.com>; Mon, 21 Jun 2021 20:42:01 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-310-ja2jxvUlPB-AvquXLxdHMQ-1;
+	Mon, 21 Jun 2021 16:41:58 -0400
+X-MC-Unique: ja2jxvUlPB-AvquXLxdHMQ-1
+Received: from ici.slint.fr (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
+	[176.172.247.100])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 0097AA3EB7
+	for <blinux-list@redhat.com>; Mon, 21 Jun 2021 21:41:32 +0200 (CEST)
+Subject: Re: making an accessible version of Nushell
+To: blinux-list@redhat.com
+References: <39E7FC5D-C61C-4EE2-8199-F0D94711EF71@cfcl.com>
+Message-ID: <55e60ad8-2298-90c0-9936-91f289bd0c07@slint.fr>
+Date: Mon, 21 Jun 2021 22:41:56 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+	Thunderbird/78.11.0
+MIME-Version: 1.0
+In-Reply-To: <39E7FC5D-C61C-4EE2-8199-F0D94711EF71@cfcl.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -88,9 +74,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 15LKOV3O023208
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 15LKg9vm025445
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -107,32 +93,43 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Nushell (https://www.nushell.sh) is a re-imagined shell for Linux (etc) systems.  There are a number of things to like about it, IMHO.  First, it attempts to handle program output as structured data.  This means that, for example, tabular output can be filtered, sorted, etc.  It is also being written in Rust, which should help to prevent a large class of security issues.
-
-However, the use of text-based layout for tabular output isn't well suited for use with screen readers, etc.  So, I posted an issue on the Nushell Git repository, suggesting that someone look into the notion of creating a web-based version.  Happily, some work has already been done on this, mostly to support an online demo.
-
-If you find this to be interesting, you might want to browse over to their sites and check out what they have so far.  Specific suggestions on ways to make the interface work better with screen readers (etc) would be very valuable.  Here are some links:
-
-https://www.nushell.sh
-https://www.nushell.sh/demo
-
-https://github.com/nushell/nushell
-https://github.com/nushell/nushell/issues/3663
-
--r (Rich Morin)
-
-
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGkgUmljaCwKCkkgaGFkIGEgcXVpY2sgbG9vayBhdCBudXNoZWxsLCBhbmQgSSB3b24ndCBzcGVu
+ZCB0aW1lIG9uIHRoYXQuCgpXZSBoYXZlIGFscmVhZHkgbWFueSBzaGVsbHMsIG5vIG5lZWQgZm9y
+IG9uZSBtb3JlLiBJIHRoaW5rIHRoYXQgYSBQT1NJWApjb21wbGlhbnQgc2hlbGwgaXMgZ29vZCBl
+bm91Z2ggYW5kIGl0cyBvdXRwdXQgaXMgYWxyZWFkeSBzY3JlZW4gcmVhZGVyIApmcmllbmRseQph
+dCBsZWFzdCBvbiBhIHBsYWluIExpbnV4IGNvbnNvbGUKCkp1c3QgbXkgb3Bpbmlvbiwgb2YgY291
+cnNlCgpDaGVlcnMsCkRpZGllcgoKTGUgMjEvMDYvMjAyMSDDoCAyMjoyNCwgTGludXggZm9yIGJs
+aW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3JpdMKgOgo+IE51c2hlbGwgKGh0dHBzOi8vd3d3
+Lm51c2hlbGwuc2gpIGlzIGEgcmUtaW1hZ2luZWQgc2hlbGwgZm9yIExpbnV4IChldGMpIHN5c3Rl
+bXMuICBUaGVyZSBhcmUgYSBudW1iZXIgb2YgdGhpbmdzIHRvIGxpa2UgYWJvdXQgaXQsIElNSE8u
+ICBGaXJzdCwgaXQgYXR0ZW1wdHMgdG8gaGFuZGxlIHByb2dyYW0gb3V0cHV0IGFzIHN0cnVjdHVy
+ZWQgZGF0YS4gIFRoaXMgbWVhbnMgdGhhdCwgZm9yIGV4YW1wbGUsIHRhYnVsYXIgb3V0cHV0IGNh
+biBiZSBmaWx0ZXJlZCwgc29ydGVkLCBldGMuICBJdCBpcyBhbHNvIGJlaW5nIHdyaXR0ZW4gaW4g
+UnVzdCwgd2hpY2ggc2hvdWxkIGhlbHAgdG8gcHJldmVudCBhIGxhcmdlIGNsYXNzIG9mIHNlY3Vy
+aXR5IGlzc3Vlcy4KPiAKPiBIb3dldmVyLCB0aGUgdXNlIG9mIHRleHQtYmFzZWQgbGF5b3V0IGZv
+ciB0YWJ1bGFyIG91dHB1dCBpc24ndCB3ZWxsIHN1aXRlZCBmb3IgdXNlIHdpdGggc2NyZWVuIHJl
+YWRlcnMsIGV0Yy4gIFNvLCBJIHBvc3RlZCBhbiBpc3N1ZSBvbiB0aGUgTnVzaGVsbCBHaXQgcmVw
+b3NpdG9yeSwgc3VnZ2VzdGluZyB0aGF0IHNvbWVvbmUgbG9vayBpbnRvIHRoZSBub3Rpb24gb2Yg
+Y3JlYXRpbmcgYSB3ZWItYmFzZWQgdmVyc2lvbi4gIEhhcHBpbHksIHNvbWUgd29yayBoYXMgYWxy
+ZWFkeSBiZWVuIGRvbmUgb24gdGhpcywgbW9zdGx5IHRvIHN1cHBvcnQgYW4gb25saW5lIGRlbW8u
+Cj4gCj4gSWYgeW91IGZpbmQgdGhpcyB0byBiZSBpbnRlcmVzdGluZywgeW91IG1pZ2h0IHdhbnQg
+dG8gYnJvd3NlIG92ZXIgdG8gdGhlaXIgc2l0ZXMgYW5kIGNoZWNrIG91dCB3aGF0IHRoZXkgaGF2
+ZSBzbyBmYXIuICBTcGVjaWZpYyBzdWdnZXN0aW9ucyBvbiB3YXlzIHRvIG1ha2UgdGhlIGludGVy
+ZmFjZSB3b3JrIGJldHRlciB3aXRoIHNjcmVlbiByZWFkZXJzIChldGMpIHdvdWxkIGJlIHZlcnkg
+dmFsdWFibGUuICBIZXJlIGFyZSBzb21lIGxpbmtzOgo+IAo+IGh0dHBzOi8vd3d3Lm51c2hlbGwu
+c2gKPiBodHRwczovL3d3dy5udXNoZWxsLnNoL2RlbW8KPiAKPiBodHRwczovL2dpdGh1Yi5jb20v
+bnVzaGVsbC9udXNoZWxsCj4gaHR0cHM6Ly9naXRodWIuY29tL251c2hlbGwvbnVzaGVsbC9pc3N1
+ZXMvMzY2Mwo+IAo+IC1yIChSaWNoIE1vcmluKQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlz
+dEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8v
+YmxpbnV4LWxpc3Q=
 
