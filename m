@@ -1,103 +1,79 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id BDC983BF2B4
-	for <lists+blinux-list@lfdr.de>; Thu,  8 Jul 2021 02:09:38 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id BA9E73BF606
+	for <lists+blinux-list@lfdr.de>; Thu,  8 Jul 2021 09:09:51 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1625702977;
+	s=mimecast20190719; t=1625728190;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ohNJJ128W6k3lxaXxqltXlbZcXBxY1d7rnNs/OHtUw0=;
-	b=eLWoBFGPNTmXoZhbjd18LmMVB9IYAqqGhTigm2VNQvYA6uVjxHRl5KXXVZN4sr3V/ZhWuh
-	ItctwPbGGch5u7FqU+hraP9WV/GYAUQiwFhkrps3y2EvACMf9CzQLAAuLhZrkocLVstjYO
-	GvBuxgV4l6e+VMryO734itwHAGXFZV8=
+	bh=UW/Fd/Ha+nCTo1GZopASQPNW1/HT4KrRo8Y8sZC+4ac=;
+	b=KPsnr+4Y7vzFcvLtBfvMJ6polkR2OREe/NDw5M/63yp3EhUYsN9bsL68v+3dC/go8uO9gk
+	nu6/vNGR5kdfuP+d8B1i2VyUjU/Q67QMtDqlW15eAgY89k6PBhRzYwmyMbJxjiQOiHhXPx
+	efbxMZKr9WRvPH2G6wFVQAe2m8h7Yy0=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-561-8RGU1R5dNiyxMf9uc69xDw-1; Wed, 07 Jul 2021 20:09:36 -0400
-X-MC-Unique: 8RGU1R5dNiyxMf9uc69xDw-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-360-JtHJgPPmPyKTzDAAqsqM3Q-1; Thu, 08 Jul 2021 03:09:48 -0400
+X-MC-Unique: JtHJgPPmPyKTzDAAqsqM3Q-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1AAF2802921;
-	Thu,  8 Jul 2021 00:09:31 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E3D8D50756;
+	Thu,  8 Jul 2021 07:09:44 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 06B655D6AB;
-	Thu,  8 Jul 2021 00:09:30 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1295E5D9D3;
+	Thu,  8 Jul 2021 07:09:41 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6C61D1809C99;
-	Thu,  8 Jul 2021 00:09:24 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BDE041809C99;
+	Thu,  8 Jul 2021 07:09:36 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 16806ZAm004646 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 7 Jul 2021 20:06:35 -0400
+	id 16879RAH007660 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 8 Jul 2021 03:09:27 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id AD5CD2064013; Thu,  8 Jul 2021 00:06:35 +0000 (UTC)
+	id 1D25810166DF; Thu,  8 Jul 2021 07:09:27 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A86BF2064012
-	for <blinux-list@redhat.com>; Thu,  8 Jul 2021 00:06:33 +0000 (UTC)
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 18C23100B164
+	for <blinux-list@redhat.com>; Thu,  8 Jul 2021 07:09:24 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 25E7C185A794
-	for <blinux-list@redhat.com>; Thu,  8 Jul 2021 00:06:33 +0000 (UTC)
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com
-	[209.85.218.47]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-149-eaiGU2V4NcWNiooca3KEPQ-1; Wed, 07 Jul 2021 20:06:30 -0400
-X-MC-Unique: eaiGU2V4NcWNiooca3KEPQ-1
-Received: by mail-ej1-f47.google.com with SMTP id gn32so6282703ejc.2
-	for <blinux-list@redhat.com>; Wed, 07 Jul 2021 17:06:30 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:to:subject:thread-topic:thread-index:date
-	:message-id:references:in-reply-to:accept-language:content-language
-	:mime-version;
-	bh=EmXdtK8gcnICcS8Q3Qn3Hz8wm3J/J1jd5ziAe1YzBVM=;
-	b=hisinR9keb3vcKi8WDJuT6AJQlV5JHN6pVNxfy80IJ4byNIhVpzR4jLydOQmrUhnub
-	caM0xaTnd3i8pIgq0HqFcc9M8qQqHV32r+9fjIgARojJSwMMyrCIdFIfszmvzPTQzRY4
-	slyR1VfgpRyc6rejzPgUy6LpPQslSL1xKsnXD/L4X5SAPGwJvwxPyx6x4eFXBOIFsrw+
-	Nv6czJzBlyvJwsfMiiXmLJRV9ioBqYXBhHi5jjS9J2DSPGxXfuAd7QQh2eUpKNWaCimG
-	ObdXVenO0QIbECqfV2YlGshsG8WaobYRJjoiK8SD7fqxgj/kwjAJ66KQ2HK8rpltftSo
-	GR4A==
-X-Gm-Message-State: AOAM531dM+z5ZI/lq0CadzjD8vjc6KW0SwHW5eQS15aBoMInlcwAwHTt
-	eSuwB2rxzeD7mK4XEe5eAV742NB2Jjk=
-X-Google-Smtp-Source: ABdhPJxSAE159rdlTiA/NgDIQHHZjUzqyR6bHtGIgRkXqZqIvQH6QRLYU4zc10Q3ACsz36DhmgysDw==
-X-Received: by 2002:a17:906:5d07:: with SMTP id
-	g7mr26649573ejt.521.1625702788785; 
-	Wed, 07 Jul 2021 17:06:28 -0700 (PDT)
-Received: from BN0PR19MB5278.namprd19.prod.outlook.com
-	([2603:1036:303:3821::5])
-	by smtp.gmail.com with ESMTPSA id v3sm123001ejg.20.2021.07.07.17.06.27
-	for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-	Wed, 07 Jul 2021 17:06:28 -0700 (PDT)
-To: "blinux-list@redhat.com" <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9DC10858286
+	for <blinux-list@redhat.com>; Thu,  8 Jul 2021 07:09:24 +0000 (UTC)
+Received: from mail.schoeppi.net (mail.schoeppi.net [193.41.226.221]) by
+	relay.mimecast.com with ESMTP id us-mta-240-qgt22YdkOoSTYEkILEnbGQ-1;
+	Thu, 08 Jul 2021 03:09:21 -0400
+X-MC-Unique: qgt22YdkOoSTYEkILEnbGQ-1
+Received: from [192.168.1.140] (pc19f8990.dip0.t-ipconnect.de
+	[193.159.137.144])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest
+	SHA256) (Client did not present a certificate)
+	by mail.schoeppi.net (Postfix) with ESMTPSA id 268252AD924
+	for <blinux-list@redhat.com>; Thu,  8 Jul 2021 09:09:20 +0200 (CEST)
 Subject: Re: Starting linux again
-Thread-Topic: Starting linux again
-Thread-Index: ATFBMDQylBabz69FiptyThYfae6aUzdhM2U1MDQ3NFgxNDIyMTA1NzRCxhzDClU=
-X-MS-Exchange-MessageSentRepresentingType: 1
-Date: Thu, 8 Jul 2021 00:06:20 +0000
-Message-ID: <BN0PR19MB52784AE6167BD0644630242DA2199@BN0PR19MB5278.namprd19.prod.outlook.com>
+To: blinux-list@redhat.com
 References: <DB16B662-5338-426B-9905-3B6BA296F181@gmail.com>
 	<d3f4bde5-6968-ee76-3534-df0cad1758e7@schoeppi.net>
 	<alpine.OSX.2.23.453.2107070838440.7280@soladeogloria.local>
-	<f59d22b1-f0b6-207d-6c26-a83845de2a51@schoeppi.net>,
+	<f59d22b1-f0b6-207d-6c26-a83845de2a51@schoeppi.net>
 	<alpine.NEB.2.23.451.2107071131520.6390@panix1.panix.com>
-In-Reply-To: <alpine.NEB.2.23.451.2107071131520.6390@panix1.panix.com>
-Accept-Language: en-US
-X-MS-Has-Attach: 
-X-MS-Exchange-Organization-SCL: -1
-X-MS-TNEF-Correlator: 
-X-MS-Exchange-Organization-RecordReviewCfmType: 0
+	<BN0PR19MB52784AE6167BD0644630242DA2199@BN0PR19MB5278.namprd19.prod.outlook.com>
+Message-ID: <3ebe9ac6-abf3-0e64-da99-ece53331838d@schoeppi.net>
+Date: Thu, 8 Jul 2021 09:09:16 +0200
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+	Thunderbird/78.11.0
 MIME-Version: 1.0
+In-Reply-To: <BN0PR19MB52784AE6167BD0644630242DA2199@BN0PR19MB5278.namprd19.prod.outlook.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -106,9 +82,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
-X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -124,63 +99,71 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Also, isn't Debian a few versions behind on the software that is included? That is one reason I stay away from it.
+You can use backports to get current software also in Debian systems.
 
-Get Outlook for Android<https://aka.ms/AAb9ysg>
-
-________________________________
-From: blinux-list-bounces@redhat.com <blinux-list-bounces@redhat.com> on behalf of Linux for blind general discussion <blinux-list@redhat.com>
-Sent: Wednesday, July 7, 2021 11:33:42 AM
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Starting linux again
-
-Actually, debian does not have the most accessible installer.  For that,
-it's either Slint or Jenux.
-In order to get debian screen reader accessibility going, you have to know
-about and use a boot parameter.  With slint and Jenux, no such boot
-parameter is necessary.
-
-
-On Wed, 7 Jul 2021, Linux for blind general discussion wrote:
-
-> Debian has the most accessible installer AFAIK, all other distros I know are
-> not that easy to setup. So defenatly give Debian a try ;-).
->
-> Cheers,
->
->   Schoep
->
->
->
-> Am 07.07.2021 um 15:39 schrieb Linux for blind general discussion:
-> > That's great news! I had seen a comment somewhere about debian no longer
-> > having an accessible install but if it still does, I will definitely go to
-> > that first.
-> >
-> >
-> >
->
+Am 08.07.2021 um 02:06 schrieb Linux for blind general discussion:
+> Also, isn't Debian a few versions behind on the software that is included? That is one reason I stay away from it.
+> 
+> Get Outlook for Android<https://aka.ms/AAb9ysg>
+> 
+> ________________________________
+> From: blinux-list-bounces@redhat.com <blinux-list-bounces@redhat.com> on behalf of Linux for blind general discussion <blinux-list@redhat.com>
+> Sent: Wednesday, July 7, 2021 11:33:42 AM
+> To: Linux for blind general discussion <blinux-list@redhat.com>
+> Subject: Re: Starting linux again
+> 
+> Actually, debian does not have the most accessible installer.  For that,
+> it's either Slint or Jenux.
+> In order to get debian screen reader accessibility going, you have to know
+> about and use a boot parameter.  With slint and Jenux, no such boot
+> parameter is necessary.
+> 
+> 
+> On Wed, 7 Jul 2021, Linux for blind general discussion wrote:
+> 
+>> Debian has the most accessible installer AFAIK, all other distros I know are
+>> not that easy to setup. So defenatly give Debian a try ;-).
+>>
+>> Cheers,
+>>
+>>    Schoep
+>>
+>>
+>>
+>> Am 07.07.2021 um 15:39 schrieb Linux for blind general discussion:
+>>> That's great news! I had seen a comment somewhere about debian no longer
+>>> having an accessible install but if it still does, I will definitely go to
+>>> that first.
+>>>
+>>>
+>>>
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>
+>>
+>>
+> 
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
