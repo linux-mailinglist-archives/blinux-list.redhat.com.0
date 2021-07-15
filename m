@@ -1,87 +1,90 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id F28B73C9BD0
-	for <lists+blinux-list@lfdr.de>; Thu, 15 Jul 2021 11:30:00 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id DF8673C9C6A
+	for <lists+blinux-list@lfdr.de>; Thu, 15 Jul 2021 12:08:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1626341400;
+	s=mimecast20190719; t=1626343719;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=B7EfHZdCs4WW7DY/oz6fz1ry/J5cbX83yst765ifhxw=;
-	b=HP95Lh3JReRDb1FftBuPYRco+b//ii6AOvk0XXgr1w6kjvpzaCsnEzJQLo5V/apfJzMDx4
-	jgCBAF3/8ONdSPqmGvJTyfnQvhcCUwYQMl2GOmNoVPSqkw/HOEwgjQR1JpeJ7Vc+xahYk7
-	QyzA8VNnsOcTZdIEoKBtrG6mZhClF68=
+	bh=8z23d89L1C5eL9taiujL+8yzGDlQ2QNNiNgU+QAnqww=;
+	b=XREu84A704m7Tble5FieI6GokDm1ATDKgNiV+x5L2U+0gy/RFFkwzYLumXrRJYtXWDk9ua
+	Oz5aCn5n45ZnoNwNSvFVnxCfkBjen8OO1Xh9xyR9Pf5o1nHVd5FV0VOJ+OTHyitNv6Ud33
+	2cfX9U7xfLhVecA1/dA8kpN6s0gO8qc=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-99-MRqNnuq5PRa9tSfdAUy-jA-1; Thu, 15 Jul 2021 05:29:58 -0400
-X-MC-Unique: MRqNnuq5PRa9tSfdAUy-jA-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-592--Sqy-Tp9OV--U8v5TXpLjw-1; Thu, 15 Jul 2021 06:08:37 -0400
+X-MC-Unique: -Sqy-Tp9OV--U8v5TXpLjw-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DC565100CF6E;
-	Thu, 15 Jul 2021 09:29:53 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4A9EB19CBA;
-	Thu, 15 Jul 2021 09:29:52 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DA93F18414A0;
+	Thu, 15 Jul 2021 10:08:33 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 36F525D9DD;
+	Thu, 15 Jul 2021 10:08:33 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 22CD84EA2F;
-	Thu, 15 Jul 2021 09:29:46 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3EF741809C99;
+	Thu, 15 Jul 2021 10:08:31 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 16F9Tb9C007574 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 15 Jul 2021 05:29:37 -0400
+	id 16FA8OW9011505 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 15 Jul 2021 06:08:24 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 642F520D69B5; Thu, 15 Jul 2021 09:29:37 +0000 (UTC)
+	id 8EACF1037BE; Thu, 15 Jul 2021 10:08:24 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5FDFF20D69B6
-	for <blinux-list@redhat.com>; Thu, 15 Jul 2021 09:29:37 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 83E4D1037B1
+	for <blinux-list@redhat.com>; Thu, 15 Jul 2021 10:08:16 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4769A18A01AE
-	for <blinux-list@redhat.com>; Thu, 15 Jul 2021 09:29:37 +0000 (UTC)
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com
-	[209.85.128.44]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-552-R4PvQyoUMxaggFlnJeS5AA-1; Thu, 15 Jul 2021 05:29:35 -0400
-X-MC-Unique: R4PvQyoUMxaggFlnJeS5AA-1
-Received: by mail-wm1-f44.google.com with SMTP id
-	a23-20020a05600c2257b0290236ec98bebaso724922wmm.1
-	for <blinux-list@redhat.com>; Thu, 15 Jul 2021 02:29:34 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B095D858F1E
+	for <blinux-list@redhat.com>; Thu, 15 Jul 2021 10:08:16 +0000 (UTC)
+Received: from mail-qv1-f48.google.com (mail-qv1-f48.google.com
+	[209.85.219.48]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-308-40El_HtFP-2AIrNEn5GM7A-1; Thu, 15 Jul 2021 06:08:14 -0400
+X-MC-Unique: 40El_HtFP-2AIrNEn5GM7A-1
+Received: by mail-qv1-f48.google.com with SMTP id o9so2533799qvu.5
+	for <blinux-list@redhat.com>; Thu, 15 Jul 2021 03:08:13 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
-	:mime-version:content-transfer-encoding:content-language;
-	bh=dq5B9Qh8hXywwrgDdVcnsl3mLWBdEsNI8XnFyj20wLk=;
-	b=Jl92XHQRDF129WkYSh0ilJ5bKrhUlDNoSWq8T2XRwKzYpFSDY6rXBwcyaLcutgW/En
-	Cz78713UgF6d1YwNITMIRlvPow5SV4Qv13+r9CaCPDWG9zWWbE6fHX/zsN2ytNwL7Unl
-	/863q6EtOsvq1VpPgTLkH2Vaw8voqDy1/dsOyYT+mqduDH2KXutPdTliNvWy1eLWBrS8
-	vD1uPMFNyDaz0qu2e/u1/Wwg32L4SgRPLuj1RcI6vMs+KWVZVeMFJejq2a5FEKCjw1g9
-	mZJk7XCtRdmjmIu5AMh92Y0tufeiSqoTcTa1ueQPqWXAN6qh22qkhGKfeTxwrMLuydZX
-	h/Vw==
-X-Gm-Message-State: AOAM533vRveHp8ZzG/pRWb7WB21djzQeCJ42SZsIXeuJ2AWGR2UXq309
-	2mCAnz3sz6BvU9f2QkCmvsb3gPViuW8=
-X-Google-Smtp-Source: ABdhPJyiG+JF6GwfGg5hsPGUliPMYrCkMMtHZ9+HlGkRjw0oXw9JbgZ9au22WZVxVoHobK5uvOthoQ==
-X-Received: by 2002:a7b:cf29:: with SMTP id m9mr3407195wmg.13.1626341373542;
-	Thu, 15 Jul 2021 02:29:33 -0700 (PDT)
-Received: from [192.168.1.130] ([90.254.192.41])
-	by smtp.gmail.com with ESMTPSA id
-	j23sm1294681wmo.26.2021.07.15.02.29.32 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 15 Jul 2021 02:29:32 -0700 (PDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: VScode not accessible?
-Message-ID: <4c94df7a-b105-d608-35eb-ff3c05943866@gmail.com>
-Date: Thu, 15 Jul 2021 10:29:31 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
-	Thunderbird/78.11.0
-MIME-Version: 1.0
+	h=x-gm-message-state:from:mime-version:subject:date:references:to
+	:in-reply-to:message-id;
+	bh=zgpjRPyegFGDpm0NXAeD/4kFApO7UwCQu0Al/WJI78k=;
+	b=a1Bs75ESEYgpuBn45pmfg2PWpGgXbtasHC6tpwB1jqOehti04WBK6deoD3s89c5d2f
+	xjt3TRIiWEeUALkQnt5zwIN1BgFSta60ouHkLaZDwE+TW2iG69WK0wsGn0bGnGF8pWgK
+	p1OdTwFd60OTVdO+KXZISSx1IDUbWkIbvY/N0tLSZ1IIKj1TN5HTipuZxVdbpudQJjTM
+	xpYT5t/trOJUdIJkNdGs86Sa3VtanyrucHIWtGA+xYc+JfKeh86iJxNKue45a9eMYTlP
+	mOpJ3MVVyBD7fmxncDsOAU1wUHLnA3ni71rwHh8o+aqRm3MNo9X4KXC/6GvtfgThOxEV
+	xbHw==
+X-Gm-Message-State: AOAM5310TDFrMhbjFlNcgFpwiDq6EL8szwh6dSjlBnnqOlshv3zmHqJ3
+	efa1LeNad7t/kgdgKh+CBaUKwxSrUp4=
+X-Google-Smtp-Source: ABdhPJyrZ9lQ0S86SeZ9ChuzncTvBU+/fXajCl0Q8jKIL1JrB825siAFikJ1AY10pPvoVc7ygj6Btg==
+X-Received: by 2002:ad4:568a:: with SMTP id bc10mr3605846qvb.20.1626343693391; 
+	Thu, 15 Jul 2021 03:08:13 -0700 (PDT)
+Received: from smtpclient.apple (024-197-047-106.biz.spectrum.com.
+	[24.197.47.106]) by smtp.gmail.com with ESMTPSA id
+	z12sm1847241qtw.90.2021.07.15.03.08.12 for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+	Thu, 15 Jul 2021 03:08:13 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 15.0 \(3681.0.2.1.2\))
+Subject: Re: Nextcloud was Re: Cloud service
+Date: Thu, 15 Jul 2021 05:08:11 -0500
+References: <1f0192b2-4728-b80f-cbe9-18c30a087e22@gmail.com>
+	<e4bddc5b-213d-70e1-c50b-58bc06b3f535@gmail.com>
+	<15bce51f-2b5e-91f2-c1ae-2bcfdad07cef@gmail.com>
+To: "blinux-list@redhat.com" <blinux-list@redhat.com>
+In-Reply-To: <15bce51f-2b5e-91f2-c1ae-2bcfdad07cef@gmail.com>
+Message-Id: <F9AE84FA-6262-4563-BD99-CA5E6AB4DDA7@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -90,8 +93,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -107,22 +111,55 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-As it says...trying ot find a good code editor for Ruby on Ubuntu 20.04
+I mean, I just installed the nextcloud client from the package manager and it works fine there.
+Devin Prater
+r.d.t.prater@gmail.com
 
-So, I figured alright, let's give VSCode a shot. Nope. The editor is 
-currrently inaccessible message, so....
+Https://devinprater.flounder.online
 
-Is there a good alternative or did I get the wrong version by snap 
-installing it?
+> On Jul 15, 2021, at 2:36 AM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> 
+> Hi,
+> 
+> so I choosed Nextcloud by webo and for now, I am searching for accessible client. I downloaded the official nextcloud appimage client, but my computer says, can not run binary file. Can you give me some recommendations?
+> 
+> Thanks,
+> 
+> Pavel
+> 
+> 
+> 
+> 
+> Dne 14. 07. 21 v 18:03 Linux for blind general discussion napsal(a):
+>> I recommend either self-hosted OwnCloud or NextCloud, or a service provider that offers one of these options. Far more than storage, both of these solutions offer powerful collaboration tools and can even sync contacts and calendars, and both are open source and secure. Check out
+>> 
+>> https://nextcloud.com/providers/
+>> 
+>> for available hosted NextCloud providers. All the private use providers will offer at least 2GB of storage, which is comparable to Dropbox, but some offer more free space.
+>> 
+>> It seems to be more difficult to find OwnCloud providers with free storage space, but it's usually better if you can do so to set up your own host, either at home or through a VPS (virtual private server) in any case.
+>> 
+>> ~Kyle
+>> 
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>> 
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
