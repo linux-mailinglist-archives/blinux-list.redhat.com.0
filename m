@@ -1,86 +1,91 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id EDEB43CB8B4
-	for <lists+blinux-list@lfdr.de>; Fri, 16 Jul 2021 16:31:22 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 8C8CE3CB93B
+	for <lists+blinux-list@lfdr.de>; Fri, 16 Jul 2021 17:01:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1626445882;
+	s=mimecast20190719; t=1626447701;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=MCT7LEXSKVupxUQnhCx2MYj2cRbOA5fFDuhTM7dJgrk=;
-	b=UitCquGVqnhLPf4sSe49YEonrryH4kAkdbiPBZSKUEmO+wvhzCNnuflhRO0fNOVzjpKggT
-	xBnP65JM5YRk7eUEy+Qm0TnepdSrWpNVjBTX6/ESdc5M6gIEwDh6mMGSgxxb3pLlZhlR0O
-	vKfQziDGZsi7+RpwBFwY15DVimiCGFQ=
+	bh=8DbDr1yr6R0LIGvWHkCL2AlKKgKR4JK3fTsjz8FHqYM=;
+	b=QODFsC+a7DvEVvFyt1DobfxvIGH4HY0t3NZNRcBZBl6gbrcinsyTCwVe4Bo+apolcekfpC
+	0wrdtGgotabPGWBXmaNokh/W9V0ldWL2Ec8wcD38oQlp4qAV7B3chIJhDJDkFAtEp4Mtid
+	Rir82SvVMVygTXJiN0yIevViNJ2kS8Q=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-190-dPhZH8YhPluqyg8oasLKkQ-1; Fri, 16 Jul 2021 10:31:20 -0400
-X-MC-Unique: dPhZH8YhPluqyg8oasLKkQ-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-153-gX2S73dIOiCYqzLF0p6a5g-1; Fri, 16 Jul 2021 11:01:39 -0400
+X-MC-Unique: gX2S73dIOiCYqzLF0p6a5g-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 4ED49804308;
-	Fri, 16 Jul 2021 14:31:15 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id EF0A1100C661;
+	Fri, 16 Jul 2021 15:01:34 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E26285D703;
-	Fri, 16 Jul 2021 14:31:13 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 039E010495AD;
+	Fri, 16 Jul 2021 15:01:33 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A37464EA29;
-	Fri, 16 Jul 2021 14:31:09 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7D3704EA2F;
+	Fri, 16 Jul 2021 15:01:32 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 16GERxLI028803 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 16 Jul 2021 10:27:59 -0400
+	id 16GF0ORN030581 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 16 Jul 2021 11:00:24 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 5752320A8DE0; Fri, 16 Jul 2021 14:27:59 +0000 (UTC)
+	id A182220B6651; Fri, 16 Jul 2021 15:00:24 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 531BE20B6625
-	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 14:27:55 +0000 (UTC)
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9D0A620B6659
+	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 15:00:19 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AC6871078462
-	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 14:27:55 +0000 (UTC)
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com
-	[209.85.221.54]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-355-sW7nJH45N2eMF8NNz3NJWA-1; Fri, 16 Jul 2021 10:27:53 -0400
-X-MC-Unique: sW7nJH45N2eMF8NNz3NJWA-1
-Received: by mail-wr1-f54.google.com with SMTP id u1so12377216wrs.1
-	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 07:27:53 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BA8B1185A794
+	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 15:00:19 +0000 (UTC)
+Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com
+	[209.85.219.43]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-223-xfdpCZm9N-uZJFAaw1eqWw-1; Fri, 16 Jul 2021 11:00:17 -0400
+X-MC-Unique: xfdpCZm9N-uZJFAaw1eqWw-1
+Received: by mail-qv1-f43.google.com with SMTP id c15so4696009qvw.6
+	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 08:00:17 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
-	:mime-version:content-transfer-encoding:content-language;
-	bh=OO5V5Vb16chMLRYp7480bG+icln+505F6e0CK06YcJk=;
-	b=PdrWlP9ItNsh+1uXMUpc7/mBcwNJnPVuR9TajjVW1HbGfoOTKqPEs2DYExVr+1sKfq
-	YeIIK0f0YlvPk+L6LAAWnNpPM5ZN7LD5h1lCfo9nwoxQaleBVMv1MMPPdK98+PvDnH4K
-	zMCwB6iuPwMqjOLX2pn8bFxXawpNRCcSuUhV9m5x177Je7vKRq8aTq3fTs8RsAdnjcfw
-	AoQg9J5AaNa3BM09NCr9M4sJrrMzqyF0y1WJhsAzSMDXRJpZk1JHm8FZbcBTeq+6nSMV
-	2MDrPdkeyJPKdF6sopRHWcv01lWTzdM8GOX9cYexJh3TVXJm8DiVx9Uzjd7jkpo4TmuD
-	ImKw==
-X-Gm-Message-State: AOAM533p2SGZ54/58mLmU+QvLg+5NwI1pDtWRkS9VdLeXljlDALLhz9W
-	rUGDxR7lfNdXIQNMjcoCRjCOT/tqVDgBmQ==
-X-Google-Smtp-Source: ABdhPJwap1tcf5Qo7PN3zg6JXLDN7bY0GM/FGInlMcP6D4t8QulwYFIQGmwi9zW+bcBk6nYw1FxSxw==
-X-Received: by 2002:a5d:5141:: with SMTP id u1mr12774459wrt.193.1626445672225; 
-	Fri, 16 Jul 2021 07:27:52 -0700 (PDT)
-Received: from [192.168.1.102] (radio12.infos.cz. [46.33.112.76])
-	by smtp.gmail.com with ESMTPSA id q7sm8351076wmq.33.2021.07.16.07.27.51
-	for <blinux-list@redhat.com>
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding
+	:content-language;
+	bh=NaAHbnefTVf9dhhgHPPGkYxxBxlytwSVZ7Rqn6C3U6Q=;
+	b=TpkzmGhe/H/PGzTP9i2uIXSJpwdWSHEK9sfwCQpkoKgnHMUmJE0LVKi39YOPKAa26v
+	RTALcqUDXIps2BjB5IbYIUrjE+2WkOOIR5E3qKkjHN9zNdGNX37BIeXXjSGw80GuPajW
+	SEGhJodxMS9qTHKNQbB7oNZ94u2lS65/5VQW6XUh1ysSbmAy9rDh6Oy21PQhwhanshxp
+	B3mWulHQW0lCypMMq/JjOyiTml6wOrMCLx6417RD/M8BqBh1KjQKhJ4gyvFkn1WuSxYJ
+	jMQthMxVpABzxi0IH2QJgSyxQSUfSwQ6Gbsfz6PM4zo0sdvpwHvXMUF8liltZx4YSi21
+	0O2g==
+X-Gm-Message-State: AOAM531Q2oqnhcZEcErAtoc6UcWHR6fP1CHrCN+zl66d86ryEfOEaNBZ
+	ZDgRCA6JeNGFDMjbdUcvdd1YwY4EoT8=
+X-Google-Smtp-Source: ABdhPJz69EaEgP2KXcY0wbHtjlnzYxtTuDGWsuhV85UPIwKJyj7esMLH3012pmMj5S26ZYxflW+SsA==
+X-Received: by 2002:ad4:5144:: with SMTP id g4mr10663121qvq.3.1626447617089;
+	Fri, 16 Jul 2021 08:00:17 -0700 (PDT)
+Received: from ?IPv6:2603:6080:6304:450a::433?
+	(2603-6080-6304-450a-0000-0000-0000-0433.res6.spectrum.com.
+	[2603:6080:6304:450a::433]) by smtp.gmail.com with ESMTPSA id
+	z23sm1307604qts.96.2021.07.16.08.00.16 for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Fri, 16 Jul 2021 07:27:51 -0700 (PDT)
+	Fri, 16 Jul 2021 08:00:16 -0700 (PDT)
+Subject: Re: audio cutting and exporting
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: audio cutting and exporting
-Message-ID: <ddddb6cd-5f17-c0ab-1b56-e5ee9281c84b@gmail.com>
-Date: Fri, 16 Jul 2021 16:27:51 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
-	Thunderbird/78.11.0
+References: <ddddb6cd-5f17-c0ab-1b56-e5ee9281c84b@gmail.com>
+Message-ID: <b7bbb0ef-22f1-f511-7157-7f20b9107f56@gmail.com>
+Date: Fri, 16 Jul 2021 11:00:14 -0400
+User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:78.0) Gecko/20100101
+	Thunderbird/78.12.0
 MIME-Version: 1.0
+In-Reply-To: <ddddb6cd-5f17-c0ab-1b56-e5ee9281c84b@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -106,7 +111,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -115,27 +120,41 @@ Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi,
+I'm a long-time Audacity user, and I've found it to be about the best 
+application available for what you're trying to do. You select the audio 
+you want using shifted left and right arrows, similar to editing text, 
+and you can shorten the selection on the left using control+shift+right 
+or shorten the selection on the right using control+shift+left. Unlike 
+editing text, if you shift+right and then shift+left, your selection on 
+the right doesn't change, but you add sound to your selection on the 
+left. An important set of keys for you is control+1, control+2 and 
+control+3. Each file you import or track you record has a default zoom 
+width based on its initial length. Control+2 resets that zoom width to 
+something in the middle, it says normal. Control+1 zooms in, tightening 
+the area that you select with shift+arrows and deselect with 
+control+shift+arrows. Control+3 does the opposite. It zooms the audio 
+out so that each time you select or deselect a section of your audio, 
+the selected or deselected piece is longer. These keys also determine 
+how far your cursor moves when you just want to seek through the audio 
+to find the part you want to select. You jump further using control+3 or 
+tighten the movement with control+1. And of course control+2 will take 
+you back to a middle level. The rest is pretty straightforward. Deletion 
+is achieved with the delete key, cut, copy and paste are the same as in 
+a text editor, and file -> export selected audio will export what you 
+have selected, even if you don't cut or copy it.
 
-I am looking for accessible and easy to use audio application, which 
-allows me to:
 
-- select sound from point a to point b
+If you have access to Flatpak in Fedora, I would recommend installing 
+the 3.x Audacity you'll find there, unless there is a packaged 3.x 
+version already available. 2.x has a strange focus bug that seems to 
+take you off your main track list randomly, usually putting you on some 
+kind of drop-down box related to sound selection or device output. The 
+3.x version in Flatpak doesn't seem to have this issue; no matter what I 
+do, I always stay focused on the track list using 3.x, but my package 
+management doesn't have that version, so I need to install from flatpak, 
+which can be done easily using gnome-software. Hope this helps.
 
-- delete, move or export selected section
-
-- export the result in multiple formats.
-
-I know about Audacity, but maybe you know some more accessible and more 
-easy to use editor.
-
-My environment is Fedora 34 with Mate desktop and with all a11y 
-variables enabled.
-
-Thanks,
-
-Pavel
-
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
