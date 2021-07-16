@@ -2,83 +2,83 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 281D93CBC1E
-	for <lists+blinux-list@lfdr.de>; Fri, 16 Jul 2021 20:49:37 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 44BE93CBDCA
+	for <lists+blinux-list@lfdr.de>; Fri, 16 Jul 2021 22:29:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1626461376;
+	s=mimecast20190719; t=1626467369;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=GbB00k8SfyY7OjbCoUn4NLQBATE4SJaaDg/audToyss=;
-	b=ODdaMUX0sblKAZSAittISNLV0W5Rzp9B8gXzOdtWr14sAirua3Zg5SUCpcZ1S8Qqc7sLwU
-	nOzAFWbfwtTwI60JMpM8gpQjY0q5xY6c7dwbuzAKONEwMfRgxKXdKo6Ad+q4Qv73NgDfbK
-	+NufgKJllYQxTybfUvsZs98CORctJqY=
+	bh=kzzNeqbnWLYrpzI/6b5J0WAl6BM4F+slCanY5vct+l8=;
+	b=NRGgQ0MN1B/Du2bqDhkDkFMaRvsl+0jIha+o1qctcPryObzgZ4XuCZg0CpTXDmpdaqkcL6
+	G18W5UflSmYRdIEG++PvdFc310LsRfi44B6g+kFX26L/D6nZ82oOHpPdmFutOpson6mvdK
+	SSRWL9PONEQJXqnw0R70oz3iTJVNLLU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-433-k1DwL6nnMEuemiSrpKkpuw-1; Fri, 16 Jul 2021 14:49:34 -0400
-X-MC-Unique: k1DwL6nnMEuemiSrpKkpuw-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-575-MDtbA_TzMbSEJYcIdO0qJg-1; Fri, 16 Jul 2021 16:29:27 -0400
+X-MC-Unique: MDtbA_TzMbSEJYcIdO0qJg-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CF966803F56;
-	Fri, 16 Jul 2021 18:49:30 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8C2831F5;
-	Fri, 16 Jul 2021 18:49:27 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1EC2F801107;
+	Fri, 16 Jul 2021 20:29:23 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2C14360862;
+	Fri, 16 Jul 2021 20:29:21 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id CDC4E1809C99;
-	Fri, 16 Jul 2021 18:49:24 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5B32C4EA2F;
+	Fri, 16 Jul 2021 20:29:17 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 16GInGE9018090 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 16 Jul 2021 14:49:16 -0400
+	id 16GKT9qk026580 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 16 Jul 2021 16:29:10 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id B20AE20A8C43; Fri, 16 Jul 2021 18:49:16 +0000 (UTC)
+	id D25AD10F03B; Fri, 16 Jul 2021 20:29:09 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id ADB732093CDF
-	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 18:49:11 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CB72311E5B2
+	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 20:29:06 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 68CED8037AB
-	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 18:49:11 +0000 (UTC)
-Received: from mail-io1-f41.google.com (mail-io1-f41.google.com
-	[209.85.166.41]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-286-TMNkRAZGPEeS76txPXXkGw-1; Fri, 16 Jul 2021 14:49:08 -0400
-X-MC-Unique: TMNkRAZGPEeS76txPXXkGw-1
-Received: by mail-io1-f41.google.com with SMTP id z11so11832880iow.0
-	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 11:49:08 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to;
-	bh=FFhMYgzkrHrYxnusCquFre3YwtI4SSeu55vmBXm4quU=;
-	b=XCwH7GLPCLoc2XXVG7pZ00D4SHhVuBbWTiswFnNyE9v1Gd88WgV2ZSLm9u+oaP4TOL
-	55tH160h5ib2vfWKdbtyUtgzhou2/JVh0OtGl6vyry4f9eItruv4UshWcNvftF/sASUW
-	j6ppbErWDGSDAS07peDptnuXcrpK0NucFMFv3S1DjpVgOBxrMpBJNl9vXkZuPEqCCPko
-	4FAnHOCAnRdBvbyj9Zo6hB77s3FjyQD+3eBQGc2J/MhfcbwOOoSc7pZb9G0qNk1xcDyx
-	0mvlwRER2l6n2h/Dsm8q4CE7iqK4Iap1PYn6zKIO88A1Zu1PNhlLGEpZU3ujNuagqbTT
-	0q/w==
-X-Gm-Message-State: AOAM533OSEa1I4t9Ijyv2d83fI4p0GJFePQDpJ9GKKWi3VUYuZj24vsC
-	rFwwch/mgm+KY/nX4Gm38ybD853K/1t703dkE/70SqKx
-X-Google-Smtp-Source: ABdhPJyQD9ph0KFjcg7QtktsRqXixOj5Edt/vBQRxrBlc+e6QcbR6eIo5xDtAJuc/GH8tHAMiZtst0931yKgRUlWyRY=
-X-Received: by 2002:a02:774a:: with SMTP id g71mr10114660jac.137.1626461347586;
-	Fri, 16 Jul 2021 11:49:07 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BC77B89C7DC
+	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 20:29:06 +0000 (UTC)
+Received: from pb-smtp21.pobox.com (pb-smtp21.pobox.com [173.228.157.53])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-268-wjc6zQCfPKKLbfoT0u_bsw-1; Fri, 16 Jul 2021 16:29:04 -0400
+X-MC-Unique: wjc6zQCfPKKLbfoT0u_bsw-1
+Received: from pb-smtp21.pobox.com (unknown [127.0.0.1])
+	by pb-smtp21.pobox.com (Postfix) with ESMTP id 0A39D1455AC
+	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 16:25:45 -0400 (EDT)
+	(envelope-from joelz@pobox.com)
+Received: from pb-smtp21.sea.icgroup.com (unknown [127.0.0.1])
+	by pb-smtp21.pobox.com (Postfix) with ESMTP id 03C8B1455AB
+	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 16:25:45 -0400 (EDT)
+	(envelope-from joelz@pobox.com)
+Received: from sprite (unknown [148.72.174.47])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by pb-smtp21.pobox.com (Postfix) with ESMTPSA id 78B211455A9
+	for <blinux-list@redhat.com>; Fri, 16 Jul 2021 16:25:42 -0400 (EDT)
+	(envelope-from joelz@pobox.com)
+Received: from jroth by sprite with local (Exim 4.92)
+	(envelope-from <joelz@pobox.com>) id 1m4UOW-0004Qs-I9
+	for blinux-list@redhat.com; Fri, 16 Jul 2021 10:25:12 -1000
+Date: Fri, 16 Jul 2021 10:25:12 -1000
+To: blinux-list@redhat.com
+Subject: Re: audio cutting and exporting
+Message-ID: <20210716202512.fe4q67usizyocbag@sprite>
+References: <ddddb6cd-5f17-c0ab-1b56-e5ee9281c84b@gmail.com>
 MIME-Version: 1.0
-References: <A695764A-F89A-40E5-9257-71562EC3A89C@gmail.com>
-	<C2911657-E880-4797-8B75-5666425CEE15@gmail.com>
-	<alpine.NEB.2.23.451.2107161359250.15260@panix1.panix.com>
-In-Reply-To: <alpine.NEB.2.23.451.2107161359250.15260@panix1.panix.com>
-Date: Fri, 16 Jul 2021 13:48:56 -0500
-Message-ID: <CAGJxbF6PEh1_SoHaoUTfgSvOHJZ=+5j3bm1jYGxLPfQKx-QA6A@mail.gmail.com>
-Subject: Re: Fedora pros and cons
-To: Linux for blind general discussion <blinux-list@redhat.com>
+In-Reply-To: <ddddb6cd-5f17-c0ab-1b56-e5ee9281c84b@gmail.com>
+User-Agent: NeoMutt/20180716
+X-Pobox-Relay-ID: FE2FAC92-E673-11EB-9A59-FA9E2DDBB1FC-04347428!pb-smtp21.pobox.com
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -87,9 +87,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
-X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -105,67 +104,70 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Yeah, they did, and Trisquel is the only Linux distro which has done this.
-I should write up a guide for installing Fedora Mate while it's still fresh.
-Devin Prater
-r.d.t.prater@gmail.com
-gemini://tilde.pink/~devinprater/
+Hi Pavel,
+
+Nama is another audio editor you might try.  It was written
+for music production and like DAE, uses Ecasound to peform
+the audio processing. You can issue commands in a terminal,
+and also search for commands, plugins, etc. 
+
+Nama works with WAV files. You define a region by a pair of
+marks. For editing down a lecture, there is a compose
+command that joins several regions together.
+
+The mixdown command exports to multiple formats. 
+
+A fairly recent version is available as a debian package.
+
+Nama tries to make everything as easy as possible.
+There is a mailing list for questions.
+
+I'm the author, and happy to help :-)
+
+Joel
 
 
-
-On Fri, Jul 16, 2021 at 1:01 PM Linux for blind general discussion <
-blinux-list@redhat.com> wrote:
-
-> So long as you already know how to do all of that ahead of installation
-> you're golden.  Similar to Microsoft accessibility approach for my money
-> in that you have to know how to turn screen narrator on ahead of time too.
-> For my money when Apple released Tiger 10.4 Apple did it better.
->
->
-> On Fri, 16 Jul 2021, Linux for blind general discussion wrote:
->
-> > With Fedora, you at least know that the Mate installer is accessible.
-> Ubuntu Mate?s installer isn?t accessible, with the latest 20.10 release.
-> Fedora?s Mate spin, which I just installed today, *is* accessible. You
-> still have to enable Assistive Technology support, and turn on Orca, and
-> set a keyboard command for Orca, but that?s not too hard to do.
-> > Devin Prater
-> > r.d.t.prater@gmail.com
-> >
-> > Https://devinprater.flounder.online
-> >
-> > > On Jul 16, 2021, at 10:29 AM, Linux for blind general discussion <
-> blinux-list@redhat.com> wrote:
-> > >
-> > > Hello, I am interested in advantages and disadvantages of Fedora vs
-> Ubuntu-based linux.
-> > >
-> > >
-> > > _______________________________________________
-> > > Blinux-list mailing list
-> > > Blinux-list@redhat.com
-> > > https://listman.redhat.com/mailman/listinfo/blinux-list
-> > >
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
->
+On Fri, Jul 16, 2021 at 04:27:51PM +0200, Linux for blind general discussion wrote:
+> Hi,
+> 
+> I am looking for accessible and easy to use audio application, which allows
+> me to:
+> 
+> - select sound from point a to point b
+> 
+> - delete, move or export selected section
+> 
+> - export the result in multiple formats.
+> 
+> I know about Audacity, but maybe you know some more accessible and more easy
+> to use editor.
+> 
+> My environment is Fedora 34 with Mate desktop and with all a11y variables
+> enabled.
+> 
+> Thanks,
+> 
+> Pavel
+> 
+> 
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+> 
+
+-- 
+Joel Roth
+
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
