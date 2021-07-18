@@ -2,93 +2,84 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 9A6F73CCA29
-	for <lists+blinux-list@lfdr.de>; Sun, 18 Jul 2021 19:55:44 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 1E64C3CCA0A
+	for <lists+blinux-list@lfdr.de>; Sun, 18 Jul 2021 19:32:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1626630943;
+	s=mimecast20190719; t=1626629530;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=YiMhCu94SYodokJp9cvG4PpnLQqrA9cKZt6u6S8N/W8=;
-	b=G7OttreEp0DXj4J++GEBElCwDPJIXyXovNlXDBZQwhvwIj3g3CjonnGW7J+Dm3TFRA2C3d
-	iZTNfrxhuJ6m8VUvkyZpaIiOEmp8iN2l7j/LytQ7uEfK3uqRmjeRphzg5WuTSt3ka+U0En
-	lnsZlp/2FKPOZOv1Mf8t4aIwgAthIpI=
+	bh=/TwXnoOvXdRbNCd6Lyia6PPfNrOwTHzGnDZ8i1LttBs=;
+	b=f4jPmREda6TVM8B8H/zELKvShUIUbs9hJkfqtCVyW/3V9QO+RTskgFvgRd7gAtzvhyXegD
+	8p5kwC9fdQU6kHe+pmFlJWFZdRYFIK4hFt9+6UQ9BLb48IueUZOmeXc+8THjB4gSffedy9
+	cB+iV4zU4hdO4cbh5uJJmxIPdj3VD1I=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-48-FWk1hKQ3N7qe8hpLuL1EHQ-1; Sun, 18 Jul 2021 13:55:41 -0400
-X-MC-Unique: FWk1hKQ3N7qe8hpLuL1EHQ-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-22-tQ9b9UNqOBemFyK_jPqxUw-1; Sun, 18 Jul 2021 13:32:08 -0400
+X-MC-Unique: tQ9b9UNqOBemFyK_jPqxUw-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id ECBA0802C88;
-	Sun, 18 Jul 2021 17:55:37 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id EE6D98030D7;
+	Sun, 18 Jul 2021 17:32:04 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8B0EB18A9E;
-	Sun, 18 Jul 2021 17:55:37 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B53675DAA5;
+	Sun, 18 Jul 2021 17:32:04 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3B0604EA2A;
-	Sun, 18 Jul 2021 17:55:36 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id F26584EA2A;
+	Sun, 18 Jul 2021 17:32:03 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 16IHnGNH026936 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 18 Jul 2021 13:49:16 -0400
+	id 16IHVxdR024616 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 18 Jul 2021 13:31:59 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 48EE61121330; Sun, 18 Jul 2021 17:49:16 +0000 (UTC)
+	id 1929421686AC; Sun, 18 Jul 2021 17:31:59 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 447F5112132C
-	for <blinux-list@redhat.com>; Sun, 18 Jul 2021 17:49:12 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 72A3780D2A9
-	for <blinux-list@redhat.com>; Sun, 18 Jul 2021 17:49:12 +0000 (UTC)
-Received: from mail-oi1-f169.google.com (mail-oi1-f169.google.com
-	[209.85.167.169]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-577-zoVqNepMPECQOArBsf9dvg-1; Sun, 18 Jul 2021 13:49:10 -0400
-X-MC-Unique: zoVqNepMPECQOArBsf9dvg-1
-Received: by mail-oi1-f169.google.com with SMTP id p67so17993185oig.2
-	for <blinux-list@redhat.com>; Sun, 18 Jul 2021 10:49:10 -0700 (PDT)
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 14AA121686A9
+	for <blinux-list@redhat.com>; Sun, 18 Jul 2021 17:31:55 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 00AC5185A7A4
+	for <blinux-list@redhat.com>; Sun, 18 Jul 2021 17:31:55 +0000 (UTC)
+Received: from mail-qt1-f172.google.com (mail-qt1-f172.google.com
+	[209.85.160.172]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-531-hO4L8K64NOqFTO3c-xWuLA-1; Sun, 18 Jul 2021 13:31:52 -0400
+X-MC-Unique: hO4L8K64NOqFTO3c-xWuLA-1
+Received: by mail-qt1-f172.google.com with SMTP id w26so11319850qto.9
+	for <blinux-list@redhat.com>; Sun, 18 Jul 2021 10:31:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:reply-to:subject:to:references:from:message-id
-	:date:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=tYTYT2i+7G9vCIzqcWKONnwGdYqon72y5GVSccpPUoU=;
-	b=mK7z0JpytOovD80dhMdhAKdGhiVuwlaa2bXheb5H4OuKDGLQ3j0qcYYdknhA4oy8IH
-	MJFjegB1THXLp0k36vV0kxwu5NTPbm4BylMN8DCeJ9UIPdJZIKpPjhAnZd7gEJBddZRW
-	0+DBIcOyopNxEk24Sup78/vLK2NAclp9WwlVrQRnFaQEPhctQo8B1U2KyjGYWeTCTsV9
-	f7jfyAgGWcxODoUz11veISq/AY6pAQXYDH5kxnWXbTG3fw80E6s6CZcyb1DRDQx3xE6b
-	VJP0OqWz2AEBmzOUkAFHmrSATHWghInVXXlnrGbFVzJpj5FbxkewnDq74qU+cIrn2kor
-	PILA==
-X-Gm-Message-State: AOAM531h0+cvdnS81MCZMPIGWJWHUHNGAOc56OtKmukzv2KW7e8ltETy
-	hWiMRSL9dtoT1UiKyHmYaFr7aJmZNfQpyQ==
-X-Google-Smtp-Source: ABdhPJzzBfva8BuXLrWsMW8kOY/ShHJhlWuv+X/1WxXAyNJnZLBUTvsp/aykQ7ELj92oqAh3NTNCaQ==
-X-Received: by 2002:aca:7589:: with SMTP id q131mr18953990oic.76.1626630549246;
-	Sun, 18 Jul 2021 10:49:09 -0700 (PDT)
-Received: from ?IPv6:2600:1702:20f0:4420:ddf6:3517:183a:94f0?
-	([2600:1702:20f0:4420:ddf6:3517:183a:94f0])
-	by smtp.gmail.com with ESMTPSA id
-	b26sm3150222otq.78.2021.07.18.10.49.08 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Sun, 18 Jul 2021 10:49:08 -0700 (PDT)
-Subject: Re: espeak-ng on archlinux
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+	:message-id:subject:to;
+	bh=0tO/jYxwTfJCtYI8/eREYE/8Sn64Akhwhq2Xxjem/nU=;
+	b=RergURJG5HEy9oLrXVXQerIdfc2nk5fJGaioLbzZzZJfpAz/8agD63EKxIpQeYzi2t
+	9MFNnBjT3iQYclD6W8LE8Xii59nPzDFQ4Zqce3Nk/3itRlGqod5TCiITMC/GnqV0w7YX
+	TGJt46FnBe08h9M/ckoluOGflk7vrL3iz+Z0bedpa/A1LQWw5Lzam5nIWV54GAac6KCE
+	1pm1dDaV/xPLv7qBuOeOuLwRFAR49/Whcg99aSJ7wJH1nBj1HXExmpt4y30QfaqBonYl
+	GN9MSElY0g8NfFWwz1XK8ss5I9WRwUxQzRiCepK/l8t3BCsmYud/o6hth02yuwh3Nr+4
+	MECg==
+X-Gm-Message-State: AOAM533TsP9VBKmqovpDJ0qoOlbHp74JQvQb8zdhljefJQUVyKbUeoJ3
+	B7VMVxkpSErieiOLS4afYjWiseVBdSrhBf1D7rvMrlH7
+X-Google-Smtp-Source: ABdhPJy59ssjTqyhCIjAkZ0NyZzU9lfOfCnvB8lN46JHZSjGjmSKKqlOPOUrFYptRg/9FiqAUHDdwxt87Nv+NSseR7M=
+X-Received: by 2002:ac8:7645:: with SMTP id i5mr18801676qtr.133.1626629511392; 
+	Sun, 18 Jul 2021 10:31:51 -0700 (PDT)
+MIME-Version: 1.0
 References: <alpine.NEB.2.23.451.2107181224250.27095@panix1.panix.com>
 	<CAD_4ddQakvfMrjcA4gbcNGxMesnV4Ac0xLe4w7-yzVpTGLC5yg@mail.gmail.com>
 	<alpine.NEB.2.23.451.2107181324090.12858@panix1.panix.com>
-	<CAD_4ddTj4QJJ0afkXMVmb2mHY5pCHbJDtEb9u8XDx9Uorj7eZw@mail.gmail.com>
-Message-ID: <fa580ca1-904b-9718-c183-89d3f6af3c72@gmail.com>
-Date: Sun, 18 Jul 2021 13:49:07 -0400
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
-	Thunderbird/78.12.0
-MIME-Version: 1.0
-In-Reply-To: <CAD_4ddTj4QJJ0afkXMVmb2mHY5pCHbJDtEb9u8XDx9Uorj7eZw@mail.gmail.com>
+In-Reply-To: <alpine.NEB.2.23.451.2107181324090.12858@panix1.panix.com>
+Date: Sun, 18 Jul 2021 19:31:37 +0000
+Message-ID: <CAD_4ddTj4QJJ0afkXMVmb2mHY5pCHbJDtEb9u8XDx9Uorj7eZw@mail.gmail.com>
+Subject: Re: espeak-ng on archlinux
+To: Linux for blind general discussion <blinux-list@redhat.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -97,8 +88,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -114,65 +106,83 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SG93IGRpZSB5b3UgZ2V0IHRoaXMgc2NyaXB0IHdvcmtpbmc/wqAgSGF2ZSBub3QgdHJpZWQgaXQs
-IGJ1dCB3YXMgCndvbmRlcmluZyBhYm91dCBpdCBzaW5jZSBpdCBleGhpc3QuCgpIaSwKCgoKCk9u
-IDcvMTgvMjAyMSAzOjMxIFBNLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdy
-b3RlOgo+IEhlbGxvIHRoZXJlLAo+Cj4gSSBoYXZlbid0IGNyZWF0ZWQgYW55IGVzcGVhay1uZy5z
-ZXJ2aWNlIGZpbGUgdG8gbWFrZSBzeXN0ZW1kIHN0YXJ0IGl0IGF0Cj4gYm9vdCwgd2hlbiBzcGVl
-Y2gtZGlzcGF0Y2hlciBzdGFydHMsIGVzcGVhay1uZyBzdGFydHMgYXMgd2VsbCBvciBzb21ldGhp
-bmcuCj4gSSB1c2VkIGFyY2gncyBuZXcgZ3VpZGVkIGluc3RhbGwgc2NyaXB0LCBvciBhcmNoaW5z
-dGFsbCwgd2hpY2ggc2ltcGxpZmllZCBhCj4gbG90IG9mIHRoaW5ncyBmb3IgbWUuCj4gSSB0cmll
-ZCB3aXRoIHB1bHNlYXVkaW8gYW5kIHBpcGV3aXJlIGFuZCBpdCB3b3JrZWQgbm8gbWF0dGVyIHdo
-YXQuCj4gSSBqdXN0IHVzZSBwaXBld2lyZSBiZWNhdXNlIEkgZmluZCBpdCBtb3JlIGxpa2FibGUu
-Cj4gQmVzdCByZWdhcmRzLgo+IGZyYW5jaXNjby4KPgo+IE9uIFN1biwgSnVsIDE4LCAyMDIxIGF0
-IDU6MjYgUE0gTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8Cj4gYmxpbnV4LWxp
-c3RAcmVkaGF0LmNvbT4gd3JvdGU6Cj4KPj4gVGhlIG9ubHkgaXRlbSBub3QgaW5zdGFsbGVkIHll
-dCBpcyBwaXBld2lyZS4gIERpZCB5b3Ugd3JpdGUgYQo+PiBlc3BlYWstbmcuc2VydmljZSBmaWxl
-IHRvIGJyaW5nIHVwIGVzcGVhay1uZyBvbiBib290IHVwPyAgSSBoYXZlbid0IGRvbmUKPj4gdGhh
-dCB5ZXQgYW5kIGhhdmUgdG8gbWFudWFsbHkgc3RhcnQgaXQgYWZ0ZXIgbG9naW4uCj4+Cj4+Cj4+
-IE9uIFN1biwgMTggSnVsIDIwMjEsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24g
-d3JvdGU6Cj4+Cj4+PiBIZWxsbyB0aGVyZSwKPj4+Cj4+PiBJdCB3b3JrcyBmb3IgbWUgaGVyZS4K
-Pj4+IERpZCB5b3UgaW5zdGFsbCBzcGVlY2gtZGlzcGF0Y2hlciwgYWxzYS11dGlscyBhbmQgYWxz
-YS1wbHVnaW5zPyBEaWQgeW91Cj4+PiBpbnN0YWxsIHB1bHNlYXVkaW8gYW5kIGFsbCByZWxhdGVk
-IHN0dWZmIGFzIHdlbGw/Cj4+PiBJIGFtIHVzaW5nIHBpcGV3aXJlIGhlcmUsIGJ1dCBpdCB3b3Jr
-cyB3aXRob3V0IGEgaGl0Y2ggYW55d2F5cy4KPj4+IElmIHlvdSdyZSB0cnlpbmcgdG8gZ2V0IGEg
-c2NyZWVuIHJlYWRlciBydW5uaW5nIG9uIHRoZSBncmFwaGljYWwgdXNlcgo+Pj4gaW50ZXJmYWNl
-LCBtYWtlIHN1cmUgdG8gaW5zdGFsbCBvcmNhIGFzIHdlbGwuCj4+PiBCZXN0IHJlZ2FyZHMuCj4+
-PiBGcmFuY2lzY28uCj4+Pgo+Pj4gT24gU3VuLCBKdWwgMTgsIDIwMjEgYXQgNDoyOSBQTSBMaW51
-eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIDwKPj4+IGJsaW51eC1saXN0QHJlZGhhdC5j
-b20+IHdyb3RlOgo+Pj4KPj4+PiBJIGdvdCBlc3BlYWstbmcgcGFydGx5IHdvcmtpbmcgYnV0IG5v
-dCBjb21wbGV0ZWx5Lgo+Pj4+IFdoZW4gSSBrZXkgYSBsaW5lIGluIGFuZCBoaXQgZW50ZXIsIGVz
-cGVhay1uZyBzcGVha3Mgd2hhdCBJIGtleWVkIGluLgo+Pj4+IFRoYXQgaXMgYWxsIGVzcGVhay1u
-ZyBkb2VzLiAgU28gZmFyIGFzIEkgY2FuIHRlbGwgbm8gZXNwZWFrLW5nLnNlcnZpY2UKPj4+PiBm
-aWxlIGV4aXN0cyB0byBlbmFibGUgYW5kIHN0YXJ0IGVzcGVhay1uZyB3aGVuIHRoZSBzeXN0ZW0g
-Ym9vdHMgZWl0aGVyLgo+Pj4+IEZpbmFsbHksIGlmIGR1cmluZyBhbiBhcmNobGludXggaW5zdGFs
-bGF0aW9uIGVzcGVhay1uZyBpcyBpbnN0YWxsZWQKPj4gcmF0aGVyCj4+Pj4gdGhhbiBlc3BlYWsg
-aXQncyBwb3NzaWJsZSBpdCdzIG5vdCBwdWxsaW5nIGRlcGVuZGVuY2llcyBlc3BlYWstbmcKPj4g
-bmVlZHMgdG8KPj4+PiBzcGVhay4KPj4+PiBJdCB3b3VsZCBiZSBuaWNlIGlmIGVzcGVhay1uZyB3
-b3VsZCBzcGVhayB3aGF0IHRoZSBjb21wdXRlciBwdXRzIHVwIG9uCj4+IHRoZQo+Pj4+IHNjcmVl
-biBhZnRlciBJIHR5cGUgYSBjb21tYW5kIGJ1dCB0aGlzIGlzbid0IHlldCBoYXBwZW5pbmcgb3Zl
-ciBoZXJlLgo+Pj4+Cj4+Pj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KPj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+PiBCbGludXgtbGlzdEBy
-ZWRoYXQuY29tCj4+Pj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5m
-by9ibGludXgtbGlzdAo+Pj4+Cj4+Pj4KPj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+IEJsaW51
-eC1saXN0QHJlZGhhdC5jb20KPj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4v
-bGlzdGluZm8vYmxpbnV4LWxpc3QKPj4+Cj4+Pgo+PiBfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwo+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4gQmxp
-bnV4LWxpc3RAcmVkaGF0LmNvbQo+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFu
-L2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+Cj4+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgt
-bGlzdEByZWRoYXQuY29tCj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0
-aW5mby9ibGludXgtbGlzdAo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNv
-bQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
+Hello there,
+
+I haven't created any espeak-ng.service file to make systemd start it at
+boot, when speech-dispatcher starts, espeak-ng starts as well or something.
+I used arch's new guided install script, or archinstall, which simplified a
+lot of things for me.
+I tried with pulseaudio and pipewire and it worked no matter what.
+I just use pipewire because I find it more likable.
+Best regards.
+francisco.
+
+On Sun, Jul 18, 2021 at 5:26 PM Linux for blind general discussion <
+blinux-list@redhat.com> wrote:
+
+> The only item not installed yet is pipewire.  Did you write a
+> espeak-ng.service file to bring up espeak-ng on boot up?  I haven't done
+> that yet and have to manually start it after login.
+>
+>
+> On Sun, 18 Jul 2021, Linux for blind general discussion wrote:
+>
+> > Hello there,
+> >
+> > It works for me here.
+> > Did you install speech-dispatcher, alsa-utils and alsa-plugins? Did you
+> > install pulseaudio and all related stuff as well?
+> > I am using pipewire here, but it works without a hitch anyways.
+> > If you're trying to get a screen reader running on the graphical user
+> > interface, make sure to install orca as well.
+> > Best regards.
+> > Francisco.
+> >
+> > On Sun, Jul 18, 2021 at 4:29 PM Linux for blind general discussion <
+> > blinux-list@redhat.com> wrote:
+> >
+> > > I got espeak-ng partly working but not completely.
+> > > When I key a line in and hit enter, espeak-ng speaks what I keyed in.
+> > > That is all espeak-ng does.  So far as I can tell no espeak-ng.service
+> > > file exists to enable and start espeak-ng when the system boots either.
+> > > Finally, if during an archlinux installation espeak-ng is installed
+> rather
+> > > than espeak it's possible it's not pulling dependencies espeak-ng
+> needs to
+> > > speak.
+> > > It would be nice if espeak-ng would speak what the computer puts up on
+> the
+> > > screen after I type a command but this isn't yet happening over here.
+> > >
+> > > _______________________________________________
+> > > Blinux-list mailing list
+> > > Blinux-list@redhat.com
+> > > https://listman.redhat.com/mailman/listinfo/blinux-list
+> > >
+> > >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://listman.redhat.com/mailman/listinfo/blinux-list
+> >
+> >
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
