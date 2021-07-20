@@ -2,72 +2,89 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 82E843CFFBE
-	for <lists+blinux-list@lfdr.de>; Tue, 20 Jul 2021 18:48:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id A9E0E3D0226
+	for <lists+blinux-list@lfdr.de>; Tue, 20 Jul 2021 21:25:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1626799701;
+	s=mimecast20190719; t=1626809114;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
-	 list-unsubscribe:list-subscribe:list-post;
-	bh=iLGG/b+EaPS7GYlv7fzTOEDlyMJRAFZiL+w29oZLC6o=;
-	b=Eqf2RvZcLxX1gOyIMJqRQ7lJKfFi8mX1bEvXynBvLeFd1sHqE1s6ZnTQIhIDCoPklMi2tJ
-	n13ygjFjSRCXQ8m9aGhjVfujx/Gqi4kBdiLbhpEPEsUXOAaind4DSXhK90Lg9YVVDKD6D1
-	ynF5z3wQFx6uEE6Llm66SRUBfyV20FQ=
+	 content-type:content-type:in-reply-to:in-reply-to:
+	 references:references:list-id:list-help:list-unsubscribe:
+	 list-subscribe:list-post; bh=P551m8qkobLy+n3LLq8mPwUX6GmiLF9fAVulkvvVcWQ=;
+	b=WmLdoy6sSJNnKTKRa3WmNzy0a2eWLyZkzVjDL953fJgJ6tnld0flbr77RtELr4chnxJXg2
+	zDQ73x4SLPsjmYe5e2BHq2Qhks1VLSQb83ey49YWkpVxLm+IwBFR88ZtkU07qaI37sS0rb
+	6zoF/sjz0OH2ovGQfEKjmKfwayWttvM=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-2-idRk7ZHRMWiVAa7sFetwZw-1; Tue, 20 Jul 2021 12:48:19 -0400
-X-MC-Unique: idRk7ZHRMWiVAa7sFetwZw-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-278-xvuq8JHaPXiDP-1JYEnYFw-1; Tue, 20 Jul 2021 15:25:12 -0400
+X-MC-Unique: xvuq8JHaPXiDP-1JYEnYFw-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id BB614106B7E5;
-	Tue, 20 Jul 2021 16:48:12 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 0CB87362FB;
+	Tue, 20 Jul 2021 19:25:08 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A0E7E5D9DC;
-	Tue, 20 Jul 2021 16:48:12 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3902A5D6A1;
+	Tue, 20 Jul 2021 19:25:06 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0EDEC4A712;
-	Tue, 20 Jul 2021 16:48:12 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 28C344EA29;
+	Tue, 20 Jul 2021 19:25:01 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 16KGm7gc018185 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 20 Jul 2021 12:48:07 -0400
+	id 16KJOesa031456 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 20 Jul 2021 15:24:40 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 011067C50; Tue, 20 Jul 2021 16:48:07 +0000 (UTC)
+	id 75AAA203CE5B; Tue, 20 Jul 2021 19:24:40 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id EEB6B7D2B4
-	for <blinux-list@redhat.com>; Tue, 20 Jul 2021 16:48:02 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6E5652049CDC
+	for <blinux-list@redhat.com>; Tue, 20 Jul 2021 19:24:36 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D60D680018D
-	for <blinux-list@redhat.com>; Tue, 20 Jul 2021 16:48:02 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
-	relay.mimecast.com with ESMTP id us-mta-18-GFkGY2elNxCQaONx1jsoOQ-1;
-	Tue, 20 Jul 2021 12:48:00 -0400
-X-MC-Unique: GFkGY2elNxCQaONx1jsoOQ-1
-Received: from ici.slint.fr (sfa89-1-78-208-157-71.fbx.proxad.net
-	[78.208.157.71])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id D387CA3927
-	for <blinux-list@redhat.com>; Tue, 20 Jul 2021 16:47:58 +0200 (CEST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CF29A185A79C
+	for <blinux-list@redhat.com>; Tue, 20 Jul 2021 19:24:36 +0000 (UTC)
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com
+	[209.85.208.49]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-78-PD9TZ4aDPfSZXOwfV6CEiA-1; Tue, 20 Jul 2021 15:24:34 -0400
+X-MC-Unique: PD9TZ4aDPfSZXOwfV6CEiA-1
+Received: by mail-ed1-f49.google.com with SMTP id ee25so29797377edb.5
+	for <blinux-list@redhat.com>; Tue, 20 Jul 2021 12:24:33 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-language;
+	bh=qO7WsdSmwJpr6S9pewwFoWVNGn8YRv81rW9FIhkbPEw=;
+	b=pwJoIdvlEIzgmPOYCak6LbvVZivgKHMOKocT7pKhMoxTroP8pmoANDQrCWWWrZLfFA
+	+9aSotdXMOHfhdJsmeRsJqVc18eloV1Aiuz1kscNXKfPJRkxdP55yyYhwedH1Mlda/Nn
+	v8fKkn/fJhwpWbx7ulBsFLWh5T8OXqqXs2+x4mqY1NQ+kSIlQEnHexMlNfiRSFTOYLE3
+	kOVweHt7h87Pakx7LOAd7QG0b1o4tVUBBEkQtCfmIff17THwCWUpdQ4r+/2HbLkLWck3
+	VLf9eDcIHrgBqNJyucrCP/YMhnAAwQ6lvGnZPtPRaTiOtMtEHAdrnhUQz6iHYdzy7Oid
+	1rNA==
+X-Gm-Message-State: AOAM5305hY2dAKTkxZendbdoYEnQcK946ArCcBtRlN1n31WtwmFq0eYW
+	tR2SV/9FWkhRfMiJOSyjxKjK5XFh4nETTw==
+X-Google-Smtp-Source: ABdhPJyVHdNgqIBv3t8/MewMiwWi8sI6jr77xCArMsh2MBELsRNJicoiI8zTpoV8qwGqQXA97oJPXg==
+X-Received: by 2002:aa7:d4c2:: with SMTP id t2mr33991909edr.241.1626809072675; 
+	Tue, 20 Jul 2021 12:24:32 -0700 (PDT)
+Received: from darkstar.example.slint ([197.185.98.226])
+	by smtp.gmail.com with ESMTPSA id
+	jw8sm7411062ejc.60.2021.07.20.12.24.30 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Tue, 20 Jul 2021 12:24:31 -0700 (PDT)
 Subject: Re: changing the keymap in fluxbox on Slint
-To: blinux-list@redhat.com
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <c1411831-1b3f-9bfc-6e1e-156b648864ff@gmail.com>
 	<2a956027-104d-5f6a-c3e7-08824785b7f5@slint.fr>
 	<018401d77d86$43c1c120$cb454360$@gmail.com>
-Message-ID: <9cce1164-c4ad-140a-091d-d28d5459f45d@slint.fr>
-Date: Tue, 20 Jul 2021 18:47:47 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
-	Thunderbird/78.12.0
+	<9cce1164-c4ad-140a-091d-d28d5459f45d@slint.fr>
+Message-ID: <29f4cf34-e24c-b336-1bca-f6fb5cab6eb1@gmail.com>
+Date: Tue, 20 Jul 2021 21:24:28 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
-In-Reply-To: <018401d77d86$43c1c120$cb454360$@gmail.com>
+In-Reply-To: <9cce1164-c4ad-140a-091d-d28d5459f45d@slint.fr>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -76,9 +93,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 16KGm7gc018185
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -95,54 +110,138 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Type: multipart/mixed; boundary="------------614C0A3B2C4386ED09CD4BE9"
 Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-SGkgQnJhbmR0LAoKcGxlYXNlIGF0dGFjaCB0aGUgZmlsZSAvZXRjL1gxMS94b3JnLmNvbmYuZC8x
-MC1rZXltYXAuY29uZiB0byB5b3VyIG5leHQgCnBvc3QuCgpDaGVlcnMsCkRpZGllcgoKTGUgMjAv
-MDcvMjAyMSDDoCAxODo0MiwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOp
-Y3JpdMKgOgo+IEhpIERpZGllciwKPiAKPiBTb3JyeSwgbm8gbHVjayBvbiBmaXhpbmcgdGhlIGtl
-eWJvYXJkIGxheW91dC4gSSB0cmllZCBldmVyeXRoaW5nIEkgY291bGQgdGhpbmsgb2YgdG8gZG8s
-IGJ1dCBubyBsdWNrLgo+IAo+IC0tLS0tT3JpZ2luYWwgTWVzc2FnZS0tLS0tCj4gRnJvbTogYmxp
-bnV4LWxpc3QtYm91bmNlc0ByZWRoYXQuY29tIDxibGludXgtbGlzdC1ib3VuY2VzQHJlZGhhdC5j
-b20+IE9uIEJlaGFsZiBPZiBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uCj4gU2Vu
-dDogVHVlc2RheSwgMjAgSnVseSAyMDIxIDE4OjE1Cj4gVG86IGJsaW51eC1saXN0QHJlZGhhdC5j
-b20KPiBTdWJqZWN0OiBSZTogY2hhbmdpbmcgdGhlIGtleW1hcCBpbiBmbHV4Ym94IG9uIFNsaW50
-Cj4gCj4gSGkgQnJhbmR0LAo+IAo+IEl0IGNvdWxkIGJlIGFuIGlzc3VlIHdpdGggdGhlIGZpbGUg
-L3Vzci9zaGFyZS9zYWxpeHRvb2xzL2tleW1hcHMgbGVhZGluZyB0byB3cml0ZSBpbiAvZXRjL1gx
-MS94b3JnLmNvbmYuZC8xMC1rZXltYXAuY29uZgo+IAo+IE9wdGlvbiAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIlhrYkxheW91dCIgImR2b3JhayIKPiBpbnN0ZWFkIG9mOgo+IE9wdGlvbiAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIlhrYkxheW91dCIgImR2b3Jhay1sIgo+IAo+IHdoZW4gcnVu
-bmluZyBrZXlib2FyZHNldHVwIG9yIGd0a2tleWJvYXJkc2V0dXAuCj4gCj4gUGxlYXNlIGVkaXQg
-dGhpcyAxMC1rZXltYXAuY29uZiBhcyByb290LCByZXBsYWNpbmcgZHZvcmFrIGJ5IGR2b3Jhay1s
-LCByZXN0YXJ0IGEgd2luZG93IG1hbmFnZXIuIERvZXMgaXQgbm93IHdvcms/Cj4gCj4gQmVzdCBy
-ZWdhcmRzLAo+IERpZGllcgo+IC0tCj4gRGlkaWVyIFNwYWllcgo+IFNsaW50IG1haW50YWluZXIK
-PiBkaWRpZXJhdHNsaW50ZG90ZnIKPiAKPiBMZSAyMC8wNy8yMDIxIMOgIDE3OjI2LCBMaW51eCBm
-b3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIGEgw6ljcml0IDoKPj4gSGkgYWxsLAo+Pgo+Pgo+
-PiBJIGluc3RhbGxlZCBTbGludCBpbiBhIFZNLCBieSBkZWZhdWx0IHJ1bm5pbmcgdGhlIE1hdGUg
-ZGVza3RvcCwgd2hpY2gKPj4gSSBjb3VsZCBlYXNpbHkgZml4LCBidXQgd2hlbiBJIHN0YXJ0IEZs
-dXhCb3gsIG5vdCBzbyBtdWNoLgo+Pgo+Pgo+PiBUaGUgaXNzdWUgaXMgYXMgZm9sbG93czogSW4g
-dGhlIFNsaW50IGluc3RhbGwgSSBjaG9zZSBEdm9yYWsgLUwKPj4gKExlZnQtSGFuZGVkIER2b3Jh
-aykgYXMgbXkga2V5Ym9hcmQuIEhvd2V2ZXIsIHdoZW4gSSByYW4gInN0YXJ0eCIgdG8KPj4gZ2V0
-IGluIHRvIG15IGRlc2t0b3AsIEkgd2FzIHByZXNlbnRlZCB3aXRoIHRoZSBEdm9yYWsga2V5Ym9h
-cmQgbGF5b3V0LAo+PiB3aGljaCwgYXMgYSBvbmUtaGFuZGVkIGxlZnR5LCBJIG9idmlvdXNseSBk
-byBub3Qga25vdy4KPj4KPj4KPj4gSSBmaXhlZCB0aGlzIHZlcnkgZWFzaWx5IGluIHRoZSBNYXRl
-IGRlc2t0b3AsIGJ1dCBoYXZlIG5vIGlkZWEgaG93IHRvCj4+IGRvIHNvIGluIHRoZSBXaW5kb3cg
-TWFuYWdlcnMsIEZsdXhCb3gsIEJsYWNrQm94LCBldGMuCj4+Cj4+Cj4+IElmIGFueW9uZSBjYW4s
-IHBsZWFzZSBoZWxwIG1lIHdpdGggdGhpcyBpc3N1ZT8gSSB3b3VsZCByZWFsbHkKPj4gYXBwcmVj
-aWF0ZSBpdC4KPj4KPiAKPiAKPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhh
-dC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51
-eC1saXN0Cj4gCj4gCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29t
-Cj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlz
-dAo+IAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJs
-aW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlz
-dG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
+This is a multi-part message in MIME format.
+--------------614C0A3B2C4386ED09CD4BE9
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Hi Didier,
+
+
+See the attached file.
+
+
+Warm regards,
+
+
+Brandt Steenkamp
+
+
+Sent using Thunderbird from Slint
+
+On 7/20/21 6:47 PM, Linux for blind general discussion wrote:
+> Hi Brandt,
+>
+> please attach the file /etc/X11/xorg.conf.d/10-keymap.conf to your 
+> next post.
+>
+> Cheers,
+> Didier
+>
+> Le 20/07/2021 à 18:42, Linux for blind general discussion a écrit :
+>> Hi Didier,
+>>
+>> Sorry, no luck on fixing the keyboard layout. I tried everything I 
+>> could think of to do, but no luck.
+>>
+>> -----Original Message-----
+>> From: blinux-list-bounces@redhat.com <blinux-list-bounces@redhat.com> 
+>> On Behalf Of Linux for blind general discussion
+>> Sent: Tuesday, 20 July 2021 18:15
+>> To: blinux-list@redhat.com
+>> Subject: Re: changing the keymap in fluxbox on Slint
+>>
+>> Hi Brandt,
+>>
+>> It could be an issue with the file /usr/share/salixtools/keymaps 
+>> leading to write in /etc/X11/xorg.conf.d/10-keymap.conf
+>>
+>> Option                          "XkbLayout" "dvorak"
+>> instead of:
+>> Option                          "XkbLayout" "dvorak-l"
+>>
+>> when running keyboardsetup or gtkkeyboardsetup.
+>>
+>> Please edit this 10-keymap.conf as root, replacing dvorak by 
+>> dvorak-l, restart a window manager. Does it now work?
+>>
+>> Best regards,
+>> Didier
+>> -- 
+>> Didier Spaier
+>> Slint maintainer
+>> didieratslintdotfr
+>>
+>> Le 20/07/2021 à 17:26, Linux for blind general discussion a écrit :
+>>> Hi all,
+>>>
+>>>
+>>> I installed Slint in a VM, by default running the Mate desktop, which
+>>> I could easily fix, but when I start FluxBox, not so much.
+>>>
+>>>
+>>> The issue is as follows: In the Slint install I chose Dvorak -L
+>>> (Left-Handed Dvorak) as my keyboard. However, when I ran "startx" to
+>>> get in to my desktop, I was presented with the Dvorak keyboard layout,
+>>> which, as a one-handed lefty, I obviously do not know.
+>>>
+>>>
+>>> I fixed this very easily in the Mate desktop, but have no idea how to
+>>> do so in the Window Managers, FluxBox, BlackBox, etc.
+>>>
+>>>
+>>> If anyone can, please help me with this issue? I would really
+>>> appreciate it.
+>>>
+>>
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>
+>
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+
+--------------614C0A3B2C4386ED09CD4BE9
+Content-Type: text/plain; charset=UTF-8;
+ name="10-keymap.conf"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="10-keymap.conf"
+
+U2VjdGlvbiAiSW5wdXRDbGFzcyIKCUlkZW50aWZpZXIJCQkiS2V5Ym9hcmQtYWxsIgoJTWF0Y2hJ
+c0tleWJvYXJkCQkieWVzIgoJTWF0Y2hEZXZpY2VQYXRoIAkiL2Rldi9pbnB1dC9ldmVudCoiCglE
+cml2ZXIJCQkJImV2ZGV2IgpPcHRpb24gICAgICAgICAgICAgICAgICAgICAgICAgICJYa2JMYXlv
+dXQiICJkdm9yYWstbCIgCglPcHRpb24JCQkJIlhrYlZhcmlhbnQiICIiCglPcHRpb24JCQkJIlhr
+Yk9wdGlvbnMiICIiCkVuZFNlY3Rpb24KCg==
+--------------614C0A3B2C4386ED09CD4BE9
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
+--------------614C0A3B2C4386ED09CD4BE9--
 
