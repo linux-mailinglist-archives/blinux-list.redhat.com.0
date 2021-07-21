@@ -1,88 +1,88 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 9D0873D1700
-	for <lists+blinux-list@lfdr.de>; Wed, 21 Jul 2021 21:21:37 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 669933D170E
+	for <lists+blinux-list@lfdr.de>; Wed, 21 Jul 2021 21:29:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1626895296;
+	s=mimecast20190719; t=1626895751;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Xf/ZIM2RPwfg5sejVvdQWLA115UOrLWo+xVgtvhMUDE=;
-	b=gfDibrfqFrvR1xyQBxtaPhEcEyUHsYmEY5YTtKb7KZ9lVKIbWXJv6sEIQr+iSzmAHTZTK3
-	5VTuQ9nfFSWkR70yJhNAV4EGRpW4zEDxURXpvVt6xcV6VzeKPB6QcVFhC/8RdIkoWR/olN
-	0IoxAvjSJT2VeWLKw4IlmsxKp4/zNfc=
+	bh=J0UCgsc/RP+LEfmMflFx4GRGQRKSdSZxdjxOPCRN/X0=;
+	b=KYxtGHyU0496t/pIHIfZ4gEj7Vnz/KYR8hytlv5/BKpDVl6JOsAPYGEcOeWrAx5nExG6Pf
+	oqVxN+q0601kykRQopFU9P7nyfT3OPyjrrmhouG8vhTe25AIqckIuhH/++T00HAJBQBvwl
+	1LzDAaC+NzfDcQ5BqWNzuGmldxb4YMY=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-334-g5vrdaSGMR6cdVwpjbmCcw-1; Wed, 21 Jul 2021 15:21:34 -0400
-X-MC-Unique: g5vrdaSGMR6cdVwpjbmCcw-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-175-ELAi4YnDPUqiwlWB0C8BTQ-1; Wed, 21 Jul 2021 15:29:09 -0400
+X-MC-Unique: ELAi4YnDPUqiwlWB0C8BTQ-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8CD06107B7CC;
-	Wed, 21 Jul 2021 19:21:30 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CFA2C1008548;
+	Wed, 21 Jul 2021 19:29:05 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 420F610013D7;
-	Wed, 21 Jul 2021 19:21:30 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6795360657;
+	Wed, 21 Jul 2021 19:29:05 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B36611801028;
-	Wed, 21 Jul 2021 19:21:28 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BF85C1801028;
+	Wed, 21 Jul 2021 19:29:04 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 16LJLM6h012799 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 21 Jul 2021 15:21:22 -0400
+	id 16LJSwnp013270 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 21 Jul 2021 15:28:58 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id E5BD9FDCD4; Wed, 21 Jul 2021 19:21:21 +0000 (UTC)
+	id BCA8220D6982; Wed, 21 Jul 2021 19:28:58 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E0D6DFDCDC
-	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 19:21:19 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B810220D6985
+	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 19:28:56 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6E165801E80
-	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 19:21:19 +0000 (UTC)
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com
-	[209.85.128.54]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-514-8tP19USKO5O6ZRdzTtZ1EQ-1; Wed, 21 Jul 2021 15:21:17 -0400
-X-MC-Unique: 8tP19USKO5O6ZRdzTtZ1EQ-1
-Received: by mail-wm1-f54.google.com with SMTP id
-	r16-20020a05600c2c50b029014c1adff1edso142093wmg.4
-	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 12:21:16 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 28153801E6E
+	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 19:28:56 +0000 (UTC)
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com
+	[209.85.221.44]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-310-Ia6zhsgrOEGyCQvhaow_VA-1; Wed, 21 Jul 2021 15:28:54 -0400
+X-MC-Unique: Ia6zhsgrOEGyCQvhaow_VA-1
+Received: by mail-wr1-f44.google.com with SMTP id d12so3310007wre.13
+	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 12:28:53 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
 	h=x-gm-message-state:subject:to:references:from:message-id:date
 	:user-agent:mime-version:in-reply-to:content-transfer-encoding
 	:content-language;
-	bh=UlJ6eL4u+K5FuOL2toN1NRc9o2pXGFdk10R1ELFE9yA=;
-	b=YwYUIZ7cr27LeNC4eHyCZT/gXkkDWwvODTRiaGCvbHeDT36l/iwPEgzvu/3e+P5AlD
-	sYrhSpw8jtwH9O4q+SIwu+tEOYC40LjYAoFjOk6zyAGyniSl7bV26oOHVmuhbsiDYTmO
-	qQnU4yRr5QGhYSFRqOIBYeVCsm2mT2G+3zSrUNe8wnd8t0E2gEvPGLa4o/vRpIehyVm6
-	yfECwOauV0JR101fOH3vLMpsaWggCc+xc0BUN33LYo4ZkQn9edBGJqETDUr5OYJ5H+tf
-	nwP1ALHO/45fygVstKBqsm+AbhYwVPbhpurW+0sca+Lno1P5VxhO8iowzqVel9YKZ7an
-	SY9g==
-X-Gm-Message-State: AOAM5306qx/tdZspVx0FOZ6g19EgZHK/yicXXBIBcgUyrfhqSxa7hiOt
-	g8foQqIuZBCqVx8aYNgE83DL3cLKf43+3g==
-X-Google-Smtp-Source: ABdhPJyf4W2Bc4hHzTQhF7M8WobRqKxm+xcTpSA/KlAr8sdA1Df31slUXg94rYjmzrNCGxZUT+6Crg==
-X-Received: by 2002:a7b:c4d9:: with SMTP id g25mr5424768wmk.108.1626895275574; 
-	Wed, 21 Jul 2021 12:21:15 -0700 (PDT)
+	bh=vgYIJJyahwlDmi247O80nBGRlC7Ara6iXh0XtvTqB/s=;
+	b=HixJeSH7bSh6GNRFW5pC1ayRIgvAPsIyfiDiuFOHA4l7AVFUt+l4qDdQUOG+DwS6j6
+	fDI7BL26bv1C324BU/XBKLuNRkPY1tGYydIZeuuOH3qYhey0L4JJEQJPLpaaZEGeyEau
+	qI/Jr0D08gIV1vjxQ/WULB2xZ5NH8eJMGgmJdSyB238hu3MvZ/M19F5fgeLB38fh3iQn
+	v7lJdbTAZexRJgk5NzTrB99CXg1PmxEzIDirYBkJEkyEmf02gAB0dUDNDhWNeV76HEXZ
+	DqhGI9O6j3OEXk7gNfr2y1NxclGkSi6iFwvQMAgKQTCfD08GsfQ9iP1GxRR8Fb7TqzvE
+	lxbw==
+X-Gm-Message-State: AOAM530Q8GP2SpM2tLf4DuaiDGvvqexCbqhSK7reOWvYo8W2qOxMnZhd
+	3ve53Z0Mmm1nOdI0FZ5MDJFzgRVfDq/P4Q==
+X-Google-Smtp-Source: ABdhPJxtP8eiH6L7ZclbtrMINqGKb3YalghDTh38xTqNyKMNPN8/ZYCgfXgRvH/r7TJ2NB/onGQloA==
+X-Received: by 2002:adf:f54e:: with SMTP id j14mr44007081wrp.91.1626895732656; 
+	Wed, 21 Jul 2021 12:28:52 -0700 (PDT)
 Received: from [192.168.1.130] ([90.254.192.41])
-	by smtp.gmail.com with ESMTPSA id y19sm696686wma.21.2021.07.21.12.21.14
+	by smtp.gmail.com with ESMTPSA id l18sm708389wme.29.2021.07.21.12.28.51
 	for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Wed, 21 Jul 2021 12:21:15 -0700 (PDT)
+	Wed, 21 Jul 2021 12:28:52 -0700 (PDT)
 Subject: Re: Solus and Chromium breaking
 To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <16cb9466-0a59-0cb0-3b1f-854c02ae7f63@gmail.com>
 	<CAGJxbF7H0Y=r8beqN8BGoYS=7cV-6LOr8av+ytRfbD+tXaDmBw@mail.gmail.com>
-Message-ID: <e5e37ddb-a8d3-169a-b44b-904fbe9e7b8a@gmail.com>
-Date: Wed, 21 Jul 2021 20:21:14 +0100
+Message-ID: <1adfd63a-a22c-156f-8849-2693abf8588f@gmail.com>
+Date: Wed, 21 Jul 2021 20:28:51 +0100
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
 	Thunderbird/78.11.0
 MIME-Version: 1.0
@@ -95,7 +95,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -112,7 +112,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -121,14 +121,11 @@ Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I'm not sure if Insert+H and F2 will work though with Chromium or 
-Electron based stuff just being blank to Orca? I mean I can test it on 
-my end and see if it works. Solus is reporting Orca 40.0 with the 
-installed version so not sure what if anything I can change to make 
-Chromium work with Solus and their DE. I thought I had to put stuff in a 
-config file? I'm coming over from Ubuntu where it all worked flawlessly 
-so....trying to remember how to set stuff upin
-
+Just tested. That didn't do a thing. It's as if Chromium's not even 
+showing as running within Solus. Which is amazingly odd even with the 
+right flags. I've not tried making a flags.conf yetet (that's next on my 
+list), but I swear there were settings I needed in config files or to 
+export via a terminal however?
 
 On 7/21/21 7:49 PM, Linux for blind general discussion wrote:
 > When Chromium stuff breaks like that, hit Insert + H, then F2 to bring up a
