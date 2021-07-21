@@ -1,72 +1,97 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 627203D103E
-	for <lists+blinux-list@lfdr.de>; Wed, 21 Jul 2021 15:49:54 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id B38CB3D10AC
+	for <lists+blinux-list@lfdr.de>; Wed, 21 Jul 2021 16:05:32 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1626875393;
+	s=mimecast20190719; t=1626876331;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=2ODMdPfro0hg6xmlYAxwQSM1v43Yg3/zaTHVHXSjFss=;
-	b=WyqFwAvAWCW8Ugzx8LHw9Cul2BlEuqJd04s1gxhmjjbh5VChta6J9VjllrHVhUhB1hrqxg
-	bpTkw8tp3ML2VhzT3dVGkHATYNXiICB7TywEiCiMzZ9aYV1rWwZoue0YceIuRQWz5721Jv
-	4CjyUnCtrH+UenP0nGeNKAgE5QsD8rI=
+	bh=etPdC9JADRZzFyQGI+1d6HQ8Ff2XbK0+NwYrkoExUyI=;
+	b=OwXZK0klgurB5uZkmO9nM0bLvCS0CPNLey3I1dJPSfMbrGJqKrEpQ2qqfFkVyO5JG7QxCP
+	Sn0mTVdArpjJrYpDPjxqdzO3FDORr12W4qU5oLvUsGD0y76ZRuh0NMk6ZqTJTz/nfwYklB
+	UDE6k8eoPCdaFJKQJOl4za0kKIgRknY=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-263-Foml9T3TNeGYSa7Y7ybvTw-1; Wed, 21 Jul 2021 09:49:52 -0400
-X-MC-Unique: Foml9T3TNeGYSa7Y7ybvTw-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-124-M9rMkMIHOgq9I_FghoHB-g-1; Wed, 21 Jul 2021 10:05:30 -0400
+X-MC-Unique: M9rMkMIHOgq9I_FghoHB-g-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7833F8018A7;
-	Wed, 21 Jul 2021 13:49:47 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 63E5B5C1BB;
-	Wed, 21 Jul 2021 13:49:45 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7C87F100E323;
+	Wed, 21 Jul 2021 14:05:26 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0683760CA1;
+	Wed, 21 Jul 2021 14:05:26 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0901F1809C98;
-	Wed, 21 Jul 2021 13:49:39 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 10B524A7C8;
+	Wed, 21 Jul 2021 14:05:25 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 16LDnWuZ032509 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 21 Jul 2021 09:49:32 -0400
+	id 16LE5II4001863 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 21 Jul 2021 10:05:19 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 94818115D7C2; Wed, 21 Jul 2021 13:49:32 +0000 (UTC)
+	id 970E3E2A92; Wed, 21 Jul 2021 14:05:18 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 902A7115D7C3
-	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 13:49:27 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8F09818A01A5
-	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 13:49:27 +0000 (UTC)
-Received: from mail.carmickle.com (mail.carmickle.com [69.164.218.211])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-239-y2e3JEq6Plmb06MsQ8VNRw-1; Wed, 21 Jul 2021 09:49:25 -0400
-X-MC-Unique: y2e3JEq6Plmb06MsQ8VNRw-1
-Received: from [192.168.116.128] (unknown [176.230.59.241])
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 91E67D7B29
+	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 14:05:15 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.carmickle.com (Postfix) with ESMTPSA id 499A080B17C1
-	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 13:49:24 +0000 (UTC)
-Date: Wed, 21 Jul 2021 16:49:20 +0300 (IDT)
-X-X-Sender: gshang@debian.work
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8640B802700
+	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 14:05:15 +0000 (UTC)
+Received: from gateway11.unifiedlayer.com (gateway11.unifiedlayer.com
+	[66.147.250.95]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-486-qk4MN-7QORSEmDvK5B7OkA-1; Wed, 21 Jul 2021 10:05:12 -0400
+X-MC-Unique: qk4MN-7QORSEmDvK5B7OkA-1
+Received: from cm4.websitewelcome.com (unknown [108.167.139.16])
+	by gateway11.unifiedlayer.com (Postfix) with ESMTP id 3DDB02009FC92
+	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 08:41:04 -0500 (CDT)
+Received: from uscentral455.accountservergroup.com ([174.136.13.174])
+	by cmsmtp with ESMTP
+	id 6CTAmRZ0Qcfn86CTAmjeiT; Wed, 21 Jul 2021 08:41:04 -0500
+X-Authority-Reason: nr=8
+Received: from 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
+	([172.0.250.193]:20996 helo=bigbox.attlocal.net)
+	by uscentral455.accountservergroup.com with esmtpsa (TLS1.2) tls
+	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+	(envelope-from <blinux.list@thechases.com>) id 1m6CT9-003hyl-U8
+	for blinux-list@redhat.com; Wed, 21 Jul 2021 08:41:03 -0500
+Date: Wed, 21 Jul 2021 08:41:01 -0500
+To: blinux-list@redhat.com
 Subject: Re: Twitter, again
-In-Reply-To: <alpine.NEB.2.23.451.2107210906290.23995@panix1.panix.com>
-Message-ID: <alpine.DEB.2.11.2107211620400.7560@debian.work>
+Message-ID: <20210721084101.23f352ee@bigbox.attlocal.net>
+In-Reply-To: <4099494d-9a2a-750d-be70-ddf42bf7504d@gmail.com>
 References: <4099494d-9a2a-750d-be70-ddf42bf7504d@gmail.com>
-	<alpine.NEB.2.23.451.2107210906290.23995@panix1.panix.com>
-User-Agent: Alpine 2.11 (DEB 23 2013-08-11)
 MIME-Version: 1.0
+X-AntiAbuse: This header was added to track abuse,
+	please include it with any abuse report
+X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
+X-AntiAbuse: Original Domain - redhat.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - thechases.com
+X-BWhitelist: no
+X-Source-IP: 172.0.250.193
+X-Source-L: No
+X-Exim-ID: 1m6CT9-003hyl-U8
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 172-0-250-193.lightspeed.rcsntx.sbcglobal.net
+	(bigbox.attlocal.net) [172.0.250.193]:20996
+X-Source-Auth: tim@thechases.com
+X-Email-Count: 1
+X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
+X-Local-Domain: yes
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -75,7 +100,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Mimecast-Spam-Signature: yes
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -92,44 +118,61 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-On Wed, 21 Jul 2021, Linux for blind general discussion wrote:
+Tim here.  I took a "Old Hardware Challenge" recently[1] and to
+access Twitter I used rainbowstream on the TTY.  It was passible, but
+the interface was still a bit clunky and lacking in a number of
+regular Twitter features.  Fortunately, it was pretty easy to test
+once you completed the authentication sequence (it provides a URL,
+you visit that URL and obtain the 6-digit code to transcribe into
+rainbowstream).
 
-> Oysttyer has been available for some time now and perl is used to run it.
-> The emacs environment has ttytter available, and python has
-> rainbow-twitter available.
+But certainly worth a try.
 
-Note that Oysttyer is the successor to TTYtter, both in Perl.  TTYtter has 
-not been developed since 2012 and there's probably no good reason to use 
-it anymore.
+-tim
 
-Oysttyer itself has not seen any commits since 2018, which is a bit 
-concerning.
+[1]
+https://dataswamp.org/~solene/2021-07-07-old-computer-challenge.html
 
-More annoying is that all installs show up as the same app, and because of 
-Twitter stupidness, all count in terms of daily quotas, etc.  So it's 
-common to be unable to post due to quotas having been exceeded when you've 
-not posted anything today.
-
-I'll spare you my rant about Twitter and the way they manage their API. 
-The one-line summary of it is that they should charge *users* a nominal 
-fee for API access and leave the poor developers alone.
-
-I've not tried RainbowStream, I've been meaning to.  At least it seems to 
-be under active development.
-
-There are some other options out there.  Searching your favourite package 
-manager will likely turn up some.
-
-Cheers,
-Geoff.
+On July 21, 2021, Linux for blind general discussion wrote:
+> Hi all,
+> 
+> 
+> I know this has been talked about a while back, but unfortunately
+> it is a topic near and dear to my heart.
+> 
+> 
+> Has there been any new developments regarding an accessible twitter 
+> client for linux? I can honestly say, GUI or TTY, I really don't
+> care.
+> 
+> 
+> If anyone knows anything on this, please let me know.
+> 
+> 
+> I know there is an open source accessible client on Github
+> available for both Windows and MacOS, but I have no idea if it can
+> be ported to GNU/Linux. If anyone wants to take a look at "Quinter".
+> 
+> -- 
+> Warm regards,
+> 
+> Brandt Steenkamp
+> 
+> Sent using Thunderbird from Slint
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
