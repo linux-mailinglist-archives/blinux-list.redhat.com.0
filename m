@@ -2,87 +2,70 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 5A36B3D094D
-	for <lists+blinux-list@lfdr.de>; Wed, 21 Jul 2021 08:59:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id B4D453D0A21
+	for <lists+blinux-list@lfdr.de>; Wed, 21 Jul 2021 09:57:53 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1626850785;
+	s=mimecast20190719; t=1626854272;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=UB9PiAn8uxHZMWkBnqDExvulsSnBOV2XYfTcecK5MKw=;
-	b=TiiHvxc2NFgjJsbOQYu6lSPerzf+EJe3Qw0FqpRv69WO6TRbKdJSPhiiGbrJ6vTsJz3utT
-	eHzFHjzsGCjVfOnkjnK59KVVxiScdfWY5n+QE4Ub6nxqShGSWwjlqJ91bPz4IQPAY5CL+G
-	u73offQRZEmKOJF+RYF/AEWgDqWREWI=
+	bh=RZEembgcRVOWu+79DlVXpXOUg68fxI0LPqbL5jaV024=;
+	b=Qr/DARDLgkzHHejbUUVNxqQN1jsMaaRcA+nDrqIlm8RnlzQHNp+SNV7MNIvIx+T5PErgKR
+	xzbLF/ifIexgCRn68QcFJbLBypDGj670HK0RVWaYRoxuPDpAlz1hH0ah/gSvoQWEooFlb1
+	/GsGw/TRjuWW8UaO8ZQ4aVihQFT82hg=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-236-u3GIO6v0Ngu45nT3mN7uGQ-1; Wed, 21 Jul 2021 02:59:43 -0400
-X-MC-Unique: u3GIO6v0Ngu45nT3mN7uGQ-1
+ us-mta-232-7qlx2Of1P_y00O0CEAmdEw-1; Wed, 21 Jul 2021 03:57:51 -0400
+X-MC-Unique: 7qlx2Of1P_y00O0CEAmdEw-1
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6D77A19611A1;
-	Wed, 21 Jul 2021 06:59:38 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C6E0D1084F54;
+	Wed, 21 Jul 2021 07:57:47 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8FCA25D9DC;
-	Wed, 21 Jul 2021 06:59:36 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D903B5D9DC;
+	Wed, 21 Jul 2021 07:57:46 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id CC65F4BB7C;
-	Wed, 21 Jul 2021 06:59:26 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 81A294A7C8;
+	Wed, 21 Jul 2021 07:57:45 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 16L6rfjX010656 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 21 Jul 2021 02:53:41 -0400
+	id 16L7vc4R016132 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 21 Jul 2021 03:57:38 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id A21F510EB2BA; Wed, 21 Jul 2021 06:53:41 +0000 (UTC)
+	id 6FE1221EC5CB; Wed, 21 Jul 2021 07:57:38 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9E89A10EB2BB
-	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 06:53:38 +0000 (UTC)
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6B7AD200E657
+	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 07:57:35 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AEFFF18A01A0
-	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 06:53:38 +0000 (UTC)
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com
-	[209.85.218.41]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-453-1f_kYlouMZqsUgqnYHr05g-1; Wed, 21 Jul 2021 02:53:36 -0400
-X-MC-Unique: 1f_kYlouMZqsUgqnYHr05g-1
-Received: by mail-ej1-f41.google.com with SMTP id hc15so1647587ejc.4
-	for <blinux-list@redhat.com>; Tue, 20 Jul 2021 23:53:36 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
-	:mime-version:content-transfer-encoding:content-language;
-	bh=VeZZaYrwTUYsWMv2g+qMytcc9Bv1tvuLjx5tUDswshk=;
-	b=JlCoOBwpmGuYmIJ+2+mYWN9MnJYV2+D6PCc0fxYGPk/88nrP9Y2EntItGXvz8RG7uR
-	2J0DyvHPOt4IH9opsPsCQEznMVW/rnTivTVonjXEyZDPRUlbHiJVJz5Jg5E2Gubi0ZZS
-	+dBvNHB8ki5gUfP5ynmO5eLJSGUWs6TnVCCrKXWE/ptMVF9BnZRl3AC/zMx0stzr7wD6
-	Z1z6uPCPdbvPwyhZZxpSGccOyykevgtrl2RZd5hM05nxz1lfwPKi1tQkKGrC5U9dd11H
-	CW/M6n3E/ypUUTqfc46NcI4ecyKak1ILhl5Gpk5nPBUbUVDbNTPwp3+ReoKs1EAnihIE
-	esuw==
-X-Gm-Message-State: AOAM533QHyipb0/zkMb5PI3mEXCB+LwrCXHEBvwQNpEdv60EMhH46UbW
-	1CM+2/4LZFuuxxIVOxQNTXTCs7ax9/fAnQ==
-X-Google-Smtp-Source: ABdhPJzNd+khXselqmNNd2pS4oaSsWA3kq4McVYcZ5x/KObtzRl+3gIVv4/03BS2C4jiqUAI0tGPYQ==
-X-Received: by 2002:a17:906:a2c4:: with SMTP id
-	by4mr18160002ejb.521.1626850415107; 
-	Tue, 20 Jul 2021 23:53:35 -0700 (PDT)
-Received: from darkstar.example.slint ([197.185.98.226])
-	by smtp.gmail.com with ESMTPSA id
-	o21sm5360992ejc.98.2021.07.20.23.53.33 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Tue, 20 Jul 2021 23:53:34 -0700 (PDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Thunderbird on Slint
-Message-ID: <ec2eb69c-aade-21c0-bc11-5d462376cd65@gmail.com>
-Date: Wed, 21 Jul 2021 08:53:31 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Thunderbird/68.12.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id ABCAF802A59
+	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 07:57:35 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-54-1hQKQLvNNSKPyuUrybO9RQ-1;
+	Wed, 21 Jul 2021 03:57:33 -0400
+X-MC-Unique: 1hQKQLvNNSKPyuUrybO9RQ-1
+Received: from ici.slint.fr (sfa89-1-78-208-157-71.fbx.proxad.net
+	[78.208.157.71])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 5AFA9A410E
+	for <blinux-list@redhat.com>; Wed, 21 Jul 2021 07:57:31 +0200 (CEST)
+Subject: Re: Thunderbird on Slint
+To: blinux-list@redhat.com
+References: <ec2eb69c-aade-21c0-bc11-5d462376cd65@gmail.com>
+Message-ID: <0a32310f-3412-ea9d-0354-d9f7a94f91fd@slint.fr>
+Date: Wed, 21 Jul 2021 09:57:30 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+	Thunderbird/78.12.0
 MIME-Version: 1.0
+In-Reply-To: <ec2eb69c-aade-21c0-bc11-5d462376cd65@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -91,7 +74,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 16L7vc4R016132
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -114,26 +99,21 @@ Authentication-Results: relay.mimecast.com;
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Hi all,
-
-
-I just checked the version of Thunderbird in slint, and I saw it is 
-about 10 versions out of date. Is there a way to get a newer version of 
-the software? I know, I can probably get it from github, but I must 
-admit, it is not my favorite way of installing software.
-
--- 
-Warm regards,
-
-Brandt Steenkamp
-
-Sent using Thunderbird from Slint
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGkgQnJhbmR0LAoKc2hvcnQgYW5zd2VyOgpodHRwOi8vc2xhY2t3YXJlLnVrL3NsaW50L3g4Nl82
+NC9zbGludC0xNC4yLjEvdGVzdGluZy9SRUFETUUKCkRpc2NhcmQgdGhlIGNvbW1lbnQgYWJvdXQg
+U3BlZWNoIERpc3BhdGNoZXIsIGEgZmFpcmx5IHJlY2VudApvbmUgaXMgCWFscmVhZHkgaW4gU2xp
+bnQuCgpNb3JlOgpodHRwczovL3NsaW50LmZyL2RvYy8KCkNoZWVycywKRGlkaWVyCi0tCkRpZGll
+ciBTcGFpZXIKCkxlIDIxLzA3LzIwMjEgw6AgMDg6NTMsIExpbnV4IGZvciBibGluZCBnZW5lcmFs
+IGRpc2N1c3Npb24gYSDDqWNyaXTCoDoKPiBIaSBhbGwsCj4gCj4gCj4gSSBqdXN0IGNoZWNrZWQg
+dGhlIHZlcnNpb24gb2YgVGh1bmRlcmJpcmQgaW4gc2xpbnQsIGFuZCBJIHNhdyBpdCBpcyAKPiBh
+Ym91dCAxMCB2ZXJzaW9ucyBvdXQgb2YgZGF0ZS4gSXMgdGhlcmUgYSB3YXkgdG8gZ2V0IGEgbmV3
+ZXIgdmVyc2lvbiBvZiAKPiB0aGUgc29mdHdhcmU/IEkga25vdywgSSBjYW4gcHJvYmFibHkgZ2V0
+IGl0IGZyb20gZ2l0aHViLCBidXQgSSBtdXN0IAo+IGFkbWl0LCBpdCBpcyBub3QgbXkgZmF2b3Jp
+dGUgd2F5IG9mIGluc3RhbGxpbmcgc29mdHdhcmUuCj4gCgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51
+eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0
+aW5mby9ibGludXgtbGlzdA==
 
