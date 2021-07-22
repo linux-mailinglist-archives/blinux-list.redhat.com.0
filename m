@@ -2,86 +2,86 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 1ADDE3D24D2
-	for <lists+blinux-list@lfdr.de>; Thu, 22 Jul 2021 15:47:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 911323D24F0
+	for <lists+blinux-list@lfdr.de>; Thu, 22 Jul 2021 15:57:40 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1626961628;
+	s=mimecast20190719; t=1626962259;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=aeyBDrCiWtOaH52mCJD1ApCzb9DWSYnXYio3CoR2iYA=;
-	b=J7lw7P/83lgSMk53SAc6iQG1ZQz90gTQyHypsKcaBR2cm/ot6FItKwTFG+uaANGaiJ02Cj
-	ki4Vt2zKMeVqaQG75Nq6bpgHhct5zSCj/TFWjuyWp1nXHObUuPr81A3FTJAzWTuuGRtj/e
-	IG8pK/TUDF1RNkNy9uNO5wpk/Ik1+Kg=
+	bh=ddxl4HxGq84gx5kWYLCO9hrKnFZiNDI4cp7fq4LYobw=;
+	b=BN0xdzzkECT+eX6YOOU1Y6dkld1Q3k8to6NnHEJ4qOtq8RtI7iCjgieoSdksTcqsOLLcFz
+	Fbyt+imSk3s7NndGzeT6OJTy4DL0nmBcpMuq2zYlG6o5/84Rmx+bsGCwM326wJ67R9MLMU
+	qgxfrDSsslQEKVMfEHMQxXHR0yu8bNY=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-117-rgb5xnySNlK-wwVRHzdKOQ-1; Thu, 22 Jul 2021 09:47:02 -0400
-X-MC-Unique: rgb5xnySNlK-wwVRHzdKOQ-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-439-zMsMpXqkO2KVsBW4umC7iQ-1; Thu, 22 Jul 2021 09:57:37 -0400
+X-MC-Unique: zMsMpXqkO2KVsBW4umC7iQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id AC08CCF990;
-	Thu, 22 Jul 2021 13:46:47 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A8CC51084F61;
+	Thu, 22 Jul 2021 13:57:32 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id AFCC47DA51;
-	Thu, 22 Jul 2021 13:46:45 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3EC7A5DA2D;
+	Thu, 22 Jul 2021 13:57:32 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2DFD4180BAB2;
-	Thu, 22 Jul 2021 13:46:42 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6E422180BAB2;
+	Thu, 22 Jul 2021 13:57:30 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 16MDkYaf009677 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 22 Jul 2021 09:46:34 -0400
+	id 16MDvOJj010717 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 22 Jul 2021 09:57:24 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id E6F2110CB272; Thu, 22 Jul 2021 13:46:33 +0000 (UTC)
+	id 78AE910CB275; Thu, 22 Jul 2021 13:57:24 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E2C0810CB269
-	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 13:46:31 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 74C0A10CB276
+	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 13:57:21 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7A107866DF5
-	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 13:46:31 +0000 (UTC)
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com
-	[209.85.221.43]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-169-jVnLQ0SQPeOlLZivH57dIg-1; Thu, 22 Jul 2021 09:46:29 -0400
-X-MC-Unique: jVnLQ0SQPeOlLZivH57dIg-1
-Received: by mail-wr1-f43.google.com with SMTP id r11so6003960wro.9
-	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 06:46:29 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AC9691078467
+	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 13:57:21 +0000 (UTC)
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com
+	[209.85.128.47]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-560-v8WoDTRJMS6ZxY7sutrZTw-1; Thu, 22 Jul 2021 09:57:19 -0400
+X-MC-Unique: v8WoDTRJMS6ZxY7sutrZTw-1
+Received: by mail-wm1-f47.google.com with SMTP id
+	p15-20020a05600c358fb0290245467f26a4so3036469wmq.0
+	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 06:57:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
 	h=x-gm-message-state:date:from:to:subject:message-id:references
 	:mime-version:content-disposition:in-reply-to:user-agent;
-	bh=pCwUxU7WujjIfk5OFJajfJfB5HjnQ6pk/nbXEdkItco=;
-	b=ihUbg+zlKppixYrnOGhk9KgD015PO7clI4JguLmgiz5iWgtz0lYBHJbyK+/7iHO6Nu
-	JWUlfXjVAP8AJb7RLaBGqZuXnvxTgDETlaNyLGJS5oRW6/BNVvbDgRPVKH0bxn0V7zty
-	wWAf9NdfKxV/H+UGuDxKTjHQE/qQwnm1qk0wQpnSgdgA5rYXFPvK4hF/jyJdDa1kFjMv
-	BHxiY+sVTYMQI2xiaKzko8Nj/gApX9RBq/x8huTEWTbQ+ZU6eLUVfsYbXUTU1ZJ3MueC
-	aQJe6IoQMeS/nIqb85D5rHdkckBNUNLp3pFRrYpZg/HJRJm4Gl6tAFKzl1DNxFW7yAd7
-	AcQw==
-X-Gm-Message-State: AOAM532jTwjSYIqrwoouM+I/CPVqmdRCyNqNrV4x6FMMrY4kjSEhuSKb
-	qa+HcYlotUZlTX0T3Ak3cRj3C/y55NjzcA==
-X-Google-Smtp-Source: ABdhPJxmKqcsK+RLSb6KirTyRW0ntG8jrXusUggFtyD8fDGNlFo9N/PxJ1a6je9vXRRbqdvwH1fa5Q==
-X-Received: by 2002:adf:ec86:: with SMTP id z6mr178wrn.320.1626961588024;
-	Thu, 22 Jul 2021 06:46:28 -0700 (PDT)
+	bh=B7aXkzXI4F1sUiA3ABZtnunP7PKJraypSYkHr2WAh0U=;
+	b=qWFv8XV0sulKnqj974zAunuTB+/iKINzZP0W/ujz3oTX/h85idNGUPKE3dT8WZQGxA
+	EnBJrshCnbkEAhLE1EQ7JcXYXQh9Im3sS2pcZr7VBUd7ys98rxRXFb4D3GEOIZWE7Sco
+	lTiS2M+s4AbB1IO8feaP1OmDu/nKjNhhrVCd7fm2hW2zSF8+4QcTp73dV+1u4qiFa+2r
+	3O/EQOnob1qT23JB20GOKFbErwqE9IVCtYtI/H7C618mjkmzHab3VSKPG8IHdWvBIPVZ
+	6qu2Adkj9uBGKGLoLF22nF75SPRcKfliNknnQEK8FnH5C402+hKxW90vZP8kxnRVm/lW
+	zntw==
+X-Gm-Message-State: AOAM532tLUqqzObqbP/UJn0rpVfC4Snkhd3YhYwxgUhk6Z9d6+Urkb5j
+	yxasnExkej8ELi+yYt9qW4Z9aHfr5Iu79w==
+X-Google-Smtp-Source: ABdhPJyYxngmpE/LQEZ9E/vHsD6ZDemRSS2A3Xd2X87dLJZV7jPQGLwxni7EVY2wguI0QVLYAP8PTg==
+X-Received: by 2002:a7b:c30f:: with SMTP id k15mr9360623wmj.128.1626962238108; 
+	Thu, 22 Jul 2021 06:57:18 -0700 (PDT)
 Received: from localhost ([91.77.167.245]) by smtp.gmail.com with ESMTPSA id
-	h9sm24747760wmb.35.2021.07.22.06.46.27 for <blinux-list@redhat.com>
+	y19sm2616510wma.21.2021.07.22.06.57.17 for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-	Thu, 22 Jul 2021 06:46:27 -0700 (PDT)
-Date: Thu, 22 Jul 2021 16:46:26 +0300
+	Thu, 22 Jul 2021 06:57:17 -0700 (PDT)
+Date: Thu, 22 Jul 2021 16:57:16 +0300
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: A question about running emacspeak on Arch
-Message-ID: <20210722134626.jueyx7z7q7a4oska@alex-pc>
-References: <CAD_4ddRiqb1QK=SuovMrM8OBGNJKuP6m=Wd+rqC6ykAY-ymRMg@mail.gmail.com>
+Subject: Re: Adjusting lightdm screenreader volume (How do I...)
+Message-ID: <20210722135716.2tzxrhf6kamasv4k@alex-pc>
+References: <b03aafa4-daf7-d333-f8dc-80aa029225c9@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <CAD_4ddRiqb1QK=SuovMrM8OBGNJKuP6m=Wd+rqC6ykAY-ymRMg@mail.gmail.com>
+In-Reply-To: <b03aafa4-daf7-d333-f8dc-80aa029225c9@gmail.com>
 User-Agent: NeoMutt/20210205
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -108,7 +108,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -117,26 +117,20 @@ Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-On Thu, Jul 22, 2021 at 12:00:23PM +0000, Linux for blind general discussion wrote:
-> Hello everyone,
-
-hello Francisco.
+On Thu, Jul 22, 2021 at 09:57:12AM +0100, Linux for blind general discussion wrote:
+> So...quick question.
 >
-> Last night I installed emacspeak on Arch Linux from the aur, version 54.0
-> with yay, but I am having a problem: whenever i type
-> emacspeak
-> in a terminal, it tells me to choose a synthesizer, but i can't choose
-> either espeak, or espeak-ng, because no matter what i do, arrows, tab,
-> emacspeak doesn't play a sound.
-
-did you use pipewire? unfortunately emacspeak don't work with PW at the moment.
-
-> After I press tab, in fact, an emacs panel opens, and nothing speaks inside
-> it except orca.
-> Does Anyone have any ideas on how to fix it?
-> I'd like to try and get into emacspeak, so to see what it can and can't do.
-> Best regards.
-> Francisco.
+>
+> On my former Ubuntu instal, lightdm was nice and quiet. Solus, on the other
+> hand decided to crank the volume for the speech in lightdm up to 11. I can
+> quite literally be in another room and hear when my computer's started if I
+> don't have headphones plugged in.
+>
+>
+> So....would that be adjusted in speech-d.conf or do I need to go hunting in
+> the lightdm folders?
+>
+I think you can modify orca's settings to lower SD volume.
 
 --
 Sincerely, Alexander
