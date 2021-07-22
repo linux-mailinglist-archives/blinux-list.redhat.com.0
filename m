@@ -1,73 +1,92 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 973A13D2258
-	for <lists+blinux-list@lfdr.de>; Thu, 22 Jul 2021 12:58:25 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 71A9C3D2372
+	for <lists+blinux-list@lfdr.de>; Thu, 22 Jul 2021 14:40:46 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1626951504;
+	s=mimecast20190719; t=1626957645;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=AbMFMNC2R3JfdC4DfzNxeM8KEzrJ5+I3O96KwN0o99k=;
-	b=SefqR1aT/hQmSabvqMRjpULmG8EhmPeA7KbLVe+NI+FWfQcIv7aj7CY4UhDqJCCg6IGwcJ
-	5lXNnyXSz0ZbZURG9dBmONWHKKIw7cWVas86eToODz5gs2FrOSRQZjbNCkP/MjjZQP+JXw
-	dgK3ZzZ/pzWIkTDvBY+o6XwkDTa2n7I=
+	bh=RsTFmdHxY8cukydwqteU42Gv0k7UdBFas7XqDfktmlw=;
+	b=b1tE53duI9oiE0GeJy0YVjcZy3P4ZtdREsCcTyGQDNO/LA+Md18nOwhZL0Y69vn9m4OReZ
+	Ctx06Fvn/+kLNzwayojIwdbaOomQhzgBoNfuwc3FZ6QpBI4Y0R5lDFzvEsZAa1sgrjdl0i
+	sBK2WbJrGfAvxlcP8OLwNjhYFVQARao=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-32-rtCaKWDaMK2ER4OPwTJVsw-1; Thu, 22 Jul 2021 06:58:23 -0400
-X-MC-Unique: rtCaKWDaMK2ER4OPwTJVsw-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-107-u_NQdN2TMcKk9jxfUQVkvQ-1; Thu, 22 Jul 2021 08:40:44 -0400
+X-MC-Unique: u_NQdN2TMcKk9jxfUQVkvQ-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 4B6741812FC3;
-	Thu, 22 Jul 2021 10:58:18 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B1E0F1005D4F;
+	Thu, 22 Jul 2021 12:40:39 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7D58261095;
-	Thu, 22 Jul 2021 10:58:17 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 840E060936;
+	Thu, 22 Jul 2021 12:40:37 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8C33F4BB7C;
-	Thu, 22 Jul 2021 10:58:15 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 112364BB7C;
+	Thu, 22 Jul 2021 12:40:32 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 16MAw8cB027251 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 22 Jul 2021 06:58:08 -0400
+	id 16MCeM1v002827 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 22 Jul 2021 08:40:22 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 071BE103CA2; Thu, 22 Jul 2021 10:58:08 +0000 (UTC)
+	id 4802A208C19A; Thu, 22 Jul 2021 12:40:22 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 00D55103CCD
-	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 10:58:02 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 420DF207AD25
+	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 12:40:19 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7773A8556F0
-	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 10:58:01 +0000 (UTC)
-Received: from mail.carmickle.com (mail.carmickle.com [69.164.218.211])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-550-Jnm2FDSNNuSU9mVMaB4fHA-1; Thu, 22 Jul 2021 06:57:59 -0400
-X-MC-Unique: Jnm2FDSNNuSU9mVMaB4fHA-1
-Received: from [192.168.116.128] (unknown [176.230.59.241])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.carmickle.com (Postfix) with ESMTPSA id 6EEE580B8DD3
-	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 10:57:58 +0000 (UTC)
-Date: Thu, 22 Jul 2021 13:57:53 +0300 (IDT)
-X-X-Sender: gshang@debian.work
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4B7DB89C7DD
+	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 12:40:19 +0000 (UTC)
+Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com
+	[209.85.208.46]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-409-S_NlxWT_Ncq1OO2xHXo9Ug-1; Thu, 22 Jul 2021 08:40:17 -0400
+X-MC-Unique: S_NlxWT_Ncq1OO2xHXo9Ug-1
+Received: by mail-ed1-f46.google.com with SMTP id ca14so6632924edb.2
+	for <blinux-list@redhat.com>; Thu, 22 Jul 2021 05:40:16 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding
+	:content-language;
+	bh=BlUAHoYEvh206M6hCpdSge6p9y5z9jM9fR6lbz8DU7M=;
+	b=s3xEFF55AF3UluESyhTwGQJqXIEWI3nxSYZKRUovP2LTQ/7fmi8/Jqk2rnSB6+pa8u
+	LBFIxMvop1hxVHzPC1+49UVtQZW2ULX32MVzUnzZxbeEBM/2ARhQL1Ve/OioOH/MZJJk
+	bh3QCQ7CNG9yOUrlNfjsEmvgGLy9P4xc9Vg/EBgdbgV8RccZ3hsYqchTDkyI5Q3v/f+d
+	p04O/h5/atNLiw5/kzGP4a040zQOg3SfFnoqlYNBUz0NV72hF9uKyKYYSnLkm2T10pyY
+	8jtYh+ap4G9u9fN5tHFhP541kfo6jGBTsdeeQi2BujtWdM4PjGNtw2EcrLKwx0Vkmpws
+	wV+Q==
+X-Gm-Message-State: AOAM532OvRvWEJHvFi3xA3dcJ0pCfcvxEjW10Y1MDetQ2oWliIVsOW6A
+	fzPQD2HEGaiBxFcr/M8gd2fFlfRwYYNK+w==
+X-Google-Smtp-Source: ABdhPJxKBqFENGHA9P1bhxvyPWaQ2vb4HvdgEkjrdcI7Bq65cR2Dkkyn+4odcVaZ1WH1t3L4dMI79A==
+X-Received: by 2002:a50:9b06:: with SMTP id o6mr55119452edi.284.1626957615745; 
+	Thu, 22 Jul 2021 05:40:15 -0700 (PDT)
+Received: from darkstar.example.slint ([197.185.98.226])
+	by smtp.gmail.com with ESMTPSA id
+	c28sm9457704ejc.102.2021.07.22.05.40.14 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Thu, 22 Jul 2021 05:40:15 -0700 (PDT)
+Subject: Re: A question on speakup
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: audio cutting and exporting
-In-Reply-To: <20210721161239.171ebc50@bigbox.attlocal.net>
-Message-ID: <alpine.DEB.2.11.2107221327100.1870@debian.work>
-References: <ddddb6cd-5f17-c0ab-1b56-e5ee9281c84b@gmail.com>
-	<20210721161239.171ebc50@bigbox.attlocal.net>
-User-Agent: Alpine 2.11 (DEB 23 2013-08-11)
+References: <ac70ffcc-fbf1-626e-9348-559c650efce7@gmail.com>
+	<5e378258-7faf-6589-1ab2-59cd30ce33fa@slint.fr>
+Message-ID: <d8126558-ed6e-87cd-bac9-1a8bd4390fef@gmail.com>
+Date: Thu, 22 Jul 2021 14:40:11 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
+In-Reply-To: <5e378258-7faf-6589-1ab2-59cd30ce33fa@slint.fr>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -76,7 +95,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -93,49 +112,39 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-On Wed, 21 Jul 2021, Linux for blind general discussion wrote:
-
-> 1) if your input files are MP3, using "mp3splt" (that's "split"
-> without the letter "i") manages to do it without losing quality as
-> would normally happen if you load a .mp3 converting it to raw audio
-> data, slice & dice, and then re-encode it back as a new .mp3 file.
-
-You can also split Ogg Vorbis files with this tool.
-
-A couple of other splitting options.
-
-For raw/wav files, soundgrab is a simple console-based file splitter which 
-lets you move around the file and select regions to be exported.  I've 
-been using it for many many years for simple command-line-based file 
-editing.
-
-As the main website for it now seems to be down, you can get it from 
-https://sourceforge.net/projects/soundgrab/
-
-I usually use it in conjunction with sox and the quelcom tools (especially 
-qwavjoin and qwavinfo to perform file editing.
-
-Note that the quelcom tools also  have mp3 utils but I've never had much 
-luck with them.  For mp3 I usually use madplay to find the split-points 
-and mp3splt to do the splitting.
-
-Finally ffmpeg should be able to slice up files without re-encoding but 
-I've never actually used it for this so I don't know how good a job it 
-does.
-
-HTH,
-Geoff.
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGkgYWdhaW4sCgoKRm9yIHNvbWUgcmVhc29uIGVzcGVha3VwIGNvbWVzIHVwIHRhbGtpbmcgd2l0
+aCBhIHJhdGhlciBiYWQgVVMgYWNjZW50LiAKSXMgdGhlcmUgYSB3YXkgdG8gY2hhbmdlIHRoZSAi
+bGFuZ3VhZ2UiIHdpdGhvdXQga2lsbGluZyBlc3BlYWt1cD8gRXZlcnkgCnRpbWUgSSBkbyBzbywg
+U3BlYWt1cCB3aWxsIHJlc3RvcmUgbXkgcHJldmlvdXMgc2V0dGluZ3MsIHdoaWNoLCAKdW5mb3J0
+dW5hdGVseSBpbmNsdWRlcyB0aGUgYmFkIFVTIHZvaWNlLgoKCldhcm0gcmVnYXJkcywKCkJyYW5k
+dCBTdGVlbmthbXAKClNlbnQgdXNpbmcgVGh1bmRlcmJpcmQgZnJvbSBTbGludAoKT24gNy8yMi8y
+MSAxMjozMCBQTSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90ZToKPiBI
+aSBCcmFuZHQsCj4KPiBmb3IgU2xpbnQ6Cj4KPiBodHRwczovL3NsaW50LmZyL2RvYy9IYW5kQm9v
+ay5odG1sI19jb25maWd1cmVfYV9jb25zb2xlX3NjcmVlbl9yZWFkZXIKPgo+IEkgZG9uJ3Qga25v
+dyBhIHNwZWNpZmljIHNvZnR3YXJlIHN5bnRoZXNpemVyIGZvciBEZWN0YWxrLCBidXQganVzdCAK
+PiB0eXBlIGFzIHJvb3Q6Cj4gc3BlYWstd2l0aAo+Cj4gVG8ga25vdyBtb3JlOgo+IGh0dHBzOi8v
+c2xpbnQuZnIvZG9jL0hhbmRCb29rLmh0bWwjX2Nob29zZV9hX2NvbnNvbGVfc2NyZWVuX3JlYWRl
+cgo+Cj4gQ2hlZXJzLAo+IERpZGllcgo+IC0tIAo+IERpZGllciBTcGFpZXIKPgo+IExlIDIyLzA3
+LzIwMjEgw6AgMTI6MDksIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gYSDDqWNy
+aXTCoDoKPj4gSGkgYWxsLAo+Pgo+Pgo+PiBJIHVzZSB0byBrbm93IGhvdyB0byBzdG9yZSBhbmQg
+dGhlbiByZXN0b3JlIG15IHNwZWFrdXAgc2V0dGluZ3MsIAo+PiBob3dldmVyLCB0byBteSB1dHRl
+ciBzaGFtZSwgSSBmb3Jnb3QgaG93IHRvIGRvIHRoaXMuCj4+Cj4+Cj4+IEkgYWxzbyByZWFkIHNv
+bWV3aGVyZSB0aGF0IHRoZXJlIGlzIGEgc29mdHdhcmUgRGVjdGFsayBzeW50aGVzaXplciAKPj4g
+YXZhaWxhYmxlLiBJZiBhbnlvbmUga25vd3MgaG93IHRvIGluc3RhbGwgYW5kIGNvbmZpZ3VyZSB0
+aGlzIHRvIHdvcmsgCj4+IHdpdGggc3BlYWt1cCwgaXQgd291bGQgcmVhbGx5IGJlIGFwcHJlY2lh
+dGVkLgo+Pgo+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20K
+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgt
+bGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4u
+cmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
 
