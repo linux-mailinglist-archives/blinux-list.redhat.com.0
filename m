@@ -1,86 +1,84 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 007D23E1CE0
-	for <lists+blinux-list@lfdr.de>; Thu,  5 Aug 2021 21:38:58 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id B4FFA3E1DA9
+	for <lists+blinux-list@lfdr.de>; Thu,  5 Aug 2021 22:57:29 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1628192338;
+	s=mimecast20190719; t=1628197048;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=0PYTlJGHZLARnxPEJdGx4WizOVH98irrINXct567ZPk=;
-	b=RkhdDo8uB91gmoDi3Ez35wvlRlggw3BiIohnaXBoggzYL48QK8EoVdi9AzgIDcwF9fuc4K
-	gGR/Rtqgmg82b83kBGUgySiXgsaQYi4ua/8JVfH5pdoyGULACcydbTc1y+fxTlFrPzwSNr
-	Y5Jks4iI3mIR39T/o+2bdGwMALwlCfA=
+	bh=aVO9DQ2boziSEV3IERo24scj510uIONZbl6iHa12RCM=;
+	b=CklLU7OGZGzGIG9jbANiK+QwaTTrx4zoPYoW7rw17mYHPDOm0nSo6b3DIEsfkrDhtBJS16
+	41hd672kgjghNoSeeaAlBHxbLNmluW0Nuvgdll20ELVUsEibC+69ihpMx3mQljN+6ltf3i
+	GkfTGBsIPz+u04BS2DlwtyrmHQ44gLo=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-274-N9ovgE7INNGCNQcVSIT0Bw-1; Thu, 05 Aug 2021 15:38:56 -0400
-X-MC-Unique: N9ovgE7INNGCNQcVSIT0Bw-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-447-QtQj3FYfOJOON711fMRXWg-1; Thu, 05 Aug 2021 16:57:27 -0400
+X-MC-Unique: QtQj3FYfOJOON711fMRXWg-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5D0608799E0;
-	Thu,  5 Aug 2021 19:38:51 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E46C3100A24D;
+	Thu,  5 Aug 2021 20:57:22 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D800E1981C;
-	Thu,  5 Aug 2021 19:38:49 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 32A775C1B4;
+	Thu,  5 Aug 2021 20:57:20 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 672C94BB7B;
-	Thu,  5 Aug 2021 19:38:43 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8CC324BB7B;
+	Thu,  5 Aug 2021 20:57:11 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 175JcZFb021449 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 5 Aug 2021 15:38:35 -0400
+	id 175KnPiZ028726 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 5 Aug 2021 16:49:25 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 2BD70112307; Thu,  5 Aug 2021 19:38:35 +0000 (UTC)
+	id 3E0D4201FD0B; Thu,  5 Aug 2021 20:49:25 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 270E4113B76
-	for <blinux-list@redhat.com>; Thu,  5 Aug 2021 19:38:32 +0000 (UTC)
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 395FA2166B49
+	for <blinux-list@redhat.com>; Thu,  5 Aug 2021 20:49:22 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 793418CA942
-	for <blinux-list@redhat.com>; Thu,  5 Aug 2021 19:38:32 +0000 (UTC)
-Received: from mail-ot1-f45.google.com (mail-ot1-f45.google.com
-	[209.85.210.45]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-267-TPl70NmGPDeSSyf6q_4kGQ-1; Thu, 05 Aug 2021 15:38:29 -0400
-X-MC-Unique: TPl70NmGPDeSSyf6q_4kGQ-1
-Received: by mail-ot1-f45.google.com with SMTP id
-	61-20020a9d0d430000b02903eabfc221a9so6349895oti.0
-	for <blinux-list@redhat.com>; Thu, 05 Aug 2021 12:38:29 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 364B189C7DB
+	for <blinux-list@redhat.com>; Thu,  5 Aug 2021 20:49:22 +0000 (UTC)
+Received: from mail-qv1-f42.google.com (mail-qv1-f42.google.com
+	[209.85.219.42]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-231-kH7fyb2LMsqFqF7HSb5-lw-1; Thu, 05 Aug 2021 16:49:20 -0400
+X-MC-Unique: kH7fyb2LMsqFqF7HSb5-lw-1
+Received: by mail-qv1-f42.google.com with SMTP id cg4so3694864qvb.5
+	for <blinux-list@redhat.com>; Thu, 05 Aug 2021 13:49:20 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:from:content-transfer-encoding:mime-version
-	:subject:date:references:to:in-reply-to:message-id;
-	bh=2F1V0jc5kC7b1PEE8HTCwt2bXF8nyvHznjIwcBZucYQ=;
-	b=ZXE2HZTS57fMavHOKhB9Y5JYkTJ8kJVYXa4fYzI3M2zmmb9inAl93mcGUXe3NtzW2O
-	levmbqUz3X1gWDn63gQdipawMgtbTN7eAi8I798vaoMZzEmraoNRuEoP2p7QF4n1Q34j
-	zbhonDROnLgfK97SdqdiO4qJzmfcEojRBiX0brzvotpX8ti0OM2kYjFPePtL+E848bRe
-	oMSwEuP01XdZcKYCN/8hcPEfINCMj/PqwXpD17bHDILsYoBZywqHVBSokj+8jwxPLm6P
-	aQxhYlTcHOWO/7GKAhXD3kgr7hqfjoSc10Vb9i+1E40tPXVnTvc20inbV3llA3V1jjX5
-	Di3g==
-X-Gm-Message-State: AOAM5317EgPW0NeKop+a7oIOkwfCgctrszxDJEU1HIR6rq4PQV4Uj9BI
-	ecNiGtHfGxpOVC3EUloN8Klpu1JwZViuzg==
-X-Google-Smtp-Source: ABdhPJwTT5eSUr+XAafnpfDo+IRMGl9Um0Mj1h1K5jCpt8T15QbGAJ1kKwewnW8wzYvKa+DZP1dQ6Q==
-X-Received: by 2002:a05:6830:280f:: with SMTP id
-	w15mr4984915otu.155.1628192308201; 
-	Thu, 05 Aug 2021 12:38:28 -0700 (PDT)
-Received: from smtpclient.apple ([2600:1702:20f0:4420:cd23:629a:4d8e:fc66])
-	by smtp.gmail.com with ESMTPSA id t9sm327006ott.39.2021.08.05.12.38.27
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding
+	:content-language;
+	bh=iNveprctE9wf/+H24759lXQ0ZLKUmj85bt8JvLw0DG0=;
+	b=Y8nc5lnkPkbNMqpdrjVGA1TcEwFpyYeN+fzTxqDN79wliDYN9PTM6a+FrBavcYsekU
+	2saiVklxfLojbo8+bpkpw5u1gC+EY1a+zw0RmxYF+baP8X+Q79FofuNIcUjYK0C8Gi0w
+	GlFrVJoiVe4Wc8kzFF7Vum+mb0MW/jxAqMzeJ8inU4uAaq06SPYvm5rU7s+Z9oUR7Lci
+	NPH8TOyZqzNzz4+CbLY/0uF5n2b45zIrlgwNv4nFkRaPN6U7TVCH3TvMIEYfxOKkWoxz
+	YqeMmbqSzoKDtSscWWG+RAWI+9gjligT0/JWacC6Ywhbi1IAXniIrfcCLFiB+XeP3LVV
+	K5PQ==
+X-Gm-Message-State: AOAM531gOUwhvdrZVrwFtCJ7DSstxbqmzmfVATS1txPQZiukUbJD2Y7l
+	6bhHDGTuNVsQv8xzeJFlDgqAQGR+dTLBGQ==
+X-Google-Smtp-Source: ABdhPJxQuUymPvn8r2XI3eYI9I5HToexotyp/a7ul5uEdpycU9eOEUvfF5fbAnaRYYgDrCxRWMKl7w==
+X-Received: by 2002:ad4:40cb:: with SMTP id x11mr7406631qvp.60.1628196559684; 
+	Thu, 05 Aug 2021 13:49:19 -0700 (PDT)
+Received: from thinkpad.example.slint ([2601:192:4c80:1420::cae5])
+	by smtp.gmail.com with ESMTPSA id d4sm2585549qty.15.2021.08.05.13.49.18
 	for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-	Thu, 05 Aug 2021 12:38:27 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.120.0.1.13\))
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Thu, 05 Aug 2021 13:49:18 -0700 (PDT)
 Subject: Re: Solus DE observations
-Date: Thu, 5 Aug 2021 15:38:26 -0400
+To: blinux-list@redhat.com
 References: <3c0f9041-d6e9-5fb5-2e9c-a96dc59bd86c@gmail.com>
 	<7b4a0e8e-f7b2-af91-975c-d3ca3a3cbdcf@gmail.com>
 	<76FFA217-1F68-444A-8DB7-C465759CD123@gmail.com>
@@ -97,10 +95,12 @@ References: <3c0f9041-d6e9-5fb5-2e9c-a96dc59bd86c@gmail.com>
 	<229C49E8-4453-4759-A7DE-712BDD5AC3FD@gmail.com>
 	<f1f450f1-b1ef-84d0-a4d1-c7515d21b8ef@gmail.com>
 	<907EC549-F01A-4345-ABFE-67B06CF6949A@gmail.com>
-	<6bc4e90a-ec7d-0d4d-596f-7bbe3811baa7@gmail.com>
-To: Blind Linux <blinux-list@redhat.com>
-In-Reply-To: <6bc4e90a-ec7d-0d4d-596f-7bbe3811baa7@gmail.com>
-Message-Id: <7A65B8CB-0152-47EA-8FDA-7D532D7FC493@gmail.com>
+Message-ID: <eafbdb46-966c-9e16-ae75-08e15bad2dd3@gmail.com>
+Date: Thu, 5 Aug 2021 16:49:18 -0400
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+	Thunderbird/78.12.0
+MIME-Version: 1.0
+In-Reply-To: <907EC549-F01A-4345-ABFE-67B06CF6949A@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -109,9 +109,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 175JcZFb021449
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -128,178 +126,24 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Thanks.  Must have missed it somewhere, but anyway it works.  How often are updates pushed out?  This btw is the stable branch.  Have not seen an update for  a coupleple of days so just trying to get a feel for this.  I have setup thunderbird on my system.  I am using buggy desktop at the moment.
-
-Matthew
-
-
-
-> On Aug 5, 2021, at 3:10 AM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
-> 
-> Indeed, it's sudo eopkg up that runs a system upgrade yes
-> 
-> 
-> That is definitely in the help center
-> 
-> On 8/5/21 2:05 AM, Linux for blind general discussion wrote:
->> So, how do you check for updates on the system using a terminal?  Sudo eopkg install package would install a package, but would something like sudo eopkg upgrade work or what?  I know you can go through software center, but would like to know how to do this in a terminal.  I could not find anything on the web page.
->> 
->> Matthew
->> 
->> 
->> 
->>> On Aug 4, 2021, at 6:58 PM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
->>> 
->>> For audiogame-manager...
->>> 
->>> 
->>> audiogame-manager -c
->>> 
->>> 
->>> I have it working on Solus by instaling wine, winetricks, sox and dialog
->>> 
->>> That's literally all, and all are in the repos of Solus. So sudo eopkg install sox wine winetricks dialog
->>> 
->>> On 8/4/21 11:51 PM, Linux for blind general discussion wrote:
->>>> Solus help center, is that on the solus page?
->>>> 
->>>>> On Aug 4, 2021, at 5:44 PM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
->>>>> 
->>>>> I've been able to play GUI games that were made to be accessible and run in GNU/Linux, such as 2MB MineRacer, and an old tomb raider thing.  Also, the user, Storm Dragon, has written what he calls his Audio Game Manager, which lets you play a bunch of old Windows games in the Linux gui, using wine and a bunch of helper scripts.  Getting that thing installed into Solus looks like it would be a huge challenge.  He basically wrote the thing for Arch and Slint; in the latter, the build process took a long time, and there were lots of instructions.
->>>>> 
->>>>> 
->>>>> In a previous message, you wrote about keyboard shortcuts in Budgie?  Try the Solus help center; there's a small table of about 10.  One particular short cut, you asked about, is looking at your mounted drives.  That one is not there, because it's not in Budgie, rather, it's in the file manager.  If you start off, for instance, in your home folder, you can toggle various panes with f6.  One of these is like the "places" menu in something like Mate.  Your mounted volumes should show up there; hit up and down arrows to find them, and hit space on the one you want. You should get shifted into the content pane.
->>>>> 
->>>>> 
->>>>> 
->>>>> HTH,
->>>>> 
->>>>> 
->>>>> 
->>>>> Dave  Hunt
->>>>> 
->>>>> 
->>>>> 
->>>>> 
->>>>> Sent from my Lenovo Thinkpad, running Slint GNU/Linux.  https://slint.fr for info
->>>>> 
->>>>> On 8/4/21 6:26 PM, Linux for blind general discussion wrote:
->>>>>> One good thing about this solus distro is that there's a games
->>>>>> specializing distro.  What will be interesting will be to find out how
->>>>>> many more g.u.i. games either become more accessible or become accessible
->>>>>> users can play on solus.  Most of the g.u.i. games available for Linux
->>>>>> have yet to get accessible unless huge changes have happened since I last
->>>>>> checked out the scene.
->>>>>> 
->>>>>> 
->>>>>> On Wed, 4 Aug 2021, Linux for blind general discussion wrote:
->>>>>> 
->>>>>>> If I remember, it was the mate edition, about a year and a half ago.
->>>>>>> 
->>>>>>>> On Aug 4, 2021, at 12:30 PM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
->>>>>>>> 
->>>>>>>> Installing Mint was exactly like installing Ubuntu, as far as I recall.  Maybe you grabbed the Cinnamon edition last time?
->>>>>>>> 
->>>>>>>> 
->>>>>>>> Cheers,
->>>>>>>> 
->>>>>>>> 
->>>>>>>> Dave  H.
->>>>>>>> 
->>>>>>>> 
->>>>>>>> 
->>>>>>>> Sent from my Lenovo Thinkpad, running Slint GNU/Linux.  https://slint.fr for info
->>>>>>>> 
->>>>>>>> On 8/4/21 7:05 AM, Linux for blind general discussion wrote:
->>>>>>>>> How was linux mint and orca during installing?
->>>>>>>>> 
->>>>>>>>>> On Aug 3, 2021, at 9:23 PM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
->>>>>>>>>> 
->>>>>>>>>> This message is coming from my Solus Mate installation.  Mate and the applications work as expected, with the exception of speech dispatcher.  All other audio sounds fine, but speech is a little choppy.  Also, I found that some packages aren't in the repos, namely LIOS and Chirp.  I don't know what the build experience is like in Solus, and have those packages in my Slint system. Speaking of Slint, have you considered it?
->>>>>>>>>> 
->>>>>>>>>> 
->>>>>>>>>> I have used Linux Mint Mate edition, and find that the accessibility works fine in the apps and on the desktop and menus.  I find that I have to use flat review on Mint Mate's bottom panel, and the battery  charge indicator doesn't seem to refresh properly.
->>>>>>>>>> 
->>>>>>>>>> 
->>>>>>>>>> 
->>>>>>>>>> HTH,
->>>>>>>>>> 
->>>>>>>>>> 
->>>>>>>>>> 
->>>>>>>>>> Dave  H.
->>>>>>>>>> 
->>>>>>>>>> 
->>>>>>>>>> 
->>>>>>>>>> 
->>>>>>>>>> Sent with Thunderbird and Solus GNU/Linux.
->>>>>>>>>> 
->>>>>>>>>> On 8/3/21 10:13 PM, Linux for blind general discussion wrote:
->>>>>>>>>>> Dave, I have used gnome and mate with ubuntu.
->>>>>>>>>>> I thought of linux mint, and tried it, but orca would not work.
->>>>>>>>>>> Had you tried mint?
->>>>>>>>>>> As to Solus, is that workable?
->>>>>>>>>> _______________________________________________
->>>>>>>>>> Blinux-list mailing list
->>>>>>>>>> Blinux-list@redhat.com
->>>>>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>>>>> _______________________________________________
->>>>>>>>> Blinux-list mailing list
->>>>>>>>> Blinux-list@redhat.com
->>>>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>>>>> 
->>>>>>>> _______________________________________________
->>>>>>>> Blinux-list mailing list
->>>>>>>> Blinux-list@redhat.com
->>>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>>> _______________________________________________
->>>>>>> Blinux-list mailing list
->>>>>>> Blinux-list@redhat.com
->>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>>> 
->>>>>>> 
->>>>>> _______________________________________________
->>>>>> Blinux-list mailing list
->>>>>> Blinux-list@redhat.com
->>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>> 
->>>>> _______________________________________________
->>>>> Blinux-list mailing list
->>>>> Blinux-list@redhat.com
->>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>> _______________________________________________
->>>> Blinux-list mailing list
->>>> Blinux-list@redhat.com
->>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>> 
->>> _______________________________________________
->>> Blinux-list mailing list
->>> Blinux-list@redhat.com
->>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>> 
->> 
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->> 
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-> 
-
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+c3VkbyBlb3BrZyB1cGdyYWRlIHdpbGwgdXBkYXRlIHlvdXIgc3lzdGVtLsKgIEVvcGtnIGhhcyBh
+IG1hbnVhbCBwYWdlLgoKCgotLSBEYXZlIC0tCgoKCgpTZW50IGZyb20gbXkgTGVub3ZvIFRoaW5r
+cGFkLCBydW5uaW5nIFNsaW50IEdOVS9MaW51eC4gIGh0dHBzOi8vc2xpbnQuZnIgZm9yIGluZm8K
+Ck9uIDgvNC8yMSA5OjA1IFBNLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdy
+b3RlOgo+IFNvLCBob3cgZG8geW91IGNoZWNrIGZvciB1cGRhdGVzIG9uIHRoZSBzeXN0ZW0gdXNp
+bmcgYSB0ZXJtaW5hbD8gIFN1ZG8gZW9wa2cgaW5zdGFsbCBwYWNrYWdlIHdvdWxkIGluc3RhbGwg
+YSBwYWNrYWdlLCBidXQgd291bGQgc29tZXRoaW5nIGxpa2Ugc3VkbyBlb3BrZyB1cGdyYWRlIHdv
+cmsgb3Igd2hhdD8gIEkga25vdyB5b3UgY2FuIGdvIHRocm91Z2ggc29mdHdhcmUgY2VudGVyLCBi
+dXQgd291bGQgbGlrZSB0bwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20K
+aHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
 
