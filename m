@@ -1,71 +1,88 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 87A313E354B
-	for <lists+blinux-list@lfdr.de>; Sat,  7 Aug 2021 14:12:15 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 50D9B3E58B6
+	for <lists+blinux-list@lfdr.de>; Tue, 10 Aug 2021 12:59:08 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1628338334;
+	s=mimecast20190719; t=1628593147;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=8291rKvAApVMWnQJ4o2tOES1oZx4SjDfricWbXQp60s=;
-	b=dq00vd/mq5ADWZWTTpS/7BpW7eAU1fYrh1+ln/gxsV6OE0fTZKkfY1R4EF7iFqLdNCsqVy
-	P1FPDlkWPceMH+TWdH4FEhwZ0BjCBucHXnHgHLHongId9RvUqHEy5NobQ/EEMpp7I0iwCn
-	rB7t959f/wEm5TbfLa7Bc4GY9fSBLxc=
+	bh=1MxoS3ZxcHcQCzlTdrlojXXQsUVppS+EmyISpLvr/0M=;
+	b=APNPjsJkVOViq3S6qSidGS+etp+P8j5n+Mv2td+CHyNgAowHAH1El3aCOGYbogbQKSj0Xg
+	YE8KmTt3Rudbv5fddWW7/sI5RY7o/U1TUm/4mvQjO5GZ5L83hxkZ9EIAvxB6WCcIUSkujO
+	/tzcPsSJ/IPP6p+UV3eX1yjcLbu/SrA=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-44-n5bAXYdZPwGGA2x6DKArTw-1; Sat, 07 Aug 2021 08:12:13 -0400
-X-MC-Unique: n5bAXYdZPwGGA2x6DKArTw-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-263-861bWdXmMU2yrRpDW8CLfQ-1; Tue, 10 Aug 2021 06:59:06 -0400
+X-MC-Unique: 861bWdXmMU2yrRpDW8CLfQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A02D7871805;
-	Sat,  7 Aug 2021 12:12:09 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 388BE100E422;
+	Tue, 10 Aug 2021 10:59:00 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id AF00669CBA;
-	Sat,  7 Aug 2021 12:12:08 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6D7A05D9CA;
+	Tue, 10 Aug 2021 10:58:57 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 137CE4BB7C;
-	Sat,  7 Aug 2021 12:12:07 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BA2914BB7B;
+	Tue, 10 Aug 2021 10:58:51 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 177CC1op012671 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 7 Aug 2021 08:12:01 -0400
+	id 17AAtwVp031332 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 10 Aug 2021 06:55:58 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 4998821602B6; Sat,  7 Aug 2021 12:12:01 +0000 (UTC)
+	id EDC332138CE3; Tue, 10 Aug 2021 10:55:57 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4414D21602B5
-	for <blinux-list@redhat.com>; Sat,  7 Aug 2021 12:11:57 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E8CE12138CE2
+	for <blinux-list@redhat.com>; Tue, 10 Aug 2021 10:55:53 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 91ECB8D1392
-	for <blinux-list@redhat.com>; Sat,  7 Aug 2021 12:11:57 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
-	relay.mimecast.com with ESMTP id us-mta-64-zKiY4LRiMTW3Q0SmFwUfQA-1;
-	Sat, 07 Aug 2021 08:11:55 -0400
-X-MC-Unique: zKiY4LRiMTW3Q0SmFwUfQA-1
-Received: from ici.slint.fr (sfa89-1-78-208-157-71.fbx.proxad.net
-	[78.208.157.71])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id 61D75A00A4
-	for <blinux-list@redhat.com>; Sat,  7 Aug 2021 12:11:48 +0200 (CEST)
-Subject: Re: Slint on the bare metal!
-To: blinux-list@redhat.com
-References: <946d66cd-defc-83a5-7f85-a44532cb52f3@gmail.com>
-	<11738c89-e5c6-2079-c18c-5fd25f33dccf@slint.fr>
-Message-ID: <9488db1a-6369-2824-fd12-66f0248a39bf@slint.fr>
-Date: Sat, 7 Aug 2021 14:11:49 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
-	Thunderbird/78.12.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DAA2E801E6D
+	for <blinux-list@redhat.com>; Tue, 10 Aug 2021 10:55:53 +0000 (UTC)
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com
+	[209.85.218.51]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-39-IYFtyUmUONi_JW2y6TcbIA-1; Tue, 10 Aug 2021 06:55:51 -0400
+X-MC-Unique: IYFtyUmUONi_JW2y6TcbIA-1
+Received: by mail-ej1-f51.google.com with SMTP id gs8so34551751ejc.13
+	for <Blinux-list@redhat.com>; Tue, 10 Aug 2021 03:55:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
+	:mime-version:content-transfer-encoding:content-language;
+	bh=5nIXr03mttEkaZPhUiENuPMjHnxqsjCbDdtPl9QuHh4=;
+	b=QhXmA1B1DD0S7M2Ns3e4Gy68fOHRVtTZcH2imceU3Qxv6RA4XNCTi7sRjsKcFSBVme
+	aRF8i5QAnequGztIY9fveSMWIpmLoMukRPfO3GfKFGOMesVJbIngVh7H9Q/8hIa9BhQ8
+	9IpP9PxoiEJrCvi6DZ2rzbr8eOMn+2ToSrbSufSBtGdvUr+94ewJUozH8Rh5fkeOMxJS
+	vU9ew+Kpu6qfMsFL8ynsM58R6InkmZu4k1HIkc85Pfxts5F9jRjUVyioJIV307rko8u/
+	hBlmcrVpTs9PN1c/7eE+9yXX54IuiTyivrWhmvh70MNAduddgziCUmQe8K6oi5Q5dNhJ
+	aGsA==
+X-Gm-Message-State: AOAM530HSdQYV6fc+3fRtR/IRt64biRB0Z5DSgl81zHUPEFzshlq46oi
+	2HeXDSaZ8KTvRjsTaSJl0lsHf/4mFlsP4Q==
+X-Google-Smtp-Source: ABdhPJxLZ0r+qFt7RKzG4odCLatL2TYXMTo0UM0183VS3EGsmOlu5GLt/rrtNFj4mybjJ5lWljOH/A==
+X-Received: by 2002:a17:906:cb11:: with SMTP id
+	lk17mr13586768ejb.271.1628592950404; 
+	Tue, 10 Aug 2021 03:55:50 -0700 (PDT)
+Received: from darkstar.example.slint ([197.185.106.18])
+	by smtp.gmail.com with ESMTPSA id
+	go20sm6637404ejc.88.2021.08.10.03.55.49 for <Blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Tue, 10 Aug 2021 03:55:49 -0700 (PDT)
+To: Blinux-list@redhat.com
+Subject: Help, I need a Windows VM for my work
+Message-ID: <3d854105-bb2b-5501-235f-eb05dc13f1f4@gmail.com>
+Date: Tue, 10 Aug 2021 12:55:46 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
-In-Reply-To: <11738c89-e5c6-2079-c18c-5fd25f33dccf@slint.fr>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -74,9 +91,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
+X-Mimecast-Spam-Signature: yes
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 177CC1op012671
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -93,63 +109,41 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Q29ycmVjdGlvbjogSSBzaG91bGQgaGF2ZSB3cml0dGVuOgoxLiBJZiBydW5uaW5nIGVzcGVha3Vw
-Cmluc3RlYWQgb2Y6CjEuIElmIHJ1bm5pbmcgc3BlYWt1cAoKVG8gY2xhcmlmeSwgc3BlYWt1cCBp
-cyBhIGtlcm5lbCBkcml2ZXIgdXNlZCBieSBib3RoIGVzcGVha3VwIGFuZCBzcGVlY2hkLXVwLAp1
-c2VkIGluIGNvbmp1bmN0aW9uIHdpdGggb3RoZXIgc29mdHdhcmUsIGFuZCB2b2ljZXM6CjEuIEJ5
-IGVzcGVha3VwIHdpdGggdGhlIGVzcGVhay1uZyBUVFMgYW5kIGFzc29jaWF0ZWQgdm9pY2VzCjIu
-IEJ5IHNwZWVjaGQtdXAgd2l0aCBhbnkgVFRTIGFjY2Vzc2VkIHRocm91Z2ggc3BlZWNoLWRpc3Bh
-dGNoZXIKYW5kIGFzc29jaWF0ZWQgdm9pY2VzCgpzcGVha3VwIGNhbiBhbHNvIGJlIHVzZWQgZGly
-ZWN0bHkgYnkgYSBoYXJkIHN5bnRoZXNpemVyLCB3aXRob3V0CmFkZGl0aW9uYWwgYXBwbGljYXRp
-b24uCgpEaWRpZXIKCkxlIDA3LzA4LzIwMjEgw6AgMTM6NTMsIExpbnV4IGZvciBibGluZCBnZW5l
-cmFsIGRpc2N1c3Npb24gYSDDqWNyaXTCoDoKPiBIaSBCcmFuZHQsCj4gCj4gMS4gSWYgcnVubmlu
-ZyBzcGVha3VwIChub3Qtc3BlZWNoZC11cCksIHJ1bgo+IGxpc3QtZXNwZWFrLW5nLXZvaWNlcwo+
-IGFuZCB0aGVuIHNldCB0aGUgY2hvc2VuIHZvaWNlIGFzIHJvb3QgaW46Cj4gL2V0Yy9lc3BlYWt1
-cC5jb25mCj4gCj4gMi4gSWYgcnVubmluZyBzcGVlY2hkLXVwCj4gc2V0IHRoZSBsYW5ndWFnZSBh
-cyByb290IGluOgo+IC9ldGMvc3BlZWNoZC11cC5jb25mCj4gYW5kIHRoZSBjaG9zZW4gc3ludGhl
-c2l6ZXIgaW46Cj4gL2V0Yy9zcGVlY2gtZGlzcGF0Y2hlci9zcGVlY2hkLXVwLmNvbmYKPiAKPiBz
-cGQtbGlzdCB0ZWxscyB3aGF0J3MgYXZhaWxhYmxlIGFzIHN5bnRoZXNpemVycyBhbmQgdm9pY2Vz
-Lgo+IAo+IFVuZm9ydHVuYXRlbHkgaXQncyBub3QgeWV0IHBvc3NpYmxlIHRvIHNldCB0aGUgdm9p
-Y2UgZm9yIHNwZWVjaGQtdXAgCj4gZGlyZWN0bHksCj4gdW5sZXNzIHlvdSB1c2UgdGhlIHZveGlu
-IHN5bnRoZXNpemVyIGFuZCBhIHZvaWNlIGRpc3RyaWJ1dGVkIGJ5IG9yYWx1eC4gCj4gVGhlbgo+
-IHRoZSBzZXR0aW5nIGlzIGRvbmUgaW46Cj4gL29wdC9vcmFsdXgvdm94aW4vc2hhcmUvY29uZi92
-b3hpbi5pbmkKPiAKPiBDaGVlcnMsCj4gRGlkaWVyCj4gCj4gUFMgSSBoYXZlIG1hZGUgYXZhaWxh
-YmxlIHNvbWUgc2NyaXB0cyB0aGF0IEkgaGF2ZSB3cml0dGVuIGZvciBTbGludCBpbjoKPiBodHRw
-czovL2dpdGh1Yi5jb20vRGlkaWVyU3BhaWVyL3NsaW50LXNjcmlwdHMKPiAKPiBUaGV5IGNhbiBi
-ZSB1c2VkIGluIG90aGVyIGRpc3RyaWJ1dGlvbnMsIGluIHNvbWUgY2FzZXMgYWZ0ZXIgYWRhcHRh
-dGlvbi4KPiBJIHdpbGwgYWRkIHRoZWlyIGRlc2NyaXB0aW9ucyBpbiB0aGUgUkVBRE1FLgo+IExl
-IDA3LzA4LzIwMjEgw6AgMDg6MzIsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24g
-YSDDqWNyaXTCoDoKPj4gSGkgYWxsLAo+Pgo+Pgo+PiBJIHVuZXhwZWN0ZWRseSBoYWQgdGhlIHVz
-ZSBvZiBhIHNldCBvZiB3b3JraW5nIGV5ZXMgZm9yIGEgbGl0dGxlIHdoaWxlIAo+PiB5ZXN0ZXJk
-YXk7IHNlY3VyZSBib290IHdhcyB0dXJuZWQgb2ZmLCBhbmQgdGhlIGtleSB0byBicmluZyB1cCB0
-aGUgCj4+IGJvb3QgbWVudSB3YXMgZm91bmQuCj4+Cj4+Cj4+IEFzIGEgcmVzdWx0IG9mIHRoaXMs
-IFdpbmRvd3MgZ290IHJlbW92ZWQgZnJvbSB0aGlzIG1hY2hpbmUsIGFuZCBhcyB0aGUgCj4+IHN1
-YmplY3Qgc3RhdGVzLCBTbGludCB0b29rIGl0J3MgcGxhY2UuCj4+Cj4+Cj4+IFRoaXMgbWFjaGlu
-ZSBydW5zIGxpa2UgYSBkcmVhbSwgaG93ZXZlciwgSSBkaWQgZXZlcnl0aGluZyBjb3JyZWN0bHkg
-Cj4+IGFuZCB0aGUgZW4tdXMgdm9pY2UgdXNlZCBieSBkZWZhdWx0IGJ5IG15IGVzcGVha3VwIGp1
-c3QgZG9lc24ndCB3YW50IAo+PiB0byBnbyB0aGUgaGVsbCBhd2F5IQo+Pgo+Pgo+PiBBcyByb290
-LCBJIGRpZCB0aGUgZm9sbG93aW5nOgo+Pgo+PiAjc3BlYWstd2l0aCBzcGVlY2hkLXVwCj4+Cj4+
-IDo6VGhpcyBpbiBlZmZlY3Qga2lsbHMgZXNwZWFrdXAgd2hpY2ggaXMgbmVlZGVkIGZvciB0aGUg
-Zm9sbG93aW5nCj4+Cj4+ICNlc3BlYWt1cCBkZWZhdWx0LXZvaWNlPWVuLWdiCj4+Cj4+IDo6VGhp
-cywgaW4gdGhlb3J5IHNob3VsZCBzZXQgdGhlIHZvaWNlIHVzZWQgdG8gdGhlIGJyaXR0aXNoIG9u
-ZS4KPj4KPj4gI3NwZWFrLXdpdGggZXNwZWFrdXAKPj4KPj4gOjpEb2VzIHN3aXRjaCB5b3UgYmFj
-ayB0byBlc3BlYWt1cC4KPj4KPj4gI2V4aXQKPj4KPj4KPj4gSWYgYW55b25lIGtub3dzIHdoYXQn
-cyBnb2luZyBvbiBoZXJlLCBwbGVhc2UsIHBsZWFzZSwgaGVscCEgTXkgaGVhcmluZyAKPj4gaXMg
-YWxyZWFkeSBub3QgdGhlIGJlc3QgaW4gdGhlIHdvcmxkLCBJIGRvbid0IG5lZWQgdGhlIGJhZCBV
-UyB2b2ljZSB0byAKPj4gbWFrZSB0aGluZ3Mgd29yc2UuCj4+Cj4gCj4gCj4gX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBCbGludXgtbGlzdCBtYWlsaW5n
-IGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5j
-b20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAoKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgt
-bGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGlu
-Zm8vYmxpbnV4LWxpc3Q=
+Hi all,
+
+
+As I stated before, I am running Slint on the bare metal, however my 
+work entails teaching NVDA to clients, obviously running Windows.
+
+
+Therefor I desperately need a Windows VM, so I can make a living. I 
+cannot figure qemu, virtual-box, I have no idea, and VMWare Workstation 
+Player doesn't want to install under Slint.
+
+
+Could someone please, please, give me concise instructions for setting 
+up a VM using qemu in Slint?
+
+
+Warm regards,
+
+
+Brandt Steenkamp
+
+
+Sent from my gass powered Slint hair dryer.
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
