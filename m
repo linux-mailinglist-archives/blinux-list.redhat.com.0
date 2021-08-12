@@ -2,87 +2,88 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 014433EA5D0
-	for <lists+blinux-list@lfdr.de>; Thu, 12 Aug 2021 15:43:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id B4B0C3EA638
+	for <lists+blinux-list@lfdr.de>; Thu, 12 Aug 2021 16:08:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1628775787;
+	s=mimecast20190719; t=1628777331;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Lbd+hBvCNiljUCVFGcri5i8QEsA/e7msDcckCW/xImI=;
-	b=b3YgWXn9Vp/NIeVnt5Xy7g7rvXOx4HXEJCBBvKqs+uESfUfBQgp2bHvSH37OYEgX9GN2LS
-	sRq87NDftvuP22PPnv6iOlW15c9c7k+32eIj4WeR4f+oge1BkMC6One4cC9T7B+kCXwGgT
-	uKAiVXLC453lX0utBY6cLUUALQnitgw=
+	bh=yu4bJ5NERGIO3J2kOBzThLqEnSHEHaLrvBwxHbXjaW0=;
+	b=Q5cticqlJUfZoifLwehs4OZIn/2lCq/IGS8o9U5kA7mzTqHu3yhiF0SN/2j5hNxGZtBIDl
+	VDK2lxMRlpIcFUsqX9w8GivapoY0W05Lk1hFp6MNjdLFe1lqKOUiHMswZahA50ATCw55Ti
+	PBBk1xzyespczMAB3beE70TI1hxyr8A=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-464-n38Iea0wO6-MKM1xblxTOg-1; Thu, 12 Aug 2021 09:43:05 -0400
-X-MC-Unique: n38Iea0wO6-MKM1xblxTOg-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-418-pico7-snO86vYXrEYQPihQ-1; Thu, 12 Aug 2021 10:08:49 -0400
+X-MC-Unique: pico7-snO86vYXrEYQPihQ-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 0AA0A8C0080;
-	Thu, 12 Aug 2021 13:43:00 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1D4188799E0;
+	Thu, 12 Aug 2021 14:08:46 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 72BA3188E4;
-	Thu, 12 Aug 2021 13:42:58 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5641460BF4;
+	Thu, 12 Aug 2021 14:08:45 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2CA6B181A2A7;
-	Thu, 12 Aug 2021 13:42:47 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 54FF3181A0F0;
+	Thu, 12 Aug 2021 14:08:42 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 17CDgasZ001886 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 12 Aug 2021 09:42:36 -0400
+	id 17CE7m5g003876 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 12 Aug 2021 10:07:48 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 3658221DE6EB; Thu, 12 Aug 2021 13:42:36 +0000 (UTC)
+	id 5075C119016; Thu, 12 Aug 2021 14:07:48 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3155F21DE6F7
-	for <blinux-list@redhat.com>; Thu, 12 Aug 2021 13:42:33 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6A1D2185A7A4
-	for <blinux-list@redhat.com>; Thu, 12 Aug 2021 13:42:33 +0000 (UTC)
-Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com
-	[209.85.218.45]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-195-c122M-UVNLORkkbRfld0IA-1; Thu, 12 Aug 2021 09:42:31 -0400
-X-MC-Unique: c122M-UVNLORkkbRfld0IA-1
-Received: by mail-ej1-f45.google.com with SMTP id gs8so11602233ejc.13
-	for <Blinux-list@redhat.com>; Thu, 12 Aug 2021 06:42:30 -0700 (PDT)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 48DF9119022
+	for <blinux-list@redhat.com>; Thu, 12 Aug 2021 14:07:45 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6D63F185A7A4
+	for <blinux-list@redhat.com>; Thu, 12 Aug 2021 14:07:45 +0000 (UTC)
+Received: from mail-lf1-f50.google.com (mail-lf1-f50.google.com
+	[209.85.167.50]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-285-MvMXedAMOhCIq9YuDAV27A-1; Thu, 12 Aug 2021 10:07:43 -0400
+X-MC-Unique: MvMXedAMOhCIq9YuDAV27A-1
+Received: by mail-lf1-f50.google.com with SMTP id t9so13708843lfc.6
+	for <blinux-list@redhat.com>; Thu, 12 Aug 2021 07:07:43 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
-	:mime-version:content-transfer-encoding:content-language;
-	bh=66+kku0OAakVqfd9kUN8itmdo2dL/k9BCpAEe/71qRw=;
-	b=ZQcHPj3op/+ZUvk9UgtAqVfVe95dFh+9Ly75HnHSiZcAV3cn+RWVOpiHshyLvX7/3K
-	pkO3x73TBCH/dcJQT4tyCDrvI903ow2gXaNxWKAs5nTas0CZr8pGHCvLywk/X464zwh5
-	WWiIw3BhuemL54ZSOCXkugRIZVp7msxtDkFRFno/VLXIPSgxlvVuzzNkDEIg/0Yu3JMq
-	h3y1tH9q6YOrLm7ysTZVP6p4lm0r+0c/VOnlbGxK1mZxkiVTOrgGKMZ1Wp6QOvPxYqIb
-	ZJS0sGLMlaEH9ovL0APUd3+wbDVlbLc37A4IsCXS9S+qjPXW7ADXaImEvF8pf1xDZ9rM
-	eLfg==
-X-Gm-Message-State: AOAM533SCLO8y/muGlSIoRVPF9Jhm0oJ69U+Ih6ISr3BdfiL1DwnRJbJ
-	UL14J+M6cpeQFIDtjIOJKcOSoaWDJ5Vucw==
-X-Google-Smtp-Source: ABdhPJwovlMVB9ta/541NG0q5Xe60jsokWMBiuB54P+Lvm7LkZ9/kSv4Hlki7S6sbN+eeWCGopLVAQ==
-X-Received: by 2002:a17:906:7302:: with SMTP id
-	di2mr3635718ejc.409.1628775749650; 
-	Thu, 12 Aug 2021 06:42:29 -0700 (PDT)
-Received: from darkstar.example.slint ([197.185.106.61])
-	by smtp.gmail.com with ESMTPSA id
-	mf11sm833696ejb.27.2021.08.12.06.42.27 for <Blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 12 Aug 2021 06:42:29 -0700 (PDT)
-To: Linux for blind general discussion <Blinux-list@redhat.com>
-Subject: Installing using a service like "Be My Eyes"
-Message-ID: <f350ad42-2eff-9ca8-429d-59c13e839627@gmail.com>
-Date: Thu, 12 Aug 2021 15:42:25 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Thunderbird/68.12.0
+	h=x-gm-message-state:date:from:to:subject:message-id:references
+	:mime-version:content-disposition:in-reply-to:user-agent;
+	bh=msJA3MvuJWw4QfyyYkRaZsWh+C05WlyFy9tBzw/lAUM=;
+	b=MY1b+cMrxcfLKK6D2vFAMhbXafK7eeRDrHZzjj8BoxjQ72QSTT1+fJ+EPUfztMW8cT
+	BVgjI6ZWnhhNjGXcpK2l64vEIb0OqYB3x247rew2GIt5jItWjBVT6f5Y/mM4lFzFqnni
+	ppcXXB89PlC5LKCuNGZU/D8mjkrcwSraEbAInHuszNGMlTzQs6KaK81Se1oEfSxmeFMA
+	07R43GmaIm1C+OVeAgM+m4bYWCsM92xbtQl23Q9OTNxUgjt4rm1/ti0SzEKvnJYUprqD
+	xGOCF/h8uLJ0E6cRYE2fnzFl2S4YQn9VKJPscjN0yTNvbAAjOdOv4jWR0zgjrgGUJHkm
+	1iPQ==
+X-Gm-Message-State: AOAM530Qq+f00DKMfpHj/mFXJlS9cyqda5zBF4z9OfsX9UtOkQfOW8Hu
+	PYOE0qnyuLLTB1aoTOh/A2OT83LYIss=
+X-Google-Smtp-Source: ABdhPJyJPbF2ELk+ul8bV3byj4Dak1S02VSRUzR+8RrubM/yxf+Lvo5W9D/OtEL4hQKtjuZtNPTLQw==
+X-Received: by 2002:a05:6512:398e:: with SMTP id
+	j14mr2641864lfu.573.1628777261652; 
+	Thu, 12 Aug 2021 07:07:41 -0700 (PDT)
+Received: from localhost ([91.77.167.245])
+	by smtp.gmail.com with ESMTPSA id n8sm275011lfl.103.2021.08.12.07.07.41
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+	Thu, 12 Aug 2021 07:07:41 -0700 (PDT)
+Date: Thu, 12 Aug 2021 17:07:40 +0300
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Installing using a service like "Be My Eyes"
+Message-ID: <20210812140740.qlkk7wajgogjktq6@alex-pc>
+References: <f350ad42-2eff-9ca8-429d-59c13e839627@gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <f350ad42-2eff-9ca8-429d-59c13e839627@gmail.com>
+User-Agent: NeoMutt/20210205
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -91,8 +92,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Mimecast-Spam-Signature: yes
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -109,42 +109,39 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Disposition: inline
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi all,
+On Thu, Aug 12, 2021 at 03:42:25PM +0200, Linux for blind general discussion wrote:
+> Hi all,
+>
+hello Brandt.
+>
+> I would really like to run either Arch, which I always fail to install
+> correctly for some or other reason, or an Arch derivative, but, Calamaris,
+> enough said.
+>
+did you try new arch installer[1]?
+I'll be happy to help you install arch. but for this I need to know what
+exactly you are failing to do.
 
+[1]: https://archlinux.org/news/installation-medium-with-installer/
 
-I know that Distro-hopping really sucks, but we do it anyway.
+> --
+> Warm regards,
+>
+> Brandt Steenkamp
+>
+> Sent from my steam powered Slint vacuum cleaner
 
-
-I am asking about installing with aid from a service such as be-my-eyes, 
-because, as we all know, distros like Manjaro uses the Calamaris 
-installer, which, last I checked, is totally inaccessible with Orca, and 
-in many cases, Orca is not even included in the live environments.
-
-
-I would really like to run either Arch, which I always fail to install 
-correctly for some or other reason, or an Arch derivative, but, 
-Calamaris, enough said.
-
-
-If anyone knows whether you can install using Calamaris with the 
-keyboard only, or if there is any Arch derivatives with an accessible 
-installer, I would be really grateful.
-
--- 
-Warm regards,
-
-Brandt Steenkamp
-
-Sent from my steam powered Slint vacuum cleaner
+--
+Sincerely, Alexander
 
 _______________________________________________
 Blinux-list mailing list
