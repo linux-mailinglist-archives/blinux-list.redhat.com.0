@@ -1,85 +1,90 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 8102A3ED9CF
-	for <lists+blinux-list@lfdr.de>; Mon, 16 Aug 2021 17:24:25 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id AB1203EDC60
+	for <lists+blinux-list@lfdr.de>; Mon, 16 Aug 2021 19:26:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1629127464;
+	s=mimecast20190719; t=1629134780;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=6mGFGWd4C7bh+BHKjJMKtfdvtNnLuXl9MBYBnT8VQ90=;
-	b=brPFQHNmyIqg7rxFwq5EVhyEEkl2ns/c9avYjBV2pGGRbaqX0OC89VjgTYSAw9Yb/G3mxL
-	beL6qMtXGGJNtu9KmRzlVQUoIXG8CveFsHA3vf5kNsF913OwLZIWR0sa6rhiAc394bVWKh
-	gmOeATs633SwkgpyIwcmxp6B8sR05aY=
+	bh=hz7S3IYuYpnPBtlHypB6/X7gLFPhtbXVBMw2Wz+XqkY=;
+	b=X+K4bZ0uinpCBisgZ0mauUEUlVxJSlK3ZkxNVuHPeYVbkw8DUvWf7K3SwCj/zusB7aM8Pl
+	JfrzSiAg9rsYz27WsIyELjfGa+UrNW8im7CGMKRE5QhiaOU7bEra99vMkXpqDv5SWOT7QR
+	PQjmULj8rN0Q7W9WoTPW55/5pz8qaGw=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-281-Ce9nPJH_P1qlwEMmZJ_3xA-1; Mon, 16 Aug 2021 11:24:23 -0400
-X-MC-Unique: Ce9nPJH_P1qlwEMmZJ_3xA-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-196-qSLnI-n8NAuKqvxmUjChWA-1; Mon, 16 Aug 2021 13:26:19 -0400
+X-MC-Unique: qSLnI-n8NAuKqvxmUjChWA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 310051009615;
-	Mon, 16 Aug 2021 15:24:19 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 465F3801AC0;
+	Mon, 16 Aug 2021 17:26:14 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 187E25DA2D;
-	Mon, 16 Aug 2021 15:24:19 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 879CD2AB38;
+	Mon, 16 Aug 2021 17:26:12 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E3DD84A700;
-	Mon, 16 Aug 2021 15:24:18 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0CD904BB7B;
+	Mon, 16 Aug 2021 17:26:08 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 17GFNHZH020304 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 16 Aug 2021 11:23:17 -0400
+	id 17GHQ1Zo001227 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 16 Aug 2021 13:26:01 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 7B6F92156734; Mon, 16 Aug 2021 15:23:17 +0000 (UTC)
+	id 7E04A202F338; Mon, 16 Aug 2021 17:26:01 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7392B2156739
-	for <blinux-list@redhat.com>; Mon, 16 Aug 2021 15:23:14 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E018118A01A0
-	for <blinux-list@redhat.com>; Mon, 16 Aug 2021 15:23:13 +0000 (UTC)
-Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com
-	[209.85.222.172]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-125-PCcpHcCtOMS7FdoD-SHLsg-1; Mon, 16 Aug 2021 11:23:11 -0400
-X-MC-Unique: PCcpHcCtOMS7FdoD-SHLsg-1
-Received: by mail-qk1-f172.google.com with SMTP id t190so6076462qke.7
-	for <blinux-list@redhat.com>; Mon, 16 Aug 2021 08:23:10 -0700 (PDT)
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 78255202F33D
+	for <blinux-list@redhat.com>; Mon, 16 Aug 2021 17:25:53 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4C48E101A529
+	for <blinux-list@redhat.com>; Mon, 16 Aug 2021 17:25:53 +0000 (UTC)
+Received: from mail-lf1-f53.google.com (mail-lf1-f53.google.com
+	[209.85.167.53]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-117-7LCRhsB7PNeEac1A8IChHw-1; Mon, 16 Aug 2021 13:25:51 -0400
+X-MC-Unique: 7LCRhsB7PNeEac1A8IChHw-1
+Received: by mail-lf1-f53.google.com with SMTP id t9so35985621lfc.6
+	for <blinux-list@redhat.com>; Mon, 16 Aug 2021 10:25:50 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=3eoNds2jTfgWBYrmAkPzuZHyrq02UUmt+cV6PtzM8ps=;
-	b=Mnw52Nl6p69SUj2+kj9W4NSJyFup+90QtadA0S4fUXeRmgosPqjw27W2Qnz8Wy/K0y
-	TgEpP9qBWHzLLz1yWmu7ckjHkHVKe7rZrWkf1H9GExUrH+augeUPO0EV1ynfogh07hnM
-	kHAIX44UG5wC5fkF6FAnqUyvI5udGFtVN6B+uL9c+5RJ41fd5mT5+eD3pbt+ow9kfatL
-	DwmYfiajtc7oB9yIawnHOHqNLDjOH4ccKhUpAbZpkkJxoqL0fg1IwcFEaMAsItxcXoTE
-	p0OE1TAYFisG8V3KAhfRLL18qR3bW7I7CF+O9oIQadGP68Q8R9Ti7YB1KNbQYddZU/YW
-	+KGg==
-X-Gm-Message-State: AOAM530YlM7gbQSLrpp/Rpt2VDbLnYA/N5IDhZXT9EDsxA56qYSfFzIE
-	NhvWLC7qj1Z2Xy896xxuXRsrhKJPUYeaouCdT0zNy1Ab868=
-X-Google-Smtp-Source: ABdhPJzL/o09ch1wNBdvTb2hhS5EZDRJLYG/meej5iU/ab4LtDJ8YSl3XYDREKgZhm39sCJabJ7cX2BbvAj+Kd7KPA8=
-X-Received: by 2002:a37:803:: with SMTP id 3mr8350652qki.127.1629127390425;
-	Mon, 16 Aug 2021 08:23:10 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:a05:6214:b07:0:0:0:0 with HTTP; Mon, 16 Aug 2021 08:23:09
-	-0700 (PDT)
-In-Reply-To: <CAO2sX30xaswpT1vxCzem_jxckXVdRBW38NGuJMc9ODsmYMrsUw@mail.gmail.com>
-References: <17f6f79e-2927-3ad4-7915-42053461d773@protonmail.com>
-	<CAO2sX30xaswpT1vxCzem_jxckXVdRBW38NGuJMc9ODsmYMrsUw@mail.gmail.com>
-Date: Mon, 16 Aug 2021 15:23:09 +0000
-Message-ID: <CAO2sX309cRD-+61Q3sQ3zwv1KBqhcOaHfb1A4OBFjZxmry8kzQ@mail.gmail.com>
+	h=x-gm-message-state:date:from:to:subject:message-id:references
+	:mime-version:content-disposition:in-reply-to:user-agent;
+	bh=JdFuR5jOpgjAi2b4wexdBlRNwLYaQdu4QQ1yDC9cIbc=;
+	b=YkrQeczpJagKRo4gH3szvnRLoYtdUiZuLU5Omi5e+PJ4HiS/5Sj03AlGwI4qJnH2U5
+	GROEg5BQN24r+ZtxwmmKRYooAjCTGyluXSX3ITYSOsc83Q+XQxrGDxc6QiHUK4zoPzrv
+	Ktiuo1dVs6+hCQ2g/yvWj8g4eH5S9D3B2EYOBDIYL6y9PwyT/GV1HTlhpzWNkeIMsU7P
+	/TB33TWyRTAs2m80FEVZcBPDWBavt4y1Vu7NAckvhmt5TYV/+rVLSwzoiTkkQLvrsQTM
+	ZTmxS9HcvY+1Rjss5JiTqhgoVCwMOXGMAqrhBRC8YSHYnT92Hy/vxVKzv/rkwxlW168V
+	eYfQ==
+X-Gm-Message-State: AOAM533/hfinJAYX2uwm6od1jnhMXk7oMEOH0jQfY8u0Vu+9FFPGwH4e
+	64dXC8eAcZi4mGxj2wHL9mDqMyEmnbk=
+X-Google-Smtp-Source: ABdhPJyixpO9WLu7NmDI+iCFS/dUdVz7k8+2xPfRjtWtG5fd++YJV9OqtoA/eSsSorSQ55z8c0hJaQ==
+X-Received: by 2002:a05:6512:118c:: with SMTP id
+	g12mr12670167lfr.143.1629134749509; 
+	Mon, 16 Aug 2021 10:25:49 -0700 (PDT)
+Received: from localhost ([91.77.167.245])
+	by smtp.gmail.com with ESMTPSA id q5sm998957lfb.78.2021.08.16.10.25.48
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+	Mon, 16 Aug 2021 10:25:49 -0700 (PDT)
+Date: Mon, 16 Aug 2021 20:25:48 +0300
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Anyone else experiencing Firefox 91 crashes?
-To: blinux-list@redhat.com
+Message-ID: <20210816172548.7pw3tmt57aqoc2ng@alex-pc>
+References: <17f6f79e-2927-3ad4-7915-42053461d773@protonmail.com>
+MIME-Version: 1.0
+In-Reply-To: <17f6f79e-2927-3ad4-7915-42053461d773@protonmail.com>
+User-Agent: NeoMutt/20210205
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -88,7 +93,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -105,27 +110,64 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-I recently tried the 32-bit version of Firefox-ESR 91.0 from Debian
-Experimental and had the same issue... everything was crashing so
-often I downgraded to Firefox-ESR 78.13 from Debian Unstable within an
-hour... thankfully, ESR 91 did let me export my bookmarks to html so I
-didn't lose them with the downgrade forcing me to create a new Firefox
-profile.
-
-Here's hoping this gets fixed before the 91 branch of Firefox-ESR
-makes it's way to Debian Testing/Unstable.
-
-On 8/16/21, Jeffery Mewtamer <mewtamer@gmail.com> wrote:
+On Mon, Aug 16, 2021 at 02:46:25PM +0000, Linux for blind general discussion wrote:
+> Hello list,
+>
+> I don't remember when did I update my software the last time, but I have
+> Firefox 91 64-bit installed and in the few recent days, it's crashing
+> quite intensively.
 >
 >
+> Like, I launch it, type something into the search field... Crash!
+>
+> I launch it again, type google url to the search field, enter my search
+> term on the page and while typing... Crash!
+>
+> I want to install an addon and even if I somehow manage to enter my
+> query and get the search results, when I actually click on one... Crash!
+>
+>
+> It's really annoying, the browser is almost unusable. My cache and
+> cookies are cleared automatically after every run, so this shouldn't be
+> the source of the issues.
+>
+> I've tried the troubleshooting mode and it behaves in the same way, so
+> extensions also don't seem to be guilty.
+>
+> I have even downloaded a portable version of the browser from the
+> Mozilla website and it crashes as well.
+>
+>
+> The only thing that comes on my mind that it's a bug in the browser, but
+> I didn't find anything about it when searching.
+>
+>
+> Does anyone have similar experiences?
+>
+>
+> Firefox 91.0 64-bit, Ubuntu mate 20.04 64-bit.
+>
+>
+> Best regards
+>
+>
+> Rastislav
+
+i faced this problem too. for now I have rolled back to ff 90.0.2
+and try to use chrom whenever possible.
+I think these crashes have something to do with the accessibility stack. otherwise they would have been noticed earlier.
+
+--
+Sincerely, Alexander
 
 _______________________________________________
 Blinux-list mailing list
