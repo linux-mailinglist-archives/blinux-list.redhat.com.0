@@ -1,69 +1,74 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 3781D3F3E0B
-	for <lists+blinux-list@lfdr.de>; Sun, 22 Aug 2021 07:43:05 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 6C7403F4B02
+	for <lists+blinux-list@lfdr.de>; Mon, 23 Aug 2021 14:45:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1629610984;
+	s=mimecast20190719; t=1629722717;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=oGtzUQSNKpJIwKNuZRi857R/bc6JhOr5ni7/F63mubE=;
-	b=hxbWNavMdqcqizqJdOU5gUm740L4VDFIUf9mSCnEr2CaGaMvHFKQnu8gK6fUwVeFIL9Ute
-	jjGaTise/6LpqDdztKo+/hBz5kfDUsYcaCY63sdUf4rQcxW1Rr0n3jGnSLl6Ti7oEkKxFu
-	Udzabk3502p70PD558V1cwvc8/AVrE4=
+	bh=pDqZBbkj/0esIHlaMpQARUal7RdBGNUyYQgzhtGU9jo=;
+	b=U5ZCx8hHtCNOCGR9YNW4Ykix48H1rgnyKKdXRPy/8QrGbyjkYSTDw0tAMI1e2hQf/jcJpm
+	Vw6jOUAA4dh6apELOMjyxkg+y+Qr9cWBd74VDnU6xKK+finhI/r2NnWJrNczRG4R9eN/d8
+	aZ9xidOml3JdzKw/qMNaQMY/VFG3gUQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-465-u9109-eTNtCzaiENdSdf1A-1; Sun, 22 Aug 2021 01:43:01 -0400
-X-MC-Unique: u9109-eTNtCzaiENdSdf1A-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-538-9b-86apFPj-RWilxiI0q3g-1; Mon, 23 Aug 2021 08:45:15 -0400
+X-MC-Unique: 9b-86apFPj-RWilxiI0q3g-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2A6FE1082920;
-	Sun, 22 Aug 2021 05:42:56 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 38B25760C6;
+	Mon, 23 Aug 2021 12:45:10 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D874D60853;
-	Sun, 22 Aug 2021 05:42:51 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D81E26E0B8;
+	Mon, 23 Aug 2021 12:45:03 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id ECE09181847A;
-	Sun, 22 Aug 2021 05:42:15 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 06C341821888;
+	Mon, 23 Aug 2021 12:44:51 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 17M5g4EJ000694 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 22 Aug 2021 01:42:05 -0400
+	id 17NCigQP005080 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 23 Aug 2021 08:44:42 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 8DC1D2023193; Sun, 22 Aug 2021 05:42:04 +0000 (UTC)
+	id 1D8B3110DBDC; Mon, 23 Aug 2021 12:44:42 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 891942023178
-	for <blinux-list@redhat.com>; Sun, 22 Aug 2021 05:42:00 +0000 (UTC)
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 108231134CD1
+	for <blinux-list@redhat.com>; Mon, 23 Aug 2021 12:44:38 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9EF958556F0
-	for <blinux-list@redhat.com>; Sun, 22 Aug 2021 05:42:00 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-281-Mci0y62CNGu7hNInhKUdeA-1; Sun, 22 Aug 2021 01:41:58 -0400
-X-MC-Unique: Mci0y62CNGu7hNInhKUdeA-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4GsklV0wSJz2sVD;
-	Sun, 22 Aug 2021 01:41:58 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4GsklT725Jzcbc; Sun, 22 Aug 2021 01:41:57 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4GsklT6Z98zcbW;
-	Sun, 22 Aug 2021 01:41:57 -0400 (EDT)
-Date: Sun, 22 Aug 2021 01:41:57 -0400
-To: orca-list@gnome.org
-Subject: elementary-os linux #a11y findings
-Message-ID: <alpine.NEB.2.23.451.2108220135490.3417@panix1.panix.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 373B881DA04
+	for <blinux-list@redhat.com>; Mon, 23 Aug 2021 12:44:38 +0000 (UTC)
+Received: from mail.opopanax.net (mail.opopanax.net [66.172.33.24]) (Using
+	TLS) by relay.mimecast.com with ESMTP id
+	us-mta-399-lHGvxOtkMEOM3ThvUbTERQ-1; Mon, 23 Aug 2021 08:44:34 -0400
+X-MC-Unique: lHGvxOtkMEOM3ThvUbTERQ-1
+Received: from mail.opopanax.net (localhost [127.0.0.1])
+	by mail.opopanax.net (Postfix) with ESMTP id 4GtX4c6W85z8tQY
+	for <blinux-list@redhat.com>; Mon, 23 Aug 2021 12:44:32 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail
+Received: from mail.opopanax.net ([127.0.0.1])
+	by mail.opopanax.net (mail.opopanax.net [127.0.0.1]) (amavisd-new,
+	port 10026) with ESMTP id Iw66tAGh6WMD for <blinux-list@redhat.com>;
+	Mon, 23 Aug 2021 12:44:32 +0000 (UTC)
+Received: from [192.168.1.100] (208-107-97-40-dynamic.midco.net
+	[208.107.97.40])
+	by mail.opopanax.net (Postfix) with ESMTPSA id 4GtX4b6GsLz8tQW
+	for <blinux-list@redhat.com>; Mon, 23 Aug 2021 12:44:31 +0000 (UTC)
+Message-ID: <20210823.124438.168.1@[192.168.1.100]>
+To: blinux-list@redhat.com
+Subject: Assigning audio devices for applications
+Date: Mon, 23 Aug 2021 07:44:38 -0500
 MIME-Version: 1.0
+User-Agent: POP Peeper Pro (5.1.2.0)
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -72,9 +77,10 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 17NCigQP005080
 X-loop: blinux-list@redhat.com
-Cc: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -90,7 +96,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -98,20 +104,10 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-First I was finally able to download and seed the torrent using
-transmission-cli.  The lftp program is good for light work, but when you
-need heavy work done reach for transmission-cli at least for the command
-line users and those that can use a terminal inside a g.u.i.
-I'm rather certain amixer isn't on the system out of the box and not
-knowing what else was available I couldn't ensure or test sound card
-volume.  The speaker-test application appears to be another one missing.
-Aside from all of that, it was not possible to bring a screen reader up in
-any form on elementary-os oden stable.  For that reason I had no
-opportunity to test anything else out on that linux distro.  I recommend
-not spending any money on elementary-os if you need to use a screen reader
-given these conditions.  I'm not sorry for having spent the time
-downloading and testing this distro, it's just one to put in the does not
-work pile for now.
+It's been a while since I did this and I don't have my notes anymore.
+I want to use my USB sound card for speech output and my  onboard card for media. I do not have pulse installed, only alsa and libao.
+What is the best way of accomplishing this?
+
 
 _______________________________________________
 Blinux-list mailing list
