@@ -2,77 +2,92 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 2307B3F9FB2
-	for <lists+blinux-list@lfdr.de>; Fri, 27 Aug 2021 21:14:12 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 42F8A3FA004
+	for <lists+blinux-list@lfdr.de>; Fri, 27 Aug 2021 21:31:43 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1630091646;
+	s=mimecast20190719; t=1630092687;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ivxVPVvQzRm+JFy/wR1le/F2ah53XexYtY+hM0jJxVM=;
-	b=RIGzVMsgrQMt8ElcCpoHkMlHioD30P7H4dCnuDILa48YXr8nd3CHa3p7tFe83RwE5ornps
-	uFnxR40ZgHteWxQA+Kiu2SqXULL9HmlzrP83HCOZWMQ0HrRtN+C8kluEtv/hM9bE9n2qK5
-	rRmPrB9WeW/Dudm+Xbx4f2vGHq4LOoM=
+	bh=TN6fW9ppuCfVKnCqQib9YgNQzA4o8eehmX7F2Zq9728=;
+	b=Niw1qZTzlWk4LQXKfu3KwK7hZmOtWW/mrfxNFs68EevSUnqq9stROgdayT82rkLx42RtXR
+	n5TVgyB/MhPFEiWmjVlEuk4VTh7MFdon5FlZ+Uv/+DBKbJjeWSqy6zV45FG0uze7r9yMFi
+	443dzdDluInRIO25TZLftEKx+Io0JYA=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-280-h69CbzWhMMCDDRF_y15KRg-1; Fri, 27 Aug 2021 15:14:04 -0400
-X-MC-Unique: h69CbzWhMMCDDRF_y15KRg-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-6-OkpiVHt1Pn2M5-sfuwSn1Q-1; Fri, 27 Aug 2021 15:31:25 -0400
+X-MC-Unique: OkpiVHt1Pn2M5-sfuwSn1Q-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 3BE6D87D542;
-	Fri, 27 Aug 2021 19:14:00 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 59F4E87D541;
+	Fri, 27 Aug 2021 19:31:21 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A492960938;
-	Fri, 27 Aug 2021 19:13:59 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id EBB2B3AC1;
+	Fri, 27 Aug 2021 19:31:20 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 88EA9181A0F1;
-	Fri, 27 Aug 2021 19:13:58 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 115C4181A0F0;
+	Fri, 27 Aug 2021 19:31:19 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 17RJCqDc017509 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 27 Aug 2021 15:12:52 -0400
+	id 17RJVEAx020080 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 27 Aug 2021 15:31:15 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 4238420B6657; Fri, 27 Aug 2021 19:12:52 +0000 (UTC)
+	id D751E117DB3A; Fri, 27 Aug 2021 19:31:14 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0902020C15BA
-	for <blinux-list@redhat.com>; Fri, 27 Aug 2021 19:12:49 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D2555117DB3B
+	for <blinux-list@redhat.com>; Fri, 27 Aug 2021 19:31:11 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3D776185A7A4
-	for <blinux-list@redhat.com>; Fri, 27 Aug 2021 19:12:49 +0000 (UTC)
-Received: from mail.opopanax.net (mail.opopanax.net [66.172.33.24]) (Using
-	TLS) by relay.mimecast.com with ESMTP id
-	us-mta-434-gR026Og-OQmDGdU9_o4umA-1; Fri, 27 Aug 2021 15:12:47 -0400
-X-MC-Unique: gR026Og-OQmDGdU9_o4umA-1
-Received: from mail.opopanax.net (localhost [127.0.0.1])
-	by mail.opopanax.net (Postfix) with ESMTP id 4Gx8Vk1FF0z8tQY
-	for <blinux-list@redhat.com>; Fri, 27 Aug 2021 19:12:46 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail
-Received: from mail.opopanax.net ([127.0.0.1])
-	by mail.opopanax.net (mail.opopanax.net [127.0.0.1]) (amavisd-new,
-	port 10026) with ESMTP id YBBnQE2sk8k4 for <blinux-list@redhat.com>;
-	Fri, 27 Aug 2021 19:12:45 +0000 (UTC)
-Received: from [192.168.1.100] (208-107-97-40-dynamic.midco.net
-	[208.107.97.40])
-	by mail.opopanax.net (Postfix) with ESMTPSA id 4Gx8Vj1hm4z8tQW
-	for <blinux-list@redhat.com>; Fri, 27 Aug 2021 19:12:45 +0000 (UTC)
-Message-ID: <20210827.191250.234.7@[192.168.1.100]>
-To: blinux-list@redhat.com
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AE17D811E76
+	for <blinux-list@redhat.com>; Fri, 27 Aug 2021 19:31:11 +0000 (UTC)
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com
+	[209.85.208.42]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-404-uCnu7xqBMZidX-36LMqmpQ-1; Fri, 27 Aug 2021 15:31:09 -0400
+X-MC-Unique: uCnu7xqBMZidX-36LMqmpQ-1
+Received: by mail-ed1-f42.google.com with SMTP id b7so11399183edu.3
+	for <blinux-list@redhat.com>; Fri, 27 Aug 2021 12:31:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding
+	:content-language;
+	bh=64A9R/qaUBXlDkw02265q2fKr2DePPEPL7j8mSubJRo=;
+	b=exaY28VFlkFcy5ym+WW0ll/dCmyCjNbYLYmm6MDgCuQK3A9b6ri5qwq/601ym0DM/v
+	7woiMm7e2cHAJRY33vhhx9qh4ez9ZfceUcu/sa72pLbxvwoM9od4aHv4dqUlT91OKVdq
+	VShedzX8VSPqyH8wW4hcswnyKp8po0M3bu0vPlW0HDh6xW9I4k2tJ26XkQam2HXjtTKk
+	m9ofpflVKMrKmeCdLZtCcWas+z4wXheUJFYNiPDhIuZRiDtR7Gp0KPyqnpyjXDZi1LY0
+	Bj5rU8WW76i5YQw6Iflgdy45rom+zqWpDSUBv8/jmiH8QTHYs0jbWhdMV7FrobkPCxi4
+	FS7w==
+X-Gm-Message-State: AOAM531VkXnbnQ7PIXwvzNFHyN08SQX6Sp7QPs1QWk/DSA2IDAT7BvSB
+	ESdhDAhADcpqh4FFKWRb3u9HLz2CtXE=
+X-Google-Smtp-Source: ABdhPJzlHfJFtjU/Kg3497v8cIxNs9yWROAgPW6KI+YoOge3bkqDNdqzNkjXYbntuXewgsrj3QRkeQ==
+X-Received: by 2002:a05:6402:518f:: with SMTP id
+	q15mr11269665edd.226.1630092668186; 
+	Fri, 27 Aug 2021 12:31:08 -0700 (PDT)
+Received: from [192.168.1.73] ([91.77.167.245])
+	by smtp.gmail.com with ESMTPSA id
+	y21sm3879683edu.13.2021.08.27.12.31.07 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Fri, 27 Aug 2021 12:31:07 -0700 (PDT)
 Subject: Re: unable to install from aur
-Date: Fri, 27 Aug 2021 14:12:50 -0500
-MIME-Version: 1.0
-In-Reply-To: <alpine.NEB.2.23.451.2108271436310.3280@panix1.panix.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <20210827.181429.958.4@[192.168.1.100]>
-	<alpine.NEB.2.23.451.2108271436310.3280@panix1.panix.com>
-User-Agent: POP Peeper Pro (5.1.2.0)
+	<f27ef494-11d0-71e1-dc0e-f93762bfb28b@gmail.com>
+	<20210827.191148.445.6@[192.168.1.100]>
+Message-ID: <94329dd7-51a8-3124-583b-508c431cafd8@gmail.com>
+Date: Fri, 27 Aug 2021 22:31:06 +0300
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+	Thunderbird/78.13.0
+MIME-Version: 1.0
+In-Reply-To: <20210827.191148.445.6@[192.168.1.100]>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -81,9 +96,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 17RJCqDc017509
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -100,56 +113,27 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-This is ~/.gnupg/gpg.conf that I made.
-I repopulated the arch-keyring and ran ntpd. Time zone has always been set correctly. This did not fix the problem.
-
------ Original Message -----
-From: Linux for blind general discussion <blinux-list@redhat.com>
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Date: Fri, 27 Aug 2021 14:44:31 -0400
-Subject: Re: unable to install from aur
-
-> Did you modify gpg.conf or is that the archlinux-supplied version?
-> I don't have the problems you do with archlinux and that's because early
-> in the install I run:
-> pacman-key --populate.
-> Then I might run:
-> pacman -Syu archlinux-keyring.
-> Lots of keys get updated that way.
-> Now I also install the surfraw package and lynx and set the browser
-> surfraw uses as lynx.
-> Then I search the aur repository for pikaur and download the source for
-> that package and run makepkg on it to build it.
-> After that, I usually have no trouble installing stuff from the aur
-> repository.
-> You probably also ought to download ntp and then as root run
-> ntpd -qg
-> and hwclock --systohc --utc
-> Then set your timezone by updating /etc/localtime.
-> Finally run as root
-> sysctl enable timesyncd ntp true
-> All of that makes sure your clock is current and keeps the repositories
-> happy.
-> 
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-> 
-> 
-
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+MjcuMDguMjAyMSAyMjoxMSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiDQv9C4
+0YjQtdGCOgo+IExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gPGJsaW51eC1saXN0
+QHJlZGhhdC5jb20+IHdyb3RlOgo+IHBsZWFzZSBsZWF2ZSBvbmx5IG9uZSBrZXlzZXJ2ZXIgb3B0
+aW9uLiBpIHJlY29tbWVuZCB1c2luZwo+IGhrcHM6Ly9rZXlzZXJ2ZXIudWJ1bnR1LmNvbQo+Cj4g
+VGhpcyBkaWQgZG5vdCB3b3JrLiBJIHN0aWxsIGdldCwgZm9yIGV4YW1wbGU6Cj4gICAgICBsbHRh
+Zy0wLjE0LjYudGFyLmd6IC4uLiBGQUlMRUQgKHVua25vd24gcHVibGljIGtleSA0NDkxOTBGMzIz
+NUFCRDNCKQo+ID09PiBFUlJPUjogT25lIG9yIG1vcmUgUEdQIHNpZ25hdHVyZXMgY291bGQgbm90
+IGJlIHZlcmlmaWVkIQo+CnllcyB0aGlzIGtleSBoYXNuJ3QgYmVlbiB1cGxvYWRlZCB0byBhbnkg
+a2V5c2VydmVyLgp0cnk6IGdwZyAtLWZldGNoIApodHRwczovL2RiLmRlYmlhbi5vcmcvZmV0Y2hr
+ZXkuY2dpP2ZpbmdlcnByaW50PTdBNUE0RTgwRTQwMDk3QkFGNkVBRDYzODQ0OTE5MEYzMjM1QUJE
+M0IKCi0tIApTaW5jZXJlbHksIEFsZXhhbmRlci4KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlz
+dEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8v
+YmxpbnV4LWxpc3Q=
 
