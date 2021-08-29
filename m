@@ -2,70 +2,71 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id AFD4A3FA80F
-	for <lists+blinux-list@lfdr.de>; Sun, 29 Aug 2021 02:32:10 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 7F3AA3FA81B
+	for <lists+blinux-list@lfdr.de>; Sun, 29 Aug 2021 03:07:46 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1630197129;
+	s=mimecast20190719; t=1630199265;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=t9ZJE0WKhcjMj/l2cZXHNvzbtox050X6mOxFVFzsgpc=;
-	b=eNu4djd1HQqsSsODvignYOogBRtQzNG8BWu2Vc/tRzRgd/mPJyu4kzEcs7b3uAYhc6a8OC
-	pndOAkC/2qjF/yt24Nnpt0zNTr4Uq8q0ztLsP6cN2j0dOuaT+a0jwMiiQXrWrD+X6rX4I3
-	rtfWc1lpqmMYs8kZz/Ko/f63VCkqrmE=
+	bh=NH7uPqLusGJvqciybP//hPFxFt6a0fCLKnQbA1z254I=;
+	b=POEyfVZLQ3oS/9jtjXEBjExnUGw2URBdgGcAOs87bX9+AfGw0lE1tXncXWenIA2yOCEcRo
+	9Cpde8TNiqNVYy0g6nFYJL5WcVpSkvNuoAdmgeHE1MClplVF2a4OplRTPMULx2cnWE7+GX
+	Y5h+BuvWTthMj6/FwBXYszosZ94R+xE=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-433-ZGdhYXzYM22KSnl0EMEK-Q-1; Sat, 28 Aug 2021 20:32:08 -0400
-X-MC-Unique: ZGdhYXzYM22KSnl0EMEK-Q-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-371-r9OASV40Mz6mMhR-aS99aQ-1; Sat, 28 Aug 2021 21:07:44 -0400
+X-MC-Unique: r9OASV40Mz6mMhR-aS99aQ-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 82FE58042E7;
-	Sun, 29 Aug 2021 00:32:03 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C71FE60C82;
-	Sun, 29 Aug 2021 00:31:58 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 41BBC801B3C;
+	Sun, 29 Aug 2021 01:07:40 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E70921002388;
+	Sun, 29 Aug 2021 01:07:39 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 566024BB7B;
-	Sun, 29 Aug 2021 00:31:52 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 9F4EE181A0F7;
+	Sun, 29 Aug 2021 01:07:38 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 17T0R5xW017745 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 28 Aug 2021 20:27:06 -0400
+	id 17T17QlD019825 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 28 Aug 2021 21:07:26 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id C79B92162388; Sun, 29 Aug 2021 00:27:05 +0000 (UTC)
+	id 7DE32216238B; Sun, 29 Aug 2021 01:07:26 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C23E12162387
-	for <blinux-list@redhat.com>; Sun, 29 Aug 2021 00:27:02 +0000 (UTC)
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 789372162385
+	for <blinux-list@redhat.com>; Sun, 29 Aug 2021 01:07:22 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BAE9A185A79C
-	for <blinux-list@redhat.com>; Sun, 29 Aug 2021 00:27:02 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B9C9A800882
+	for <blinux-list@redhat.com>; Sun, 29 Aug 2021 01:07:22 +0000 (UTC)
 Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-267-mQgCq6zbOsSlsJvZP_9RHg-1; Sat, 28 Aug 2021 20:27:00 -0400
-X-MC-Unique: mQgCq6zbOsSlsJvZP_9RHg-1
+	us-mta-9-cyt1sJWfOg2P9j0kbfVedQ-1; Sat, 28 Aug 2021 21:07:20 -0400
+X-MC-Unique: cyt1sJWfOg2P9j0kbfVedQ-1
 Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4GxvQq4rDszK2g
-	for <blinux-list@redhat.com>; Sat, 28 Aug 2021 20:26:59 -0400 (EDT)
+	by mailbackend.panix.com (Postfix) with ESMTP id 4GxwKM5gZtzL64
+	for <blinux-list@redhat.com>; Sat, 28 Aug 2021 21:07:19 -0400 (EDT)
 Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4GxvQq497mzcbc; Sat, 28 Aug 2021 20:26:59 -0400 (EDT)
+	id 4GxwKM53CYzcbc; Sat, 28 Aug 2021 21:07:19 -0400 (EDT)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4GxvQq3pp4zcbP
-	for <blinux-list@redhat.com>; Sat, 28 Aug 2021 20:26:59 -0400 (EDT)
-Date: Sat, 28 Aug 2021 20:26:59 -0400
+	by panix1.panix.com (Postfix) with ESMTP id 4GxwKM4jFtzcbP
+	for <blinux-list@redhat.com>; Sat, 28 Aug 2021 21:07:19 -0400 (EDT)
+Date: Sat, 28 Aug 2021 21:07:19 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Found this on youtube
-In-Reply-To: <9290E34A-9F86-46DC-ACF7-507E81BB70BF@gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2108282021570.9713@panix1.panix.com>
+In-Reply-To: <alpine.NEB.2.23.451.2108282021570.9713@panix1.panix.com>
+Message-ID: <alpine.NEB.2.23.451.2108282105260.20318@panix1.panix.com>
 References: <9290E34A-9F86-46DC-ACF7-507E81BB70BF@gmail.com>
+	<alpine.NEB.2.23.451.2108282021570.9713@panix1.panix.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -92,7 +93,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -100,25 +101,39 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Thanks for sharing that find.  I've heard about this one before but didn't
-know where it lived before so wasn't able to try it.  As it turns out, I
-have a spare ssd as a result of a manjaro-talking install fail so ought to
-be able to try this out in a little while.  I also failed to subscribe to
-the manjaro-general email list and suspect that's rather exclusive and
-mostly Spanish so even if I were allowed onto that list I'd be rather
-ineffective on it.
+For now, I can't tell what to download from where.  If I do this install,
+I'll likely put all of this on a dvd then run it from that dvd if that's
+even possible.  I don't run qemu since it's not real hardware.
 
 
 On Sat, 28 Aug 2021, Linux for blind general discussion wrote:
 
-> Hi all,
+> Thanks for sharing that find.  I've heard about this one before but didn't
+> know where it lived before so wasn't able to try it.  As it turns out, I
+> have a spare ssd as a result of a manjaro-talking install fail so ought to
+> be able to try this out in a little while.  I also failed to subscribe to
+> the manjaro-general email list and suspect that's rather exclusive and
+> mostly Spanish so even if I were allowed onto that list I'd be rather
+> ineffective on it.
 >
-> Just found this on Youtube and wondered if anyone hhas tried it.  This is a blind arch install demo on how it works.
 >
-> https://www.youtube.com/watch?v=72g-2fbP04w
-> Matthew
+> On Sat, 28 Aug 2021, Linux for blind general discussion wrote:
 >
->
+> > Hi all,
+> >
+> > Just found this on Youtube and wondered if anyone hhas tried it.  This is a blind arch install demo on how it works.
+> >
+> > https://www.youtube.com/watch?v=72g-2fbP04w
+> > Matthew
+> >
+> >
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://listman.redhat.com/mailman/listinfo/blinux-list
+> >
+> >
 >
 > _______________________________________________
 > Blinux-list mailing list
