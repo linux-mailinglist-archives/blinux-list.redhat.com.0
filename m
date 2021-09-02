@@ -1,75 +1,68 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 9573D3FD066
-	for <lists+blinux-list@lfdr.de>; Wed,  1 Sep 2021 02:45:43 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 9DDA73FF34A
+	for <lists+blinux-list@lfdr.de>; Thu,  2 Sep 2021 20:34:36 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1630457142;
+	s=mimecast20190719; t=1630607675;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=wvxj0RaJOHDZnRtobhCwTxcvIGSE9XXEqVVC2Z7xUfQ=;
-	b=N155W3Zdf0H0SQp/3HZ3GgCULWaGWkjeqUDi4h+n/PUWIpR/LJyR1zuPPymEuEjFZBqDdv
-	iYwGNx9RddGmQx30JJY/cVNJeYSb8H6tGxQberJC/1NAEDOEllr6H4kkBwgDfMmvRWk3en
-	IuQ+U6aostDjJ15H0jLIfaekLSHo+JI=
+	bh=y/aaEZTA5/UCa/DsH2E4XW9/A0KVbSw2/2InozUFvRk=;
+	b=ZrOngqem6k5+adPfKw5x2AJfN63ZZYsKP7vC939MmZ24dWY0smXJIv8ooAS+VTENyGuwQN
+	EWKTIi30XO63R4T0eyiW8wXfgrzibJT5AYT9lhmbIHx9lT1THP2QwUrmkYAGgtTz7VNnLW
+	bbq8qOMFIBlsUiphFhH3Dh/o6Hf1tKs=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-471-qflNJQDSMg2nevgmbnl2eQ-1; Tue, 31 Aug 2021 20:45:41 -0400
-X-MC-Unique: qflNJQDSMg2nevgmbnl2eQ-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-446-IamXpz0rMBqVj9bkpkMU0g-1; Thu, 02 Sep 2021 14:34:33 -0400
+X-MC-Unique: IamXpz0rMBqVj9bkpkMU0g-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6EA711F1FB;
-	Wed,  1 Sep 2021 00:45:37 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6E46F2AF99;
-	Wed,  1 Sep 2021 00:45:36 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id EA887108593D;
+	Thu,  2 Sep 2021 18:34:28 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id DC780784C9;
+	Thu,  2 Sep 2021 18:34:26 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BFA40181A2A5;
-	Wed,  1 Sep 2021 00:45:34 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B19224EEA1;
+	Thu,  2 Sep 2021 18:34:17 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1810fQSx004298 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 31 Aug 2021 20:41:26 -0400
+	id 182IY4GK029787 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 2 Sep 2021 14:34:04 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id E86CC2068FE7; Wed,  1 Sep 2021 00:41:25 +0000 (UTC)
+	id 3F34614E763; Thu,  2 Sep 2021 18:34:04 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E3C1820316F4
-	for <blinux-list@redhat.com>; Wed,  1 Sep 2021 00:41:22 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A4730866DF1
-	for <blinux-list@redhat.com>; Wed,  1 Sep 2021 00:41:22 +0000 (UTC)
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3A63714E76F
+	for <blinux-list@redhat.com>; Thu,  2 Sep 2021 18:34:01 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6F5C18007B1
+	for <blinux-list@redhat.com>; Thu,  2 Sep 2021 18:34:01 +0000 (UTC)
 Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-293-Cv2i0-l8NYanNySSp0JTfg-1; Tue, 31 Aug 2021 20:41:20 -0400
-X-MC-Unique: Cv2i0-l8NYanNySSp0JTfg-1
+	us-mta-475-IlykL3ELOSa6ICERbUmFog-1; Thu, 02 Sep 2021 14:33:59 -0400
+X-MC-Unique: IlykL3ELOSa6ICERbUmFog-1
 Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4Gzlbz6917z2tVm
-	for <blinux-list@redhat.com>; Tue, 31 Aug 2021 20:41:19 -0400 (EDT)
+	by mailbackend.panix.com (Postfix) with ESMTP id 4H0qMB2kmvz45cQ
+	for <blinux-list@redhat.com>; Thu,  2 Sep 2021 14:33:58 -0400 (EDT)
 Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4Gzlbz5Gd0zcbc; Tue, 31 Aug 2021 20:41:19 -0400 (EDT)
+	id 4H0qMB11Rpzcbc; Thu,  2 Sep 2021 14:33:58 -0400 (EDT)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4Gzlbz4s73zcbP
-	for <blinux-list@redhat.com>; Tue, 31 Aug 2021 20:41:19 -0400 (EDT)
-Date: Tue, 31 Aug 2021 20:41:19 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: blind-arch findings
-In-Reply-To: <20210901.003115.052.6@[192.168.1.100]>
-Message-ID: <alpine.NEB.2.23.451.2108312040310.22269@panix1.panix.com>
-References: <alpine.NEB.2.23.451.2108311320240.4235@panix1.panix.com>
-	<601917c3-21b1-b0c3-d375-925260efb669@gmail.com>
-	<576ba3b4-c113-0c2e-1931-c8e4eabf4204@gmail.com>
-	<20210901.003115.052.6@[192.168.1.100]>
+	by panix1.panix.com (Postfix) with ESMTP id 4H0qMB0fhgzcbW
+	for <blinux-list@redhat.com>; Thu,  2 Sep 2021 14:33:58 -0400 (EDT)
+Date: Thu, 2 Sep 2021 14:33:57 -0400
+To: blinux-list@redhat.com
+Subject: blind-arch script fail
+Message-ID: <alpine.NEB.2.23.451.2109021427340.24056@panix1.panix.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -79,9 +72,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
-X-MIME-Autoconverted: from QUOTED-PRINTABLE to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 1810fQSx004298
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -98,111 +89,30 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=WINDOWS-1252
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-run lsblk and check its output before running ./install if you want to
-know about your drives.
-
-
-On Tue, 31 Aug 2021, Linux for blind general discussion wrote:
-
-> NVMe will have something like NVM in the /dev tree.
->
-> ----- Original Message -----
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Date: Tue, 31 Aug 2021 20:17:06 -0400
-> Subject: Re: blind-arch findings
->
-> > How can you tell, for a given drive, whether it is sata or nvme? I just
-> listened to the youtube walk-through, and may want to try this on bare
-> metal.
->
->
->
-> Thanks,
->
->
->
-> Dave=A0 H.
->
->
->
->
-> Sent from Slint GNU/Linux.  https://slint.fr/doc/HandBook.html for info
->
-> On 8/31/21 5:32 PM, Linux for blind general discussion wrote:
-> > Hi,
-> >
-> > Also, by default it uses the lts kirnel and not the latest kernel.=A0 I
-> > don't think there is a way to fix this.=A0 I think there should be a wa=
-y
-> > to chuse which kernel you want, but either way iIt I think it is great
-> > for soomeone whoo is getting started, but you can get around this
-> > drive size problem by manually creatting your partitions if you know
-> > what you are doing, but I think you should bwe able to just use the
-> > remaining space by default.
-> >
-> > Matthew
-> >
-> >
-> >
-> > On Tue, 31 Aug 2021, Linux for blind general discussion wrote:
-> >
-> >> It can't do an install for a command line so it is necessary to choose=
- a
-> >> desktop.
-> >> Several warnings get thrown by the script but the script continues to
-> >> work.
-> >> I think if I do this again and pick a desktop the install will work
-> >> completely.
-> >> Partitions are made small sizes and this is on a disk with 240G of
-> >> space.
-> >> Maybe that could be improved so more of the disk gets used by
-> >> partitions.
-> >> No option to create and use a swap file rather than a swap partition i=
-s
-> >> available yet.
-> >> The script could probably install budgie as a desktop choice if worked=
-.
-> >> When I installed stuff I put xorg on the system along with fonts and
-> >> maybe
-> >> if I had left desktop and xorg off this might have come up in command
-> >> line
-> >> mode.=A0 I'll check that out time permitting.
-> >>
-> >> _______________________________________________
-> >> Blinux-list mailing list
-> >> Blinux-list@redhat.com
-> >> https://listman.redhat.com/mailman/listinfo/blinux-list
-> >>
-> >>
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
-
+This one was a surprise for me.
+I followed the script in the podcast describing how to do the install.
+Everything went normal until I chose gnome for the operating system.
+Whatever the script did, it did very fast.
+So I exit and reboot and find no operating system on the computer.
+Not only that, the script did things to the computer making it necessary
+to reset the computer to use another working distro on it to write this
+message.
+>From here, I'll try putting xfce on the computer since it's the smallest
+of the operating systems and see if the script can do that for me.
+If that doesn't work, I'll conclude the script is broken.  I could try i3
+and mate to see if any of them would install but we're supposed to have a
+choice of more than one operating system with this script.
+So everyone knows, I tried putting this system on a 240G solid state disk
+in a computer with 16g of available memory.  These failures are
+understandable on lesser resourced equipment but that's not the case here.
 
 _______________________________________________
 Blinux-list mailing list
