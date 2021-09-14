@@ -1,92 +1,74 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id C98CA40A118
-	for <lists+blinux-list@lfdr.de>; Tue, 14 Sep 2021 00:54:38 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 5B63140B637
+	for <lists+blinux-list@lfdr.de>; Tue, 14 Sep 2021 19:49:00 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1631573677;
+	s=mimecast20190719; t=1631641739;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=3Df0xDIgDaDhkqHaROZrhHKivFcyJmOqxVwNDcQfUM0=;
-	b=SnC+aBTWTfM5P9sx6Nb3YvaBokgzvt+fcibm8UPLW/OQO1i9XU+7uyhDDRuMjho9UrfPBm
-	JP24Zxzc8L3+dD+4hzU2QZkSpBqM0qXATC3G2denPVIY0PVn6e9eLzFtqT8jtb+TI/WoCn
-	eVBmfhvAMsrEjVTSnmoKu2GMEVX0Qd0=
+	bh=Tl2UMtQd8TdUntdLKsaKZGzyN6GJ74h6WXNx7CVdOHI=;
+	b=DmgyswLz6fgeYXWBYVUo8nTeUUd3iLV4cXM80P/7kyqVWUcVjJCCJ3AWFrx2y1/kwd1xgl
+	vsaFzkR+1RsEwi+uJ/Q/2GYEhtfTkQWERQYR2mLhn2/HqHniD/J8G1R4ZQfNr9Lrpddnus
+	RWPKh6xULJMsxxT5Q1nQUojeZs3s7Co=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-381-z8C7UG9eMsuxoEdy4mixyA-1; Mon, 13 Sep 2021 18:54:36 -0400
-X-MC-Unique: z8C7UG9eMsuxoEdy4mixyA-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-360--51YhJ8nPBuSaeZIBVuf-g-1; Tue, 14 Sep 2021 13:48:57 -0400
+X-MC-Unique: -51YhJ8nPBuSaeZIBVuf-g-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7F5B4801B3D;
-	Mon, 13 Sep 2021 22:54:31 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3033210013C1;
-	Mon, 13 Sep 2021 22:54:28 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C7C4F19251A1;
+	Tue, 14 Sep 2021 17:48:51 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 635E860C7F;
+	Tue, 14 Sep 2021 17:48:51 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1387A4E58E;
-	Mon, 13 Sep 2021 22:54:13 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EEC7B1809C84;
+	Tue, 14 Sep 2021 17:48:44 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 18DMqnKk032667 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 13 Sep 2021 18:52:49 -0400
+	id 18EHma2Y007462 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 14 Sep 2021 13:48:36 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id EAE001006F9F; Mon, 13 Sep 2021 22:52:48 +0000 (UTC)
+	id 700D820285B0; Tue, 14 Sep 2021 17:48:36 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E5BB911342E2
-	for <blinux-list@redhat.com>; Mon, 13 Sep 2021 22:52:46 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 58352101CC76
-	for <blinux-list@redhat.com>; Mon, 13 Sep 2021 22:52:46 +0000 (UTC)
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com
-	[209.85.216.46]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-251-jHE2FlvJPbmLhAwP3ydvjg-1; Mon, 13 Sep 2021 18:52:44 -0400
-X-MC-Unique: jHE2FlvJPbmLhAwP3ydvjg-1
-Received: by mail-pj1-f46.google.com with SMTP id dw14so6573070pjb.1
-	for <blinux-list@redhat.com>; Mon, 13 Sep 2021 15:52:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=Wo23JR8lOqvilmUZs2W2350OC9cutN6l/xfgH0ypfLo=;
-	b=4nHml0JR8G+VJr9uKX6LcBQO4Pa7K7Po7aLWXvCIOniiR87I+rXakFcU4MVK2OIN35
-	NtTX/p70hazf1S0OdDD2CrE/ta1wOhzeRCwRHGZ/vd+C7mvQrLSUn4ML/tO7QuLo+Efd
-	PZBRHziFrL+zvYYsBY92pUmQrxFeaQkZEYwI++2U94LDH3952f4sjJHeycPe1LnO/MlA
-	yLnN41mtWXopRAurkszC+PcdrnRRFFDbYztwFRXh6/p/HXuQIy1MPSKKNB+0FvqSMW2Q
-	j9Y4bZoZxDjKsdjpCVJaANCyeuiy8soVKSCE2jo6489ZHz/jTj5f2pKW2kalvu0P+jRp
-	wqIA==
-X-Gm-Message-State: AOAM533lToTfyQtx8Ruw4I7THHEutg76JtWAQhXixBMe7rhZVxlYd6VN
-	vQeVQTJ4EPXbxm4IgFacTroWyeYUqvg=
-X-Google-Smtp-Source: ABdhPJwOrPMLFi3a17f4t9ul84yR+XCpFTTHBK75iijOWCYKyzBdeflipmTaYvUA65+ykTHE4HRn9w==
-X-Received: by 2002:a17:90a:182:: with SMTP id 2mr2067612pjc.107.1631573562791;
-	Mon, 13 Sep 2021 15:52:42 -0700 (PDT)
-Received: from [192.168.0.101] ([103.121.18.83])
-	by smtp.gmail.com with ESMTPSA id
-	u12sm3185788pfi.126.2021.09.13.15.52.41 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Mon, 13 Sep 2021 15:52:41 -0700 (PDT)
-Subject: Re: best gui vm managers
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 696F92028646
+	for <blinux-list@redhat.com>; Tue, 14 Sep 2021 17:48:32 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E20328934E9
+	for <blinux-list@redhat.com>; Tue, 14 Sep 2021 17:48:31 +0000 (UTC)
+Received: from mail.opopanax.net (mail.opopanax.net [66.172.33.24]) (Using
+	TLS) by relay.mimecast.com with ESMTP id
+	us-mta-413-GgNlfNMsNKiWPi15QZcKJA-1; Tue, 14 Sep 2021 13:48:29 -0400
+X-MC-Unique: GgNlfNMsNKiWPi15QZcKJA-1
+Received: from mail.opopanax.net (localhost [127.0.0.1])
+	by mail.opopanax.net (Postfix) with ESMTP id 4H89n83bmFz8vNb
+	for <blinux-list@redhat.com>; Tue, 14 Sep 2021 17:48:28 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail
+Received: from mail.opopanax.net ([127.0.0.1])
+	by mail.opopanax.net (mail.opopanax.net [127.0.0.1]) (amavisd-new,
+	port 10026) with ESMTP id 2m9Ij49kRdlD for <blinux-list@redhat.com>;
+	Tue, 14 Sep 2021 17:48:27 +0000 (UTC)
+Received: from [192.168.1.100] (208-107-97-40-dynamic.midco.net
+	[208.107.97.40])
+	by mail.opopanax.net (Postfix) with ESMTPSA id 4H89n72ynBz8vMw
+	for <blinux-list@redhat.com>; Tue, 14 Sep 2021 17:48:27 +0000 (UTC)
+Message-ID: <20210914.174836.561.5@[192.168.1.100]>
 To: blinux-list@redhat.com
-References: <20210912.162536.058.3@[192.168.1.100]>
-	<20210912172806.5dzxk7e3sj4u73it@alex-pc>
-Message-ID: <2b09abee-375d-6391-7e74-6890b0a0dbaa@gmail.com>
-Date: Tue, 14 Sep 2021 05:52:39 +0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
-	Thunderbird/78.13.0
+Subject: Persistent device naming, alsa
+Date: Tue, 14 Sep 2021 12:48:36 -0500
 MIME-Version: 1.0
-In-Reply-To: <20210912172806.5dzxk7e3sj4u73it@alex-pc>
+User-Agent: POP Peeper Pro (5.1.2.0)
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -95,7 +77,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 18EHma2Y007462
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -112,35 +96,26 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I'm using KVM for accessibility and performance.
+I have a USB audio device that I use for system sounds via pulse, and speech.
+In my default.pa, I have
+set-default-sink alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo
+I also have onboard audio, to which my surround speakers are connected.
+For my mpv, I can use this line in ~/.config/mpv/mpv.conf:
+audio-device=pulse/alsa_output.pci-0000_00_1f.3.analog-stereo
+That's the onboard card.
+I also use pianobar, which uses libao, to produce its audio. The problem is that
+dev=hw:0
+changes on each boot. I need a way to specify a device by it's name somewhere, so that I can call it in application, even if it's hw ID changes.
+What can I do there?
 
-NVDA performance is much smoother and snappier.
-
-On 9/13/21 12:28 AM, Linux for blind general discussion wrote:
-> On Sun, Sep 12, 2021 at 11:25:36AM -0500, Linux for blind general discussion wrote:
->> I'm looking at throwing another 16 gb ram into my linux box, and then switching over to it fulltime, running a win 7 vm for those times I need windows for something. What's the most accessible vm manager? VMWare player? Virtualbox? I'm on arch.
->> Thanks.
-> I am using qemu with libvert and vert manager. it's the best option IMO.
->
-> --
-> Sincerely, Alexander
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
--- 
-Edhoari Setiyoso
 
 _______________________________________________
 Blinux-list mailing list
