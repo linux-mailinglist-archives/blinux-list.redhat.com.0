@@ -1,69 +1,83 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 0F31A420204
-	for <lists+blinux-list@lfdr.de>; Sun,  3 Oct 2021 16:20:41 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 1AAC04212E5
+	for <lists+blinux-list@lfdr.de>; Mon,  4 Oct 2021 17:41:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1633270841;
+	s=mimecast20190719; t=1633362116;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=qqJEXlatNPkrCchV18wAf3Lncyi5DKQhhPaD0joomOs=;
-	b=ZyGPiphuaiVgM8Y0DRiffZaZsOIoSeR05IU3czXbqBel12w3lO0zBebMQQqhZHDwcI9cKb
-	74hL88dOTVfPWy5hdon+Ibqp3r+JnEy/PM+kZpvvThY62CkiOG2gIP10HUC5kM+utSldLw
-	6hhSGxkQbu1x6HOZeyIdqkrYQCTrJFE=
+	bh=81FM77iVdziB2GdRY5l6Wl9D5jwZivKBFWziEUcfXH0=;
+	b=O1oh4yyz+GJ3KlUvN9Vg2W9Kq6NIl6yoj+rGrWSWOWMZNOcbM/2EHfFOPjTePy/deMZ9W9
+	uJBBrKEgybOrR+ms1j9NnRM33YjLikv5qgwVnMbGpCQOclySQzbhEC1TWtwFhotlImZMvC
+	zqIFLbUk4pGs3tRjISPlzp1drhipBN8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-601-xW0thViJN2-mgpFvH8pCQQ-1; Sun, 03 Oct 2021 10:20:39 -0400
-X-MC-Unique: xW0thViJN2-mgpFvH8pCQQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-590-9D_YgZ5CN_ySPiiSmxOXfQ-1; Mon, 04 Oct 2021 11:41:54 -0400
+X-MC-Unique: 9D_YgZ5CN_ySPiiSmxOXfQ-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E0CD7362F8;
-	Sun,  3 Oct 2021 14:20:34 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id F14D41922961;
+	Mon,  4 Oct 2021 15:41:48 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1507019C59;
-	Sun,  3 Oct 2021 14:20:32 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2CB7B5D740;
+	Mon,  4 Oct 2021 15:41:42 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 995F14E58E;
-	Sun,  3 Oct 2021 14:20:24 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 227A84E58F;
+	Mon,  4 Oct 2021 15:41:24 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 193EJqx3003462 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 3 Oct 2021 10:19:52 -0400
+	id 194Ff4dL021498 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 4 Oct 2021 11:41:04 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 014D62167D7C; Sun,  3 Oct 2021 14:19:52 +0000 (UTC)
+	id 8430AC2124; Mon,  4 Oct 2021 15:41:04 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F09E321623A4
-	for <blinux-list@redhat.com>; Sun,  3 Oct 2021 14:19:49 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 796EBC54D3
+	for <blinux-list@redhat.com>; Mon,  4 Oct 2021 15:40:54 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 46E7B866DF1
-	for <blinux-list@redhat.com>; Sun,  3 Oct 2021 14:19:49 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-59--BkPKd-9M9Kj3Dqj5Xn86Q-1; Sun, 03 Oct 2021 10:19:42 -0400
-X-MC-Unique: -BkPKd-9M9Kj3Dqj5Xn86Q-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4HMmFV0QJWz4BKy
-	for <blinux-list@redhat.com>; Sun,  3 Oct 2021 10:19:42 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4HMmFT6brnzcbc; Sun,  3 Oct 2021 10:19:41 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4HMmFT6BKhzcbW
-	for <blinux-list@redhat.com>; Sun,  3 Oct 2021 10:19:41 -0400 (EDT)
-Date: Sun, 3 Oct 2021 10:19:41 -0400
-To: blinux-list@redhat.com
-Subject: BlindArch releases
-Message-ID: <alpine.NEB.2.23.451.2110031017510.12115@panix1.panix.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 25D47899EE3
+	for <blinux-list@redhat.com>; Mon,  4 Oct 2021 15:40:54 +0000 (UTC)
+Received: from out1-smtp.messagingengine.com (out1-smtp.messagingengine.com
+	[66.111.4.25]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-126-tkdlNZQiMkO_polnwUsnEw-1; Mon, 04 Oct 2021 11:40:52 -0400
+X-MC-Unique: tkdlNZQiMkO_polnwUsnEw-1
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
+	by mailout.nyi.internal (Postfix) with ESMTP id E82925C01C5
+	for <blinux-list@redhat.com>; Mon,  4 Oct 2021 11:33:58 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+	by compute6.internal (MEProxy); Mon, 04 Oct 2021 11:33:58 -0400
+X-ME-Sender: <xms:5h5bYS9JKONgzPz_tb-er5Y7G5E12zT2lcnVM2o5jJHrw3WsuiWq-Q>
+	<xme:5h5bYSt_MWsAOh4ffV_kQsQ2arc-zVM1DDZZOMGMGQh0-cB36yGJaDndiZXIZphJ5
+	hhENkqi98MqGJ2vGJg>
+X-ME-Received: <xmr:5h5bYYAfWJndRxPkRn_TEaKr_5tCxPDguLnhrbcFjHuMhnZ0HK4B4Qvhwqarv85xGmbyOifl7tL9em9oelmixdPqfWqFXCP5Ww>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvtddrudelvddgkeejucetufdoteggodetrfdotf
+	fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+	uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+	cujfgurhepfffhvffukfggtgesthdtredttddtvdenucfhrhhomhepvehhihhmvgcujfgr
+	rhhtuceotghhihhmvgeshhhusggvrhhtqdhhuhhmphhhrhgvhidrtghomheqnecuggftrf
+	grthhtvghrnhepjeffffdujeelueffieevtdeiteettdekgffgkedvueejteektdehfefh
+	hfdvteeknecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
+	eptghhihhmvgeshhhusggvrhhtqdhhuhhmphhhrhgvhidrtghomh
+X-ME-Proxy: <xmx:5h5bYafVtcWMbykBddNyP0G0B49-zRPnoekvGuivAKfng1ZpnAMZWw>
+	<xmx:5h5bYXPGl5BxnfmgEh99EiO2Ewpm_ofX2fP5vn0yQC5rp3QX5jV3Pw>
+	<xmx:5h5bYUlt1Rkt2xHKM4-ucyM7N2ap-FBDVtTDITQFQ8OWkqVYtRTKAQ>
+	<xmx:5h5bYWZMWBWh9E266XTFHMQBTyJq3AhN3rvYdiJBbxuQjNyxxQdM0Q>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA for
+	<blinux-list@redhat.com>; Mon, 4 Oct 2021 11:33:58 -0400 (EDT)
+Date: Mon, 4 Oct 2021 08:33:57 -0700 (PDT)
+To: Blinux Discussion List <blinux-list@redhat.com>
+Subject: Can mpv Remember Where I Left Off?
+Message-ID: <3be9ece9-e0bb-9440-dc6f-db8ce454e6b3@hubert-humphrey.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -73,7 +87,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -90,17 +104,20 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I found a release in the older releases section of the web site with a
-date on it later than the latest release.  I don't know if this is because
-the site was not updated but suspect so.
+Hi All: I thought I saw some mentions of a way of having mpv remember where I 
+left off, as an example in a large audio book? I prefer combining all 
+individual files to cut down on clutter. But certainly many books are more than 
+13hours, so can some1 please inform if there are startup commands in mpv to 
+remember my place? Thanks so much in advance
+Chime
 
 _______________________________________________
 Blinux-list mailing list
