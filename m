@@ -1,95 +1,94 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id A7317426172
-	for <lists+blinux-list@lfdr.de>; Fri,  8 Oct 2021 02:44:36 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTP id 6C92942828E
+	for <lists+blinux-list@lfdr.de>; Sun, 10 Oct 2021 19:13:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1633653875;
+	s=mimecast20190719; t=1633885980;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=PLLIywvCGAsvkUjREq12otw6QY+YV6bhn5IVDrLNP7Y=;
-	b=Qcaql8tykgcpBqBUuSIgopp/TCRTrh++Fp3UMig94VqCeAtFNedxLUqVyWZ9+FXcq1Fq9v
-	y+r5YRcXdgLv2+0I27P54VU/LACh78DEccebCJUbSikgaOhFKeCQVho//UqjKws6Vr9H6l
-	vjKtEURtOcBpcIJMQZodSNYnI5WdWTo=
+	bh=Oek0LXY7ZQ7knwhMUF6y+AtHYCHVQikXusVq7u0gGPE=;
+	b=ZRyfa4xHhIhKHEhdgrLW0NkARmoVOzp02270Nv3vHIsEFaCIlf7IFvTjsZhnej1qF5BHtF
+	vjwiz8VXe6TRJT8IkWAqItLl8K0JpEpTfFwIEA7TrfJZeciEAnqjLAdxJ4tbzQPwYV5Ats
+	WuQW1DLurkYo2fe+JKkVnwPN6Su16iA=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-332-P5pvMs1hMdqgoMUhHjQAGw-1; Thu, 07 Oct 2021 20:44:34 -0400
-X-MC-Unique: P5pvMs1hMdqgoMUhHjQAGw-1
+ us-mta-259-49SOTL9jNU2VvllvO6dtTA-1; Sun, 10 Oct 2021 13:12:56 -0400
+X-MC-Unique: 49SOTL9jNU2VvllvO6dtTA-1
 Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2ADAF1235A90;
-	Fri,  8 Oct 2021 00:44:01 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1B4FF60C2B;
-	Fri,  8 Oct 2021 00:44:00 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 3245F1023F4D;
+	Sun, 10 Oct 2021 17:12:50 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 655AF60871;
+	Sun, 10 Oct 2021 17:12:46 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D1AB71800B8B;
-	Fri,  8 Oct 2021 00:43:56 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6EDA24E58F;
+	Sun, 10 Oct 2021 17:12:29 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1980hn6k026822 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 7 Oct 2021 20:43:49 -0400
+	id 19AHCGOT027829 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 10 Oct 2021 13:12:16 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 193722157F26; Fri,  8 Oct 2021 00:43:49 +0000 (UTC)
+	id 532E22026D48; Sun, 10 Oct 2021 17:12:16 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1297F2157F23
-	for <blinux-list@redhat.com>; Fri,  8 Oct 2021 00:43:42 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B8958811E76
-	for <blinux-list@redhat.com>; Fri,  8 Oct 2021 00:43:42 +0000 (UTC)
-Received: from mail-qk1-f175.google.com (mail-qk1-f175.google.com
-	[209.85.222.175]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-162-QNFWBNkeMAGavFghBRjzDA-1; Thu, 07 Oct 2021 20:43:31 -0400
-X-MC-Unique: QNFWBNkeMAGavFghBRjzDA-1
-Received: by mail-qk1-f175.google.com with SMTP id t63so3142174qkf.1
-	for <blinux-list@redhat.com>; Thu, 07 Oct 2021 17:43:31 -0700 (PDT)
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4E4482026D46
+	for <blinux-list@redhat.com>; Sun, 10 Oct 2021 17:12:11 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6CA3F8007B1
+	for <blinux-list@redhat.com>; Sun, 10 Oct 2021 17:12:11 +0000 (UTC)
+Received: from mail-qv1-f54.google.com (mail-qv1-f54.google.com
+	[209.85.219.54]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-513-8081ivH6MtCzZIJMLY1pTg-1; Sun, 10 Oct 2021 13:12:09 -0400
+X-MC-Unique: 8081ivH6MtCzZIJMLY1pTg-1
+Received: by mail-qv1-f54.google.com with SMTP id v2so142792qve.11
+	for <blinux-list@redhat.com>; Sun, 10 Oct 2021 10:12:09 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
 	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=Zca8P7IB63DwX+nQFaiKR3wKSSQaYHJAOp2dZ8qfyvE=;
-	b=MsOQfc7nM7E1dBkkdB0U/8cnDq7rMdc7+378xk1A6uRsBbOwwM3ZqSnw5Xl+zbtVgc
-	Tp+X4kKRupCJ2avVE6wIREYkDOb5r/zavweQJ3Vnyj0USlM4z8ybzn7/i/3uZg8FEVAD
-	S82ZJZERGxTyItfRn1tmqNzsmv/88VVstqF7v+RBTqkbfc6e7lyBq5Ac4xFESVxd0nL2
-	U+DEFU7CXpJbmQfkWjT/o7vIyZXmb7ahcc0KYmeusCDRc3OnL+PihaQ0Xtgia8KO4JzS
-	qnul7VRu0dewOhV6fylbYgPBjJ/kaQYehpVIAF3GtTdnGmeoyNqpUsPaIL+lhHP0LheU
-	oXpQ==
-X-Gm-Message-State: AOAM533WpJ2YwrmhGAr+PC5t52IcJ+VUbeWKdoU+hYB0BDSnniG6SN9h
-	/hFgmNqEoUHI3aKaP4kH+oOnKPgXjmVJ9g==
-X-Google-Smtp-Source: ABdhPJwoxLDsxbkn5wOUyjjfr07E1+TsS7eQJkE/pnZWM93gB2gB3H40mzmFvuP8eW7Uu/RcKyAm2A==
-X-Received: by 2002:a37:9581:: with SMTP id x123mr411710qkd.477.1633653811094; 
-	Thu, 07 Oct 2021 17:43:31 -0700 (PDT)
-Received: from ?IPv6:2601:192:4c80:1420:9f4f:c8b4:2dce:36f7?
-	([2601:192:4c80:1420:9f4f:c8b4:2dce:36f7])
-	by smtp.gmail.com with ESMTPSA id
-	s203sm818277qke.21.2021.10.07.17.43.30 for <blinux-list@redhat.com>
+	:user-agent:mime-version:in-reply-to:content-language
+	:content-transfer-encoding;
+	bh=twAOfeBFFAfoQERhVDKR2bo2AOhbNT+Ju4d0Lkz7DfE=;
+	b=dCN8Tw5Mj1zf37z8Z6ZQsk0PjKoSGU77NhFUttlNJsEDJNVACuzRjHUS2l1HXY4141
+	fyDsv1RCouji+Xy07nKvPfarDs/qpgvyikBrATbxbQygNobnIl6SNj5rb77InZ9xt54T
+	5zvsmQPPb8n5HKBKXklG3QC433No+ph524KBZ+Tzk5cC/VTdGt/evriFe5nOFBrHYLf4
+	npOCqMpc+Q4k9zXOcyUfVPC/+E/1WLnC2b4BqOwoaIjhDZ+Ia/aCOjNEQwn0k/5+g6UF
+	slUc/UX+Ua0piaVMwL1dC4ruzDT58Sc2xSods4+HBq68g10DwH5b0txkT9NWCPE0XCzA
+	VTzA==
+X-Gm-Message-State: AOAM531YXFQfZubcNEt8WVsLHsdS4X5qbgBEJ6oHIqkrPmxMh8nWANnY
+	B92I+7r+sJRLOhmEc70yW8unY9t16tU=
+X-Google-Smtp-Source: ABdhPJwPWZpPpGQbE3eetmT7udLqCZQjeQjfMaMtUWqpvJlxy8r3OgDV3XbMuplh5RDg5MBOZpYCQw==
+X-Received: by 2002:a0c:9d4d:: with SMTP id n13mr20520712qvf.40.1633885928445; 
+	Sun, 10 Oct 2021 10:12:08 -0700 (PDT)
+Received: from [192.168.11.151] (d-65-175-184-10.nh.cpe.atlanticbb.net.
+	[65.175.184.10])
+	by smtp.gmail.com with ESMTPSA id 15sm1292897qkb.9.2021.10.10.10.12.07
+	for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 07 Oct 2021 17:43:30 -0700 (PDT)
+	Sun, 10 Oct 2021 10:12:07 -0700 (PDT)
 Subject: Re: Mate Desktop questions
-To: blinux-list@redhat.com
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <4037ad15-b52e-f0a5-4af5-2b8b6f782205@gmail.com>
 	<20210715.162227.936.10@[192.168.1.100]>
 	<a648b4d5-d8a0-cb1b-1a65-b8e515dd2fcc@gmail.com>
 	<765675B0-8A52-46FD-AEBD-E14DD89F221C@gmail.com>
 	<d11bed68-9e1c-bb1e-532f-736f45cbf0ce@gmail.com>
 	<bf6f76af-bc13-f826-8c91-ff8b6a3dbba6@gmail.com>
-Message-ID: <70eaca5a-3240-bcf5-941b-4ef57f031b44@gmail.com>
-Date: Thu, 7 Oct 2021 20:43:30 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
-	Icedove/78.13.0
+Message-ID: <9a347e53-0f52-4867-f81b-3c62495c6d0f@gmail.com>
+Date: Sun, 10 Oct 2021 13:12:06 -0400
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
+	Thunderbird/78.14.0
 MIME-Version: 1.0
 In-Reply-To: <bf6f76af-bc13-f826-8c91-ff8b6a3dbba6@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
@@ -100,7 +99,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -123,13 +122,75 @@ Authentication-Results: relay.mimecast.com;
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-WWVzLCBidXQgaXQncyBiYXNlZCBvbiB0aGUgTFRTIHZlcnNpb25zIG9mIFVidW50dS7CoAoKCi1E
-YXZlwqAgSC4KCgoKT24gMTAvNy8yMSA4OjA1IFBNLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBk
-aXNjdXNzaW9uIHdyb3RlOgo+IElzbid0IExpbnV4IE1pbnQgc3RpbGwgYmFzZWQgb24gVWJ1bnR1
-PwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4
-LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFu
-LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
+Thanks for the tip on accessing the system tray. While I was able to 
+access it, all that it contains is the time/date and the "show desktop" 
+icons. I do not know where the WiFi icon is or how to put it there.
+
+Regarding the "no sound" issue...
+I determined that the sound is being muted. Luckily, the Thinkpad 
+laptops I am working with have a physical mute button, so I can press it 
+to unmute the sound and get Orca talking. I am baffled as to why the 
+sound is being muted. I am the only person currently using these 
+machines and I have no reason to mute the sound.
+Therefore, is there a command that I can add somewhere, that can be 
+executed during Linux boot, that will ensure that the sound is not 
+muted? This will become a much bigger problem for me with the newer 
+Thinkpad laptops, that do not have a physical mute button.
+Thanks,
+John
+
+
+On 10/7/2021 8:05 PM, Linux for blind general discussion wrote:
+> Isn't Linux Mint still based on Ubuntu? How did they fix the problem of 
+> having to log out and back in to get a talking installer that Ubuntu has 
+> yet to fix? Ubuntu 21.10 needs to take a page from the Linux Mint 
+> playbook to make their installer talk without having to go through the 
+> work-around logout login procedure to get it talking. I myself would 
+> look at Mint, but I'm not fond of the Debian base. That doesn't preclude 
+> my installation of this distro for others, as I have been known to 
+> install Ubuntu for its ease of use, although I'm more partial to Fedora 
+> Linux these days, especially since it includes flatpak out of the box, 
+> and snapd can be installed quite easily. I actually have a couple of 
+> snaps working here without any issues.
+> 
+> 
+> First, to get to the panel with the system tray, you usually hold down 
+> the alt and control keys and press the tab key repeatedly until you hear 
+> "top panel." But if I remember correctly, Mint has no top panel, only 
+> the bottom one, so your system tray is there. So if you never hear "top 
+> panel," just go to the bottom panel and you're good.
+> 
+> 
+> The sound issue is caused by a conflict between more than one user 
+> trying to access sound at the same time. The conflict appears to be a 
+> race condition where the first user's sound session doesn't get killed 
+> fast enough, so the second user is blocked from using the sound device. 
+> This usually is not a problem using Pulseaudio, but for some reason 
+> Pipewire still has this problem. I switched up mine on Arch and I see 
+> the same thing, even running a talking login screen and then logging in 
+> as my normal user on a single-user system. Again, I only saw this when I 
+> switched that system to pipewire and installed the pipewire-pulse or 
+> pipewire-pulseaudio package, so it sounds like this may be what Mint is 
+> doing. It should be possible to resolve the issue using regular 
+> pulseaudio. If pulseaudio is already installed and this problem is still 
+> occurring, I'm not sure where to look next, unless you can set up a 
+> session wrapper script that will kill the user's running pulseaudio when 
+> that user logs out, which should happen automatically, but may not be 
+> happening early enough. I hope this helps.
+> 
+> ~Kyle
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
