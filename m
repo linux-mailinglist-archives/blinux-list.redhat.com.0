@@ -2,94 +2,91 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 5D28C42A419
-	for <lists+blinux-list@lfdr.de>; Tue, 12 Oct 2021 14:12:54 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id D0B4C42A779
+	for <lists+blinux-list@lfdr.de>; Tue, 12 Oct 2021 16:41:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1634040773;
+	s=mimecast20190719; t=1634049671;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=I32oVomBKPax9HDXjTh60NpWRIGN/vuNB14+tjOCYJk=;
-	b=fmLFAf/f8ieDfUUfcNNODXn+vshX1+RC/T7JE9+Oao+8ez6isP60JXTfbXYD48m1pOvPBX
-	AxXtzojpGZew3xUsV42OENYefSpk98DR33/ooUAGNEHKBB7+mdquvjQzInXmoeqGZ5X7ak
-	FEttQLPj61TjNLkS8bG/Gsff81yX/CA=
+	bh=AxUsSyQybdPRHHosgYl7He2T7l9ILgrctXnarCMCJwk=;
+	b=XKsR7PSx3mmLeTCMkiV1+DxiLZTTXW9y22un/b6gxHSQ93oS55YeIEhhuW1LSL7VBBgD5v
+	rreXmjtk+g6eN3kJ6Sc06qQT8gvWyHMBeZd56XUdOttXncFkjsUY/pRUozmGN1KlwA2DwU
+	v6DypAccSNTPC4+4/Ls4NVmoc3jMyDw=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-102-LdViZYdSPf6hQIWJErCUNA-1; Tue, 12 Oct 2021 08:12:49 -0400
-X-MC-Unique: LdViZYdSPf6hQIWJErCUNA-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-276-YU7FeKtINPqWOzBrbUKDhw-1; Tue, 12 Oct 2021 10:41:09 -0400
+X-MC-Unique: YU7FeKtINPqWOzBrbUKDhw-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A8DA71966321;
-	Tue, 12 Oct 2021 12:12:45 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4886C69214;
-	Tue, 12 Oct 2021 12:12:44 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 228688C6946;
+	Tue, 12 Oct 2021 14:41:03 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5B7035D9C6;
+	Tue, 12 Oct 2021 14:41:01 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BE8A01809C81;
-	Tue, 12 Oct 2021 12:12:38 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 858174EA29;
+	Tue, 12 Oct 2021 14:40:53 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.1])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 19CCCUUB014999 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 12 Oct 2021 08:12:30 -0400
+	id 19CEej8a008297 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 12 Oct 2021 10:40:45 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 2F63A40CFD10; Tue, 12 Oct 2021 12:12:30 +0000 (UTC)
+	id B1A0340CFD10; Tue, 12 Oct 2021 14:40:45 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 29EE640CFD05
-	for <blinux-list@redhat.com>; Tue, 12 Oct 2021 12:12:30 +0000 (UTC)
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id AC91F40CFD05
+	for <blinux-list@redhat.com>; Tue, 12 Oct 2021 14:40:45 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D37F1811E7A
-	for <blinux-list@redhat.com>; Tue, 12 Oct 2021 12:12:29 +0000 (UTC)
-Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com
-	[209.85.222.181]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-587-t-qacdI1PIemZhDAqP7Dww-1; Tue, 12 Oct 2021 08:12:28 -0400
-X-MC-Unique: t-qacdI1PIemZhDAqP7Dww-1
-Received: by mail-qk1-f181.google.com with SMTP id ay35so10366483qkb.10
-	for <blinux-list@redhat.com>; Tue, 12 Oct 2021 05:12:28 -0700 (PDT)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 939E580120D
+	for <blinux-list@redhat.com>; Tue, 12 Oct 2021 14:40:45 +0000 (UTC)
+Received: from mail-ot1-f41.google.com (mail-ot1-f41.google.com
+	[209.85.210.41]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-195-RTnzF-UONACBUmK-Py8yOg-1; Tue, 12 Oct 2021 10:40:44 -0400
+X-MC-Unique: RTnzF-UONACBUmK-Py8yOg-1
+Received: by mail-ot1-f41.google.com with SMTP id
+	k2-20020a056830168200b0054e523d242aso16614861otr.6
+	for <blinux-list@redhat.com>; Tue, 12 Oct 2021 07:40:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-	:content-language:to:references:from:in-reply-to
-	:content-transfer-encoding;
-	bh=pNNWncLSk6cCM0qVEAlYDuKrekgtvJHkLqVnPIKCrps=;
-	b=31h1M8pxzEwww62lM351Ahj/z2+RyowMQ6f45tYhn6IARdnWW9blRlvEYHD1s97Jvi
-	UhI2MeXhHzg4koLQSK9I4aJ1y3Ir+cz7LYc3MEjtOkYmBnRBz0sg+0jO9G9NQjhGqk3p
-	7VCT87n/XDL0s5nhLMDGhHMkZuaC4sRUMKa5TsKgOx5ripRoaxzP9w7GhYcnHrcv0mW0
-	3oLaa58c13nw/dawMigkgkRVhkcRvgfoUEuUz6NHWNoCn3qkCpLD5jXCQEFvPq2RQOxH
-	my/wJmd12tndyemCapesUK0LX4gZ4HPO27BGb2iWbS+Z4demnoMJRKyN2NZC2NWYNmKy
-	XEYA==
-X-Gm-Message-State: AOAM531NMQnjSTfBJnWoZ0B3DIlQRF7bR45eVqcz4+rmcQRV0aryWBOt
-	/LyHWOchoV73kX0unbbQy1KhTTYW5GU=
-X-Google-Smtp-Source: ABdhPJyWGNpFs3i5qd3CaFw7JpmMGGc+CI6xFHKUm3iZbnVI7fXzBcqi8IdUZMKLEU+NHHTtoryCMg==
-X-Received: by 2002:ae9:dd85:: with SMTP id
-	r127mr18897146qkf.173.1634040747805; 
-	Tue, 12 Oct 2021 05:12:27 -0700 (PDT)
-Received: from ?IPV6:2603:6080:6304:450a::960?
-	(2603-6080-6304-450a-0000-0000-0000-0960.res6.spectrum.com.
-	[2603:6080:6304:450a::960]) by smtp.gmail.com with ESMTPSA id
-	s14sm6968177qtc.32.2021.10.12.05.12.27 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Tue, 12 Oct 2021 05:12:27 -0700 (PDT)
-Message-ID: <830943b7-8c77-54d2-ef41-ebf35b2317d4@gmail.com>
-Date: Tue, 12 Oct 2021 08:12:25 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.1.0
+	h=x-gm-message-state:from:content-transfer-encoding:mime-version
+	:subject:date:references:to:in-reply-to:message-id;
+	bh=A9YnQo1Sj12U694tw967vcakOPNocIEE0fEO9ctXr40=;
+	b=2+CL0QJ4sCgneUlmLkzqMIYfOjjlx5u41HHHdTZsju/X3DMcBH1J+e7CdzdME7x/kp
+	7uf1z9gllvNKpuObiEoEwa8BdxWaf5hhrvU7JmvGcK6AiOnk8bdK5t2ENuXfoH50uL/0
+	duuJOrrONuzx/Jjl7Oq6TCFDIuO1aalWZ92tFQ1TieFD7YMMKYPjYiDh+Oe71NWdXAFI
+	hrtEEfuKwrf76S9i3m40Hgo7SxH0tm7gjwW3STCWeQsvJocfk3fX+UwFmTp9ZLBM93jH
+	tKJ5xMgh7PEughXXfQke5X5zWI4W2HcOTxgrkBbfPEDsMgzEWEoMFAwSszi+4AZN9R+A
+	jZ2A==
+X-Gm-Message-State: AOAM530AxnhEE9+jsgU2OP3chESDyH9QVglgkhcKdPCtB5S3kdLAeYHf
+	AFYI4iO8wwwefAqdTdn7uexlEJdYHMk=
+X-Google-Smtp-Source: ABdhPJwNaxjc1PDAeGWJ8GzObuWelgMB+7HqcANeJMzgAGYm5fhftJgDKlY+yjqzOyonGqSqYsbT9w==
+X-Received: by 2002:a9d:609a:: with SMTP id m26mr26385641otj.226.1634049642102;
+	Tue, 12 Oct 2021 07:40:42 -0700 (PDT)
+Received: from smtpclient.apple ([2601:3c2:8200:9360:58d0:fb73:2550:ef8e])
+	by smtp.gmail.com with ESMTPSA id
+	bm43sm1316865oib.50.2021.10.12.07.40.41 for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+	Tue, 12 Oct 2021 07:40:41 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.120.0.1.13\))
 Subject: Re: Any suggestions of what distro of Linux I should load onto a new
 	computer?
-To: Linux for blind general discussion <blinux-list@redhat.com>
+Date: Tue, 12 Oct 2021 09:40:40 -0500
 References: <BE642CCD-41FD-4C31-AAFB-C4EE0CB1A200.ref@yahoo.com>
 	<BE642CCD-41FD-4C31-AAFB-C4EE0CB1A200@yahoo.com>
-In-Reply-To: <BE642CCD-41FD-4C31-AAFB-C4EE0CB1A200@yahoo.com>
+	<CAGJxbF7K6xKtt5oEfU19AB46d9v1DJajG5twtjmEDA5rLcbWAw@mail.gmail.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+In-Reply-To: <CAGJxbF7K6xKtt5oEfU19AB46d9v1DJajG5twtjmEDA5rLcbWAw@mail.gmail.com>
+Message-Id: <9027C6A4-75D9-4D2A-96F2-D19C1D5ADA54@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -99,6 +96,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 19CEej8a008297
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -115,30 +114,72 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-A huge +1 for Fedora MATE. I have it running on two computers here, one 
-is not mine, and it works great. Orca comes with it, and you can run a 
-full install after pressing alt+f2 to open the run window and then 
-entering the word orca. Wifi generally works out of the box, though the 
-NetworkManager applet that controls it doesn't tell you what it is. 
-Still, you can just hold the alt and control keys and double tap the tab 
-key to get to the top panel, then shift tab past the toggle button and 
-press the enter key to bring up the menu that has your wifi connections. 
-There's not much more to tell other than it's a great OS, not just for 
-learning, but for daily use, and one of the computers in the house that 
-is running it is even being used for gaming and live streaming. If you 
-need to dig deeper into the guts of the system, it allows for that as 
-well. I for one highly recommend the Fedora MATE spin.
+Thank you.
+I knew not that Fedora has a mate edition.
 
-~Kyle
+> On Oct 12, 2021, at 5:26 AM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> 
+> I would recommend Fedora. It's mainstream, runs up-to-date programs, and
+> doesn't depend on one developer. To start Orca, just press Alt + Windows +
+> S. I would also go with the Fedora Mate spin, as Mate is, in my opinion, a
+> bit more accessible than Gnome. Do enable Assistive Technology support
+> after you install it.
+> 
+> https://spins.fedoraproject.org/mate-compiz/
+> 
+> Now, Accessible Coconut is good system, but it is very out of date. For a
+> learning system, that may be okay, except your school may require newer
+> packages. Do you know what distribution of Linux they're going to be using?
+> 
+> There is also Slint, at:
+> 
+> https://slint.fr/wiki/doku.php?id=en:start
+> 
+> But I would not call it newbie friendly, and I've had sound issues with it
+> the one time I tried it.
+> 
+> So yeah there really kinda isn't that much for blind beginner Linux users
+> right now. But I'd take a mainstream, well-developed distribution with
+> up-to-date packages any day over an out-of-date Ubuntu release.
+> Devin Prater
+> r.d.t.prater@gmail.com
+> gemini://tilde.pink/~devinprater/
+> 
+> 
+> 
+> On Mon, Oct 11, 2021 at 11:40 PM Linux for blind general discussion <
+> blinux-list@redhat.com> wrote:
+> 
+>> Hi guys,
+>> I was wondering if anyone had suggestions on what distro of Linux I should
+>> load onto a new computer? I will be using the computer for mainly school
+>> purposes to learn the OS.
+>> Any help would be greatly appreciated.
+>> Thanks,
+>> 
+>> Ashley
+>> 
+>> 
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>> 
+>> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
+
 
 _______________________________________________
 Blinux-list mailing list
