@@ -2,71 +2,100 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTP id 5400942C21E
-	for <lists+blinux-list@lfdr.de>; Wed, 13 Oct 2021 16:06:54 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTP id 920C542C2C1
+	for <lists+blinux-list@lfdr.de>; Wed, 13 Oct 2021 16:19:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1634134013;
+	s=mimecast20190719; t=1634134743;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=sGOS3W4BNoMQORAk6KuAJ4xPcV0+jEodcYfjiWVXSEg=;
-	b=NFPd+360iYoR2cFOAG2IeQYQV4wErdfA5D22NiBpROSsyq6ea7DyzxUuY3bg/T5nKonsfa
-	6EZRwN8Caoh0xo4oUqpVbqBqCWpaKBNSd7d9T3Qy4tofaPplmv6rfx5vdOzRC4kKZa+oRY
-	AArPE59FXtzQaPIYoSKfMW8ArR22QYk=
+	bh=kiL14SFAXXiQFmNhpafmSOwTO1zamqrd1bfXUROOC74=;
+	b=L3CI5UmF+mHviV2xe66Uwl+UAcE2bDmE3GsSxkhLM3aVdcbDsaLKbWrZu1lWU+AP0wnxt1
+	uDvHDo1eThkddE7lmgIQ3prKvx0pdcPK2FG5DtY5IZMqkN4nKGY0apX+zr/URqGgXTs2Di
+	UtL8AsqImpUf5WryH3bzSvSoF4inxGo=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-535-c0l2Nd4gOEm65tyNaWtkbQ-1; Wed, 13 Oct 2021 10:06:49 -0400
-X-MC-Unique: c0l2Nd4gOEm65tyNaWtkbQ-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-595-H0AcObSaOy-6HYm9jynb9A-1; Wed, 13 Oct 2021 10:19:00 -0400
+X-MC-Unique: H0AcObSaOy-6HYm9jynb9A-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 26218802575;
-	Wed, 13 Oct 2021 14:06:46 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E3E89694B4;
-	Wed, 13 Oct 2021 14:06:44 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2047F1012E4E;
+	Wed, 13 Oct 2021 14:18:56 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0307560CC3;
+	Wed, 13 Oct 2021 14:18:55 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C2E92180598A;
-	Wed, 13 Oct 2021 14:06:41 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D5B3D4EA29;
+	Wed, 13 Oct 2021 14:18:51 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 19DE6V0n014469 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 13 Oct 2021 10:06:31 -0400
+	id 19DEIkae015953 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 13 Oct 2021 10:18:46 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id E9120404727C; Wed, 13 Oct 2021 14:06:30 +0000 (UTC)
+	id 197A240D1B9D; Wed, 13 Oct 2021 14:18:46 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E53A8404727A
-	for <blinux-list@redhat.com>; Wed, 13 Oct 2021 14:06:30 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CBCBF800883
-	for <blinux-list@redhat.com>; Wed, 13 Oct 2021 14:06:30 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-499-Bu7w6athMHW229TZJtCtmA-1; Wed, 13 Oct 2021 10:06:26 -0400
-X-MC-Unique: Bu7w6athMHW229TZJtCtmA-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4HTvTZ3yQNz2kpV
-	for <blinux-list@redhat.com>; Wed, 13 Oct 2021 10:06:26 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4HTvTZ32VFzcbc; Wed, 13 Oct 2021 10:06:26 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4HTvTZ2gpNzcbW
-	for <blinux-list@redhat.com>; Wed, 13 Oct 2021 10:06:26 -0400 (EDT)
-Date: Wed, 13 Oct 2021 10:06:26 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: GRUB boot tone on Fedora
-In-Reply-To: <922a2740-b06a-c964-ddd6-c65e095507e6@gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2110131003001.29121@panix1.panix.com>
-References: <922a2740-b06a-c964-ddd6-c65e095507e6@gmail.com>
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1568240D1B98
+	for <blinux-list@redhat.com>; Wed, 13 Oct 2021 14:18:46 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F1FDD899EC3
+	for <blinux-list@redhat.com>; Wed, 13 Oct 2021 14:18:45 +0000 (UTC)
+Received: from mail-qv1-f52.google.com (mail-qv1-f52.google.com
+	[209.85.219.52]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-522-tJIhtNT-P8GAGRfe4SJ6Mg-1; Wed, 13 Oct 2021 10:18:44 -0400
+X-MC-Unique: tJIhtNT-P8GAGRfe4SJ6Mg-1
+Received: by mail-qv1-f52.google.com with SMTP id d20so1740706qvm.8
+	for <blinux-list@redhat.com>; Wed, 13 Oct 2021 07:18:44 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=oUw2pHGN/fs9qveHpqVAw1CDYc9mMdFhgyhPBynQ144=;
+	b=fvaElVcVNtfHtCZDssYP2ZMPIE2WrltvCV3L5L1LB/xwF209fIKaw6RRQumJqEssyo
+	LJ0QiryodOpJx41QvPIAXrSo9FkDs3mCyW8o4+SV7MfL6DTQtAR0fTXIw+xW4jUPTdXo
+	+JYKAjFwMmLfWrG/lr//WAlMoiiQoLGqFjytH7WMvpu/X0kdegXtJthNpOeqv6H0HC4s
+	FlCuf7j8f0Hb7qH7Gg3eRASgzcvaBT4vzuYsskhEKrbN3XJfV1CeEnbQf+p4ucX4tB6e
+	bFCMcfapR2O+GmeT2IpOVxOEWKEgeJk37K2+Db/Rck8T9KdEv8v2w5VoOWbp3y/ztrgQ
+	C7iw==
+X-Gm-Message-State: AOAM533c1zd3aPakQCoyGqUoEqOpSDg6Ojk2VqqygUu0NGFwTEsAnKBk
+	DNOWkiGwqQuSM9x4gAygc5BJrBgIDhk=
+X-Google-Smtp-Source: ABdhPJxd/gxEPgGT60BXV32DZEYxI2yvVW7llnyMJsEYARlJ+1bKtKtU1ADabYnL9nL3pcQZjzd5Ng==
+X-Received: by 2002:a05:6214:194b:: with SMTP id
+	q11mr35830098qvk.38.1634134723802; 
+	Wed, 13 Oct 2021 07:18:43 -0700 (PDT)
+Received: from ?IPV6:2603:6080:6304:450a::960?
+	(2603-6080-6304-450a-0000-0000-0000-0960.res6.spectrum.com.
+	[2603:6080:6304:450a::960])
+	by smtp.gmail.com with ESMTPSA id a4sm6905758qtm.12.2021.10.13.07.18.43
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Wed, 13 Oct 2021 07:18:43 -0700 (PDT)
+Message-ID: <46be28d4-232e-d9cd-5f32-3e752ba33d44@gmail.com>
+Date: Wed, 13 Oct 2021 10:18:42 -0400
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.1.0
+Subject: Re: Any suggestions of what distro of Linux I should load onto a new
+	computer?
+To: blinux-list@redhat.com
+References: <BE642CCD-41FD-4C31-AAFB-C4EE0CB1A200.ref@yahoo.com>
+	<BE642CCD-41FD-4C31-AAFB-C4EE0CB1A200@yahoo.com>
+	<830943b7-8c77-54d2-ef41-ebf35b2317d4@gmail.com>
+	<41D44D20-F41D-4D2D-B3CE-3F00567522EC@gmail.com>
+	<25040872-3042-4567-9052-D9FA44B55880@gmail.com>
+	<CAGJxbF7g7n_wd6EAMSh+vm_kkdfurQZ+X=7-4em2XObQCxcXww@mail.gmail.com>
+	<65AF279E-5331-45BE-B637-7CD454E89D68@gmail.com>
+	<CAGJxbF5-ekrKayN2J5twy-0uwE+-RQTUomZPMH60GjYNQ7orqQ@mail.gmail.com>
+In-Reply-To: <CAGJxbF5-ekrKayN2J5twy-0uwE+-RQTUomZPMH60GjYNQ7orqQ@mail.gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -92,50 +121,31 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-As root edit /etc/defaults/grub and uncomment the line with Tune on it
-then save that file.  Next run grub-update then reboot.
-If the computer hasn't got a speaker, some don't you may need to find and
-install the rc.local package then put a file in /etc/rc.local/rc.local.d/
-with a script that plays a sound and make that script executeable.  I
-solved that problem that way for a friend once.
+Running Orca worked on two computers here, one of which didn't need it 
+except for a few operations I needed to perform using a screen reader. 
+It's even more strange that the login screen is talking, but the user's 
+desktop is not speaking. The only other thing I could suggest is running 
+something in the run window similar to
 
+systemctl --user restart wireplumber
 
-On Wed, 13 Oct 2021, Linux for blind general discussion wrote:
+But that doesn't appear to be needed here. Still it's worth a shot. Then 
+restart orca by once more opening the alt+f2 run window and entering
 
-> Hi list,
->
->
-> I want to try Fedora on my laptop. So far I really like the experience from
-> installation and all.
->
-> -- Next I want to add some minor tweak which I like from Debian based system
-> which is boot tone.
->
-> I try adding "play x y z" to /boot/grub2/grub.cfg but nothing happened.
->
-> I hope someone can throw some suggestions. Any help is greatly appreciated.
->
-> Btw, it's an UEFI system.
->
-> Regards
-> --
-> Edhoari Setiyoso
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
->
+orca -r
+
+Hope something of this can help.
+
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
