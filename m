@@ -1,90 +1,85 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id E211D4377BA
-	for <lists+blinux-list@lfdr.de>; Fri, 22 Oct 2021 15:09:46 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id CEF41437C1A
+	for <lists+blinux-list@lfdr.de>; Fri, 22 Oct 2021 19:41:02 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1634908186;
+	s=mimecast20190719; t=1634924461;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ND+DYmWaGyyIIng27DtlXzNbsEzongQHwdsK5WuREIk=;
-	b=WanlNZmxDulAErVQoWHl36+OxoqjckF7tjXGNiVxnbymj9q25tTB4fDsb3GJnQhOcUC2FN
-	VFFH9+Pw7VkKFRyWQWPW4PNA1G0HBjYgPUr61yOPc8OI7OZWRNBEBNACUUwlqkL0teGHe4
-	+K7cbjbunYqCTXPzjY9/iO6nTA7fcfc=
+	bh=ufQYl2goNpwd8k0yZ9CAhwh2z8zm75YHOiIaE0+mlcw=;
+	b=Qm67hc/ZucGGg5K3imLmXuV7ANQu3TqmpZmbvtEi9v9r5aE3PkzzGSi9glguzCkTqIovEN
+	k+ru9PuHDlQHPiXvdqccZLNLFpWrTo6lU1K4URpla01OShacldHmb8+Ov+Nwks4PrKH40K
+	m+H/2YJkYCbAhLl58J7osOSNzfQg8Ww=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-227-pzJ8hCTqPHumJOsdP-iBBg-1; Fri, 22 Oct 2021 09:09:43 -0400
-X-MC-Unique: pzJ8hCTqPHumJOsdP-iBBg-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-33-oSNMPpcbPbGr09PqISN_fA-1; Fri, 22 Oct 2021 13:40:57 -0400
+X-MC-Unique: oSNMPpcbPbGr09PqISN_fA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C8C841922025;
-	Fri, 22 Oct 2021 13:09:38 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E797E10A8E00;
+	Fri, 22 Oct 2021 17:40:53 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 263FA6A8E5;
-	Fri, 22 Oct 2021 13:09:38 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E616C5D9DE;
+	Fri, 22 Oct 2021 17:40:50 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 9816F4EA2A;
-	Fri, 22 Oct 2021 13:09:31 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D1B5B4EA2A;
+	Fri, 22 Oct 2021 17:40:40 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 19MD5xRO013089 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 22 Oct 2021 09:06:00 -0400
+	id 19MHbqLB003248 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 22 Oct 2021 13:37:53 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id B47CFD0192; Fri, 22 Oct 2021 13:05:59 +0000 (UTC)
+	id DCA722166B2D; Fri, 22 Oct 2021 17:37:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id AF302D0B3F
-	for <blinux-list@redhat.com>; Fri, 22 Oct 2021 13:05:56 +0000 (UTC)
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D718E2166B25
+	for <blinux-list@redhat.com>; Fri, 22 Oct 2021 17:37:50 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AADB9800B24
-	for <blinux-list@redhat.com>; Fri, 22 Oct 2021 13:05:56 +0000 (UTC)
-Received: from wout3-smtp.messagingengine.com
-	(wout3-smtp.messagingengine.com [64.147.123.19]) (Using TLS) by
-	relay.mimecast.com with ESMTP id us-mta-528-Uhyy9EocPAmwWLHWqxcKVQ-1;
-	Fri, 22 Oct 2021 09:05:55 -0400
-X-MC-Unique: Uhyy9EocPAmwWLHWqxcKVQ-1
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
-	by mailout.west.internal (Postfix) with ESMTP id 64C5B3200E91
-	for <blinux-list@redhat.com>; Fri, 22 Oct 2021 09:05:53 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
-	by compute4.internal (MEProxy); Fri, 22 Oct 2021 09:05:53 -0400
-X-ME-Sender: <xms:MLdyYWEW2ZdVbyPiZSTPWeHz4KsE_ogbS-wLdr_SEqMgBULRNquMfw>
-	<xme:MLdyYXXJ67hPhpnZbIDUQXQPpDHFbj5supJ-tIZcvN1mH0ptPVo9oHYGYPZvyRCs3
-	5Z-4WXMYYRLaZuPT7E>
-X-ME-Received: <xmr:MLdyYQI9oLg4iqZk3F2dNFlHGhljDa_ZxoweIgc-7dip1ZkyzKBZN2Usav__-kxTXUv_IUusfymY849cAWQciSIdfXSn7b3UPQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvtddrvddvkedgheekucetufdoteggodetrfdotf
-	fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-	uceurghilhhouhhtmecufedttdenucenucfjughrpeffhffvufgjkfhfgggtsehttdertd
-	dttddvnecuhfhrohhmpeevhhhimhgvucfjrghrthcuoegthhhimhgvsehhuhgsvghrthdq
-	hhhumhhphhhrvgihrdgtohhmqeenucggtffrrghtthgvrhhnpeffhedthfdvvdeuueeihe
-	dvfeffuedtgeeuudfhgfelteelvdduudfgleekvedtveenucevlhhushhtvghrufhiiigv
-	pedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegthhhimhgvsehhuhgsvghrthdqhhhumh
-	hphhhrvgihrdgtohhm
-X-ME-Proxy: <xmx:MLdyYQEyxdFfvoK3HKn0thlYIOY5lUJVtLA6ndgTAe5YP3t18noKUQ>
-	<xmx:MLdyYcX0Eq9K38Uo-2v9tIx6GdPonpUCXqVa2PMo69-w_vVUiA_qcQ>
-	<xmx:MLdyYTPSfY-9Fou-ZlpiyQ9-zrjY6sRFq4n5eZ7Rt5qK3Fejz3tTXw>
-	<xmx:MbdyYfDVMYFmPefi7upUoewbxgI-o8-kmvfLojDZ5BAMhuVzaZiXEw>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA for
-	<blinux-list@redhat.com>; Fri, 22 Oct 2021 09:05:52 -0400 (EDT)
-Date: Fri, 22 Oct 2021 06:05:48 -0700 (PDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: youtube-dl: list videos in order
-In-Reply-To: <b56f99ac-3869-fd7f-7abe-681b8db69b75@slint.fr>
-Message-ID: <91c5b5c-372e-994-aa65-c774ebb7edb@hubert-humphrey.com>
-References: <20211022.113332.040.27@[192.168.1.100]>
-	<174fc529-33dd-5767-37da-98f727ffe63@hubert-humphrey.com>
-	<b56f99ac-3869-fd7f-7abe-681b8db69b75@slint.fr>
-MIME-Version: 1.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 063A0811E76
+	for <blinux-list@redhat.com>; Fri, 22 Oct 2021 17:37:50 +0000 (UTC)
+Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com
+	[209.85.160.182]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-114-LkzSAQlYPsimQAAx7h0HwA-1; Fri, 22 Oct 2021 13:37:48 -0400
+X-MC-Unique: LkzSAQlYPsimQAAx7h0HwA-1
+Received: by mail-qt1-f182.google.com with SMTP id v17so4226612qtp.1
+	for <blinux-list@redhat.com>; Fri, 22 Oct 2021 10:37:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:from:content-transfer-encoding:mime-version
+	:subject:message-id:date:to;
+	bh=1SFIArMAOB2ngfGVoTR03RhqMZCYhTKbfkzJRaOFES8=;
+	b=TXvfSv9SErBn8/1WVDPsnzh5fc/jQGM0+KHY/Af1d681UNdNFm+qS8Eq9x6BZFAzdI
+	RHgJQC8T/dCmiMy5kG2KQen/+Ev+DQShV91Q7TFIWPlJrt3RqonDmZqbKfJ2qIHixYWh
+	N81zTEfmtsvwHztcILJA993yd+jIH5R1kbGiqbGC7SM+CU5cFANoHy4xCXylWboPOkYL
+	kG/5pK7QxIajTOJuxbzZb5pYr3xnFyKGD3nir+YJiWitr5tEXRX/1gWtY8va1ST8g5Jv
+	LapAOcHet24xJgzKxesBxvPLSv0KzrfV5W3OZBVM9uExRfVqpvyNyp7+edehm9dN9w91
+	E/IQ==
+X-Gm-Message-State: AOAM531CjxJEx3Cfiur8H1aHbvdvnfYwIp6SZ3T6kVMDzmpPWydV05z3
+	y4uLobGYJ9trc2sMedgfyoO5I+m9aUWczA==
+X-Google-Smtp-Source: ABdhPJwSFb6/HMjGmzkwDMO9WXrMZ1ioHAnfZNJ2GLKrbsezpu/V1edQiux7A1b1x1nvaXaO3inO7w==
+X-Received: by 2002:a05:622a:1807:: with SMTP id
+	t7mr1474751qtc.140.1634924267667; 
+	Fri, 22 Oct 2021 10:37:47 -0700 (PDT)
+Received: from smtpclient.apple ([2601:c8:300:2f6:1863:eded:405:cb34])
+	by smtp.gmail.com with ESMTPSA id
+	s189sm4438988qka.100.2021.10.22.10.37.47 for <blinux-list@redhat.com>
+	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+	Fri, 22 Oct 2021 10:37:47 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.120.0.1.13\))
+Subject: New user looking for info on Voxin
+Message-Id: <9B1DAAA1-347A-4CE6-A606-F1E5EDEAC372@gmail.com>
+Date: Fri, 22 Oct 2021 13:37:46 -0400
+To: blinux-list@redhat.com
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -93,7 +88,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 19MHbqLB003248
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -110,24 +107,20 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Thank you Didier: I just spent maybe 20minutes trying to figure out github in L 
-Y N X, finally found instructions, I cannot find brew in an apt-get, so I used
-python3 -m pip install --upgrade yt-dlp
-Once I used that with sudo  I didn't receive any path warnings. So now that its 
-installed, I cannot find a command to run or examin its man-page. Certainly 
-here in Debian SID, in TCSH I did run rehash. Thanks so much in advance
-Chime
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+RGVhciBMaXN0LApJIGp1c3Qgc3RhcnRlZCBjaGVja2luZyBvdXQgTGludXguCknigJltIHVzaW5n
+IHRoZSBBY2Nlc3NpYmxlIENvY29udXQgdmVyc2lvbi4KSXRzIGJlZW4gb3ZlciAxNSB5ZWFycyBz
+aW5jZSBJIHRyaWVkIExpbnV4LgpNeSBxdWVzdGlvbiBpcywgSXMgdGhlcmUgYSBkZW1vIG9mIFZv
+eGluPyBBbmQgd2hlcmUgaXMgdGhlIGJlc3QgcGxhY2UgdG8gZ2V0IGl0IG90aGVyIHRoYW4gdGhl
+IFZveGluIHdlYnNpdGU/ClRoYW5rcywKUm9iCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0
+QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9i
+bGludXgtbGlzdA==
 
