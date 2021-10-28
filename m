@@ -2,84 +2,86 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9EB4643F370
-	for <lists+blinux-list@lfdr.de>; Fri, 29 Oct 2021 01:25:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 26E0943F38A
+	for <lists+blinux-list@lfdr.de>; Fri, 29 Oct 2021 01:38:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1635463556;
+	s=mimecast20190719; t=1635464302;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=xfcubj3o37Am70xwYJwgHv0g8JoG86RDEqNyB6wmOAw=;
-	b=Mvk5QlysjrtreYdlXao4u4wmLbyKQxBWWNhvtRRGMG4r81YWWiro4A/q9J+Xv1lHVXrOpY
-	HlxoZFOpLslekDCv2TT8yj0GuNdUExDGuBaXLHwQ7Hyf4l+1V3P98btDjFvgH9TjErTncv
-	CRKspMeQwuJcboF9G5p4i2tIXfD0p30=
+	bh=g4eN6gjzPqRuPQ1FXeufGq81I2T73lDA3lKesSdtf0o=;
+	b=b0Hl5VcwLLtnPmznZZE4KJKreoY85YXzBEuwDiQnWrqpytnkrwhNCTDmW/OmruLjI1k4Gw
+	z6xmO9WE2h9lN5ZroPMvi+/R/2/xj+qXGFhiHkKxTtvlljrf0vm+e81bOWMNejRgQMikeu
+	dZxYeQ+th729mRwRAgZFxZvmhiJHW/M=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-579-oQ13tq3NOqqcoxjEenpFcg-1; Thu, 28 Oct 2021 19:25:53 -0400
-X-MC-Unique: oQ13tq3NOqqcoxjEenpFcg-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-325-bubzK3lNONCCYk-j0tXeaQ-1; Thu, 28 Oct 2021 19:38:18 -0400
+X-MC-Unique: bubzK3lNONCCYk-j0tXeaQ-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id BF29336254;
-	Thu, 28 Oct 2021 23:25:48 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C91DA60843;
-	Thu, 28 Oct 2021 23:25:44 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B10331808318;
+	Thu, 28 Oct 2021 23:38:14 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CD542604CC;
+	Thu, 28 Oct 2021 23:38:13 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1A5C71800B9C;
-	Thu, 28 Oct 2021 23:25:39 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.2])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id DFD474A703;
+	Thu, 28 Oct 2021 23:38:08 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 19SNPWmR005515 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 28 Oct 2021 19:25:32 -0400
+	id 19SNYchq005846 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 28 Oct 2021 19:34:38 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id 2DCA140D1B9E; Thu, 28 Oct 2021 23:25:32 +0000 (UTC)
+	id 8662551DD; Thu, 28 Oct 2021 23:34:38 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 293A740D1B9D
-	for <blinux-list@redhat.com>; Thu, 28 Oct 2021 23:25:32 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 077B6811E76
-	for <blinux-list@redhat.com>; Thu, 28 Oct 2021 23:25:32 +0000 (UTC)
-Received: from mail-qv1-f45.google.com (mail-qv1-f45.google.com
-	[209.85.219.45]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-319-Tr6gyUlMOkiqoeLxfEQ2WQ-1; Thu, 28 Oct 2021 19:25:30 -0400
-X-MC-Unique: Tr6gyUlMOkiqoeLxfEQ2WQ-1
-Received: by mail-qv1-f45.google.com with SMTP id b17so1724888qvl.9
-	for <blinux-list@redhat.com>; Thu, 28 Oct 2021 16:25:30 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:content-transfer-encoding:from:mime-version:date
-	:subject:message-id:to;
-	bh=Vw8aqGP2a5cCitH/sHV75YVn42/hzPXmOShTOxzSLVk=;
-	b=egEX5BSD6RVfpCpxHW8Dc9qA+USvVAZdYfOoMRg6DICDpQwpkPgtsRAwrbyMbphfqq
-	qPMI3dITdKUiVV3hHnECC+MCntIQERP9bcdujCOf8PDLWbiz9OqAyFNvfhUYv1fayfLr
-	OpfTWmLFi9zmHkGJ/7Vhn41JE73WjpDwqPNvAsCuEF6jv1RpriIflI7d4+90BedOwRPJ
-	e9TgM0tExxXicvorVHku16nDrdScEKoasxC6/UUkU0zgkEFIebyRAz37v7qdOtZl84Zc
-	Vzk9HvHscXjeSkiKCDnGVpDAmSrQJXmrZ4beRq6DOr6LSgaUu+d8cVbHhZ7wNkX6rrjh
-	4gAw==
-X-Gm-Message-State: AOAM532aZUJVIJzFSydm+rPVhioPMLchqmNn+0O1mmFL6E8svVsD09fn
-	n8EwXAZIfeA1RgwC+MopzeAFCkxdUU4=
-X-Google-Smtp-Source: ABdhPJwklU95wBVOxRrJfAVtl0DPXNoQqNScXeLpJGVrKmrFXpfwjEkDSUcbQP+1MLzMGlNNFF5NgA==
-X-Received: by 2002:a05:6214:c4e:: with SMTP id
-	r14mr7652857qvj.60.1635463529384; 
-	Thu, 28 Oct 2021 16:25:29 -0700 (PDT)
-Received: from smtpclient.apple ([2601:152:4000:330:5da9:f485:a776:fa5c])
-	by smtp.gmail.com with ESMTPSA id
-	w7sm3184924qkp.129.2021.10.28.16.25.28 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 28 Oct 2021 16:25:29 -0700 (PDT)
-Mime-Version: 1.0 (1.0)
-Date: Thu, 28 Oct 2021 19:25:28 -0400
-Subject: Can I run an accessible version of linux under windows?
-Message-Id: <66F2A8CB-2631-469B-9594-F3173CD00F69@gmail.com>
-To: blinux-list@redhat.com
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8124451DC
+	for <blinux-list@redhat.com>; Thu, 28 Oct 2021 23:34:35 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 75C2380015A
+	for <blinux-list@redhat.com>; Thu, 28 Oct 2021 23:34:35 +0000 (UTC)
+Received: from out2-smtp.messagingengine.com (out2-smtp.messagingengine.com
+	[66.111.4.26]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-156-vtOncRrJP46IPp1yM6tWqg-1; Thu, 28 Oct 2021 19:34:33 -0400
+X-MC-Unique: vtOncRrJP46IPp1yM6tWqg-1
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.nyi.internal (Postfix) with ESMTP id C12A75C0185
+	for <blinux-list@redhat.com>; Thu, 28 Oct 2021 19:34:32 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+	by compute3.internal (MEProxy); Thu, 28 Oct 2021 19:34:32 -0400
+X-ME-Sender: <xms:iDN7Yfvc3d2qXzwwmM6NpN6ZxzOyywIlx7smrSPKqepEUhPhwjMFnQ>
+	<xme:iDN7YQe1WnVwK33XvXLwOTBJ3oqOefdZMVkDbP84KcCSLpRQNGDuoW4ByHGtulkTG
+	bP4_gB93HWhq2YkedA>
+X-ME-Received: <xmr:iDN7YSy2F2Kv-WGoT8VKhElS1-Gd0kLDdq3nxN1Dxg3ahwGfPhxGZMtSN9PEqFQh1LSI8aIfI1gdoQWVwRdp6IAsXv1yGo_8mQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvtddrvdeggedgvdduucetufdoteggodetrfdotf
+	fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+	uceurghilhhouhhtmecufedttdenucenucfjughrpeffhffvufgjkfhfgggtsehttdertd
+	dttddvnecuhfhrohhmpeevhhhimhgvucfjrghrthcuoegthhhimhgvsehhuhgsvghrthdq
+	hhhumhhphhhrvgihrdgtohhmqeenucggtffrrghtthgvrhhnpeffhedthfdvvdeuueeihe
+	dvfeffuedtgeeuudfhgfelteelvdduudfgleekvedtveenucevlhhushhtvghrufhiiigv
+	pedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegthhhimhgvsehhuhgsvghrthdqhhhumh
+	hphhhrvgihrdgtohhm
+X-ME-Proxy: <xmx:iDN7YeOEN29azp8skQR0PGvPy8ETlRDlKslvmG_d2AbpxFZ2jpUKEg>
+	<xmx:iDN7Yf9Kj9MbznDzXgYWbJu5jDjJLA2x6LD-85p9zgaLmvkuUzZWVA>
+	<xmx:iDN7YeWkXpeXzsI2eL8J0cr3azIs7a8QFQJQUQi6zJ1AwSrJaxIVYw>
+	<xmx:iDN7YcLh52mv1ExD8YxYBvJxsxEeP6WuottL6A1lLTl6DzmJyYbx0g>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA for
+	<blinux-list@redhat.com>; Thu, 28 Oct 2021 19:34:32 -0400 (EDT)
+Date: Thu, 28 Oct 2021 16:34:31 -0700 (PDT)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Can I run an accessible version of linux under windows?
+In-Reply-To: <66F2A8CB-2631-469B-9594-F3173CD00F69@gmail.com>
+Message-ID: <23ab7b29-ac4-63ed-cdb3-257bb4417e9b@hubert-humphrey.com>
+References: <66F2A8CB-2631-469B-9594-F3173CD00F69@gmail.com>
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -88,9 +90,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 19SNPWmR005515
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -107,21 +107,19 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hello folks,
-I am new in this list, and I appologize if my question is not appropriate for the list. I like to learn linux but I have no idea where to start. For this I like to know if it is possible to run linux under windows and how to go about it if it is possible. If I could do that it will help me transition gradually from windows to linux.
-Thanks in advance for your help.
-Ibrahim
-
-Sent from my iPhone
-
+Well, Ibrahim while others may have better suggestions, I think running GRML as 
+a live CD would have enough options-and-packages for you to experience. 
+Certainly if you liked it, you could install to another section of your 
+hard-drive, so you could boot either GRML or windows. Best of luck
+Chime
 
 _______________________________________________
 Blinux-list mailing list
