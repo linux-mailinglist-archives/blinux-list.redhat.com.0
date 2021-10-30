@@ -1,72 +1,92 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 23A78440C2E
-	for <lists+blinux-list@lfdr.de>; Sun, 31 Oct 2021 00:43:00 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7DD98440C2F
+	for <lists+blinux-list@lfdr.de>; Sun, 31 Oct 2021 00:45:46 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1635633779;
+	s=mimecast20190719; t=1635633945;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ZJYoaNh54/5M74nv25ThJOsGZE/c0uSE+ffBSsReUlE=;
-	b=GYgNRNikNrKycXxXND3xPvMyLGEQ72C1ND0jZNpvC4smEO4eEjQ8fvzt5GqxbYP+XzNRyg
-	GGo7F+/p3maRNkCaGku5ywhgWwLDv+rtuIqRSfYH9GXHwU7tVMTLBWPzmUfbAvqrgfY3E4
-	FZjLZlV5o/3WyH6ltpWpl52TGc8jQYM=
+	bh=E7iAWFsHq68LU4/ytc8fkxX9yrQQRl76RJjDMBmH88k=;
+	b=is9M4mBLyU9EP8cjQ/1c86dxKrye3D+xpsrVp3l/5g/Ovz2qFH7/Cdb4jkcip6ew78gWbY
+	p0W+9VKpljTHm8U5JGwmUURlJYpHwldzd2OcBlVo5o+tPJETcDNAKrzdHgbJHtu3tDq8HH
+	vKedYAkBu85EiCmRda1qnkebSEZmcz8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-430--SXLLswsP3SNPYEhgRU__A-1; Sat, 30 Oct 2021 18:42:55 -0400
-X-MC-Unique: -SXLLswsP3SNPYEhgRU__A-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-487-7zt-MOpVMQKt2VnBbq2dZQ-1; Sat, 30 Oct 2021 18:45:44 -0400
+X-MC-Unique: 7zt-MOpVMQKt2VnBbq2dZQ-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 0D2951808319;
-	Sat, 30 Oct 2021 22:42:52 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C78E119741;
-	Sat, 30 Oct 2021 22:42:51 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 54CDA1006AA2;
+	Sat, 30 Oct 2021 22:45:40 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A5D615C1C5;
+	Sat, 30 Oct 2021 22:45:39 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BE5184A703;
-	Sat, 30 Oct 2021 22:42:50 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 82F851803B30;
+	Sat, 30 Oct 2021 22:45:37 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 19UMgkM4031333 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 30 Oct 2021 18:42:46 -0400
+	id 19UMjXw7031526 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 30 Oct 2021 18:45:33 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id AE35B51DD; Sat, 30 Oct 2021 22:42:46 +0000 (UTC)
+	id 8CAB21121315; Sat, 30 Oct 2021 22:45:33 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A975751DC
-	for <blinux-list@redhat.com>; Sat, 30 Oct 2021 22:42:43 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E3052100B8C8
-	for <blinux-list@redhat.com>; Sat, 30 Oct 2021 22:42:42 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-277-y-xuSCmHN1WG1J1yYCygdg-1; Sat, 30 Oct 2021 18:42:41 -0400
-X-MC-Unique: y-xuSCmHN1WG1J1yYCygdg-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4HhZ7N49KSz3xR9
-	for <blinux-list@redhat.com>; Sat, 30 Oct 2021 18:42:40 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4HhZ7N2rsMzcbc; Sat, 30 Oct 2021 18:42:40 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4HhZ7N2GfKzcbP
-	for <blinux-list@redhat.com>; Sat, 30 Oct 2021 18:42:40 -0400 (EDT)
-Date: Sat, 30 Oct 2021 18:42:40 -0400
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 87FCC1121314
+	for <blinux-list@redhat.com>; Sat, 30 Oct 2021 22:45:30 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9357F899EC0
+	for <blinux-list@redhat.com>; Sat, 30 Oct 2021 22:45:30 +0000 (UTC)
+Received: from wout3-smtp.messagingengine.com
+	(wout3-smtp.messagingengine.com [64.147.123.19]) (Using TLS) by
+	relay.mimecast.com with ESMTP id us-mta-508-HRkvJktKO0Gou2fPhiOSoQ-1;
+	Sat, 30 Oct 2021 18:45:28 -0400
+X-MC-Unique: HRkvJktKO0Gou2fPhiOSoQ-1
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
+	by mailout.west.internal (Postfix) with ESMTP id 5E1FF320098D
+	for <blinux-list@redhat.com>; Sat, 30 Oct 2021 18:45:27 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+	by compute6.internal (MEProxy); Sat, 30 Oct 2021 18:45:27 -0400
+X-ME-Sender: <xms:Bst9YUWmNbBbE6rXxieAu3WOH1P23IkETfLpYAwputGxbBvSMyuTzQ>
+	<xme:Bst9YYnly5_WhpXDH592YJgApED3MyqHBpQJKI-vZfUtEv8rVSjJrUx0C1oEA8kEa
+	LdsP1M676yUv_BjoY8>
+X-ME-Received: <xmr:Bst9YYYptplv8lvvr_MaFMzlVp5_jkqDzlhUjx3jwfzFEu0ZKV32V0cmoSMG9R8-XLfIwYnjGmMI6mmg8BaCJFhW6mfiF7qbJA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvtddrvdegkedgudefucetufdoteggodetrfdotf
+	fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+	uceurghilhhouhhtmecufedttdenucenucfjughrpeffhffvufgjkfhfgggtsehttdertd
+	dttddvnecuhfhrohhmpeevhhhimhgvucfjrghrthcuoegthhhimhgvsehhuhgsvghrthdq
+	hhhumhhphhhrvgihrdgtohhmqeenucggtffrrghtthgvrhhnpeffhedthfdvvdeuueeihe
+	dvfeffuedtgeeuudfhgfelteelvdduudfgleekvedtveenucevlhhushhtvghrufhiiigv
+	pedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegthhhimhgvsehhuhgsvghrthdqhhhumh
+	hphhhrvgihrdgtohhm
+X-ME-Proxy: <xmx:Bst9YTV-SdwV-DckallMNFvQLgFRlkoopGlsP6J6HkaKTEtiAPtb8Q>
+	<xmx:Bst9Yekezl1LVKhZqFkSKzLs3epo87pWRq1Ia3_GGPDpFohAfd523Q>
+	<xmx:Bst9YYcbOy4x716sywzBlxrtqkv_1KhquKwM72qtvWoyyx678kgbWw>
+	<xmx:Bst9YYTgafBI07njRJ1EGrMwH-Mxein3SQvomt2IJnnBP4nP-RUWAw>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA for
+	<blinux-list@redhat.com>; Sat, 30 Oct 2021 18:45:26 -0400 (EDT)
+Date: Sat, 30 Oct 2021 15:45:24 -0700 (PDT)
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: System image backup?
-In-Reply-To: <81796f3a-548f-fc4c-cd9c-c423daaead0b@gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2110301837260.21716@panix1.panix.com>
-References: <ae005db1-091b-d05d-250c-3b54a71765b9@gmail.com>
-	<81796f3a-548f-fc4c-cd9c-c423daaead0b@gmail.com>
+Subject: Re: Accessible Coconut speech at startup
+In-Reply-To: <alpine.NEB.2.23.451.2110301831520.776@panix1.panix.com>
+Message-ID: <a2d6d9ae-4bb0-7d59-5edf-8e29d3da7736@hubert-humphrey.com>
+References: <9F0E8E47-7471-495E-A98F-BCB9122EB801@gmail.com>
+	<DA67F7C5-5947-4414-83A3-8E27FC9B60DB@gmail.com>
+	<alpine.NEB.2.23.451.2110301529560.17098@panix1.panix.com>
+	<578e1897-329a-e039-54cf-ca2869978df8@gmail.com>
+	<alpine.NEB.2.23.451.2110301831520.776@panix1.panix.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -76,7 +96,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -93,59 +113,20 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Another alternative especially when editing configuration files is first
-to copy the file to file.orig then do your editing on file and if your
-change fails, cp file.orig file and whatever you broke just got fixed.
-Sooner or later image backups fail if not on worm media and it would
-probably be useful to have a .sha512sum file on separate media with the
-sha512sum of the backed up image to check the backed up image every so
-often.  This way when it starts to fail you'll know without necessity of
-a restore operation.
-A backup image check might be a good chron job to run regularly.
-
-
-On Sun, 31 Oct 2021, Linux for blind general discussion wrote:
-
-> I use timeshift.
->
->
-> If you can access shell after messing up, you're just a few steps away from
-> restoring your system.
->
-> Otherwise you need live CD.
->
->
-> https://itsfoss.com/backup-restore-linux-timeshift/
->
->
-> HtH
->
-> On 10/29/21 4:59 AM, Linux for blind general discussion wrote:
-> > Dear List,
-> >
-> > Is there a easy and accessible way to create a system image?
-> >
-> > So if I screw up something, I could restore from a inage.
-> >
-> > Thanks,
-> >
-> > Rob
-> >
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
->
+Wondering if there are completely commandline ways of doing this? Actually 
+reaching a similar menu from a commandline would be great, as its quite a 
+hassle having to ask a hotel staffer to navigate a Linux graphical screen which 
+they don't always understand. I would rather do this in Speakup. Thanks so much 
+in advance
+Chime
 
 _______________________________________________
 Blinux-list mailing list
