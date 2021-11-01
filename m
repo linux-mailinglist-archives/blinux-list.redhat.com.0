@@ -1,70 +1,75 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2E78444127E
-	for <lists+blinux-list@lfdr.de>; Mon,  1 Nov 2021 04:54:39 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id E7EFC441A79
+	for <lists+blinux-list@lfdr.de>; Mon,  1 Nov 2021 12:12:06 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1635738878;
+	s=mimecast20190719; t=1635765125;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=CKd4DCCsiq2j9PKSpiHxkVT3rhpAaOZJ1/BN1ITMvZM=;
-	b=e88k4vfKDON7/ysfEC5bByeMvKyrxHi/1FEG/yQa108X/0ytFLN6zpvuJ7XkunlDBnkRj4
-	LT5r/b5nlQA4lcHyqJpbRO3lvO57o8ecPKLn5B5f29xFf9Z7QFx2VFfD29VBDQi/5VeG6S
-	lhOz61SpIK0zr6NKCTQ9an/1L10+BaU=
+	bh=e1q42SiqdZa2cUlUk3GjU+Xfa0FvR4S1JuS+yqDg15Q=;
+	b=ULBMyVHV2THXy6qXESNoQBoGJmKBaESGEofwarCykUFgpWDtS4xyA+9SHWZcHAkOJIqfbE
+	6WqZOU/1CI4r1v7RhjwCb2zdbOifSKznvXXiXM3yrkeMuRgM5t94wMxvIvAa3V9tt6dxH2
+	c9LHJMvz91n4k8Aqk344IRx6qnFM/Kg=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-441-ekG4S2r-NiqRQ7XTp8kLvw-1; Sun, 31 Oct 2021 23:54:34 -0400
-X-MC-Unique: ekG4S2r-NiqRQ7XTp8kLvw-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-448-dg5wlGVcMrOB1Vfz1d-9Ig-1; Mon, 01 Nov 2021 07:12:02 -0400
+X-MC-Unique: dg5wlGVcMrOB1Vfz1d-9Ig-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C71561006AA3;
-	Mon,  1 Nov 2021 03:54:30 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 723AF8030D2;
+	Mon,  1 Nov 2021 11:11:58 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BEBF719C59;
-	Mon,  1 Nov 2021 03:54:29 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5E8AB5C1C5;
+	Mon,  1 Nov 2021 11:11:56 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5BCFE1809C84;
-	Mon,  1 Nov 2021 03:54:19 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.1])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 610881806D03;
+	Mon,  1 Nov 2021 11:11:51 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1A13sBuq031245 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 31 Oct 2021 23:54:12 -0400
+	id 1A1BBf3h005581 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 1 Nov 2021 07:11:41 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id BFDB840CFD10; Mon,  1 Nov 2021 03:54:11 +0000 (UTC)
+	id 69E281121315; Mon,  1 Nov 2021 11:11:41 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BAB4440CFD01
-	for <blinux-list@redhat.com>; Mon,  1 Nov 2021 03:54:11 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A1B1F811E76
-	for <blinux-list@redhat.com>; Mon,  1 Nov 2021 03:54:11 +0000 (UTC)
-Received: from nntp.AegisInfoSys.com (nntp.AegisInfoSys.com [65.242.138.29])
-	by relay.mimecast.com with ESMTP id us-mta-132-WtK0TKppObCeWHxd5In8Jg-1;
-	Sun, 31 Oct 2021 23:54:09 -0400
-X-MC-Unique: WtK0TKppObCeWHxd5In8Jg-1
-Received: (from henry@localhost) by nntp.AegisInfoSys.com (8.6.9/8.6.9) id
-	XAA04660 for blinux-list@redhat.com; Sun, 31 Oct 2021 23:46:42 -0400
-Date: Sun, 31 Oct 2021 23:46:42 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: PBI - shell access via HTML?
-Message-ID: <20211101034627.GD19111@nntp.AegisInfoSys.com>
-References: <E5949DF0-363D-4D79-9E4A-5CB468223B5C@icloud.com>
-	<1f2e65f8-3d25-a02f-39d3-59e80f4270af@gmail.com>
-	<25068C73-5D52-4BF2-BB95-AD9DCB7672A4@cfcl.com>
-Mime-Version: 1.0
-In-Reply-To: <25068C73-5D52-4BF2-BB95-AD9DCB7672A4@cfcl.com>
-User-Agent: Mutt/1.4.2.3i
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6543D1121314
+	for <blinux-list@redhat.com>; Mon,  1 Nov 2021 11:11:36 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4D74C187506B
+	for <blinux-list@redhat.com>; Mon,  1 Nov 2021 11:11:36 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-243-S5hvnZvaN7S8XonbTKJqpg-1;
+	Mon, 01 Nov 2021 07:11:34 -0400
+X-MC-Unique: S5hvnZvaN7S8XonbTKJqpg-1
+Received: from [192.168.0.10] (sfa89-1-78-208-157-71.fbx.proxad.net
+	[78.208.157.71])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id C148EA390A
+	for <blinux-list@redhat.com>; Mon,  1 Nov 2021 10:11:00 +0100 (CET)
+Message-ID: <ce832097-f59c-acc6-32a9-01701b94eb14@slint.fr>
+Date: Mon, 1 Nov 2021 12:11:32 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.2.1
+Subject: Re: have any of you mannaged to successfully install linux alongside
+	with windows?
+To: blinux-list@redhat.com
+References: <2ecf58b4-4c80-0018-4c80-93d5dcf4d476@slint.fr>
+	<8182AB42-45DC-4800-8F7F-AA4D5D5CEB7F@gmail.com>
+	<c1d01788-8258-39c2-e861-de8e4e8a1113@slint.fr>
+	<49183B1B-18E5-4816-ADE1-FD439661F4F4@gmail.com>
+	<41d85622-37fc-ded1-011f-c2249be47865@gmail.com>
+In-Reply-To: <41d85622-37fc-ded1-011f-c2249be47865@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -73,7 +78,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 1A1BBf3h005581
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -90,42 +97,167 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-most modern linux commands that are run from a shell (whether nushell or
-bash or whatever) are already fairly powerful, and are easily adaptable
-to creating tabular output, especially when more complex pipelines to do
-that are encapsulated in a script.
-
-probably more to the point, accessing any shell via http usually requires
-a separate webserver process (shellinabox or gateone), is ajax-dependent
-(ajaxterm), is a java client (mindterm), or some combination; the latter two
-may render html that's weird enough to be unrecognizable by screen readers,
-and the first requires a dedicated server. and all of these, along
-with the general concepts of what are called "reverse shells", often
-come with difficult and subtle security exposures.
-
-since nushell is just a shell like any other, if your screen-reader setup
-can parse the output of any other shell (like bash), it can similarly
-parse the output of nushell, i would think. and using the relatively
-well-secured ssh setup, could be just as effective.
-
-On Sun, Oct 31, 2021 at 09:03:03AM -0700, Linux for blind general discussion wrote:
-> I have a Partly Baked Idea (PBI) regarding shell access via HTML.  In reading about nushell (https://www.nushell.sh), I was intrigued by the fact that many of its commands (e.g., cal, ls) output data in tabular form.  This allows other commands to process the data, making certain sorts of pipelines more effective.
-> 
-> My PBI is that, if nushell were accessed via HTML, a screen reader could let a blind user navigate the rows and columns of any tabular output.  I'd like to get some early feedback on this idea.  Does anyone think it might be useful?  What issues would need to be resolved?  (Inquiring gnomes need to mine...)
-> 
-> - Rich Morin
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGkgSWJyYWhpbSwKCkkgYW0gZ2xhZCB5b3UgaW5zdGFsbGVkIFNsaW50IG9uIGFuIFNEIGNhcmQg
+d2l0aCBubyBpc3N1ZS4KClRoZSByb290IChvciBzeXN0ZW0pIHBhcnRpdGlvbiBvZiBTbGludCBo
+YXMgYmVlbiBmb3JtYXR0ZWQgd2l0aCBhbiBmMmZzIGZpbGUKc3lzdGVtIHRoYXQgZml0cyB0aGlz
+IGtpbmQgb2YgZGV2aWNlcy4gVG8ga25vdyBtb3JlIGFib3V0IGYyZnM6Cmh0dHBzOi8vd3d3Lmtl
+cm5lbC5vcmcvZG9jL0RvY3VtZW50YXRpb24vZmlsZXN5c3RlbXMvZjJmcy50eHQKClRvIGJlIHNh
+ZmUgdGhlIGZpbGUgc3lzdGVtIGlzIGNoZWNrZWQgcGVyaW9kaWNhbGx5IChldmVyeSA1IGJvb3R1
+cHMgYnkKZGVmYXVsdCksIHdoaWNoIHRha2VzIHNldmVyYWwgbWludXRlcyBhbmQgY291bGQgbWFr
+ZSB5b3Ugd29uZGVyIGlmIHRoZSAKc3lzdGVtCmlzIHJlYWxseSBzdGFydGluZy4gSnVzdCB3YWl0
+IHBhdGllbnRseSB1bnRpbCB0aGUgY2hlY2sgYmUgY29tcGxldGVkLiAKWW91IGNhbgpjaGFuZ2Ug
+dGhlIHBlcmlvZGljaXR5IG9mIHRoaXMgY2hlY2sganVzdCBlZGl0aW5nIGFzIHJvb3QgdGhlIGZp
+bGUKL2V0Yy9mMmZzLmNvbmYuCgpJIGp1c3QgcmVhbGl6ZWQgdGhhdCB0aGVyZSBpcyBhIHR5cG8g
+aW4gdGhlIGNvbW1lbnQgaW4gdGhpcyBmaWxlLCAKaW5zdGVhZCBvZjoKIyBGb3IgaW5zdGFuY2Ug
+RlJFUVVFTkNZPTUgbWVhbnMgdGhlIHJvb3QgZmlsZSBzeXN0ZW0gd2lsbCBiZSBzdGFydGVkIApl
+dmVyeSBmaXZlCiMgYm9vdC4KcGxlYXNlIHJlYWQ6CiMgRm9yIGluc3RhbmNlIEZSRVFVRU5DWT01
+IG1lYW5zIHRoZSByb290IGZpbGUgc3lzdGVtIHdpbGwgYmUgY2hlY2tlZCAKZXZlcnkgZml2ZQoj
+IGJvb3RzLgoKQE1hdHRoZXc6CkkgaGF2ZSBjb25zaWRlcmVkIHByb3ZpZGluZyBhIHNpbWlsYXIg
+ZmVhdHVyZSAoYWJpbGl0eSB0byBzaHJpbmsgYSBOVEZTCnBhcnRpdGlvbiB1c2VkIGJ5IFdpbmRv
+d3MpIGluIFNsaW50IGFzIGluIFVidW50dSBhbmQgZXZlbiBpbXBsZW1lbnRlZCBpdC4gSQpjaGVj
+a2VkIGl0IHdpdGggdGhlIGhlbHAgb2YgSmVhbi1QaWVycmUgQW5kcsOpIChMaW51eCBOVEZTIGRl
+dmVsb3BlcikgYnV0CnJlbm91bmNlZCB0byBwcm92aWRlIGl0OiBhbHRob3VnaCBpdCBzZWVtZWQg
+c2FmZSBJIGNvdWxkbid0IGV4Y2x1ZGUgdGhhdCBhCmZ1dHVyZSBldm9sdXRpb24gb2YgV2luZG93
+cycgaGFuZGxpbmcgb2YgdGhlaXIgcGFydGl0aW9ucyB3b3VsZCBtYWtlIGl0IAp1bnNhZmUsCndp
+dGggYSByaXNrIG9mIGJyZWFraW5nIFdpbmRvd3Mgb3IgY29ycnVwdGluZyBpdHMgZGF0YS4KCk1v
+cmUgZ2VuZXJhbGx5LCBJIHRoaW5rIHRoYXQgaXQgaXMgc2FmZXIgdG8gc2hyaW5rIGEgcGFydGl0
+aW9uIGZyb20gdGhlIApzeXN0ZW0KdXNpbmcgaXQuIEluIGNhc2Ugb2YgU2xpbnQsIGhvdy10byBz
+aHJpbmsgYSBXaW5kb3dzIHBhcnRpdGlvbiBmcm9tIFdpbmRvd3MKaXRzZWxmIGlzIGluZGljYXRl
+ZCBpbiBvdXIgaGFuZGJvb2s6Cmh0dHBzOi8vc2xpbnQuZnIvZG9jL0hhbmRCb29rLmh0bWwjbWFr
+ZV9yb29tX2Zvcl9TbGludAoKQ2hlZXJzLApEaWRpZXIKCgpMZSAwMS8xMS8yMDIxIMOgIDAxOjIy
+LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIGEgw6ljcml0wqA6Cj4gVGhhbmtz
+IE1hdHRoZXcsCj4gCj4gSSBhbSBub3QgdXN1YWxseSB0aGF0IGFkdmVudHVyb3VzIHdoZW4gaXQg
+Y29tZXMgd2l0aCBkZWFsaW5nIHdpdGggCj4gb3BlcmF0aW5nIHN5c3RlbXMsIG5vbnRoZWxlc3Ms
+IEkgZGFyZWQgdG8gaW5zdGFsbCBzbGludCBvbiBhbiBTRCBjYXJkLiAKPiBJdCB0b29rIGFwcHJv
+eGltYXRlbHkgaGFsZiBhbiBob3VyIHRvIGRvIHRoZSBpbnN0YWxsYXRpb24uIE5vdyBJIGFtIAo+
+IHNlbmRpbmcgdGhpcyBlbWFpbCBmcm9tIHRoaXMgU2xpbnQgaW5zdGFsbGF0aW9uLiBJIGd1ZXNz
+IEkgd2FzIGEgbGl0dGxlIAo+IG5lcnZvdXMsIHNvIEkgZG8gbm90IHJlbWVtYmVyIHRoYXQgU2xp
+bnQgYXNrZWQgbWUgaWYgSSB3YW50IHRvIGluc3RhbGwgCj4gYWxvbmdzaWRlIHdpbmRvd3MuIEkg
+Y2hvc2UgYXV0byBpbnN0YWxsYXRpb24gYW5kIGl0IHByZXNlbnRlZCBtZSB3aXRoIAo+IHRoZSBk
+cml2ZXMgYW5kIG9uZSBvZiB0aGVtIHdhcyB0aGUgZHJpdmUgd2hlcmUgbXkgd2luZG93cyBpbnN0
+YWxsYXRpb24gCj4gcmVzaWRlcy4gSSB3YXMgYWZyYWlkIHRoYXQgaWYgSSBjaG9zZSBpdCBpdCB3
+b3VsZCB3aXBlIG15IGVudGlyZSBoYXJkIGRpc2MuCj4gCj4gQ2hlZXJzLAo+IAo+IElicmFoaW0K
+PiAKPiBPbiAyMDIxLTEwLTMxIDE2OjE0LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNz
+aW9uIHdyb3RlOgo+PiBIaSwKPj4KPj4gSSBoYXZlIGFuIGV4dGVybmFsIEhEwqAgd2hpY2ggaGFz
+IGZlZG9yYSBsaXZpbmcgb24gaXQgcXVpdGUgd2VsbCBJICAKPj4gaGF2ZSBpbnN0YWxsZWQgdWJ1
+bnR1IGFsb25nc2lkZSB3aW5kb3dzIHNldmVyYWwgdGltZXMgYW5kIGF0IHRoZSAKPj4gcHJvbXB0
+IHdoZXJlIHVidW50dSBzZWFyY2hlcyBmb3Igb3RoZXIgc3lzdGVtcyBvbiB5b3VyIGRpc2ssIG9u
+ZSBvZiAKPj4gdGhlIG9wdGlvbnMgaXMgaW5zdGFsbCBhbG9uZ3NpZGUgd2luZG93cyBpZiB0aGlz
+IGlzIHNlbGVjdGVkLCB1YnVudHUgCj4+IHdpbGwgZG8gdGhlIHJlc2l6aW5nIGZvciB5b3UuwqAg
+SWYgeW91IHdhbnQsIHlvdSBjb3VsZCBkbyBhIGJhY2t1cCAKPj4gZmlyc3QgdG8gYmUgc3VyZSB0
+aGF0IGV2ZXJ5dGhpbmcgaXMgc2F2ZWQgZmlyc3QgYnV0IGFsbCBzaG91bGQgYmUgCj4+IGdvb2Qu
+wqAgSWYgdW5zdXJlLCB5b3UgY291bGQganVzdCBpbnN0YWxsIHRvIGEgZXh0ZXJuYWwgZHJpdmUg
+YXMgSSBkaWQgCj4+IGFuZCBldmVyeXRoaW5nIHNob3VsZCB3b3JrIHRoYXQgd2F5Lgo+Pgo+PiBN
+YXR0aGV3Cj4+Cj4+Cj4+Cj4+PiBPbiBPY3QgMzEsIDIwMjEsIGF0IDM6NTAgUE0sIExpbnV4IGZv
+ciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gCj4+PiA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4g
+d3JvdGU6Cj4+Pgo+Pj4gWW91IGNhbiBpbnN0YWxsIGluIGEgMzIgR0Igb3IgcHJlZmVyYWJseSBp
+biBhIDY0IEdCIFVTQiBzdGljayBidXQgaXQgCj4+PiB3aWxsIGJlCj4+PiByYXRoZXIgc2xvdy4K
+Pj4+Cj4+PiBCZXR0ZXIsIGlmIHRoZSBjb21wdXRlciBoYXMgYW4gU0QgY2FyZCBzbG90IGFuZCBp
+cyBhYmxlIHRvIGJvb3QgZnJvbSAKPj4+IGEgU0QgY2FyZAo+Pj4gKG5vdCBhbGwgZG8pLCB1c2Ug
+YSBnb29kIHF1YWxpdHkgU0QgY2FyZC4KPj4+Cj4+PiBJbiBhbnkgY2FzZSBhbiBleHRlcm5hbCBT
+U0QgaXMgd2F5IGZhc3Rlci4KPj4+Cj4+PiBDaGVlcnMsCj4+PiBEaWRpZXIKPj4+Cj4+PiBMZSAz
+MS8xMC8yMDIxIMOgIDIwOjI4LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIGEg
+w6ljcml0IDoKPj4+PiBJIGFtIGdvaW5nIHRocm91Z2ggdGhlIGhhbmRib29rIGFuZCB0cnlpbmcg
+dG8gdW5kZXJzdGFuZCB0aGUgdmFyaW91cyAKPj4+PiBjb25jZXB0cy4gSSBoYXZlIG5vdCBzZWVu
+IHRoZSBpbnN0YWxsYXRpb24gaW4gYSB2aXJ0dWFsIGJveCB5ZXQuIEkgCj4+Pj4gYW0gd29uZGVy
+aW5nIGlmIEkgY2FuIGluc3RhbGwgaXQgb24gYSAzMiBvciA2NCBHQiBVU0Igc3RpY2ssIG9yIGRv
+ZXMgCj4+Pj4gaXQgaGF2ZSB0byBiZSBhbiBleHRlcm5hbCBTU0Q/Cj4+Pj4gUmVnYXJkcywKPj4+
+PiBJYnJhaGltCj4+Pj4gU2VudCBmcm9tIG15IGlQaG9uZQo+Pj4+PiBPbiBPY3QgMzEsIDIwMjEs
+IGF0IDI6NDMgUE0sIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gCj4+Pj4+IDxi
+bGludXgtbGlzdEByZWRoYXQuY29tPiB3cm90ZToKPj4+Pj4g77u/SGkgSWJyYWhpbS4KPj4+Pj4K
+Pj4+Pj4gTm8sIHRoZXJlIGlzIG5vIGxpdmUgaW5zdGFsbCBmb3IgU2xpbnQuCj4+Pj4+Cj4+Pj4+
+IEhvd2V2ZXI6Cj4+Pj4+Cj4+Pj4+IDEpIEJlZm9yZSB5b3UgaW5zdGFsbCBpdCBvbiB5b3VyIGhh
+cmQgZGlzaywgeW91IGNhbiBpbnN0YWxsIGFuZCBydW4gCj4+Pj4+IGl0IGluIGEKPj4+Pj4gVmly
+dHVhbEJveCB2aXJ0dWFsIG1hY2hpbmUuIFRoZW4sIGNob29zZSB0aGUgaW50ZWwgaGQgYXVkaW8g
+Cj4+Pj4+IGNvbnRyb2xsZXIgcmlnaHQKPj4+Pj4gYWZ0ZXIgdGhlIHZpcnR1YWwgbWFjaGluZSBj
+cmVhdGlvbi4gdG8gcHJldmVudCBsb3NzIG9mIHNwZWVjaCBkdXJpbmcKPj4+Pj4gaW5zdGFsbGF0
+aW9uLgo+Pj4+Pgo+Pj4+PiAyKSBJZiB5b3UgY2FuIGFmZm9yZCBpdCB5b3UgY2FuIGluc3RhbGwg
+U2xpbnQgaW4gYSBkZWRpY2F0ZWQgaGFyZCAKPj4+Pj4gZHJpdmUgb3IgU1NECj4+Pj4+IHdoaWNo
+IGNhbiBiZSBhbiBhbiBpbnRlcm5hbCBzZWNvbmQgZHJpdmUgb3IgYW4gZXh0ZXJuYWwgZHJpdmUg
+VVNCIAo+Pj4+PiBjb25uZWN0ZWQuCj4+Pj4+Cj4+Pj4+IDMpIFlvdSBjYW4gc2FmZWx5IHNoYXJl
+IGEgZHJpdmUgYmV0d2VlbiBXaW5kb3dzIGFuZCBTbGludCwgaWYgCj4+Pj4+IFdpbmRvd3MgYm9v
+dHMgaW4KPj4+Pj4gVUVGSSBtb2RlLgo+Pj4+Pgo+Pj4+PiA0KSBJbiBhbnkgY2FzZSB0aGUgaW5z
+dGFsbGVyIHdpbGwgcHJlc2VudHMgeW91IGFsbCBwb3NzaWJpbGl0aWVzIGZvcgo+Pj4+PiBpbnN0
+YWxsYXRpb24gYW5kIHdpbGwgbGV0IHlvdSByZXZpZXcgYWxsIGluc3RhbGxhdGlvbiBvcHRpb25z
+IAo+Pj4+PiBiZWZvcmUgd3JpdGluZwo+Pj4+PiBhbnl0aGluZyBvbiBhIGhhcmQgZGlzay4gSWYg
+eW91IGNoYW5nZSB5b3VyIG1pbmQgeW91IHdpbGwgYmUgYWJsZSAKPj4+Pj4gdG8gY2hhbmdlCj4+
+Pj4+IGFueSBvcHRpb24uIElmIHlvdSBkZWNpZGUgdG8gaW5zdGFsbCBsYXRlciBvciBub3QgYXQg
+YWxsLCBhZnRlciBhIAo+Pj4+PiByZWJvb3QgV2luZG93cwo+Pj4+PiB3aWxsIHN0YXJ0IGFzIHVz
+dWFsLgo+Pj4+Pgo+Pj4+PiBBZnRlciBpbnN0YWxsYXRpb24geW91IHdpbGwgYmUgYWJsZSB0byBj
+aG9vc2Ugd2hpY2ggc3lzdGVtIHRvIHN0YXJ0IAo+Pj4+PiBhdCBib290IHVwLgo+Pj4+PiBXaGVu
+IHlvdSB3aWxsIGhlYXIgYSBzb3VuZCB0ZWxsaW5nIHlvdSB0aGF0IHRoZSBtYWNoaW5lIGlzIHJl
+YWR5IHRvIAo+Pj4+PiBib290LCBqdXN0Cj4+Pj4+IHByZXNzIEVudGVyIHRvIHN0YXJ0IFNsaW50
+IG9yIHByZXNzIGFycm93IGRvd24gdGhlbiBFbnRlciB0byBzdGFydCAKPj4+Pj4gV2luZG93cy4K
+Pj4+Pj4KPj4+Pj4gRmVsbCBmcmVlIHJlcXVpcmUgbW9yZSBndWlkYW5jZSBpbiBvbmUgb2YgdGhl
+IHN1cHBvcnQgY2hhbm5lbHMgCj4+Pj4+IGxpc3RlZCBpbiB0aGUKPj4+Pj4gSGFuZEJvb2suCj4+
+Pj4+Cj4+Pj4+IEhvcGUgdGhpcyBoZWxwcwo+Pj4+PiBEaWRpZXIKPj4+Pj4gLS0gCj4+Pj4+IERp
+ZGllciBTcGFpZXIKPj4+Pj4gU2xpbnQgbWFpbnRhaW5lcgo+Pj4+PiBkaWRpZXIgYXQgc2xpbnQg
+ZG90IGZyCj4+Pj4+IExlIDMxLzEwLzIwMjEgw6AgMTY6NDEsIExpbnV4IGZvciBibGluZCBnZW5l
+cmFsIGRpc2N1c3Npb24gYSDDqWNyaXQgOgo+Pj4+Pj4gVGhhbmtzIGEgbWlsbGlvbiBEaWRpZXIs
+Cj4+Pj4+PiBUaGlzIGlzIGEgZ3JlYXQgaGFuZGJvb2suIE9uZSBvZiB0aGUgdGhpbmdzIHdoaWNo
+IGRpc2NvdXJhZ2VkIG1lIAo+Pj4+Pj4gZnJvbSBhZG9wdGluZyBsaW51eCBpbiB0aGUgcGFzdCB3
+YXMgdGhlIGxhY2sgb2YgZWFzeSB0byBmb2xsb3cgCj4+Pj4+PiBkb2N1bWVudGF0aW9ucy4gRXZl
+cnl0aW1lIEkgdHJpZWQsIEkgZm91bmQgbXlzZWxmIGJyb3dzaW5nIGluIAo+Pj4+Pj4gaGlnaGx5
+IHRlY2huaWNhbCBkb2N1bWVudHMgdGhhdCBzb3VuZGVkIGxpa2UgYSBmb3JlaWduIGxhbmd1YWdl
+IHRvIAo+Pj4+Pj4gbWUuIFRoaXMgaGFuZGJvb2sgc2VlbXMgdG8gYXZvaWQgdGhpcyBwcm9ibGVt
+Lgo+Pj4+Pj4gSSB3aWxsIGNlcnRhaW5seSB0cnkgc2xpbnQsIGlmIGl0IGNhbiBiZSB1c2VkIGFz
+IGEgbGl2ZSBpbnN0YWxsIAo+Pj4+Pj4gd2l0aG91dCBoYXZpbmcgdG8gcGh5c2ljYWxseSBpbnN0
+YWxsIG9uIG15IGhhcmQgZGlzYy4gSSB3aWxsIGFsc28gCj4+Pj4+PiBicm93c2UgdGhpcyBoYW5k
+Ym9vayB0byBsZWFybiBtb3JlIGFib3V0IHNsaW50Lgo+Pj4+Pj4gVGhhbmtzIGZvciB0aGlzLiBJ
+IHdpbGwgY2VydGFpbmx5IG5lZWQgeW91ciBoZWxwIGlmIEkgaW5zdGFsbCBpdCAKPj4+Pj4+IG9u
+IG15IGhhcmQgZGlzYy4gV2hhdCBJIHdhbnQgaWRlYWxseSBpcyB0aGUgYWJpbGl0eSB0byBoYXZl
+IGJvdGggCj4+Pj4+PiBsaW51eCBhbmQgd2luZG93cyBydW5uaW5nIG9uIHRoZSBzYW1lIG1hY2hp
+bmUsIGFuZCBJIGNob29zZSB3aGljaCAKPj4+Pj4+IG9uZSB0byBzdGFydCBhdCBib290dXAuCj4+
+Pj4+PiBSZWdhcmRzLAo+Pj4+Pj4gSWJyYWhpbQo+Pj4+Pj4gT24gMTAvMzEvMjEgNDowNiBBTSwg
+TGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90ZToKPj4+Pj4+PiBIZWxsbyBJ
+YnJhaGltLAo+Pj4+Pj4+IHRoaXMgaXMgZWFzaWx5IGRvbmUgd2l0aCBTbGludCwgaWYgV2luZG93
+cyBib290cyBpbiBFRkkgbW9kZToKPj4+Pj4+PiBodHRwczovL3NsaW50LmZyL2RvYy9IYW5kQm9v
+ay5odG1sCj4+Pj4+Pj4gQ2hlZXJzLAo+Pj4+Pj4+IERpZGllcgo+Pj4+Pj4+IC0tIAo+Pj4+Pj4+
+IERpZGllciBTcGFpZXIKPj4+Pj4+PiBTbGludCBtYWludGFpbmVyCj4+Pj4+Pj4gTGUgMzEvMTAv
+MjAyMSDDoCAwNDoxOCwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3Jp
+dCA6Cj4+Pj4+Pj4+IEhlbGxvIGZvbGtzLAo+Pj4+Pj4+PiBJIGhhdmUgYmVlbiBwbGF5aW5nIHdp
+dGggTGludXggbWludCBhbmQgQWNjZXNzaWJsZSBDb2NvbnV0IGZvciAKPj4+Pj4+Pj4gb3ZlciAy
+NCBob3Vycy4gSSBhbSBnZXR0aW5nIHRvIGxpa2UgdGhpcyBzeXN0ZW0uIEhvd2V2ZXIsIFdoZW4g
+SSAKPj4+Pj4+Pj4gY29udGVtcGxhdGVkIGluc3RhbGxpbmcgb24gbXkgaGFyZCBkaXNrLCBJIGZv
+dW5kIHRoZSAKPj4+Pj4+Pj4gaW5zdGFsbGF0aW9uIHByb2Nlc3MgYSBsaXR0bGUgY29uZnVzaW5n
+IGFuZCBzY2FyeS4gSSBhbHdheXMgCj4+Pj4+Pj4+IHJldmVydGVkIGJhY2sgYW5kIGFib3J0ZWQg
+dGhlIGluc3RhbGxhdGlvbiB0byBwcmV2ZW50IGFuIAo+Pj4+Pj4+PiB1bmludGVuZGVkIGRhbWFn
+ZSB0byBteSB3aW5kb3dzIG9wZXJhdGluZyBzeXN0ZW0uCj4+Pj4+Pj4+IElmIGFueSBvZiB5b3Ug
+aGF2ZSBzdWNjZXNzZnVsbHkgbWFuYWdlZCB0byBpbnN0YWxsIGxpbnV4IAo+Pj4+Pj4+PiBhbG9u
+Z3NpZGUgd2l0aCB3aW5kb3dzIG9uIHRoZSBzYW1lIGhhcmQgZGlzaywgcGxlYXNlIGFkdmlzZSBt
+ZSAKPj4+Pj4+Pj4gb24gaG93IHRvIGdvIGFib3V0IGl0IHNhZmVseS4KPj4+Pj4+Pj4gUmVnYXJk
+cywKPj4+Pj4+Pj4gSWJyYWhpbQo+Pj4+Pj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCj4+Pj4+Pj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+Pj4+
+Pj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+Pj4+Pj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQu
+Y29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4+Pj4+IF9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+Pj4+PiBCbGludXgtbGlzdCBtYWlsaW5n
+IGxpc3QKPj4+Pj4+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+Pj4+IGh0dHBzOi8vbGlzdG1h
+bi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4+Pj4KPj4+Pj4gX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+Pj4gQmxpbnV4
+LWxpc3QgbWFpbGluZyBsaXN0Cj4+Pj4+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+Pj4gaHR0
+cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+Pj4+
+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+Pj4gQmxp
+bnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+Pj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+Pj4+IGh0
+dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4+
+Cj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+Pj4g
+QmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+PiBo
+dHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+
+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+IEJs
+aW51eC1saXN0IG1haWxpbmcgbGlzdAo+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+IGh0dHBz
+Oi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPiAKPiBf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1s
+aXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3Rt
+YW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0CgoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBs
+aXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFp
+bG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
 
