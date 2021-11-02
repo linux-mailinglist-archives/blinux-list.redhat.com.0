@@ -2,94 +2,70 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 54EE74429AF
-	for <lists+blinux-list@lfdr.de>; Tue,  2 Nov 2021 09:41:21 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 69988442A71
+	for <lists+blinux-list@lfdr.de>; Tue,  2 Nov 2021 10:34:24 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1635842480;
+	s=mimecast20190719; t=1635845663;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:list-id:list-help:list-unsubscribe:
-	 list-subscribe:list-post; bh=EaVSRvzB7poc9mx3wy5Us6j4QT7cXMmlK6DlSikxcPg=;
-	b=ceqOQXUsOQ31Bn/fLvtu//F/GyowW4YCIPfJEBnMI4yqKaC0UoDm0SMoUyjrzKEsqPmO3A
-	P6+6OLjCXMsSAlHnE2gSooSpy+ygRLC99bsjBnGz2V6p2IOWjwTfsDsxSGh1FW3veUPzjd
-	KDx0bxhAy/1AARMpWvKoq2ORWHpnhPg=
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 list-unsubscribe:list-subscribe:list-post;
+	bh=KSjd+hQJaZ63N9LguctOHE/U/8V4NRIAh3L3I7MaLds=;
+	b=fQlKdon5LxVR2w0nm72D7K0a/ldosZiy6FUPdQIFJ29Fcwjp752go4CsRB3jDSrK3XmKZO
+	UiqiZdatOtvm7z7VvwcRqHG/BY6yTvPNbtnouOUxhDDeRJhVry7ERkkZCeDgQ0ClwAh4wT
+	fAjsELts2pYV++JgojFYBj+3JBXuB2Q=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-253-AJUhZLEgPIWWXE1gwF1_6A-1; Tue, 02 Nov 2021 04:41:16 -0400
-X-MC-Unique: AJUhZLEgPIWWXE1gwF1_6A-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-445-f2MxKYjlM0ynOKdTxLNCbQ-1; Tue, 02 Nov 2021 05:34:19 -0400
+X-MC-Unique: f2MxKYjlM0ynOKdTxLNCbQ-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 426741808318;
-	Tue,  2 Nov 2021 08:41:12 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E10885D705;
-	Tue,  2 Nov 2021 08:41:08 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C07A2879500;
+	Tue,  2 Nov 2021 09:34:15 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C18902271F;
+	Tue,  2 Nov 2021 09:34:14 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 55E871806D03;
-	Tue,  2 Nov 2021 08:41:02 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4C7234EA31;
+	Tue,  2 Nov 2021 09:34:11 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1A28e1QN015762 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 2 Nov 2021 04:40:02 -0400
+	id 1A29UA7X024407 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 2 Nov 2021 05:30:10 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id A4B282166B3F; Tue,  2 Nov 2021 08:40:01 +0000 (UTC)
+	id 30EF440D1B9E; Tue,  2 Nov 2021 09:30:10 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 98EF22166B25
-	for <blinux-list@redhat.com>; Tue,  2 Nov 2021 08:39:58 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1AE938011AF
-	for <blinux-list@redhat.com>; Tue,  2 Nov 2021 08:39:58 +0000 (UTC)
-Received: from hera.aquilenet.fr (hera.aquilenet.fr [185.233.100.1]) (Using
-	TLS) by relay.mimecast.com with ESMTP id
-	us-mta-265-x-WaRGAmNimwudUgZPj1mA-1; Tue, 02 Nov 2021 04:39:56 -0400
-X-MC-Unique: x-WaRGAmNimwudUgZPj1mA-1
-Received: from localhost (localhost [127.0.0.1])
-	by hera.aquilenet.fr (Postfix) with ESMTP id E3E051AD
-	for <blinux-list@redhat.com>; Tue,  2 Nov 2021 09:32:36 +0100 (CET)
-X-Virus-Scanned: Debian amavisd-new at aquilenet.fr
-Received: from hera.aquilenet.fr ([127.0.0.1])
-	by localhost (hera.aquilenet.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id T0gMGYPnF71K for <blinux-list@redhat.com>;
-	Tue,  2 Nov 2021 09:32:36 +0100 (CET)
-Received: from begin (unknown [IPv6:2a01:cb19:956:1b00:de41:a9ff:fe47:ec49])
-	by hera.aquilenet.fr (Postfix) with ESMTPSA id 6B8C39B
-	for <blinux-list@redhat.com>; Tue,  2 Nov 2021 09:32:36 +0100 (CET)
-Received: from samy by begin with local (Exim 4.95)
-	(envelope-from <samuel.thibault@ens-lyon.org>) id 1mhpDf-00EutF-FU
-	for blinux-list@redhat.com; Tue, 02 Nov 2021 09:32:35 +0100
-Date: Tue, 2 Nov 2021 09:32:35 +0100
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2D09140D1B9D
+	for <blinux-list@redhat.com>; Tue,  2 Nov 2021 09:30:09 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 538D1857052
+	for <blinux-list@redhat.com>; Tue,  2 Nov 2021 09:30:09 +0000 (UTC)
+Received: from smtprelay04.ispgateway.de (smtprelay04.ispgateway.de
+	[80.67.18.16]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-176-l0S7rlm9PGOTtUGXT_kuzw-1; Tue, 02 Nov 2021 05:30:07 -0400
+X-MC-Unique: l0S7rlm9PGOTtUGXT_kuzw-1
+Received: from [37.4.229.93] (helo=smtpclient.apple)
+	by smtprelay04.ispgateway.de with esmtpsa (TLS1.2) tls
+	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+	(envelope-from <chrys@linux-a11y.org>) id 1mhpzT-0006Z3-UX
+	for blinux-list@redhat.com; Tue, 02 Nov 2021 10:21:59 +0100
+Mime-Version: 1.0 (1.0)
 Subject: Re: FYI - The Yggdrasil Screen Reader Project
-Message-ID: <20211102083235.nuzcsnnrrr2kxyno@begin>
-Mail-Followup-To: Linux for blind general discussion <blinux-list@redhat.com>
-MIME-Version: 1.0
-In-Reply-To: <CAGJxbF5-L+XZrVgE1-=zVo+0OMGYN8MyQbpb4dzog-fkQenRyQ@mail.gmail.com>
-	<e69acb20-0467-35b1-3d40-eafae4543b48@gmail.com>
-	<CAM+Q2c7O_0eLXVWMnmUEU7BTHkf4P=5dX20+hGc9yqpnOrr6dQ@mail.gmail.com>
-	<1C66A443-A56F-4B20-895C-DD5B7FB80918@cfcl.com>
-	<f222c105-e027-b6bf-df00-f2bc3733719d@gmail.com>
-	<C4D8F75A-ADC8-4F6F-8F4C-9AE2BB8B0792@cfcl.com>
-Organization: I am not organized
-User-Agent: NeoMutt/20170609 (1.8.3)
-X-Spamd-Bar: /
-X-Rspamd-Server: hera
-X-Rspamd-Queue-Id: E3E051AD
-X-Spamd-Result: default: False [0.40 / 15.00]; ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[]; FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[]; MIME_GOOD(-0.10)[text/plain];
-	PREVIOUSLY_DELIVERED(0.00)[blinux-list@redhat.com];
-	RCPT_COUNT_ONE(0.00)[1]; HAS_ORG_HEADER(0.00)[];
-	RCVD_COUNT_THREE(0.00)[3]; TO_DN_ALL(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[]; MIME_TRACE(0.00)[0:+];
-	RCVD_TLS_LAST(0.00)[]; MID_RHS_NOT_FQDN(0.50)[]
+Date: Tue, 2 Nov 2021 10:22:31 +0100
+Message-Id: <A7152642-00C7-4A24-B993-9235211645D9@linux-a11y.org>
+References: <20211102083235.nuzcsnnrrr2kxyno@begin>
+In-Reply-To: <20211102083235.nuzcsnnrrr2kxyno@begin>
+To: blinux-list@redhat.com
+X-Df-Sender: Y2hyeXNAbGludXgtYTExeS5vcmc=
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -98,7 +74,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 1A29UA7X024407
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -115,59 +93,50 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Hello,
-
-> Accessibility on Linux has historically been under-developed, under-maintained,
-
-And thus let's split the effort instead of joining? Ew.
-
-> Members of the Rust community are reimplementing a number of C-based programs, making the argument that they can improve on the current state of the art.
-
-That is right for various C-based programs that are a pain to maintain
-because of C. Orca is not a pain to maintain because of Python, it's a
-pain to develop because the problem itself is complex. Rewriting in Rust
-won't change that.
-
-> On the other hand, choices are good.
-
-Choices are good when there are enough people to work on the various
-choices. Split the community, and instead of having one good software,
-you have two poor software.
-
-> not a tremendous amount of development occurring on either.
-
-That's just a matter of people joining in.
-
-> Does Orca have object navigation? No flat review is not the same thing.
-
-Where is the feature request for object navigation?  Where is the pull
-request to propose an implementation?
-
-> Also, I can't remember which, but other the Orca dev or someone on Mastodon
-> reviewing Orca's code said that, I believe the Terminal-access code is
-> "black magic".
-
-For terminal access, it'll be much more interesting to run brltty, which
-has decades of experience.
-
-brltty -b ba -x a2 -N
-
-Note that the "black magic" inserted in Orca is most often because it's
-the application itself which exposes bogus information.
-
-Samuel
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGVsbG8sCgp3ZWxsLCBhIHF1aWNrIGxvb2sgaW50byB0aGUgY29kZSBzaG93cyB0aGF0IHRoaXMg
+aXMgY3VyZW50bHkgZmFyIGF3YXkgZnJvbSBiZWluZyBhIHNjcmVlbnJlYWRlciBidXQgbW9yZSBh
+IHZlcnkgZWFybHkgcHJvdG90eXBpbmcuIExldHMgc2VlIHdoYXQgaGFwcGVucy4KCgoKPiBBbSAw
+Mi4xMS4yMDIxIHVtIDA5OjQxIHNjaHJpZWIgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vz
+c2lvbiA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT46Cj4gCj4g77u/SGVsbG8sCj4gCj4+IEFjY2Vz
+c2liaWxpdHkgb24gTGludXggaGFzIGhpc3RvcmljYWxseSBiZWVuIHVuZGVyLWRldmVsb3BlZCwg
+dW5kZXItbWFpbnRhaW5lZCwKPiAKPiBBbmQgdGh1cyBsZXQncyBzcGxpdCB0aGUgZWZmb3J0IGlu
+c3RlYWQgb2Ygam9pbmluZz8gRXcuCj4gCj4+IE1lbWJlcnMgb2YgdGhlIFJ1c3QgY29tbXVuaXR5
+IGFyZSByZWltcGxlbWVudGluZyBhIG51bWJlciBvZiBDLWJhc2VkIHByb2dyYW1zLCBtYWtpbmcg
+dGhlIGFyZ3VtZW50IHRoYXQgdGhleSBjYW4gaW1wcm92ZSBvbiB0aGUgY3VycmVudCBzdGF0ZSBv
+ZiB0aGUgYXJ0Lgo+IAo+IFRoYXQgaXMgcmlnaHQgZm9yIHZhcmlvdXMgQy1iYXNlZCBwcm9ncmFt
+cyB0aGF0IGFyZSBhIHBhaW4gdG8gbWFpbnRhaW4KPiBiZWNhdXNlIG9mIEMuIE9yY2EgaXMgbm90
+IGEgcGFpbiB0byBtYWludGFpbiBiZWNhdXNlIG9mIFB5dGhvbiwgaXQncyBhCj4gcGFpbiB0byBk
+ZXZlbG9wIGJlY2F1c2UgdGhlIHByb2JsZW0gaXRzZWxmIGlzIGNvbXBsZXguIFJld3JpdGluZyBp
+biBSdXN0Cj4gd29uJ3QgY2hhbmdlIHRoYXQuCj4gCj4+IE9uIHRoZSBvdGhlciBoYW5kLCBjaG9p
+Y2VzIGFyZSBnb29kLgo+IAo+IENob2ljZXMgYXJlIGdvb2Qgd2hlbiB0aGVyZSBhcmUgZW5vdWdo
+IHBlb3BsZSB0byB3b3JrIG9uIHRoZSB2YXJpb3VzCj4gY2hvaWNlcy4gU3BsaXQgdGhlIGNvbW11
+bml0eSwgYW5kIGluc3RlYWQgb2YgaGF2aW5nIG9uZSBnb29kIHNvZnR3YXJlLAo+IHlvdSBoYXZl
+IHR3byBwb29yIHNvZnR3YXJlLgo+IAo+PiBub3QgYSB0cmVtZW5kb3VzIGFtb3VudCBvZiBkZXZl
+bG9wbWVudCBvY2N1cnJpbmcgb24gZWl0aGVyLgo+IAo+IFRoYXQncyBqdXN0IGEgbWF0dGVyIG9m
+IHBlb3BsZSBqb2luaW5nIGluLgo+IAo+PiBEb2VzIE9yY2EgaGF2ZSBvYmplY3QgbmF2aWdhdGlv
+bj8gTm8gZmxhdCByZXZpZXcgaXMgbm90IHRoZSBzYW1lIHRoaW5nLgo+IAo+IFdoZXJlIGlzIHRo
+ZSBmZWF0dXJlIHJlcXVlc3QgZm9yIG9iamVjdCBuYXZpZ2F0aW9uPyAgV2hlcmUgaXMgdGhlIHB1
+bGwKPiByZXF1ZXN0IHRvIHByb3Bvc2UgYW4gaW1wbGVtZW50YXRpb24/Cj4gCj4+IEFsc28sIEkg
+Y2FuJ3QgcmVtZW1iZXIgd2hpY2gsIGJ1dCBvdGhlciB0aGUgT3JjYSBkZXYgb3Igc29tZW9uZSBv
+biBNYXN0b2Rvbgo+PiByZXZpZXdpbmcgT3JjYSdzIGNvZGUgc2FpZCB0aGF0LCBJIGJlbGlldmUg
+dGhlIFRlcm1pbmFsLWFjY2VzcyBjb2RlIGlzCj4+ICJibGFjayBtYWdpYyIuCj4gCj4gRm9yIHRl
+cm1pbmFsIGFjY2VzcywgaXQnbGwgYmUgbXVjaCBtb3JlIGludGVyZXN0aW5nIHRvIHJ1biBicmx0
+dHksIHdoaWNoCj4gaGFzIGRlY2FkZXMgb2YgZXhwZXJpZW5jZS4KPiAKPiBicmx0dHkgLWIgYmEg
+LXggYTIgLU4KPiAKPiBOb3RlIHRoYXQgdGhlICJibGFjayBtYWdpYyIgaW5zZXJ0ZWQgaW4gT3Jj
+YSBpcyBtb3N0IG9mdGVuIGJlY2F1c2UgaXQncwo+IHRoZSBhcHBsaWNhdGlvbiBpdHNlbGYgd2hp
+Y2ggZXhwb3NlcyBib2d1cyBpbmZvcm1hdGlvbi4KPiAKPiBTYW11ZWwKPiAKPiBfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxp
+bmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0
+LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4gCgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJs
+aW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9s
+aXN0aW5mby9ibGludXgtbGlzdA==
 
