@@ -1,88 +1,94 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 71F5E442523
-	for <lists+blinux-list@lfdr.de>; Tue,  2 Nov 2021 02:27:54 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6B43B44254F
+	for <lists+blinux-list@lfdr.de>; Tue,  2 Nov 2021 02:45:52 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1635816473;
+	s=mimecast20190719; t=1635817551;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=NSrLCdPt7TawZGZ52ovYHttsvPGAh8qwc1PxI4k/T5A=;
-	b=NOhaYGD0WcsKKAXmQj837xRuRZhvBEVuwR14SfIZO+aVEF4VsgAFFpV2VnKniXJt7ObIha
-	pGevGD8V6AVehbT1OZHCGhy+wCYo+TSQUrgM+J7tIvlaWC+AsdN4CMYnWSxHQbgo+OByA4
-	MwMnHGMmh386c7wk2giYETLDTWI6iY0=
+	bh=meDKfAFL6PEDRbSS/5voQb68QBqlBGmOQFUa22az+EA=;
+	b=iG8KBR/FfeaUFRxYyImWhuUfGS6UQSZVz6fft0x7OZxNCMp4c+nxNG0Nw+HvlTtH55QFrP
+	afIySKzzuNEjaxYPSQk412oWuWXMZSXvZsrM1+/euSUWrXqg92OT59y5CUXrpEPa6TtPl2
+	yEN4JXAHQ2VuZjCLdzR0+1NscNRnQqs=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-595-uOcE-A9sODyVSDvH61KU3Q-1; Mon, 01 Nov 2021 21:27:49 -0400
-X-MC-Unique: uOcE-A9sODyVSDvH61KU3Q-1
+ us-mta-598-FxB39adPPKeeYr7isGLz3w-1; Mon, 01 Nov 2021 21:45:47 -0400
+X-MC-Unique: FxB39adPPKeeYr7isGLz3w-1
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 19E9E1006AA2;
-	Tue,  2 Nov 2021 01:27:45 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id AA5AF802B61;
+	Tue,  2 Nov 2021 01:45:43 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 843C4100E12D;
-	Tue,  2 Nov 2021 01:27:42 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3BD36101E589;
+	Tue,  2 Nov 2021 01:45:42 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E3DA81806D03;
-	Tue,  2 Nov 2021 01:27:30 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EB79B1806D03;
+	Tue,  2 Nov 2021 01:45:38 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.1])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1A21QPEr013884 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 1 Nov 2021 21:26:26 -0400
+	id 1A21effb014660 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 1 Nov 2021 21:40:41 -0400
 Received: by smtp.corp.redhat.com (Postfix)
-	id C1A9A1121315; Tue,  2 Nov 2021 01:26:25 +0000 (UTC)
+	id 2EFCD40CFD10; Tue,  2 Nov 2021 01:40:41 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BCEB91121314
-	for <blinux-list@redhat.com>; Tue,  2 Nov 2021 01:26:22 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C7415899EC0
-	for <blinux-list@redhat.com>; Tue,  2 Nov 2021 01:26:22 +0000 (UTC)
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com
-	[209.85.214.174]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-393-HXB1snrJNmuhpAyjMezuNg-1; Mon, 01 Nov 2021 21:26:20 -0400
-X-MC-Unique: HXB1snrJNmuhpAyjMezuNg-1
-Received: by mail-pl1-f174.google.com with SMTP id t21so13455944plr.6
-	for <blinux-list@redhat.com>; Mon, 01 Nov 2021 18:26:20 -0700 (PDT)
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 28E6840CFD01
+	for <blinux-list@redhat.com>; Tue,  2 Nov 2021 01:40:41 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0F7E41064E6C
+	for <blinux-list@redhat.com>; Tue,  2 Nov 2021 01:40:41 +0000 (UTC)
+Received: from mail-qv1-f47.google.com (mail-qv1-f47.google.com
+	[209.85.219.47]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-572-Dfbn0NCVMkOWTigzVbfJEQ-1; Mon, 01 Nov 2021 21:40:21 -0400
+X-MC-Unique: Dfbn0NCVMkOWTigzVbfJEQ-1
+Received: by mail-qv1-f47.google.com with SMTP id gh1so12396141qvb.8
+	for <blinux-list@redhat.com>; Mon, 01 Nov 2021 18:40:21 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:subject:from:in-reply-to:date
-	:content-transfer-encoding:message-id:references:to;
-	bh=0nvJ7TWV6syOnRr4gh2reUsJNLfehZrugGQtjUOATW4=;
-	b=w+Zkz4fG4sXjgtHHYLDBpMsfiTULB065O8FTus/QjSj4dfqFwSZyimG5HCXo3wH14r
-	/vrUlZ8jKTEGjbYivfj8PpHmkUwk9wx/bZ96+otogVet/tbqjJ4hXQ432H0lfdunpsXB
-	j8iOjgfX3l4N2IPsCDoOubLP/21PjMMQnn9r1z7PuIIHsrHfet6uo7H42FzyqPm8u4TH
-	hat35iPhlpdcnOIkNSZVwNjieumHqNz46U2yMwoyFfCan2BgXvgqfqmqJpjYJzCKXhmm
-	C8BXEA8BOUQLZfyyTLdO3Rrc+3JC83tK6v4UEFu4YFcszdM0kkWp/l3MpXLefUxradL3
-	BKFw==
-X-Gm-Message-State: AOAM531lJgTGjn+gUmMNO5bnmesV5V8UonOY8VCZKlNEfcw1j4FSl5ON
-	jg2nmz3EjtKAKrXJ9Mw2MOHjxHQOEWDZrQ==
-X-Google-Smtp-Source: ABdhPJyzAGh/sSCheVCFyne+qOsY+JVpQRR7Wzap+obojz1r7FvnlQ6PZF4ijqWs5UlcDPqV32gEjg==
-X-Received: by 2002:a17:902:70c9:b0:140:5ca3:e67a with SMTP id
-	l9-20020a17090270c900b001405ca3e67amr28821267plt.29.1635816379419;
-	Mon, 01 Nov 2021 18:26:19 -0700 (PDT)
-Received: from [192.168.4.38] (24-113-81-134.wavecable.com. [24.113.81.134])
-	by smtp.gmail.com with ESMTPSA id bt2sm204702pjb.33.2021.11.01.18.26.18
-	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-	Mon, 01 Nov 2021 18:26:19 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 13.4 \(3608.120.23.2.7\))
-Subject: FYI - The Yggdrasil Screen Reader Project
-In-Reply-To: <1f2e65f8-3d25-a02f-39d3-59e80f4270af@gmail.com>
-Date: Mon, 1 Nov 2021 18:26:16 -0700
-Message-Id: <C4D8F75A-ADC8-4F6F-8F4C-9AE2BB8B0792@cfcl.com>
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=Man2SpyClmGorA2BD50hypJrpko051sqnQSW0yWdVO8=;
+	b=mhXPdfr+eeuBUqXz9MMYctuQIxd97CigwxaZBiGRDHN3owSCGSDkLTiNSi85X3zf4f
+	qfnlO8Dvpalqb2Osbi/CroJMgC5Hadq+crombNFoVePMT5731JkVxKEXpq+SE0Rpz6FM
+	MsP1P+lPyWqKHMsObMfzYJMOMUxZymEqGcHnpFTLrFbQEAf66SGiVTW+uEThKPdkmWPp
+	88mH7RM9vPWjbRD/mZb5aAmkqn3azKd8lovAi66T+ZQH4qLCvF+dXkTlXy/Rap5PdPPo
+	hxi3MdiwwScH2iVhTXUfyX+D7ENVNZVIpDy3AIUfA/buMv3UNTuMRC70iqtqOOS+f1+H
+	UvlA==
+X-Gm-Message-State: AOAM533nCJQGeopCeLYXEcxI5uRZ7xyPZVIlABNYYEZQ+plQ0w0FOVfU
+	M30o29qjUY5Mvw/mDGczxntBTyH+9Ck=
+X-Google-Smtp-Source: ABdhPJyE4D6Am49Ks7b7CtXgYfh/RYowIPL+NgdQsCd5mW5OxRkN99j+yDxgXPszHeNaclHbftFLfA==
+X-Received: by 2002:a05:6214:21a5:: with SMTP id
+	t5mr5362612qvc.46.1635817221358; 
+	Mon, 01 Nov 2021 18:40:21 -0700 (PDT)
+Received: from ?IPV6:2603:6080:6304:450a::960?
+	(2603-6080-6304-450a-0000-0000-0000-0960.res6.spectrum.com.
+	[2603:6080:6304:450a::960]) by smtp.gmail.com with ESMTPSA id
+	n15sm8532763qtx.33.2021.11.01.18.40.20 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Mon, 01 Nov 2021 18:40:21 -0700 (PDT)
+Message-ID: <f222c105-e027-b6bf-df00-f2bc3733719d@gmail.com>
+Date: Mon, 1 Nov 2021 21:40:19 -0400
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.2.0
+Subject: Re: FYI - The Yggdrasil Screen Reader Project
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <E5949DF0-363D-4D79-9E4A-5CB468223B5C@icloud.com>
 	<1f2e65f8-3d25-a02f-39d3-59e80f4270af@gmail.com>
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	<C4D8F75A-ADC8-4F6F-8F4C-9AE2BB8B0792@cfcl.com>
+In-Reply-To: <C4D8F75A-ADC8-4F6F-8F4C-9AE2BB8B0792@cfcl.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -91,9 +97,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 1A21QPEr013884
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -115,25 +119,32 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-RldJVywgSSBqdXN0IHJhbiBhY3Jvc3MgdGhpcyBpbiBIYWNrZXIgTmV3cy4uLgoKPiBBY2Nlc3Np
-YmlsaXR5IG9uIExpbnV4IGhhcyBoaXN0b3JpY2FsbHkgYmVlbiB1bmRlci1kZXZlbG9wZWQsIHVu
-ZGVyLW1haW50YWluZWQsIGFuZCwgdGhlcmVmb3JlLCBnYWluZWQgYSByZXB1dGF0aW9uIG9mIGJl
-aW5nIHF1aXRlIHBhaW5mdWwgdG8gdXNlIGFzIGEgZGFpbHkgZHJpdmVyIGFtb25nIGRpc2FibGVk
-IHBlb3BsZS4gV2Ugd2FudCB0byBjaGFuZ2UgdGhhdC4KPiAKPiBZZ2dkcmFzaWwgaXMgYSBuZXcg
-cHJvamVjdCB0aGF0IGFpbXMgdG8gY3JlYXRlIGEgYmV0dGVyIExpbnV4IHNjcmVlbiByZWFkZXIs
-IHdyaXR0ZW4gaW4gUnVzdC4gVGhyb3VnaCB0aGlzIHByb2plY3QsIHdlIGFpbSB0byBwcm92aWRl
-IGEgYmV0dGVyIHNjcmVlbiByZWFkaW5nIGV4cGVyaWVuY2UgdGhhbiB0aGUgb25lIHdlIGN1cnJl
-bnRseSBoYXZlIGluIE9yY2EuIEEgc2NyZWVuIHJlYWRlciB3aXRoIGFsbCB0aGUgbW9kZXJuIGZl
-YXR1cmVzIGEgV2luZG93cyBvciBNYWNPUyB1c2VyIHdvdWxkIGV4cGVjdCBmcm9tIHRoZWlyIGNv
-bXB1dGVycywgc29tZSBvZiB3aGljaCBhcmUgb3V0bGluZWQgYmVsb3cuCj4gCj4gCeKAoiBPYmpl
-Y3QgbmF2aWdhdGlvbgo+IAnigKIgT0NSCj4gCeKAoiBjdXN0b21pc2FibGUgbmF2aWdhdGlvbiBj
-b21tYW5kcwo+IAnigKIgYSBwb3dlcmZ1bCBhZGQtb24gbWVjaGFuaXNtCj4gCeKAoiBhbmQgbW9y
-ZS4KClRoZSBZZ2dkcmFzaWwgU2NyZWVuIFJlYWRlciBQcm9qZWN0Cmh0dHBzOi8veWdnZHJhc2ls
-LXNyLmdpdGh1Yi5pby8KaHR0cHM6Ly9uZXdzLnljb21iaW5hdG9yLmNvbS9pdGVtP2lkPTI5MDU2
-MTY4CgotIFJpY2ggTW9yaW4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNv
-bQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
+It sounds like it could be interesting, but I'm a bit skeptical of 
+anything that starts by saying that the existing a11y stack is so poor 
+it's painful to use and compares itself to other fundamentally different 
+OS's which have worse a11y problems. I've personally used various Linux 
+OS's as my daily driver for many years, and I find it easier to use than 
+the few times I was presented with a different OS just for printing or 
+partitioning a disk for example, which I found quite painful to use.
+
+
+I feel like instead of pissing and moaning about the state of a11y here 
+on the best desktop OS's currently available, whoever is behind this 
+project should contribute their obviously significant resources to the 
+development and improvement of the existing a11y stack, screen reader 
+functionality and character recognition options, and don't try to 
+reinvent the wheel. I do believe that a plugin system already exists for 
+Orca as well, as well as a rewrite of the code to make it more modular. 
+Again, it's better to help with this effort than to piss and moan about 
+the sorry state of things that already exist, all while trying to 
+reinvent the wheel.
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
