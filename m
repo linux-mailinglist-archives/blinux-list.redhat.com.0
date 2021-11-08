@@ -1,86 +1,97 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id C6084449BBA
-	for <lists+blinux-list@lfdr.de>; Mon,  8 Nov 2021 19:36:31 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id BAD6B449E50
+	for <lists+blinux-list@lfdr.de>; Mon,  8 Nov 2021 22:37:05 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1636396590;
+	s=mimecast20190719; t=1636407424;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ZcCTjDKIYDTaR6AjEllZVw/9z7xvXWpI0PrBSp67e8s=;
-	b=MqoHvt2SiMqhArkWX73WgGf3mtY9DcIoG9ZUJtOvHBnIjti8GmConnY3qVmMzxBStzlO4s
-	qMb1OWw4NBTnFH2ZOiSqreJSPsL365nOv6b4e4cxhkpyDJFTRJsL282wTFriVw2thEM5aY
-	YRj86GnnoIh34TXC4m19FSuAaVSTlAk=
+	bh=u8Sq4hsZterqPcPP5WUkc7+k05lT/r1outpYiGvTZk8=;
+	b=LcicLMzDoEIFXTV44jvIvyhj0g4dgvldCCorbIR1/9Qwf08fgjQI9FCYM4lnRFoPR5INkR
+	zvBBNSdSeyB/owBeKQh3j4HX/Ga+59bJlZQm56xO/DvnroAds/A8eIlGt2mgKZzH7MEA9U
+	Z5usGCy+BichqOqWSN2ndRWsyL6GfCA=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-525-R7m1laHvP86zNFPaj6VZFQ-1; Mon, 08 Nov 2021 13:36:27 -0500
-X-MC-Unique: R7m1laHvP86zNFPaj6VZFQ-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-131-cTF50DNzNRWku4zCn8c2sQ-1; Mon, 08 Nov 2021 16:37:01 -0500
+X-MC-Unique: cTF50DNzNRWku4zCn8c2sQ-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 45F641023F53;
-	Mon,  8 Nov 2021 18:36:22 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7909410495BF;
-	Mon,  8 Nov 2021 18:36:17 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1EE1619057A4;
+	Mon,  8 Nov 2021 21:36:54 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3608A60843;
+	Mon,  8 Nov 2021 21:36:51 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6F9734E9E2;
-	Mon,  8 Nov 2021 18:36:08 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7D834180BAD2;
+	Mon,  8 Nov 2021 21:36:33 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1A8Ia1Ak016335 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 8 Nov 2021 13:36:01 -0500
+	id 1A8LaPgA030287 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 8 Nov 2021 16:36:25 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id ECFA82166B2F; Mon,  8 Nov 2021 18:36:00 +0000 (UTC)
+	id E6500404727A; Mon,  8 Nov 2021 21:36:24 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E6A842166B26
-	for <blinux-list@redhat.com>; Mon,  8 Nov 2021 18:35:58 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 04573185A7B4
-	for <blinux-list@redhat.com>; Mon,  8 Nov 2021 18:35:58 +0000 (UTC)
-Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com
-	[209.85.222.172]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-559-mLr1mjzcM72FlKU6QpF8vw-1; Mon, 08 Nov 2021 13:35:56 -0500
-X-MC-Unique: mLr1mjzcM72FlKU6QpF8vw-1
-Received: by mail-qk1-f172.google.com with SMTP id bj27so14740750qkb.11
-	for <blinux-list@redhat.com>; Mon, 08 Nov 2021 10:35:55 -0800 (PST)
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E29E94047272
+	for <blinux-list@redhat.com>; Mon,  8 Nov 2021 21:36:24 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CB64A811E76
+	for <blinux-list@redhat.com>; Mon,  8 Nov 2021 21:36:24 +0000 (UTC)
+Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com
+	[209.85.219.43]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-390-z37GpItUMyisOJa56mca6w-1; Mon, 08 Nov 2021 16:36:23 -0500
+X-MC-Unique: z37GpItUMyisOJa56mca6w-1
+Received: by mail-qv1-f43.google.com with SMTP id d6so12885237qvb.3
+	for <blinux-list@redhat.com>; Mon, 08 Nov 2021 13:36:23 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
-	:mime-version:content-transfer-encoding:content-language;
-	bh=EtsOjwtIkuJNnxPJVV7KIuq/gl7PtK0zl19xSd+3Rzw=;
-	b=EM+laTVXDFFZzBZe0dzC7zlCp2M8GcpYPQWjEEAlddekhoGPzptbP3Ypc2GX2XUjRU
-	c4FQKDx59QmWQIpBaD2LBtsDOFV4+v9i9D45X563GPccmdxHOCaH3ZDKhAj3NFfhH3Om
-	BSKLTNSFPCOuvXYttwfZsc56HqsJ/rCivNVrX3LzM9cfoF92Id00qj4q2AoFmt/1LTNC
-	WW4lZAvpj7tv+Rhqnia2e+hAmMokRWz9djS1lz+6v3qNXpTjqTItv/7bUQh98SB9eDvZ
-	FITy2iepyQ3bypsQT1FfCWnqTblBwwF2rl8xeRqgLa6lMPV8wirFrzcNylb+EkXJ3pvE
-	JuzA==
-X-Gm-Message-State: AOAM530hBwpNVRymTG0Vdl9+WQJ7uNsiEPOMYVrHMiSo8A63t/JMilrl
-	6HXSWMnj6zQ073IxdmcQT0rJw70WwjJwOg==
-X-Google-Smtp-Source: ABdhPJwdu9YVB3B1fOJVrGMPR7UU7k12atM4780qBDn7hLmlOjFtASPRsPg5TQQSeOVTHQmB74aUag==
-X-Received: by 2002:a37:b7c1:: with SMTP id h184mr981004qkf.65.1636396555301; 
-	Mon, 08 Nov 2021 10:35:55 -0800 (PST)
-Received: from darkstar.example.slint ([2601:152:4000:330::f])
-	by smtp.gmail.com with ESMTPSA id
-	de26sm8187664qkb.81.2021.11.08.10.35.54 for <blinux-list@redhat.com>
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-language
+	:content-transfer-encoding;
+	bh=1U0xa9jUMd1R+3vdNDQt2uMYUE5MCrgRlQZyQx8HVRU=;
+	b=Sli/FB+igagdW5IDTZ9nMI9veKxOKgJks33GRcrDdV8pOTqcjwmlZR77vyVAXLWsgq
+	3u6DOo57DKDy3u0cGlYLpKlyigMGIc3gNqZ/KdX8I/oRzIlgEH++S32I6V8Ms0FO1mbX
+	URC0CE+PPVqHPxmqI8CLOqCo3/XAtR9BDOR+0XRZ+DkgNPq0oI6HA7xPhXmaIw2ER1Uh
+	lT/se/Wi3RQn4qx/D5U5TaoqE4YgF6uVUhGF0kPTuZs8khEYwG4YcW7ggk1MZO+xp6vQ
+	IybgGWcclCs9/1otwhO/LvExJFono7lHjgAPLL9nmght6YYgMWcCwh/0exlOzHgYZX29
+	OYJA==
+X-Gm-Message-State: AOAM530aYcXzxDpavpx/d7zxkt7lv+hWd4VnEBksdUE0p5RpTjV4JlGz
+	Nyqgjfedpf1vQnXTzeTLUyh0VwQNY60=
+X-Google-Smtp-Source: ABdhPJwQFeIiGOC0esIqLX8VSuibc5jADOCTJCqznr+mSEQq40t3WUeZ36VWiRNDhpWFjrYLzIZgcg==
+X-Received: by 2002:ad4:4451:: with SMTP id l17mr2130678qvt.33.1636407382039; 
+	Mon, 08 Nov 2021 13:36:22 -0800 (PST)
+Received: from [192.168.11.151] (d-65-175-184-10.nh.cpe.atlanticbb.net.
+	[65.175.184.10]) by smtp.gmail.com with ESMTPSA id
+	c16sm3007189qte.63.2021.11.08.13.36.21 for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Mon, 08 Nov 2021 10:35:54 -0800 (PST)
-To: blinux-list@redhat.com
-Subject: Does any of you use a Whatsapp Linux client?
-Message-ID: <58ade39f-710c-bd82-f316-04decb37569e@gmail.com>
-Date: Mon, 8 Nov 2021 13:35:53 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Thunderbird/68.12.0
+	Mon, 08 Nov 2021 13:36:21 -0800 (PST)
+Subject: Re: Mate Desktop questions
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <4037ad15-b52e-f0a5-4af5-2b8b6f782205@gmail.com>
+	<20210715.162227.936.10@[192.168.1.100]>
+	<a648b4d5-d8a0-cb1b-1a65-b8e515dd2fcc@gmail.com>
+	<765675B0-8A52-46FD-AEBD-E14DD89F221C@gmail.com>
+	<d11bed68-9e1c-bb1e-532f-736f45cbf0ce@gmail.com>
+	<bf6f76af-bc13-f826-8c91-ff8b6a3dbba6@gmail.com>
+	<9a347e53-0f52-4867-f81b-3c62495c6d0f@gmail.com>
+	<d43b7b51-c1e2-dac8-9554-9745478538c9@gmail.com>
+Message-ID: <25a261fa-8974-626c-0b3d-c855aee31ad7@gmail.com>
+Date: Mon, 8 Nov 2021 16:36:21 -0500
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
+	Thunderbird/78.14.0
 MIME-Version: 1.0
+In-Reply-To: <d43b7b51-c1e2-dac8-9554-9745478538c9@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -89,7 +100,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -106,7 +117,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -115,18 +126,51 @@ Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hello folks,
+"... To be sure that the sound is unmuted, your best option is to run 
+something like
+alsactl store
+in a terminal. This should happen automatically when you shut down the 
+laptop, so it's baffling me why your sound is muted every time you boot. 
+It's possible that the restore isn't working at boot time either, so you 
+may want to stick
+alsactl restore
+into your boot sequence at some point as well. "
 
-I am wondering if any of you use an accessible Linux client for 
-Whatsapp. What is the best way of using Whatsapp on Linux if no 
-accessible client is available?
+Can someone point me to where the "boot sequence" referenced in the 
+reply quoted above, is located? I am running Mint Mate 20.2.
+It would also be nice to know where I can find the commands that are 
+executed at logoff or shutdown. I am still fairly new at Linux, but 
+learning a ton over the past few months.
+Thanks,
+John
 
-Any ideas?
 
-Cheers,
-
-Ibrahim
-
+On 10/10/2021 1:52 PM, Linux for blind general discussion wrote:
+> You should have a NetworkManager applet on your panel. This should be to 
+> the left of the time and date toggle, but in my experience it doesn't 
+> like to tell you when you're on it. So my best recommendation would be 
+> to shift tab once you hit the time and date toggle and then press the 
+> enter key. A menu should pop up with wifi connections, along with a menu 
+> item called more that will give you more connections if yours is for 
+> some reason not at the top of the menu.
+> 
+> 
+> To be sure that the sound is unmuted, your best option is to run 
+> something like
+> 
+> alsactl store
+> 
+> in a terminal. This should happen automatically when you shut down the 
+> laptop, so it's baffling me why your sound is muted every time you boot. 
+> It's possible that the restore isn't working at boot time either, so you 
+> may want to stick
+> 
+> alsactl restore
+> 
+> into your boot sequence at some point as well.
+> 
+> ~Kyle
+> 
 
 _______________________________________________
 Blinux-list mailing list
