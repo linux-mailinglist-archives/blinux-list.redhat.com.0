@@ -2,80 +2,90 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 195D2449EAA
-	for <lists+blinux-list@lfdr.de>; Mon,  8 Nov 2021 23:29:38 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 30A67449F47
+	for <lists+blinux-list@lfdr.de>; Tue,  9 Nov 2021 01:02:45 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1636410577;
+	s=mimecast20190719; t=1636416164;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=KQSdxDeITiCiW8zRNZ5vJnUyqTDjDy9tlRjQe7i+Ydw=;
-	b=STxoVBn5MuTHXfA2ItPi8vG1gYxtoIoFcio4KS3dWHV6Pk7GNCql+M68Nhz1jDaNXCsxB7
-	bkQahWwE7qd8rcspNXxZxvawM1/2Cwi/giU3NRVX9rCnj8DBTPLLO84+iA81zauZHj1su8
-	E9pGZ2oFnCJI+msmnFQKshQQ+/g7b2Q=
+	bh=+jhKnjeAMru95yW1XNA+uWw/26FNBX7+tpsXO64iGFE=;
+	b=Ie8fNqRfZFmKVSpFTvlQ1Bl09bozfqruUhjty1o5WVOnTMYMTDbw0hfxuOqVMiYyEnzIdo
+	43a5ySOt9fKytTQfyVvmSa6w73slZUEOOB+mbBs1ObItEks4hEbMxQKc4ErAA8QXFK/PO9
+	yoVuG8gICWEkzqDQ6KYOV7G5LpT7f8k=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-594-mbfnBCzcN46TviFEDAwD4g-1; Mon, 08 Nov 2021 17:29:33 -0500
-X-MC-Unique: mbfnBCzcN46TviFEDAwD4g-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-126-xZEmT6BDMUWGnmNtXl6BUQ-1; Mon, 08 Nov 2021 19:02:40 -0500
+X-MC-Unique: xZEmT6BDMUWGnmNtXl6BUQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D6F811808320;
-	Mon,  8 Nov 2021 22:29:27 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C44B01015DA0;
+	Tue,  9 Nov 2021 00:02:35 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D376F67841;
-	Mon,  8 Nov 2021 22:29:26 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4F0B05D9DE;
+	Tue,  9 Nov 2021 00:02:33 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 627AF180BAD2;
-	Mon,  8 Nov 2021 22:29:23 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.1])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8F62F180BAD1;
+	Tue,  9 Nov 2021 00:02:15 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1A8MTIJ9001771 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 8 Nov 2021 17:29:18 -0500
+	id 1A901t7F007940 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 8 Nov 2021 19:01:56 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 21FBB4010FE9; Mon,  8 Nov 2021 22:29:18 +0000 (UTC)
+	id D8F60404727A; Tue,  9 Nov 2021 00:01:55 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 13251400DEF8
-	for <blinux-list@redhat.com>; Mon,  8 Nov 2021 22:29:17 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EEBAE80122B
-	for <blinux-list@redhat.com>; Mon,  8 Nov 2021 22:29:16 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-604-SVddJ6gINDCJ5Rnefsj4rQ-1; Mon, 08 Nov 2021 17:29:15 -0500
-X-MC-Unique: SVddJ6gINDCJ5Rnefsj4rQ-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4Hp5Pk6zSGz41fn
-	for <blinux-list@redhat.com>; Mon,  8 Nov 2021 17:29:14 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4Hp5Pk64bdzcbc; Mon,  8 Nov 2021 17:29:14 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4Hp5Pk5bs3zcbP
-	for <blinux-list@redhat.com>; Mon,  8 Nov 2021 17:29:14 -0500 (EST)
-Date: Mon, 8 Nov 2021 17:29:14 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Mate Desktop questions
-In-Reply-To: <25a261fa-8974-626c-0b3d-c855aee31ad7@gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2111081725450.17927@panix1.panix.com>
-References: <4037ad15-b52e-f0a5-4af5-2b8b6f782205@gmail.com>
-	<20210715.162227.936.10@[192.168.1.100]>
-	<a648b4d5-d8a0-cb1b-1a65-b8e515dd2fcc@gmail.com>
-	<765675B0-8A52-46FD-AEBD-E14DD89F221C@gmail.com>
-	<d11bed68-9e1c-bb1e-532f-736f45cbf0ce@gmail.com>
-	<bf6f76af-bc13-f826-8c91-ff8b6a3dbba6@gmail.com>
-	<9a347e53-0f52-4867-f81b-3c62495c6d0f@gmail.com>
-	<d43b7b51-c1e2-dac8-9554-9745478538c9@gmail.com>
-	<25a261fa-8974-626c-0b3d-c855aee31ad7@gmail.com>
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D4D164047272
+	for <blinux-list@redhat.com>; Tue,  9 Nov 2021 00:01:55 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BB58285A5A8
+	for <blinux-list@redhat.com>; Tue,  9 Nov 2021 00:01:55 +0000 (UTC)
+Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com
+	[209.85.214.170]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-561-ikJQXqEpOxmbnxWNQxyT3w-1; Mon, 08 Nov 2021 19:01:54 -0500
+X-MC-Unique: ikJQXqEpOxmbnxWNQxyT3w-1
+Received: by mail-pl1-f170.google.com with SMTP id y7so512215plp.0
+	for <blinux-list@redhat.com>; Mon, 08 Nov 2021 16:01:53 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=D1F/I/lZgkBLcBIXvs7EASDP1/goAIaL9JRT/snbI6I=;
+	b=nrZDRmGsMUiwoiA33rEu8W0K6ORX/bu5Fyos7uTtAWhgYRvO4Purk9a3k5wOKAr1nH
+	/vg5vz1z71dsUiXOmLva8wicQ+X/xKydZdoqrEx4HS/f2i3XRt0E88OlCA3M/4XoIpp8
+	G2nbCqvdZVVLOE8GX2eNDQpkTNlgJQ4ySPmbYDlvuC8zcdTmTnKK8mFik3qe5yYIyMo+
+	REc9w5ZwJbyH+mtYq/3iyvCobGZTjJZER68VOjdxagxOrDJMld7BBRMw2N5cAeRN2GWh
+	iY/iAjHeJH8aYBHE6jf+upbDgQ9NEJjiEk50xbgR2WWDWN45+QZ8SrcjhcGa5JxXJwJo
+	z/aA==
+X-Gm-Message-State: AOAM5306pGFV5f1Zbsz5NTUpeZk3zT7ABXCPBMs2KHJpMKJmd7dHblIm
+	m0nd5jb+/XydNRAoGFVFBTQYwJLjEXw=
+X-Google-Smtp-Source: ABdhPJx3wqXKX0x/6ha23g62tG3cDRC8gQsr5MDjms0rRTGGrFmDwpo7fALZb7Yo0AZXTZgJjwwScw==
+X-Received: by 2002:a17:90b:188e:: with SMTP id
+	mn14mr2420707pjb.91.1636416112770; 
+	Mon, 08 Nov 2021 16:01:52 -0800 (PST)
+Received: from [10.200.2.40] ([103.233.155.115])
+	by smtp.gmail.com with ESMTPSA id
+	h12sm17546646pfv.117.2021.11.08.16.01.51 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Mon, 08 Nov 2021 16:01:52 -0800 (PST)
+Message-ID: <9b43177a-bc75-0d92-bd91-cd8f6a335deb@gmail.com>
+Date: Tue, 9 Nov 2021 07:01:50 +0700
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.2.0
+Subject: Re: Does any of you use a Whatsapp Linux client?
+To: blinux-list@redhat.com
+References: <58ade39f-710c-bd82-f316-04decb37569e@gmail.com>
+In-Reply-To: <58ade39f-710c-bd82-f316-04decb37569e@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -84,7 +94,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -101,73 +111,46 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I wouldn't do that.  If I had sudo set up correctly, I could do
-sudo amixer set Master 100 unmute:alsactl store.
-If that doesn't work and sometimes it won't, you have lock files you need
-to remove before doing this operation.
+Hi,
 
 
-On Mon, 8 Nov 2021, Linux for blind general discussion wrote:
+I'm using whatsapp web for communication. It works well with orca.
 
-> "... To be sure that the sound is unmuted, your best option is to run
-> something like
-> alsactl store
-> in a terminal. This should happen automatically when you shut down the laptop,
-> so it's baffling me why your sound is muted every time you boot. It's possible
-> that the restore isn't working at boot time either, so you may want to stick
-> alsactl restore
-> into your boot sequence at some point as well. "
+The missing feature is voice and video call. But we have our phone for that.
+
+
+HtH
+
+On 11/9/21 01:35, Linux for blind general discussion wrote:
+> Hello folks,
 >
-> Can someone point me to where the "boot sequence" referenced in the reply
-> quoted above, is located? I am running Mint Mate 20.2.
-> It would also be nice to know where I can find the commands that are executed
-> at logoff or shutdown. I am still fairly new at Linux, but learning a ton over
-> the past few months.
-> Thanks,
-> John
+> I am wondering if any of you use an accessible Linux client for 
+> Whatsapp. What is the best way of using Whatsapp on Linux if no 
+> accessible client is available?
 >
+> Any ideas?
 >
-> On 10/10/2021 1:52 PM, Linux for blind general discussion wrote:
-> > You should have a NetworkManager applet on your panel. This should be to the
-> > left of the time and date toggle, but in my experience it doesn't like to
-> > tell you when you're on it. So my best recommendation would be to shift tab
-> > once you hit the time and date toggle and then press the enter key. A menu
-> > should pop up with wifi connections, along with a menu item called more that
-> > will give you more connections if yours is for some reason not at the top of
-> > the menu.
-> >
-> >
-> > To be sure that the sound is unmuted, your best option is to run something
-> > like
-> >
-> > alsactl store
-> >
-> > in a terminal. This should happen automatically when you shut down the
-> > laptop, so it's baffling me why your sound is muted every time you boot.
-> > It's possible that the restore isn't working at boot time either, so you may
-> > want to stick
-> >
-> > alsactl restore
-> >
-> > into your boot sequence at some point as well.
-> >
-> > ~Kyle
-> >
+> Cheers,
+>
+> Ibrahim
+>
 >
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://listman.redhat.com/mailman/listinfo/blinux-list
 >
->
+-- 
+Edhoari Setiyoso
 
 _______________________________________________
 Blinux-list mailing list
