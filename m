@@ -2,101 +2,84 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 23F53450995
-	for <lists+blinux-list@lfdr.de>; Mon, 15 Nov 2021 17:27:02 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 31D53450CC6
+	for <lists+blinux-list@lfdr.de>; Mon, 15 Nov 2021 18:40:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1636993621;
+	s=mimecast20190719; t=1636998053;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ee/iJ09U2ER6nOu9LF+vHquMMZ0ajZNqg2RixNWI8nw=;
-	b=YIJ0nY7zydJVgq5znzsm/Ksj2E+rFPusFl7FEWCfyI4n83HY9r13pLe5+3qYEe8rxlMuNx
-	id9S/ACXngW2UpcpMhEtyISBW/CsXy9SQStBcP+pSlJCuIXgzxzJP6aI2BuCeGVes6km4q
-	W5W+1BNoaq2rX5d/1Mhg5Ef9DqO/ZcE=
+	bh=ERuxn+gb9Ek54ox9Mq+Bh6lrUKuXJIuF9xFjU+Mn45M=;
+	b=RJ4BfLfY6zpIf6nhRPfRNLKtIMhEhnIIiBULjbsAUi3oOWAuL/S1eVmlycdpnJ5MQkModb
+	/PqJa/CUH7nrhLJSZnm/oE1Pub9juBMuAGVXDMkAOWvQ5W4Nn7kAzuMCtMZciL6LC1cH8I
+	wC4LN30rOXn+Dp80Zd4FCg1y+pq8xUU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-262-7TwD4ynUMj6yvpH0Y0aPjw-1; Mon, 15 Nov 2021 11:26:57 -0500
-X-MC-Unique: 7TwD4ynUMj6yvpH0Y0aPjw-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-198-0bDUJ6_COfqiyMJ-tl9eIg-1; Mon, 15 Nov 2021 12:40:48 -0500
+X-MC-Unique: 0bDUJ6_COfqiyMJ-tl9eIg-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 597AFBE068;
-	Mon, 15 Nov 2021 16:26:23 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1F9A419057A1;
+	Mon, 15 Nov 2021 17:40:44 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0D5A01815D;
-	Mon, 15 Nov 2021 16:26:21 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6CA835C1A1;
+	Mon, 15 Nov 2021 17:40:41 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 064FB1806D03;
-	Mon, 15 Nov 2021 16:26:14 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6EC941806D03;
+	Mon, 15 Nov 2021 17:40:35 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1AFGN7rx028204 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 15 Nov 2021 11:23:07 -0500
+	id 1AFHeTCl002395 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 15 Nov 2021 12:40:29 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 415362026D11; Mon, 15 Nov 2021 16:23:07 +0000 (UTC)
+	id 8625F404727D; Mon, 15 Nov 2021 17:40:29 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3CCC42026D46
-	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 16:23:04 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 82321404727A
+	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 17:40:29 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 29E9785A5BA
-	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 16:23:04 +0000 (UTC)
-Received: from mail-qk1-f175.google.com (mail-qk1-f175.google.com
-	[209.85.222.175]) (Using TLS) by relay.mimecast.com with ESMTP id
-	us-mta-550-xLvmYSUNNk-4Y9NQ8hzgpQ-1; Mon, 15 Nov 2021 11:23:02 -0500
-X-MC-Unique: xLvmYSUNNk-4Y9NQ8hzgpQ-1
-Received: by mail-qk1-f175.google.com with SMTP id p4so9026939qkm.7
-	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 08:23:02 -0800 (PST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6885E800C00
+	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 17:40:29 +0000 (UTC)
+Received: from mail-qt1-f176.google.com (mail-qt1-f176.google.com
+	[209.85.160.176]) (Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-398-ua-gBiTqN1-BsHAcuPxKKw-1; Mon, 15 Nov 2021 12:40:27 -0500
+X-MC-Unique: ua-gBiTqN1-BsHAcuPxKKw-1
+Received: by mail-qt1-f176.google.com with SMTP id o17so16374255qtk.1
+	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 09:40:27 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
-	bh=57sAn4ixplZUrZUpVjYhJnV7DzoagxJ1QvtnETEnpD8=;
-	b=pvsRo/kjZKkRANhNmKDdNfBd0JAnIFiIZbGfbWRRDyoLA9NpGRWCBl+tY+9QdV1aPR
-	HimG65ecF3akOlujUtOhOV5OC+NNGQHUx4ryPpendkFeL+tSgWnQXP3Lm1ATQZZ9U+Xe
-	whLJXJ598n+2M2AmUUrN3E4QXbsp3znq0LRgkXfMHkwko1VH+zmQ8feQ+7QJHa00kKPm
-	nTbnns5x6EeWLoDDKe9OF6I7jDe4eXrwRZM227zMG+Gj/tlMqIr23y1stNpItk8EXGQD
-	8cYZb4KDncYMo3YcKJcZNaXkOVwU8ga83b6eZPSRTXS1e1GQ2HuBPNVrbIhubGUumRfv
-	2wHw==
-X-Gm-Message-State: AOAM533D+5aUFelNVX+qNnzHMAnv6FseHQZkFzftl/a9nWWMZdBKFpaa
-	v6IE6pYGuDjwFhLooBiUt81GpyxVyV4=
-X-Google-Smtp-Source: ABdhPJwnvk74FAfv+EIgpAtWh2MWxyNfVWkF7ThoOsq1KXOHiebtUTB++kjrhGOnZSzPqG1bMuG/sA==
-X-Received: by 2002:a05:620a:4d0:: with SMTP id
-	16mr187867qks.326.1636993381796; 
-	Mon, 15 Nov 2021 08:23:01 -0800 (PST)
-Received: from ?IPv6:2603:6080:6304:450a::960?
-	(2603-6080-6304-450a-0000-0000-0000-0960.res6.spectrum.com.
-	[2603:6080:6304:450a::960]) by smtp.gmail.com with ESMTPSA id
-	a24sm7442833qtp.95.2021.11.15.08.23.01 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Mon, 15 Nov 2021 08:23:01 -0800 (PST)
+	h=x-gm-message-state:date:from:to:subject:message-id:mime-version;
+	bh=BVoHlGikF8e+WMhYusHOlsLynNdbNr2VXy7Gq+1WnJ4=;
+	b=JBZR+3v+TgsX71UnkV1TyaLAVxjV+e4omCbPrMPuRXTrruwpWutOWBC7/o+eNErBFy
+	zGRaImMnKDbu6IAERRdqRhSuq7WZthKTM+PGZQjtd77NGt2ZkIXCF+MaDdVgleZn2muq
+	/kKTmT15FTgKqO6VNrvbcDM0CgUfpKk5vhjnS3mJqets3TO+J6ZRMcAPpC0qFmlhV5nB
+	0Cl+Dex/jMt2jlj+J1JEGcvtDlSuLz5LDF/TU39j27TWIjyAvWm6pt7KAPYZ9VUkytBm
+	zAYXdQSn7RxsgEvrZv+7bqygi5gbhmAL0LHfvJR94LOC3qzUQvVgFYatdVvsNI8JlvMQ
+	SQ7A==
+X-Gm-Message-State: AOAM531rvWK8YutrEenu7vQTJBYPuAiEzFuILMgNyYXxLp1B2z/WptEx
+	9LPTRStzVErHV09qz/8hPw+po5S+M8hRuA==
+X-Google-Smtp-Source: ABdhPJykrFNRwC2ysukwIMS+yRxhcEA61PN/OxVuzdagNT1aqfsZaqTAAk43qjZ00l03bo+ZDc+8pg==
+X-Received: by 2002:a05:622a:1351:: with SMTP id
+	w17mr784254qtk.59.1636998026956; 
+	Mon, 15 Nov 2021 09:40:26 -0800 (PST)
+Received: from dans-mac-mini-2.home
+	(pool-74-98-213-46.pitbpa.fios.verizon.net. [74.98.213.46])
+	by smtp.gmail.com with ESMTPSA id
+	196sm6668899qkd.61.2021.11.15.09.40.26 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+	Mon, 15 Nov 2021 09:40:26 -0800 (PST)
+Date: Mon, 15 Nov 2021 12:40:25 -0500 (EST)
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: any other accessible email client for linux?
-To: blinux-list@redhat.com
-References: <4015f410-14f1-6c3b-b0a5-7688b34c418e@gmail.com>
-	<b415a935-f50d-a71b-0ddd-30d1f8ac6146@gmail.com>
-	<df15eb1f-989b-b8fb-f90c-8fa6817be487@gmail.com>
-	<alpine.NEB.2.23.451.2111141627140.871@panix1.panix.com>
-	<6bb0a456-bfc5-e1dc-5886-5dc32687c580@gmail.com>
-	<b356b32b-3de9-88fb-c8d2-26876231dcc1@gmail.com>
-	<2e84caa3-a3ce-d38b-b2e7-10d1d1b495bb@gmail.com>
-	<alpine.NEB.2.23.451.2111150036130.24447@panix1.panix.com>
-	<e7972124-81a0-c317-6b97-5ae6dd1fcce3@gmail.com>
-	<8328bea3-a6d8-12ef-210b-5cbc9f46b849@gmail.com>
-	<b3442e6d-d81f-d141-3f93-dcc77665e9aa@gmail.com>
-Message-ID: <7850cc84-ecb3-231a-27c0-e62221acdb26@gmail.com>
-Date: Mon, 15 Nov 2021 11:23:00 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
-	Thunderbird/60.0
+Message-ID: <d5cce23-86c-16c1-f43-18a8201c9210@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <b3442e6d-d81f-d141-3f93-dcc77665e9aa@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -105,7 +88,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -122,23 +105,61 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
-X-Mimecast-Spam-Score: 0
+X-Mimecast-Spam-Score: 1
 X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Try removing its configuration profile from a terminal.
-rm -R ~/mozilla/seamonkey
-should do it. Then run seamonkey mail again and you should be able to see the 
-regular welcome screen. Just be sure to run seamonkey mail rather than seamonkey 
-web browser, or if you have only one seamonkey entry, you may want to explicitly run
-seamonkey --mail
-from your run window. That on its own may work without removing your 
-configuration folder, but there is no harm in removing it.
-~Kyle
+On Sun, 14 Nov 2021, Linux for blind general discussion wrote:
+
+> Alpine allows opening an url in email; using the browser of your choice.
+>
+>
+> But aside from being tied to a terminal or a text-only virtual console,
+> Alpine reads email one screenful at a time, making it impossible to
+> navigate by element, and making it very difficult to skip or eliminate
+> quoted messages that people mostly on non-screen reader-related lists
+> like to quote, requote and rerequote 50 times, which gets unwieldy very
+> quickly. The other problem with screenful reading is that I have no
+> access to continuous arrow navigation, a SayAll function or something
+> like paragraph navigation that is usually available in desktop text
+> editors. It is also more difficult to select, copy and paste parts of a
+> message using a terminal, although it's not impossible. It's just not
+> consistent with other desktop applications. For many people these
+> wouldn't be huge problems, but my personal workflow does require things
+> to be continuously scrollable and SayAll functionality to be available,
+> as well as select/copy/paste functionality consistent with other desktop
+> applications to be available at times. I may have a different view for
+> my personal use if the message body opened into something similar to
+> w3m, which is scrollable, especially since element navigation through
+> email isn't quite as important as it is in a browser and I don't select
+> parts of messages to be pasted into other files or applications very
+> often, with the obvious exception of temporary passwords or verification
+> codes, so perhaps this is a feature that could be proposed for a future
+> release, unless of course it already exists and I don't know it. The one
+> possible showstopper for me would of course be threading. Anything that
+> doesn't support message threading would of course be a deal breaker for
+> sure. I prefer all threads to be collapsed, and to expend only the
+> threads I want to read, deleting the entire thread if I'm not interested
+> in reading it. If Alpine can do this, I could certainly run it on one of
+> my servers or in my own terminal, possibly as a backup if Thunderbird
+> fails, although I haven't seen this happen in years.
+>
+> ~Kyle
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
+
+-- 
+ent-
+XR
 
 _______________________________________________
 Blinux-list mailing list
