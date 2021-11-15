@@ -2,70 +2,68 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id C217B451140
-	for <lists+blinux-list@lfdr.de>; Mon, 15 Nov 2021 20:01:58 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2B163451522
+	for <lists+blinux-list@lfdr.de>; Mon, 15 Nov 2021 21:23:45 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637002917;
+	s=mimecast20190719; t=1637007824;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Jy9/TAHqKRre3eopikkkqI7SAC1rVKPU9TLxtI6os4c=;
-	b=SL1vYsPjsOVipwPrmHrQGjPubWho1O1odOirpyN5pZJasLNZ6Ls3Na0JbOa4PBEBQxqEkv
-	U8wo71qLPfwB3fNXNpHhiX7e4Ux6v60n5QBgAvimrBZMlgz4mFKedHgsANpBW2jlKACXTj
-	aLpmSF6Ip0SB3889rUOCLiSDZVP2n/0=
+	bh=JxLmNFMdnpfpJPxtl9rlhQ0bLSmdC4EsNZrgjdBAL0E=;
+	b=YPyQoXb5XuJB0kfkXtpanNJJpaw+8e7XBi84CqPXnHQlxY5YVaMrlvXrz0m2Qr1RykwXGY
+	0jZiNcM7DrzIMYi5poSaz7Js3ApT0hrjYzdz2WAGguOAFOmRmyg9E6UqoWqcUB8kXx+neA
+	DJrtcsjEHMl9yU2U6pyC3nKqCxrvSMA=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-487-mS576SclPgCPAaP9EZ-W6A-1; Mon, 15 Nov 2021 14:01:54 -0500
-X-MC-Unique: mS576SclPgCPAaP9EZ-W6A-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-559-j2rs2f6-Ot2-FcBVI0T_-Q-1; Mon, 15 Nov 2021 15:23:40 -0500
+X-MC-Unique: j2rs2f6-Ot2-FcBVI0T_-Q-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 251E61922960;
-	Mon, 15 Nov 2021 19:01:50 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 917FB19723;
-	Mon, 15 Nov 2021 19:01:49 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2B5C31DDE0;
+	Mon, 15 Nov 2021 20:23:34 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B0EC260BE5;
+	Mon, 15 Nov 2021 20:23:31 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 155B31819AC1;
-	Mon, 15 Nov 2021 19:01:46 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 56C664A702;
+	Mon, 15 Nov 2021 20:23:24 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1AFJ1fSn009847 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 15 Nov 2021 14:01:41 -0500
+	id 1AFKM0KT015131 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 15 Nov 2021 15:22:01 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 347B051E4; Mon, 15 Nov 2021 19:01:41 +0000 (UTC)
+	id D49F0404727A; Mon, 15 Nov 2021 20:22:00 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2DA8351E1
-	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 19:01:37 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D09424047272
+	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 20:22:00 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6FE74181E060
-	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 19:01:37 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
-	relay.mimecast.com with ESMTP id us-mta-5-pBN0QQ9mOHG8PWNj1XcDqg-1;
-	Mon, 15 Nov 2021 14:01:35 -0500
-X-MC-Unique: pBN0QQ9mOHG8PWNj1XcDqg-1
-Received: from [192.168.1.25] (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
-	[176.172.247.100])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id 10044A39AE
-	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 18:00:57 +0100 (CET)
-Message-ID: <eae09edf-a1e6-60dd-9c93-0ebb688e6748@slint.fr>
-Date: Mon, 15 Nov 2021 21:01:32 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.3.0
-Subject: Re: telegram-cli
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BB719811E96
+	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 20:21:55 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	(Using TLS) by relay.mimecast.com with ESMTP id
+	us-mta-330-geDUD26jMGKWjhb8foqFqg-1; Mon, 15 Nov 2021 15:21:53 -0500
+X-MC-Unique: geDUD26jMGKWjhb8foqFqg-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4HtLFY1zx8z2v72
+	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 15:21:53 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4HtLFY1Fvtzcbc; Mon, 15 Nov 2021 15:21:53 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4HtLFY0wCvzcbW
+	for <blinux-list@redhat.com>; Mon, 15 Nov 2021 15:21:53 -0500 (EST)
+Date: Mon, 15 Nov 2021 15:21:53 -0500
 To: blinux-list@redhat.com
-References: <alpine.NEB.2.23.451.2111150226160.6002@panix1.panix.com>
-In-Reply-To: <alpine.NEB.2.23.451.2111150226160.6002@panix1.panix.com>
+Subject: re: telegram-cli
+Message-ID: <alpine.NEB.2.23.451.2111151517560.11715@panix1.panix.com>
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -74,9 +72,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 1AFJ1fSn009847
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -93,39 +89,24 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
-X-Mimecast-Spam-Score: 0
+X-Mimecast-Spam-Score: 1
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SGkgd2hvZXZlciBJIGFtIGFuc3dlcmluZyB0bywKCnRlbGVncmFtLWNsaSBpcyBpbmNsdWRlZCAg
-YW4gdXAgdG8gZGF0ZSBTbGludCBzeXN0ZW0sIHBsZWFzZSBkbyBub3QgdXNlIApzYm9wa2cKdG8g
-YWRkIGl0LCBhcyB0aGlzIGNvdWxkIGxlYWQgdG8gYSBjb25mbGljdCBiZXR3ZWVuIHR3byB2ZXJz
-aW9ucyBpbnN0YWxsZWQuCkZ1cnRoZXIsIHRoZSB2ZXJzaW9uIHNoaXBwZWQgaW4gU2xpbnQgaXMg
-bmV3ZXIgdGhhdCB0aGUgb25lIGF2YWlsYWJsZSBmcm9tCmh0dHBzOi8vc2xhY2tidWlrZHMub3Jn
-CgpTbyBJIHN1Z2dlc3QgeW91IHJlbW92ZSBhbGwgaW5zdGFsbGVkIHZlcnNpb25zLCB0aGVuIHJl
-aW5zdGFsbCB3aXRoIHRoaXMKY29tbWFuZCB0eXBlZCBhcyByb290OgpzbGFwdC1nZXQgLWkgdGVs
-ZWdyYW0tY2xpCgpBcyBhbiBhc2lkZSwgSSBzdWdnZXN0IHRvIHVzZSBzbGFwdC1zcmMgcmF0aGVy
-IHRoYW4gc2JvcGtnLgoKVG8ga25vdyBtb3JlOgpodHRwczovL3NsaW50LmZyL2RvYy9IYW5kQm9v
-ay5odG1sI3NvZnR3YXJlX21hbmFnZW1lbnQKaHR0cHM6Ly9zbGludC5mci9kb2MvSGFuZEJvb2su
-aHRtbCNzbGFwdF9zcmMKCkNoZWVycywKRGlkaWVyCi0tCkRpZGllciBTcGFpZXIKU2xpbnQgbWFp
-bnRhaW5lcgoKTGUgMTUvMTEvMjAyMSDDoCAwODozMiwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwg
-ZGlzY3Vzc2lvbiBhIMOpY3JpdMKgOgo+IEhhdmluZyB1c2VkIHRoZSBwYWNrYWdlIGFuZCBnb3Qg
-bG9nZ2VkIGludG8gdGVsZWdyYW0gYW5kIGhhdmluZyBqb2luZWQgYQo+IGdyb3VwIGFuZCBhIGNo
-YW5uZWwgZWl0aGVyIHNvbWV0aGluZyBpc24ndCBjb25maWd1cmVkIGNvcnJlY3RseSBvbiBteQo+
-IHN5c3RlbSBvciB0aGlzIHBhY2thZ2UgZm9yIGxpbnV4IGlzIGJhZGx5IGNyaXBwbGVkLgo+IFRo
-ZSBleHBvcnRfY2FyZCBhbmQgaW1wb3J0X2NhcmQgbWV0aG9kcyB0aHJvdyBlcnJvciA3MSB3aGlj
-aCBpcyB1bmtub3duCj4gZXJyb3IgYW5kIHRoYXQncyBhYm91dCBhbGwgdGhpcyBwYWNrYWdlIGNh
-biBkby4KPiBIYXMgYW55b25lIGhhZCBiZXR0ZXIgbHVjayB3aXRoIHRoaXMgcGFja2FnZSBhbmQg
-aWYgc28sIHdoYXQgYW0gSSBtaXNzaW5nCj4gZnJvbSBzb2Z0d2FyZSBwYWNrYWdlcyBhbmQvb3Ig
-Y29uZmlndXJhdGlvbj8gIEkgdXNlZCBzbGludCB0byBpbnN0YWxsIHRoaXMKPiBmcm9tIHRlbGVn
-cmFtLWNsaS5zcWYgcGFja2FnZSB3aXRoIHNib3BrZyBhbmQgSSBjcmVhdGVkIHRlbGVncmFtLWNs
-aS5zcWYKPiB3aXRoIHNxZyBiZWZvcmUgZG9pbmcgYW4gaW5zdGFsbGF0aW9uLgoKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxp
-bmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29t
-L21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
+once all versions of telegram-cli got deleted I ran slapt-get -i
+telegram-cli.  The slint package installed correctly.  The version
+reported by telegram-cli when starting is 1.4.1 no mention of beta inside
+the app.
+Unfortunately, the beta version also cannot export_card either and I
+haven't checked out import_card yet either.  The beta version was
+mentioned as slapt-get -i telegram-cli did its work though.
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
