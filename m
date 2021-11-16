@@ -1,73 +1,86 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0D134453731
-	for <lists+blinux-list@lfdr.de>; Tue, 16 Nov 2021 17:19:45 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 56C4E453966
+	for <lists+blinux-list@lfdr.de>; Tue, 16 Nov 2021 19:29:28 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637079585;
+	s=mimecast20190719; t=1637087367;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=pWENLx988L3vgEwYPWsK7+1rZNMKmXDLSca4FDUJ3pQ=;
-	b=QsNsbieKK5LkUppl/En27HcT+6g26k28ifRJSF78Aca0/oc2E+9Tm3MBptaQfbPKaNro5k
-	8TfI6YR4yoHoFPwM81VE34yCVjSlt0Y6q/Fqic73cabESoEPO/SZjQi/TVTFUX3KuClYvo
-	Oheo1W5xUtKmr0peoAcYvKdzXWahSVk=
+	bh=MpKfWAtKwKtvXJT+mDNA7MvXo4iUAP2snfUmlHfVTXg=;
+	b=R/5l8rLgTRXcoRVq/yBcqlwxm6HZezpE7ErobVddNc/1GCJgalBDaExm4J9QwHjUgDG6nY
+	zbisyRyLxcRE3c/J4u8XVZA9dN0b5vP/e7MXXpEgipcJ5Dp1/WFH5nH5hKYxdVnl1Yjmau
+	eGn7A7Y36V6UfvcC8S4eCiZdPSjmhVQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-551-GmbG34--OTeRCTPnukKV8A-1; Tue, 16 Nov 2021 11:19:39 -0500
-X-MC-Unique: GmbG34--OTeRCTPnukKV8A-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-414-LcQxwqT2POmDg0dq7igrAA-1; Tue, 16 Nov 2021 13:29:23 -0500
+X-MC-Unique: LcQxwqT2POmDg0dq7igrAA-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C9B52101AFA7;
-	Tue, 16 Nov 2021 16:19:34 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E59021014512;
+	Tue, 16 Nov 2021 18:29:10 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8DA8A10246F4;
-	Tue, 16 Nov 2021 16:19:34 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D02E25C1A1;
+	Tue, 16 Nov 2021 18:29:08 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2BADA1819AC1;
-	Tue, 16 Nov 2021 16:19:32 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B95991806D03;
+	Tue, 16 Nov 2021 18:29:02 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1AGGJSJ0017561 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 16 Nov 2021 11:19:28 -0500
+	id 1AGISsvS029038 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 16 Nov 2021 13:28:55 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id AC3062166B2D; Tue, 16 Nov 2021 16:19:28 +0000 (UTC)
+	id C282351DD; Tue, 16 Nov 2021 18:28:54 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A6E252166B26
-	for <blinux-list@redhat.com>; Tue, 16 Nov 2021 16:19:25 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C6EEA811E78
-	for <blinux-list@redhat.com>; Tue, 16 Nov 2021 16:19:25 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
-	relay.mimecast.com with ESMTP id us-mta-521-1eOfSP1NNfiKF93M-UZK2g-1;
-	Tue, 16 Nov 2021 11:19:24 -0500
-X-MC-Unique: 1eOfSP1NNfiKF93M-UZK2g-1
-Received: from [192.168.1.25] (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
-	[176.172.247.100])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id 1ECBBA374E
-	for <blinux-list@redhat.com>; Tue, 16 Nov 2021 15:18:46 +0100 (CET)
-Message-ID: <49814e98-61de-0334-9342-3b6443b63406@slint.fr>
-Date: Tue, 16 Nov 2021 18:19:20 +0100
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BCD5A51DC
+	for <blinux-list@redhat.com>; Tue, 16 Nov 2021 18:28:49 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 74504800C00
+	for <blinux-list@redhat.com>; Tue, 16 Nov 2021 18:28:49 +0000 (UTC)
+Received: from mail-qv1-f53.google.com (mail-qv1-f53.google.com
+	[209.85.219.53]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-94-l6-yiFukNCaYig-oCVDYuQ-1; Tue, 16 Nov 2021 13:28:47 -0500
+X-MC-Unique: l6-yiFukNCaYig-oCVDYuQ-1
+Received: by mail-qv1-f53.google.com with SMTP id gu12so152468qvb.6
+	for <blinux-list@redhat.com>; Tue, 16 Nov 2021 10:28:46 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:date:from:to:subject:message-id:mime-version;
+	bh=qCdOXPgCj94Ua8A6TMLkxo+c6T1dRF6XH8kgyqtWW0U=;
+	b=gTcMMgog+6tCnI6g8uUY605UmFA7a26JHwhlKIdQIIEvOXi0ZrRClbN9q35WG1YDZ4
+	MzctonWxr9M92FE7q65EGxMkSFP8aY35b7GGTg5+xCvtkWyHSW3ENRk7wbgIa0uY40wy
+	P4LsI1suT2ZPt4UXDPWUMUo4ckx5kPHMxNhroemoU+ai8T2HcX425n7pHLUXUNRsaMhL
+	1apKVXCDm/BwbmdxN5zSiGKOB4in8od3CmyJ0DgPnCx8ddPivQmZuaYWV+Ehd7Iyj9la
+	T8sjwP5H4v6437ydOnh7qgRITQz6ay+/yQ6eOs4mRPIrJFKtOH+ILcxt/VR4+/Z88n8D
+	pw7A==
+X-Gm-Message-State: AOAM531rd9Voh8K055PeLLoB9C2PD/xnNCA63O1vjH/415Rp2QnyYlSr
+	ZAs7kXgF9bl3Et8f8kDEY00jmfI2WJk=
+X-Google-Smtp-Source: ABdhPJxb/XWfDTqlXbpaH73sjJJqFEw/3mlXmEAtbGTWgZbHfyoLiPnKYmqsMALp4QskXnE0phIepw==
+X-Received: by 2002:a05:6214:1d03:: with SMTP id
+	e3mr48094611qvd.61.1637087326050; 
+	Tue, 16 Nov 2021 10:28:46 -0800 (PST)
+Received: from dans-mac-mini-2.home
+	(pool-74-98-213-46.pitbpa.fios.verizon.net. [74.98.213.46])
+	by smtp.gmail.com with ESMTPSA id
+	x17sm5137207qta.66.2021.11.16.10.28.45 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+	Tue, 16 Nov 2021 10:28:45 -0800 (PST)
+Date: Tue, 16 Nov 2021 13:28:44 -0500 (EST)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Gui vs. cli software
+Message-ID: <85856f94-b8c5-6584-42ab-b72476121a@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.3.0
-Subject: Re: any good accessible OCR for linux?
-To: blinux-list@redhat.com
-References: <41060758-1e8a-076a-88d4-873d65369532@gmail.com>
-	<09164111-9929-1755-6e5a-88cf448f663b@slint.fr>
-	<1ab13c2c-36e7-ba0d-7f57-b68e5f3b36d3@gmail.com>
-	<CAO2sX30DevqjQHLE79JO6YBNisS6=VuG0sq9gH7Jycp48Jk8pw@mail.gmail.com>
-In-Reply-To: <CAO2sX30DevqjQHLE79JO6YBNisS6=VuG0sq9gH7Jycp48Jk8pw@mail.gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -76,9 +89,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 1AGGJSJ0017561
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -95,79 +106,95 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
-X-Mimecast-Spam-Score: 0
+X-Mimecast-Spam-Score: 1
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SGksCgp0aGlzIGlzIGNvcnJlY3QuIEluIFNsaW50IHRoZSBjb21tYW5kIHdvdWxkIGJlIGZvciBp
-bnN0YW5jZToKc2xhcHQtZ2V0IC1pICBhc3BlbGwtYXIKCkNoZWVycywKRGlkaWVyCgpMZSAxNi8x
-MS8yMDIxIMOgIDE2OjUyLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIGEgw6lj
-cml0wqA6Cj4gYXB0LWdldCBpbnN0YWxsIGZvbGxvd2VkIGJ5IHRoZSBuYW1lcyBvZiBvbmUgb3Ig
-bW9yZSBwYWNrYWdlcyBpcyB0aGUKPiBzdGFuZGFyZCB3YXkgb2YgaW5zdGFsbGluZyBwcmUtYnVp
-bHQgcGFja2FnZXMgb24gRGViaWFuIGFuZCBpdCdzCj4gZGVyaXZhdGl2ZXMuIFRob3VnaCwgZm9y
-IGl0IHRvIGFjdHVhbGx5IHdvcmssIGl0IG5lZWRzIHRvIGVpdGhlciBiZQo+IHByZWZpeGVkIHdp
-dGggdGhlIHN1ZG8gY29tbWFuZCBvciBiZSBydW4gaW4gYSByb290IHNoZWxsLgo+IAo+IFNsaW50
-IGlzIGJhc2VkIG9uIFNsYWNrd2FyZSwgd2hpY2ggdXNlcyBhIGRpZmZlcmVudCBwYWNrYWdlIG1h
-bmFnZW1lbnQKPiBzeXN0ZW0gZnJvbSBEZWJpYW4gYW5kIGl0J3MgbWFueSBkZXJpdmF0aXZlcywg
-c28gSSBzdXNwZWN0IGFwdC1nZXQKPiB3b3VsZCBqdXN0IGdldCB5b3UgYSBjb21tYW5kIG5vdCBm
-b3VuZCBlcnJvci4gSSdtIHJlYWxseSBvbmx5IGZhbWlsaWFyCj4gd2l0aCBEZWJpYW4gYW5kIGl0
-cyBkZXJpdmF0aXZlcywgc28gSSBoYXZlIG5vIGlkZWEgd2hhdCB0aGUgZXF1aXZhbGVudAo+IGNv
-bW1hbmQgb24gZWl0aGVyIFNsaW50IG9yIHZhbmlsbGEgU2xhY2t3YXJlIHdvdWxkIGJlLiBBcyBm
-b3Igd2h5IGEKPiBwYWNrYWdlIGJ1aWx0IGZvciBzbGludCB3b3VsZCBiZSBtYWtpbmcgc3VnZ2Vz
-dGlvbnMgdGhhdCB3b3VsZCBvbmx5IGJlCj4gdXNlZnVsIHRvIHNvbWVvbmUgcnVubmluZyBhIERl
-Ymlhbi1iYXNlZCBkaXN0cm8sIEkgc3VzcGVjdCBpdCdzIGEgY2FzZQo+IG9mIERlYmlhbiBhbmQg
-aXQncyBkZXJpdmF0aXZlcyBhY2NvdW50aW5nIGZvciBhIGxhcmdlIHBvcnRpb24gb2YgTGludXgK
-PiB1c2Vycyhwcm9iYWJseSBhIHBsdXJhbGl0eSwgcGVyaGFwcyBldmVuIG1ham9yaXR5IGlmIHlv
-dSBncm91cCBhbGwKPiBkaXN0cm9zIGludG8gbWFqb3IgZmFtaWxpZXMpLCB0aGUgZGV2ZWxvcGVy
-IHRhaWxvcmluZyB0aGUgZXJyb3IKPiBtZXNzYWdlIHRvIHRoZSBsYXJnZXN0IGdyb3VwIHBvc3Np
-YmxlLCBhbmQgdGhlIHNsaW50IG1haW50YWluZXJzKHdobyBJCj4gdGhpbmsgbWlnaHQgYWN0dWFs
-bHkgYmUgYSB0ZWFtIG9mIG9uZSkgbm90IGhhdmluZyB0aGUgdGltZSBvcgo+IHJlc291cmNlcyB0
-byBnbyB0aHJvdWdoIGV2ZXJ5IHBhY2thZ2UgYW5kIHJlbW92ZSBlcnJvciBhbmQgaGVscAo+IG1l
-c3NhZ2VzIG9ubHkgcmVsZXZhbnQgdG8gb3RoZXIgZGlzdHJvcy4KPiAKPiBPbiAxMS8xNi8yMSwg
-TGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8YmxpbnV4LWxpc3RAcmVkaGF0LmNv
-bT4gd3JvdGU6Cj4+IFRoYW5rcyBhIG1pbGxpb24gRGlkaWVyLAo+Pgo+PiBXb3VsZCBpc3N1aW5n
-IHRoaXMgY29tbWFuZCBpbnN0YWxsIHRoaXMgcGFja2FnZSBvbiBteSBkZXNrdG9wPyBMYXN0Cj4+
-IG5pZ2h0IHdoZW4gSSB0cmllZCB0byBydW4gTGlvcyBJdCBnYXZlIG1lIGEgbG9uZyBtZXNzYWdl
-IGJhc2ljYWxseQo+PiB0ZWxsaW5nIG1lIHRoYXQgSSBoYXZlIHRvIGluc3RhbGwgZGljdGlvbmFy
-aWVzIGZvciBBcmFiaWMgYW5kIG90aGVyCj4+IGxhbmd1YWdlcy4KPj4KPj4gVGhlIGNvbW1hbmQg
-aXQgc3VnZ2VzdGVkIHdhcyBzb21ldGhpbmcgbGlrZSB0aGlzOiAiYXB0LWdldCBpbnN0YWxsIC4u
-Li4iCj4+Cj4+IENoZWVycywKPj4KPj4gSWJyYWhpbQo+Pgo+Pgo+PiBPbiAxMS8xNi8yMSA3OjE2
-IEFNLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4gSGkgSWJy
-YWhpbSwKPj4+Cj4+PiB0aGlzIGNvbW1hbmQ6Cj4+PiBtb3N0IC92YXIvbG9nL3BhY2thZ2VzL3Rl
-c3NlcmFjdC1kYXRhLTQuMC4wLXg4Nl82NC0yc2xpbnQKPj4+IHNob3dzIHRoYXQgSSBoYXZlIHBh
-Y2thZ2VkIHRyYWluZWQgZGF0YSBmb3IgQXJhYmljIGFuZCBhbGwgTGF0aW4KPj4+IHNjcmlwdHMg
-YW1vbmcgb3RoZXJzIGJ1dCBub3QgSGVicmV3IHNvIGZhci4gSWYgeW91IHdhbnQgaXQgSSBjYW4g
-YWRkIGl0Lgo+Pj4KPj4+IENoZWVycywKPj4+IERpZGllcgo+Pj4KPj4+IExlIDE2LzExLzIwMjEg
-w6AgMDM6NTMsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gYSDDqWNyaXTCoDoK
-Pj4+PiBPa2F5IGZyaWVuZHMsCj4+Pj4KPj4+PiBhZnRlciB0aHJlZSB3ZWVrcyBvZiB1c2luZyBT
-bGludCwgSSBhbSBub3cgZmluZGluZyBteXNlbGYgdXNpbmcgbGludXgKPj4+PiBtb3JlIGFuZCBt
-b3JlLsKgIEkgcHJhY3RpY2FsbHkgY29uZmlndXJlZCBhbGwgb2YgbXkgZW1haWwgYm94ZXMgdG8K
-Pj4+PiB3b3JrIG9uIGxpbnV4LiBJIGFsc28gYWRkZWQgbXkgZHJvcGJveCB0byBsaW51eCBhbmQg
-c2V0dXAgbXkgd2hhdHNhcHAKPj4+PiB3ZWIuCj4+Pj4KPj4+PiBOb3cgSSBuZWVkIGEgZ29vZCBh
-Y2Nlc3NpYmxlIG9jciBwYWNrYWdlLCBwcmVmZXJhYmx5IG11bHRpLWxpbmd1YWwKPj4+PiB3aGlj
-aCBjYW4gZG8gQXJhYmljLCBIZWJyZXcgYW5kIEZyZW5jaCBiZXNpZGVzIEVuZ2xpc2guIEFtIEkg
-YmVpbmcKPj4+PiB0b28gZGVtYW5kaW5nPyBEb2VzIHN1Y2ggYSBMbGludXggcGFja2FnZSBleGlz
-dD8KPj4+Pgo+Pj4+IEkgaGF2ZSBhIHRlbiB5ZWFycyBvbGQgRXBzb24gc2Nhbm5lciB3aGljaCBJ
-IHJlYWxseSBsaWtlLgo+Pj4+IFVuZm9ydHVuYXRlbHksIHdpbmRvd3MgdGVuIG5vIGxvbmdlciBz
-dXBwb3J0cyB0aGlzIHNjYW5uZXIuIEkgaG9wZSBpdAo+Pj4+IHdvdWxkIHJ1biBmaW5lIHdpdGgg
-TGludXguwqAgSSBjb3VsZCBub3QgdHJ5IGl0IGJlY2F1c2UgSSBoYXZlIG5vIE9DUgo+Pj4+IHBh
-Y2thZ2UgcnVubmluZyBvbiBteSBMaW51eCBEZXNrdG9wLgo+Pj4+Cj4+Pj4gSWYgeW91IGd1eXMg
-aGF2ZSBhbnkgc3VnZ2VzdGlvbnMsIHBsZWFzZSBoZWxwLgo+Pj4+Cj4+Pj4KPj4+PiBDaGVlcnMs
-Cj4+Pj4KPj4+PiBJYnJhaGltCj4+Pgo+Pj4KPj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+IEJs
-aW51eC1saXN0QHJlZGhhdC5jb20KPj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxt
-YW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4KPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KPj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+IEJsaW51
-eC1saXN0QHJlZGhhdC5jb20KPj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9s
-aXN0aW5mby9ibGludXgtbGlzdAo+IAo+IAo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxp
-c3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGlu
-Zm8vYmxpbnV4LWxpc3QKPiAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNv
-bQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
+
+
+I use a gui for specific tasks.  In general; using key commands with it requires at least 3 times as many key inputs to perform what a cli
+program does with one key command.  Another advanttage is that I often combine a number of programs/utillities in a shell script or alias so
+the combination works like a custom designed single program.  This often uses the output of one as the input of another in one single process;
+something almost impossible in a gui setup.
+
+For example, I have a script which grabs specific text content of a web page that tallies corona virus cases etc. and presents only that from
+the cli as speech output.  It strings three programs and utilities in a row to get this result.  The output of each is passed on to the next
+to get that and only that text from the web page total content.
+
+On Mon, 15 Nov 2021, Linux for blind general discussion wrote:
+
+> You ever heard the saying, "the command line makes difficult tasks
+> easy and impossible tasks merely difficult"?" There is a lot of truth
+> to that. Often I can, w/a few keystrokes, relatively speaking,
+> accomplish in minutes what it would take hours for a GUI to
+> accomplish, assuming it could do so at all, which is not always
+> accurate.
+>
+> Of course I'm saying there should be accessible GUI apps for those who
+> wish to use them. But even in century 21, there are still many cases
+> where the cli is more powerful. Yeah, there are exceptions, but for
+> the most part it holds true.
+>
+> On 11/15/21, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> > Hello,
+> >
+> > I prefer gui apps, because is 21st century, not time of first computers.
+> > If we want linux will more popular, it must have more gui apps. I agree,
+> > cli is better for older and slow computers or if you want work without
+> > spinning computer ventilators, but learn with gui is in my oppinion
+> > easier than cli.
+> >
+> > Take care.
+> >
+> > Best regards
+> >
+> > Vojta.
+> >
+> > Dne 15. 11. 21 v 18:59 Linux for blind general discussion napsal(a):
+> >>
+> >> The topic of using gui vs. cli came up recently.  My view is the cli
+> >> allows much more individual control over software functions.  The gui is
+> >> oftn limited to what the developer decides is best for you as to function
+> >> and individual control.  The gui was originally sold as an easier
+> >> way to use computers; which meant in practice the developer trying to
+> >> guess how users might want to use it at the cost of greater individual
+> >> control.
+> >>
+> >> Menu driven cli software is the obvious middle ground for ease of learning
+> >> and using programs, which could easily use mouse input.  The
+> >> developer could have a default setup for ease of beginner use.  But it was
+> >> at the time not the new sexy flash bang eye candy which graphics
+> >> allowed.
+> >>
+> >>
+> >>   -- ent- XR
+> >>
+> >> _______________________________________________
+> >> Blinux-list mailing list
+> >> Blinux-list@redhat.com
+> >> https://listman.redhat.com/mailman/listinfo/blinux-list
+> >>
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://listman.redhat.com/mailman/listinfo/blinux-list
+> >
+> >
+>
+>
+>
+
+-- 
+ent-
+XR
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
