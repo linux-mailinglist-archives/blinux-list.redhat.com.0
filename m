@@ -1,95 +1,96 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 86DF54560F7
-	for <lists+blinux-list@lfdr.de>; Thu, 18 Nov 2021 17:54:03 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id C3EEB4563E2
+	for <lists+blinux-list@lfdr.de>; Thu, 18 Nov 2021 21:10:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637254442;
+	s=mimecast20190719; t=1637266258;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=jNMSZrbFNXU2blkB5Ma4qciT6YcFbhqddq6vtLU0WFw=;
-	b=aph2C3ahcwkTWXRrhHgjpSSsWyIk6H98ui14/RKQztjTnmeVccebARzcX7J6mztFSyFw6f
-	wrxWyknUULbAZIHJJynEzy5QE7JBP1HIfm5w8lL4v5JQR6HOsCmBwfQmhOxcqp7d//OADy
-	lu26WSmoc7LeZ02mMbZfncp7CVSV1Y0=
+	bh=EpwR08bM5ENCvSVxVBK3MvKjv2KgP/y+KJw+gVrX8kA=;
+	b=TPvCtI95/3+9HjNrKKlOX/x55A2VBjv4xNE31xM+/PTLXRtp/PscsvsiANTNYd1vwJxwun
+	64QztaqkC2xNMVXarGq++02NiIxji8TEHtcQBQC/2lzhWGb3jjdzC6j/l4FBBYGjWy99fm
+	KrFdUHneYHEfzMX/7dZvx9DXxZvUpTU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-68-PqETgNZNO7irgaEU7NEJTw-1; Thu, 18 Nov 2021 11:53:58 -0500
-X-MC-Unique: PqETgNZNO7irgaEU7NEJTw-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-419-E5ATxSGCMluFhI4qEXGnaA-1; Thu, 18 Nov 2021 15:10:55 -0500
+X-MC-Unique: E5ATxSGCMluFhI4qEXGnaA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 78DE3100D69C;
-	Thu, 18 Nov 2021 16:53:50 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D189B101F001;
+	Thu, 18 Nov 2021 20:10:49 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6B4FE56A9D;
-	Thu, 18 Nov 2021 16:53:45 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 701B060BF1;
+	Thu, 18 Nov 2021 20:10:48 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id ED80A4EA62;
-	Thu, 18 Nov 2021 16:53:35 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.2])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 261374A703;
+	Thu, 18 Nov 2021 20:10:39 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1AIGrQkD031373 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 18 Nov 2021 11:53:26 -0500
+	id 1AIKAUWe015286 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 18 Nov 2021 15:10:30 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id F3171404727D; Thu, 18 Nov 2021 16:53:25 +0000 (UTC)
+	id 5FC682026D60; Thu, 18 Nov 2021 20:10:30 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id EFAB4404727A
-	for <blinux-list@redhat.com>; Thu, 18 Nov 2021 16:53:25 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D6D2C8564E2
-	for <blinux-list@redhat.com>; Thu, 18 Nov 2021 16:53:25 +0000 (UTC)
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5B4122026D46
+	for <blinux-list@redhat.com>; Thu, 18 Nov 2021 20:10:26 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3A0EC181E065
+	for <blinux-list@redhat.com>; Thu, 18 Nov 2021 20:10:26 +0000 (UTC)
 Received: from mail-qk1-f176.google.com (mail-qk1-f176.google.com
 	[209.85.222.176]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-65-hZsHG1_2O5CKtDJo1d787g-1; Thu, 18 Nov 2021 11:53:24 -0500
-X-MC-Unique: hZsHG1_2O5CKtDJo1d787g-1
-Received: by mail-qk1-f176.google.com with SMTP id t6so7081456qkg.1
-	for <blinux-list@redhat.com>; Thu, 18 Nov 2021 08:53:24 -0800 (PST)
+	us-mta-137-1sHv3Hd-PkiMpw0xkuuM7A-1; Thu, 18 Nov 2021 15:10:24 -0500
+X-MC-Unique: 1sHv3Hd-PkiMpw0xkuuM7A-1
+Received: by mail-qk1-f176.google.com with SMTP id i9so7753063qki.3
+	for <blinux-list@redhat.com>; Thu, 18 Nov 2021 12:10:24 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
 	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=7jyyVBXHlOUkam+xMDfzo4IiDjy5eD2a2wWZO7eiezA=;
-	b=UiFzJmdf5J+TOnXOkh794AGDBy/bP0KsRwXFsDLtbNoMmgit+7bDfhEZ/ipNzTVnmL
-	8c2IyhcJBqirpYtNv/rpUqLCpryNcDGie/vh0xhNeqeKrODSHiXjgvGLdeVw039oLnAB
-	ofxjO+sl3Ils8/rhp2B4TxM3fygfI+lgiDW2hGC56zRSYzC5c1NFqrk0akf0kuewenqv
-	ma19xm6TgBuop3gxiUroceMPChU0ikGf5kFlH5AnDMgGwzzY/XXWigzolO6oKrPZHlPG
-	aCkzYdVKY1GaS0vUEFy0MwaVSo4QXMzh6+F8FLaLzhK9Bb1dy3I9OVLBDVNBWxT9tQTX
-	n9gA==
-X-Gm-Message-State: AOAM531MblEwxZNUC3mrb931pFaznBUvgnRd+5ypJip1MgdFIq7W0Fcc
-	vhjoQFZi2+iT6bRBNLMcxQy5B6Im/wCLhrnJ
-X-Google-Smtp-Source: ABdhPJzAPUf1UpDbebYz5bVrynr3n1AVtQtXOl1d4loKp2c3YS8AYMTzSd2CXe6kA59aox5STo4u1g==
-X-Received: by 2002:a37:6343:: with SMTP id x64mr21912816qkb.501.1637254403457;
-	Thu, 18 Nov 2021 08:53:23 -0800 (PST)
-Received: from darkstar.example.slint ([2601:152:4000:330::11])
-	by smtp.gmail.com with ESMTPSA id
-	j13sm203778qkp.111.2021.11.18.08.53.22 for <blinux-list@redhat.com>
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
+	bh=Uh161Z3ewdTQ28UGhIDDXj7OZWTJlxzlxSr1Ao3fLY8=;
+	b=WTF1l84TMWddELTpr4BXqGEt1tdMX8KV4fqSl4+pMmGlfwtkEnQKlVBvjrBEauPxJs
+	94e01O4pwaZjgxvy0rmZJCLVLi+rCp57oVQqIFx5q+3xym/ClwjBJuIH2EAFydU8xUr5
+	aREwt7rFGWqGyNYyJw1RQegfBEgrCVbnieN3zXBr4W7BkDmf6E7gd/xU0MubfGftewPE
+	+zEPA06cHn854ple5wMnp9esXs1CG4n3USD/5CvdIp5epC3rYh9QXF8mZ8DbOeleO9Wq
+	hgbP40lU9c15NUPROsNPSrrECpWPiSWAf7wugbfVHPSPEGJsNvryXe8La/c0oqxG9LIy
+	xrhA==
+X-Gm-Message-State: AOAM532wimD/udD+sLVCIxoNCoN0e31oiiWPIv/cgu9Ah9Ltt0elUsBR
+	x8lisoHD/kGPtNPP6n0bAmUOYtha0f0=
+X-Google-Smtp-Source: ABdhPJwKKpb9AR/Yw0yIio22TQZzNqbl9GXzYjI9YCPa8AEIQzaLt7Hodt11yGhgk0IHU90AzrDvMA==
+X-Received: by 2002:a37:9cf:: with SMTP id 198mr23192110qkj.308.1637266223762; 
+	Thu, 18 Nov 2021 12:10:23 -0800 (PST)
+Received: from ?IPv6:2603:6080:6304:450a::960?
+	(2603-6080-6304-450a-0000-0000-0000-0960.res6.spectrum.com.
+	[2603:6080:6304:450a::960])
+	by smtp.gmail.com with ESMTPSA id h22sm430519qkk.14.2021.11.18.12.10.23
+	for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 18 Nov 2021 08:53:23 -0800 (PST)
+	Thu, 18 Nov 2021 12:10:23 -0800 (PST)
 Subject: Re: looking for Lennix distribution?
-To: Linux for blind general discussion <blinux-list@redhat.com>
+To: blinux-list@redhat.com
 References: <6f1e4705-8453-2e88-18ae-980146e4be15@gmail.com>
 	<9A8E294B-3690-46BC-8B52-E787FB7D6122@gmail.com>
 	<9f3db659-4cc4-4f86-12d5-dc0ef2a95af0@gmail.com>
-Message-ID: <33002db2-a9f2-32ab-67a6-d35a41496d7f@gmail.com>
-Date: Thu, 18 Nov 2021 11:53:22 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Thunderbird/68.12.0
+	<33002db2-a9f2-32ab-67a6-d35a41496d7f@gmail.com>
+Message-ID: <58865fc1-1566-b9a3-21d6-3b2aa13346aa@gmail.com>
+Date: Thu, 18 Nov 2021 15:10:22 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+	Thunderbird/60.0
 MIME-Version: 1.0
-In-Reply-To: <9f3db659-4cc4-4f86-12d5-dc0ef2a95af0@gmail.com>
+In-Reply-To: <33002db2-a9f2-32ab-67a6-d35a41496d7f@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -98,7 +99,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -115,48 +116,43 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Thanks Kyle,
+The sound output can be switched from your MATE sound settings in 
+applications->sound and video->sound. This is due to the fact that Fedora is 
+using pipewire and wireplumber by default instead of Pulseaudio, and proper 
+switch-on-connect support may not be fully enabled yet, although once you set it 
+the first time, it seems to work. Pipewire can currently replace Pulseaudio, the 
+ALSA front end stuff and even Jack, but it is still a work in progress that is 
+used by default to give the wider community a chance to test things. So bumps in 
+the road will still occur. For example, plugging in my headphones with their 
+microphone to my computer results in the expected output switch, but the input 
+doesn't switch automatically. But this is not a showstopper here, since I can 
+switch the input easily enough, and if I use a USB box, both input and output 
+are switching for me after setting it the first time. Still, I do believe this 
+will get fixed, since my 3.5mm headphones didn't switch the output the first 
+time I plugged them into the computer - the sound kept coming out of my speakers 
+and actually, the mic didn't work at all, and now everything but the automatic 
+input is switching correctly.
 
-I downloaded the Fedora Mate version and I put it on a bootable usb 
-drive, then I ran it and got orca to talk. For whatever reason, the 
-speech came out of my laptop built-in speakers, not through my headset 
-as I prefer. Braille did not come up at all, although my vario ultra is 
-connected. I hit insert space and checked the orca settings and found 
-Braille enabled there. I find this strange. I did not have this problem 
-with mint, or slint, or coconut. It looks that the fedora team needs to 
-do a little more work to make it better.
-
-Cheers,
-
-Ibrahim
-
-On 11/18/21 9:58 AM, Linux for blind general discussion wrote:
-> Fedora doesn't need Speakup for the installation process. Just boot up 
-> the live image, press alt+f2 and enter
-> orca
-> in the run window. Once Orca starts, you will find the installer on 
-> the desktop if you're running the MATE version. If you run the GNOME 
-> version, known as Fedora Workstation, you will need to hit the super 
-> key and find the installer from there. The MATE desktop tends to have 
-> better accessibility with Orca, so I use and highly recommend it. The 
-> installer will see your USB drive, which you can configure for 
-> automatic installation. Hope it helps.
-> ~Kyle
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
+I use braille so little that I didn't notice any problem, but it looks like your 
+user is not in the brlapi group by default. This causes permission errors when 
+Orca tries to read /etc/brlapi.key. Try adding yourself to the brlapi group from 
+system->administration->MATE user manager. Unlock it first, then open the 
+setting groups window. From there, tick brlapi and logout. The next time you 
+login, you should have braille. This is not a failing of the distro, as no one 
+user should be in a ton of groups by default. I think if I remember correctly 
+though that there is a way to set your groups in the installer. The distros you 
+mentioned have their own issues, which you pointed out, along with others you 
+hadn't seen yet. So do stick with this, and I believe in the end you'll be 
+pretty happy with it overall.
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
