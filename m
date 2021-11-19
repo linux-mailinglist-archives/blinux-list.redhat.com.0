@@ -2,83 +2,85 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B1F945733A
-	for <lists+blinux-list@lfdr.de>; Fri, 19 Nov 2021 17:39:06 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 941FF457347
+	for <lists+blinux-list@lfdr.de>; Fri, 19 Nov 2021 17:41:55 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637339945;
+	s=mimecast20190719; t=1637340114;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=/6ynDdw0igicNS1rp5X092QSvSau5J6Nykdcm8z25Lo=;
-	b=XyxKQsuj3HxUj3wd3wFujkz5YOpWaurkzsQGdRHxO8Tf7ns6ET68Qqf2geTxgmIY1846vU
-	1XrOwIeBz2rsxgcZEI0FjBrLUJL35tj8UWnlI+/k8pDfh1pt+GXFaD7bFOdoHsCHK101Ht
-	XZVxbNdutPiI/yP6OAP0GnIZC/TWf2E=
+	bh=DhwZICJ1B2ukLueRB+YYzQR+cR7T1EE29CUcthH6LSE=;
+	b=KX+Cq/YdLVyazcduBRvzPP0AFMb2E9dPBAGuvR3m/7TX4kqW50wqiUya6pX5HYA7Dn81vW
+	7t60W0pmRoRDihq3LU98j6E4UctmtioUK59BBxbehreshSS/RU7z7sOy8dHrZn369gZBS7
+	WVrRpOrUmtgC7h3KbMEvRPNGRRYJXNo=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-273-TxdDvz7pPFiWZK6ECd5mGg-1; Fri, 19 Nov 2021 11:39:01 -0500
-X-MC-Unique: TxdDvz7pPFiWZK6ECd5mGg-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-307-PcnU4VCgOr29cf03F3m6TA-1; Fri, 19 Nov 2021 11:41:52 -0500
+X-MC-Unique: PcnU4VCgOr29cf03F3m6TA-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7C6981DDF2;
-	Fri, 19 Nov 2021 16:38:56 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C303A60862;
-	Fri, 19 Nov 2021 16:38:53 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CB045101AFC4;
+	Fri, 19 Nov 2021 16:41:48 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C293560657;
+	Fri, 19 Nov 2021 16:41:47 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7EE484EA30;
-	Fri, 19 Nov 2021 16:38:43 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E7C4F1832E81;
+	Fri, 19 Nov 2021 16:41:45 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1AJGcXi0025475 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 19 Nov 2021 11:38:33 -0500
+	id 1AJGfgxW025672 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 19 Nov 2021 11:41:42 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id A5AA61121318; Fri, 19 Nov 2021 16:38:33 +0000 (UTC)
+	id BC36B2166B3F; Fri, 19 Nov 2021 16:41:42 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A0EBF1121315
-	for <blinux-list@redhat.com>; Fri, 19 Nov 2021 16:38:30 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B3C3C80A0B6
-	for <blinux-list@redhat.com>; Fri, 19 Nov 2021 16:38:30 +0000 (UTC)
-Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com
-	[209.85.208.48]) by relay.mimecast.com with ESMTP with STARTTLS
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B6C0B2166B2D
+	for <blinux-list@redhat.com>; Fri, 19 Nov 2021 16:41:39 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AD028802E5E
+	for <blinux-list@redhat.com>; Fri, 19 Nov 2021 16:41:39 +0000 (UTC)
+Received: from mail-qv1-f44.google.com (mail-qv1-f44.google.com
+	[209.85.219.44]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-453-HP0SUurxN2OK88Ym3q4k8A-1; Fri, 19 Nov 2021 11:38:29 -0500
-X-MC-Unique: HP0SUurxN2OK88Ym3q4k8A-1
-Received: by mail-ed1-f48.google.com with SMTP id w1so45063131edc.6
-	for <blinux-list@redhat.com>; Fri, 19 Nov 2021 08:38:28 -0800 (PST)
+	us-mta-240-AV2spqDUNbK5dBc9EvZEVQ-1; Fri, 19 Nov 2021 11:41:38 -0500
+X-MC-Unique: AV2spqDUNbK5dBc9EvZEVQ-1
+Received: by mail-qv1-f44.google.com with SMTP id jo22so7447556qvb.13
+	for <blinux-list@redhat.com>; Fri, 19 Nov 2021 08:41:37 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:subject:to:references:from:message-id
-	:disposition-notification-to:date:user-agent:mime-version
-	:in-reply-to:content-transfer-encoding;
-	bh=K9cd1/bLhJIQQCQnRWhCIO7OynTjd6VCvUPm6axEaHs=;
-	b=YMBrbYkCrjIpKzBE+0wiSzxaua8w1eBordk78YS6amwfUYnJ7o89GKVM53NFeYvOq+
-	QXLwJT9ZVW0LVcrBEnijYBA80NYIbumRL5fAd/TRejDUnThNaUoXbHp8fhiy4Um7A1+V
-	iyXWHaBoUKocEHR7GH04LQ1mo4Kt8mvrItb0h+NcJLJLQdrsKrreWr9ZB/0n1e3KVEVf
-	QTY+AncSrNVYr5uuyeHSM2o+cliG9hBYUcGnd9CbpZIV20mhPpX0Rpjv0/T+cPYRB4iK
-	qDtjTgrmcLkw0hJfJhcToJeoMtkJbB3M/wgJWeT5t2/R/yp8ZMt36SxUkj7vxPDFRBZD
-	+vow==
-X-Gm-Message-State: AOAM531qcACO95HxI6kp7Vm16Tm6ClUYFjvQAxdWGmfX6++ooV23HWhO
-	HfLXUgE2VBzziON2G8Mke6sMX/yVKVw=
-X-Google-Smtp-Source: ABdhPJzjdiadbG4dzhrl4H5IyT4gNNEHLlaJeiKatosELLPIEFrLm+Y7xuKhlw3K3y2jYFpU58mG+Q==
-X-Received: by 2002:a50:8d47:: with SMTP id t7mr26735002edt.14.1637339907858; 
-	Fri, 19 Nov 2021 08:38:27 -0800 (PST)
-Received: from [192.168.178.28]
-	(dynamic-078-055-079-123.78.55.pool.telefonica.de. [78.55.79.123])
-	by smtp.gmail.com with ESMTPSA id d10sm166243eja.4.2021.11.19.08.38.27
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding
+	:content-language;
+	bh=/1ol2pCo2+G/Owl34MxsLD9zH7/endBYv+RJJCUGkZ4=;
+	b=Z4uoFRaBPm3bsveDiufNCHmI11J7oV8vMjVROAk0pQZCl25mDha5vQzmg4prF5fmnC
+	YHnD1T230zvSuYCKloD5FIlpPRRGzmOM/cVQWugbRcE8arC6lGM5U2TPSBF9lLP5RC+n
+	PYUMfBf+3EoWwoVyb907cFdTQvxF/LohxN1u3GATCpCJKL4D5K64isC49wa9FnYcMBDa
+	6BJhNU/iqFfeHSXYbAhb9gesGTTzS2eRy6ZE5XArfjOs/gjBgEAU5ET1kab3K3ym8lgt
+	so5kosupFIxtInXfASXPzOA9QSrlqKJpAXfgX4spgzQ5kDD+N4GKyJg1WJQPFSwjVhkE
+	q7dg==
+X-Gm-Message-State: AOAM533i1hM6lbU3CMS6Nny9aJsyrDxSgSl30zrMS2nYH3RWyeIgEpcu
+	mEqLr+Df+/4ipYVaDp5NDad/KQuKLHmHfg==
+X-Google-Smtp-Source: ABdhPJyFuTM/f//cs6kFZ1j97vC5CegtXavHdm9XWdUXrRrnAhQVyjb4+6Qf9Bt+Uk6Bamdjd6ZsLw==
+X-Received: by 2002:a05:6214:e47:: with SMTP id
+	o7mr77111313qvc.61.1637340097375; 
+	Fri, 19 Nov 2021 08:41:37 -0800 (PST)
+Received: from ?IPv6:2601:192:4c80:1420:b6ab:7cee:1524:2908?
+	([2601:192:4c80:1420:b6ab:7cee:1524:2908])
+	by smtp.gmail.com with ESMTPSA id c7sm176076qtc.32.2021.11.19.08.41.36
 	for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Fri, 19 Nov 2021 08:38:27 -0800 (PST)
+	Fri, 19 Nov 2021 08:41:37 -0800 (PST)
 Subject: Re: looking for Lennix distribution?
 To: blinux-list@redhat.com
 References: <c28c932c-ef31-339c-ab9f-b875fab8d259@hubert-humphrey.com>
@@ -88,12 +90,13 @@ References: <c28c932c-ef31-339c-ab9f-b875fab8d259@hubert-humphrey.com>
 	<aab6690b-f55f-80d5-2b1f-dfc3aa7f1272@icloud.com>
 	<779a43bb-fe1c-6d4a-a7e2-31532308d709@gmail.com>
 	<C397260A-A8B2-4479-A3F5-6547EA4A1D8F@icloud.com>
-Message-ID: <fd55f0f8-262a-df02-b0cc-09a61ad3f5ee@googlemail.com>
-Date: Fri, 19 Nov 2021 17:38:26 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Firefox/68.0 SeaMonkey/2.53.10
+	<fd55f0f8-262a-df02-b0cc-09a61ad3f5ee@googlemail.com>
+Message-ID: <e7a5e2a8-ae3d-296f-c910-acc0df8d2d92@gmail.com>
+Date: Fri, 19 Nov 2021 11:41:36 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+	Icedove/78.14.0
 MIME-Version: 1.0
-In-Reply-To: <C397260A-A8B2-4479-A3F5-6547EA4A1D8F@icloud.com>
+In-Reply-To: <fd55f0f8-262a-df02-b0cc-09a61ad3f5ee@googlemail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -102,7 +105,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -119,90 +122,21 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Language: en-US
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Hi,
-it is very simple. I love Mint because there is no snap activated which 
-I don't like. One can say: Mint is an Ubuntu withouut snap.
-Greetings,
-Wolfram
-
-Am 18.11.21 um 22:49 schrieb Linux for blind general discussion:
-> Hi,
-> What do you think of Linux Mint 20.2?
-> Is it better then Coconut?
-> I downloaded the Mate ISO from
-> https://linuxmint.com
-> I installed it in a VM, But
-> I have not had time to really check it out.
-> Thanks,
-> Rob
->
->
->> On Nov 16, 2021, at 11:57 PM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
->>
->> hello I have one more question, I think. Where do I download this distribution from? And in general about how much disk space does it take? Is it something that can be installed and will virtual machine or is it a live distribution. I can probably vinyl this out by going to the URL if someone would like to share that link? Thanks in advance.
->>
->>
->> Disclaimer time, just be aware that the above has been dictated to the machine by means of Windows-based dictation software. If there's something that you don't understand that has been written above, please reach out to me and asked me what my original intent may have been. Thank you very much for reading this.
->>
->> On 11/16/2021 5:51 PM, Linux for blind general discussion wrote:
->>> Hi,
->>>
->>> I have been using Accessible Coconut for about a month.
->>>
->>> Orca can start at boot.
->>>
->>> Thanks,
->>>
->>> Rob
->>>
->>>
->>> On 11/16/21 8:46 PM, Linux for blind general discussion wrote:
->>>>      Good afternoon or good evening or whatever time it is wherever you are reading this. My subject line pretty much says everything there is to this message. I am looking for inappropriate Lennix distribution to run in a virtual environment. From everything I think I know, I'm thinking the best solution is something that can be installed easily, and allow me to install orca really quickly if not do it in the same install. Any good suggestions? I do have access to a Fedora core ISO image but I'm just wondering if there's something better or will this be sufficient? Looking forward to readig response wake up to my question.
->>>>
->>>>
->>>> Please be aware that I am dictating this to the computer and Windows. I am using dictation software because of an additional disability. If there's something that I've written about that you truly do not understand, please write me and asked me what I may have meant. I thank you kindly in advance for reading this.
->>>>
->>>>
->>>>
->>>> On 11/16/2021 3:06 PM, Linux for blind general discussion wrote:
->>>>> Thank you Didier-and-Kyle. I will certainly run your command, but do I need to un mount anything? I would also figure I would be sitting outside of that mdeia directory? O-and-yes, Didier, it is vfat.
->>>>> Chime
->>>>>
->>>>> _______________________________________________
->>>>> Blinux-list mailing list
->>>>> Blinux-list@redhat.com
->>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>
->>>> _______________________________________________
->>>> Blinux-list mailing list
->>>> Blinux-list@redhat.com
->>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>
->>> _______________________________________________
->>> Blinux-list mailing list
->>> Blinux-list@redhat.com
->>> https://listman.redhat.com/mailman/listinfo/blinux-list
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+V2hhdCdzIG1vcmUsIGl0J3MgYmFzZWQgb24gdGhlIGxvbmctc3RhYmxlIFVidW50dS7CoAoKCi1E
+YXZlwqAgSC4KCgoKT24gMTEvMTkvMjEgMTE6MzggQU0sIExpbnV4IGZvciBibGluZCBnZW5lcmFs
+IGRpc2N1c3Npb24gd3JvdGU6Cj4gaXQgaXMgdmVyeSBzaW1wbGUuIEkgbG92ZSBNaW50IGJlY2F1
+c2UgdGhlcmUgaXMgbm8gc25hcCBhY3RpdmF0ZWQKPiB3aGljaCBJIGRvbid0IGxpa2UuIE9uZSBj
+YW4gc2F5OiBNaW50IGlzIGFuIFVidW50dSB3aXRob3V1dCBzbmFwLgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0
+CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1h
+bi9saXN0aW5mby9ibGludXgtbGlzdA==
 
