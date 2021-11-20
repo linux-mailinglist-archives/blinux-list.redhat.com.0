@@ -1,89 +1,93 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id C04074580D7
-	for <lists+blinux-list@lfdr.de>; Sat, 20 Nov 2021 23:49:59 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 51D5F4580DB
+	for <lists+blinux-list@lfdr.de>; Sun, 21 Nov 2021 00:04:58 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637448598;
+	s=mimecast20190719; t=1637449497;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=63Ka4hEJptk7WBNmAulK2hnn9EGhebkkV8byPwSv6iI=;
-	b=P7IncnraveBotzMxZMSHuA8RHv2oJsZ9F0ww16D57hBQ6bv4S/Lih6gn7nEryqMD59/9QX
-	RBr9LnVKrMj8Vwiq2rFqToNKxOG6/wxSKhZuhDz2vBuTtRah6Ur03ZN4hBJrojli91BIYC
-	V6imY1wn8YwcNoHsPPueB5swPL7kwes=
+	bh=QThQFNuoBlY5W4CrLDWNm0ykshdR0AseKfj3tTmOoms=;
+	b=WBLKVFVZtUV8RGozWZgAYRREMrP6+Ef73o6CYYR/+enAp7YypcLQBXADp06d5uELYypAMk
+	H1c1vg8YD5VXXsXnznjufBORPVEKT6usdJbzj9WmrBpd5tOF2QM7ASWp4UmMRiVIRo2Jvo
+	w30gh0JmJdBjdNQnmFXeAzoAT9NEVIA=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-46-AwV5RTZgMvWZPdVFbDnshA-1; Sat, 20 Nov 2021 17:49:55 -0500
-X-MC-Unique: AwV5RTZgMvWZPdVFbDnshA-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-401-Y1FRFkgBN8O5LmTdrDJ1IQ-1; Sat, 20 Nov 2021 18:04:53 -0500
+X-MC-Unique: Y1FRFkgBN8O5LmTdrDJ1IQ-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 913DE18125C1;
-	Sat, 20 Nov 2021 22:49:51 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3EF835D9DE;
-	Sat, 20 Nov 2021 22:49:50 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E4EC3806688;
+	Sat, 20 Nov 2021 23:04:48 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9EB3060C04;
+	Sat, 20 Nov 2021 23:04:48 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 04D3F4A703;
-	Sat, 20 Nov 2021 22:49:43 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 128961832E80;
+	Sat, 20 Nov 2021 23:04:44 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1AKMnaj9000413 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 20 Nov 2021 17:49:36 -0500
+	id 1AKN4Xws001137 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 20 Nov 2021 18:04:33 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 4DC5E2026D5D; Sat, 20 Nov 2021 22:49:36 +0000 (UTC)
+	id 43DF62026D5D; Sat, 20 Nov 2021 23:04:33 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 490132026D48
-	for <blinux-list@redhat.com>; Sat, 20 Nov 2021 22:49:33 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3EB252026D48
+	for <blinux-list@redhat.com>; Sat, 20 Nov 2021 23:04:30 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6C11A803D50
-	for <blinux-list@redhat.com>; Sat, 20 Nov 2021 22:49:33 +0000 (UTC)
-Received: from mail-qk1-f174.google.com (mail-qk1-f174.google.com
-	[209.85.222.174]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6CBE2800141
+	for <blinux-list@redhat.com>; Sat, 20 Nov 2021 23:04:30 +0000 (UTC)
+Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com
+	[209.85.219.43]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-498-hp-La1nYM_603aw1kwvRkQ-1; Sat, 20 Nov 2021 17:49:31 -0500
-X-MC-Unique: hp-La1nYM_603aw1kwvRkQ-1
-Received: by mail-qk1-f174.google.com with SMTP id g28so14015103qkk.9
-	for <blinux-list@redhat.com>; Sat, 20 Nov 2021 14:49:31 -0800 (PST)
+	us-mta-342-vuqQ1GoiPO2KrJipRf_u4w-1; Sat, 20 Nov 2021 18:04:28 -0500
+X-MC-Unique: vuqQ1GoiPO2KrJipRf_u4w-1
+Received: by mail-qv1-f43.google.com with SMTP id kl8so9704279qvb.3
+	for <blinux-list@redhat.com>; Sat, 20 Nov 2021 15:04:28 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=mj36dVoVK57CEUyud2p3eOaHUW1C21AUljj1ql8BRaY=;
-	b=IecB07fOhvL/RkMBYh/Bw+8tavbIcVO3aVe/cV3REShpg7qo/V0vQLaVV2p6TE2r+e
-	BcH98P+/au92JKXA0y3bo5xuCqD5zRrZu3qTI1QiZMrE40csfYQOBe5afM/OYPNg3CVF
-	IDOIolu4yMBueTKLMSpMuru6gNJK+mfAPdVdnXtbHW63SdDW0KHhOChZuMNupgATTIsJ
-	VAmhOJhFPsu5MHq3m8YTJAxbSBLZeOAyee57hcf+7+Iot2cnfM6NyEEUPT6N90pfXnSv
-	UXIuOsVJVhVYnwDCuLNaGKjRWBQB0PypfCFenZoIe1uCyrtTwPgRc4/0wvyzbUOKzUN+
-	shfQ==
-X-Gm-Message-State: AOAM530KijAZluhMaSKns3aNyKMGiBa/ydQmZgZDFb3n1skiPKtK35LO
-	vQJaImHdDa5IpHOzlOi57bMEJ6wfEtoGJXoYA6DjORCr
-X-Google-Smtp-Source: ABdhPJxsHkYiiUIM63QJSmpOKufH/T+sTW1ZxpW8doQl9MikAeWYkr0elCvFOKkqEb1v+/SXSEpuceIHRUalH9lMDf4=
-X-Received: by 2002:a05:620a:c50:: with SMTP id
-	u16mr37128540qki.203.1637448571127; 
-	Sat, 20 Nov 2021 14:49:31 -0800 (PST)
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=VcAYvD9Cuaj8f2EO9AdReFiioC7+ZhHuRyD5+CcDfiY=;
+	b=5GTVg4VtnNwyQOf8N7MD3Ocez+3Il+EGz/2wD9V5U4g3jTnpKvIMd5B41i1I0OQb0Q
+	4HFI1PIhYRxb0Hp5Dp1WoMtYUK9RX7SDGowTJeI1po8PVBI0cR1b19DsZ4pEUfDsYsLO
+	cRiuqCM5nw8GdYmooRz2ZdJh1gMZQ9pJf3EQWqN/hxLl27AT/u27srUBKukwIqFcfgW/
+	jzcW2UAZxV5CLTi5Abe0uieG2GdKIVyVplgzRkCZxwxJKQwoRspPLF/xUrJC4OkQ88El
+	X2n6ieRgAfSTg/TCblLxlZNDCBiQdpTZhlz7o7+e0AisNUHX0PnvoKusC5/nI9PbQP6J
+	OSOg==
+X-Gm-Message-State: AOAM531vKMnj7tQpflDt8ulrE8iarWdKvU2Mk4tF+8jPdBaHI2lNOSx3
+	nApT5YqWXpIv5vO3lFPaJFVwis2fLcboXw==
+X-Google-Smtp-Source: ABdhPJyXcQ0Vd6Uy6ns1ysUmZoiLQgZ8owCX4tJNkR1lwTQUWrZOWL5SA7Sclr5/b6smWuasWXGZmw==
+X-Received: by 2002:ad4:4f2e:: with SMTP id fc14mr87023197qvb.66.1637449467218;
+	Sat, 20 Nov 2021 15:04:27 -0800 (PST)
+Received: from [192.168.11.151] (d-65-175-184-10.nh.cpe.atlanticbb.net.
+	[65.175.184.10]) by smtp.gmail.com with ESMTPSA id
+	y73sm1996411qkb.113.2021.11.20.15.04.26 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Sat, 20 Nov 2021 15:04:26 -0800 (PST)
+Message-ID: <7f7274cf-ace2-abc4-c94c-3410fa61cff1@gmail.com>
+Date: Sat, 20 Nov 2021 18:04:26 -0500
 MIME-Version: 1.0
-Received: by 2002:a0c:c34a:0:0:0:0:0 with HTTP; Sat, 20 Nov 2021 14:49:30
-	-0800 (PST)
-In-Reply-To: <daa7b60aa84f6ee9af1210b4db6b34e7@ijn2.net>
-References: <fe3a75a0-6db8-6f92-8859-a009326e9678@seznam.cz>
-	<daa7b60aa84f6ee9af1210b4db6b34e7@ijn2.net>
-Date: Sat, 20 Nov 2021 22:49:30 +0000
-Message-ID: <CAO2sX317-rFXjdKJ526w-5Kz6WYey3vO=DWgh=iKER3eqciPEg@mail.gmail.com>
-Subject: Re: Ideal temperature
-To: blinux-list@redhat.com
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:91.0) Gecko/20100101
+	Thunderbird/91.2.1
+Subject: Re: Startup sound for Linux Mint 20.2?
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <BE1579A1-9922-4342-9C4B-7BBF8D41F1A0@icloud.com>
+In-Reply-To: <BE1579A1-9922-4342-9C4B-7BBF8D41F1A0@icloud.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -109,33 +113,42 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Bit off topic, but Travis's comment about crazy overclocking reminded
-me of something from the Pentium 4 days:
+Hi,
+I added a new entry using the startup programs utility and used the 
+following command:
+paplay /usr/share/sounds/LinuxMint/stereo/desktop-login.ogg
+Now, when I login, that sound plays.
 
-If memory serves, in those days, the fastest Pentiums ran at 3.6 GHz
-and there were people trying to overclock to 5Ghz, but even pouring
-liquid nitrogen directly on the chip, they only got somewhere in the 4
-GHz range before things started overheating. Admittedly, I'm pretty
-sure ARM chips produce much less heat than Pentiums, but really, the
-only reason CPUs can't do double duty as space heaters is because a
-single CPU is too small.
+I have not been able to find the various event sounds in Mint. I have 
+even had a sighted person go into the sound utility and look for them 
+and they just are not there.
 
-That said, 34 degrees C might be the lowest CPU temp I've ever heard
-of, I'm use to systems being at least 40C even when idling... even
-when the room is cold.
+This little workaround is better than nothing.
 
-Still, 40 below is crazy cold and I suspect most people are going to
-have much bigger cold-related problems on their hands(such as not
-dying of hypothermia) long before their Raspberry Pi gets too cold to
-work properly.
+John
+
+On 11/20/2021 3:33 PM, Linux for blind general discussion wrote:
+> Hi,
+> Accessible Coconut has a nice startup sound.
+> But Mint has no sound. Is there a way to have a sound play at startup?
+> 
+> Thanks,
+> Rob
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
