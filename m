@@ -1,75 +1,77 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 63F934580DC
-	for <lists+blinux-list@lfdr.de>; Sun, 21 Nov 2021 00:15:38 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4E396458273
+	for <lists+blinux-list@lfdr.de>; Sun, 21 Nov 2021 08:17:26 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637450137;
+	s=mimecast20190719; t=1637479045;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=e/poOMoCWTDmJUb/MUes72grj0S1FQWk7Wrxt5/Xsro=;
-	b=WW29/L86Uf5kHQzxm8oIm23vpmlSX0QBzNAwfHb9+jQmce5iV1jIG3Llkt6IBhfc0jQJQL
-	DE6lfQrmd8hrgCIiBqwBjrhvPRnHBu4vh7Ncjq7QizfxHdliR6AKhUPhu6pjGxO6gIYXHL
-	MrSdKTkINQfn4sC9hezRlq93YViQwNI=
+	bh=0PW1ByWJ8h7k6QcczgTb+rAprdiPZcJDXqBcHieY3S0=;
+	b=NXq+vSajTBea1SaMsnsxoveIfReUC3tZkOuLsG/zZnFhnRBvbkTQaIz9rolJaR+cXA9Bcy
+	AMnoRd/bu4+7aUDLooMkZDw2wzBXUFlo4xJ0ithKNDvlLYrRNcgH2pYTSXK3BkrhPsQwsP
+	aX7kACMQEIzxlKJdb8mvAjayzmbyMrU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-80-XMILMVjoMM-dBgzesvK7Gg-1; Sat, 20 Nov 2021 18:15:33 -0500
-X-MC-Unique: XMILMVjoMM-dBgzesvK7Gg-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-277-H6RbLNgqNTq4hhpiGO9zDg-1; Sun, 21 Nov 2021 02:17:23 -0500
+X-MC-Unique: H6RbLNgqNTq4hhpiGO9zDg-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D7123102C8CB;
-	Sat, 20 Nov 2021 23:15:29 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id BFD2C80668B;
+	Sun, 21 Nov 2021 07:17:19 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id EB7B8608BA;
-	Sat, 20 Nov 2021 23:15:28 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D293960C5F;
+	Sun, 21 Nov 2021 07:17:18 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BDBA24EA30;
-	Sat, 20 Nov 2021 23:15:25 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id DF8234A703;
+	Sun, 21 Nov 2021 07:17:14 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1AKNFMk1002669 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 20 Nov 2021 18:15:22 -0500
+	id 1AL7F9SA006073 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 21 Nov 2021 02:15:10 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id F354951E2; Sat, 20 Nov 2021 23:15:21 +0000 (UTC)
+	id B528451E4; Sun, 21 Nov 2021 07:15:09 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id ED7CD51E1
-	for <blinux-list@redhat.com>; Sat, 20 Nov 2021 23:15:19 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 268DE8001EA
-	for <blinux-list@redhat.com>; Sat, 20 Nov 2021 23:15:19 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id AE9F951E1
+	for <blinux-list@redhat.com>; Sun, 21 Nov 2021 07:15:05 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EFD93185A7B2
+	for <blinux-list@redhat.com>; Sun, 21 Nov 2021 07:15:04 +0000 (UTC)
+Received: from mxd2.seznam.cz (mxd2.seznam.cz [77.75.76.210]) by
+	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
 	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-452-1cN9JEzCM8Ozzp_pIfx2tQ-1; Sat, 20 Nov 2021 18:15:17 -0500
-X-MC-Unique: 1cN9JEzCM8Ozzp_pIfx2tQ-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4HxTsJ3BF5zMbj
-	for <blinux-list@redhat.com>; Sat, 20 Nov 2021 18:15:16 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4HxTsJ2Bzhzcbc; Sat, 20 Nov 2021 18:15:16 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4HxTsJ1svvzcbP
-	for <blinux-list@redhat.com>; Sat, 20 Nov 2021 18:15:16 -0500 (EST)
-Date: Sat, 20 Nov 2021 18:15:16 -0500
+	us-mta-235-WgIpOAP-Ng62N0k4GmRevQ-1; Sun, 21 Nov 2021 02:15:01 -0500
+X-MC-Unique: WgIpOAP-Ng62N0k4GmRevQ-1
+Received: from email.seznam.cz
+	by email-smtpc14a.ng.seznam.cz (email-smtpc14a.ng.seznam.cz
+	[10.23.11.165]) id 6da3712d783b22776c498031;
+	Sun, 21 Nov 2021 08:15:00 +0100 (CET)
+Received: from [192.168.1.173] (host-213-235-142-85.ip.topnet.cz
+	[213.235.142.85])
+	by email-relay22.ng.seznam.cz (Seznam SMTPD 1.3.128) with ESMTP;
+	Sun, 21 Nov 2021 08:14:56 +0100 (CET)
+Subject: Re: Ideal temperature
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Startup sound for Linux Mint 20.2?
-In-Reply-To: <7f7274cf-ace2-abc4-c94c-3410fa61cff1@gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2111201814320.13170@panix1.panix.com>
-References: <BE1579A1-9922-4342-9C4B-7BBF8D41F1A0@icloud.com>
-	<7f7274cf-ace2-abc4-c94c-3410fa61cff1@gmail.com>
+References: <fe3a75a0-6db8-6f92-8859-a009326e9678@seznam.cz>
+	<daa7b60aa84f6ee9af1210b4db6b34e7@ijn2.net>
+Message-ID: <2436cb02-c2d8-15f1-50f8-012a781ba1ec@seznam.cz>
+Date: Sun, 21 Nov 2021 08:14:54 +0100
+User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:78.0) Gecko/20100101
+	Thunderbird/78.14.0
 MIME-Version: 1.0
+In-Reply-To: <daa7b60aa84f6ee9af1210b4db6b34e7@ijn2.net>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -95,54 +97,67 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Maybe a packages search of mint may find the event sounds if those are
-even available.
+Hello,
 
+and what about turning off and on the cooling? What about writing script 
+to automatically turn on and off the cooling when is needed or some 
+script to turn on and off the cooling by key binding or command? Is it 
+possible? I have Monitor toggle script to turn off and on the screen. Is 
+it possible to do with cooling?
 
-On Sat, 20 Nov 2021, Linux for blind general discussion wrote:
+Thanks a lot.
 
-> Hi,
-> I added a new entry using the startup programs utility and used the following
-> command:
-> paplay /usr/share/sounds/LinuxMint/stereo/desktop-login.ogg
-> Now, when I login, that sound plays.
->
-> I have not been able to find the various event sounds in Mint. I have even had
-> a sighted person go into the sound utility and look for them and they just are
-> not there.
->
-> This little workaround is better than nothing.
->
-> John
->
-> On 11/20/2021 3:33 PM, Linux for blind general discussion wrote:
-> > Hi,
-> > Accessible Coconut has a nice startup sound.
-> > But Mint has no sound. Is there a way to have a sound play at startup?
-> >
-> > Thanks,
-> > Rob
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+Best regards
+
+Vojta.
+
+Dne 20. 11. 21 v 22:33 Linux for blind general discussion napsal(a):
+> Hello Vojta,
+> 
+> On 2021-11-20 16:14 UTC, Linux for blind general discussion wrote:
+>> Hello all,
+>>
+>> please, how much can Raspberry Pi 4B be warm and not suffer? What
+>> temperature is ideal for Raspberry and what is uncomfortable for it
+> 
+> The higher the temperature the more your Raspberry suffers. That's
+> why in the firmware there are limiters which step in whenever the die
+> temperature gets too high. The limiters function so that you shouldn't
+> be able to break your Raspberry due to excess heat.
+> 
+>> when I am using Mate desktop and Orca in Ubuntu mate 20.04? When I had
+>> only passive cooling, my Rpi 4B had 58 degrees and was slower, now
+>> with active cooling it has only 34 degrees and it's quick and no
+>> sluggish, but if I want to read or watch film, the sound of cooling is
+> 
+> I assume you are relating to degrees Celsius (aka Centigrade).
+> Whenever the SoC temperature reaches certain limit the firmware reduces
+> processor frequency hence lowering the SoC die temperature so that
+> it would not die due to excess heat. It sounds like your cooling is
+> really good.
+> 
+>> a little annoying for me. But I don't want suffering for my Raspberry,
+>> because I like it. I am thinking to unplug active cooling, but I am
+>> afraid about my raspberry condition. I can't buy any other active
+>> cooling, because it wouldn't be joined in my Zonepi box, in what I
+>> have my Pi installed.
+> 
+> You either let firmware do its frequency lowering due to temperature
+> rising (caused by watching films and other computationally heavy loads),
+> add bigger (passive) heat sink or just live with your present active
+> cooling.
+> 
+> Regards,
+> Birdie
 
 _______________________________________________
 Blinux-list mailing list
