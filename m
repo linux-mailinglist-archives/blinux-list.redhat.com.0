@@ -2,74 +2,90 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [216.205.24.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5E75645843D
-	for <lists+blinux-list@lfdr.de>; Sun, 21 Nov 2021 16:02:03 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A4A424591AC
+	for <lists+blinux-list@lfdr.de>; Mon, 22 Nov 2021 16:52:04 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637506922;
+	s=mimecast20190719; t=1637596323;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=/0xIByQcQLiTeM1TOl31nvhNQLFPUInCazKpUVrIulo=;
-	b=UxXMiqUs1RF4rv+8lGnsZ+qgqamM8kReePPEO+lmL6RCqJ/I4NfEjiuQx3qG2J9wU6QUxI
-	BWfaNF3kiU8fL2bhDS1XZjNuJ4E19MGLiyiQplHwDfSbA+d67wjNreelOS7v3GTvyP5Z4v
-	2aPRIbkcw+xWI8T8ODX8iu2wo/V8l/E=
+	bh=JgMrvcTBGGoX8n5t91CoRMQWqS9tjQKbWEXzvj2KvXQ=;
+	b=cuyPv5V3fgBGpNJz5lE3O+z0jBDhwZxzrTiBdsPQawzvQeuAuD2CfjKDtovuS9tcxUwRxU
+	LZrMCT8A2ZtdIwzg1LxU9WgF4fZM6Z4R98JepM2t7WDayzN72O5iiezCPRkCP/9UccBmEK
+	JsVPnllsd4RJUWVM5+o3Xs6xGbUjcgs=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-553-yk1uwKW_Pkm8OQj5PvEXIg-1; Sun, 21 Nov 2021 10:01:58 -0500
-X-MC-Unique: yk1uwKW_Pkm8OQj5PvEXIg-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-93-aaiKE7rbNF-YFTXatRsr6Q-1; Mon, 22 Nov 2021 10:52:00 -0500
+X-MC-Unique: aaiKE7rbNF-YFTXatRsr6Q-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6EF5A18125C0;
-	Sun, 21 Nov 2021 15:01:52 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 4D9DA1018F69;
+	Mon, 22 Nov 2021 15:51:22 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7882757CB9;
-	Sun, 21 Nov 2021 15:01:51 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1A8AE60862;
+	Mon, 22 Nov 2021 15:51:20 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D41FA4A702;
-	Sun, 21 Nov 2021 15:01:44 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id ADD4D4EA37;
+	Mon, 22 Nov 2021 15:51:08 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1ALF1bM5005260 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 21 Nov 2021 10:01:37 -0500
+	id 1AMFp1iL022370 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 22 Nov 2021 10:51:01 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 2DB1B1121318; Sun, 21 Nov 2021 15:01:37 +0000 (UTC)
+	id 3A57E2166B26; Mon, 22 Nov 2021 15:51:01 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2875F1121315
-	for <blinux-list@redhat.com>; Sun, 21 Nov 2021 15:01:34 +0000 (UTC)
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 34B3E2166B25
+	for <blinux-list@redhat.com>; Mon, 22 Nov 2021 15:50:58 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 621B01066558
-	for <blinux-list@redhat.com>; Sun, 21 Nov 2021 15:01:34 +0000 (UTC)
-Received: from frontmx.svk.fi (79-134-96-138.cust.suomicom.net
-	[79.134.96.138]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 101A68B5AEA
+	for <blinux-list@redhat.com>; Mon, 22 Nov 2021 15:50:58 +0000 (UTC)
+Received: from mail-qk1-f175.google.com (mail-qk1-f175.google.com
+	[209.85.222.175]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-53-aGWf05VwOnyBLBqzpgYQ-w-1; Sun, 21 Nov 2021 10:01:31 -0500
-X-MC-Unique: aGWf05VwOnyBLBqzpgYQ-w-1
-Received: from frontmx.svk.fi (localhost.localdomain [127.0.0.1])
-	by frontmx.svk.fi (Proxmox) with ESMTP id D25F81C12C1
-	for <blinux-list@redhat.com>; Sun, 21 Nov 2021 17:01:28 +0200 (EET)
-Received: from smtps.svk.fi (heppa.svk.fi [192.168.10.4])
-	by frontmx.svk.fi (Proxmox) with ESMTPS id C764A1C114C
-	for <blinux-list@redhat.com>; Sun, 21 Nov 2021 17:01:28 +0200 (EET)
+	us-mta-557-D26-TxMjNSe-JzsiVT6-dg-1; Mon, 22 Nov 2021 10:50:56 -0500
+X-MC-Unique: D26-TxMjNSe-JzsiVT6-dg-1
+Received: by mail-qk1-f175.google.com with SMTP id 132so18563132qkj.11
+	for <blinux-list@redhat.com>; Mon, 22 Nov 2021 07:50:56 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:message-id:date:mime-version:user-agent
+	:content-language:to:from:subject:content-transfer-encoding;
+	bh=YDa+Bwl8IGlonp2m5FLKJgNuhZnGWICuG1Zh/LvKdxk=;
+	b=mqSv+6xjkk04upStzFBnuKhNq7nVRnmkcQzyhmHWJ15skX550i1+1AXk6nSOii88zb
+	nhcvOVh5D1sqiPbI+UhWGryKE6OoJ5k1TkBanadRZw2djio+Y3m7xHe/pmg8peypaZmH
+	uguS73aL2SDxFbX6e1cYXmO8C9aykdwdVx3AERAjZlQXkNfAl5x77yP4OZIQ2G3Y4Lle
+	jxN5yj94r/g9tVZduR7U4KECX4o2Zq49vckwlCyKe1sGiebq2qfaUDAEVb3h/AFZSFFH
+	hyIGFxCNNf5vX3+XTRVV9752wd3VX5yHaMyPl78bTwXKoi9xXA7dwIvYi3Uv7/85LA3N
+	Ew7Q==
+X-Gm-Message-State: AOAM533gnqNYI3Wu9aCSxQuIkSZIzVTB1ZLldnj3Wzn0rvknGIqcCZl8
+	J0Q6lPSKDQgxPQshlWrTAQHhHXhz7wpEMIeG
+X-Google-Smtp-Source: ABdhPJxMO78zhW4MhuASMfHv2u8BTqaWV2BQAHitJrtImQqnmsk5gz+qthLD+tGzcQ9xRxtxUAyQOA==
+X-Received: by 2002:a05:620a:461e:: with SMTP id
+	br30mr49719212qkb.363.1637596255684; 
+	Mon, 22 Nov 2021 07:50:55 -0800 (PST)
+Received: from ?IPV6:2601:152:4000:330:3957:55d2:f35a:6f99?
+	([2601:152:4000:330:3957:55d2:f35a:6f99])
+	by smtp.gmail.com with ESMTPSA id
+	w14sm4756401qkp.54.2021.11.22.07.50.55 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Mon, 22 Nov 2021 07:50:55 -0800 (PST)
+Message-ID: <2eddfb0e-a139-be53-97a8-2e2468ee9d4a@gmail.com>
+Date: Mon, 22 Nov 2021 10:50:54 -0500
 MIME-Version: 1.0
-Date: Sun, 21 Nov 2021 17:01:28 +0200
-To: blinux-list@redhat.com
-Subject: Re: Ideal temperature
-In-Reply-To: <2436cb02-c2d8-15f1-50f8-012a781ba1ec@seznam.cz>
-References: <fe3a75a0-6db8-6f92-8859-a009326e9678@seznam.cz>
-	<daa7b60aa84f6ee9af1210b4db6b34e7@ijn2.net>
-	<2436cb02-c2d8-15f1-50f8-012a781ba1ec@seznam.cz>
-Message-ID: <4429c5d938f27731442bddc9fec7defa@ijn2.net>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+	Thunderbird/91.3.2
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: looking for two gui accessible applications
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -78,7 +94,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -95,47 +111,29 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hello,
+Hello friends,
 
-On 2021-11-21 09:14, Linux for blind general discussion wrote:
-> Hello,
-> 
-> and what about turning off and on the cooling? What about writing
-> script to automatically turn on and off the cooling when is needed or
+I am wondering if there are good applications for downloading from 
+youtube that works well with linux! I am looking for something similar 
+to Ponte's media downloader which works well with windows screen 
+readers. Is there such an app?
 
-My Raspberries run UEFI which takes care of all this. The only
-requirement is to use such a fan which is pwm controllable. Such fan
-has three leads. One for supply current, one for ground and the third
-for control. There is no need for any scripting in this case.
+The second application I am hoping to find is a good weather app. I 
+tried to the weather on the terminal and did not like it at all. So, I 
+am hoping to find a better alternative that works on the gui.
 
-> some script to turn on and off the cooling by key binding or command?
-> Is it possible? I have Monitor toggle script to turn off and on the
-> screen. Is it possible to do with cooling?
+Cheers,
 
-If you don't use UEFI but vanilla uboot then you need to take care
-of turning the aforementioned controllable fan on and off using one
-of the GPIO's. If you are running Raspberry OS it should have all
-the required libraries, bindings, scripts, etc. already. IMO the
-GPIO Raspberry OS uses by default is not the best choice since if
-memory serves correctly it uses one of the serial ports for control.
-
-If you are not using a fan which has a control lead then you would
-need to hack together such a circuit which turns on your fan power
-line. You can't power normal fan directly from GPIO pins. First,
-voltage level on GPIO pins is 3.3V. Second, the GPIOs aren't able to
-source enough current to power a normal fan. If you connect normal
-fan directly to GPIO pins you'd blow the corresponding SoC gates.
-
-Regards,
-Birdie
+Ibrahim
 
 _______________________________________________
 Blinux-list mailing list
