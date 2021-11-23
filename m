@@ -1,97 +1,75 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9D20E45AFDD
-	for <lists+blinux-list@lfdr.de>; Wed, 24 Nov 2021 00:13:21 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id A9CB845B058
+	for <lists+blinux-list@lfdr.de>; Wed, 24 Nov 2021 00:37:21 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637709200;
+	s=mimecast20190719; t=1637710640;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=MKxY089EXdraTvOO0B4wMcytDVQywVWBZLBbf3Ajn1k=;
-	b=FKzWRPA/ZPN2SZ9MuHrN+z/padDObJz1oV5U6/VnTgaTaNMJLSgqz1+1vbPluA9TCAIvWt
-	6D+fohBHdaVNIFNqC7X9vfFiIaomhNjQff+pshBPJZ5JnyreJrbH1h1TxbuuOSaNpMdRg3
-	ZdUz5xt7dHQ0Om8+maQQm/C7nbZkG7Q=
+	bh=fYY6P1Y9x/OTdsC+qiPQQDvmNSo1HFgRlhZfPs9A+mM=;
+	b=YSUNwOgpfTDKG4R2NZFlSg+YH/jF8g59+GCsFgY3CMrWj/8hr1PmkatE7iWXe3ssRQjIwa
+	YbwYEW7U4n+EOkYokiVra7GWzMPyjG671Y5ONUTEDi4af+HbsJig0r3IQSCX/OjIBEoz1f
+	+FDokqEZRLdeqP3TKXp4zVpTaSeHciA=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-9-kyf4VGhrOh-dnX3vjlVhvg-1; Tue, 23 Nov 2021 18:13:17 -0500
-X-MC-Unique: kyf4VGhrOh-dnX3vjlVhvg-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-190-V2oSkdsANHi29Gn8EPeEDw-1; Tue, 23 Nov 2021 18:37:16 -0500
+X-MC-Unique: V2oSkdsANHi29Gn8EPeEDw-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A864B1023F4D;
-	Tue, 23 Nov 2021 23:13:12 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 66A5360862;
-	Tue, 23 Nov 2021 23:13:08 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C8225102C7E4;
+	Tue, 23 Nov 2021 23:37:12 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9D1E457CB9;
+	Tue, 23 Nov 2021 23:37:11 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 182B14E590;
-	Tue, 23 Nov 2021 23:13:01 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A06D61832E7F;
+	Tue, 23 Nov 2021 23:37:08 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.1])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1ANNCs8I027160 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 23 Nov 2021 18:12:54 -0500
+	id 1ANNW8N4028175 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 23 Nov 2021 18:32:08 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 3B43351E3; Tue, 23 Nov 2021 23:12:54 +0000 (UTC)
+	id 8F3E840CFD0D; Tue, 23 Nov 2021 23:32:08 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 355CC51E2
-	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 23:12:51 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 41504185A7B2
-	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 23:12:51 +0000 (UTC)
-Received: from mail-qv1-f49.google.com (mail-qv1-f49.google.com
-	[209.85.219.49]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-543-2RoPyTyGPEKOoEq5XfVAPw-1; Tue, 23 Nov 2021 18:12:49 -0500
-X-MC-Unique: 2RoPyTyGPEKOoEq5XfVAPw-1
-Received: by mail-qv1-f49.google.com with SMTP id a24so421701qvb.5
-	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 15:12:49 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
-	bh=QDiYnqO6jZMONs7nb8cHv/YiEqOY/h5vSDV54xCqQg0=;
-	b=YvpbK6CNMB0CiUMzmqG1S8VY4c5GT3yBhcV9JLHPzxkovFce+mEXxZvNjbh4+6wtsX
-	uqdYE2Ydm6+npC9dds/cgfufQBpkObMX/7DqWYkslHdn1Sur2qsXz8sg7KgmZfJP3H83
-	+RZUonrrgb5n/IdxxACx703oI9P+QCvfkq3sKbIqIicP8FEcVoThoThfE9EKCvt8ng/W
-	viQqdu/D6VC4lUbYnOA5mQ2IgTvKQHdfB+LkYf401HXa/Z7+3yhL7rdhWRlGdxqgNjFN
-	FMKesrPutAcUbz/m7bKsTlOWYfu4VW1Cjly7B3lJLDxQoam7b3RVM57Tl9IBBCumMRHO
-	xrpw==
-X-Gm-Message-State: AOAM532DMjM5uw/7P0c7e1tOOnws+wDJH2Tch5vDSZGySQc6jyKKn2S9
-	wdjFSufW9MKsy1SIiIIGrPJ0Hb77JK0=
-X-Google-Smtp-Source: ABdhPJyrZErXajDK7HymHX8kxmxMGrbI8NYHqFDWlDT3boZcXBnuLmlfgbljwRDaDOGKp7ICsgQpDg==
-X-Received: by 2002:a05:6214:21ae:: with SMTP id
-	t14mr1173421qvc.66.1637709169024; 
-	Tue, 23 Nov 2021 15:12:49 -0800 (PST)
-Received: from ?IPv6:2603:6080:6304:450a::960?
-	(2603-6080-6304-450a-0000-0000-0000-0960.res6.spectrum.com.
-	[2603:6080:6304:450a::960]) by smtp.gmail.com with ESMTPSA id
-	bm35sm7132477qkb.86.2021.11.23.15.12.48 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Tue, 23 Nov 2021 15:12:48 -0800 (PST)
-Subject: Re: Can I upgrade Coconut to Mint?
-To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <993f996a-d2ca-1ed0-e23c-3357d5a2f146@icloud.com>
-	<5ca73560-e7d4-56f7-c875-8677d4ea9d65@gmail.com>
-	<CAO2sX31T8cTcUHZL08o0Tr-oaqZr-=ZhNZCjUvpLo0jz3dyWeg@mail.gmail.com>
-	<baaffc90-b378-fac2-6f71-595d57783f41@gmail.com>
-	<alpine.NEB.2.23.451.2111231715590.29239@panix1.panix.com>
-Message-ID: <966062f4-af7e-628b-a28b-f0b28cb31aef@gmail.com>
-Date: Tue, 23 Nov 2021 18:12:48 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
-	Thunderbird/60.0
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 89A4C40CFD04
+	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 23:32:08 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 71479811E78
+	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 23:32:08 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-412-6BMPTsfaOqC5LjAt0eX93g-1;
+	Tue, 23 Nov 2021 18:32:06 -0500
+X-MC-Unique: 6BMPTsfaOqC5LjAt0eX93g-1
+Received: from darkstar.example.slint
+	(men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr [176.172.247.100])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 6A654A402E
+	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 22:31:25 +0100 (CET)
+Subject: Re: In the mood for something new
+To: blinux-list@redhat.com
+References: <512DE42E-6D25-4FB8-B249-4D8AF2E7C8F3@gmail.com>
+	<CAO2sX33yi4FBVBffmxfzQqy6yDirw6QLMsC_Q9czheOjBy+nfA@mail.gmail.com>
+	<52d94c3d-a3c8-a5a0-49c3-b599ec3eb17e@verizon.net>
+	<062dbe93-602f-b972-6de1-f9a00ac1aa9b@gmail.com>
+	<091390ec-72e4-100d-d1b1-6a10818715ac@gmail.com>
+Message-ID: <b2d6ddcd-2ef7-1425-de0e-78a0c8d5697c@slint.fr>
+Date: Wed, 24 Nov 2021 00:32:04 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
-In-Reply-To: <alpine.NEB.2.23.451.2111231715590.29239@panix1.panix.com>
+In-Reply-To: <091390ec-72e4-100d-d1b1-6a10818715ac@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -100,7 +78,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -117,24 +95,104 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I have installed many different distributions and versions of linux over the
-> years and gentoo has been the most difficult of all of them.
+Hi Brandt,
 
-Yeah Gentoo is the only Linux I truly can say I gave up on and actually couldn't 
-get installed and working, even on a vm. Well, LFS would probably be far more 
-difficult, but I never even thought to give that a try, especially since I 
-couldn't get Gentoo working. As an aside, apparently Gentoo's lead developer 
-left Gentoo to start Funtoo, but that's just as difficult to get installed and 
-running.
-~Kyle
+When you will have used it long enough to answer, please say what you
+prefer in Fedora 35 Mate Compiz than in Slint, and what you get in
+Fedora but not in Slint. This could help find what we should add or do
+better.
+
+Best,
+Didier
+
+
+
+On 23/11/2021 20:10, Linux for blind general discussion wrote:
+> Hey Kyle,
+> 
+> 
+> Ok, at the moment I am on fedora 35, the Mate Compiz spin, which is not 
+> giving me issues at this time.
+> 
+> 
+> I may give an upgrade to rawhide a go at some point, hopefully without 
+> breaking the install, but, whatever, if you break it, fix the darn thing.
+> 
+> 
+> Warm regards,
+> 
+> Brandt Steenkamp
+> 
+> Sent from my Fedora Install using Thunderbird
+> 
+> On 2021/11/23 21:03, Linux for blind general discussion wrote:
+>> For the most part, even Debian testing isn't that great for desktop 
+>> users. Much of it is still older than Ubuntu, except maybe at the end 
+>> of the release cycle, and it tends to mix desktop component versions, 
+>> meaning for example that you could have some parts of GNOME 40 and 
+>> other parts of GNOME 3.38 at the same time. I found this phenomenon 
+>> occurring even in Debian experimental, which is supposed to be more 
+>> up-to-date even than unstable.
+>>
+>> I've had the best luck using Fedora, as even the 6-month release cycle 
+>> has newer packages than Ubuntu, and many times software gets updated 
+>> to upstream current versions during the release cycle, which I haven't 
+>> seen with Ubuntu, and certainly not Debian. Of course you can always 
+>> either upgrade a stable Fedora release to Rawhide, which is the 
+>> rolling release version that never needs to go through the upgrade 
+>> process once you're there, or you could install the Rawhide iso, which 
+>> you just install and keep updated. This is not for everyone though, so 
+>> most people may feel more comfortable with the release cycle. But 
+>> either is a good choice for keeping your system updated with close to 
+>> the latest software and getting access to a wide variety of available 
+>> packages without having to do tons of manual setup work.
+>>
+>> Solus is another option on some hardware, but I found that its version 
+>> of espeak made a rather odd growling sound when I tried it. Strangely, 
+>> I found this problem both on my bare metal and on a virtual machine, 
+>> and never was able to diagnose the problem. But you may have better 
+>> luck. I definitely liked how easy it was to go through the 
+>> installation process and get a system running.
+>>
+>> I know some people who are using Void Linux, and it is said to be very 
+>> good, though I'm not familiar enough with it to give you any pointers 
+>> on how to set it up. Looks from what I've read like it will be 
+>> something closer to an Arch setup, although an xfce version is said to 
+>> be available. Not sure whether it has a full installer or if it needs 
+>> to be set up manually, although there is said to be an xfce version 
+>> available. If this version ships with Orca, you could possibly get an 
+>> install going fairly easily.
+>>
+>> Over the years, I have had fairly long-term experience with Slackware, 
+>> Red Hat, which later became Fedora Core, Debian, Ubuntu, Arch and the 
+>> latest Fedora release and Rawhide, as well as short-term experience 
+>> with Mint, an Ubuntu derivative, Manjaro, an Arch hard fork, and 
+>> Solus, which stands apart because it is not derived from any other 
+>> distro, and my experiences with recent Fedora have been the best, with 
+>> the possible exception of Arch, which does work pretty well once you 
+>> get past the setup process.
+>> ~Kyle
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
