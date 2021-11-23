@@ -2,76 +2,96 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0500D45AEF2
-	for <lists+blinux-list@lfdr.de>; Tue, 23 Nov 2021 23:21:05 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9D20E45AFDD
+	for <lists+blinux-list@lfdr.de>; Wed, 24 Nov 2021 00:13:21 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637706065;
+	s=mimecast20190719; t=1637709200;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=MPxm+Hj+ephylL+6SaGfQOBZWcZO98eoLhaTNrSy068=;
-	b=jE2EZ1aoziudoyNQpDaUaGqdfNExCfr8HLicr69RDhO8w28A0568T0Y4Ua0OxYVmS19ZpM
-	z7gSn0pshBC4jBhtD4dF5q0DI1HZ8B0uuHoc6IYyZZDGI/6mKp9uPRlCZ+g/gJbQgtkOEz
-	XvxqWT1z3wQ5Mndo8PXx2rtaEAwmJnc=
+	bh=MKxY089EXdraTvOO0B4wMcytDVQywVWBZLBbf3Ajn1k=;
+	b=FKzWRPA/ZPN2SZ9MuHrN+z/padDObJz1oV5U6/VnTgaTaNMJLSgqz1+1vbPluA9TCAIvWt
+	6D+fohBHdaVNIFNqC7X9vfFiIaomhNjQff+pshBPJZ5JnyreJrbH1h1TxbuuOSaNpMdRg3
+	ZdUz5xt7dHQ0Om8+maQQm/C7nbZkG7Q=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-531-apZ8uJXdP4u7jZ-nKkMyfg-1; Tue, 23 Nov 2021 17:21:01 -0500
-X-MC-Unique: apZ8uJXdP4u7jZ-nKkMyfg-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-9-kyf4VGhrOh-dnX3vjlVhvg-1; Tue, 23 Nov 2021 18:13:17 -0500
+X-MC-Unique: kyf4VGhrOh-dnX3vjlVhvg-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 45F2F8799EB;
-	Tue, 23 Nov 2021 22:20:57 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A864B1023F4D;
+	Tue, 23 Nov 2021 23:13:12 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 302FF5D6CF;
-	Tue, 23 Nov 2021 22:20:57 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 66A5360862;
+	Tue, 23 Nov 2021 23:13:08 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D496E4A703;
-	Tue, 23 Nov 2021 22:20:55 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.2])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 182B14E590;
+	Tue, 23 Nov 2021 23:13:01 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1ANMHsOx022448 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 23 Nov 2021 17:17:54 -0500
+	id 1ANNCs8I027160 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 23 Nov 2021 18:12:54 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 77E484047279; Tue, 23 Nov 2021 22:17:54 +0000 (UTC)
+	id 3B43351E3; Tue, 23 Nov 2021 23:12:54 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 739F14047272
-	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 22:17:54 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 355CC51E2
+	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 23:12:51 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 589D28007B1
-	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 22:17:54 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-457-5aWnc2w8MMGcoiYn5msYfg-1; Tue, 23 Nov 2021 17:17:52 -0500
-X-MC-Unique: 5aWnc2w8MMGcoiYn5msYfg-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4HzJRh0nb7zPP2
-	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 17:17:52 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4HzJRh0KQ9zcbc; Tue, 23 Nov 2021 17:17:51 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4HzJRg723mzcbP
-	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 17:17:51 -0500 (EST)
-Date: Tue, 23 Nov 2021 17:17:51 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 41504185A7B2
+	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 23:12:51 +0000 (UTC)
+Received: from mail-qv1-f49.google.com (mail-qv1-f49.google.com
+	[209.85.219.49]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-543-2RoPyTyGPEKOoEq5XfVAPw-1; Tue, 23 Nov 2021 18:12:49 -0500
+X-MC-Unique: 2RoPyTyGPEKOoEq5XfVAPw-1
+Received: by mail-qv1-f49.google.com with SMTP id a24so421701qvb.5
+	for <blinux-list@redhat.com>; Tue, 23 Nov 2021 15:12:49 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
+	bh=QDiYnqO6jZMONs7nb8cHv/YiEqOY/h5vSDV54xCqQg0=;
+	b=YvpbK6CNMB0CiUMzmqG1S8VY4c5GT3yBhcV9JLHPzxkovFce+mEXxZvNjbh4+6wtsX
+	uqdYE2Ydm6+npC9dds/cgfufQBpkObMX/7DqWYkslHdn1Sur2qsXz8sg7KgmZfJP3H83
+	+RZUonrrgb5n/IdxxACx703oI9P+QCvfkq3sKbIqIicP8FEcVoThoThfE9EKCvt8ng/W
+	viQqdu/D6VC4lUbYnOA5mQ2IgTvKQHdfB+LkYf401HXa/Z7+3yhL7rdhWRlGdxqgNjFN
+	FMKesrPutAcUbz/m7bKsTlOWYfu4VW1Cjly7B3lJLDxQoam7b3RVM57Tl9IBBCumMRHO
+	xrpw==
+X-Gm-Message-State: AOAM532DMjM5uw/7P0c7e1tOOnws+wDJH2Tch5vDSZGySQc6jyKKn2S9
+	wdjFSufW9MKsy1SIiIIGrPJ0Hb77JK0=
+X-Google-Smtp-Source: ABdhPJyrZErXajDK7HymHX8kxmxMGrbI8NYHqFDWlDT3boZcXBnuLmlfgbljwRDaDOGKp7ICsgQpDg==
+X-Received: by 2002:a05:6214:21ae:: with SMTP id
+	t14mr1173421qvc.66.1637709169024; 
+	Tue, 23 Nov 2021 15:12:49 -0800 (PST)
+Received: from ?IPv6:2603:6080:6304:450a::960?
+	(2603-6080-6304-450a-0000-0000-0000-0960.res6.spectrum.com.
+	[2603:6080:6304:450a::960]) by smtp.gmail.com with ESMTPSA id
+	bm35sm7132477qkb.86.2021.11.23.15.12.48 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Tue, 23 Nov 2021 15:12:48 -0800 (PST)
 Subject: Re: Can I upgrade Coconut to Mint?
-In-Reply-To: <baaffc90-b378-fac2-6f71-595d57783f41@gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2111231715590.29239@panix1.panix.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <993f996a-d2ca-1ed0-e23c-3357d5a2f146@icloud.com>
 	<5ca73560-e7d4-56f7-c875-8677d4ea9d65@gmail.com>
 	<CAO2sX31T8cTcUHZL08o0Tr-oaqZr-=ZhNZCjUvpLo0jz3dyWeg@mail.gmail.com>
 	<baaffc90-b378-fac2-6f71-595d57783f41@gmail.com>
+	<alpine.NEB.2.23.451.2111231715590.29239@panix1.panix.com>
+Message-ID: <966062f4-af7e-628b-a28b-f0b28cb31aef@gmail.com>
+Date: Tue, 23 Nov 2021 18:12:48 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+	Thunderbird/60.0
 MIME-Version: 1.0
+In-Reply-To: <alpine.NEB.2.23.451.2111231715590.29239@panix1.panix.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -80,7 +100,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -97,95 +117,24 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-No accessible gentoo install podcast exists so far as I know.  I have
-installed many different distributions and versions of linux over the
-years and gentoo has been the most difficult of all of them.
+I have installed many different distributions and versions of linux over the
+> years and gentoo has been the most difficult of all of them.
 
-
-On Tue, 23 Nov 2021, Linux for blind general discussion wrote:
-
-> Also remember, you would have to somehow configure Mint to work like Coconut,
-> there's a bunch of stuff you'll need from /etc/ to pull this off, and I would
-> say, rather install Gentoo than do this. It's not worth it! By the way,
-> neither is installing Gentoo.
->
->
-> Warm regards,
->
-> Brandt Steenkamp
->
-> Sent from my Fedora Install using Thunderbird
->
-> On 2021/11/23 22:28, Linux for blind general discussion wrote:
-> > In theory, since both are Debian based systems using dpkg and apt, you
-> > could add the mint repositories to your /etc/apt/sources.list and then
-> > run:
-> >
-> > sudo apt-get update
-> > sudo apt-get upgrade
-> >
-> > and all of your installed packages would be upgraded to the newest
-> > version provided by Mint.
-> >
-> > In practice, you'd likely end up with a mix of packages sourced from
-> > both, even if you also removed the Coconut repositories since the Mint
-> > version of a package would only be installed if it's version number
-> > parses as higher to apt... but worse, you might run into conflicts
-> > where a package sourced from Coconut depends on one version of a
-> > Library and a Package from Mint depends on a different version of the
-> > same library, you can't have both versions of the library installed at
-> > the same time, and you end up with a tangled mess that in order to
-> > upgrade some packages you must downgrade or remove other packages or
-> > swap a package that was installed as a dependency for an alternative
-> > package that meets the same dependency... Granted, such problems can
-> > come up when  upgrading from one release to another of the same
-> > distro, especially if there's an intermediate release(say, trying to
-> > go from Ubuntu 20.10 directly to 21.10 instead of upgrading to 21.04
-> > first), or even within the same release of a distro if the release
-> > gets frequent upgrades to individual packages and you go a long time
-> > without upgrading, but competent package maintenance can keep this to
-> > a minimum as long as you stick to one distro...
-> >
-> > As such, it's generally recommended that one does a clean install if
-> > they want to switch distros, even for distros that are very closely
-> > related.
-> >
-> > That said, if you have a separate /home partition, you might be able
-> > to migrate user setting simply by leaving the /home partition alone
-> > and creating a user with the same username as the old distro, and
-> > while it won't give you afull list of installed packages(which might
-> > not be all that useful, since some will be libraries that might not
-> > exist in the distro you're switching to, if you install the deborphan
-> > package and run
-> >
-> > deborphan -a
-> >
-> > It'll give you a list of installed packages that aren't depended on by
-> > other packages. They'll be prefixed with their section and one per
-> > line, but strip away the former and put them all on one line, and
-> > you've got the argument list to feed to apt-get install on the new
-> > distro to restore most of your installed software.
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+Yeah Gentoo is the only Linux I truly can say I gave up on and actually couldn't 
+get installed and working, even on a vm. Well, LFS would probably be far more 
+difficult, but I never even thought to give that a try, especially since I 
+couldn't get Gentoo working. As an aside, apparently Gentoo's lead developer 
+left Gentoo to start Funtoo, but that's just as difficult to get installed and 
+running.
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
