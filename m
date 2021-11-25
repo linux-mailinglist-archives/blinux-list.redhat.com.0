@@ -1,92 +1,89 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5D12345DDC0
-	for <lists+blinux-list@lfdr.de>; Thu, 25 Nov 2021 16:42:10 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id C980945DDE6
+	for <lists+blinux-list@lfdr.de>; Thu, 25 Nov 2021 16:47:57 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637854927;
+	s=mimecast20190719; t=1637855275;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=rYpVRyspxexfQTuPGMEbgL2EfthAEig/+UU5Kqt811I=;
-	b=icMJFUaAaDN7V+qnbnzlyHElV2VbiQcddHA0rUncPpumNxL8IoLvHu5e+Hh1lLG2DxK4AU
-	oyhfQhVxqfAE/tn3oy3G2G4qqQQKVjofTyxojpYf9ngOkhldX5dqcnTjTvrYsINTAIdlGl
-	zsIKfLmWbOXP6HHvyelcphLT3DZ7GGU=
+	bh=d+ZaIqHdmpvJxVIhbTbj++JRv/2bu5HRaF+tc3XLKsA=;
+	b=ApwGjglVyMgsesBFYH1Ozr27IltkabT5tQm1wBh99TlDr9c3Y9Lkd9bzNQGnc3AwgCDrlf
+	VuR/tDqHGtHuS2PyOfRPhlRTfiCapGstIYCD3rkJCcpxuRgOwGA0uxAaeeXLEKLjWs1rVa
+	wIqZI0L4LhAfIhQg1wp47Crft/u9Vm8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-229-PASmzXTPPHaFXL4XBSnLLQ-1; Thu, 25 Nov 2021 10:42:06 -0500
-X-MC-Unique: PASmzXTPPHaFXL4XBSnLLQ-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-514-yaqfYQQAP36ox7of_Yd3Sg-1; Thu, 25 Nov 2021 10:47:51 -0500
+X-MC-Unique: yaqfYQQAP36ox7of_Yd3Sg-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8FFE264083;
-	Thu, 25 Nov 2021 15:42:01 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9939381EE67;
+	Thu, 25 Nov 2021 15:47:47 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D2E9260843;
-	Thu, 25 Nov 2021 15:42:00 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 832F55C25A;
+	Thu, 25 Nov 2021 15:47:47 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id AC4871809C8A;
-	Thu, 25 Nov 2021 15:41:58 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B6C2D1809C89;
+	Thu, 25 Nov 2021 15:47:43 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1APFfr5s014372 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 25 Nov 2021 10:41:53 -0500
+	id 1APFlemk014785 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 25 Nov 2021 10:47:40 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id BB1EF2026D48; Thu, 25 Nov 2021 15:41:53 +0000 (UTC)
+	id 827882166B2D; Thu, 25 Nov 2021 15:47:40 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B60A42026D46
-	for <blinux-list@redhat.com>; Thu, 25 Nov 2021 15:41:50 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7CC952166B25
+	for <blinux-list@redhat.com>; Thu, 25 Nov 2021 15:47:37 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7E592802813
-	for <blinux-list@redhat.com>; Thu, 25 Nov 2021 15:41:50 +0000 (UTC)
-Received: from wout2-smtp.messagingengine.com
-	(wout2-smtp.messagingengine.com [64.147.123.25]) by relay.mimecast.com
-	with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-305-2XZPuyGUNBySYHNiePQLDA-1; Thu, 25 Nov 2021 10:41:48 -0500
-X-MC-Unique: 2XZPuyGUNBySYHNiePQLDA-1
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id 817E13200E5D
-	for <blinux-list@redhat.com>; Thu, 25 Nov 2021 10:41:47 -0500 (EST)
-Received: from mailfrontend1 ([10.202.2.162])
-	by compute5.internal (MEProxy); Thu, 25 Nov 2021 10:41:47 -0500
-X-ME-Sender: <xms:uq6fYThJFWmukdyw0M6T4Ps6eZeDQtZqrxsxve581_AatJ4VdKp7Dg>
-	<xme:uq6fYQCZbjXSWuzdhmJ5Kes3BgVPuSs6Cj7gzwdxksPe9pSoA2TGnAtID7stiNc90
-	Zf-lwzLXMGg1PAhjfU>
-X-ME-Received: <xmr:uq6fYTF97SCQEvPNzAKEWk1ulPZXzwcEmktK4sDo-KKhwEAMawG2zy_Buntf2rC0BEjy2axWiTwzEsGRyyLhLT_SKMd2M9NG8g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvuddrhedtgdejlecutefuodetggdotefrodftvf
-	curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-	uegrihhlohhuthemuceftddtnecunecujfgurhepfffhvffujgfkfhggtgesthdtredttd
-	dtvdenucfhrhhomhepvehhihhmvgcujfgrrhhtuceotghhihhmvgeshhhusggvrhhtqdhh
-	uhhmphhhrhgvhidrtghomheqnecuggftrfgrthhtvghrnhepffehtdfhvddvueeuieehvd
-	efffeutdegueduhffgleetledvuddugfelkeevtdevnecuvehluhhsthgvrhfuihiivgep
-	tdenucfrrghrrghmpehmrghilhhfrhhomheptghhihhmvgeshhhusggvrhhtqdhhuhhmph
-	hhrhgvhidrtghomh
-X-ME-Proxy: <xmx:uq6fYQTAp4_kdM7oJ2Fj5jezcHrNgrlSYaZedOmUH2QLYQDaBo7M9w>
-	<xmx:uq6fYQwe5JgtMct_FNuy5YFQS8D4vos0La5S7JHST-dKkBLuiBqJzQ>
-	<xmx:uq6fYW4vFqgWTSYXRsxMbO1qhPp3hrq4SRw3lIWYaVUOdJO9sd5tCg>
-	<xmx:uq6fYdvrDCFZVTHIoXVCccs6XMF5__b0wa_IWLBmTPS336x_prigYQ>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA for
-	<blinux-list@redhat.com>; Thu, 25 Nov 2021 10:41:46 -0500 (EST)
-Date: Thu, 25 Nov 2021 07:41:44 -0800 (PST)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Converting epubs to Plain-Text?
-In-Reply-To: <6dbbac09-3d17-0aac-ca28-4cef41d6c809@gmail.com>
-Message-ID: <946f985-aad-95dd-495-f3f69898f2e0@hubert-humphrey.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8C6C9802802
+	for <blinux-list@redhat.com>; Thu, 25 Nov 2021 15:47:37 +0000 (UTC)
+Received: from mail-qt1-f173.google.com (mail-qt1-f173.google.com
+	[209.85.160.173]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-444-NY4qduJaMYa-uboU5frwkg-1; Thu, 25 Nov 2021 10:47:36 -0500
+X-MC-Unique: NY4qduJaMYa-uboU5frwkg-1
+Received: by mail-qt1-f173.google.com with SMTP id t11so6505052qtw.3
+	for <blinux-list@redhat.com>; Thu, 25 Nov 2021 07:47:35 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=4dzmyk585HspUuLKKIaQj7JaDf5qGN9VLcoa16Ojbew=;
+	b=fZOdSRIF+cWvhy+jP0g/+z1roAZbqAu8aoU6SVHZoijeo8muUNcAc+MbVq/3OCkG/w
+	T8yk+mpunLcg9FHgNCWNUudv2ZYQHlGBRxx5PFQCtZzViw4os2RthCBoBWuwqBKz6lck
+	+0+XadzsZaXEYkchnzWl9yE3L+bjDTTU043fkGDCXyesBwQZjK06gIhCU0q4nQfOigRS
+	GJgluHgx8U1fEiwwWGWamfE2l/SN4gkHFkFgclAxkzUf9aANAN5xUkZtHfsMmBZEE9lI
+	5H5Re22UAmpQUX3cX7A1ONeassbn8QVXbFHT+xEdKkELA8WN5L0ZnQ3OkpfKDdwNlufm
+	I4ig==
+X-Gm-Message-State: AOAM531qoEcGaruXxWN13feiMisR3YGSEhbsqPWcCv6cbRWqiRiOj59F
+	GtCZ2eNejiSrKDfk9oz/A2Vv13COOsYdA22kitPPvAgO
+X-Google-Smtp-Source: ABdhPJw9L/2O360TO8ng0/tsU2JDmczzKX3OgJagYZ39gxviSAofc1tlSWj6YmaAxaSkt/42BqAmafYFjsh9aBDGgzM=
+X-Received: by 2002:a05:622a:1114:: with SMTP id
+	e20mr10031378qty.427.1637855255472; 
+	Thu, 25 Nov 2021 07:47:35 -0800 (PST)
+MIME-Version: 1.0
+Received: by 2002:a0c:c34a:0:0:0:0:0 with HTTP; Thu, 25 Nov 2021 07:47:35
+	-0800 (PST)
+In-Reply-To: <946f985-aad-95dd-495-f3f69898f2e0@hubert-humphrey.com>
 References: <50d03b33-62e0-2c8-c14e-40b717301dfc@hubert-humphrey.com>
 	<6dbbac09-3d17-0aac-ca28-4cef41d6c809@gmail.com>
-MIME-Version: 1.0
+	<946f985-aad-95dd-495-f3f69898f2e0@hubert-humphrey.com>
+Date: Thu, 25 Nov 2021 15:47:35 +0000
+Message-ID: <CAO2sX30nVe2xz0N_J-Xd7KutYNPjdc5V-endQZbYDK6JQ3TkZA@mail.gmail.com>
+Subject: Re: Converting epubs to Plain-Text?
+To: blinux-list@redhat.com
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -95,7 +92,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -112,34 +109,20 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Thank you, but if I just run that command with even a single dot epub, it once 
-again provides usage information, such as
-ebook-convert peter-bergen-the-rise-and-fall-of-osama-bin-laden.epub
-Usage: ebook-convert input_file output_file [options]
+I don't know of any tools specifically for ePub... but I recently
+found out ePubs are just zip archives with most of the content stored
+as html files and some metadata files used by ePub readers.
 
-Convert an e-book from one format to another.
-
-input_file is the input and output_file is the output. Both must be specified 
-as the first two arguments to the command.
-
-The output e-book format is guessed from the file extension of output_file. 
-output_file can also be of the special format .EXT where EXT is the output file 
-extension. In this case, the name of the output file is derived from the name 
-of the input file. Note that the filenames must not start with a hyphen. 
-Finally, if output_file has no extension, then it is treated as a folder and an 
-"open e-book" (OEB) consisting of HTML files is written to that folder. 
-Back again live, if it were guessing, it should have converted this, so please, 
-what am I missing? I even have a script to knock out all spaces in file names, 
-replace with a dash. Thanks so much in advance
-Chime
+Also, I haven't used it, but I've heard others describe pandoc as the
+anything to anything else of document conversion.
 
 _______________________________________________
 Blinux-list mailing list
