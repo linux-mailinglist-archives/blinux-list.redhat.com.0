@@ -1,78 +1,98 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id DD21845EE91
-	for <lists+blinux-list@lfdr.de>; Fri, 26 Nov 2021 14:06:12 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id F0EA345EFC6
+	for <lists+blinux-list@lfdr.de>; Fri, 26 Nov 2021 15:20:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637931971;
+	s=mimecast20190719; t=1637936407;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=mR7RwHCLBHgNQYnWtJ7eSdcx41TULdMBQk9UsHy2jqE=;
-	b=XqoLVsnYmmpZrbk43k6/qlZHeKrMKrR670BGm+bO9sMP5BAiY0Y8HkjkrWdVei9OGydfzB
-	SWNv9nq8vdOOlhPSOAENI+D2KWmp2nEQFipSc9hYMrAUS1p7Fra11mykqRYPSTvNP/kBXH
-	s3JyYMusr6GfhP/rMmXk46Iy7BwSztM=
+	bh=69eAalN4NH8k/2dPbAE4/Hipmfck96rS6hUd1wIoCms=;
+	b=cg8Q5F46BJrhKZMwAW1bidA39WUomL6q4Bnjs7kdCSQHYMxRfs0i+MfnG4M8rQh0HlDCCj
+	hh4ef928ye9leVEzvo+Va3RssasTGY3LV6z86ibz5cCUmSXA0AONoZS2U/nWL3rFaWmLmn
+	SDguWOiFuY1wRBZq6yM+ikdirlZJLMQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-330-RUmj3WxrOL28r9dUIvRdZw-1; Fri, 26 Nov 2021 08:06:09 -0500
-X-MC-Unique: RUmj3WxrOL28r9dUIvRdZw-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-307-rJWgYZrqMx-iLKroBFf7zQ-1; Fri, 26 Nov 2021 09:20:04 -0500
+X-MC-Unique: rJWgYZrqMx-iLKroBFf7zQ-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 413EC93922;
-	Fri, 26 Nov 2021 13:06:03 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1CBB4190B2A0;
+	Fri, 26 Nov 2021 14:19:58 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D26FC1000051;
-	Fri, 26 Nov 2021 13:05:58 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2EB2F60BE5;
+	Fri, 26 Nov 2021 14:19:56 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 757F31809C81;
-	Fri, 26 Nov 2021 13:05:45 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 230F61809CB7;
+	Fri, 26 Nov 2021 14:19:39 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1AQD5ZYx012449 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 26 Nov 2021 08:05:36 -0500
+	id 1AQEJUhB018609 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 26 Nov 2021 09:19:30 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id A95CA2166B25; Fri, 26 Nov 2021 13:05:35 +0000 (UTC)
+	id A361451DD; Fri, 26 Nov 2021 14:19:30 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A343E2166B2D
-	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 13:05:32 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8587085A5BC
-	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 13:05:32 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
-	relay.mimecast.com with ESMTP id us-mta-203-RATyIL3rMHeorVWOqA_C3g-1;
-	Fri, 26 Nov 2021 08:05:30 -0500
-X-MC-Unique: RATyIL3rMHeorVWOqA_C3g-1
-Received: from [192.168.1.38] (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
-	[176.172.247.100])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id 6DC1AA376D
-	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 12:04:49 +0100 (CET)
-Message-ID: <54a22fdb-8348-346b-170c-8e6f54ad7fbe@slint.fr>
-Date: Fri, 26 Nov 2021 15:05:29 +0100
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9CE0151DC
+	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 14:19:27 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C39CE185A7BA
+	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 14:19:27 +0000 (UTC)
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com
+	[209.85.128.44]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-169-qeY_L2Y3NmyZKGGhKqx2lg-1; Fri, 26 Nov 2021 09:19:26 -0500
+X-MC-Unique: qeY_L2Y3NmyZKGGhKqx2lg-1
+Received: by mail-wm1-f44.google.com with SMTP id
+	r9-20020a7bc089000000b00332f4abf43fso7627142wmh.0
+	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 06:19:25 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=vdZJfaK1UuhgZ76RM1JOlrMmkG3c9ZD4fxvTe1rK7pw=;
+	b=MpvRgYFei4h4aYUT+GBTWjQ90KkIrq730U/YOKe/g3FJEWNS5r3yzdhCMigB2sf6ug
+	B5QfDR/C0RxcI2yCY7v0PTE83/YcVB90NEZzrrgGk/k/YSJ5WUn5g5Y6yl2M6Xxhy6GP
+	p3xsjjeXpxLmGJizBh573ZTq6UyAJ7LBAbcle4Rv+RtJWK026JB/s7tUUxG5rF3PaVV0
+	dyG54HxSqgJubhQ/ILCauvOwwDFjDcwkOz3XotP7YkL0W+40ncCs48nrhO0Wq616EA84
+	aErjmL0dXaUKAu8cDmGqDwo/eleTDpS9dF2v95FiP1U9LEPb0EHCsyXUowtCx8eMjx9p
+	A+xg==
+X-Gm-Message-State: AOAM531t0S1ExWF0fZgZSlVq+4gQZoNYL+DMEJIqHrkX0n+PFf9VlKv2
+	+Pqwrj+sTL34stkynPAJP0uxfre4d5w5xA==
+X-Google-Smtp-Source: ABdhPJztP1d3GmGsBqQEKNfP3nv9rRNN0W0x0p6TJSIkpidHZ2fQBsVfteQiPZEIgVeNEUn9SIK7eg==
+X-Received: by 2002:a05:600c:3b27:: with SMTP id
+	m39mr16322261wms.132.1637936364390; 
+	Fri, 26 Nov 2021 06:19:24 -0800 (PST)
+Received: from [192.168.1.130] ([90.251.213.111])
+	by smtp.gmail.com with ESMTPSA id u23sm6079966wmc.7.2021.11.26.06.19.23
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Fri, 26 Nov 2021 06:19:24 -0800 (PST)
+Message-ID: <58d807e2-9eba-497b-2927-16fdfbac397a@gmail.com>
+Date: Fri, 26 Nov 2021 14:19:33 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.3.1
-Subject: Re: In the mood for something new
+	Thunderbird/91.3.0
+Subject: Re: Converting epubs to Plain-Text?
 To: blinux-list@redhat.com
-References: <512DE42E-6D25-4FB8-B249-4D8AF2E7C8F3@gmail.com>
-	<CAO2sX33yi4FBVBffmxfzQqy6yDirw6QLMsC_Q9czheOjBy+nfA@mail.gmail.com>
-	<52d94c3d-a3c8-a5a0-49c3-b599ec3eb17e@verizon.net>
-	<062dbe93-602f-b972-6de1-f9a00ac1aa9b@gmail.com>
-	<091390ec-72e4-100d-d1b1-6a10818715ac@gmail.com>
-	<b2d6ddcd-2ef7-1425-de0e-78a0c8d5697c@slint.fr>
-	<97f47bb7-fcaf-aaf9-0732-0592fd341f18@gmail.com>
-In-Reply-To: <97f47bb7-fcaf-aaf9-0732-0592fd341f18@gmail.com>
+References: <50d03b33-62e0-2c8-c14e-40b717301dfc@hubert-humphrey.com>
+	<6dbbac09-3d17-0aac-ca28-4cef41d6c809@gmail.com>
+	<946f985-aad-95dd-495-f3f69898f2e0@hubert-humphrey.com>
+	<alpine.DEB.2.11.2111261256210.7640@debian.work>
+	<b79f6e3-c28f-e3ed-56bd-d771e0aca57@hubert-humphrey.com>
+In-Reply-To: <b79f6e3-c28f-e3ed-56bd-d771e0aca57@hubert-humphrey.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -81,7 +101,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -98,122 +118,34 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Hi Kyle,
-
-answers after inline after the quoted lines
-
- > RPM packaging format, a plugin-based modular package management tool
- > along with graphical package management
-I have used Mandrake nearly 20 years ago, it already used RPM ;)
-
-Slint uses the simple package format from Slackware and use the slapt-get
-package  tool to manage the packages. It includes the gslapt graphical
-front-end, handles dependencies resolution and notification of updates 
-on the
-desktop. No Slint users requested more so far.
-https://slint.fr/doc/HandBook.html#software_management
-
-
- > the copr system including semiautomatic serverside builds
-Very nice, but do most end users need that?
-
-To build packages from the building scripts repository 
-https://slackbuilds.org
-Slint includes the slapt-src application, very easy to use.
-https://slint.fr/doc/HandBook.html#slapt_src
-
- > the choice of a release cycle or a rolling release model,
-Well, that looks nice however reading the messages in this list
-and elsewhere I am not sure that every user be happy with that...
-
-Anyway my preferred release offer by FreeBSD, which
-also offers a choice between two branches:
-https://docs.freebsd.org/en/books/handbook/cutting-edge/#stable
-https://docs.freebsd.org/en/books/handbook/cutting-edge/#current
-
-I think that most of our users would not like a rolling release model, 
-so Slint
-follow semi-rolling model: releases are made on the basis of Slackware, but
-then a lot of software a kept up to date including all the ones needed for
-accessibility, as shows this ChangeLog:
-
-https://slackware.uk/slint/x86_64/slint-14.2.1/ChangeLog.txt
-
- > snapd and flatpak installable from official repositories or installed
- > by default
-
-Well, I am not fond of these packaging systems. Anyway flatpak can be 
-get from
-https://slackbuilds.org as I just did (honest: had to fetch manually source
-tarball of two deps due to broken links in the scripts, but not a daunting
-task).
-
- > not a derivative distro
-I didn't plan to create a derivative distro, but Patrick Volkerding didn't
-accept to include in Slackware the stuff needed to internationalize  it and
-make it accessible, that's why I had to. I won't complain, being fond of
-system integration.
-
- > far more software applications available from all of system 
-repositories,
- > third-party repositories that can be added easily
-By far not as many available packages as for Debian ;)
-I am impressed also by FreeBSD's ports and packages collection. It 
-contains a
-lot of Linux software, really a lot often up to date.
-
- > all the newest software versions with support for the
- > latest compilers, toolchains and system libraries, no need to hold back
- > new upstream software because a toolchain or compiler is out of date
-While it is true that we have a very old gcc and glibc (waiting for the 
-release
-of Slackware 15 to upgrade), this have rarely been an issue here (read our
-ChangeLog to check).
-
- > broad and diverse community support
-Well, our mailing list is pretty active and can provide answer coming 
-directly
-from the guy who maintain the distribution and packages all software in its
-repositories. Try that with Fedora ;)
-
- >systemd, which I happen to like
-
-I don't feel a need for that. sysvinit in Slint works pretty well, and 
-no user
-ever requested to replace it by systemd.
-I really like the init system used by FreeBSD though.
-https://www.freebsd.org/cgi/man.cgi?init
-
- > and Pipewire and Wireplumber installed by default, although these do
- > still have their bugs.
-Well, we will have that in next Slint version.
-
-This being said, Slint may not be for users looking for the most 
-bleeding edge.
-
-Bottom line: I am always eager of feedback to enhance Slint.
-So my friend your next mission, if you accept it, is to install Slint 
-(possibly
-on a removable device, including a good SD card if your firmware can handle
-booting from it) and report all found issues.
-
-All needed information is in the HandBook:
-https://slint.fr/doc/HandBook.html
-
-Cheers,
-Didier
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+RXhhY3RseSwgaXQgdXNlcyB0aGUgb3V0cHV0IGZpbGUgbmFtZSB5b3Ugc3BlY2lmeSBhcyB0aGUg
+c2Vjb25kIGFyZ3VtZW50CgoKRm9yIGV4YW1wbGUKCgplYm9vay1jb252ZXJ0IApSZWFsbHlfcmVh
+bGx5X2xvbmdfYW5kX3RyaWNreV9lYm9va190aXRsZV93aXRoX21hbnlfd29yZHMuZXB1YiAKc2hv
+cnQtYm9vay10aXRsZS50eHQKCgpXb3VsZCB0dXJuIHRoYXQgcmVhbGx5LCByZWFsbHkgbG9uZyB0
+aXRsZWQgZXB1YiBpbnRvIGEgc2hvcnQtbmFtZS50eHQgZmlsZQoKCk5vdGUgdGhvdWdoIHRoYXQg
+aXQncyBub3QgcGVyZmVjdCB0aG91Z2ggaG93ZXZlcgoKT24gMTEvMjYvMjEgMTM6NDIsIExpbnV4
+IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gSGkgR2VvZmYtYW5kLVdpbGxl
+bTogVGhvc2UgaW5zdHJ1Y3Rpb25zIGluIGVib29rLWNvbnZlcnQgc2VlbSB0byBpbXBseSAKPiBp
+bmNvbnNpc3RhbmNpZXMuIE9uIDEgaGFuZCBpdCBzYXlzIHRoZSBmaWxlIG5hbWUgaXMgZGVyaXZl
+ZCBmcm9tIGFuIAo+IGlucHV0IG5hbWUsIGJ1dCB0aGVuIEdlb2ZmIHNheXMgSSBtdXN0IHN1cHBs
+eSBhbiBvdXRwdXQgbmFtZT8gV2VsbCwgSSAKPiBleHBlcmltZW50ZWQgd2l0aCBhbm90aGVyIGRv
+dMKgIGVwdWIsIHBhc3RpbmcgaW4gdGhhdCBuYW1lIGFzIGFuIAo+IG91dHB1dCwgYnV0IHJlcGxh
+Y2luZyBhbiBleHRlbnRpb24gd2l0aCBhIGRvdCB0eHQuIEl0IHdlbnQgdGhyb3VnaCBhIAo+IHBy
+b2Nlc3MsIHNlZW1pbmdseSBmaXJzdCBjb252ZXJ0aW5nIHRvIGFuIGh0bWwsIGJ1dCB0aGVuIGEg
+dHh0LiBUaGFua3MgCj4gaW4gYWR2YW5jZQo+IENoaW1lCj4KPiBfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+
+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWls
+bWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEBy
+ZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxp
+bnV4LWxpc3Q=
 
