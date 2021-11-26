@@ -1,79 +1,88 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 71C6545F51D
-	for <lists+blinux-list@lfdr.de>; Fri, 26 Nov 2021 20:20:16 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id C6BE145F624
+	for <lists+blinux-list@lfdr.de>; Fri, 26 Nov 2021 22:04:13 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1637954415;
+	s=mimecast20190719; t=1637960652;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=TLI7luI5y5gm4/R6cLRKxasM3N7WOtulN1cLJ2QNqWs=;
-	b=J6C0AlK6HO88cfaLssZ7NPG3isYeXphgyKVd2oCfRDaJGjtzGuV7tccgymKDpvd+pEqnB+
-	vPpPzhli2oYAzgVHhl6Ry4fBlpblFpSdI3dBpzFTAD2hV1z75VAvlKBJ+yljyTbedF21wK
-	FIsEgXTB0Ygo8EDj8vFmAxmYgi9bS44=
+	bh=/xnpAp5r3Wv8SrnbDfKDh8uyAL0iif9TaQ/9TIR0fC4=;
+	b=Z2xKMQ7gli9ffVzM0hgubhy6T3Pv7mgHYdezzM7DxJNMLKAp3OfLoXoVgxK1zG4524mNSY
+	1fJWzzWBghXsPD7VSTT2lmrIcZhLiycHrrCibT3uz2+3FBOekUxp/+oSnPFOZjRl/cSOfW
+	wxOygUxUsnYCe7JWLgR0h6GOAwGyvQU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-341-xqv1_5r6NDueYQ1M_kRL6Q-1; Fri, 26 Nov 2021 14:20:11 -0500
-X-MC-Unique: xqv1_5r6NDueYQ1M_kRL6Q-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-14-U7hM6iPAMdGxRHtv8N7oKw-1; Fri, 26 Nov 2021 16:04:08 -0500
+X-MC-Unique: U7hM6iPAMdGxRHtv8N7oKw-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 0FB6A1006AA4;
-	Fri, 26 Nov 2021 19:20:07 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6F5E280BCA8;
+	Fri, 26 Nov 2021 21:04:04 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7C4EE19C79;
-	Fri, 26 Nov 2021 19:20:05 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2A378604CC;
+	Fri, 26 Nov 2021 21:04:02 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EB8C61809C89;
-	Fri, 26 Nov 2021 19:20:00 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.1])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C4F8A1809C89;
+	Fri, 26 Nov 2021 21:03:57 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1AQJJsdZ010377 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 26 Nov 2021 14:19:54 -0500
+	id 1AQKxAXs018245 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 26 Nov 2021 15:59:10 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 5F70A40CFD13; Fri, 26 Nov 2021 19:19:54 +0000 (UTC)
+	id 7C8BB51E3; Fri, 26 Nov 2021 20:59:10 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5A84B40CFD08
-	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 19:19:54 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 762C951DC
+	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 20:59:07 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 43BAA85A5B5
-	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 19:19:54 +0000 (UTC)
-Received: from server2.shellworld.net (server2.shellworld.net
-	[66.172.12.120]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7FBAA801E6E
+	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 20:59:07 +0000 (UTC)
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com
+	[209.85.221.50]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-447-nnpedkztMCaR7oTA02pvwg-1; Fri, 26 Nov 2021 14:19:51 -0500
-X-MC-Unique: nnpedkztMCaR7oTA02pvwg-1
-Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id 9A702620F8C; Fri, 26 Nov 2021 19:19:49 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id 99D37620210
-	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 14:19:49 -0500 (EST)
-Date: Fri, 26 Nov 2021 14:19:49 -0500 (EST)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: OT: kind of, headphone search source?
-In-Reply-To: <6235b7a3-ed4e-9795-c152-375142fff735@gmail.com>
-Message-ID: <Pine.LNX.4.64.2111261414060.105674@server2.shellworld.net>
-References: <512DE42E-6D25-4FB8-B249-4D8AF2E7C8F3@gmail.com>
-	<CAO2sX33yi4FBVBffmxfzQqy6yDirw6QLMsC_Q9czheOjBy+nfA@mail.gmail.com>
-	<52d94c3d-a3c8-a5a0-49c3-b599ec3eb17e@verizon.net>
-	<062dbe93-602f-b972-6de1-f9a00ac1aa9b@gmail.com>
-	<091390ec-72e4-100d-d1b1-6a10818715ac@gmail.com>
-	<b2d6ddcd-2ef7-1425-de0e-78a0c8d5697c@slint.fr>
-	<97f47bb7-fcaf-aaf9-0732-0592fd341f18@gmail.com>
-	<54a22fdb-8348-346b-170c-8e6f54ad7fbe@slint.fr>
-	<6235b7a3-ed4e-9795-c152-375142fff735@gmail.com>
+	us-mta-289-rrlpIIqONHS_eq4-t02-PA-1; Fri, 26 Nov 2021 15:59:05 -0500
+X-MC-Unique: rrlpIIqONHS_eq4-t02-PA-1
+Received: by mail-wr1-f50.google.com with SMTP id i5so21147836wrb.2
+	for <blinux-list@redhat.com>; Fri, 26 Nov 2021 12:59:05 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:message-id:date:mime-version:user-agent
+	:content-language:to:from:subject:content-transfer-encoding;
+	bh=WWfNBfKFtR7H0ppABheVwR4eXG5Y801Hm/8zTUM+Sro=;
+	b=HWGPKi+AZQow1psVBOmbDrfpiT56WiKxR2CILsUT228L2S/liLiWwuUdgCPJOhd+Rj
+	3vkJV847EI9/yrQMAJPkUs5hB5qBJ9Iw/iSPs9uL2/P+gmG0+3fmNbbrZUEY4gIcIGKY
+	dNA3nqOw9QSqDW99s2JRX5B6V9O19KCZ3huMzGWXdfIxokm+5LeZT+Zq8zlQFz9rED2Q
+	o7IP3v0NXaeFMVyBuODUZ4f8xA2uZ0wFFkKPbPK/8ITLaQqjMJS533/P4yO0mc+zvTT+
+	wadqkhNS6ZSpNr4zcbxAp0Am6naXrDxUTTIkGtz4i0WMxyeuVhB3cx7xVM8LhuoF91Nk
+	UgxA==
+X-Gm-Message-State: AOAM532FghSUxiqftIoUIGRwnaXMrxnFtAg7xHJsxw/xbx1v3ywYovxJ
+	Ski6fbDKuQ+0VoXG8mIeXQZ4doVX+ratlg==
+X-Google-Smtp-Source: ABdhPJxfEXPUmg8RGGuTZKuSG2lgGVuP+AbgCuTcAJE3To3AQDTfJID53GlrDZXO6URVWWzJaUnxgA==
+X-Received: by 2002:a5d:468f:: with SMTP id u15mr16676761wrq.171.1637960344160;
+	Fri, 26 Nov 2021 12:59:04 -0800 (PST)
+Received: from [192.168.1.130] ([90.251.213.111])
+	by smtp.gmail.com with ESMTPSA id
+	b15sm2008359wri.62.2021.11.26.12.59.03 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Fri, 26 Nov 2021 12:59:03 -0800 (PST)
+Message-ID: <78e0ef3a-4843-b11a-6ab4-586498b14250@gmail.com>
+Date: Fri, 26 Nov 2021 20:59:12 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.3.0
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Jumping from Solus/Ubuntu to Slint...how easy is it?
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -82,7 +91,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Mimecast-Spam-Signature: yes
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -99,29 +109,22 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi folks,
-Let me ask this clearly, or as clear as possible laughs.
-what I am seeking, even if a store that I need not buy from, is a resource 
-where I can choose
-  a set of headphone specifications, and get a list of prospects.
-I use them in different environments, and have some rather detailed needs.
-Being forthright I often find a match and keep buying them as long as 
-possible, making it really depressing when a pair gets discontinued...I am 
-talking about you JVC ha-s44x *sniff*.
-Ahem, in any case ideas for a location where I can  shop with this kind of 
-detail?
-Thanks very much,
-Kare
+So as it says....and given my recent whiffs on qemu, so far *crosses 
+fingers* Slint is slowly installing but I'm wanting to know...
 
 
+
+How easy is it to adapt to Slint/Slackwware coming from Ubuntu or Solus 
+or Fedora or...
 
 _______________________________________________
 Blinux-list mailing list
