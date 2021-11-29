@@ -1,95 +1,95 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4B7914623C7
-	for <lists+blinux-list@lfdr.de>; Mon, 29 Nov 2021 22:51:57 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 83AA54623D0
+	for <lists+blinux-list@lfdr.de>; Mon, 29 Nov 2021 22:56:01 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638222716;
+	s=mimecast20190719; t=1638222960;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=AXUqLDMU9LRkpmXoh/ID63B3RXypYndWgxdase+mZmA=;
-	b=AHzODNm4jKDOpa02yyy9ot7lOL54e5nVOCU2cSs6zPpV0gBG4mbEZ883AacvHAaJl2u0Kl
-	zcZW9m1pFOHAsMRNOhpjMnxIIf5Z7nlIAMqQyHPEOdnEeDgTz9lFo1+600zTXwMD71Q/Zl
-	Ygolf3VBz8px6LbD3/OFlT4fLC87Wwg=
+	bh=Et3gDBSeRKGUn9GudZ63kLUxU2QfjO78Kh6N0fpFOvg=;
+	b=WZdAGtpXSHiZnf5YC2UubWmD/vV/erggZl1HlHqJQ8dR/Rc8F6UbPCOdVX+Q46wIrSNQjw
+	2l7TlUuDOUl384aqlx8FKOWp1J4eoPwcX+xnAaYWcAj23CK4hDJNTRaE9i/5aEQdJ08UN2
+	FTyJSqDW+JLcC7BnhTRm2zb+Z1rEt58=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-488-hCQIClieNB-7AEiVi4xnUQ-1; Mon, 29 Nov 2021 16:51:52 -0500
-X-MC-Unique: hCQIClieNB-7AEiVi4xnUQ-1
+ us-mta-533-iLpidnPEOEGVLg_G9zEibA-1; Mon, 29 Nov 2021 16:55:57 -0500
+X-MC-Unique: iLpidnPEOEGVLg_G9zEibA-1
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C8AAE192D787;
-	Mon, 29 Nov 2021 21:51:48 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9FAAF19724;
-	Mon, 29 Nov 2021 21:51:48 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CB260760C4;
+	Mon, 29 Nov 2021 21:55:50 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8B61F19729;
+	Mon, 29 Nov 2021 21:55:50 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6E4571809C89;
-	Mon, 29 Nov 2021 21:51:44 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1536A4CA93;
+	Mon, 29 Nov 2021 21:55:49 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1ATLpekn011401 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 29 Nov 2021 16:51:40 -0500
+	id 1ATLqqHC011481 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 29 Nov 2021 16:52:52 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id AE665401E44; Mon, 29 Nov 2021 21:51:40 +0000 (UTC)
+	id 39BE7401E4B; Mon, 29 Nov 2021 21:52:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id AAFBC401E4B
-	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 21:51:40 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9269F811E8F
-	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 21:51:40 +0000 (UTC)
-Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com
-	[209.85.208.43]) by relay.mimecast.com with ESMTP with STARTTLS
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 360A0401E45
+	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 21:52:52 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 004AB85A5BB
+	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 21:52:52 +0000 (UTC)
+Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com
+	[209.85.219.43]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-228-DodU7LF7PAqJqYPZ6vNGLQ-1; Mon, 29 Nov 2021 16:51:38 -0500
-X-MC-Unique: DodU7LF7PAqJqYPZ6vNGLQ-1
-Received: by mail-ed1-f43.google.com with SMTP id y12so77922429eda.12
-	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 13:51:38 -0800 (PST)
+	us-mta-113-ssQ2h_8oPt2OwwMA7kpoaA-1; Mon, 29 Nov 2021 16:52:50 -0500
+X-MC-Unique: ssQ2h_8oPt2OwwMA7kpoaA-1
+Received: by mail-qv1-f43.google.com with SMTP id u16so15975720qvk.4
+	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 13:52:50 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-	:content-language:to:references:from:in-reply-to
-	:content-transfer-encoding;
-	bh=4H61Mvu3h38otMvlV+tUs5AjA4qJ33IjNqtZtsZfYCk=;
-	b=o5Tb4uVQ8iA61V+EC846Z0l+O7B9jRFcCn+znopN+vE/Zm4XNXPyO0sT0HoshHg0YV
-	rnf3WzVuCu3Espu3f/TMzirYl9DpnWLJe/B00uzYAottGbJAeO1gQ0ISdtY0L/3anDPR
-	JqfRBO1PQMt8a5BIJx1Ol6NkJIb5sEb3dH6J93IHH8vona0RUp7ZdqQcehmk/XZ4BcOQ
-	FlfmjKrcPLQpvVVqLba+i6WJAPw7GmioAJQCm2Kvx6DSg7txCZBOHGMZXqoE/LnDH20r
-	48Jx1ItJstqjrRirLxne8xFVvKiNupDI8tAIrP433FFi3DFpO8HX5KRMBMBEwFCJcN5x
-	gMTA==
-X-Gm-Message-State: AOAM532diD4oql3qQx+WfpeIwf0mj623H/iBqgAb+8PNQes7PTv1uApg
-	DDFFYFp2+eBmNxGygbGE4DaQYSkhHl1WCw==
-X-Google-Smtp-Source: ABdhPJylqgq2oJzhV61wWqWBNxudgE+BLozTQMUSEe7kQrBWUBdQFLYiLNYweGrKJM/Ef4wZm3D27Q==
-X-Received: by 2002:a05:6402:447:: with SMTP id
-	p7mr77733856edw.261.1638222697282; 
-	Mon, 29 Nov 2021 13:51:37 -0800 (PST)
-Received: from [192.168.8.130] ([41.216.201.233])
-	by smtp.gmail.com with ESMTPSA id
-	jl8sm7785390ejc.59.2021.11.29.13.51.35 for <blinux-list@redhat.com>
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
+	bh=8dGQE6XooolncPnze0crxyvVaz0vr5uTE4ax3L8G25M=;
+	b=CDxO1K3knTkIHo6tOQPrCHlH7mxJbRouJZitN4qo7J6ujrNaDSR/L3ege+N7QyvjHC
+	cwcoSYYVR3qZ/HKc+tw1Ciz1g36Jp0oUErzLu2jAiKl9gYNkbnpO01h9HqwZr3CJdaYa
+	c557IOWvBERK4k7ULjQqIYG1WepVkESfa2fcak1MqXL/8uvwfxB3exTDaT0+B0/S3eOL
+	E6HkaAP2XW77CH13245HgqBKPgPHx/7upib1lFvzmN70BTZ9UXopS+LNOoU70YdXndKG
+	XOZCnxgJwOhSDWFdWDgcCXvzUsIiC2P22xhXYCj2Zf1Nq0raK6swk+QYoGAoJ92zkSEh
+	43Ag==
+X-Gm-Message-State: AOAM533X6+6SgX6ub7bSA5wCfZx5pUM9jCh2DC5dVSqOYds97D4bWSXq
+	KqH1CAUTiN5InCvmx+a2QfxHgsnHtiU=
+X-Google-Smtp-Source: ABdhPJxhQ+LZyiQmNvNh+8lnqZRsTH5OrpBNp8zp9SkEtlCpgqx2/6AdMF3LI0i9qlbhxWKFD2hJRA==
+X-Received: by 2002:a05:6214:27e9:: with SMTP id
+	jt9mr33057350qvb.131.1638222769708; 
+	Mon, 29 Nov 2021 13:52:49 -0800 (PST)
+Received: from ?IPv6:2603:6080:6304:450a::960?
+	(2603-6080-6304-450a-0000-0000-0000-0960.res6.spectrum.com.
+	[2603:6080:6304:450a::960]) by smtp.gmail.com with ESMTPSA id
+	c13sm9929939qtx.51.2021.11.29.13.52.49 for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Mon, 29 Nov 2021 13:51:36 -0800 (PST)
-Message-ID: <8a8199b6-de2b-1366-ebec-6c3b469d9fb1@gmail.com>
-Date: Mon, 29 Nov 2021 23:51:33 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.3.0
+	Mon, 29 Nov 2021 13:52:49 -0800 (PST)
 Subject: Re: What is the easiest and most accessible editor?
 To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <a3ea6f04-d8a4-2ef4-35cc-8e91d7582ab8@gmail.com>
 	<dcf188c1-db80-bf0a-e54b-474f2fddbf55@gmail.com>
-	<be0a3ef3-9637-a7d9-8d0b-030b3e28e75b@gmail.com>
-In-Reply-To: <be0a3ef3-9637-a7d9-8d0b-030b3e28e75b@gmail.com>
+	<alpine.NEB.2.23.451.2111291643140.22277@panix1.panix.com>
+Message-ID: <239589cc-0c15-a876-73d2-85865f0df0e3@gmail.com>
+Date: Mon, 29 Nov 2021 16:52:48 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+	Thunderbird/60.0
+MIME-Version: 1.0
+In-Reply-To: <alpine.NEB.2.23.451.2111291643140.22277@panix1.panix.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -120,78 +120,22 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I personally have nano on all systems I can get to. The reason is 
-simple, I'm to lazy to bother learning vim, not that it's command 
-structure would help me to much, seeing that I use the left-handed 
-Dvorak keyboard anyway.
+Anybody that tries to do anything with emacs without doing the tutorial
+> probably has no business using a computer since all they're guarranteed to
+> do is get themselves into trouble.
 
-
-Warm regards,
-
-Brandt Steenkamp
-
-Sent from the Fedora machine, using Thunderbird
-
-On 2021/11/29 23:48, Linux for blind general discussion wrote:
-> See I usually throw a terminal/console text editor in on any CLI only 
-> systems/installs for that reason, or for working in a TTY when I want 
-> to edit stuff or am on an SSH connection. It's always nice to have a 
-> simple, easy to use editor in my pocket so if my desktop falls over or 
-> I need to SSH into a machine I can just do nano filename and get right 
-> to work without having to fight an editor that thinks it knows what I 
-> want. No. I just want to get in, edit text, save, and get things donen.
->
->
->
-> On 11/29/21 21:31, Linux for blind general discussion wrote:
->> Unless you are running a text-only installation, installing from 
->> scratch, editing configs before you have a desktop environment 
->> installed or working remotely, your best bet is going to be whatever 
->> editor comes with your desktop environment. Usually that will be 
->> either pluma on the MATE desktop, gedit on the GNOME desktop, or you 
->> may have leafpad or mousepad installed. Any of these give you very 
->> easy cut/copy/paste functionality, easy to use find/replace pop-up 
->> windows and a fully accessible menu system for doing other things. 
->> All these editors are fully accessible to Orca and are found in your 
->> accessories menu or its equivalent depending on your desktop.
->>
->> If you are looking for a terminal-based text editor, usually for 
->> installing a system manually or working remotely via ssh, the best 
->> and easiest to use by far is nano, although I usually like to use 
->> pluma even over ssh, since sshfs mounts my servers as if they are on 
->> the local disk, so I get access to every file on my servers just as 
->> if they are right on the computer I'm using to access them. I have 
->> edited server configs and even websites in this way.
->>
->> Forget EMACS. I gave up on that crap after 5 minutes of mucking about 
->> in it, and emacspeak didn't make it any better. A text editor should 
->> make it as easy as possible to edit text, and that is all. It 
->> shouldn't require a computer science degree, nor should it try to be 
->> a complete desktop that tries to turn every application into an 
->> editor. The editors I mention here are mostly straight-forward, with 
->> the possible exception of nano, which is mostly consistent with pico, 
->> but not so consistent with any other desktop editor, and they all do 
->> what they should and nothing extra or overly complicated. If you want 
->> complicated text handling and word processing, LibreOffice Writer is 
->> the way to go, as it's a sophisticated word processor, not a text 
->> editor.
->> ~Kyle
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->>
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
+Well, then I guess I have no business using my computer, as I couldn't for the 
+life of me figure out the horror that is EMACS. I can however use most other 
+text editors, even vim to a point, but greatly prefer the ease of use and 
+consistency of most desktop text editors. So I guess I'm not so dumb as all that 
+after all, and the above opinion is nonsense at best or possibly something much 
+worse. Who the hell are you to say who has any business using a computer and who 
+doesn't based on whether or not they want to use a difficult text editor that 
+tries to be too much and do too much?
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
