@@ -2,94 +2,94 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 83AA54623D0
-	for <lists+blinux-list@lfdr.de>; Mon, 29 Nov 2021 22:56:01 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 13B8A4623DD
+	for <lists+blinux-list@lfdr.de>; Mon, 29 Nov 2021 23:01:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638222960;
+	s=mimecast20190719; t=1638223262;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Et3gDBSeRKGUn9GudZ63kLUxU2QfjO78Kh6N0fpFOvg=;
-	b=WZdAGtpXSHiZnf5YC2UubWmD/vV/erggZl1HlHqJQ8dR/Rc8F6UbPCOdVX+Q46wIrSNQjw
-	2l7TlUuDOUl384aqlx8FKOWp1J4eoPwcX+xnAaYWcAj23CK4hDJNTRaE9i/5aEQdJ08UN2
-	FTyJSqDW+JLcC7BnhTRm2zb+Z1rEt58=
+	bh=e2qYyx3NRxlxmxTkg5rJ23xEI2NkBwiuFBCE9zp7hUg=;
+	b=RxT6WNE0ShzWaNuR7r3KPV4ymLs/uPrFBcbNWQ8PqF1NXc2SQ2MEtdqxS1tCqV8MWW+AlZ
+	qBsPsUaBTitAFJlUoMzKzZhozjlDEJLPBU2QUDSky8CrRS8q+oYuMekEv8aZQMH7GT99Vs
+	PQaLkY/N6J5iF0rMEzQDJFSk1I6xi2c=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-533-iLpidnPEOEGVLg_G9zEibA-1; Mon, 29 Nov 2021 16:55:57 -0500
-X-MC-Unique: iLpidnPEOEGVLg_G9zEibA-1
+ us-mta-559-2pBxOj9xPpKa4e01Iq7Plg-1; Mon, 29 Nov 2021 17:00:58 -0500
+X-MC-Unique: 2pBxOj9xPpKa4e01Iq7Plg-1
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CB260760C4;
-	Mon, 29 Nov 2021 21:55:50 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 90F83801B1C;
+	Mon, 29 Nov 2021 22:00:54 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8B61F19729;
-	Mon, 29 Nov 2021 21:55:50 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5279319729;
+	Mon, 29 Nov 2021 22:00:54 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1536A4CA93;
-	Mon, 29 Nov 2021 21:55:49 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.10])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 422E64BB7C;
+	Mon, 29 Nov 2021 22:00:52 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.9])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1ATLqqHC011481 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 29 Nov 2021 16:52:52 -0500
+	id 1ATM0lbW012225 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 29 Nov 2021 17:00:47 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 39BE7401E4B; Mon, 29 Nov 2021 21:52:52 +0000 (UTC)
+	id AB147492C3B; Mon, 29 Nov 2021 22:00:47 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 360A0401E45
-	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 21:52:52 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 004AB85A5BB
-	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 21:52:52 +0000 (UTC)
-Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com
-	[209.85.219.43]) by relay.mimecast.com with ESMTP with STARTTLS
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A6F78492C38
+	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 22:00:47 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8DCED185A7B4
+	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 22:00:47 +0000 (UTC)
+Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com
+	[209.85.160.169]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-113-ssQ2h_8oPt2OwwMA7kpoaA-1; Mon, 29 Nov 2021 16:52:50 -0500
-X-MC-Unique: ssQ2h_8oPt2OwwMA7kpoaA-1
-Received: by mail-qv1-f43.google.com with SMTP id u16so15975720qvk.4
-	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 13:52:50 -0800 (PST)
+	us-mta-74-0oI7ZbTeNT6zNmrnkGnhmg-1; Mon, 29 Nov 2021 17:00:45 -0500
+X-MC-Unique: 0oI7ZbTeNT6zNmrnkGnhmg-1
+Received: by mail-qt1-f169.google.com with SMTP id z9so18164700qtj.9
+	for <blinux-list@redhat.com>; Mon, 29 Nov 2021 14:00:44 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
 	h=x-gm-message-state:subject:to:references:from:message-id:date
 	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
-	bh=8dGQE6XooolncPnze0crxyvVaz0vr5uTE4ax3L8G25M=;
-	b=CDxO1K3knTkIHo6tOQPrCHlH7mxJbRouJZitN4qo7J6ujrNaDSR/L3ege+N7QyvjHC
-	cwcoSYYVR3qZ/HKc+tw1Ciz1g36Jp0oUErzLu2jAiKl9gYNkbnpO01h9HqwZr3CJdaYa
-	c557IOWvBERK4k7ULjQqIYG1WepVkESfa2fcak1MqXL/8uvwfxB3exTDaT0+B0/S3eOL
-	E6HkaAP2XW77CH13245HgqBKPgPHx/7upib1lFvzmN70BTZ9UXopS+LNOoU70YdXndKG
-	XOZCnxgJwOhSDWFdWDgcCXvzUsIiC2P22xhXYCj2Zf1Nq0raK6swk+QYoGAoJ92zkSEh
-	43Ag==
-X-Gm-Message-State: AOAM533X6+6SgX6ub7bSA5wCfZx5pUM9jCh2DC5dVSqOYds97D4bWSXq
-	KqH1CAUTiN5InCvmx+a2QfxHgsnHtiU=
-X-Google-Smtp-Source: ABdhPJxhQ+LZyiQmNvNh+8lnqZRsTH5OrpBNp8zp9SkEtlCpgqx2/6AdMF3LI0i9qlbhxWKFD2hJRA==
-X-Received: by 2002:a05:6214:27e9:: with SMTP id
-	jt9mr33057350qvb.131.1638222769708; 
-	Mon, 29 Nov 2021 13:52:49 -0800 (PST)
+	bh=SaCeELkkxAwC5vW3PuXOji7upKXomxmEP2+/wuziGc8=;
+	b=i2tn3XDpCrpoW/n/76E9YgaF9AeuPv0XYUq67b8rbbv3B+ER1vqxusEI6kVx4HyNZh
+	LB3dB4R/vrmzMUtHbpV1xxxFg+o+aB4ECNK50Os8KRSvCBhlJ+Ti9EM1YiP05sGXgKzc
+	NqlaUsj+RuahW+QZe6wOx3LyUzCN+akcXXZjjv3qeSikO0TVZUY2ak1JPIrOpCFC/X5A
+	GEaw6cByDqGPhS3DZsATqg25RKe9ydVIJl1heVCsXW7Pr7pNnr/CZx4+Dd37PDMOrQLl
+	uKhrlsg6NAc+uQcYlbou0IzXZVkxaZf6F5XIXye4zvctg1TNzCh+c4i5vgRNU7JO17Gl
+	Dpdw==
+X-Gm-Message-State: AOAM532ncGgHPBRbSj6qaXK0PQ8IfACUeK2m5IA2+hfkz7AOmIBUc6MI
+	iZcNm/2szOLB39h3zttn152dy2jwU8M=
+X-Google-Smtp-Source: ABdhPJzJjDc7NSn1EKwqBPJE/YKXLaZk6Hv0n+Ir7DX08xI/CWmTZNdonLMd+BMzMCVN8UDJTOt6oQ==
+X-Received: by 2002:a05:622a:1350:: with SMTP id
+	w16mr46990000qtk.394.1638223244099; 
+	Mon, 29 Nov 2021 14:00:44 -0800 (PST)
 Received: from ?IPv6:2603:6080:6304:450a::960?
 	(2603-6080-6304-450a-0000-0000-0000-0960.res6.spectrum.com.
 	[2603:6080:6304:450a::960]) by smtp.gmail.com with ESMTPSA id
-	c13sm9929939qtx.51.2021.11.29.13.52.49 for <blinux-list@redhat.com>
+	bs16sm9229621qkb.45.2021.11.29.14.00.43 for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Mon, 29 Nov 2021 13:52:49 -0800 (PST)
-Subject: Re: What is the easiest and most accessible editor?
+	Mon, 29 Nov 2021 14:00:43 -0800 (PST)
+Subject: Re: Pipewire and Orca and audio
 To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <a3ea6f04-d8a4-2ef4-35cc-8e91d7582ab8@gmail.com>
-	<dcf188c1-db80-bf0a-e54b-474f2fddbf55@gmail.com>
-	<alpine.NEB.2.23.451.2111291643140.22277@panix1.panix.com>
-Message-ID: <239589cc-0c15-a876-73d2-85865f0df0e3@gmail.com>
-Date: Mon, 29 Nov 2021 16:52:48 -0500
+References: <3f05a646-0fcf-7f37-6319-11341ad34e0d@gmail.com>
+	<08ca01d7e569$5cb7dfc0$16279f40$@gmail.com>
+Message-ID: <818bebb4-6239-f67d-fb94-012322f7ef66@gmail.com>
+Date: Mon, 29 Nov 2021 17:00:42 -0500
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
 	Thunderbird/60.0
 MIME-Version: 1.0
-In-Reply-To: <alpine.NEB.2.23.451.2111291643140.22277@panix1.panix.com>
+In-Reply-To: <08ca01d7e569$5cb7dfc0$16279f40$@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -98,7 +98,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -123,18 +123,19 @@ X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Anybody that tries to do anything with emacs without doing the tutorial
-> probably has no business using a computer since all they're guarranteed to
-> do is get themselves into trouble.
+I think Pipewire's idea of your hardware is the real problem here. Pipewire 
+actually has access to hardware and jacks and such that Pulseaudio can't even 
+see. For example, I put Pipewire on an Odroid N2, and for the first time, I 
+could see and even use my 3.5mm audio output. I could only see the HDMI output 
+using pulseaudio, unless I plugged in a USB audio device. That said, HDMI may 
+still be the default on many systems, so this could be causing a problem.
 
-Well, then I guess I have no business using my computer, as I couldn't for the 
-life of me figure out the horror that is EMACS. I can however use most other 
-text editors, even vim to a point, but greatly prefer the ease of use and 
-consistency of most desktop text editors. So I guess I'm not so dumb as all that 
-after all, and the above opinion is nonsense at best or possibly something much 
-worse. Who the hell are you to say who has any business using a computer and who 
-doesn't based on whether or not they want to use a difficult text editor that 
-tries to be too much and do too much?
+On the machine where you can login but have no speech afterward, you may try 
+running mate-terminal and entering something like
+sudo cp -a /var/lib/lightdm/.config/pipewire .config
+sudo chown -R 1000:1000 .config/pipewire
+Since you have no speech after login, you will need to run those commands 
+blindly, but this should fix your problem.
 ~Kyle
 
 _______________________________________________
