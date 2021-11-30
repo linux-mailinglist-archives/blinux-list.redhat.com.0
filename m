@@ -1,89 +1,105 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3A88D4634EA
-	for <lists+blinux-list@lfdr.de>; Tue, 30 Nov 2021 13:56:26 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 985484636A7
+	for <lists+blinux-list@lfdr.de>; Tue, 30 Nov 2021 15:30:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638276985;
+	s=mimecast20190719; t=1638282613;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Nx+M2hcc0xVEbbhj2tgREGzQ4ZkRrWjP8EjTygIkCWw=;
-	b=LASNjxQMJqaH2nM9UNKSODQ5RoQL08f+ElksCuS5Hvu/ssIPvJ2rXkQGrpOA+eeZxUhpMk
-	bP0V+aLc38E8VjcMbsZKsL+eEk7+4rhryLqi0oiojB6P2pb8+SeUPukZt0afzVHx3VLacK
-	pKMFXO81QDxwAD9kYceMnqbyYGIilSc=
+	bh=GH8J8Us/+vqRv+4sc86fQFiYnLLFn2ZVUTfDU1aqOWk=;
+	b=akS7zDG2eTJmnsRVeOdhDqkxD0auxhBGtkQ/eiJROiQ7lrSgMrV3/m9+inuwB4vsEdUH3a
+	ooGmcYVlfi9+J1wkNVg3gfLD8zOyo9URW5G0a63SKGMYGuZIgrLy5/XXU2k+lTx/9DuJBY
+	a295kBJpjVnizsojKHGzdAyYJdyPv1E=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-235-8hLoTtCVPXKdBymQ5NKD1A-1; Tue, 30 Nov 2021 07:56:21 -0500
-X-MC-Unique: 8hLoTtCVPXKdBymQ5NKD1A-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-198-Gk20qnU-MFacVcaR33RLhQ-1; Tue, 30 Nov 2021 09:30:09 -0500
+X-MC-Unique: Gk20qnU-MFacVcaR33RLhQ-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8E1A3801B17;
-	Tue, 30 Nov 2021 12:56:16 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 456B5100F942;
+	Tue, 30 Nov 2021 14:30:06 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0B11860854;
-	Tue, 30 Nov 2021 12:56:12 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2AD0310023B8;
+	Tue, 30 Nov 2021 14:30:06 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D7B9D1809C89;
-	Tue, 30 Nov 2021 12:56:06 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 075B61809C89;
+	Tue, 30 Nov 2021 14:30:03 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1AUCtCEt013064 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 30 Nov 2021 07:55:12 -0500
+	id 1AUETxfq020991 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 30 Nov 2021 09:29:59 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 51B861121315; Tue, 30 Nov 2021 12:55:12 +0000 (UTC)
+	id 2C7CA401E33; Tue, 30 Nov 2021 14:29:59 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4D305112131B
-	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 12:55:09 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 280AB401E39
+	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 14:29:59 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4F5F0800882
-	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 12:55:09 +0000 (UTC)
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com
-	[209.85.208.45]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0C1A885A5BB
+	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 14:29:59 +0000 (UTC)
+Received: from gateway11.unifiedlayer.com (gateway11.unifiedlayer.com
+	[74.220.192.56]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-365-o2tOBoS2P3SibrI6Km17Gg-1; Tue, 30 Nov 2021 07:55:07 -0500
-X-MC-Unique: o2tOBoS2P3SibrI6Km17Gg-1
-Received: by mail-ed1-f45.google.com with SMTP id y13so86246978edd.13
-	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 04:55:07 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:message-id:date:mime-version:user-agent
-	:content-language:to:from:subject:content-transfer-encoding;
-	bh=mZ8m5mFo3Tp91pz2T+sZOCpNO9RPasn3ppctqvsbZZY=;
-	b=3CxW9DJpsm7Pg1NI55zLLEkEMtUM58V5ymr26KFj+aq4k3jvgfoO5Vxsq+hS5FNIXf
-	aWJ7Assik9GvMYyb1H5njPhBns7WgJSoISDB9v1JelzeX4ou3HYrcYpK8YVAqeaWrhVU
-	zf8hp5hn+HEeJY8aijYZkkD5+rxQjzeXLAZbPEnyGgs2H/Rh2DDnmbXai8uTU1SaI5m6
-	cV8lWH93HD0gESoRd3QZEx9j7pxl0uHQw9U9vG2s6s9yv/tHeIhCapAA9wpii4AkgZ9Q
-	2GClXgWrID4tvZYwGPXxRhpBmk7CGnhWRIeAg9WcNDaBSMHO03wTLp0ork7tsq6W/2s/
-	aKTQ==
-X-Gm-Message-State: AOAM530opweLnU01zwMEGUk0JwKP5q5Jm6JrGEqWBKM+Im/Jrz8DUMyF
-	NqymxO6r3mErdSo7WD5kMCJoId9CKr2DDQ==
-X-Google-Smtp-Source: ABdhPJw7LfWe6uw3l5Ug5l7hNavhj61vj/iF2ZUqZq1r//c5JAdjmd/vgvvchMU3rFdpiOXSpfkqOQ==
-X-Received: by 2002:a17:907:160b:: with SMTP id
-	hb11mr69323122ejc.336.1638276905944; 
-	Tue, 30 Nov 2021 04:55:05 -0800 (PST)
-Received: from [192.168.8.130] ([41.216.201.233])
-	by smtp.gmail.com with ESMTPSA id
-	sh30sm9176643ejc.117.2021.11.30.04.55.04 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Tue, 30 Nov 2021 04:55:05 -0800 (PST)
-Message-ID: <14705b4c-bcf3-0b86-d90c-ad11da3ddc1a@gmail.com>
-Date: Tue, 30 Nov 2021 14:55:02 +0200
+	us-mta-51-zKBCKl7lPySGw2OB3TehXw-1; Tue, 30 Nov 2021 09:29:57 -0500
+X-MC-Unique: zKBCKl7lPySGw2OB3TehXw-1
+Received: from cm6.websitewelcome.com (unknown [108.167.139.19])
+	by gateway11.unifiedlayer.com (Postfix) with ESMTP id 9E0192009DCCE
+	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 08:05:59 -0600 (CST)
+Received: from uscentral455.accountservergroup.com ([174.136.13.174])
+	by cmsmtp with ESMTP
+	id s3lfmvFeftGNQs3lfmcxD6; Tue, 30 Nov 2021 08:05:59 -0600
+X-Authority-Reason: nr=8
+Received: from 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
+	([76.222.220.222]:39686 helo=bigbox.attlocal.net)
+	by uscentral455.accountservergroup.com with esmtpsa (TLS1.2) tls
+	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+	(envelope-from <blinux.list@thechases.com>) id 1ms3lf-002wJv-AD
+	for blinux-list@redhat.com; Tue, 30 Nov 2021 08:05:59 -0600
+Date: Tue, 30 Nov 2021 08:05:57 -0600
+To: blinux-list@redhat.com
+Subject: Re: What is the easiest and most accessible editor?
+Message-ID: <20211130080557.3c5ae9fe@bigbox.attlocal.net>
+In-Reply-To: <alpine.NEB.2.23.451.2111300127570.10828@panix1.panix.com>
+References: <a3ea6f04-d8a4-2ef4-35cc-8e91d7582ab8@gmail.com>
+	<dcf188c1-db80-bf0a-e54b-474f2fddbf55@gmail.com>
+	<CAO2sX30oEaotc3CObf62R5Dg_0qLiu_qB3V3JF4EUQfACdkG+A@mail.gmail.com>
+	<alpine.NEB.2.23.451.2111291731190.11659@panix1.panix.com>
+	<878bd3e0-d05c-4132-52b4-d29893818041@gmail.com>
+	<alpine.NEB.2.23.451.2111292017540.5144@panix1.panix.com>
+	<20211129210050.090ce9a0@bigbox.attlocal.net>
+	<alpine.NEB.2.23.451.2111300127570.10828@panix1.panix.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.3.0
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: My qemu error
+X-AntiAbuse: This header was added to track abuse,
+	please include it with any abuse report
+X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
+X-AntiAbuse: Original Domain - redhat.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - thechases.com
+X-BWhitelist: no
+X-Source-IP: 76.222.220.222
+X-Source-L: No
+X-Exim-ID: 1ms3lf-002wJv-AD
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
+	(bigbox.attlocal.net) [76.222.220.222]:39686
+X-Source-Auth: tim@thechases.com
+X-Email-Count: 3
+X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
+X-Local-Domain: yes
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -92,8 +108,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Mimecast-Spam-Signature: yes
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -110,61 +125,150 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi all,
+Tim here.  I like RCS when dealing with single files such as one
+configuration file or my "~/notes.txt".  However, once there are
+multiple files involved, I usually switch to one of the others (I've
+used all the ones I've listed, but default to git these days; but
+Fossil is good, too). That way, there's more smarts about how *all*
+the files were at any given point in time.
 
+-tim
 
-If anyone could please help me fix this? I really have no idea what I'm 
-doing when it comes to scripting at all.
-
-
-First, below is the errors I get, see between the quotes.
-
-
-"
-
-qemu-system-x86_64: warning: '-soundhw hda' is deprecated, please use 
-'-device intel-hda -device hda-duplex' instead
-audio: Device hda: audiodev default parameter is deprecated, please 
-specify audiodev=pa
-audio: Device hda: audiodev default parameter is deprecated, please 
-specify audiodev=pa
-
-"
-
-
-Here is the script I used, I don't recall where I got it. I know it does 
-work under Slint, but not under Fedora, Arch or Ubuntu.
-
-
-"
-
-#!/bin/zsh
-
-cd `dirname $0`
-qemu-system-x86_64 -enable-kvm -cpu 
-host,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -m 8G -smp cores=2 
--soundhw hda -device intel-hda -device hda-duplex -audiodev 
-pa,id=pa,out.mixing-engine=off,out.latency=20000 -hda windows.qcow2 -nic 
-user,smb="${HOME}/" -usbdevice braille -boot c
-
-"
-
-
--- 
-Warm regards,
-
-Brandt Steenkamp
-
-Sent from the Fedora machine, using Thunderbird
+On November 30, 2021, Linux for blind general discussion wrote:
+> Version control can be a good idea if users learn to use it.  I
+> found rcs to be the simplest of these systems to learn and use.
+> 
+> 
+> On Mon, 29 Nov 2021, Linux for blind general discussion wrote:
+> 
+> > Tim here.  I like putting my configuration files in version
+> > control, whether git, subversion, or even just old-school RCS.
+> > That way I have a complete history of changes, can undo all sorts
+> > of changes, compare various versions, etc.  It really helps track
+> > down when/why/where something broke.
+> >
+> > -tim
+> >
+> >
+> >
+> >
+> > On November 29, 2021, Linux for blind general discussion wrote:  
+> > > Before editing a configuration file, make a copy of it to
+> > > another file, that way if you do a configuration change you
+> > > don't like you can back out and same goes with any mistakes.
+> > > If you like your changed configuration file, then maybe delete
+> > > your backup.
+> > >
+> > >
+> > > On Mon, 29 Nov 2021, Linux for blind general discussion wrote:
+> > >  
+> > > > Thanks a bundle for all of you folks. I did not know how much
+> > > > of a discussion my innocent and naive question would
+> > > > generate. I learned a lot from your answers. Although I have
+> > > > never messed with configuration files since the days of the
+> > > > autoexec.bat in the days of dos, I think I have enough
+> > > > courage to play with changing some configuration settings
+> > > > using some of the editors you suggested.
+> > > >
+> > > > I launched few of them both in the desktop and in the terminal
+> > > > and I found geany and nano to be easy. I did not find Micro, I
+> > > > guess it is not preinstalled on slint.
+> > > >
+> > > > I know that my editing needs would be very basic.
+> > > >
+> > > > Cheers,
+> > > >
+> > > > Ibrahim
+> > > >
+> > > > On 11/29/21 5:33 PM, Linux for blind general discussion
+> > > > wrote:  
+> > > > > There is teachjove and jove is jonathan's own version of
+> > > > > emacs and teachjove can be run without running jove or emacs
+> > > > > directly.  This can be done from the terminal for any
+> > > > > willing to learn.  I suppose emacs could be configured in
+> > > > > the same way but haven't tried that yet.  It probably would
+> > > > > need a small script.
+> > > > >
+> > > > >
+> > > > > On Mon, 29 Nov 2021, Linux for blind general discussion
+> > > > > wrote: 
+> > > > >> I actually have a computer science degree and still find
+> > > > >> both emacs and vi to be riddles, wrapped in mysteries,
+> > > > >> inside enigmas and I should probably figure out a way to
+> > > > >> add puzzle, conundrum, and a few other synonyms to that
+> > > > >> Matryoshka doll of an idiom.
+> > > > >>
+> > > > >> I don't doubt the claims they are powerful bits of kit once
+> > > > >> mastered, but they certainly for the faint of heart and
+> > > > >> not a good choice if you just want to edit the occasional
+> > > > >> config file.
+> > > > >>
+> > > > >> I personally use Nano, and it lets you just enter nano to
+> > > > >> open a blank file you can just start typing in or nano
+> > > > >> path/to/filename.ext to open an existing file, but it does
+> > > > >> have some commands that might throw people coming from a
+> > > > >> grapphical editor or word processor for a loop(e.g. save is
+> > > > >> ctrl+o, not ctrl+s, quit is ctrl+x, not ctrl+q) and has cut
+> > > > >> and paste that is line based instead of selection
+> > > > >> based(e.g. ctrl+k cuts the current line in its entirety,
+> > > > >> repeating ctrl+k without otheer input continues adding
+> > > > >> lines to the cut buffer, ctrl+u uncuts evereything in the
+> > > > >> cut buffer, copying is accomplished by uncutting where
+> > > > >> youo cut, then uncutting again where you want the copy).
+> > > > >> Also, pressing ctrl+g will bring up nano's full command
+> > > > >> list, while the most commond commandsare printed on the
+> > > > >> bottom two lines of the screen.
+> > > > >>
+> > > > >> For simpler console text editors, there's also Micro,
+> > > > >> which is similar to Pico/nano, but has key bindings more
+> > > > >> in line with the majority of graphical editors.
+> > > > >>
+> > > > >> _______________________________________________
+> > > > >> Blinux-list mailing list
+> > > > >> Blinux-list@redhat.com
+> > > > >> https://listman.redhat.com/mailman/listinfo/blinux-list
+> > > > >>
+> > > > >>  
+> > > > > _______________________________________________
+> > > > > Blinux-list mailing list
+> > > > > Blinux-list@redhat.com
+> > > > > https://listman.redhat.com/mailman/listinfo/blinux-list
+> > > > >  
+> > > >
+> > > > _______________________________________________
+> > > > Blinux-list mailing list
+> > > > Blinux-list@redhat.com
+> > > > https://listman.redhat.com/mailman/listinfo/blinux-list
+> > > >
+> > > >
+> > > >  
+> > >
+> > > _______________________________________________
+> > > Blinux-list mailing list
+> > > Blinux-list@redhat.com
+> > > https://listman.redhat.com/mailman/listinfo/blinux-list
+> > >  
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://listman.redhat.com/mailman/listinfo/blinux-list
+> >
+> >  
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
