@@ -2,95 +2,93 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 701F4463F7E
-	for <lists+blinux-list@lfdr.de>; Tue, 30 Nov 2021 21:53:16 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A43FD463F7D
+	for <lists+blinux-list@lfdr.de>; Tue, 30 Nov 2021 21:53:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638305595;
+	s=mimecast20190719; t=1638305594;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=jBYPm8VQ2zHlhb/7q5dFBFLTsGg4FzhLhL3x70jyw9Y=;
-	b=czq4cQ77QsjFUxhnXuM7mZ8AxiVJiG7naWbmBkd3KKiE0simZ3cUrrvxyWYisEBg7d2rAH
-	woDFZPKUCcO+eAwU8PyGiwrNU1hrQ4uFpwwsxuvfcXQ382feRuntXVPDtryTqTxa0Fjsjc
-	cqx6NmIbFqGuHvo8nRa3ByHxOw/9rPo=
+	bh=WM6eybFk94fIPduS1/op4FKIBFd+5RO/essaAsBxGKM=;
+	b=ERLKD5RHsAPV/4qKf3xKDjxixA16sCtCWT4fzwWtsDtWPXn5bFmTrOn9tmn9dEzql4hoCl
+	2BuuxsoA92PBis74MGxib2kFL7YovAdSJwAIW0HwkGOIm7WDw7d9v3Xiu44tridFlCc0m3
+	/EGQ9CCb9SRSatNMtRip157+XrvI+Nw=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-602-lZpjVhnCPTaXiieAoUUM8A-1; Tue, 30 Nov 2021 15:53:10 -0500
-X-MC-Unique: lZpjVhnCPTaXiieAoUUM8A-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-288-fuv6-LEXPmOKPWz4jhiVSg-1; Tue, 30 Nov 2021 15:53:12 -0500
+X-MC-Unique: fuv6-LEXPmOKPWz4jhiVSg-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 49B8681CCB4;
-	Tue, 30 Nov 2021 20:53:04 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0167E60C0F;
-	Tue, 30 Nov 2021 20:53:04 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A22DA1927804;
+	Tue, 30 Nov 2021 20:53:05 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8BBA65E24E;
+	Tue, 30 Nov 2021 20:53:05 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C56FC4BB7C;
-	Tue, 30 Nov 2021 20:53:00 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C6B581809C8A;
+	Tue, 30 Nov 2021 20:53:04 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.8])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1AUKhAtO027247 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 30 Nov 2021 15:43:10 -0500
+	id 1AUKi0RF027341 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 30 Nov 2021 15:44:00 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 9CAE32026D5D; Tue, 30 Nov 2021 20:43:10 +0000 (UTC)
+	id DD16BC08F3B; Tue, 30 Nov 2021 20:43:59 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 976C72026D4D
-	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 20:43:07 +0000 (UTC)
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D91A9C08F26
+	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 20:43:59 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 88222811E76
-	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 20:43:07 +0000 (UTC)
-Received: from mail-yb1-f180.google.com (mail-yb1-f180.google.com
-	[209.85.219.180]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BF787185A7B2
+	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 20:43:59 +0000 (UTC)
+Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com
+	[209.85.208.46]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-331-cqRY4ilhNmeqj647yr9EaQ-1; Tue, 30 Nov 2021 15:43:05 -0500
-X-MC-Unique: cqRY4ilhNmeqj647yr9EaQ-1
-Received: by mail-yb1-f180.google.com with SMTP id q74so56393506ybq.11
-	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 12:43:05 -0800 (PST)
+	us-mta-259-tOTdRjJXP-yyZrlFheMZ3g-1; Tue, 30 Nov 2021 15:43:57 -0500
+X-MC-Unique: tOTdRjJXP-yyZrlFheMZ3g-1
+Received: by mail-ed1-f46.google.com with SMTP id l25so91863352eda.11
+	for <blinux-list@redhat.com>; Tue, 30 Nov 2021 12:43:57 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to;
-	bh=7y5kGCLx++bSoi9+voglEwEhVPauhkqRBJcoz8ul5jU=;
-	b=hQm/mJNvemOMSAPC0XU0u0Ix6yTGUMwQQuhEX7cRS532Dx0ERudTHI4tkNTChHNMYf
-	YwOfeduDLlNn/yqEwkMuGeWpKy1ajfdVqXnga7pV3Ps4nmhXrI+UKB/MWtY2ywqPfh/G
-	ttngpuC9lltvxC0DPgLhj0qnCikA7eR1mVhRtMEQ3R8VrzjBISt5a+ipntAbLf1zpGXf
-	ma1ouLfVVipSRooFEM0XSZ2a897DvwCJiIPGTw9OVA7w8vXa/UhVEJmFvIidjpTJT/3q
-	8dbqyB398K5MA86zBBP9UfGYXH9aS+5OIe7FosYD/G/iRxLRW+uYDLBNeTuncO4j4OET
-	6PAg==
-X-Gm-Message-State: AOAM533kIZX+RIyu02c2C4UdYC2BVAQXQGkUPxzcvmoLgxVT91qQNrrW
-	I2Jog1LmBJe1M37z6SWYZM1bc1EHMPEZakpDQ/U1rlxFPaA=
-X-Google-Smtp-Source: ABdhPJxUow76gxsr7iaOdLoBUqefgH7VZiTLfP1DrP0KrvwQicE+tSoJDwBR82Gr2iUWiU/StIKLHQjhQeqFYIirb0E=
-X-Received: by 2002:a25:518a:: with SMTP id f132mr1673682ybb.749.1638304984469;
-	Tue, 30 Nov 2021 12:43:04 -0800 (PST)
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=GZLZgEG9W8UxjCmZ0EVFuUgVI9i9bAxHwrAv4c7CWF4=;
+	b=WcTwGBTCPSbq3m+sZ+RRVfQ27qiEdTK2SieTidoD7zRWlennw3LZpZg6LmbtbQlHKQ
+	+jk4EEC4iwmY3jrz0T0Ok4qUwwtVFAPOpWz8OU9MIngpQDmztySUPNVZif+T9Yzns9Vg
+	NUvt+1fZm1F+nzauc5kMflNjp+sKQv4yf51Lv/N0mzZ6nqf1OblbYjL5wCefvgC5QNcN
+	uwkptxL+9pwe1BFrKi0K6/IBRTYpE4wZnLck0e4r55qJmCQ7SXOx/GiJyam9rh0ra1Xj
+	Bv5e+7sYp6Hhbz6s5GrooXORu/kjAW+LoITSk+n7mEDdKSw8eeTFaYfVWY1q2JXens6X
+	z4Zw==
+X-Gm-Message-State: AOAM533q3LXb1kYIB7+Re9957feGDZ6yMytOyOxY6dvVVZLG4XBKjj5R
+	IR9G0aQK6QaG63CVXOrP/JrZKLStdh7J7g==
+X-Google-Smtp-Source: ABdhPJyP7AnPUV5KPrYL8Zffx8AR643LVX+3YQgNlrAj40LQMaZFH0W4+8TYa5pTYxbELRmkfHWBgg==
+X-Received: by 2002:a05:6402:8:: with SMTP id d8mr1899088edu.61.1638305036303; 
+	Tue, 30 Nov 2021 12:43:56 -0800 (PST)
+Received: from [192.168.8.130] ([41.216.201.233])
+	by smtp.gmail.com with ESMTPSA id
+	x7sm14096346edd.28.2021.11.30.12.43.55 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Tue, 30 Nov 2021 12:43:55 -0800 (PST)
+Message-ID: <cc6c7abc-5b3e-5d19-2b20-e50f9409b703@gmail.com>
+Date: Tue, 30 Nov 2021 22:43:53 +0200
 MIME-Version: 1.0
-References: <a3ea6f04-d8a4-2ef4-35cc-8e91d7582ab8@gmail.com>
-	<dcf188c1-db80-bf0a-e54b-474f2fddbf55@gmail.com>
-	<CAO2sX30oEaotc3CObf62R5Dg_0qLiu_qB3V3JF4EUQfACdkG+A@mail.gmail.com>
-	<alpine.NEB.2.23.451.2111291731190.11659@panix1.panix.com>
-	<878bd3e0-d05c-4132-52b4-d29893818041@gmail.com>
-	<7d174815-a616-2abd-72e9-014ac8bf2b8b@slint.fr>
-	<87bl22kqlz.fsf@brainpower.wer>
-	<CAO2sX32s07jDN=1KiJCQ-31_gh5RAFFXBibGwKrLd4zuDpESKQ@mail.gmail.com>
-	<PH0PR14MB4296B85503BE458036633010C8679@PH0PR14MB4296.namprd14.prod.outlook.com>
-	<4d3de3ee-529a-0829-300e-3a1999cf2a76@gmail.com>
-	<PH0PR14MB4296ABD498F0634DA72DCA10C8679@PH0PR14MB4296.namprd14.prod.outlook.com>
-	<d7fdfa4d-de81-02bc-eb50-f741e3ab0c63@gmail.com>
-	<bc065beb-52da-b768-adc4-4c43436dc600@gmail.com>
-In-Reply-To: <bc065beb-52da-b768-adc4-4c43436dc600@gmail.com>
-Date: Tue, 30 Nov 2021 14:42:52 -0600
-Message-ID: <CAGJxbF5HR_S7V8mYx7td7LY7wiucD1YwkqdOMDGV9yUR6w8O=Q@mail.gmail.com>
-Subject: Re: What is the easiest and most accessible editor?
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.3.0
+Subject: Re: My qemu error
 To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <14705b4c-bcf3-0b86-d90c-ad11da3ddc1a@gmail.com>
+	<a4dfb37b-cf9e-ecad-bf05-cf6e0a0d3774@slint.fr>
+	<478b6e46-5ca1-266a-695b-6f8119e207fa@slint.fr>
+In-Reply-To: <478b6e46-5ca1-266a-695b-6f8119e207fa@slint.fr>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -99,9 +97,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 X-loop: blinux-list@redhat.com
-X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -117,114 +114,59 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-"Emacs tutorial" is in the "splash screen" that opens on first use of Emacs.
-Devin Prater
-r.d.t.prater@gmail.com
-
-
-
-
-On Tue, Nov 30, 2021 at 2:32 PM Linux for blind general discussion <
-blinux-list@redhat.com> wrote:
-
-> Hi all,
->
->
-> I have been following this discussion for a bit and was wondering, and
-> have been doing so for a while, where do you go to learn Emacs?
->
->
-> Even worse is Emacsspeak, the user guide I can find out there is more
-> than 10 years old.
->
->
-> Isn't there a concise, easy to follow step-by-step guide out there some
-> ware?
->
->
-> I'd think those, so passionate about their chosen choice would make it
-> possible for the newbie to learn, Gentoo and Arch did it, why not Emacs
-> and Emacsspeak?
->
->
-> Warm regards,
->
-> Brandt Steenkamp
->
-> Sent from the Fedora machine, using Thunderbird
->
-> On 2021/11/30 19:45, Linux for blind general discussion wrote:
-> > Interesting. The problem is that email itself has several components
-> > that don't fit well into an editor window. Reading and writing emails
-> > for example fits into an editor style window just fine, but setting up
-> > email accounts, moving through folders and lists of messages,
-> > expanding and collapsing threads, etc just don't fit into that box
-> > very well.
-> >
-> > I also had a look at one point at the shell terminal. Whereas it's
-> > good to be able to edit the current command line, I found that
-> > pressing the up arrow key to put the previous command back on the
-> > screen to either repeat or modify didn't bring up the previous
-> > command, but instead put my cursor on the last line of the previous
-> > command's output. Shells need to be line edited, not screen edited,
-> > and that's where the whole thing fell flat, especially since as I
-> > recall, I was even able to accidentally overwrite command output
-> > because the whole screen is in an editable ... buffer I think they
-> > call it.
-> >
-> > Regarding the key sequences, x is a way to cross something out, x it
-> > out, cut it. C stands for copy, and I guess v got its paste
-> > functionality because it's right next to cut and copy. Not sure about
-> > that one. Still, it's better than some of the key combinations I find
-> > even in nano, control+w to find something for example, or even better
-> > is control+q, which is supposed to quit, but instead performs a
-> > backward search. What the ...? Emacs keys are even worse, since as I
-> > recall, finding something requires two key combinations, and if I
-> > remember correctly, neither includes an f for find or even an s for
-> > search. Emacs puts me in mind of the old days of a little program I
-> > used in school called Turbo Pascal. That horrible thing ... if I
-> > wanted to compile the program I had just written,-  I still remember
-> > it - I had to press control+k and then d. Again, what the ...? I don't
-> > know ... I just did it ... because that's what the teacher told me I
-> > had to do in order to compile my program. Nothing in that key sequence
-> > could be thought of as compile or even build, well, maybe the d on the
-> > end of build. But that sure was a nightmare to have to remember that
-> > that's what that crazy combination of keys did. I can only imagine
-> > everything working that way, which was the experience I had when I
-> > looked at some Emacs documentation. But then I could be wrong, since
-> > the last time I even opened the application was probably 15 years ago,
-> > and I didn't even see the nice little help thingy at the bottom of the
-> > screen like what I got from Nano and Pico that I had used before it.
-> > At least in vim I was able to use the :help command to get me started,
-> > but even that was much more complicated than it needed to be,
-> > especially when I just wanted to cut something and paste it somewhere
-> > else in the same file. I do like its search and replace functionality
-> > though. %s/something/else/g if I remember correctly, just like in the
-> > sed command, will replace every occurrence of something with else.
-> > That said, I can just as easily run a find and replace, put something
-> > in the search field and else in the replace field, then tick the box
-> > that says replace all, and it's just as good, and doesn't even use
-> > more fingers, since the tab key is replacing the / key in this use case.
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+QXMgSSBzdGF0ZWQsIEknbSBydW5uaW5nIEZlZG9yYSBNYXRlIENvbXBpeiAzNSBhdCB0aGUgbW9t
+ZW50LCBhbmQKCiR1bmFtZSAtcgoKZ2l2ZXMgbWUgdGhlIGZvbGxvd2luZy4KCjUuMTUuNS0yMDAu
+ZmMzNS54ODZfNjQKCgpXYXJtIHJlZ2FyZHMsCgpCcmFuZHQgU3RlZW5rYW1wCgpTZW50IGZyb20g
+dGhlIEZlZG9yYSBtYWNoaW5lLCB1c2luZyBUaHVuZGVyYmlyZAoKT24gMjAyMS8xMS8zMCAyMDow
+MywgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90ZToKPiBQUyBpbnN0ZWFk
+IG9mOgo+IC9ib290L2NvbmZpZy1nZW5lcmljLTUuMTQuMTMKPiBwbGVhc2UgcmVhZDoKPiAvYm9v
+dC9jb25maWctZ2VuZXJpYy01LjEzLjEzCj4KPiBPVCBCb3RoIHRoZSA1LjEzIGFuZCA1LjE0IGhh
+dmUgYmVlbiBkZWNsYXJlZCBFbmQgb2YgTGlmZSwgSSB3aWxsIAo+IHByb3ZpZGUgYQo+IDUuMTUu
+eiB3aGVuIEkgd2lsbCB0aGluayB0aGlzIGJyYW5jaCBpcyBzdGFibGUgZW5vdWdoLgo+Cj4gRGlk
+aWVyCj4KPiBMZSAzMC8xMS8yMDIxIMOgIDE4OjQ5LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBk
+aXNjdXNzaW9uIGEgw6ljcml0wqA6Cj4+IEhpIEJyYW5kdCwKPj4gYW5zd2VycyBpbmxpbmUKPj4K
+Pj4gTGUgMzAvMTEvMjAyMSDDoCAxMzo1NSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vz
+c2lvbiBhIMOpY3JpdMKgOgo+Pj4gcWVtdS1zeXN0ZW0teDg2XzY0OiB3YXJuaW5nOiAnLXNvdW5k
+aHcgaGRhJyBpcyBkZXByZWNhdGVkLCBwbGVhc2UgCj4+PiB1c2UgJy1kZXZpY2UgaW50ZWwtaGRh
+IC1kZXZpY2UgaGRhLWR1cGxleCcgaW5zdGVhZAo+Pj4gYXVkaW86IERldmljZSBoZGE6IGF1ZGlv
+ZGV2IGRlZmF1bHQgcGFyYW1ldGVyIGlzIGRlcHJlY2F0ZWQsIHBsZWFzZSAKPj4+IHNwZWNpZnkg
+YXVkaW9kZXY9cGEKPj4+IGF1ZGlvOiBEZXZpY2UgaGRhOiBhdWRpb2RldiBkZWZhdWx0IHBhcmFt
+ZXRlciBpcyBkZXByZWNhdGVkLCBwbGVhc2UgCj4+PiBzcGVjaWZ5IGF1ZGlvZGV2PXBhCj4+Pgo+
+PiBJbiB0aGUgY29tbWFuZCByZW1vdmUKPj4gLXNvdW5kaHcgaGRhCj4+IHdoaWNoIGlzIHJlZHVu
+ZGFudCB3aXRoCj4+IC1kZXZpY2UgaW50ZWwtaGRhIC1kZXZpY2UgaGRhLWR1cGxleAo+PiBhbmQg
+cHJvYmFseSByZXBjYWNlCj4+IC0tYXVkaW9kZXYgcGEKPj4gYnk6Cj4+IC0tYXVkaW9kZXY9cGFo
+b3dldmVyLCBtYXliZSB0aGlzIHdob2xlIHN0dWZmIGlzIG5vdCAKPj4gbmVjZXNzYXJ5Oi1hdWRp
+b2RldiBwYSxpZD1wYSxvdXQubWl4aW5nLWVuZ2luZT1vZmYsb3V0LmxhdGVuY3k9MjAwMDAKPj4g
+SSBkb24ndCBoYXZlIGl0Lgo+Pgo+PiDCoD7CoCBrbm93IGl0IGRvZXMgd29yayB1bmRlciBTbGlu
+dCwgYnV0IG5vdCB1bmRlciBGZWRvcmEsIEFyY2ggb3IgVWJ1bnR1Lgo+Pgo+PiBNYXliZSB0aGUg
+a2VybmVsIHlvdSBhcmUgcnVubmluZyBpbiBGZWRvcmEsIEFyY2ggb3IgVWJ1bnR1IGRvZXMgbm90
+IAo+PiBoYXZlIGEKPj4gcHJvcGVyIGNvbmZpZ3VyYXRpb24gZm9yIEtWTSwgcmVhZDoKPj4gaHR0
+cHM6Ly93d3cubGludXgta3ZtLm9yZy9wYWdlL1R1bmluZ19LZXJuZWwKPj4KPj4gSW4gU2xpbnQg
+dGhlIGtlcm5lbCBjb25maWd1cmF0aW9uIGlzIGZvdW5kIGluIG9uZSBvZiB0aGVzZSBmaWxlczoK
+Pj4gL2Jvb3QvY29uZmlnLWdlbmVyaWMtNS4xNC4xNC54NjQKPj4gL2Jvb3QvY29uZmlnLWdlbmVy
+aWMtNS4xNC4xMwo+PiBUaGVzZSBjb21tYW5kczoKPj4gY2F0IC9wcm9jL2NtZGxpbmUKPj4gdW5h
+bWUgLXIKPj4gdGVsbCB5b3Ugd2hpY2gga2VybmVsIGlzIHJ1bm5pbmcsIHNvIHlvdSBrbm93IGhv
+dyBpdCBpcyBjb25maWd1cmVkLgo+Pgo+PiBBbHNvLCB0aGVyZSBjb3VsZCBiZSBhbiBpc3N1ZSB3
+aXRoIHlvdXIgcWVtdSB2ZXJzaW9uLgo+Pgo+PiBJbiBTbGludCBhdCB0aW1lIG9mIHdyaXRpbmc6
+Cj4+IGRhbmNlW35dJCBxZW11LXN5c3RlbS14ODZfNjQgLS12ZXJzaW9uCj4+IFFFTVUgZW11bGF0
+b3IgdmVyc2lvbiA2LjAuMAo+PiBDb3B5cmlnaHQgKGMpIDIwMDMtMjAyMSBGYWJyaWNlIEJlbGxh
+cmQgYW5kIHRoZSBRRU1VIFByb2plY3QgZGV2ZWxvcGVycwo+Pgo+PiBDaGVlcnMsCj4+IERpZGll
+cgo+Pgo+Pgo+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+Xwo+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+
+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
+Cj4KPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4g
+QmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBz
+Oi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1h
+aWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQu
+Y29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
 
