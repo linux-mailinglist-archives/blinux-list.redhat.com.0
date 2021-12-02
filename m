@@ -2,93 +2,92 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 048DF466DC7
-	for <lists+blinux-list@lfdr.de>; Fri,  3 Dec 2021 00:30:04 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7E60B466DF3
+	for <lists+blinux-list@lfdr.de>; Fri,  3 Dec 2021 00:41:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638487804;
+	s=mimecast20190719; t=1638488491;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Jt7daAMUEMe/CUMvIUPYqvsig+iSJJ4v17Uc/BrloeA=;
-	b=ICyEBVhuAjoKDLIYTQKPom5crVf8hA68FBz1XIG8RWqo0hGLI6ItLiFuDMfUjeKT+ayxsR
-	Vig7+iB+LM9ZEt/wCncl5cmS/VLGIldnOG2or+9mhajcM7MDeKm8fP96BwEexYC5L6saJo
-	g5kbUPQ3a6kyCP3oU4P35SvZIdlD3mM=
+	bh=honI4MJelC7q1uv5R9DXWWztQdBjGs0LmXZq9DJioeA=;
+	b=DyDmMtj/rlrLivJO/SOymitd5FgMGPv5nXJ+wYQ95eISnEkxiwtqhLutrzHm6YleU5QaYG
+	0+/8Oaqs+N4AqLDAH/AvMsYSIx+GdRRlfPcG8hfZWiSx9UfPbyCCuUd7xsufDwuweVZVSS
+	1wuG4aV6tN4lfrj0sTt/LTKZB2SqLDg=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-462-G2qhwk5sOSOD7--WW7mcow-1; Thu, 02 Dec 2021 18:29:56 -0500
-X-MC-Unique: G2qhwk5sOSOD7--WW7mcow-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-354-V1lDdVQvPRmItW2S3awSdg-1; Thu, 02 Dec 2021 18:41:27 -0500
+X-MC-Unique: V1lDdVQvPRmItW2S3awSdg-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6EA781023F50;
-	Thu,  2 Dec 2021 23:29:52 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8E12F45D6C;
-	Thu,  2 Dec 2021 23:29:51 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 78F8C1017968;
+	Thu,  2 Dec 2021 23:41:24 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 65BFE4ABA2;
+	Thu,  2 Dec 2021 23:41:24 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BAFE81809C89;
-	Thu,  2 Dec 2021 23:29:48 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.9])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 93C664BB7C;
+	Thu,  2 Dec 2021 23:41:23 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1B2NTinI018925 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 2 Dec 2021 18:29:44 -0500
+	id 1B2NbTlF020655 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 2 Dec 2021 18:37:30 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 19AE2492C3B; Thu,  2 Dec 2021 23:29:44 +0000 (UTC)
+	id D65F6401E38; Thu,  2 Dec 2021 23:37:29 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 15625492C38
-	for <blinux-list@redhat.com>; Thu,  2 Dec 2021 23:29:44 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D2C2A401E2C
+	for <blinux-list@redhat.com>; Thu,  2 Dec 2021 23:37:29 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F04968001EA
-	for <blinux-list@redhat.com>; Thu,  2 Dec 2021 23:29:43 +0000 (UTC)
-Received: from mail-qv1-f53.google.com (mail-qv1-f53.google.com
-	[209.85.219.53]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B9FC6811E78
+	for <blinux-list@redhat.com>; Thu,  2 Dec 2021 23:37:29 +0000 (UTC)
+Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com
+	[209.85.222.181]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-231-QyChbUgpN1iXDjFneylogw-1; Thu, 02 Dec 2021 18:29:42 -0500
-X-MC-Unique: QyChbUgpN1iXDjFneylogw-1
-Received: by mail-qv1-f53.google.com with SMTP id b11so1085896qvm.7
-	for <blinux-list@redhat.com>; Thu, 02 Dec 2021 15:29:42 -0800 (PST)
+	us-mta-52-WDbDp46_PKyezhijvj4iXA-1; Thu, 02 Dec 2021 18:37:28 -0500
+X-MC-Unique: WDbDp46_PKyezhijvj4iXA-1
+Received: by mail-qk1-f181.google.com with SMTP id p4so1669006qkm.7
+	for <blinux-list@redhat.com>; Thu, 02 Dec 2021 15:37:28 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
 	h=x-gm-message-state:subject:to:references:from:message-id:date
 	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
-	bh=J3R2Npp0mTAY0H8n9Hn8j9oXWDkZlEmzSHODgXBmrLw=;
-	b=jn9UL2aklh7C+V9FHxZKehTQZDmQ1OoAOSgWji0hBS+VEb7joI4uyogzU71An3NWvO
-	b0XBh1pmhXrM6YN7S/N4NixcFetfLEdjkdd6tZ9WvxKq5xWIp6gSOnT5gVJ0yYhKkbNc
-	aU+v2ygs7HymIpnFIvRMtet/po70kr6wmxpbSgH5c6/suBadk7tz3ySfshsu8PAXlSuk
-	iiQaEVK/JeV9fPp/Nzapq3N9N/YU7wfF5fi8BjZBjFV4qYpMf+hEdDwfeprUglspsGeb
-	H6FuHOvRK7C2RnJjVlGZaqmP7Y9KqinzoCHb80bUTQwaAdUWGU7If1cBh7TwqgRfwfOm
-	yLFQ==
-X-Gm-Message-State: AOAM5337Vsv1qyd4r7urh1uDHWMdCZosR+b1mNnNHRdWNYLc5FGZPhbG
-	XxrXbPU1S0BU5KdQhHj7x9YDkJ078n0=
-X-Google-Smtp-Source: ABdhPJyRHDhp67nsNsK6y7K7jHHVIHh+Bpmx25FwKbD4QIJmuTpNxbLB0zcSnQk1mz3uB7FzQrsceQ==
-X-Received: by 2002:ad4:5ba7:: with SMTP id 7mr16297296qvq.109.1638487781956; 
-	Thu, 02 Dec 2021 15:29:41 -0800 (PST)
+	bh=L2Owemyu6nBDUXBbu31text3frKUMU3WIpIO4DMp9BM=;
+	b=5oM4ObyTRdA9pBC8fFCT61jM4OM/f1bXdMo8oC0s1ryv99arlJKkeUc7zhSYa5qqQU
+	jkw3kEvKpjirLWEwXYQzP3mYykwK+U3bclLrCzxKZVoZLLpNiWr7fgOVshrss0cG+871
+	jG5TMTVKxiernl16/I57OkeYY55D8KdKUHyMfJmPArWF0uQz5NdS+/OOz0/gt8rv/fqI
+	R1I6JhGMXaGvqmMrALfpdH5ySSlOefMbbUU0qZ7liO44U0KvcUnckf+wQN2LyznB2fUi
+	pxVG1WEEn4aVxgjqXIwNH2QKSxMGvUtAqw3wS7esfD7zZTppLXu1+QITiBWCBF5gcViy
+	ZGWQ==
+X-Gm-Message-State: AOAM533gmCBHnMvwQRaoSGci9SdN2nKcoT+FlCAA7PUcGjvYs4NrMN4V
+	QvWEM0JgyFstb9AUQ8BjdXpVjRIUrvE=
+X-Google-Smtp-Source: ABdhPJwEOkbpju1Rw/XVlAfznXlfwFEfDrd/fDZtmBdoz2czt2BnOpF27s6bA9d0iPP8TElw8OyvFg==
+X-Received: by 2002:a05:620a:1789:: with SMTP id
+	ay9mr15034816qkb.553.1638488247537; 
+	Thu, 02 Dec 2021 15:37:27 -0800 (PST)
 Received: from ?IPv6:2603:6080:6304:450a::960?
 	(2603-6080-6304-450a-0000-0000-0000-0960.res6.spectrum.com.
-	[2603:6080:6304:450a::960])
-	by smtp.gmail.com with ESMTPSA id v21sm1052052qta.0.2021.12.02.15.29.41
-	for <blinux-list@redhat.com>
+	[2603:6080:6304:450a::960]) by smtp.gmail.com with ESMTPSA id
+	i11sm906017qko.116.2021.12.02.15.37.27 for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 02 Dec 2021 15:29:41 -0800 (PST)
-Subject: Re: two questions for the experts
-To: blinux-list@redhat.com
-References: <1e931725-0939-4d63-41c9-00e509d0b25c@gmail.com>
-Message-ID: <af43849a-3949-a189-e294-9e488766fa78@gmail.com>
-Date: Thu, 2 Dec 2021 18:29:40 -0500
+	Thu, 02 Dec 2021 15:37:27 -0800 (PST)
+Subject: Re: Help booting live disk
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <8165B247-F098-4F16-8FFB-3F797D5153B0@icloud.com>
+Message-ID: <a639793f-b727-74f1-6461-bbc9b525ff31@gmail.com>
+Date: Thu, 2 Dec 2021 18:37:26 -0500
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
 	Thunderbird/60.0
 MIME-Version: 1.0
-In-Reply-To: <1e931725-0939-4d63-41c9-00e509d0b25c@gmail.com>
+In-Reply-To: <8165B247-F098-4F16-8FFB-3F797D5153B0@icloud.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -97,7 +96,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -114,7 +113,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -122,13 +121,15 @@ X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-To bind shortcut keys to speech rate, check the keybindings tab. There are 
-unbound keys to increase speech rate and decrease speech rate. First, arrow to 
-the right once and you will hear keybinding. Press the enter key there and press 
-the key you want to bind to that shortcut. Then arrow right once more and tick 
-the "modified" checkbox. There is also an unbound keybinding to cycle to the 
-next settings profile. Perform the same steps to bind that shortcut to the key 
-you want.
+Shortly after you power on the laptop, usually about 2 to 3 seconds, press the 
+F12 key. It never hurts to press it once every second after that, letting 
+another 3 to 4 seconds go by. Now press the down arrow key once, followed by the 
+enter key. Count off another 3 seconds for safety and press the enter key again, 
+or else perform the steps your distro requires in order to start it talking. If 
+your computer doesn't boot to the USB stick after this, repeat the steps above, 
+except instead of pressing the down arrow key once, press it twice. Keep 
+repeating those steps, adding in additional presses of the down arrow key each 
+time until it does boot correctly.
 ~Kyle
 
 _______________________________________________
