@@ -1,83 +1,75 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0961F466D56
-	for <lists+blinux-list@lfdr.de>; Thu,  2 Dec 2021 23:55:58 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 644A6466D62
+	for <lists+blinux-list@lfdr.de>; Thu,  2 Dec 2021 23:58:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638485758;
+	s=mimecast20190719; t=1638485895;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=l9M81vqZnGdjXBRRWmVi0KJXlznsixMLxxfR2uSkbgk=;
-	b=JdNiFBX9J0kVjtaEJCHv86O+6/2ntRHXifX5ph4bx6a35qfWWlqDr/2Eij0H+btos+/75U
-	QmMSd/J5xUvIZYtCrEmRAA++NoFa0kRaVESB0IwdyUOzwzJ/mAYWHufOyknF2sH1oYkz/v
-	ptE/aM2DhfhIasRQZySKiW1Hkj8wtlI=
+	bh=iVU/khEg3Q5Am9WmDCSmLjHJIbFjE1VvYnOhVQY+Hio=;
+	b=CUSYins6us/JgoOzxuujRtdD1w96UXNaa+J7/dQAz/CQGPikmHIb73UhVTaoNd75/gn9OM
+	yaDR7XFfvRDspjcl9LqyRUge9ABXDDxOAv7HimVw9OaPVueOS5EvhmslojPgkwLYt8hL4b
+	TawvUsTCWlUjQmmGF5uhsQVQ0TUlNqI=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-167-MCrNVxdbMyq17zThcB6lGQ-1; Thu, 02 Dec 2021 17:55:54 -0500
-X-MC-Unique: MCrNVxdbMyq17zThcB6lGQ-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-156-2vO3JZMrP4Og8-YYZ8uLnQ-1; Thu, 02 Dec 2021 17:58:11 -0500
+X-MC-Unique: 2vO3JZMrP4Og8-YYZ8uLnQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 25AAD101872B;
-	Thu,  2 Dec 2021 22:55:51 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 075985F4E7;
-	Thu,  2 Dec 2021 22:55:50 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9BF60192CC40;
+	Thu,  2 Dec 2021 22:58:07 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8495B5DF2B;
+	Thu,  2 Dec 2021 22:58:07 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E96CA1809C89;
-	Thu,  2 Dec 2021 22:55:48 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.7])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5E7484A718;
+	Thu,  2 Dec 2021 22:58:03 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1B2Mql2j015323 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 2 Dec 2021 17:52:47 -0500
+	id 1B2MvxFu016766 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 2 Dec 2021 17:57:59 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 8D9D3140240A; Thu,  2 Dec 2021 22:52:47 +0000 (UTC)
+	id 435AB401E56; Thu,  2 Dec 2021 22:57:59 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 890DE1402406
-	for <blinux-list@redhat.com>; Thu,  2 Dec 2021 22:52:47 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6FFDD185A79C
-	for <blinux-list@redhat.com>; Thu,  2 Dec 2021 22:52:47 +0000 (UTC)
-Received: from st43p00im-zteg10061901.me.com (st43p00im-zteg10061901.me.com
-	[17.58.63.168]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-452-Q6pv1fQtPCWzuj5Cs7jN9A-1; Thu, 02 Dec 2021 17:52:45 -0500
-X-MC-Unique: Q6pv1fQtPCWzuj5Cs7jN9A-1
-Received: from smtpclient.apple (c-73-237-149-120.hsd1.ga.comcast.net
-	[73.237.149.120])
-	by st43p00im-zteg10061901.me.com (Postfix) with ESMTPSA id 5A68B860885
-	for <blinux-list@redhat.com>; Thu,  2 Dec 2021 22:52:44 +0000 (UTC)
-Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.120.0.1.13\))
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3EFCD401E38
+	for <blinux-list@redhat.com>; Thu,  2 Dec 2021 22:57:59 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 25A38858EED
+	for <blinux-list@redhat.com>; Thu,  2 Dec 2021 22:57:59 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-535-iZy5QxTTN2SMogAVJ91Y9w-1; Thu, 02 Dec 2021 17:57:57 -0500
+X-MC-Unique: iZy5QxTTN2SMogAVJ91Y9w-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4J4rvn0vcRz48ks
+	for <blinux-list@redhat.com>; Thu,  2 Dec 2021 17:57:57 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4J4rvn0J3dzcbc; Thu,  2 Dec 2021 17:57:57 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4J4rvm73tlzcbP
+	for <blinux-list@redhat.com>; Thu,  2 Dec 2021 17:57:56 -0500 (EST)
+Date: Thu, 2 Dec 2021 17:57:56 -0500
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Help booting live disk
-Date: Thu, 2 Dec 2021 17:52:43 -0500
+In-Reply-To: <CAM+Q2c7ZodTV6ZbYN2tFsiQ_iG6NzfcdoC77VWytuN5sePmJMA@mail.gmail.com>
+Message-ID: <alpine.NEB.2.23.451.2112021754500.1114@panix1.panix.com>
 References: <8165B247-F098-4F16-8FFB-3F797D5153B0@icloud.com>
 	<CAM+Q2c7ZodTV6ZbYN2tFsiQ_iG6NzfcdoC77VWytuN5sePmJMA@mail.gmail.com>
-To: Linux for blind general discussion <blinux-list@redhat.com>
-In-Reply-To: <CAM+Q2c7ZodTV6ZbYN2tFsiQ_iG6NzfcdoC77VWytuN5sePmJMA@mail.gmail.com>
-Message-Id: <855B4BCD-E46E-4774-BE77-091C9BCABCC7@icloud.com>
-X-Proofpoint-Virus-Version: =?UTF-8?Q?vendor=3Dfsecure_engine=3D1.1.170-22c6f66c430a71ce266a39bfe25bc?=
-	=?UTF-8?Q?2903e8d5c8f:6.0.425, 18.0.790,
-	17.11.62.513.0000000_definitions?=
-	=?UTF-8?Q?=3D2021-12-02=5F14:2021-12-01=5F01, 2021-12-02=5F14,
-	2021-12-02?= =?UTF-8?Q?=5F01_signatures=3D0?=
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999
-	spamscore=0
-	malwarescore=0 phishscore=0 mlxscore=0 suspectscore=0 bulkscore=0
-	clxscore=1015 adultscore=0 classifier=spam adjust=0 reason=mlx
-	scancount=1
-	engine=8.12.0-2009150000 definitions=main-2112020137
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -86,9 +78,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 1B2Mql2j015323
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -105,50 +95,71 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-T0ssClRoYW5rcywKSeKAmWxsIHdhaXQgdW50aWwgSSBjYW4gZ2V0IGhlbHAuCgoKPiBPbiBEZWMg
-MiwgMjAyMSwgYXQgNTo0NyBQTSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8
-YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gd3JvdGU6Cj4gCj4gUm9iLCB5b3UncmUgZWl0aGVyIGdv
-aW5nIHRvIGhhdmUgdG8gZ28gaW50byBiaW9zIHRvIGNoYW5nZSBzb21lCj4gc2V0dGluZ3MgaW4g
-b3JkZXIgdG8gYm9vdCBmcm9tIGEgVVNCIHN0aWNrIChmb3Igd2hpY2ggeW91J2xsIG5lZWQKPiBz
-aWdodGVkIGFzc2lzdGFuY2UpLCBvciwgc29tZXRpbWVzLCBpZiB5b3UncmUgbHVja3ksIHlvdSBj
-YW4gcHJlc3MgYQo+IGtleSBsaWtlIGVzY2FwZSBhcyB0aGUgbWFjaGluZSBpcyBzdGFydGluZyB0
-byBnbyBpbnRvIGEgYm9vdCBtZW51Cj4gKHRoYXQgZG9lc24ndCBzcGVhaykgZnJvbSB3aGljaCB5
-b3UgY2FuIHNlbGVjdCB5b3VyIGRlc2lyZWQgYm9vdAo+IGRyaXZlLiBZb3UnbGwgbmVlZCB0byBj
-b25zdWx0IHlvdXIgY29tcHV0ZXIncyBtYW51YWwgdG8gc2VlIGlmIGluIGZhY3QKPiB0aGF0IGZh
-Y2lsaXR5IGV4aXN0cy4gVGhhdCB0b28gaXMgcHJvYmxlbWF0aWMsIGJlY2F1c2Ugc29tZXRpbWVz
-IHlvdQo+IGdldCBpdCByaWdodCBhbmQgb3RoZXJzIHlvdSBkb24ndC4gVGhpcyBpcyBub3Qgc3Rh
-bmRhcmRpemVkIGF0IGFsbCwgc28KPiB5b3UnbGwgcmVhbGx5IG5lZWQgdG8gY29uc3VsdCB5b3Vy
-IGNvbXB1dGVyJ3MgbWFudWFsIG9uIGhvdyB0bwo+IGFjY29tcGxpc2ggdGhpcy4KPiAKPiBPbiAx
-Mi8yLzIxLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIDxibGludXgtbGlzdEBy
-ZWRoYXQuY29tPiB3cm90ZToKPj4gSGksCj4+IEkgd2FzIHNvIGV4Y2l0ZWQgdG8gcmVjZWl2ZSBt
-eSBuZXcgTGFwdG9wLgo+PiBCdXQgSSBjYW7igJl0IGdldCBpdCB0byBib290IGZyb20gVVNCLCBv
-ciBmcm9tIHRoZSBleHRlcm5hbCBVU0IgRFZEIGRyaXZlLgo+PiBJdCBhbHdheXMgYm9vdCB0byBX
-aW5kb3dzLgo+PiBJcyB0aGVyZSBhbnl0aGluZyBJIGNhbiBkbywgb3IgZG8gSSBuZWVkIHNpZ2h0
-ZWQgaGVscD8KPj4gSGVyZSBhcmUgdGhlIHNwZWNzLgo+PiBHYXRld2F5IDE0LjEiIFVsdHJhIFNs
-aW0gTm90ZWJvb2ssCj4+IEZIRCwgSW50ZWwgQ29yZSBpNS0xMTM1RzcsIFF1YWQgQ29yZSwKPj4g
-MTZHQiBSQU0sIDUxMkdCIFNTRCwgVHVuZWQgYnkgVEhYIEF1ZGlvLAo+PiBGaW5nZXJwcmludCBT
-Y2FubmVyLCAxLjBNUCBXZWJjYW0sIEhETUksIENvcnRhbmEsIFdpbmRvd3MgMTAgSG9tZQo+PiAK
-Pj4gVGhhbmtzLAo+PiBSb2IKPj4gCj4+IAo+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwo+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4gQmxpbnV4
-LWxpc3RAcmVkaGF0LmNvbQo+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xp
-c3RpbmZvL2JsaW51eC1saXN0Cj4gCj4gCj4gLS0gCj4gU3Vic2NyaWJlIHRvIGEgV29yZFByZXNz
-IGZvciBOZXdiaWVzIE1haWxpbmcgTGlzdCBieSBzZW5kaW5nIGEgbWVzc2FnZSB0bzoKPiB3cDRu
-ZXdicy1yZXF1ZXN0QGZyZWVsaXN0cy5vcmcgd2l0aCAnc3Vic2NyaWJlJyBpbiB0aGUgU3ViamVj
-dCBmaWVsZCBPUiBieQo+IHZpc2l0aW5nIHRoZSBsaXN0IHBhZ2UgYXQgaHR0cDovL3d3dy5mcmVl
-bGlzdHMub3JnL2xpc3Qvd3A0bmV3YnMKPiAmIGNoZWNrIG91dCBteSBzaXRlcyBhdCB3d3cuYnJp
-Z2h0c3RhcnN3ZWIuY29tICYgd3d3Lm15c2l0ZXNiZWVuaGFja2VkLmNvbQo+IAo+IAo+IF9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQmxpbnV4LWxpc3Qg
-bWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5y
-ZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QK
-QmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFu
-L2xpc3RpbmZvL2JsaW51eC1saXN0
+Depending on the date of the bios on a machine booting from usb sticks is
+possible on the newer hardware and not supported on the older hardware.
+I've never heard of a flash bios update adding this support but it may be
+possible.  My amd machine has an outdated bios on it but even with that it
+boots from usb sticks.  The older computer I had built in 2008 was too old
+for usb stick booting to work.
+
+
+On Thu, 2 Dec 2021, Linux for blind general discussion wrote:
+
+> Rob, you're either going to have to go into bios to change some
+> settings in order to boot from a USB stick (for which you'll need
+> sighted assistance), or, sometimes, if you're lucky, you can press a
+> key like escape as the machine is starting to go into a boot menu
+> (that doesn't speak) from which you can select your desired boot
+> drive. You'll need to consult your computer's manual to see if in fact
+> that facility exists. That too is problematic, because sometimes you
+> get it right and others you don't. This is not standardized at all, so
+> you'll really need to consult your computer's manual on how to
+> accomplish this.
+>
+> On 12/2/21, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> > Hi,
+> > I was so excited to receive my new Laptop.
+> > But I can?t get it to boot from USB, or from the external USB DVD drive.
+> > It always boot to Windows.
+> > Is there anything I can do, or do I need sighted help?
+> > Here are the specs.
+> > Gateway 14.1" Ultra Slim Notebook,
+> > FHD, Intel Core i5-1135G7, Quad Core,
+> > 16GB RAM, 512GB SSD, Tuned by THX Audio,
+> >  Fingerprint Scanner, 1.0MP Webcam, HDMI, Cortana, Windows 10 Home
+> >
+> > Thanks,
+> > Rob
+> >
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
+> --
+> Subscribe to a WordPress for Newbies Mailing List by sending a message to:
+> wp4newbs-request@freelists.org with 'subscribe' in the Subject field OR by
+> visiting the list page at http://www.freelists.org/list/wp4newbs
+> & check out my sites at www.brightstarsweb.com & www.mysitesbeenhacked.com
+>
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
