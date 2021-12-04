@@ -2,93 +2,88 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0040B46854F
-	for <lists+blinux-list@lfdr.de>; Sat,  4 Dec 2021 15:19:25 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 171A6468674
+	for <lists+blinux-list@lfdr.de>; Sat,  4 Dec 2021 18:09:17 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638627564;
+	s=mimecast20190719; t=1638637756;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=bn5pU3DLJWuK9SHrOM9w44YvIfjn3RiIZ50plDyaXT0=;
-	b=fwmhiylv8ivY47f/ShxZwbvCH6+LzZ+BH/tROiCh8iXO1FHNtAd5IN5BP1zQwCgWUyuHzj
-	ZuO9thXx0FhykFX+b14S6xwzmU6BAXrZUEDhcYtHQbIAzCOVGIvNV6+u1c8fiBDOEu4U0e
-	v2G2GTYdZKXctR1/BpL9DagrEnga65c=
+	bh=TqEabcb1y9ltf7PxQgkfJyM3mCozHAAQcWhP9sKmjM8=;
+	b=Cv6zbK6p9P3ZsO9cFJzI+QezL1Pg3A42cCZHO0Q5NMWkCcdmqKumx+RugjnlMBew7wcWr1
+	lN1XRxK6U9tGl5rnlG42rYMHrJ1v2cMjdMm+uLuPaaFzKAhaPUPAqmo3BWkvtRZMfQ9tdl
+	032jPubSd9ezQ6YgshjoZfqBgoOUVTg=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-603-poS5ef-yM2aeKYmfMtEr6g-1; Sat, 04 Dec 2021 09:19:20 -0500
-X-MC-Unique: poS5ef-yM2aeKYmfMtEr6g-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-419-qkZ0Vp-6Ps6J2evW9IM4qA-1; Sat, 04 Dec 2021 12:09:12 -0500
+X-MC-Unique: qkZ0Vp-6Ps6J2evW9IM4qA-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 613D31808320;
-	Sat,  4 Dec 2021 14:19:15 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8CF6476613;
-	Sat,  4 Dec 2021 14:19:12 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id EE10C1853028;
+	Sat,  4 Dec 2021 17:09:07 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8F73C1B480;
+	Sat,  4 Dec 2021 17:09:06 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0226D4BB7C;
-	Sat,  4 Dec 2021 14:19:04 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.1])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 571BA1809CB8;
+	Sat,  4 Dec 2021 17:09:01 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1B4EGnFZ002632 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 4 Dec 2021 09:16:49 -0500
+	id 1B4H8q4J013498 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 4 Dec 2021 12:08:52 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 321494010E70; Sat,  4 Dec 2021 14:16:49 +0000 (UTC)
+	id 9D3B72026D4D; Sat,  4 Dec 2021 17:08:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2CA1440CFD0B
-	for <blinux-list@redhat.com>; Sat,  4 Dec 2021 14:16:49 +0000 (UTC)
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9892B2026D46
+	for <blinux-list@redhat.com>; Sat,  4 Dec 2021 17:08:49 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 13B60811E76
-	for <blinux-list@redhat.com>; Sat,  4 Dec 2021 14:16:49 +0000 (UTC)
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com
-	[209.85.221.54]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C97D78027FB
+	for <blinux-list@redhat.com>; Sat,  4 Dec 2021 17:08:49 +0000 (UTC)
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com
+	[209.85.221.41]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-240-E1CxPtinMcy0pcQvkDpoOg-1; Sat, 04 Dec 2021 09:16:47 -0500
-X-MC-Unique: E1CxPtinMcy0pcQvkDpoOg-1
-Received: by mail-wr1-f54.google.com with SMTP id d9so12120611wrw.4
-	for <blinux-list@redhat.com>; Sat, 04 Dec 2021 06:16:47 -0800 (PST)
+	us-mta-176-W3dcFMV8P3Wb3pvSCxf59w-1; Sat, 04 Dec 2021 12:08:48 -0500
+X-MC-Unique: W3dcFMV8P3Wb3pvSCxf59w-1
+Received: by mail-wr1-f41.google.com with SMTP id j3so12817613wrp.1
+	for <blinux-list@redhat.com>; Sat, 04 Dec 2021 09:08:47 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:subject:to:references:from:message-id
-	:disposition-notification-to:date:user-agent:mime-version
-	:in-reply-to:content-transfer-encoding;
-	bh=dc8aW1JllWQMHeBiuXiIkzI/JCamy1f4NBi8YHVYutQ=;
-	b=rq300Y+izBm9OGn4sVub2eHGksngi4F0Z+4opCEot0NDt1oIYVMwtCcCFBWUR3BeZK
-	5YmJVZuSNPIUz81XMJ/vHwmuqot6UU3hbcAFRgI+0peoLMTZoLJoY9EwJa4417vPqo0N
-	PkLJw1eoLT+xQYpnGxor793CLQiUlokFWeU4fSFhTnokcZTlSJuQ3MiMZILGjy7G3qIh
-	LA0Ym+SSFEa8+U25WpROaWqizws3YwNMI5JRn2JnlFxMbzrqTtUhdy9KdlU4qAui+teI
-	I8TjWKtr+j67xfdeBlshtJAzQCRiFO6ZitYCbZjF7pjulcYrCVN6hVw0F9ojA6nJ5Ezg
-	N0gg==
-X-Gm-Message-State: AOAM533WWREdiASg8Mo+q3HmrXVBzk+m5pGdXTNksSJIAM+VTM+rxX6h
-	erRvnRbY/rmJnPBavMBgZ5GxhnAPlxQ=
-X-Google-Smtp-Source: ABdhPJws93ona4a0h2yUNC77ALDjiPUH1qNELtHaRh7HFdDjdvQ+BiJngWORzdOTiH7OMOau1UsYmA==
-X-Received: by 2002:a5d:6da1:: with SMTP id u1mr28790973wrs.263.1638627406318; 
-	Sat, 04 Dec 2021 06:16:46 -0800 (PST)
-Received: from [192.168.178.28]
-	(dynamic-078-054-071-050.78.54.pool.telefonica.de. [78.54.71.50])
-	by smtp.gmail.com with ESMTPSA id h7sm5429827wrt.64.2021.12.04.06.16.45
+	h=x-gm-message-state:message-id:date:mime-version:user-agent
+	:content-language:to:from:subject:content-transfer-encoding;
+	bh=+r6ornBVAPM1Npc714tBen0KBUGqnlrlH8rPtTkn86w=;
+	b=ZbYN/BGRKEVaA6w00KzCg7mgAxyPj2N0sIfi6yM1vccWBNYhBCn38mJ++BhKB5j91r
+	awvZYRVBY604wp3fQi5IX/K25IuNfrA6JMiMmFWzZ6CUgB2xOtjNpya8MKVFvhKac6Sz
+	th9tdS5b6mK1wkQjmVCNr9b7FzaaGi1/0Ux1Lw80AeXa7MhpXKwGgg3EJffG+k60Glfe
+	GsCgTmew9E9O1A6uaMuseXTUUK/M7xODfNjOyq0E75Bw8Tdn13bger1My+IeFXtZfpGl
+	jGzxqBOeU0ymANWvnAtUleuhhuGuhkLMzoin/9A/0az0YkLgmNusMsG/Hc5d1M5MdSFP
+	Q+nw==
+X-Gm-Message-State: AOAM532utWxaL3CQcs/0ZOidBE9oA5fvtsXDuN73NJ6BInR7qIXd9qXK
+	1biV9RqTjmbA5+kdBk2KtlhKuT7TDm4=
+X-Google-Smtp-Source: ABdhPJy91Ry6HxRb4sR88UZfyB98iokxohDtg/dEP9hqn5ifYFTubj403JFkFefEowjKuE4mk4fxsQ==
+X-Received: by 2002:a5d:6151:: with SMTP id y17mr30308741wrt.275.1638637726445;
+	Sat, 04 Dec 2021 09:08:46 -0800 (PST)
+Received: from [192.168.1.221] ([90.251.25.70])
+	by smtp.gmail.com with ESMTPSA id n7sm6196734wro.68.2021.12.04.09.08.45
 	for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Sat, 04 Dec 2021 06:16:45 -0800 (PST)
-Subject: Re: two questions for the experts
-To: blinux-list@redhat.com
-References: <1e931725-0939-4d63-41c9-00e509d0b25c@gmail.com>
-Message-ID: <7a1a6f09-bdfe-d06a-f21a-a23d14b739fa@googlemail.com>
-Date: Sat, 4 Dec 2021 15:16:45 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Firefox/68.0 SeaMonkey/2.53.10
+	Sat, 04 Dec 2021 09:08:45 -0800 (PST)
+Message-ID: <0818b814-95e3-f334-fb62-5a89bc96124e@gmail.com>
+Date: Sat, 4 Dec 2021 17:09:09 +0000
 MIME-Version: 1.0
-In-Reply-To: <1e931725-0939-4d63-41c9-00e509d0b25c@gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.3.0
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Suggestions for Ratpoison-friendly apps?
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -97,7 +92,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -114,50 +109,26 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi Ibrahim,
-yes, within the Keybindingsdialogue in the Orca-Settings. You have to 
-define an own shortcut. The preset has not any shortcut at the certain 
-position.
-Greetings,
-Wolfram
+So my current experiment is seeing how it goes with a full on 
+Ratpoison/Strychnine setup.
 
-Am 03.12.21 um 00:16 schrieb Linux for blind general discussion:
-> Hi Friends,
->
-> I have two questions. I hope some of you who are well versed with 
-> Linux and orca can help.
->
-> First, Is it possible to make a keyboard shortcut to switch between 
-> Screen reader profiles? I made a profile with the Arabic voice to read 
-> Arabic Material, and another profile for English. I had to do that 
-> because Voxin does not support automatic language switching, or at 
-> least not yet.
->
-> I know how to switch profiles by going to the orca settings, but it 
-> will be great if there is a shortcut to switch profiles on the fly.
->
-> My second question is: how can I change the speed rate of orca? The 
-> Arabic voice I use reads slowly for my liking. Is there a way of 
-> adjusting the speed? I looked at the sixty shortcuts of Orca but I saw 
-> nothing that may answer any of my two questions.
->
-> Cheers,
->
-> Ibrahim
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
+Now...I'm in need of apps.
+
+Specifically the last two Strychnine looks for. A lightweight file 
+manager/text editor. I went with Leafpad for the text editor, simply 
+because for this experiment I don't want all the clutter Mate brings.
+
+So what are some good suggestions for this? Seamonkey is the browser of 
+choice, naturally, but what's a good file manager then and text editor?
 
 _______________________________________________
 Blinux-list mailing list
