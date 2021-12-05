@@ -2,71 +2,91 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8CD01468C68
-	for <lists+blinux-list@lfdr.de>; Sun,  5 Dec 2021 18:28:48 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id D87E7468C87
+	for <lists+blinux-list@lfdr.de>; Sun,  5 Dec 2021 19:08:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638725327;
+	s=mimecast20190719; t=1638727738;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=HjfMVeZ1okB9Bya2sMBJGV8EsIHnECkGOCZVlgP9Xb8=;
-	b=La47OliwSYf8DoYmJvlub4aLV1kpcJsbxzz2tv3HHc7uuPazvW9aS+BjXq5Y7M0NUyTVn3
-	fG07cmax3gXGELbPYInnYqo7ixl5DN6lBG/d8zYRE6ybNEnlGlhbF5Z9c1AtGxBaf3J1rk
-	ql2xSNnxlJhRq/gNlDow0xv8Ogf/xOU=
+	bh=YHL+osuy9Rt8+yccixQlzr6h/5aBEhSJonkxtqs9vf4=;
+	b=jJ6vE7TFMH2MPmr9XdEIF1K6ZltgTcXj0cDpOCFBus6PHrK/LoKNvnn81SbZ1r3QbZGW5J
+	F11OYuzgk2mInT7FwYFt7JEi3Bl8ym/f3lU7LwOQKDw16MVbwL4VvKcKxtgQGxfYAoDJC6
+	OFBbwTtLAgm6MP5cq5nq1jcrtQJBG+k=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-532-PDj7icPJPYGalQ7H68I7vg-1; Sun, 05 Dec 2021 12:28:44 -0500
-X-MC-Unique: PDj7icPJPYGalQ7H68I7vg-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-88-O8mTyp3bMgKr0sna0clByg-1; Sun, 05 Dec 2021 13:08:55 -0500
+X-MC-Unique: O8mTyp3bMgKr0sna0clByg-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 979B88042E1;
-	Sun,  5 Dec 2021 17:28:40 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D6CB460BF1;
-	Sun,  5 Dec 2021 17:28:39 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DD74C1006AA1;
+	Sun,  5 Dec 2021 18:08:51 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 104225C1C5;
+	Sun,  5 Dec 2021 18:08:51 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EE3B01809CB8;
-	Sun,  5 Dec 2021 17:28:37 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1E0974BB7B;
+	Sun,  5 Dec 2021 18:08:49 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1B5HSZx2011134 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 5 Dec 2021 12:28:35 -0500
+	id 1B5I4Ps2014157 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 5 Dec 2021 13:04:25 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 029F32026D69; Sun,  5 Dec 2021 17:28:35 +0000 (UTC)
+	id EC5A92026D69; Sun,  5 Dec 2021 18:04:24 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F1FD52026D67
-	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 17:28:32 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2216F185A7B2
-	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 17:28:32 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-566-xFXB-PsGNDSeDXd3SnHCtw-1; Sun, 05 Dec 2021 12:28:30 -0500
-X-MC-Unique: xFXB-PsGNDSeDXd3SnHCtw-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4J6YSF430kzFg1
-	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 12:28:29 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4J6YSF3ZCPzcbc; Sun,  5 Dec 2021 12:28:29 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4J6YSF3DhRzcbP
-	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 12:28:29 -0500 (EST)
-Date: Sun, 5 Dec 2021 12:28:29 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E7FFD2026D67
+	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 18:04:22 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E57B78027FB
+	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 18:04:21 +0000 (UTC)
+Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com
+	[209.85.160.170]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-449-yoH9uWStOc6UdTm_1mTbAw-1; Sun, 05 Dec 2021 13:04:20 -0500
+X-MC-Unique: yoH9uWStOc6UdTm_1mTbAw-1
+Received: by mail-qt1-f170.google.com with SMTP id z9so8758225qtj.9
+	for <blinux-list@redhat.com>; Sun, 05 Dec 2021 10:04:20 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=HB2OYFveWEmRWfGIGzWgjmtzOCIU8xaysXBEW7qmoyk=;
+	b=5U2xp5GjVzNAMvO/lDDNQjCDvBhguQYfKX193VkKpKmxnHmrFOMk0T1eOVw8YENmb+
+	RFCtGSOEWV0BUQEmaS926EurxFUHZ6NnAoRUOAepJ2PmSUrX+VqGWXZl52lasfUNG0zX
+	XbG2fCgwIReo9EDfSWejOeyXf6zRpCxkbhvT2u+RHMMqCSa6mZHC/9V5U+NNTMMfRMbI
+	PZefu3WoUseec+5L7gEDbfcaY6kkHuP3yNC757oCEwZCBrfiJLX10Yf8ONmJN2iMfwiK
+	ZybDxaC+y1rTMsojDtprQQlr65p0CXY+F4hZezLo23ZU8sWDFlVxc1v/Ja6yVOuOtFqd
+	xmmQ==
+X-Gm-Message-State: AOAM5314B1Id0MX1hj9x6qSTXH1DRavrAZ/wmVGTbmn/YJ9HYWTtL2wJ
+	ehTsXu07rb2hzzfmyEG6hBf9SNW7JkA=
+X-Google-Smtp-Source: ABdhPJz7NRKeHiC0QqHK1D2h1Yyc82BrvV+I49epDxSpkDmhbw/3ixnF8bH5GuQ2mDpAr2ZihhgxYg==
+X-Received: by 2002:ac8:5f4a:: with SMTP id y10mr33388707qta.139.1638727459511;
+	Sun, 05 Dec 2021 10:04:19 -0800 (PST)
+Received: from ?IPV6:2603:6080:6302:e002:7991:cc1c:439:b8f5?
+	(2603-6080-6302-e002-7991-cc1c-0439-b8f5.res6.spectrum.com.
+	[2603:6080:6302:e002:7991:cc1c:439:b8f5])
+	by smtp.gmail.com with ESMTPSA id s7sm6536132qta.31.2021.12.05.10.04.18
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Sun, 05 Dec 2021 10:04:19 -0800 (PST)
+Message-ID: <88b763bc-c035-735f-0efe-dea5f26182d6@gmail.com>
+Date: Sun, 5 Dec 2021 13:04:18 -0500
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.3.0
 Subject: Re: Suggestions for Ratpoison-friendly apps?
-In-Reply-To: <47dbd804-240f-b170-7f2c-6c96d189762c@gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2112051228080.13531@panix1.panix.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <0818b814-95e3-f334-fb62-5a89bc96124e@gmail.com>
 	<d6a364d7-7484-4b48-3700-1ba8f938d271@gmail.com>
 	<00e07fa6-109f-b5c9-5680-ed8a56e959a9@slint.fr>
@@ -75,7 +95,8 @@ References: <0818b814-95e3-f334-fb62-5a89bc96124e@gmail.com>
 	<02e2f29d-b065-6591-d8ec-07d9b4a26e75@gmail.com>
 	<b12ef7c4-e8f6-688c-706f-e97aef903c4a@gmail.com>
 	<47dbd804-240f-b170-7f2c-6c96d189762c@gmail.com>
-MIME-Version: 1.0
+	<alpine.NEB.2.23.451.2112051228080.13531@panix1.panix.com>
+In-Reply-To: <alpine.NEB.2.23.451.2112051228080.13531@panix1.panix.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -101,55 +122,32 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-dilo may work as a light-weight browser.
-
-
-On Sun, 5 Dec 2021, Linux for blind general discussion wrote:
-
-> SpaceFM works very, very well for me here and is (to me at least) easier to
-> understand and work with than Caja personally. I'm now on the hunt for a
-> lightweight browser, I'm thinking stick with Seamonkey but...
->
-> Setting up my gmail is a pain really...
->
-> On 12/4/21 18:47, Linux for blind general discussion wrote:
-> > I just found another file manager called spacefm. It appears to be somewhat
-> > larger than pcmanfm, but it doesn't have the libfm dependency, so that
-> > functionality seems to be integrated into it. I have it reading my files and
-> > folders right out of the box. So this one could work. Best of all, it pulls
-> > in no dependencies at all from what I can tell. The problem with spacefm is
-> > that the latest stable release is in fact quite old, March 2018, so it most
-> > likely will never see another update. It does apparently have vfs support,
-> > but it doesn't use the usual gvfs back ends. From what I've read of it
-> > though, it does seem to be able to do automounting and that sort of thing,
-> > as pcmanfm can do.
-> >
-> > ~Kyle
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+RGlsbG8gZ2l2ZXMgbWUgbm8gc3BlZWNoIGF0IGFsbCBoZXJlLCBhbmQgZXZlbiB0YWIgc2F5cyBu
+b3RoaW5nLiBBcyBJIApyZWNhbGwsIEkndmUgdHJpZWQgZGlsbG8gc2V2ZXJhbCB0aW1lcyBvbiB2
+YXJpb3VzIGRpc3RyaWJ1dGlvbnMsIGFuZCBhdCAKbm8gdGltZSBoYXZlIEkgYmVlbiBhYmxlIHRv
+IGdldCBpdCBzcGVha2luZy4gT24gdGhlIG90aGVyIGhhbmQsIEkgZG8gCnN0aWxsIHNlZW0gdG8g
+aGF2ZSBmYWlybHkgZ29vZCBsdWNrIHdpdGggTWlkb3JpLCB3aGljaCBpcyBhYm91dCB0aGUgCmZh
+c3Rlc3QgYW5kIG1vc3QgbGlnaHR3ZWlnaHQgYnJvd3NlciB0aGF0IHdvcmtzIHdpdGggT3JjYSB0
+aGF0IEkga25vdy4gCkl0IHNlZW1zIHRvIGhhdmUgc29tZSBnbGl0Y2hlcywgZXNwZWNpYWxseSBw
+bGFjZXMgd2hlcmUgaXQgZ2V0cyBzdHVjaywgCmJ1dCBpdCBkb2VzIG1vc3RseSB3b3JrIE9LLsKg
+IEhhdmluZyBzYWlkIHRoaXMsIFNlYW1vbmtleSwgd2hpY2ggeW91IAppbmRpY2F0ZWQgeW91IGFs
+cmVhZHkgaGF2ZSwgaXMgYWJsZSB0byByZXBsYWNlIGJvdGggRmlyZWZveCBhbmQgClRodW5kZXJi
+aXJkLCBhbmQgeW91IGNhbiBzdGFydCBpdCBhcyBlaXRoZXIgYW4gZW1haWwgYXBwbGljYXRpb24g
+dXNpbmcgCnRoZSBjb21tYW5kIGxpbmUKCnNlYW1vbmtleSAtLW1haWwKCm9yIGFzIGEgYnJvd3Nl
+ciBqdXN0IGJ5IHJ1bm5pbmcgaXQgd2l0aG91dCBhbnkgZmxhZ3Mgb3Igd2l0aCBhIFVSTC4gSSdt
+IApub3Qgc3VyZSBpdCdzIGFueSBsaWdodGVyIHRoYW4gRmlyZWZveCB3aGVuIGl0IHJ1bnMgYXMg
+YSBicm93c2VyLCBidXQgaXQgCmNlcnRhaW5seSBkb2VzIGFwcGVhciB0byBiZSBsaWdodGVyIHRo
+YW4gVGh1bmRlcmJpcmQgd2hlbiB1c2VkIHRvIHJlYWQgCmFuZCB3cml0ZSBlbWFpbC4KCn5LeWxl
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgt
+bGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4u
+cmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
 
