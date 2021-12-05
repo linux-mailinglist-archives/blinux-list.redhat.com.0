@@ -1,89 +1,99 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 48CC0468AC7
-	for <lists+blinux-list@lfdr.de>; Sun,  5 Dec 2021 13:28:07 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id EC228468B6E
+	for <lists+blinux-list@lfdr.de>; Sun,  5 Dec 2021 15:40:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638707286;
+	s=mimecast20190719; t=1638715235;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=WPdDnHa7DNF5vpl0mpnM9HXYzrs20RZctn39xHw8zSo=;
-	b=h2zslZf7J44gmGtoP5wTnUoIo2o82Aw2CU7uF0IqNMUYmbqYO7Cf5OBDGNID+539B04UKD
-	FIoCfRmt8Edj5E9Y9N3VBLSKef/N12q/FSO/lZ+p4Y6OTpzqLCUcd2gufB5OgYQQNLyIBA
-	Q7LPcExrYx9DgGHemWFBFLMG7qoARBM=
+	bh=/CicmUs5G2X2fGSeTxKNhLVqk0ey67X+proAqXL3hD8=;
+	b=P4LoWIGw6cQS7hOFxLvZ5vNeQCHGXUjrqI6AxxxjeptIeQk3id0VXdfGEu61xOqdV8tDx6
+	HhiNftkfpAou16ReAQQxWOjYjihVvh3+WRdq7d8lGucPJrEsNBmylidvMleMYjgj+QXFX6
+	UwBv7WCGClRIPu535t9Aq+OtU6FD+5A=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-46-i_XevWpPOmOeu9qPLbh7ew-1; Sun, 05 Dec 2021 07:28:04 -0500
-X-MC-Unique: i_XevWpPOmOeu9qPLbh7ew-1
+ us-mta-239-oQjWlkVCMdew9KNZSFDeSg-1; Sun, 05 Dec 2021 09:40:32 -0500
+X-MC-Unique: oQjWlkVCMdew9KNZSFDeSg-1
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A9281180830C;
-	Sun,  5 Dec 2021 12:27:59 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7DDD41346F;
-	Sun,  5 Dec 2021 12:27:58 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A971B80BCA8;
+	Sun,  5 Dec 2021 14:40:27 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 027371346F;
+	Sun,  5 Dec 2021 14:40:25 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id DCA6D1809CB8;
-	Sun,  5 Dec 2021 12:27:51 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 165384BB7B;
+	Sun,  5 Dec 2021 14:40:19 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1B5CRhfO023519 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 5 Dec 2021 07:27:43 -0500
+	id 1B5EeBub001074 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 5 Dec 2021 09:40:11 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id B84852026D67; Sun,  5 Dec 2021 12:27:43 +0000 (UTC)
+	id 284731121315; Sun,  5 Dec 2021 14:40:11 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B2F5C2026D60
-	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 12:27:41 +0000 (UTC)
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 22CAF1121314
+	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 14:40:08 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E3AB185A5A8
-	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 12:27:40 +0000 (UTC)
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com
-	[209.85.128.45]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 35BBF1066559
+	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 14:40:08 +0000 (UTC)
+Received: from gateway10.unifiedlayer.com (gateway10.unifiedlayer.com
+	[74.220.216.134]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-389-GER6_C6rOqC1sGYCv7F4tQ-1; Sun, 05 Dec 2021 07:27:39 -0500
-X-MC-Unique: GER6_C6rOqC1sGYCv7F4tQ-1
-Received: by mail-wm1-f45.google.com with SMTP id y196so6009191wmc.3
-	for <Blinux-list@redhat.com>; Sun, 05 Dec 2021 04:27:39 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
-	:mime-version:content-transfer-encoding:content-language;
-	bh=NvMC67D/hYHueDtaUVTCfzSAWtW7eY/OsMIrk35Lzgk=;
-	b=Em2aUs+CMaG05FDezar0Nt+IgzVieih4MWyXJP/c0B8lT+mTVZsBIIs6Ahn9SnHNKY
-	mm8sh566WpTtzbaNJZ35gxWVmHzplfYU7DsYglvRg4fG9kTQkrHfSQyRCZ5VZUvzNAxv
-	mQ2m1M18cv/hWyqlajnr+nQJi/fUEhzoxeWFwLk/l1WYIec1x++fiQAc3l8UgJrApQOY
-	BKsUZo65q3vCCoURa6wgSVNOUVjoUM87Pa/oPECT+3odCkWEFax4Lvx+RU4yx7/K5YL7
-	LwUHrXBfsfmEguYq4obuQYd5Hd+wcJ1pSysu8VQuZ+PmB2w8f75MEnUp43f96fO2xLcY
-	E/lA==
-X-Gm-Message-State: AOAM5339GlOZy2EYEjuSMRJ5J6gmvuL0R3w2JuLWa8GEvdVgXux90V2+
-	heqhncan7GqFxEdgSB3Tyw4ovBg7IQo=
-X-Google-Smtp-Source: ABdhPJw+XUegYHp6J8JfGyVw345SLe0upQAZ6Wno5t+icIc7NCLUb+V0NzaljQIV9Vt7AL1+GC3Fcg==
-X-Received: by 2002:a1c:a710:: with SMTP id q16mr30972459wme.138.1638707257959;
-	Sun, 05 Dec 2021 04:27:37 -0800 (PST)
-Received: from [192.168.8.130] ([197.184.177.36])
-	by smtp.gmail.com with ESMTPSA id v8sm8064116wrd.84.2021.12.05.04.27.36
-	for <Blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Sun, 05 Dec 2021 04:27:37 -0800 (PST)
-To: Blinux-list@redhat.com
-Subject: Useful aliases in .bashrc?
-Message-ID: <a0603f61-07eb-3f44-411e-805a5ea7afe6@gmail.com>
-Date: Sun, 5 Dec 2021 14:27:35 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Thunderbird/68.12.0
+	us-mta-418-UAN1ip1vPTOUm7fwQIfAKQ-1; Sun, 05 Dec 2021 09:39:22 -0500
+X-MC-Unique: UAN1ip1vPTOUm7fwQIfAKQ-1
+Received: from cm6.websitewelcome.com (unknown [108.167.139.19])
+	by gateway10.unifiedlayer.com (Postfix) with ESMTP id 65642200C6662
+	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 08:16:09 -0600 (CST)
+Received: from uscentral455.accountservergroup.com ([174.136.13.174])
+	by cmsmtp with ESMTP
+	id tsJFmG14FtGNQtsJFmwvdK; Sun, 05 Dec 2021 08:16:09 -0600
+X-Authority-Reason: nr=8
+Received: from 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
+	([76.222.220.222]:45798 helo=bigbox.attlocal.net)
+	by uscentral455.accountservergroup.com with esmtpsa (TLS1.2) tls
+	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+	(envelope-from <blinux.list@thechases.com>) id 1mtsJF-000v2p-1T
+	for blinux-list@redhat.com; Sun, 05 Dec 2021 08:16:09 -0600
+Date: Sun, 5 Dec 2021 08:16:07 -0600
+To: blinux-list@redhat.com
+Subject: Re: Useful aliases in .bashrc?
+Message-ID: <20211205081607.1b8e272e@bigbox.attlocal.net>
+In-Reply-To: <a0603f61-07eb-3f44-411e-805a5ea7afe6@gmail.com>
+References: <a0603f61-07eb-3f44-411e-805a5ea7afe6@gmail.com>
 MIME-Version: 1.0
+X-AntiAbuse: This header was added to track abuse,
+	please include it with any abuse report
+X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
+X-AntiAbuse: Original Domain - redhat.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - thechases.com
+X-BWhitelist: no
+X-Source-IP: 76.222.220.222
+X-Source-L: No
+X-Exim-ID: 1mtsJF-000v2p-1T
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
+	(bigbox.attlocal.net) [76.222.220.222]:45798
+X-Source-Auth: tim@thechases.com
+X-Email-Count: 2
+X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
+X-Local-Domain: yes
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -92,7 +102,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -114,41 +124,121 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi all,
-
-
-I have never really played with .bashrc, but have found it rather useful 
-to add a few aliases to it.
+Tim here. A couple from my collection:
 
 
-The one I find most useful so far is the alias to my "startwin.sh" qemu 
-script. I use
+Sometimes I type "cd .." too quickly, and miss the space or even a
+period too, so these make my typos work as expected
+
+  alias cd..='cd ..'
+  alias cd.='cd ..'
+
+I commonly jump to my MP3/podcast queue directory and run a command
+(`biggest`) that finds all the files in the subdirectories and sorts
+them all from smallest to largest (big ones that don't sound
+interesting are the first on my chopping-block for saving time/space):
+
+  alias mp3='pushd ~/Music/podcasts/; biggest -h | tail -20'
+
+Also helping with podcasts I have
+
+  alias ti='id3 -q "%_p%_f: %t"'
+
+to give me the titles of podcasts I point it at.
+
+I also keep my finances in ledger(1) format and have a number of
+aliases around manipulating those
+
+  alias fin='pushd ~/finances/ledger'
+  alias le='pushd ~/finances/ledger; vim +$ $(date +%Y).txt'
+
+  checking() {
+    pushd ~/finances/ledger
+    ledger -f only"$(date +%Y)".txt --pedantic register Checking "$@"
+  }
+
+  led() {
+    pushd ~/finances/ledger
+    ledger -f only"%(date +%Y)".txt --pedantic balance -l "commodity == 'USD'" not "Equity:Opening Balances" and not "^Income:" "$@"
+  }
 
 
-alias windows="sh ~/qemu/startwin.sh"
+The "fin" alias just takes me to the directory; the "le" opens the
+current year's data in vim and places the cursor at the bottom so I
+can add new entries; the "checking" function gives me my checkbook
+register (to which I can append "--cleared" for only those
+transactions that have cleared); and the "led" function gives me a
+hierarchical overview of all of my accounts and how they roll up.  I
+also have a more complicated "pay" shell-function that will look for
+the most recent transaction that matches some parameters and
+re-create that transaction with today's date in my preferred format,
+and set the amount to the specified quantity letting me do things like
+
+  $ pay kroger 38.21
+
+rather than manually find & copy the entire block, and update the
+amounts.
+
+Finally, I keep my calendar in remind(1) format so I have several
+aliases that help me set all my preferred parameters
+
+  alias 1='rem -g -q -iCOLOR=2 -@2'
+  for i in 2 3 4 5 6
+  do
+    alias $i='rem -g -q -iCOLOR=2 -@2 "*"'$i
+  done
+
+so I can just type "1" for today's agenda or "3" for a 3-day agenda.
+(I can ramble for hours on using remind and have a lengthy blog post
+about it.  If you want a text-based workflow for your calendar, it's
+*amazing*!)
+
+Hopefully this gives you some more ideas,
+
+-Tim
 
 
-instead of having to type, every time
-
-
-sh ~/qemu/startwin.sh
-
-
-If you have any useful aliases to share, please do?
-
-
-After all, why should we not make each other's lives a bit easier?
-
--- 
-Warm regards,
-
-Brandt Steenkamp
-
-Sent from Slint Linux using Thunderbird
+On December  5, 2021, Linux for blind general discussion wrote:
+> Hi all,
+> 
+> 
+> I have never really played with .bashrc, but have found it rather
+> useful to add a few aliases to it.
+> 
+> 
+> The one I find most useful so far is the alias to my "startwin.sh"
+> qemu script. I use
+> 
+> 
+> alias windows="sh ~/qemu/startwin.sh"
+> 
+> 
+> instead of having to type, every time
+> 
+> 
+> sh ~/qemu/startwin.sh
+> 
+> 
+> If you have any useful aliases to share, please do?
+> 
+> 
+> After all, why should we not make each other's lives a bit easier?
+> 
+> -- 
+> Warm regards,
+> 
+> Brandt Steenkamp
+> 
+> Sent from Slint Linux using Thunderbird
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
