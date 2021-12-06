@@ -1,96 +1,104 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4749D468D5F
-	for <lists+blinux-list@lfdr.de>; Sun,  5 Dec 2021 21:55:18 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.151.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9F522468EA7
+	for <lists+blinux-list@lfdr.de>; Mon,  6 Dec 2021 02:53:01 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638737717;
+	s=mimecast20190719; t=1638755580;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=FZrpi3L791MeONFo/jhKcQGyU5IRKAfKH3y+A47MVJk=;
-	b=YmT0Dy5WTv8f4g8JzuFN1hfCa7V0IuiZraIbBQK/nt7eUoGAJ3K/GxGeylD92iPewblFqM
-	6W436sIKqOOuNLMbg1OxY0ILa3iDefWVeQjyY0KCvJm7jlqP3Revfws5HzJcssZv+tYQSv
-	D+H6dA4s4IXkoKaw02PGo/zjECjvU+A=
+	bh=til4qviXU1gL3Mmssnyavo5zNHJPD37hauW3E0a3kIE=;
+	b=EjWqunw/DJkrl2hyVbbjpFoQtFZfCjqbfI6hZJ95FqF1OFzJgXNVd22HlrF+mqwDEeDeyG
+	e1HqzDMmNiXZIWkKhYj7eQUce3CZI7P6wvq91chkMf3EgwfjMtmRubdeF8ykee5VdTPy05
+	BIzN73KGX/emVdx6e1k0oVWjMXiNt20=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-508-FOs7frUEPm6FLIbXVh0ZqA-1; Sun, 05 Dec 2021 15:55:14 -0500
-X-MC-Unique: FOs7frUEPm6FLIbXVh0ZqA-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-2-Ow6F8bxhMRu8BWlWSQgS1A-1; Sun, 05 Dec 2021 20:52:56 -0500
+X-MC-Unique: Ow6F8bxhMRu8BWlWSQgS1A-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2DDE91006AA0;
-	Sun,  5 Dec 2021 20:55:09 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 70B871006AA1;
+	Mon,  6 Dec 2021 01:52:52 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id EAC3B5F4E9;
-	Sun,  5 Dec 2021 20:55:06 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id EE87C5DAA5;
+	Mon,  6 Dec 2021 01:52:47 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0C4F04BB7C;
-	Sun,  5 Dec 2021 20:54:58 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D5BF34BB7B;
+	Mon,  6 Dec 2021 01:52:33 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.7])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1B5KqwnF025024 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 5 Dec 2021 15:52:58 -0500
+	id 1B61pVdf013727 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 5 Dec 2021 20:51:32 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 09F0151E3; Sun,  5 Dec 2021 20:52:58 +0000 (UTC)
+	id CF9ED141DC5D; Mon,  6 Dec 2021 01:51:31 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0276351E2
-	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 20:52:55 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CB139141DC57
+	for <blinux-list@redhat.com>; Mon,  6 Dec 2021 01:51:31 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 31324811E76
-	for <blinux-list@redhat.com>; Sun,  5 Dec 2021 20:52:55 +0000 (UTC)
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com
-	[209.85.208.45]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AE49B29AA386
+	for <blinux-list@redhat.com>; Mon,  6 Dec 2021 01:51:31 +0000 (UTC)
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com
+	[209.85.128.54]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-574-6jWtGGScOb2o1dcVDIyjkw-1; Sun, 05 Dec 2021 15:52:53 -0500
-X-MC-Unique: 6jWtGGScOb2o1dcVDIyjkw-1
-Received: by mail-ed1-f45.google.com with SMTP id y12so34452759eda.12
-	for <blinux-list@redhat.com>; Sun, 05 Dec 2021 12:52:53 -0800 (PST)
+	us-mta-457-sX_RDxQtP3WHGN27jY6n0g-1; Sun, 05 Dec 2021 20:51:30 -0500
+X-MC-Unique: sX_RDxQtP3WHGN27jY6n0g-1
+Received: by mail-wm1-f54.google.com with SMTP id
+	77-20020a1c0450000000b0033123de3425so9306917wme.0
+	for <blinux-list@redhat.com>; Sun, 05 Dec 2021 17:51:29 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding
-	:content-language;
-	bh=6lJ7F3cfX7diM49iOWnv2M4iX8wWsD/roSW9gJJt8Vc=;
-	b=CCKDBJ2NA4K05IAW2VHvFWr2mWayZXRGy2sweSHzt5fsucIx7Q6ubM/N63BvuMnXgK
-	bLsS5yfNkphN4n+usaBpLGYQ44onMAA7wf32gqn9FCvcTsdUmSfULjoUzfQ2oBOGPaps
-	ffThaR44nUQJl3IDPHHlFK0QJDXX4FUo8aLmj7qDspkP4ewxtZ1HZQjkafgV7esW36ue
-	MVC1aD5Bm6s23WcwMwH4PMf8lz0CwZsbG1BSVjPgqZXGvWTByvPfNcMmd91FSTvutn0A
-	0EaRXZ/O/KRRMe+KpymZ8yBW+x08dlXYeQewAv7wa8dhOyTd8Qzq8vk3ORc9dCWPJTvA
-	yvoA==
-X-Gm-Message-State: AOAM533NSsiXENuivRLiGo90lKLUSYV7bPjnzbwgQDY7B9oGx2y5lkil
-	CmhYzzwKZgO1PrBXDmnfyQ3gGAy+kdctBA==
-X-Google-Smtp-Source: ABdhPJymgaPnWakHHm7cce1QlJ/pSWGeWAethCQC+c6CJe1RE6vopr9vAXlUAZ6aY1rW7ROjgNysyg==
-X-Received: by 2002:a17:907:7213:: with SMTP id
-	dr19mr40242588ejc.157.1638737571663; 
-	Sun, 05 Dec 2021 12:52:51 -0800 (PST)
-Received: from [192.168.8.130] ([197.184.178.46])
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=miQM2k8zmMCYpJdZunfiKRs+lLF52jVa/J1ivZ/98ZI=;
+	b=XtDe+nX4ZfQTrFMxw11voMvxJtt/IxP7R1oyeuuLcXVCESJERPgREXiCqerlhdgTLR
+	oDCM+1wT7nCCziEPgGDb2YNsxzcHZPvO1scr7IBojq/UXheCiJqz/ZDCt3Eg1d5sUTQv
+	Ve3pEe4boLv2uYMsqQqAKMynp1VUSU+SGAHIJb0go26NSvbm3BgJCjY/Kb8nRkN758d7
+	50igniu/PSBplusTPtgCwXvSviqZwdy3HK1fwFdQ7TJDbRHQQV8kFgUdMEIxEZbYIr+t
+	9wnNnwKTj+87XX1pmnIXScZ1N/5Xc4HSFiJkPBr9dILeVZlmcsvy6SZgA+747uMgrhka
+	P/Sw==
+X-Gm-Message-State: AOAM531G+mgAFAGHyj/LBvdpb1ufTRkzcUdQ51lp0YovHoDCQl6pkFYg
+	noBYZTL6NfbKX0ZcRLMf0zsOUKFYXFmBSg==
+X-Google-Smtp-Source: ABdhPJyqw1cXevcYeFzm9mQlz9YeirWtFl3Vk3qHy/jmLt5CoU2OTG0qxGmlgcdYrWaQT3c54aEq1w==
+X-Received: by 2002:a05:600c:500d:: with SMTP id
+	n13mr34698263wmr.174.1638755488765; 
+	Sun, 05 Dec 2021 17:51:28 -0800 (PST)
+Received: from [192.168.1.221] ([90.251.25.70])
 	by smtp.gmail.com with ESMTPSA id
-	c11sm6903696ede.32.2021.12.05.12.52.50 for <blinux-list@redhat.com>
+	bg34sm12684929wmb.47.2021.12.05.17.51.27 for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Sun, 05 Dec 2021 12:52:51 -0800 (PST)
-Subject: Re: Useful aliases in .bashrc?
-To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <a0603f61-07eb-3f44-411e-805a5ea7afe6@gmail.com>
-	<20211205081607.1b8e272e@bigbox.attlocal.net>
-	<16b79725-64b9-b768-5d88-08a9d76326c3@gmail.com>
-	<20211205130841.61d4b8e1@bigbox.attlocal.net>
-Message-ID: <840119b3-3339-45d1-e6e6-b3482572d575@gmail.com>
-Date: Sun, 5 Dec 2021 22:52:48 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Thunderbird/68.12.0
+	Sun, 05 Dec 2021 17:51:28 -0800 (PST)
+Message-ID: <459ce7d5-11e4-8707-77f8-0a4c46bb8899@gmail.com>
+Date: Mon, 6 Dec 2021 01:51:52 +0000
 MIME-Version: 1.0
-In-Reply-To: <20211205130841.61d4b8e1@bigbox.attlocal.net>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.3.0
+Subject: Re: Suggestions for Ratpoison-friendly apps?
+To: blinux-list@redhat.com
+References: <0818b814-95e3-f334-fb62-5a89bc96124e@gmail.com>
+	<d6a364d7-7484-4b48-3700-1ba8f938d271@gmail.com>
+	<00e07fa6-109f-b5c9-5680-ed8a56e959a9@slint.fr>
+	<2b86a2b5-6e3d-08f6-6516-3a62a894ab62@gmail.com>
+	<9468598d-1cb6-1c1f-4ddb-b1dbfeaf9740@gmail.com>
+	<02e2f29d-b065-6591-d8ec-07d9b4a26e75@gmail.com>
+	<b12ef7c4-e8f6-688c-706f-e97aef903c4a@gmail.com>
+	<47dbd804-240f-b170-7f2c-6c96d189762c@gmail.com>
+	<alpine.NEB.2.23.451.2112051228080.13531@panix1.panix.com>
+	<88b763bc-c035-735f-0efe-dea5f26182d6@gmail.com>
+In-Reply-To: <88b763bc-c035-735f-0efe-dea5f26182d6@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -99,7 +107,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -116,159 +124,42 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Hey Tim,
-
-
-Thanks for the ramble, really enjoyable if you ask me.
-
-
-Regarding castget, I actually found it in the slack builds in slint 
-after doing a sudo spi -u && sudo spi -i castget
-
-
-(configured my system to allow installing stuff using sudo under Slint, 
-not aloud by default)
-
-
-Now have to work threw getting all my crap (Hum-hum, I ment, podcasts) 
-in there.
-
-
-Unfortunately, I am caught in the Apple ecosystem because I use a lot of 
-stuff that's Mac and iOS only, so have to pick, either listen on the 
-computer or keep the podcasts on the phone. I'll listen on the computer, 
-since I'm in the study most of the day anyway.
-
-
-Warm regards,
-
-Brandt Steenkamp
-
-Sent from Slint Linux using Thunderbird
-
-On 2021/12/05 21:08, Linux for blind general discussion wrote:
-> Tim here.
->
->> Quick question, please ramble if you'd like
-> You're just inviting trouble here. (grins)
->
->> managing podcasts, how?
->> To expand on that a bit, what do you use for a pod catcher;
-> I use castget (scheduled from cron) to fetch my podcasts
->
->> where do they go
-> In my case, each podcast gets dumped in its own sub-folder of my
-> choosing, renamed using its date and title (and classified as a
-> Podcast overriding whatever classification the provider used).  From
-> my ~/.castgetrc
->
->    [*]
->    id3contenttype=Podcast
->    filename=%(date)_%(title).mp3
->
->    [wayword]
->    spool=/home/tim/Music/podcasts/queue/W_WayWord/
->    id3leadartist="Way With Words"
->    url=http://feeds.waywordradio.org/awwwpodcast
->
->    # and 56 other podcast entries follow
->
-> I then have some wrapper shell-scripting that automates a bunch of
-> actions so I don't have to do them manually:
->
-> - deletes some known episodes I don't care about (things like reruns,
->    certain keywords, some that are .m4v videos instead of .mp3 audio,
->    etc)
->
-> - perform some automated advertisement-removal (chop the first or
->    last N seconds off various podcasts using mp3splt; one particularly
->    grievous one has some intro followed by adverts allowing me to lop
->    7 minutes off the front and not miss much of anything)
->
-> - renames them to a convention that doesn't choke my podcast player
->    (VLC on my phone doesn't like "#" characters and I do some other
->    normalization with the rename(1) command)
->
-> - clears out my old "current/" directory
->
-> - moves/renames all the nested structure from my "queue" directory
->    into a flat file-structure in my "current/" directory
->
-> With one big directory of the files, I can then easily send them over
-> to my phone. I happen to have termux (a terminal emulator) on my
-> phone and just scp them over the wifi network, but in the past I've
-> plugged my phone into the computer and used the file-browser to
-> copy/paste them from the directory into the Podcasts directory of my
-> phone.
->
-> I keep both the current/ directory and my queue/ directory around so
-> that in case something goes wrong on my MP3 player (over the 15
-> to 20 years I've been listening to podcasts, 3 of 'em have died), I
-> still have an archive of what it contained so I only have to load the
-> current/ directory onto a new player and resume where I left off.
-> Meanwhile the queue/ directory holds all the new stuff.
->
-> I also have a backlog/ directory as well.  Sometimes if I add a new
-> podcast feed, it has a lot of back episodes that I want to listen
-> through but don't want them all in one huge dose, so I'll download
-> them but mirror my queue/ directory in the backlog/ directory and
-> move the backlog of podcasts into there.  From time to time, when I'm
-> ready to reload my player and the queue seems a bit shallow, I'll
-> move in some of the items from the backlog.
->
-> However, in some cases I'll use castget's "catch-up" feature to load
-> a podcast feed and mark them all as already fetched without actually
-> downloading the episodes themselves (good for dropping in the middle
-> of a long podcast history). The history is stored in fairly readable
-> XML files in ~/.castget/ so when adding new feeds, sometimes I'll mark
-> the whole feed as caught up and then go delete the lines for
-> particular episodes, then run castget again where it will pull down
-> just the ones I deleted.
->
-> I reload roughly 3GB at a time which, at roughly 250% playback speed,
-> tends to last me 2 to 3 weeks worth of going for walks and chores.
->
-> One other trick I've learned is to limit the space available for my
-> podcasts.  I'm running FreeBSD so my ~/Music/podcasts/ a ZFS dataset
-> that has a limit/quota of ~15GB.  Occasionally a feed will change the
-> GUIDs or the filenames making the whole feed appear as new files, and
-> end up trying to download gigs of data.  By forcing it to download to
-> a size-restricted space, castget bails out before totally killing your
-> drivespace and bandwidth.
->
->> I'd like to get most of them off of there, space and all.
-> If you want to get rid of them completely, they're just .mp3 files on
-> the drive, so you can delete them as you would any other file.  If
-> you want to archive them off to some external storage like a USB
-> drive, you can copy/move them just as I've copied them to my phone.
-> However, I don't usually find a need to archive them off unless
-> there's a particularly noteworthy episode.
->
-> Hopefully that gives you some ideas to work with.  And an adequate
-> ramble. (grins)
->
-> -tim
->
->
->
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+V2FpdC4uLk1pZG9yaSB3b3JrcyB3aXRoIE9yY2E/IE5lYXQgaWYgc28uLi4uaG9wZWZ1bGx5IHRo
+ZXkgZml4ZWQgdGhlIApjcmFzaGluZyB3aXRoIGl0LgoKSSd2ZSBuZXZlciBnb3QgaXQgdG8gd29y
+ayB0aGF0IHdlbGwsIHdpdGggYSBxdWljayBwYWNtYW4gLVMgTWlkb3JpIGFuZCAKdHJ5aW5nIGl0
+LCBpdCBpc24ndCBwaWNraW5nIHVwIE9yY2EgcnVubmluZyBzbyBkbyBJIG5lZWQgZmxhZ3MgZm9y
+IGl0IGEgCmxhIENocm9taXVtIG9yIGRvIEkgbmVlZCBhIGRldmVsIHZlcnNpb24gb3Igc29tZXRo
+aW5nP0hvdwoKCk9uIDEyLzUvMjEgMTg6MDQsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1
+c3Npb24gd3JvdGU6Cj4gRGlsbG8gZ2l2ZXMgbWUgbm8gc3BlZWNoIGF0IGFsbCBoZXJlLCBhbmQg
+ZXZlbiB0YWIgc2F5cyBub3RoaW5nLiBBcyBJIAo+IHJlY2FsbCwgSSd2ZSB0cmllZCBkaWxsbyBz
+ZXZlcmFsIHRpbWVzIG9uIHZhcmlvdXMgZGlzdHJpYnV0aW9ucywgYW5kIAo+IGF0IG5vIHRpbWUg
+aGF2ZSBJIGJlZW4gYWJsZSB0byBnZXQgaXQgc3BlYWtpbmcuIE9uIHRoZSBvdGhlciBoYW5kLCBJ
+IAo+IGRvIHN0aWxsIHNlZW0gdG8gaGF2ZSBmYWlybHkgZ29vZCBsdWNrIHdpdGggTWlkb3JpLCB3
+aGljaCBpcyBhYm91dCB0aGUgCj4gZmFzdGVzdCBhbmQgbW9zdCBsaWdodHdlaWdodCBicm93c2Vy
+IHRoYXQgd29ya3Mgd2l0aCBPcmNhIHRoYXQgSSBrbm93LiAKPiBJdCBzZWVtcyB0byBoYXZlIHNv
+bWUgZ2xpdGNoZXMsIGVzcGVjaWFsbHkgcGxhY2VzIHdoZXJlIGl0IGdldHMgc3R1Y2ssIAo+IGJ1
+dCBpdCBkb2VzIG1vc3RseSB3b3JrIE9LLsKgIEhhdmluZyBzYWlkIHRoaXMsIFNlYW1vbmtleSwg
+d2hpY2ggeW91IAo+IGluZGljYXRlZCB5b3UgYWxyZWFkeSBoYXZlLCBpcyBhYmxlIHRvIHJlcGxh
+Y2UgYm90aCBGaXJlZm94IGFuZCAKPiBUaHVuZGVyYmlyZCwgYW5kIHlvdSBjYW4gc3RhcnQgaXQg
+YXMgZWl0aGVyIGFuIGVtYWlsIGFwcGxpY2F0aW9uIHVzaW5nIAo+IHRoZSBjb21tYW5kIGxpbmUK
+Pgo+IHNlYW1vbmtleSAtLW1haWwKPgo+IG9yIGFzIGEgYnJvd3NlciBqdXN0IGJ5IHJ1bm5pbmcg
+aXQgd2l0aG91dCBhbnkgZmxhZ3Mgb3Igd2l0aCBhIFVSTC4gCj4gSSdtIG5vdCBzdXJlIGl0J3Mg
+YW55IGxpZ2h0ZXIgdGhhbiBGaXJlZm94IHdoZW4gaXQgcnVucyBhcyBhIGJyb3dzZXIsIAo+IGJ1
+dCBpdCBjZXJ0YWlubHkgZG9lcyBhcHBlYXIgdG8gYmUgbGlnaHRlciB0aGFuIFRodW5kZXJiaXJk
+IHdoZW4gdXNlZCAKPiB0byByZWFkIGFuZCB3cml0ZSBlbWFpbC4KPgo+IH5LeWxlCj4KPiBfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0
+IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4u
+cmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0CgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QK
+QmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFu
+L2xpc3RpbmZvL2JsaW51eC1saXN0
 
