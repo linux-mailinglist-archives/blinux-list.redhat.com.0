@@ -2,97 +2,95 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0E93746C592
-	for <lists+blinux-list@lfdr.de>; Tue,  7 Dec 2021 22:00:12 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 427AB46C7E7
+	for <lists+blinux-list@lfdr.de>; Tue,  7 Dec 2021 23:59:56 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638910812;
+	s=mimecast20190719; t=1638917995;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=9j50yj/oJWOFBb1eulLhFeth2BJIUKDXELf7W/hmkl4=;
-	b=C1wpTGXpEtMdjNRxMQnbM1ET9G+eHFh2+pNAZIpfldeyhHeidoBosgJGXK5yKBLEikUQay
-	MM2Cz4fN7LajtEHOt0DnD2XoBi19sUHEwvIWd02jS6XOvBe4S+Z2v63ULwxF/hOnvfP5Tz
-	Vfnu7F0IFNs4fqF6JrQfJQZ2fNZQO48=
+	bh=+GJP4QISEYZAUmiwPS0HTLndyfhQtZxyDcQuKJMxgYo=;
+	b=f4JlOc0iib7CreCirEvCsaLBHmc9FlEgEEKel7fIdhN4vIgUCGn2SvxKxaw+UdrW5hs3mL
+	v0qXrVYiW68JFl5nKL9ru6QcRjesK4LH414RLKxN4Mn8OO/aNF3e5xLq3wbcqWwxXEAJ+7
+	jiH78v1jBTJVZOjZUfpBqvpgd2VxWtA=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-437-rOtzPtdXMCOLh9y2NkKKlg-1; Tue, 07 Dec 2021 16:00:10 -0500
-X-MC-Unique: rOtzPtdXMCOLh9y2NkKKlg-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-191-H9F0BGPKONq0ZLNtEK3g5Q-1; Tue, 07 Dec 2021 17:59:51 -0500
+X-MC-Unique: H9F0BGPKONq0ZLNtEK3g5Q-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 88D3B93921;
-	Tue,  7 Dec 2021 21:00:00 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id EB1BA1972E;
-	Tue,  7 Dec 2021 20:59:59 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 0CA411023F50;
+	Tue,  7 Dec 2021 22:59:46 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2459445D6A;
+	Tue,  7 Dec 2021 22:59:44 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3DD104BB7B;
-	Tue,  7 Dec 2021 20:59:58 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A18AF1809CB8;
+	Tue,  7 Dec 2021 22:59:40 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.8])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1B7Kxbxi004596 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 7 Dec 2021 15:59:37 -0500
+	id 1B7MxVeB015321 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 7 Dec 2021 17:59:31 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 5E8791121315; Tue,  7 Dec 2021 20:59:37 +0000 (UTC)
+	id 43AD5C08095; Tue,  7 Dec 2021 22:59:31 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 59F791121314
-	for <blinux-list@redhat.com>; Tue,  7 Dec 2021 20:59:34 +0000 (UTC)
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3EE9CC0808C
+	for <blinux-list@redhat.com>; Tue,  7 Dec 2021 22:59:31 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6F974811E78
-	for <blinux-list@redhat.com>; Tue,  7 Dec 2021 20:59:34 +0000 (UTC)
-Received: from gateway11.unifiedlayer.com (gateway11.unifiedlayer.com
-	[74.220.192.56]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 24F098032F3
+	for <blinux-list@redhat.com>; Tue,  7 Dec 2021 22:59:31 +0000 (UTC)
+Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com
+	[209.85.160.170]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-492-4E-1PNAHOQm1D9dzupH1rg-1; Tue, 07 Dec 2021 15:59:32 -0500
-X-MC-Unique: 4E-1PNAHOQm1D9dzupH1rg-1
-Received: from cm1.websitewelcome.com (unknown [192.185.0.102])
-	by gateway11.unifiedlayer.com (Postfix) with ESMTP id CC0132009E4C6
-	for <blinux-list@redhat.com>; Tue,  7 Dec 2021 14:59:29 -0600 (CST)
-Received: from uscentral455.accountservergroup.com ([174.136.13.174])
-	by cmsmtp with ESMTP
-	id uhYfm1yHbv5IUuhYfmZ5B2; Tue, 07 Dec 2021 14:59:29 -0600
-X-Authority-Reason: nr=8
-Received: from 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
-	([76.222.220.222]:53936 helo=bigbox.attlocal.net)
-	by uscentral455.accountservergroup.com with esmtpsa (TLS1.2) tls
-	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
-	(envelope-from <blinux.list@thechases.com>) id 1muhYf-0040rQ-HH
-	for blinux-list@redhat.com; Tue, 07 Dec 2021 14:59:29 -0600
-Date: Tue, 7 Dec 2021 14:59:28 -0600
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Using lynx to Dump a text file in to a Web Form
-Message-ID: <20211207145928.5469e72b@bigbox.attlocal.net>
-In-Reply-To: <E1muhNK-0007k7-8u@wb5agz.lan>
-References: <E1muhNK-0007k7-8u@wb5agz.lan>
+	us-mta-78-adtzdUsSPuaKHoJZtrYLug-1; Tue, 07 Dec 2021 17:59:29 -0500
+X-MC-Unique: adtzdUsSPuaKHoJZtrYLug-1
+Received: by mail-qt1-f170.google.com with SMTP id v22so691374qtx.8
+	for <blinux-list@redhat.com>; Tue, 07 Dec 2021 14:59:29 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=zVzJHSAvtsVWTnMwmS7vsEBLSbxpaW107RiRBMHcEOM=;
+	b=RawbfdQlF7GKTdX0RXGm3SdxBWp35mxOeA1CerbHNvt1GgD0PQqAva21nzrOrzk34a
+	GtgGV+R9OniPOyaa7twzOqclUQsxBYukNRdwAFD/QOIO799v4h1HFtD1iE4JieGVfMrD
+	t+FRLkysQ8z5yk3qZ7xv6AoFORwJDUL08s1EiNj7u5TZdTA7RYi3uKWaB2pM7gPBBIit
+	OXFLvQZLr8YO77hHmIp/KuLe+aJE+7a1wAJoPMoOPMGQ7NcRdx5cO408v2MI7sko/vwS
+	v/o5pv5og1zmF5yJ/1tho6+x+5LASwNk8WrggSeyavkqC41UXPP/1gMQTwtJYle4sZxB
+	TRXQ==
+X-Gm-Message-State: AOAM532hQYUo+EdOsgur8wPnXdKLMW4/TrI/AoBOjKUknQxxMNNrLnGC
+	25Pj8WgwhlzwreaIVngR0KE2He4BYFs=
+X-Google-Smtp-Source: ABdhPJwZsQDYE6Mr0IChU45nZCsI5FxzReAjf0GruQoqBg3vm0dQvplR6qL5w+SXPBRsyWIuZxGV/g==
+X-Received: by 2002:a05:622a:1cd:: with SMTP id
+	t13mr3168026qtw.31.1638917969038; 
+	Tue, 07 Dec 2021 14:59:29 -0800 (PST)
+Received: from ?IPV6:2603:6080:6302:e002:7991:cc1c:439:b8f5?
+	(2603-6080-6302-e002-7991-cc1c-0439-b8f5.res6.spectrum.com.
+	[2603:6080:6302:e002:7991:cc1c:439:b8f5])
+	by smtp.gmail.com with ESMTPSA id 196sm522352qkd.61.2021.12.07.14.59.28
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Tue, 07 Dec 2021 14:59:28 -0800 (PST)
+Message-ID: <e6a251f6-5a33-b88c-6bc4-b26dabcc4d9d@gmail.com>
+Date: Tue, 7 Dec 2021 17:59:27 -0500
 MIME-Version: 1.0
-X-AntiAbuse: This header was added to track abuse,
-	please include it with any abuse report
-X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
-X-AntiAbuse: Original Domain - redhat.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - thechases.com
-X-BWhitelist: no
-X-Source-IP: 76.222.220.222
-X-Source-L: No
-X-Exim-ID: 1muhYf-0040rQ-HH
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
-	(bigbox.attlocal.net) [76.222.220.222]:53936
-X-Source-Auth: tim@thechases.com
-X-Email-Count: 1
-X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
-X-Local-Domain: yes
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.3.0
+Subject: Re: Other lightweight WM?
+To: blinux-list@redhat.com
+References: <58c49814-4eb5-b4dc-85da-c6fb7d110d82@gmail.com>
+	<CAO2sX30eL2BGnmLU2JqWS8epCwW+gTP2cG5nZ2YHM=0zJCXSkQ@mail.gmail.com>
+In-Reply-To: <CAO2sX30eL2BGnmLU2JqWS8epCwW+gTP2cG5nZ2YHM=0zJCXSkQ@mail.gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -101,7 +99,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -118,59 +116,23 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Tim here.  If your focus is on a text-entry field, using control-x
-followed by control-e will save the content to a temporary file and
-then open your configured editor (whether in your lynx configuration,
-your $VISUAL environment variable, or falling back to your $EDITOR
-environment variable) pointed at that file.  You can then merrily
-edit the file. When you save & quit (or just quit without saving) the
-file that was on disk will become the contents of the text-entry
-field.
+Flwm is lighter than jwm? Jwm is what I used for the Firefox+Orca thing 
+via scripting back in the days of F123Light. As I recall, control+q to 
+close Firefox works using jwm. I don't remember if alt+f4 worked. It did 
+however allow Firefox to talk to Orca without any issues. Jwm is less 
+than 200KB installed as I recall, in case you are working on a system 
+with extremely limited disk space. Not sure of its RAM requirements though.
 
-It also happens to be the same key-combination used in bash to invoke
-your $EDITOR/$VISUAL on the command you're currently typing so you
-can edit the command with the full power of that editor.
-
-Hope this helps,
-
--Tim
-
-On December  7, 2021, Linux for blind general discussion wrote:
-> I once knew a key sequence one could run in a case of having a
-> multi-line form such that one could dump a formatted text file in
-> to that form.
-> 
-> 	I have forgotten what a person does but the case where
-> this works is let's say, a situation where you are prompted to
-> enter a message followed by a bunch of empty lines that fill as
-> you type.
-> 
-> 	You type what to put in to those lines and then bring up
-> the web page and go to the input form and then I think lynx
-> prompts for the name of your text file and you type that in and
-> off it goes.  One usually ends up with the basic format of your
-> file neatly filling the form which you can then just send.
-> 
-> 	If lynx is the browser, what is the correct procedure to
-> do this?
-> 
-> 	Thanks.
-> 
-> Martin McCormick
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-> 
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
