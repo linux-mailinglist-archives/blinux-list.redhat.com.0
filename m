@@ -1,76 +1,88 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id D406346DC60
-	for <lists+blinux-list@lfdr.de>; Wed,  8 Dec 2021 20:35:44 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id A588646DE7C
+	for <lists+blinux-list@lfdr.de>; Wed,  8 Dec 2021 23:38:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1638992143;
+	s=mimecast20190719; t=1639003095;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=RZV/GjPR7JUbq5mMhPRcdUuxY1wWa7yb8JYOAlXGzok=;
-	b=DWbb9GQGqoWp7hD17q2WsrO5m12hK0vhl6RUwmAcjYVC0oeWaSJpgyws00Sv2fUPP6Po//
-	KbbgzBDgL2piPqOf+NHVnZ8GF/zwV5hPpxfVMiMRqvN7WOXSMLwQzD4PrJaQlEOEYOedJP
-	hFOxZWMgds4mhK+hpzVpNG3uWB1u7b8=
+	bh=3YPWbyMNaFnZfRoW5h8OJuBgOc/0fuVHrF92sqbgD+E=;
+	b=Q0chYTSHtEqdAB0caAbi3H81GcwM8cxKSBhB8wmulmXCukqFg0UvioL2aUfOzYN4UabQ5g
+	oXghXZ4RBrqHdF+HrBMSDcLQPfI+/EoRsarM8xMkQQZo1zmK3Qq87jtQx7VLB0PSmBbGow
+	/Fs3cWtgClBFQHgRutuZDdPZ3SeUSwk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-200-jxJphhhbOr6cLEQw3srXQw-1; Wed, 08 Dec 2021 14:35:40 -0500
-X-MC-Unique: jxJphhhbOr6cLEQw3srXQw-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-571-XAn-h5_uMOWjz5mmNyl0Fw-1; Wed, 08 Dec 2021 17:38:11 -0500
+X-MC-Unique: XAn-h5_uMOWjz5mmNyl0Fw-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CB64F1006AA0;
-	Wed,  8 Dec 2021 19:35:36 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B13E41002390;
-	Wed,  8 Dec 2021 19:35:36 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9855C81CCB4;
+	Wed,  8 Dec 2021 22:38:05 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id F00D56D036;
+	Wed,  8 Dec 2021 22:38:04 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EFCD41809CB8;
-	Wed,  8 Dec 2021 19:35:35 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.9])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7FBE34BB7B;
+	Wed,  8 Dec 2021 22:37:58 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1B8JZWa1021886 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 8 Dec 2021 14:35:32 -0500
+	id 1B8MbmYU007304 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 8 Dec 2021 17:37:49 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 34E9C492CA4; Wed,  8 Dec 2021 19:35:32 +0000 (UTC)
+	id DDF1C4047279; Wed,  8 Dec 2021 22:37:48 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2F91D492CA3
-	for <blinux-list@redhat.com>; Wed,  8 Dec 2021 19:35:32 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0052D811E76
-	for <blinux-list@redhat.com>; Wed,  8 Dec 2021 19:35:32 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-472-uhVVD4lFO5GoAjISQLsueg-1; Wed, 08 Dec 2021 14:35:30 -0500
-X-MC-Unique: uhVVD4lFO5GoAjISQLsueg-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4J8S7N6P0dz40kH
-	for <blinux-list@redhat.com>; Wed,  8 Dec 2021 14:35:28 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4J8S7N5XR2zcbc; Wed,  8 Dec 2021 14:35:28 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4J8S7N5CVhzcbP
-	for <blinux-list@redhat.com>; Wed,  8 Dec 2021 14:35:28 -0500 (EST)
-Date: Wed, 8 Dec 2021 14:35:28 -0500
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D9F324047272
+	for <blinux-list@redhat.com>; Wed,  8 Dec 2021 22:37:48 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C20A7101A529
+	for <blinux-list@redhat.com>; Wed,  8 Dec 2021 22:37:48 +0000 (UTC)
+Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com
+	[209.85.160.174]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-233-XQ1yuHV2PTq7hTaDbGpyIw-1; Wed, 08 Dec 2021 17:37:46 -0500
+X-MC-Unique: XQ1yuHV2PTq7hTaDbGpyIw-1
+Received: by mail-qt1-f174.google.com with SMTP id l8so3673415qtk.6
+	for <blinux-list@redhat.com>; Wed, 08 Dec 2021 14:37:46 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
+	:mime-version:content-transfer-encoding:content-language;
+	bh=jidBjQyoyVhE5M3JLg0SuYu2zYuh8u/vmWQkzC78cLg=;
+	b=ZAglT7eG8CTWwpqbJUv4itZlj4BhJ9bf9+NfFk87W7L8ieWz5vO327z1xK8ReaEgke
+	zX9AzMPJjxGqPJjNGevnZqBJU7dLR+PGguxr/UIjmkA8k2/YzJmudCgeFLaRbYqNXXGR
+	//0vEEVJMy3H0xPUPE8HluCfr+XWahvT6YfSerdJsawRN6/43DF5GxLlzNqSx8l1RCq3
+	yl4D6qA8P3sZnqwKXCnooWc8/TxaXYSHdxKOv7yeeq9gGTmNkXlJYJZPry+mu6Hz0SDC
+	QVl322++C+xVdja9CDYQnlL5qzTHTQQfHckvgNFi6TVC0sQA0+yXR6xSIZWhaKTymvqW
+	hV1w==
+X-Gm-Message-State: AOAM530JJJeYVW/IB8dnYapi44AKjQukaCXKZnk11+KqtXtzLnQYBgI0
+	T1RRBO2N5LFig6FBRCpFDsQb2X3t+KQjCOPp
+X-Google-Smtp-Source: ABdhPJwM5cE/K4z/XMaHfL72UKpy2xmFVyBL2R/Fi74EhSS0b6qvVCNWXDI/p9nQDYuSEwsXPQb2gg==
+X-Received: by 2002:ac8:5803:: with SMTP id g3mr11668498qtg.317.1639003065848; 
+	Wed, 08 Dec 2021 14:37:45 -0800 (PST)
+Received: from darkstar.example.slint ([2601:152:4000:330:6a07:15ff:fe1b:961c])
+	by smtp.gmail.com with ESMTPSA id m9sm2060073qkn.59.2021.12.08.14.37.44
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Wed, 08 Dec 2021 14:37:45 -0800 (PST)
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Switching to a Different email Client
-In-Reply-To: <a1c65317-0273-7198-6473-2db4aa1d4845@gmail.com>
-Message-ID: <alpine.NEB.2.23.451.2112081428520.11457@panix1.panix.com>
-References: <E1mv1D9-0001mn-Hw@wb5agz.lan>
-	<eb106688-8ce3-d826-70f5-775df84385a6@gmail.com>
-	<a1c65317-0273-7198-6473-2db4aa1d4845@gmail.com>
+Subject: screen not in text mode on a braille display, how can I put it back
+	in text mode?
+Message-ID: <08486966-a674-edf1-c39d-759eb107cd7c@gmail.com>
+Date: Wed, 8 Dec 2021 17:37:44 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Thunderbird/68.12.0
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -80,7 +92,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -97,51 +109,34 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-The hassle with fleacollar.sh will be with creating a proper gpg2 key and
-writing it to the correct filename that the mutt script fleacollar.sh
-makes expects.  Hasn't happened so far.
-One of the reasons it hasn't happened and likely cannot happen is that
-gpg2 when creating a key expects events to take time to generate random
-entropy and fleacollar.sh simply goes along to the next command before
-gpg2 has finished.  Probably tearing the gpg2 stuff out of fleacollar.sh
-would help if an additional script were packaged with it to optionally
-create a gpg2 key and write it where the fleacollar.sh script creates
-expects in the user .mutt directory tree.
- On Wed, 8 Dec 2021, Linux for blind general discussion wrote:
-
-> I second Alpine. If you can get Fleacollar to work, that could help with Mutt
-> and take the hassle out of setting it up as much, but...Alpine, I've not found
-> a similar utility
->
-> Linux for blind general discussion wrote:
-> > Maybe Alpine could work. It is rather difficult to read HTML mail without a
-> > desktop, but I think Alpine can do at least some of this.
-> >
-> > ~Kyle
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGkgRnJpZW5kcywKCkkgZG8gbm90IGtub3cgaG93IG1hbnkgb2YgeW91IHVzZSBhIGJyYWlsbGUg
+ZGlzcGxheSB3aXRoIGxpbnV4LCBidXQgSSAKbGlrZSBicmFpbGxlLiBJIGFtIHVzaW5nIG15IFZh
+cmlvVWx0cmEgNDAgYXMgbXkgYnJhaWxsZSBkaXNwbGF5IHdpdGggbXkgCmxpbnV4LiBJIGhvcGUg
+aWYgdGhlcmUgYXJlIGJyYWlsbGUgdXNlcnMgaGVyZSBjYW4gaGVscCBtZSBzb2x2ZSB0aGlzIHB1
+enpsZS4KCgpJIG5vdGljZWQgdGhhdCBpZiBJIGJvb3QgdXAgbXkgU2xpbnQgd2l0aCB0aGUgYnJh
+aWxsZSBkaXNwbGF5IHR1cm5lZCBvbiAKYW5kIGNvbm5lY3RlZCBpdCB3b3JrcyBiZWF1dGlmdWxs
+eSB3ZWxsIHdpdGggbXkgc2NyZWVuIHJlYWRlci4gSG93ZXZlciwgCklmIEkgYm9vdCBteSBtYWNo
+aW5lIHdpdGggdGhlIGJyYWlsbGUgZGlzcGxheSBpcyB0dXJuZWQgb2ZmIG9yIApkaXNjb25uZWN0
+ZWQsIHdoZW4gSSBjb25uZWN0IGl0IG9yIHR1cm4gaXQgb24sIEkgc2VlIHRoZSBicmx0dHkgNi40
+IApjb21lcyB1cCBvbiB0aGUgZGlzcGxheSwgYnV0IGFmdGVyIHRoYXQgSSBjYW4gb25seSByZWFk
+IG9uIHRoZSBkaXNwbGF5IApzY3JlZW4gbm90IGluIHRleHQgbW9kZS4gRXZlbiBpZiBJIGtpbGwg
+b3JjYSB3aXRoIHRoZSBraWxsYWxsIGNvbW1hbmQgCmFuZCByZXN0YXJ0IG9yY2EsIHRoZSBCcmFp
+bGxlIGRpc3BsYXkgb25seSBzaG93cyBzY3JlZW4gbm90IGluIHRleHQgCm1vZGUuwqAgSWYgSSB3
+YW50IHRvIHVzZSBicmFpbGxlIEkgYW0gbGVmdCB3aXRoIG5vIG9wdGlvbiBidXQgdG8gcmVib290
+IAp0aGUgbWFjaGluZSB3aXRoIHRoZSBicmFpbGxlIGRpc3BsYXkgaXMgdHVybmVkIG9uIGFuZCBj
+b25uZWN0ZWQgdG8gbXkgCmxhcHRvcC4KCklzIHRoZXJlIGEgd2F5IG9mIGJlaW5nIGFibGUgdG8g
+YWN0aXZhdGUgYnJhaWxsZSBldmVuIGlmIEkgZm9yZ2V0IHRvIAp0dXJuIHRoZSBkaXNwbGF5IG9u
+IGFuZCBjb25uZWN0IGl0IHRvIG15IGxhcHRvcCBhZnRlciB0aGUgYm9vdHVwPwoKQ2hlZXJzLAoK
+SWJyYWhpbQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+QmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9s
+aXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
 
