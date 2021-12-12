@@ -2,83 +2,98 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id BCC7547177F
-	for <lists+blinux-list@lfdr.de>; Sun, 12 Dec 2021 02:19:20 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id EF89947177C
+	for <lists+blinux-list@lfdr.de>; Sun, 12 Dec 2021 02:14:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1639271959;
+	s=mimecast20190719; t=1639271690;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=GdbuzNT24MbKttOZc2+Ykd47MhjCjlAqOFsQQmJzTe0=;
-	b=CODQs/BwkOnY5WdCsdMRLi9S/Nn9fD9gA1unbdFXn8DsjQbTm8PKyoPQZRiSOjclhnLV+m
-	/tko8+zWJPfCyRp4iemXJu0vYjweXvwPqbPF80JqBm+jV1xn26ZlCkkUix4IdrrYNv3i9A
-	0ZkSF6qujvf7HqTgwOlNS5RxwSkHUQ0=
+	bh=4PV73ruS0KWRmU7vKS80rOtbv7mH3O4Mpv/BtbfGD9w=;
+	b=Duna7TCVPoGTNIyje90UWalHZa8fGOEoNeSNagKqKHOlfmRCfqcDslTyAvrfVPNVE15Spf
+	NLlQA5UYmE5gPGlRXMPHkV5V+50ozgE6rOdzEVMLizeOc8q2kS9XRgohxajzu2AekF2rFX
+	3QQddsOXyrl77oOWsPnS1MMLF+aYagQ=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-427-dmuRh9XrPeypmaV_KcWciw-1; Sat, 11 Dec 2021 20:19:16 -0500
-X-MC-Unique: dmuRh9XrPeypmaV_KcWciw-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-31-pxCdhr9KNTm_hWhlQ7cbPQ-1; Sat, 11 Dec 2021 20:14:48 -0500
+X-MC-Unique: pxCdhr9KNTm_hWhlQ7cbPQ-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 387022F26;
-	Sun, 12 Dec 2021 01:19:12 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2443845D74;
-	Sun, 12 Dec 2021 01:19:12 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B92D4801962;
+	Sun, 12 Dec 2021 01:14:43 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 740F07AB68;
+	Sun, 12 Dec 2021 01:14:41 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 32E1E1809CB9;
-	Sun, 12 Dec 2021 01:19:10 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.7])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C2D564BB7B;
+	Sun, 12 Dec 2021 01:14:35 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1BC1G8Ir014583 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 11 Dec 2021 20:16:08 -0500
+	id 1BC1EPrV014423 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 11 Dec 2021 20:14:26 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 4EA4B1410F35; Sun, 12 Dec 2021 01:16:08 +0000 (UTC)
+	id B344640C1241; Sun, 12 Dec 2021 01:14:25 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4A2071400AFD
-	for <blinux-list@redhat.com>; Sun, 12 Dec 2021 01:16:08 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2D219800B29
-	for <blinux-list@redhat.com>; Sun, 12 Dec 2021 01:16:08 +0000 (UTC)
-Received: from pb-smtp21.pobox.com (pb-smtp21.pobox.com [173.228.157.53]) by
-	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-547-s1Ewo0zUNAC5JyWMAUn26g-1; Sat, 11 Dec 2021 20:16:06 -0500
-X-MC-Unique: s1Ewo0zUNAC5JyWMAUn26g-1
-Received: from pb-smtp21.pobox.com (unknown [127.0.0.1])
-	by pb-smtp21.pobox.com (Postfix) with ESMTP id 9E1B217623F
-	for <blinux-list@redhat.com>; Sat, 11 Dec 2021 20:11:35 -0500 (EST)
-	(envelope-from joelz@pobox.com)
-Received: from pb-smtp21.sea.icgroup.com (unknown [127.0.0.1])
-	by pb-smtp21.pobox.com (Postfix) with ESMTP id 9666A17623E
-	for <blinux-list@redhat.com>; Sat, 11 Dec 2021 20:11:35 -0500 (EST)
-	(envelope-from joelz@pobox.com)
-Received: from sprite (unknown [66.8.171.137])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id AED9B400E13B
+	for <blinux-list@redhat.com>; Sun, 12 Dec 2021 01:14:25 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by pb-smtp21.pobox.com (Postfix) with ESMTPSA id 5320317623B
-	for <blinux-list@redhat.com>; Sat, 11 Dec 2021 20:11:32 -0500 (EST)
-	(envelope-from joelz@pobox.com)
-Received: from jroth by sprite with local (Exim 4.94.2)
-	(envelope-from <joelz@pobox.com>) id 1mwDOe-0001Kz-QB
-	for blinux-list@redhat.com; Sat, 11 Dec 2021 15:11:24 -1000
-Date: Sat, 11 Dec 2021 15:11:24 -1000
-To: blinux-list@redhat.com
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 96D8A185A79C
+	for <blinux-list@redhat.com>; Sun, 12 Dec 2021 01:14:25 +0000 (UTC)
+Received: from gateway9.unifiedlayer.com (gateway9.unifiedlayer.com
+	[74.220.217.99]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-562-N9VMnSxZMui5J9MoFiXUPw-1; Sat, 11 Dec 2021 20:14:23 -0500
+X-MC-Unique: N9VMnSxZMui5J9MoFiXUPw-1
+Received: from cm1.websitewelcome.com (unknown [192.185.0.102])
+	by gateway9.unifiedlayer.com (Postfix) with ESMTP id A06612009912A
+	for <blinux-list@redhat.com>; Sat, 11 Dec 2021 19:14:21 -0600 (CST)
+Received: from uscentral455.accountservergroup.com ([174.136.13.174])
+	by cmsmtp with ESMTP
+	id wDRVmKWRkv5IUwDRVmqs4J; Sat, 11 Dec 2021 19:14:21 -0600
+X-Authority-Reason: nr=8
+Received: from 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
+	([76.222.220.222]:10015 helo=bigbox.attlocal.net)
+	by uscentral455.accountservergroup.com with esmtpsa (TLS1.2) tls
+	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+	(envelope-from <blinux.list@thechases.com>) id 1mwDRV-0015gM-B5
+	for blinux-list@redhat.com; Sat, 11 Dec 2021 19:14:21 -0600
+Date: Sat, 11 Dec 2021 19:14:19 -0600
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Ignoring hard wrapping when doing copy and paste.
-Message-ID: <20211212011124.2ethq4obsma4lzbk@sprite>
+Message-ID: <20211211191419.48ec5612@bigbox.attlocal.net>
+In-Reply-To: <CAO2sX33xFEVcratw7R8jfbHY5v7LtCGkHbj3u91fXWTdBsnp4w@mail.gmail.com>
 References: <CAO2sX33xFEVcratw7R8jfbHY5v7LtCGkHbj3u91fXWTdBsnp4w@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <CAO2sX33xFEVcratw7R8jfbHY5v7LtCGkHbj3u91fXWTdBsnp4w@mail.gmail.com>
-X-Pobox-Relay-ID: 716CFDCA-5AE8-11EC-987C-98D80D944F46-04347428!pb-smtp21.pobox.com
+X-AntiAbuse: This header was added to track abuse,
+	please include it with any abuse report
+X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
+X-AntiAbuse: Original Domain - redhat.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - thechases.com
+X-BWhitelist: no
+X-Source-IP: 76.222.220.222
+X-Source-L: No
+X-Exim-ID: 1mwDRV-0015gM-B5
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
+	(bigbox.attlocal.net) [76.222.220.222]:10015
+X-Source-Auth: tim@thechases.com
+X-Email-Count: 1
+X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
+X-Local-Domain: yes
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -87,7 +102,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -104,54 +119,45 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hello,
+Tim here.  The easiest way I know to reflow lines like that is to
+pipe them through fmt(1), specifying a humongous line-width like
 
-Here is a script 'oneline' that converts a hard-wrapped file
-to a one-line-per-paragraph, separated where there are two
-newlines. 
+  fmt -w99999
 
-oneline wrapped.txt > one-line-per-para.txt
+If you have the content in your clipboard, you can use xsel or
+xclip to pipe it out to fmt(1) and back into the clipboard like
 
-oneline wrapped | xsel -b  # copy to paste buffer
+  $ xsel -ob | fmt -w99999 | xsel -ib
 
-'onel' is a helper script so you can say
+before pasting it into Firefox (or email or whatever).  If you use it
+frequently, it could be wrapped up in a shell-script or a hot-key in
+your window-manager.
 
-onel wrapped
+Does that do the trick for you?
 
-Then paste where you want with Ctrl-V
+-Tim
 
-#!/usr/bin/perl
-$mark = '@!@&@';  # unlikely to occur in input text
-$/ = undef;
-$text = <>;
-$text =~ s/\s*\n\s*\n/$mark/og;
-$text =~ s/\s*\n/ /og;
-$text =~ s/$mark/\n\n/og;
-print $text;
-
-#!/bin/sh
-oneline $1 | xsel -b
-
-> Okay, so my text editing environment of choice is Nano running in the
-> Linux Console, and I'm constantly using the justify function to hard
-> wrap text because lines wider than the screen are difficult to work
-> with.
+On December 12, 2021, Linux for blind general discussion wrote:
+> Okay, so my text editing environment of choice is Nano running in
+> the Linux Console, and I'm constantly using the justify function to
+> hard wrap text because lines wider than the screen are difficult to
+> work with.
 > 
 > If I need to post something I wrote in nano online, but can't just
-> upload the .txt, I'll save, close nano, switch to tty1 where I usually
-> have Firefox running in a stripped down xserver, open the text file in
-> Firefox, and copy and paste into the text box.
+> upload the .txt, I'll save, close nano, switch to tty1 where I
+> usually have Firefox running in a stripped down xserver, open the
+> text file in Firefox, and copy and paste into the text box.
 > 
-> >From my perspective, everything works fine, but I've gotten complaints
+> >From my perspective, everything works fine, but I've gotten
+> >complaints  
 > from sighted users about the extra line breaks from the hardwrapping
 > making text posted in this manner hard to read.
 > 
@@ -165,9 +171,6 @@ oneline $1 | xsel -b
 > Blinux-list@redhat.com
 > https://listman.redhat.com/mailman/listinfo/blinux-list
 > 
-
--- 
-Joel Roth
 
 _______________________________________________
 Blinux-list mailing list
