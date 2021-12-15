@@ -1,87 +1,98 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 12F77474F8B
-	for <lists+blinux-list@lfdr.de>; Wed, 15 Dec 2021 01:50:28 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1D407475100
+	for <lists+blinux-list@lfdr.de>; Wed, 15 Dec 2021 03:37:56 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1639529428;
+	s=mimecast20190719; t=1639535875;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=2T3U3tdubE4WWCe2uTCI9MAhvDdy5+AcubWLhQbndeM=;
-	b=Nuagkiit7BaISkQA42ZYvec6NP7g99M553eNNoYgLBs5Stj+GJxQReQfmxIYc0V8m2UKpm
-	7P4EEdD64zaCY9uMQuSpFY/VH3u+8Y+lJNOK5Kr2YyDHE0dZwV3QZTOoS46FjSE5nQBRm9
-	JJRQ0yop3Yp1Y34qktbHsp3wwVFi1p4=
+	bh=yPGngMqViDaCViWaMXAbT4a1s4/TlVxIRVoUJl/FG/o=;
+	b=Y/J7LjhnZUcWO+suh5zCBC0aVWIMmoTvf4CjL3472QgGHFwpVaNIK90S0D3O30UGRwFeaJ
+	brTY39U41/H+fFlsWi5/ti5/Xo5k8z4LR7p5y1Uahjv4it1pZUQ+BaKgKh98ctJDI/DWMh
+	m16Hdvri3SJj/a7vmP966PCXGpws2lM=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-451-8SuO5TJTOki8QXrey8tSWg-1; Tue, 14 Dec 2021 19:50:24 -0500
-X-MC-Unique: 8SuO5TJTOki8QXrey8tSWg-1
+ us-mta-466-X54xPrtMO2u2x_fFm1XlPA-1; Tue, 14 Dec 2021 21:37:51 -0500
+X-MC-Unique: X54xPrtMO2u2x_fFm1XlPA-1
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 86C571023F50;
-	Wed, 15 Dec 2021 00:50:18 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1AD711023F5C;
+	Wed, 15 Dec 2021 02:37:48 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C68A360C53;
-	Wed, 15 Dec 2021 00:50:17 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BB9E2752AF;
+	Wed, 15 Dec 2021 02:37:44 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C53F11802E27;
-	Wed, 15 Dec 2021 00:50:15 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id CD11718077BC;
+	Wed, 15 Dec 2021 02:37:41 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.7])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1BF0oAiT006926 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 14 Dec 2021 19:50:10 -0500
+	id 1BF2ZdYZ017995 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 14 Dec 2021 21:35:39 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id EBC662166B41; Wed, 15 Dec 2021 00:50:09 +0000 (UTC)
+	id 1D7861402404; Wed, 15 Dec 2021 02:35:39 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E66AC2166B40
-	for <blinux-list@redhat.com>; Wed, 15 Dec 2021 00:50:07 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 18C7E1402403
+	for <blinux-list@redhat.com>; Wed, 15 Dec 2021 02:35:38 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 029361064E6A
-	for <blinux-list@redhat.com>; Wed, 15 Dec 2021 00:50:07 +0000 (UTC)
-Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com
-	[209.85.219.43]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DAB8D3C00143
+	for <blinux-list@redhat.com>; Wed, 15 Dec 2021 02:35:38 +0000 (UTC)
+Received: from gateway10.unifiedlayer.com (gateway10.unifiedlayer.com
+	[69.89.28.149]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-12-enTo3AprNwSyLDo4AhvksQ-1; Tue, 14 Dec 2021 19:50:05 -0500
-X-MC-Unique: enTo3AprNwSyLDo4AhvksQ-1
-Received: by mail-qv1-f43.google.com with SMTP id b11so18871921qvm.7
-	for <blinux-list@redhat.com>; Tue, 14 Dec 2021 16:50:05 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=n2bXDbVj/0A9NmjfZn+BHi2oY2OtvcqIbQUch7EH9Z4=;
-	b=pDjtLohXZEfYxFXXt07lrlM63nVXbuDqVgeS+wGUpvDN22AFuG/8Q6twtPUV2IC32M
-	SNk+NM4srXa1OicF6enOq75LqpkSsETl0W1ZqGsnYE6UPUhuENnAIM1FYg+gv6RpMFXY
-	7c+859tKY6hYWmoF13PYteYtGAVjQXVKZ6QuyBYn/eq9r+z0w4aOqxoi5sLKriL9DRy+
-	qGUXkYJg2CZMQpsXHrnJL7V91ESJQ8FQUET1Giq51UbZm911RssJ62fFw924vOwVLBZV
-	B/VV2SUf4WQJQKMDF7G1enX6nJ7QZzDt5TmVZCvc2STGeYLYExsPwpHtaqMnPIZ5gCAH
-	o2vg==
-X-Gm-Message-State: AOAM531EtS1rfTWG+2iwVZF95kvaF2Kzk5mH8u/k+Hx/Xb9C/mX0pMxt
-	mvwS+pl+ELI+bn3JshbN2LVciytKn4WDyJhOwt5IIFFh
-X-Google-Smtp-Source: ABdhPJwhNHPMSuNusIYfqT6Dyr7y9KSCRf/Nw15g5EUi5sIHqlC1ikrpzj2D9vLiV01ZkJO0A+ZoGz51vkmKJ4eLuOA=
-X-Received: by 2002:ad4:5bc5:: with SMTP id t5mr9367611qvt.72.1639529404580;
-	Tue, 14 Dec 2021 16:50:04 -0800 (PST)
-MIME-Version: 1.0
-Received: by 2002:a0c:c34a:0:0:0:0:0 with HTTP; Tue, 14 Dec 2021 16:50:04
-	-0800 (PST)
-In-Reply-To: <20211211191419.48ec5612@bigbox.attlocal.net>
-References: <CAO2sX33xFEVcratw7R8jfbHY5v7LtCGkHbj3u91fXWTdBsnp4w@mail.gmail.com>
-	<20211211191419.48ec5612@bigbox.attlocal.net>
-Date: Wed, 15 Dec 2021 00:50:04 +0000
-Message-ID: <CAO2sX31nGP6-=DgsvRCoTBwRtfP=pALKcnuvWPfy6o=9ccE_NQ@mail.gmail.com>
-Subject: Re: Ignoring hard wrapping when doing copy and paste.
+	us-mta-486-VKMb7KULO_qJeHJezQsTiA-1; Tue, 14 Dec 2021 21:35:36 -0500
+X-MC-Unique: VKMb7KULO_qJeHJezQsTiA-1
+Received: from cm6.websitewelcome.com (unknown [108.167.139.19])
+	by gateway10.unifiedlayer.com (Postfix) with ESMTP id 427ED20099158
+	for <blinux-list@redhat.com>; Tue, 14 Dec 2021 20:13:13 -0600 (CST)
+Received: from uscentral455.accountservergroup.com ([174.136.13.174])
+	by cmsmtp with ESMTP
+	id xJn7msKFltGNQxJn7mXnVg; Tue, 14 Dec 2021 20:13:13 -0600
+X-Authority-Reason: nr=8
+Received: from 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
+	([76.222.220.222]:28369 helo=bigbox.attlocal.net)
+	by uscentral455.accountservergroup.com with esmtpsa (TLS1.2) tls
+	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+	(envelope-from <blinux.list@thechases.com>) id 1mxJn6-003nPT-W1
+	for blinux-list@redhat.com; Tue, 14 Dec 2021 20:13:13 -0600
+Date: Tue, 14 Dec 2021 20:13:11 -0600
 To: blinux-list@redhat.com
+Subject: Re: Lightweight terminal with select all?
+Message-ID: <20211214201311.67a9d06b@bigbox.attlocal.net>
+In-Reply-To: <083d5bb4-eaf1-878f-c2d2-364846172c9a@gmail.com>
+References: <083d5bb4-eaf1-878f-c2d2-364846172c9a@gmail.com>
+MIME-Version: 1.0
+X-AntiAbuse: This header was added to track abuse,
+	please include it with any abuse report
+X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
+X-AntiAbuse: Original Domain - redhat.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - thechases.com
+X-BWhitelist: no
+X-Source-IP: 76.222.220.222
+X-Source-L: No
+X-Exim-ID: 1mxJn6-003nPT-W1
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
+	(bigbox.attlocal.net) [76.222.220.222]:28369
+X-Source-Auth: tim@thechases.com
+X-Email-Count: 1
+X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
+X-Local-Domain: yes
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -90,7 +101,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -115,18 +126,58 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hey Tim,
+Tim here.  I usually run within tmux which gives me a scrollback
+"copy mode" I can navigate and copy portions.  So I might do
+(assuming control+b is my prefix-key)
 
-fmt worked, though I had to reduce to -w999 as -w99999 and -w9999 both
-gave me an out of bounds error.
+   control+b
+   space (starts the selection)
+   g  (goes to the top)
+   enter (ends/captures the selection)
 
-Tried installing xsel, but it gave me a can't open display error.
-Granted, my stripped down xserver is running on tty1 and I tried
-running it from the console on tty4, which might be the problem if
-it's designed for being used in a terminal emulator for copying to and
-from graphical applications running on the same xserver as the
-terminal emulator instead of copying between an xserver and the
-console.
+I can then use
+
+   tmux showb
+
+to dump that to standard out (or pipe it to a file or some other
+program if I need) such as
+
+   tmux showb > scrollback.txt
+
+or
+
+   tmux showb | grep -i "spatula"
+
+or even send it to a remote machine
+
+   tmux showb | ssh me@example.com "cat > scrollback_remote.txt"
+
+There might be terminal-specific was to do similar things, but tmux
+works in all of them.
+
+Here's hoping that gives you something to work with,
+
+-tim
+
+On December 14, 2021, Linux for blind general discussion wrote:
+> So quick question.
+> 
+> What's a good, lightweight, Orca friendly terminal that I can
+> select all the text and copy with? Lxterminal doesn't, unless I
+> don't know the key combo, have a select all option?
+> 
+> I'm looking for one where, much like the Mate one, I can select
+> all, copy, then paste into (say) a nano document on another tab.
+> 
+> Basically after something with few dependancies that I can run as a 
+> terminal emulator so things like Screen are sadly out unless I can
+> run that as its own emulator without launching LXterminal first?
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
