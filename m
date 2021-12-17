@@ -2,87 +2,70 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4F4A747976B
-	for <lists+blinux-list@lfdr.de>; Sat, 18 Dec 2021 00:11:07 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 48BD64797A6
+	for <lists+blinux-list@lfdr.de>; Sat, 18 Dec 2021 00:50:07 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1639782666;
+	s=mimecast20190719; t=1639785006;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=9YUFzdTy12sy2cIN6lrjdkQ1T/G5WDeiljElNE+EiEw=;
-	b=Wq3LRs8yiVPk+F45vD3LISQMomp4DJLEf1ADI3TTnEGOJvYwtX8okPn59jWIwl81nXGFQ7
-	2QG+HGrQbHCYmPrduL/qkMXyoZTudQt1Zg9g1eGgajiLVxZFLBwnkfrQFnzH6+JXrrRqRR
-	uHXxVMWv7es1cqFzyjKEaYDAU3FZxXA=
+	bh=VYNMd0YKwmSll1G74yrsWHMaOwZh9vmitddEzDC+ioE=;
+	b=gaGy67p8AbBfZHwgyzSrHa6W7jcpSyQOAmJYyIWh3Yu/pPxg0fo2N30iv0VuW4f+2+i+6q
+	S5prdx6X4nUVdTvcoBv7tam0iGW6f010hyDSth8+TkJJsrYVHNKMe6zzI76kqpWgs1ZdNM
+	prcUEdxoLY15b4sBp8/l1nn2YCdWOOo=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-101-G6lshSEtOQW3-yLjE6kysg-1; Fri, 17 Dec 2021 18:11:02 -0500
-X-MC-Unique: G6lshSEtOQW3-yLjE6kysg-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-145-GJa61GNQMwCI-eWGHmnfnw-1; Fri, 17 Dec 2021 18:50:02 -0500
+X-MC-Unique: GJa61GNQMwCI-eWGHmnfnw-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D36158042E0;
-	Fri, 17 Dec 2021 23:10:55 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8BE3C1037F4E;
-	Fri, 17 Dec 2021 23:10:51 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DF14E81CCB6;
+	Fri, 17 Dec 2021 23:49:57 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A43EAE14A;
+	Fri, 17 Dec 2021 23:49:56 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 58F434BB7C;
-	Fri, 17 Dec 2021 23:10:39 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C6EBA18095C9;
+	Fri, 17 Dec 2021 23:49:54 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.9])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1BHNAT0U003999 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 17 Dec 2021 18:10:29 -0500
+	id 1BHNmbCh006292 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 17 Dec 2021 18:48:37 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id E8896492D59; Fri, 17 Dec 2021 23:10:28 +0000 (UTC)
+	id 6F00C492D59; Fri, 17 Dec 2021 23:48:37 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E3A29492D58
-	for <blinux-list@redhat.com>; Fri, 17 Dec 2021 23:10:28 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CA5FC1DA8D43
-	for <blinux-list@redhat.com>; Fri, 17 Dec 2021 23:10:28 +0000 (UTC)
-Received: from mail-qk1-f173.google.com (mail-qk1-f173.google.com
-	[209.85.222.173]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-649-5NfmqKH9PH-tVtC_OZoaWA-1; Fri, 17 Dec 2021 18:10:26 -0500
-X-MC-Unique: 5NfmqKH9PH-tVtC_OZoaWA-1
-Received: by mail-qk1-f173.google.com with SMTP id a11so3671849qkh.13
-	for <blinux-list@redhat.com>; Fri, 17 Dec 2021 15:10:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
-	:mime-version:content-transfer-encoding:content-language;
-	bh=US6JJ1fAVfqwycWxrzbkaaszWw54ux0eWM4MN6ryYXc=;
-	b=QsOwYavPLSJN/61XGM/qCHEolA0oPaloW6vAChw6HwGXRIFbNl9KNG29uC7TqTN9x9
-	AZ5yJQSbxEz3eKKkHQNqNLY0v1aJePQH2p0g8SFzcF+LvES9PMl0/4M9BR8LeX2uBrik
-	I9BQ3U/RXjPzZFlx2wHHs3pM8RcasDz760hm9LRhmll3rp2bvYm6AxAJF620+no+xCgy
-	RKim7jT7HgsNSG3ILApcH0jGCfngHkWmPqLEY8bLOaLSIY+8+vmBW9Quqvus81jy35lT
-	Wf7+yoyLI7T4W/wqSY+sJSYEhFtkTJiMw+F2bCjEca07XmTgSm3QfA/SwLusLzvzyuym
-	Zmrg==
-X-Gm-Message-State: AOAM531hs0lZmrcKFAOhAanKyFtKN+zeGlC77TKHd3QOQ0bewddYD367
-	IxILTg1jPzcly/uV3C0CePHvOBE1QPL6nA==
-X-Google-Smtp-Source: ABdhPJxfpy1/pmTuJTEjtqTNdW0vNqlDVp3jvwPsr0KXognw3XlcouJTe6faDfKVjQAkCAC4fIUPaw==
-X-Received: by 2002:a37:9dd3:: with SMTP id g202mr1205190qke.774.1639782625971;
-	Fri, 17 Dec 2021 15:10:25 -0800 (PST)
-Received: from darkstar.example.slint ([2601:152:4000:330:6a07:15ff:fe1b:961c])
-	by smtp.gmail.com with ESMTPSA id
-	i23sm5729221qkl.101.2021.12.17.15.10.24 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Fri, 17 Dec 2021 15:10:25 -0800 (PST)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: How can I add Arabic as a recognition language to Lios?
-Message-ID: <e9be3d82-77fd-8c95-450b-c763b7f1cdd4@gmail.com>
-Date: Fri, 17 Dec 2021 18:10:24 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Thunderbird/68.12.0
+	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6AA49492D58
+	for <blinux-list@redhat.com>; Fri, 17 Dec 2021 23:48:37 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 32F1A3804090
+	for <blinux-list@redhat.com>; Fri, 17 Dec 2021 23:48:37 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-2-g7c_YPg1MnCBgvrV9x2Z9Q-1;
+	Fri, 17 Dec 2021 18:48:35 -0500
+X-MC-Unique: g7c_YPg1MnCBgvrV9x2Z9Q-1
+Received: from [192.168.1.37] (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
+	[176.172.247.100])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 3E3FEA396B
+	for <blinux-list@redhat.com>; Fri, 17 Dec 2021 23:48:29 +0100 (CET)
+Message-ID: <522e1729-0d1b-5c40-c783-894535a5ac54@slint.fr>
+Date: Sat, 18 Dec 2021 00:48:32 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.4.0
+Subject: Re: How can I add Arabic as a recognition language to Lios?
+To: blinux-list@redhat.com
+References: <e9be3d82-77fd-8c95-450b-c763b7f1cdd4@gmail.com>
+In-Reply-To: <e9be3d82-77fd-8c95-450b-c763b7f1cdd4@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -92,6 +75,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 1BHNmbCh006292
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -108,31 +93,35 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Hi All,
-
-This question is primarily to Didier:
-
-How can I add Arabic dictionary to Lios so that I can use my scanner to 
-scan Arabic text? I assume I will also be able to run Arabic.pdf files 
-through Lios and as such I will have access to a lot of Arabic books 
-available on the net.
-
-Cheers,
-
-Ibrahim
-
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGkgSWJyYWhpbSwKCllvdSBkbyBub3QgbmVlZCB0byBhZGQgYW55dGhpbmcgc3BlY2lhbCwgdGhl
+IGZpbGVzCi91c3Ivc2hhcmUvdGVzc2RhdGEvQXJhYmljLnRyYWluZWRkYXRhIGJlaW5nIGluY2x1
+ZGVkIGluIHRoZSBwYWNrYWdlCnRlc3NlcmFjdC1kYXRhIGluIFNsaW50LgoKSnV0cyBvcGVuIGxp
+b3MsIHRoZW4gaW4gbWVudSBzZWxlY3QgUHJlZmVyZW5jZXMgdGhlbiBQcmVmZXJlbmNlcyByZWNv
+Z25pdGlvbiBhbmQKc2VsZWN0OgpFbmdpbmU6IFRlc3NlcmFjdApMYW5ndWFnZTogQXJhYmljCgpJ
+IGRvbid0IGhhdmUgYSBzY2FubmVyIGF0IGhhbmQgYnV0IGRvd25sb2FkZWQgdGhpcyBmaWxlOgpo
+dHRwczovL2ZhZGEuYmlyemVpdC5lZHUvYml0c3RyZWFtLzIwLjUwMC4xMTg4OS82OTEwLzEvbWto
+YWxkaSUyMFNhaGFyJTIwUmVzZWFyY2gucGRmCnRoZW4gSSBvcGVuZWQgaXQgaW4gTGlvcyAobWVu
+dSBGaWxlIHRoZW4gT3BlbikuCgpUaGUgZmlsZSB3YXMgcmVjb2duaXplZCBhbmQgdGhlIHRleHQg
+cHJvcGVybHkgZXh0cmFjdGVkLgoKQ29weWluZyBhIHBhcmFncmFwaCBvZiB0aGUgZXh0cmFjdGVk
+IHRleHQgYW5kIHBhc3RpbmcgaXQgaW4gdHJhbnNsYXRlLmdvb2dsZS5mcgphbGxvd2VkIG1lIHRv
+IHJlYWQgaXQgaW4gRnJlbmNoIDxzbWlsZT4KCkNoZWVycywKCkRpZGllcgoKTGUgMTgvMTIvMjAy
+MSDDoCAwMDoxMCwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3JpdMKg
+Ogo+IEhpIEFsbCwKPiAKPiBUaGlzIHF1ZXN0aW9uIGlzIHByaW1hcmlseSB0byBEaWRpZXI6Cj4g
+Cj4gSG93IGNhbiBJIGFkZCBBcmFiaWMgZGljdGlvbmFyeSB0byBMaW9zIHNvIHRoYXQgSSBjYW4g
+dXNlIG15IHNjYW5uZXIgdG8gc2Nhbgo+IEFyYWJpYyB0ZXh0PyBJIGFzc3VtZSBJIHdpbGwgYWxz
+byBiZSBhYmxlIHRvIHJ1biBBcmFiaWMucGRmIGZpbGVzIHRocm91Z2ggTGlvcwo+IGFuZCBhcyBz
+dWNoIEkgd2lsbCBoYXZlIGFjY2VzcyB0byBhIGxvdCBvZiBBcmFiaWMgYm9va3MgYXZhaWxhYmxl
+IG9uIHRoZSBuZXQuCj4gCj4gQ2hlZXJzLAo+IAo+IElicmFoaW0KCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QK
+QmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFu
+L2xpc3RpbmZvL2JsaW51eC1saXN0
 
