@@ -1,71 +1,88 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 48BD64797A6
-	for <lists+blinux-list@lfdr.de>; Sat, 18 Dec 2021 00:50:07 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7EBD1479B3C
+	for <lists+blinux-list@lfdr.de>; Sat, 18 Dec 2021 15:14:05 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1639785006;
+	s=mimecast20190719; t=1639836844;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=VYNMd0YKwmSll1G74yrsWHMaOwZh9vmitddEzDC+ioE=;
-	b=gaGy67p8AbBfZHwgyzSrHa6W7jcpSyQOAmJYyIWh3Yu/pPxg0fo2N30iv0VuW4f+2+i+6q
-	S5prdx6X4nUVdTvcoBv7tam0iGW6f010hyDSth8+TkJJsrYVHNKMe6zzI76kqpWgs1ZdNM
-	prcUEdxoLY15b4sBp8/l1nn2YCdWOOo=
+	bh=LSvkxWw46dGXuMgFd01gTEj69TFqYgQQwcTzFxT3WEg=;
+	b=fFxvb8yBlzdI5e2w7dpObOWQnJTWNFXlkkHu7DAs1FWV3Y22PCxoziUbOL3PBC7eP5VXI4
+	oBe9ENQa0ZkK+UDmla3wP3QiQ30mBq3UlekqEhfG8eyBjetWfwtLLVUnimq6F5Jo03LM1c
+	d3RIjgKL4lUvazpAwXnp37FVSOrcadE=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-145-GJa61GNQMwCI-eWGHmnfnw-1; Fri, 17 Dec 2021 18:50:02 -0500
-X-MC-Unique: GJa61GNQMwCI-eWGHmnfnw-1
+ us-mta-510-8aHB1pdfMpqsLZ_BUT8XuA-1; Sat, 18 Dec 2021 09:14:01 -0500
+X-MC-Unique: 8aHB1pdfMpqsLZ_BUT8XuA-1
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DF14E81CCB6;
-	Fri, 17 Dec 2021 23:49:57 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A43EAE14A;
-	Fri, 17 Dec 2021 23:49:56 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 037B9104ECE6;
+	Sat, 18 Dec 2021 14:13:57 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2A0FD37FBD;
+	Sat, 18 Dec 2021 14:13:51 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C6EBA18095C9;
-	Fri, 17 Dec 2021 23:49:54 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 55D2D4BB7B;
+	Sat, 18 Dec 2021 14:13:42 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.9])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1BHNmbCh006292 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 17 Dec 2021 18:48:37 -0500
+	id 1BIEDWvn031399 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 18 Dec 2021 09:13:32 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 6F00C492D59; Fri, 17 Dec 2021 23:48:37 +0000 (UTC)
+	id 838E0492D58; Sat, 18 Dec 2021 14:13:32 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6AA49492D58
-	for <blinux-list@redhat.com>; Fri, 17 Dec 2021 23:48:37 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 32F1A3804090
-	for <blinux-list@redhat.com>; Fri, 17 Dec 2021 23:48:37 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
-	relay.mimecast.com with ESMTP id us-mta-2-g7c_YPg1MnCBgvrV9x2Z9Q-1;
-	Fri, 17 Dec 2021 18:48:35 -0500
-X-MC-Unique: g7c_YPg1MnCBgvrV9x2Z9Q-1
-Received: from [192.168.1.37] (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
-	[176.172.247.100])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id 3E3FEA396B
-	for <blinux-list@redhat.com>; Fri, 17 Dec 2021 23:48:29 +0100 (CET)
-Message-ID: <522e1729-0d1b-5c40-c783-894535a5ac54@slint.fr>
-Date: Sat, 18 Dec 2021 00:48:32 +0100
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7EB39492CA3
+	for <blinux-list@redhat.com>; Sat, 18 Dec 2021 14:13:32 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6377585A5A8
+	for <blinux-list@redhat.com>; Sat, 18 Dec 2021 14:13:32 +0000 (UTC)
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com
+	[209.85.221.41]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-465-c_Klgv-dP0GzRbe0-M2V5w-1; Sat, 18 Dec 2021 09:13:30 -0500
+X-MC-Unique: c_Klgv-dP0GzRbe0-M2V5w-1
+Received: by mail-wr1-f41.google.com with SMTP id s1so9705565wrg.1
+	for <blinux-list@redhat.com>; Sat, 18 Dec 2021 06:13:30 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:message-id:date:mime-version:user-agent
+	:content-language:to:from:subject:content-transfer-encoding;
+	bh=yRgQM/QVojQVdfaf/k+qEXK+RDCmyl1nQulKP4QHvQQ=;
+	b=jQUkTjNhtRHwECdgf3HxBdFj8bebRi6zFW6xboi5Oj7rwBEHD8siG5UkQstRwGqhhw
+	vZvnvDBBb2Fat/Sj+VxRygj18m3IMgZ4SzunKFMutKvTT7f0oOZE0biIwa3A5Xw9TAQ9
+	wM1pYS0owkkCnTi3y5Yybz1xTj+majwCHHMUGyT15bLzBWMwGTwZqibRAWn4+AKIPVhn
+	O/AWoPCCodMcaHuDYZu+Tc5OltJP0ydIuXk8CMqfOoQhG0LEaR4HonmY4TdtGCwyXCQS
+	EcbB8DQCgu0mzNDkUY7QYGo7hwhtHOX+QFVQbmaEiUQ8mH35h8mRiKtVOTU3t/b3s261
+	jlgw==
+X-Gm-Message-State: AOAM532WdtCpWxjzdL0jeejuE7wkt8SMzChrARGAyzaykMERy4YXuUcG
+	uVfw3pINO1QzpLqufUBYGobui7rCMXrMZw==
+X-Google-Smtp-Source: ABdhPJyAq4U6MFo+J4GBVNkC/6Aq3KPgxfaJCIeJULn0qfXDXthPcj/ayRhntK3YCSoaeplTVz8rXw==
+X-Received: by 2002:adf:ef46:: with SMTP id c6mr6562754wrp.555.1639836809067; 
+	Sat, 18 Dec 2021 06:13:29 -0800 (PST)
+Received: from [192.168.1.130] ([90.251.213.111])
+	by smtp.gmail.com with ESMTPSA id
+	m20sm14446023wmq.11.2021.12.18.06.13.28 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Sat, 18 Dec 2021 06:13:28 -0800 (PST)
+Message-ID: <b320bf55-86cf-a1ab-8eed-7a42963f9c7e@gmail.com>
+Date: Sat, 18 Dec 2021 14:13:37 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.4.0
-Subject: Re: How can I add Arabic as a recognition language to Lios?
-To: blinux-list@redhat.com
-References: <e9be3d82-77fd-8c95-450b-c763b7f1cdd4@gmail.com>
-In-Reply-To: <e9be3d82-77fd-8c95-450b-c763b7f1cdd4@gmail.com>
+	Thunderbird/91.3.2
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Webmail vs client question
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -75,8 +92,6 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 1BHNmbCh006292
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -99,29 +114,25 @@ Authentication-Results: relay.mimecast.com;
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-SGkgSWJyYWhpbSwKCllvdSBkbyBub3QgbmVlZCB0byBhZGQgYW55dGhpbmcgc3BlY2lhbCwgdGhl
-IGZpbGVzCi91c3Ivc2hhcmUvdGVzc2RhdGEvQXJhYmljLnRyYWluZWRkYXRhIGJlaW5nIGluY2x1
-ZGVkIGluIHRoZSBwYWNrYWdlCnRlc3NlcmFjdC1kYXRhIGluIFNsaW50LgoKSnV0cyBvcGVuIGxp
-b3MsIHRoZW4gaW4gbWVudSBzZWxlY3QgUHJlZmVyZW5jZXMgdGhlbiBQcmVmZXJlbmNlcyByZWNv
-Z25pdGlvbiBhbmQKc2VsZWN0OgpFbmdpbmU6IFRlc3NlcmFjdApMYW5ndWFnZTogQXJhYmljCgpJ
-IGRvbid0IGhhdmUgYSBzY2FubmVyIGF0IGhhbmQgYnV0IGRvd25sb2FkZWQgdGhpcyBmaWxlOgpo
-dHRwczovL2ZhZGEuYmlyemVpdC5lZHUvYml0c3RyZWFtLzIwLjUwMC4xMTg4OS82OTEwLzEvbWto
-YWxkaSUyMFNhaGFyJTIwUmVzZWFyY2gucGRmCnRoZW4gSSBvcGVuZWQgaXQgaW4gTGlvcyAobWVu
-dSBGaWxlIHRoZW4gT3BlbikuCgpUaGUgZmlsZSB3YXMgcmVjb2duaXplZCBhbmQgdGhlIHRleHQg
-cHJvcGVybHkgZXh0cmFjdGVkLgoKQ29weWluZyBhIHBhcmFncmFwaCBvZiB0aGUgZXh0cmFjdGVk
-IHRleHQgYW5kIHBhc3RpbmcgaXQgaW4gdHJhbnNsYXRlLmdvb2dsZS5mcgphbGxvd2VkIG1lIHRv
-IHJlYWQgaXQgaW4gRnJlbmNoIDxzbWlsZT4KCkNoZWVycywKCkRpZGllcgoKTGUgMTgvMTIvMjAy
-MSDDoCAwMDoxMCwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3JpdMKg
-Ogo+IEhpIEFsbCwKPiAKPiBUaGlzIHF1ZXN0aW9uIGlzIHByaW1hcmlseSB0byBEaWRpZXI6Cj4g
-Cj4gSG93IGNhbiBJIGFkZCBBcmFiaWMgZGljdGlvbmFyeSB0byBMaW9zIHNvIHRoYXQgSSBjYW4g
-dXNlIG15IHNjYW5uZXIgdG8gc2Nhbgo+IEFyYWJpYyB0ZXh0PyBJIGFzc3VtZSBJIHdpbGwgYWxz
-byBiZSBhYmxlIHRvIHJ1biBBcmFiaWMucGRmIGZpbGVzIHRocm91Z2ggTGlvcwo+IGFuZCBhcyBz
-dWNoIEkgd2lsbCBoYXZlIGFjY2VzcyB0byBhIGxvdCBvZiBBcmFiaWMgYm9va3MgYXZhaWxhYmxl
-IG9uIHRoZSBuZXQuCj4gCj4gQ2hlZXJzLAo+IAo+IElicmFoaW0KCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QK
-QmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFu
-L2xpc3RpbmZvL2JsaW51eC1saXN0
+So this came to mind earlier, and I'm wondering if I can do anything 
+about it, and it was prompted by an idea I had to save disk space.
+
+
+I've read up on the difference with POP3 vs IMAP, and I like how 
+Seamonkey/Thunderbird/Claws/etc handle mail in a much easier to read 
+format than webmail interfaces.
+
+But I'm wondering if there's a middle ground, if I can have a client 
+that lets me access my mail, but doesn't clutter up my disk? I was told 
+both POP3 and IMAP eat up disk space on a computer after all, and I'm 
+both not sure how true that is, and wondering if I can do anything to 
+mitigate that?
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
