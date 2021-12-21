@@ -1,93 +1,95 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 32C4047C414
-	for <lists+blinux-list@lfdr.de>; Tue, 21 Dec 2021 17:47:00 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 45C5047C433
+	for <lists+blinux-list@lfdr.de>; Tue, 21 Dec 2021 17:51:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1640105219;
+	s=mimecast20190719; t=1640105469;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=mzoOouQfqv7QwrkhjzQYYZ8eCnYQRjPZojDP5J25q48=;
-	b=Ls+0OEgBgmgm81GEP9JJUUXIdnV9fiF+Jya1bCUu9XFSx5G0Y5ifCydA6l1jjjDjR91n6g
-	LT1BI3oJYC/0yBMEYPy5PJH8kUgwD53vtv5AT5NJ/ey396I/1hgSJsdpeTtqQcGJwCbgZP
-	I/Lsj0ANoLxC73G9p7ueeVYB/XvnmFI=
+	bh=sTfhZmdz9bvd3+AOvpVnzOEjUxdrEMS2nWAHj7f9/NA=;
+	b=BzFAsgrYG4pg1T2w6goyCd8ovp7DeVGlrBfHTtrH+oq3+FKVP4Z8982/1tpZLRDXkldeNX
+	xk6ZGhwLlwN8TU4Gj0f7Tc1yhTelJz2knFeoaExt5QoyidlAcskzgKBLwG0Ey6MXDIrS4l
+	GRfLsaxrS2QUzDSuRIuGkS/0K/gTAdY=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-662-UDl9kQvxMFOrItc06GqGaQ-1; Tue, 21 Dec 2021 11:46:57 -0500
-X-MC-Unique: UDl9kQvxMFOrItc06GqGaQ-1
+ us-mta-241-rLGf3b6YPH6dQTjRylIhPA-1; Tue, 21 Dec 2021 11:51:05 -0500
+X-MC-Unique: rLGf3b6YPH6dQTjRylIhPA-1
 Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D96771006AA4;
-	Tue, 21 Dec 2021 16:46:51 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E50995E486;
-	Tue, 21 Dec 2021 16:46:48 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 68F6B10151E4;
+	Tue, 21 Dec 2021 16:51:01 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 297AD4E2B1;
+	Tue, 21 Dec 2021 16:51:01 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2D6144BB7C;
-	Tue, 21 Dec 2021 16:46:35 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.1])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id CA0E71809CB8;
+	Tue, 21 Dec 2021 16:50:59 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 1BLGkQrT019110 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 21 Dec 2021 11:46:26 -0500
+	id 1BLGou1g019279 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 21 Dec 2021 11:50:56 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 6514540CFD16; Tue, 21 Dec 2021 16:46:26 +0000 (UTC)
+	id 8521F401E47; Tue, 21 Dec 2021 16:50:56 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6043540CFD0A
-	for <blinux-list@redhat.com>; Tue, 21 Dec 2021 16:46:26 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4646C2B478CA
-	for <blinux-list@redhat.com>; Tue, 21 Dec 2021 16:46:26 +0000 (UTC)
-Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com
-	[209.85.222.169]) by relay.mimecast.com with ESMTP with STARTTLS
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 81751400F39
+	for <blinux-list@redhat.com>; Tue, 21 Dec 2021 16:50:56 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 68C9A80A0A0
+	for <blinux-list@redhat.com>; Tue, 21 Dec 2021 16:50:56 +0000 (UTC)
+Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com
+	[209.85.160.182]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-623-2xZf6xx-OJm8vCQpaOwUEg-1; Tue, 21 Dec 2021 11:46:24 -0500
-X-MC-Unique: 2xZf6xx-OJm8vCQpaOwUEg-1
-Received: by mail-qk1-f169.google.com with SMTP id de30so13180891qkb.0
-	for <blinux-list@redhat.com>; Tue, 21 Dec 2021 08:46:24 -0800 (PST)
+	us-mta-73-0SKLI1yIPBe7Rdk_4I8z1g-1; Tue, 21 Dec 2021 11:50:54 -0500
+X-MC-Unique: 0SKLI1yIPBe7Rdk_4I8z1g-1
+Received: by mail-qt1-f182.google.com with SMTP id p19so13382456qtw.12
+	for <blinux-list@redhat.com>; Tue, 21 Dec 2021 08:50:54 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
 	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
 	:content-language:to:references:from:in-reply-to
 	:content-transfer-encoding;
-	bh=f9WhBWY0ILMy/hu4at+SHkLjQ5P1crNtSiZ5OaRNZ+M=;
-	b=RP4rGxkyR6i9MkzPGYAzR3jY59gRJz2dlzqes5BRadmmk5/76ZKYkU7Cl8uyoIbk8E
-	Gjlm5lf0lhynU8dA2MBRu5W4jekD+38crhMmaiGfy2y4oBLSBT6P3GS+DqCw50Sk244z
-	l6TH4zg2/BhjeamuqdnQcDdUl+LfAonZxu++E14Iwc94RSUTOt6lbBTNROTepQtK5Lr+
-	YrqYfkpWFrZKwLbuML+o5AG1KP5cbJ75VezlEz8yoDKtwRNXQXEsiMcujhUeLDFNDGRM
-	uA9sl0aMgOujb80c0wzmWEzlQrSe6YTIhqB+9XfBb9JJkPYSMPCkZG5XGIFgB45yYv92
-	0e8A==
-X-Gm-Message-State: AOAM531MVyZpapV7SLkNmEZCqVwvvNQYcEuQrqBlUoaE/qZw6U4Pcq3i
-	X39yfQ5K9unLFLGNicZWSF9ntSYBKtk=
-X-Google-Smtp-Source: ABdhPJyl7141J/9GxTX0ocimonZ4Hzb+7shHOkmF1mlyMh9ljL6Gu1Xy1sbx6I+2k7LVKbZxM0ddDA==
-X-Received: by 2002:a37:6682:: with SMTP id a124mr2623584qkc.110.1640105183283;
-	Tue, 21 Dec 2021 08:46:23 -0800 (PST)
-Received: from [192.168.11.151] (d-65-175-184-10.nh.cpe.atlanticbb.net.
-	[65.175.184.10]) by smtp.gmail.com with ESMTPSA id
-	u17sm14691088qki.2.2021.12.21.08.46.22 for <blinux-list@redhat.com>
+	bh=jAeTEBBT6iXOVbGqWgCeUT1UUBz1srewcBUv/tHvCyU=;
+	b=416c4YpKLuZTTM16N0J4GxxEohw7Giu22ZV72cWrbQDk2aTY4SxYakrSgOgXcE5ep3
+	36IOYkZFgMgPxN5V5RAw0DUsLlEq9UymHMolqbOCq3eaF2y+RrrbYZ2riT93DbwwEDeg
+	LbPfZRBSL0zhMLPgWXvcOloeUrFuwY/AwY2o/zszJ2Y8aLDtlfViZHsKMZu1Lt05H5b7
+	NhUo2tbURk3DqQrW2exPlFx1exo6x62M/e4SMQy8vQUeCQXCeC+oj9aACxewh+hXzOow
+	viLst4zjNJ+KqJllf94aZqRcNSLaZCBNNlU/hlkXr59+GNIYjO6BSEQgMZNVzyZtMm0a
+	pdTQ==
+X-Gm-Message-State: AOAM531jQI3xr48ieX/3Atqy5+WU41nUEKt44i7HTq9rTtufm/3DeIg5
+	LY4/7WnUbIZDiY6RKbvK9+pNWMTusWo=
+X-Google-Smtp-Source: ABdhPJxClJUGiC/jZnNhtMjSMvy+idjBkrTMK8q3RzqFmNI2vc4Oi8dVyUL/umLxt4j5P4rkg4UvLQ==
+X-Received: by 2002:ac8:5c0d:: with SMTP id i13mr3007016qti.90.1640105453923; 
+	Tue, 21 Dec 2021 08:50:53 -0800 (PST)
+Received: from ?IPV6:2603:6080:6302:e002:7991:cc1c:439:b8f5?
+	(2603-6080-6302-e002-7991-cc1c-0439-b8f5.res6.spectrum.com.
+	[2603:6080:6302:e002:7991:cc1c:439:b8f5])
+	by smtp.gmail.com with ESMTPSA id
+	q15sm13906752qkj.108.2021.12.21.08.50.53 for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Tue, 21 Dec 2021 08:46:22 -0800 (PST)
-Message-ID: <444374c1-a744-f908-a6cf-aae16d207cee@gmail.com>
-Date: Tue, 21 Dec 2021 11:46:22 -0500
+	Tue, 21 Dec 2021 08:50:53 -0800 (PST)
+Message-ID: <1894fbcf-17b1-89f5-dea7-26cfbdfc723d@gmail.com>
+Date: Tue, 21 Dec 2021 11:50:53 -0500
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:91.0) Gecko/20100101
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
 	Thunderbird/91.4.0
 Subject: Re: Dealing with seemingly blank combo boxes.
 To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <CAO2sX32o7d5EwMkWRVs4fQVjOFLkGmhNotbmO4+QGNkw4vAeCw@mail.gmail.com>
-In-Reply-To: <CAO2sX32o7d5EwMkWRVs4fQVjOFLkGmhNotbmO4+QGNkw4vAeCw@mail.gmail.com>
+	<444374c1-a744-f908-a6cf-aae16d207cee@gmail.com>
+In-Reply-To: <444374c1-a744-f908-a6cf-aae16d207cee@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -96,7 +98,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -122,49 +124,15 @@ Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I see this behavior on the Discover Banking website. Particularly when 
-trying to download monthly statements. In my case, I can open the combo 
-box, but cannot move among the various entries. My solution so far is to 
-boot into Windows and complete the task using NVDA and Firefox. I have 
-run into some other navigation issues on the Capital One website and 
-again get around them using Windows.
-Sorry I don't have a better solution.
-John
+Bad idea, doing banking or other financial things on such an insecure 
+system. My best recommendation that seems to work for me is to tab off 
+and then tab back onto the dropdown box. This seems to work all the 
+time, letting me know what I have selected. The other thing to try is 
+simply not expanding the dropdown box, as this will many times read 
+where expansion doesn't. Not sure why this happens this way, but these 
+two things help me when it does.
 
-
-On 12/20/2021 1:36 PM, Linux for blind general discussion wrote:
-> Good Afternoon,
-> 
-> I don't know if there are any other heavy users of Kickstarter on
-> either of the lists I'm sending this to, but if there are, I'm sure
-> you've noticed that the various third party services creators use for
-> post-campaign pledge management aren't always the most accessible.
-> 
-> Well, the newest addition to the pile of screen reader unfriendly
-> pledge managers is something called Pledge Box, and the main problem
-> I'm having are it's combo boxes.
-> 
-> I can jump between them with the c key as usual, and I can expand them
-> just fine, but once expanded, there's nothing there, Orca is
-> completely silent until I exit out of the combo box. I can't recall a
-> similar issue on any other websites, and I've tried every trick for
-> working around bad web design I can think of.
-> 
-> Unfortunately, since the pages giving me trouble are part of
-> completing an order, I can't really provide a link.
-> 
-> So any tips or potential workarounds I might not know of?
-> 
-> If it matters, I'm using:
-> 
-> Orca 41.1
-> Firefox ESR 91.4
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-> 
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
