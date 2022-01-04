@@ -2,85 +2,81 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3414A484810
-	for <lists+blinux-list@lfdr.de>; Tue,  4 Jan 2022 19:48:19 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 951E448483F
+	for <lists+blinux-list@lfdr.de>; Tue,  4 Jan 2022 20:07:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1641322099;
+	s=mimecast20190719; t=1641323249;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=XOx0/oSTJX4F0tG7HLl9i0a/+EfqXGpRkOJDUBGj4dI=;
-	b=RIx0zeXB2l7Dt2vgFtlFh6rzfNJmxE4pfp9tFqzxTKeH2o2nEAZ74ii0JE39KPvH5YfNkT
-	qboV3nj7T4/a3lkjNpG1q43BueMiPQRm/gjgJ0nJzN8doFTqo39stLzWRHzhck5IJL/Eug
-	WlxJ9Ir9KCLB+z4lU0slQ3g42zHEvQk=
+	bh=PcxnCRTMjok6HcrthbKAI1AzRdlL02w4MqnyvWrKXOY=;
+	b=c3GvvpOdHurUpfpoqGkzqdgJ/JEoGf2FcMVTcOIsOEcbx+dJ5Cx/PUnUFjZ4XV1awm2hH+
+	AMDUA+WXcF/9RtTlOWTzl1/QDK2kF4vsejpj2V0iDVOGJiMd3h2VUJg/SmlmKa6nxaxpeM
+	UoTA9rhxrd4mG3bSTyipn3vVJd3/oYs=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-621-wH3XDckNNTmY9wa8Nx7YtQ-1; Tue, 04 Jan 2022 13:48:15 -0500
-X-MC-Unique: wH3XDckNNTmY9wa8Nx7YtQ-1
+ us-mta-643-YkGw7FDlOrK7YGsEv3YAYg-1; Tue, 04 Jan 2022 14:07:26 -0500
+X-MC-Unique: YkGw7FDlOrK7YGsEv3YAYg-1
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8183A10151E1;
-	Tue,  4 Jan 2022 18:48:11 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id EFFDA8015CD;
+	Tue,  4 Jan 2022 19:07:20 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 390447A3F5;
-	Tue,  4 Jan 2022 18:48:11 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 48F375D9D5;
+	Tue,  4 Jan 2022 19:07:20 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D78931809CB8;
-	Tue,  4 Jan 2022 18:48:09 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.10])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C29B31809CB8;
+	Tue,  4 Jan 2022 19:07:18 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 204Im43O012388 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 4 Jan 2022 13:48:04 -0500
+	id 204J7DeA014573 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 4 Jan 2022 14:07:13 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 3704246D1E5; Tue,  4 Jan 2022 18:48:04 +0000 (UTC)
+	id 09A4940149AA; Tue,  4 Jan 2022 19:07:13 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 32FAD46D1E4
-	for <blinux-list@redhat.com>; Tue,  4 Jan 2022 18:48:04 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 05823400E135
+	for <blinux-list@redhat.com>; Tue,  4 Jan 2022 19:07:13 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1619E2B76023
-	for <blinux-list@redhat.com>; Tue,  4 Jan 2022 18:48:04 +0000 (UTC)
-Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com
-	[209.85.160.182]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-215-VTkWnpFwPTu7KGfs34uaRA-1; Tue, 04 Jan 2022 13:48:02 -0500
-X-MC-Unique: VTkWnpFwPTu7KGfs34uaRA-1
-Received: by mail-qt1-f182.google.com with SMTP id v4so32450304qtk.0
-	for <blinux-list@redhat.com>; Tue, 04 Jan 2022 10:48:01 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to;
-	bh=MTiDMZ0MmuPr8BltnkFEkfjz8LGtsq18W1L4SF7oYRo=;
-	b=BBcIq+50Fb1FcSWrlpVGucCtF/r390+egcL/o2jSUkzijQOVITMpd0hr6b2Y4k2rTd
-	8WLTVF71NUlHShP2ya0fQbVqXwhLGvGloJR1K4Hgkld3pPWH/xBhJNjmcR7mJ5k1qfPp
-	uKTxPIwOkG2UsiKOfve2ObmAWEp64oQ7TyMT2BcE6eLnVKiZDtQ8BqBxft4hgsc4hmtl
-	AlZavtm6SCsvTc8vTNnRgrOCWyCBmZ+GWH69VXWEwacBDBDBFwrakhAkoyjyT/NVMory
-	Uz26eh93ScG7zSUa2h9tXr8PBHHNFsqxCpaRWJAg4zwja9Bl2owJ6K2C8KtW7vqwMKDM
-	dbiQ==
-X-Gm-Message-State: AOAM531edKdPm8zijD76GtDxKX3BxxehQTbSUICs7Kjl/eZ+FxjFccOZ
-	oiQZoqJbdUA7R7Y028majASekHdyr831O4GKrRT07Hx0Z4wDBg==
-X-Google-Smtp-Source: ABdhPJyoO+36THEIZ6UPnF9O3JxLoqyb9/1XwbH9MEbnIohSVlzg/rlWgMv2qkmgxxu9MTXd7JlIJLtzOSFPzyzT+Os=
-X-Received: by 2002:ac8:4142:: with SMTP id e2mr45439152qtm.603.1641322081052; 
-	Tue, 04 Jan 2022 10:48:01 -0800 (PST)
-MIME-Version: 1.0
-References: <2D360D45-88B2-4856-955A-9387ABC9085A@pipkrokodil.se>
-	<CAMuGJSk3s4O7_8e6SO_dcFBntphcBfMMxQNx8EghWttJoLKGrw@mail.gmail.com>
-	<EFDC4C8C-F5BC-4F3C-8120-2C03427DD9D0@pipkrokodil.se>
-In-Reply-To: <EFDC4C8C-F5BC-4F3C-8120-2C03427DD9D0@pipkrokodil.se>
-Date: Tue, 4 Jan 2022 13:47:49 -0500
-Message-ID: <CAMuGJSkgdxyqecUX4sTqnTQXm7r_2S0X_VqRZnZ_Ge6i-aMo_w@mail.gmail.com>
-Subject: Re: Ubuntu 20.04 settings.
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E0E40811E7A
+	for <blinux-list@redhat.com>; Tue,  4 Jan 2022 19:07:12 +0000 (UTC)
+Received: from mxd1.seznam.cz (mxd1.seznam.cz [77.75.78.210]) by
+	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-455-Drfq5deVMgCYANJopnIDpQ-1; Tue, 04 Jan 2022 14:07:11 -0500
+X-MC-Unique: Drfq5deVMgCYANJopnIDpQ-1
+Received: from email.seznam.cz
+	by email-smtpc18a.ko.seznam.cz (email-smtpc18a.ko.seznam.cz
+	[10.53.18.20]) id 05721ba710ea48fd0498eabb;
+	Tue, 04 Jan 2022 20:07:10 +0100 (CET)
+Received: from [192.168.1.142] (host-213-235-142-85.ip.topnet.cz
+	[213.235.142.85])
+	by email-relay23.ko.seznam.cz (Seznam SMTPD 1.3.134) with ESMTP;
+	Tue, 04 Jan 2022 20:07:06 +0100 (CET)
+Subject: Re: Recovering shift deleted data
 To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <7c2c5806-4581-dc53-8e4e-750d9098398b@seznam.cz>
+	<92483ba2-4fcb-c333-5025-257f16e3dc20@gmail.com>
+	<4bc845a3-1923-4d72-6017-ddc37263cbd1@seznam.cz>
+	<20220101132930.080d8609@bigbox.attlocal.net>
+	<a033feca-6a59-76bd-10de-4bdcc745bce1@seznam.cz>
+	<20220104123510.7304fc58@bigbox.attlocal.net>
+Message-ID: <1dda7e14-1f06-1c36-95cb-d8d121e95f06@seznam.cz>
+Date: Tue, 4 Jan 2022 20:07:04 +0100
+User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:78.0) Gecko/20100101
+	Thunderbird/78.14.0
+MIME-Version: 1.0
+In-Reply-To: <20220104123510.7304fc58@bigbox.attlocal.net>
+X-szn-frgn: <3e6ffa13-5114-4ee9-9fc5-02d4b2c0b7f2>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -89,9 +85,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-loop: blinux-list@redhat.com
-X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -112,65 +107,112 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-U29ycnksIEkgbXVzdCBoYXZlIG5vdCBjb21tdW5pY2F0ZWQgaXQgY2xlYXJseS4gSSBkb24ndCBo
-YXZlIGl0IG9uIG15IE1hYy4KSSBpbnN0YWxsZWQgaXQgb24gc2VwYXJhdGUsIGN1c3RvbS1idWls
-dCBoYXJkd2FyZS4gTXkgcG9pbnQgd2FzIHRoYXQgbXkKaW5zdGFsbGF0aW9uIGlzIG5hdGl2ZSBh
-bmQgbm90IGFjY2Vzc2VkIHZpYSBhIFZNLiBJIGRvbid0IGtub3cgaWYgdGhlcmUKbWlnaHQgYmUg
-YW55IGtleWJvYXJkIHNob3J0Y3V0cywgbGlrZSB0aGUgc3VwZXIga2V5LCB0aGF0IG1pZ2h0IGJl
-CmludGVyY2VwdGVkIGJ5IHRoZSBob3N0IE9TIG9yIHRoZSBWTSBzb2Z0d2FyZSBhbmQgcHJldmVu
-dGVkIGZyb20gcGFzc2luZwppbnRvIHRoZSBndWVzdCBPUy4KCkkgZGlkIGhvd2V2ZXIgYXR0ZW1w
-dCB0byBpbnN0YWxsIFVidW50dSBvbiBteSBpTWFjLCBidXQgSSBkaWRuJ3QgZ2V0IHZlcnkKZmFy
-OyBJIGNvdWxkbid0IGdldCB0aGUgaU1hYyB0byBib290IGZyb20gdGhlIFVTQiBkcml2ZSBhbmQg
-ZW5kZWQgdXAganVzdAp3aXBpbmcgdGhlIE9TIGFuZCByZWluc3RhbGxpbmcgaXQgKApodHRwczov
-L3N1cGVydXNlci5jb20vcXVlc3Rpb25zLzk1OTQyMi9yZWluc3RhbGwtb3MteC13aXRob3V0LWNk
-LWR2ZC1vci1hcHBsZS1pZAopLgoKRldJVyBoZXJlIGFyZSBzb21lIGFydGljbGVzIHRoYXQgZGlz
-Y3VzcyBpbnN0YWxsaW5nIFVidW50dSBvbiBhbiBpTWFjIHdoaWNoCmhhdmUgYmVlbiBwdWJsaXNo
-ZWQgc2luY2UgbXkgZmFpbGVkIGF0dGVtcHQgdGhvc2UgbWFueSB5ZWFycyBhZ286CiogaHR0cHM6
-Ly93d3cubWFjd29ybGQuY28udWsvaG93LXRvL2hvdy1pbnN0YWxsLWxpbnV4LW9uLW1hYy0zNjM3
-MjY1LwoqIGh0dHBzOi8vd3d3LmxpZmV3aXJlLmNvbS9kdWFsLWJvb3QtbGludXgtYW5kLW1hYy1v
-cy00MTI1NzMzCihJIGhhdmUgbm90IGF0dGVtcHRlZCB0byBmb2xsb3cgdGhlIHN0ZXBzIG91dGxp
-bmVkIGluIHRoZSBhYm92ZSBhcnRpY2xlcwp0aHVzIGNhbm5vdCBiZSBjZXJ0YWluIG9mIHRoZWly
-IHZhbGlkaXR5LCBidXQgdGhleSBzZWVtIGxlZ2l0KQoKLS0KS2FybCBXaWxidXIKNTEzLTMyMi0y
-NDgxCmthcmxAa2FybHdpbGJ1ci5uZXQKCgpPbiBUdWUsIEphbiA0LCAyMDIyIGF0IDE6MjYgUE0g
-TGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8CmJsaW51eC1saXN0QHJlZGhhdC5j
-b20+IHdyb3RlOgoKPiBIaSEKPiBOb3cgdGhhbmtzIGZvciB0aGF0IG9uZS4KPiBCdXQgaG93IGRp
-ZCB5b3UgaW5zdGFsbCB0aGUgVWJ1bnR1IG9udG8geW91ciBNYWM/Cj4gQ2FuIHlvdSBkdWFsIGJv
-b3QgdGhlIE1hYyB3aGVuIHlvdSBuZWVkIG9yIGlmIHlvdSBuZWVkPwo+IE15IHdpc2ggaXMgdG8g
-bWFrZSBhIGR1YWwgYm9vdCBtYWNoaW5lIHdpdGggYm90aCBNYWMgYW5kIGxpbnV4IGJ1dCBJIGFt
-Cj4gbm90IHN1cmUgaWYgaXQgY2FuIGJlIGRvbmUgcHJvcGVybHkuCj4gL0EKPgo+ID4gMyBqYW4u
-IDIwMjIga2wuIDIzOjI2IHNrcmV2IExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24g
-PAo+IGJsaW51eC1saXN0QHJlZGhhdC5jb20+Ogo+ID4KPiA+IEkgYW0gdXNpbmcgVWJ1bnR1IDIw
-LjA0LCBpbnN0YWxsZWQgb24gdGhlIG1hY2hpbmUsIG5vdCBpbiBhIFZNLiBPbmNlCj4gbG9nZ2Vk
-Cj4gPiBpbiwgSSBjYW4gdXNlIHRoZSBzdXBlciBrZXkgKCJXaW5kb3dzIiBrZXk7IGxlZnQgc2lk
-ZSBvZiBrZXlib2FyZCBiZXR3ZWVuCj4gPiBDdHJsIGFuZCBBbHQpIHRvIG9wZW4gdGhlIHNlYXJj
-aCBib3gsIHRoZW4gdHlwZSAic2V0dGluZ3MiLgo+ID4KPiA+IFRoYXQgYWNjb3VudCBzZXR1cCB0
-aGluZyBtaWdodCBiZSBwYXJ0IG9mIHRoZSBpbml0aWFsIGxvZ2luIHdoZXJlLCBhcyBhCj4gPiAi
-Y29udmVuaWVuY2UiLCB5b3UgYXJlIGFza2VkIHRvIGxvZyBpbnRvIEdvb2dsZSwgRmFjZWJvb2ss
-IHdoYXRldmVyIC4uLkkKPiA+IGp1c3QgaWdub3JlZCB0aG9zZSAoaGl0IEVzYyBvciBBbHQrRjQg
-dW50aWwgaXQgZ29lcyBhd2F5KS4KPiA+Cj4gPiAtLQo+ID4gS2FybCBXaWxidXIKPiA+IDUxMy0z
-MjItMjQ4MQo+ID4ga2FybEBrYXJsd2lsYnVyLm5ldAo+ID4KPiA+Cj4gPiBPbiBNb24sIEphbiAz
-LCAyMDIyIGF0IDU6MTYgUE0gTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8Cj4g
-PiBibGludXgtbGlzdEByZWRoYXQuY29tPiB3cm90ZToKPiA+Cj4gPj4gSGkhCj4gPj4gSSBoYXZl
-IGluc3RhbGxlZCBVYnVudHUgMjAuMDQgb24gYSB2aXJ0dWFsIG1hY2hpbmUgaW4gVk13YXJlIEZ1
-c2lvbiBvbgo+IG15Cj4gPj4gTWFjLiBFdmVyeXRoaW5nIGdvZXMgd2VsbCB1bnRpbCBJIGFtIGxv
-Z2dlZCBpbi4KPiA+PiBCdXQgSSBoYXZlIGZvcmdvdHRlbiB0aGUga2V5c3Ryb2tlIHRvIGdvIHRv
-IHNldHRpbmdzIHdpdGggT3JjYS4KPiA+PiBUaGUgb25seSB0aGluZyB0aGF0IGNvbWVzIHVwIGlz
-IHNvbWUgZ3VpZGUgdGhhdCB3YW50cyBtZSB0byBzZXQgdXAKPiBzZXZlcmFsCj4gPj4gYWNjb3Vu
-dHMuCj4gPj4gSSBqdXN0IGRvbuKAmXQgd2FudCB0aGF0IGJ1dCBpdCBzZWVtcyBJIGNhbuKAmXQg
-Z2V0IGl0IGF3YXkuCj4gPj4gQW55IGhlbHAgSXMgYXBwcmVjaWF0ZWQuCj4gPj4gL0EKPiA+Pgo+
-ID4+Cj4gPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-PiA+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiA+PiBCbGludXgtbGlzdEByZWRoYXQuY29t
-Cj4gPj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgt
-bGlzdAo+ID4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-PiA+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+ID4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+
-ID4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlz
-dAo+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+
-IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRw
-czovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1h
-aWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQu
-Y29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3Q=
+Hello,
+
+I've gave it up. For my happynes, my sister recorded fireworks too, so 
+that's solved.
+
+Thanks for all your help and links. Happy new year to you all and take care.
+
+Best regards
+
+Vojta.
+
+Dne 04. 01. 22 v 19:35 Linux for blind general discussion napsal(a):
+> Tim here.  I'm unfamiliar with how the dictaphone connects or what
+> file-system it exposes (most likely a FAT filesystem rather than an
+> EXT filesystem).  If it is a FAT drive, you might have "testdisk" in
+> your repo that should allow you to undelete files from a FAT drive.
+> There's a pretty good write-up of steps here
+> 
+> https://linuxconfig.org/data-recovery-of-deleted-files-from-the-fat-filesystem
+> 
+> that might help you out in that case.
+> 
+> The last time I had to recover deleted files on a FAT drive, I
+> believe part of the deletion process obliterated the first letter of
+> the filename, so you had to provide that when restoring (so a file
+> named "vojita.txt" would show up in old directory listings as
+> "?ojita.txt" and you'd have to provide the "v" at the beginning).
+> 
+> Hope this helps,
+> 
+> -tim
+> 
+> On January  1, 2022, Linux for blind general discussion wrote:
+>> Hello,
+>>
+>> and what to recovery data from my dictaphone? I have Olympus LSP4
+>> and I taked files from it by CTRL X. Some people told me about
+>> Recuva for Windows to recovery it.
+>>
+>> But now, I am on my Raspberry, emailing to you. May I turn off my
+>> raspberry and write from another computer?
+>>
+>> Thanks, Vojta.
+>>
+>> Dne 01. 01. 22 v 20:29 Linux for blind general discussion napsal(a):
+>>> Tim here again. Yes, if your filesystem is ext4, extundelete is
+>>> the tool you want.  For best results, reboot into a live ISO/CD
+>>> image and install it there, leaving your RPi drive untouched.
+>>> This will minimize the chance that installing extundelete
+>>> overwrites the data you want to preserve.
+>>>
+>>> -tim
+>>>
+>>> On January  1, 2022, Linux for blind general discussion wrote:
+>>>> Hello, I have ext4, yes.
+>>>>
+>>>> Vojta.
+>>>>
+>>>> Dne 01. 01. 22 v 20:18 Linux for blind general discussion
+>>>> napsal(a):
+>>>>> I'm guessing/hoping the partition that has your deleted file has
+>>>>> an ext4 filesystem. You should be able to recover the lost file
+>>>>> using extundelete, although if you write anything at all to the
+>>>>> SD, it will become less likely that your file will be
+>>>>> recoverable. It seems that other filesystems make it more
+>>>>> difficult, if not impossible to recover deleted files.
+>>>>>
+>>>>> ~Kyle
+>>>>>
+>>>>> _______________________________________________
+>>>>> Blinux-list mailing list
+>>>>> Blinux-list@redhat.com
+>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>>>       
+>>>>
+>>>> _______________________________________________
+>>>> Blinux-list mailing list
+>>>> Blinux-list@redhat.com
+>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>>   
+>>>
+>>>
+>>> _______________________________________________
+>>> Blinux-list mailing list
+>>> Blinux-list@redhat.com
+>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>    
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
