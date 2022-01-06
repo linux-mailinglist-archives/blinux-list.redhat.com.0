@@ -2,81 +2,69 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 951E448483F
-	for <lists+blinux-list@lfdr.de>; Tue,  4 Jan 2022 20:07:30 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7D41B486DC6
+	for <lists+blinux-list@lfdr.de>; Fri,  7 Jan 2022 00:31:44 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1641323249;
+	s=mimecast20190719; t=1641511903;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=PcxnCRTMjok6HcrthbKAI1AzRdlL02w4MqnyvWrKXOY=;
-	b=c3GvvpOdHurUpfpoqGkzqdgJ/JEoGf2FcMVTcOIsOEcbx+dJ5Cx/PUnUFjZ4XV1awm2hH+
-	AMDUA+WXcF/9RtTlOWTzl1/QDK2kF4vsejpj2V0iDVOGJiMd3h2VUJg/SmlmKa6nxaxpeM
-	UoTA9rhxrd4mG3bSTyipn3vVJd3/oYs=
+	bh=q4WqMYubAySZUkVCL6GZ6s/H7evpfeTkivVKkUA6KkQ=;
+	b=WJUAUEwi9RDr+Z+As47zrlDFJ2o4onetHms9C16dAyxMQpUVuO4mgsD426cXwveTlfh8wm
+	oKLPwUHNZ11yzxTg34N9VgP3XSFNi1Be+oaNSRQ9rU7Ao/knk9b7Q/dhbyYBNfbJnsgxck
+	/mONXK/j9dYso4/M40qbh6R/doac9xs=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-643-YkGw7FDlOrK7YGsEv3YAYg-1; Tue, 04 Jan 2022 14:07:26 -0500
-X-MC-Unique: YkGw7FDlOrK7YGsEv3YAYg-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-359-VWyU_xsvNtiu5N2MZlvnFA-1; Thu, 06 Jan 2022 18:31:41 -0500
+X-MC-Unique: VWyU_xsvNtiu5N2MZlvnFA-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id EFFDA8015CD;
-	Tue,  4 Jan 2022 19:07:20 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 48F375D9D5;
-	Tue,  4 Jan 2022 19:07:20 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DEBED8015CD;
+	Thu,  6 Jan 2022 23:31:34 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A3258108A0;
+	Thu,  6 Jan 2022 23:31:29 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C29B31809CB8;
-	Tue,  4 Jan 2022 19:07:18 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.2])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 103D44BB7C;
+	Thu,  6 Jan 2022 23:31:20 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.1])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 204J7DeA014573 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 4 Jan 2022 14:07:13 -0500
+	id 206NVAdk001897 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 6 Jan 2022 18:31:10 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 09A4940149AA; Tue,  4 Jan 2022 19:07:13 +0000 (UTC)
+	id 5F6D940FF707; Thu,  6 Jan 2022 23:31:10 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 05823400E135
-	for <blinux-list@redhat.com>; Tue,  4 Jan 2022 19:07:13 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5A42840FF706
+	for <blinux-list@redhat.com>; Thu,  6 Jan 2022 23:31:10 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E0E40811E7A
-	for <blinux-list@redhat.com>; Tue,  4 Jan 2022 19:07:12 +0000 (UTC)
-Received: from mxd1.seznam.cz (mxd1.seznam.cz [77.75.78.210]) by
-	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-455-Drfq5deVMgCYANJopnIDpQ-1; Tue, 04 Jan 2022 14:07:11 -0500
-X-MC-Unique: Drfq5deVMgCYANJopnIDpQ-1
-Received: from email.seznam.cz
-	by email-smtpc18a.ko.seznam.cz (email-smtpc18a.ko.seznam.cz
-	[10.53.18.20]) id 05721ba710ea48fd0498eabb;
-	Tue, 04 Jan 2022 20:07:10 +0100 (CET)
-Received: from [192.168.1.142] (host-213-235-142-85.ip.topnet.cz
-	[213.235.142.85])
-	by email-relay23.ko.seznam.cz (Seznam SMTPD 1.3.134) with ESMTP;
-	Tue, 04 Jan 2022 20:07:06 +0100 (CET)
-Subject: Re: Recovering shift deleted data
-To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <7c2c5806-4581-dc53-8e4e-750d9098398b@seznam.cz>
-	<92483ba2-4fcb-c333-5025-257f16e3dc20@gmail.com>
-	<4bc845a3-1923-4d72-6017-ddc37263cbd1@seznam.cz>
-	<20220101132930.080d8609@bigbox.attlocal.net>
-	<a033feca-6a59-76bd-10de-4bdcc745bce1@seznam.cz>
-	<20220104123510.7304fc58@bigbox.attlocal.net>
-Message-ID: <1dda7e14-1f06-1c36-95cb-d8d121e95f06@seznam.cz>
-Date: Tue, 4 Jan 2022 20:07:04 +0100
-User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:78.0) Gecko/20100101
-	Thunderbird/78.14.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 45035185A7BA
+	for <blinux-list@redhat.com>; Thu,  6 Jan 2022 23:31:10 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-495-WL5G4K7-PC-YE-06075qZg-1;
+	Thu, 06 Jan 2022 18:31:08 -0500
+X-MC-Unique: WL5G4K7-PC-YE-06075qZg-1
+Received: from [192.168.1.38] (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
+	[176.172.247.100])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 7D239C4693;
+	Thu,  6 Jan 2022 23:31:04 +0100 (CET)
+Message-ID: <bafa422c-eba4-223a-0d2f-f632f5bd6445@slint.fr>
+Date: Fri, 7 Jan 2022 00:30:36 +0100
 MIME-Version: 1.0
-In-Reply-To: <20220104123510.7304fc58@bigbox.attlocal.net>
-X-szn-frgn: <3e6ffa13-5114-4ee9-9fc5-02d4b2c0b7f2>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.4.1
+To: slint@freelists.org,
+	Linux for blind general discussion <blinux-list@redhat.com>,
+	debian-accessibility@lists.debian.org, orca-list <orca-list@gnome.org>
+Subject: Jos Lemmens passed away on November 9, 2021
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -85,7 +73,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -102,114 +90,42 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hello,
+Hi,
 
-I've gave it up. For my happynes, my sister recorded fireworks too, so 
-that's solved.
+I have been sad to learn that we lost Jos from his web page:
+http://jlemmens.nl/
+http://ta.twi.tudelft.nl/dv/staff/lemmens/jlemmens.nl/
 
-Thanks for all your help and links. Happy new year to you all and take care.
+Quote from this page:
 
-Best regards
+--
+Update November 9, 2021: I am very sorry to inform you that Jos quietly passed
+away this morning.
+He will be remembered as our own dear, clever, little "Stephen Hawking".
+His brother Kees and other family.
 
-Vojta.
+His VPS server was closed recently and this website is now temporarily hosted at
+the TU Delft.
+--
 
-Dne 04. 01. 22 v 19:35 Linux for blind general discussion napsal(a):
-> Tim here.  I'm unfamiliar with how the dictaphone connects or what
-> file-system it exposes (most likely a FAT filesystem rather than an
-> EXT filesystem).  If it is a FAT drive, you might have "testdisk" in
-> your repo that should allow you to undelete files from a FAT drive.
-> There's a pretty good write-up of steps here
-> 
-> https://linuxconfig.org/data-recovery-of-deleted-files-from-the-fat-filesystem
-> 
-> that might help you out in that case.
-> 
-> The last time I had to recover deleted files on a FAT drive, I
-> believe part of the deletion process obliterated the first letter of
-> the filename, so you had to provide that when restoring (so a file
-> named "vojita.txt" would show up in old directory listings as
-> "?ojita.txt" and you'd have to provide the "v" at the beginning).
-> 
-> Hope this helps,
-> 
-> -tim
-> 
-> On January  1, 2022, Linux for blind general discussion wrote:
->> Hello,
->>
->> and what to recovery data from my dictaphone? I have Olympus LSP4
->> and I taked files from it by CTRL X. Some people told me about
->> Recuva for Windows to recovery it.
->>
->> But now, I am on my Raspberry, emailing to you. May I turn off my
->> raspberry and write from another computer?
->>
->> Thanks, Vojta.
->>
->> Dne 01. 01. 22 v 20:29 Linux for blind general discussion napsal(a):
->>> Tim here again. Yes, if your filesystem is ext4, extundelete is
->>> the tool you want.  For best results, reboot into a live ISO/CD
->>> image and install it there, leaving your RPi drive untouched.
->>> This will minimize the chance that installing extundelete
->>> overwrites the data you want to preserve.
->>>
->>> -tim
->>>
->>> On January  1, 2022, Linux for blind general discussion wrote:
->>>> Hello, I have ext4, yes.
->>>>
->>>> Vojta.
->>>>
->>>> Dne 01. 01. 22 v 20:18 Linux for blind general discussion
->>>> napsal(a):
->>>>> I'm guessing/hoping the partition that has your deleted file has
->>>>> an ext4 filesystem. You should be able to recover the lost file
->>>>> using extundelete, although if you write anything at all to the
->>>>> SD, it will become less likely that your file will be
->>>>> recoverable. It seems that other filesystems make it more
->>>>> difficult, if not impossible to recover deleted files.
->>>>>
->>>>> ~Kyle
->>>>>
->>>>> _______________________________________________
->>>>> Blinux-list mailing list
->>>>> Blinux-list@redhat.com
->>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>       
->>>>
->>>> _______________________________________________
->>>> Blinux-list mailing list
->>>> Blinux-list@redhat.com
->>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>   
->>>
->>>
->>> _______________________________________________
->>> Blinux-list mailing list
->>> Blinux-list@redhat.com
->>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>    
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->>
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-> 
+Los was the developer of eBook-speaker and daisy-player, both included in Slint.
+
+I had communicated with him not so long ago.
+
+I will miss him.
+
+Best regards,
+
+Didier
 
 _______________________________________________
 Blinux-list mailing list
