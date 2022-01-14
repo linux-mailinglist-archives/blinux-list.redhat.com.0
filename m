@@ -2,72 +2,76 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4B72748CD81
-	for <lists+blinux-list@lfdr.de>; Wed, 12 Jan 2022 22:15:55 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 11A4E48E78A
+	for <lists+blinux-list@lfdr.de>; Fri, 14 Jan 2022 10:31:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1642022154;
+	s=mimecast20190719; t=1642152702;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=9nvI4idztC9mGTjSIlUmMyNbJh0Bx6TS1bn/DoEn+I0=;
-	b=PflSWdgmCccFR6JKhvCWXxRly+SiJJfQSingzCKkcwL2BsAjbj/3vXdR18hEF43gPxarV0
-	ehKRuhlejEWN4L6jXbAtsmkzEMqsyZ1bCRAOg7+n9/VBtLvXyz6kU0OMBE25sSp9ZQPbOu
-	svdZa8M/kHFmLVbCNl010aG+X5SecsY=
+	bh=Wy119T9wOq5XgAupNV+Ryv7H4ESJO4R8RgnvoqauFAs=;
+	b=J5Q/PQ0NESmkUw/KNDSxgI93TwKeJRp/QDzKPfXZBg9mNvCDDssOS50EN1nHYzLItOpB9W
+	T3WJsqfpjb/SaSmpl7MsVGu67Jq7xwS1piVklrdKKpaBF0ZJXoJwXkcpGEySsEdUYzavpK
+	0JbwD+Fw/8SOTd2HjP+4ayV6MQqJTx0=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-86-R2PHoS7OMaq-PPtxXwAHCQ-1; Wed, 12 Jan 2022 16:15:51 -0500
-X-MC-Unique: R2PHoS7OMaq-PPtxXwAHCQ-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-364-ZF-Q44CVNt-ZxruzMP0Y0Q-1; Fri, 14 Jan 2022 04:31:40 -0500
+X-MC-Unique: ZF-Q44CVNt-ZxruzMP0Y0Q-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id EF6581083F60;
-	Wed, 12 Jan 2022 21:15:44 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 994895E26C;
-	Wed, 12 Jan 2022 21:15:41 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 03FA984B9A4;
+	Fri, 14 Jan 2022 09:31:35 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id F247C6F12F;
+	Fri, 14 Jan 2022 09:31:31 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EC9BF4BB7C;
-	Wed, 12 Jan 2022 21:15:36 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.2])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6D9761809CB8;
+	Fri, 14 Jan 2022 09:31:21 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20CLFRtK015807 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 12 Jan 2022 16:15:28 -0500
+	id 20E9UWo9004055 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 14 Jan 2022 04:30:32 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id BCB2F4047281; Wed, 12 Jan 2022 21:15:27 +0000 (UTC)
+	id 9B1EF401DAE; Fri, 14 Jan 2022 09:30:32 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B90484047272
-	for <blinux-list@redhat.com>; Wed, 12 Jan 2022 21:15:27 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 971A746D218
+	for <blinux-list@redhat.com>; Fri, 14 Jan 2022 09:30:32 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A025438035D4
-	for <blinux-list@redhat.com>; Wed, 12 Jan 2022 21:15:27 +0000 (UTC)
-Received: from smtprelay03.ispgateway.de (smtprelay03.ispgateway.de
-	[80.67.29.7]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-615-Fcgbv_iiNSe1JssE8MMFrw-1; Wed, 12 Jan 2022 16:15:25 -0500
-X-MC-Unique: Fcgbv_iiNSe1JssE8MMFrw-1
-Received: from [37.4.229.93] (helo=[192.168.178.110])
-	by smtprelay03.ispgateway.de with esmtpsa (TLS1.2) tls
-	TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (Exim 4.94.2)
-	(envelope-from <chrys@linux-a11y.org>)
-	id 1n7kvi-0006Np-2z; Wed, 12 Jan 2022 22:13:14 +0100
-Message-ID: <357e9c39-17b9-74cd-3b83-085af1adc4fc@linux-a11y.org>
-Date: Wed, 12 Jan 2022 22:12:52 +0100
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7E4158011A5
+	for <blinux-list@redhat.com>; Fri, 14 Jan 2022 09:30:32 +0000 (UTC)
+Received: from mail.rednote.net (opera.rednote.net [66.228.34.147]) by
+	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-5-lg1_Ht22Ofq9fSWQ4Tak3w-1; Fri, 14 Jan 2022 04:30:28 -0500
+X-MC-Unique: lg1_Ht22Ofq9fSWQ4Tak3w-1
+Received: from opera.rednote.net (localhost [IPv6:::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest
+	SHA256) (No client certificate requested)
+	by mail.rednote.net (Postfix) with ESMTPS id 15E38FA808
+	for <blinux-list@redhat.com>; Fri, 14 Jan 2022 04:30:26 -0500 (EST)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.rednote.net 15E38FA808
+Received: (from janina@localhost)
+	by opera.rednote.net (8.17.1/8.16.1/Submit) id 20E9UPZE1149878
+	for blinux-list@redhat.com; Fri, 14 Jan 2022 04:30:25 -0500
+Date: Fri, 14 Jan 2022 04:30:25 -0500
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Voxin in Arch
+Message-ID: <YeFCsWXAR9r+uq3C@rednote.net>
+References: <324d87f3-44a0-e226-be6d-ee7a57d76755@seznam.cz>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.4.1
-To: orca-list <orca-list@gnome.org>,
-	Linux for blind general discussion <blinux-list@redhat.com>,
-	fenrir-screenreader@freelists.org, debian-accessibility@lists.debian.org
-Subject: OCRdesktop 3.0 Released
-X-Df-Sender: Y2hyeXNAbGludXgtYTExeS5vcmc=
+In-Reply-To: <324d87f3-44a0-e226-be6d-ee7a57d76755@seznam.cz>
+X-Operating-System: Linux opera.rednote.net 5.15.12-200.fc35.x86_64
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -76,7 +80,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -93,58 +97,51 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Disposition: inline
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Howdy List,
+I tried Voxin just this past weekend on Arch without success.
 
-sorry for cross posting, but I thought you might be interested into that.
-I just released OCRdesktop 3.0 with some very nice stuff :).
-For those who don't know about OCRdesktop:
-https://wiki.archlinux.org/title/Ocrdesktop
+Speech Dispatcher appears to load the module, but there's no option for
+the voices in the Orca Voice menu.
 
-1. i removed unmaintained "tesserwrap" bindings and use "pytesseract" 
-now. This is very good maintained and is able to use Tesseract 4.1.x and 
-Tesseract 5.0. Last didnt work with tesserwrap anymore cause by broken API.
-2. Removed all deprecation warnings, Modernize the code, use spaces 
-instead of Tab and all kind of cleanup goodness.
-3. i added an very nice new feature to analyze the color of an given 
-Text and its background. So you can figure what text is highlighted, has 
-the focus and all kind of useful stuff. its off by default and could be 
-used by "-O" flag as parameter. For this we need some new dependency 
-webcolor and scipy.
+Best,
 
-See the full story here:
-https://www.patreon.com/posts/ocr-desktop-60895292
-https://www.patreon.com/posts/color-analyzing-60988555
+Janina
 
-Where to get:
+Linux for blind general discussion writes:
+> Hello,
+> 
+> is Voxin usable now in Arch or is needed a new version of it?
+> 
+> Thanks a lot.
+> 
+> Best regards
+> 
+> Vojta.
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
 
-https://github.com/chrys87/ocrdesktop/releases/tag/v3.0
+-- 
 
-Depencys:
-- python3
-- tesseract
-- tesseract-lang-<yourLanguageCode>
-- python3-pillow
-- python-atspi
-- python-pytesseract
-- libwnck3
-- GTK3
-Optional Depencys
-- python-scipy (for color detection)
-- python-webcolors (for color detection)
+Janina Sajka
+(she/her/hers)
+https://linkedin.com/in/jsajka
 
-I hope you have as much fun while using it as i had while working on it :).
-have a good day and stay healthy in those crazy times.
+Linux Foundation Fellow
+Executive Chair, Accessibility Workgroup:	http://a11y.org
 
-cheers chrys
+The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
+Co-Chair, Accessible Platform Architectures	http://www.w3.org/wai/apa
 
 _______________________________________________
 Blinux-list mailing list
