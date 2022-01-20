@@ -2,84 +2,95 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4DE28494FCC
-	for <lists+blinux-list@lfdr.de>; Thu, 20 Jan 2022 15:06:31 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4E4CA494FF4
+	for <lists+blinux-list@lfdr.de>; Thu, 20 Jan 2022 15:17:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1642687590;
+	s=mimecast20190719; t=1642688251;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=eKx89iz/kXr/pb053PhzQSImm11Lsb0TclHpvNWCEJQ=;
-	b=PZSQSaRKyBuKbyECbLGEKei4BdrJZhjclEdyDYeBTMexw69IPNRXm3HmJZhp+W84DC0dv6
-	jIuG6/jwKm8ZEHrKKrK3PFPAMjZTMw3lyHJgmMM9N+12FUhRVaqRO0Hk5w7SJU++Of4viT
-	drJlzgo/nJ/X/imaZnCzEGQHPhgFilk=
+	bh=fVweKic9psyeEtr/jplUBIfAwWjh+bHNyXWqUJuaXYI=;
+	b=DLMEeQWTnEvw/L0+Xji6i6pafrxgiKt+CKY17wHOyrTmoiza6NknM6eozipljmKs/p1IQ4
+	9goxtZMce0oqabUkoaykiKFIsq6AKII8regzamJ5jlDounn7T5YP80YelyTf+6gmLv5HWq
+	o8pjltF/2USg8RjgPqIhnZZOfHjHHjI=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-116-5QrShOgLP5u4K4dNcfdBHQ-1; Thu, 20 Jan 2022 09:06:26 -0500
-X-MC-Unique: 5QrShOgLP5u4K4dNcfdBHQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-604-PvaqYBf6ObOuhlkUn-YoSA-1; Thu, 20 Jan 2022 09:17:27 -0500
+X-MC-Unique: PvaqYBf6ObOuhlkUn-YoSA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5D9D48144E4;
-	Thu, 20 Jan 2022 14:06:21 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 02F0C1018720;
+	Thu, 20 Jan 2022 14:17:24 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3793216A47;
-	Thu, 20 Jan 2022 14:06:19 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id DD3B67E2FB;
+	Thu, 20 Jan 2022 14:17:22 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A397D4CA93;
-	Thu, 20 Jan 2022 14:06:13 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.1])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id DBBB64A7CA;
+	Thu, 20 Jan 2022 14:17:21 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20KE66Y2012860 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 20 Jan 2022 09:06:07 -0500
+	id 20KEHGDv013738 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 20 Jan 2022 09:17:16 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id C889240F9D74; Thu, 20 Jan 2022 14:06:06 +0000 (UTC)
+	id 5E9E41121339; Thu, 20 Jan 2022 14:17:16 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C456B40F9D73
-	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 14:06:06 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5A08F1121335
+	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 14:17:13 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A9277811E7A
-	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 14:06:06 +0000 (UTC)
-Received: from mail-yb1-f181.google.com (mail-yb1-f181.google.com
-	[209.85.219.181]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5021E811E7F
+	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 14:17:13 +0000 (UTC)
+Received: from mail-lf1-f45.google.com (mail-lf1-f45.google.com
+	[209.85.167.45]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-571-1_0l0s0AMNishScEa1ptng-1; Thu, 20 Jan 2022 09:06:02 -0500
-X-MC-Unique: 1_0l0s0AMNishScEa1ptng-1
-Received: by mail-yb1-f181.google.com with SMTP id g14so18031163ybs.8
-	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 06:06:01 -0800 (PST)
+	us-mta-613-utHgxNsBOneOZeHjngSY-g-1; Thu, 20 Jan 2022 09:17:11 -0500
+X-MC-Unique: utHgxNsBOneOZeHjngSY-g-1
+Received: by mail-lf1-f45.google.com with SMTP id d3so22082260lfv.13
+	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 06:17:11 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to;
-	bh=9Sg+GQGzNHeCljxIh0NOJlCcsde/rw1BBZT9RIqBii0=;
-	b=So3HpTJh86PNu1elFvNJUGIdoaQZR0Suxpdg1xaxFzzODdDVIBMS/cTtsi/jBUPUx4
-	UQmFLoDPvjT+8KrNfD+YcaZBlMjU29VDTHdUwarQrQr1WDBdog2E3Y5hGO3RXSKdSvGY
-	MJ0TtCryPftz1h6wwMjehNjg6V3jxjy2PJzWPE+vamc0ezf1GhqXWSzKqNXQtprKVah1
-	ke6sbW2g0ZeJBiYgdWdm+rrRO2XRGG2lxvR9pg6R8VC2wQYPa7tXmKc6tqzctopydh18
-	UEXrVWzaWAk07A30T/FTeVrgKpm2g1S2xNs5+zGl8N+UZ+McWSqn0VUDnB4rbCiGWcFs
-	cMAA==
-X-Gm-Message-State: AOAM532BqB8lOhn670JkKr4XQK4hRx8/h3GWK6fp3GLl5+CiexujPLRT
-	XME2v+1HFvm8zi5Puk5YlNXwUAKvy2S1xiVFHLInBSEM
-X-Google-Smtp-Source: ABdhPJwHhJseUa+na7KFgHOj4Eq1byEX1f0pG9fT+V73d3aP2WZ5pCniP7HSRlLcug5OSpKX26/EsEdr8e0LEQxhRdo=
-X-Received: by 2002:a25:fc4:: with SMTP id 187mr47455641ybp.608.1642687560828; 
-	Thu, 20 Jan 2022 06:06:00 -0800 (PST)
+	h=x-gm-message-state:date:from:to:subject:message-id:references
+	:mime-version:content-disposition:in-reply-to:user-agent;
+	bh=2rHPi4BZ/e/7TQ4fsbv1rAJ49IGam5YM+vskGQ/9jx0=;
+	b=7yY9FyU5pAvCkhwIBkj5NrFvLUzybcBc7wWHXA4eRPlEfcbNml4QOVzG1zALeXe6/V
+	DJVOfvEqVKuYmlMj8odjy0swTFXAEoog2grKzQ3jYsl0cHQWvCD2ocnVpBPo5suucrCe
+	ZnXWZOsbyRHt0jWMYmSnagh+5bQMsq0VKCY+0XVd4wNS225Bik4c4H0GHfEXJDF0zEaP
+	Ax7KxlEG+klL45k4LHR/MS5ZpP6cpNekr92Q1WeckQjBUqcRLvthZdKGWtPlQY1mDk5X
+	EZpH4eSqap5yHj6BXwDjY5PaVPZJwd3QVvs3uBdja/fxSuiVGVgcttNcTVrmOfmZdr9H
+	rORg==
+X-Gm-Message-State: AOAM532IKj+a+OKEHBkl9t1bWjh/UNYUFGrRd9xAortahGm1YvZuW8KG
+	L5nxTHUTcrQ8Sk4K2/j2UxyYZICPAjc=
+X-Google-Smtp-Source: ABdhPJxWseIbz2X8exIKhsAmqoTHR+Vj+P17VdNU5xGsoU5emoFW4buW9zfjKc1eZzIz+eeBqlHBTg==
+X-Received: by 2002:a05:651c:1253:: with SMTP id
+	h19mr4770532ljh.501.1642688229595; 
+	Thu, 20 Jan 2022 06:17:09 -0800 (PST)
+Received: from localhost ([91.77.167.245])
+	by smtp.gmail.com with ESMTPSA id p2sm350656lft.288.2022.01.20.06.17.08
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+	Thu, 20 Jan 2022 06:17:09 -0800 (PST)
+Date: Thu, 20 Jan 2022 17:17:07 +0300
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Before I install Arch on bare metal...few questions
+Message-ID: <20220120141707.g33dbtoensce2emo@alex-pc>
+References: <4ab924de-d686-a301-1ea3-e38214aba35e@gmail.com>
+	<20220120122837.ipmq2bz3lp227tmg@alex-pc>
+	<2f8af423-72cd-57c5-4864-158969fd662a@gmail.com>
+	<20220120130015.b5v46qpflxbntq5v@alex-pc>
+	<3971b8f5-27af-2f7e-d5c2-f88da04436f7@gmail.com>
 MIME-Version: 1.0
-References: <63f587bb-c045-5b27-4252-26d68fd14c7@panix.com>
-In-Reply-To: <63f587bb-c045-5b27-4252-26d68fd14c7@panix.com>
-Date: Thu, 20 Jan 2022 08:05:49 -0600
-Message-ID: <CAGJxbF7Cx=ZJLCkB=_2k=tquOKidY6O5U8WB0UTgQ-nMqnLH8A@mail.gmail.com>
-Subject: Re: cell phone industry practices
-To: "blinux-list@redhat.com" <blinux-list@redhat.com>
+In-Reply-To: <3971b8f5-27af-2f7e-d5c2-f88da04436f7@gmail.com>
+User-Agent: NeoMutt/20211029
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -88,9 +99,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
-X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -106,44 +116,36 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Of course not.
-Devin Prater
-r.d.t.prater@gmail.com
-
-
-
-
-On Wed, Jan 19, 2022 at 5:43 PM Linux for blind general discussion <
-blinux-list@redhat.com> wrote:
-
-> Does anyone know of any cell phone ready Linux operating system that comes
-> with an accessible desktop environment that has active support
-> I'm curious about this as a result of cell phone industry practices.
-> Specifically, no last security update date and no operating system update
-> date is on packaging or listed on any of the cell phone screens.  This
-> means if your phone is compromised once these two dates have passed it's
-> time to throw your phone in the trash since even if you do a factory
-> reset, the phone can be easily compromised again.
-> Even if anything like this is available it will be a challenge to find
-> competent technical support to replace the operating system on the phone
-> and hook it up with the Linux provider's package repositories.
->
-> ?
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
+On Thu, Jan 20, 2022 at 01:19:49PM +0000, Linux for blind general discussion wrote:
+> So let me get this straight. I'm on a 64bit UEFI system. Solus, IIRC, comes
+> with Grub.
 >
 >
+> You're saying I don't need GRUB to swap between OSes so I can have sdboot
+> with Arch on /dev/sdb and Solus on /dev/sda?
+
+exactly. you can select needed os in your efi boot manager. or use
+efibootmgr command to modify boot order or next boot options.
+
+> So next logical question.
+>
+> What's the best way to be able to access my Solus disk when I do install
+> Arch, ensure it's the same file system and it should all work fine or?
+
+just mount it in arch.
+
+--
+Sincerely, Alexander
+
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
