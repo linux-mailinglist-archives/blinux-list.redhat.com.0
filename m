@@ -1,95 +1,74 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 48A6B494E39
-	for <lists+blinux-list@lfdr.de>; Thu, 20 Jan 2022 13:51:15 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 61073494E82
+	for <lists+blinux-list@lfdr.de>; Thu, 20 Jan 2022 14:02:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1642683067;
+	s=mimecast20190719; t=1642683734;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=YUylIbwXxUz21Nf3avwVFQLQOr/nncjj3igy8dyuE1I=;
-	b=ge1dCQRYe+8M/jZOiMnZXwCNzYm8WfwDX7jG/JHnVV2DCipGBJoN/tzzWnUzAludv4nD80
-	daMyjSDMpAvlAhaHO2Sbbe+7re8IKr5jQynEgGaw9TfTrzeIqzOX4Yy4Wqp0e+npIyKl4d
-	iWjWpR4+2W89554uXZ7GvbcconiVE64=
+	bh=MacskiG5OSRZaZvtm38kWDyURRqfuUurMfejgycCz6E=;
+	b=LbZ4vMJQ7zaitsa+HQ4k4zrrNCQuT0ipvXXTAWx5RXmxlA/wKL5PG5lUAPu8THQS/8u1Ik
+	oiqkGbcOn/2jYtQpSWWK+wVzoSVZ6EmPVPaTVhvoKSNb3k2xdp7ozpXXpYRY0JqGvtEfe+
+	QWal647Cr2oLQ/Vi4HX3DOhvUR1DsEw=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-650-s3YxRoJzPE2x-0Ozut64kA-1; Thu, 20 Jan 2022 07:51:03 -0500
-X-MC-Unique: s3YxRoJzPE2x-0Ozut64kA-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-549-R0jHhrf1P5mYB-jYfp1LcQ-1; Thu, 20 Jan 2022 08:02:09 -0500
+X-MC-Unique: R0jHhrf1P5mYB-jYfp1LcQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B5024760C1;
-	Thu, 20 Jan 2022 12:50:59 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C2818102CC39;
+	Thu, 20 Jan 2022 13:01:39 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 61FA06F9C6;
-	Thu, 20 Jan 2022 12:50:55 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9A06C752CA;
+	Thu, 20 Jan 2022 13:01:39 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id ABF0B1809C88;
-	Thu, 20 Jan 2022 12:50:52 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.2])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 22F6C1806D1D;
+	Thu, 20 Jan 2022 13:01:39 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20KCohVf003015 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 20 Jan 2022 07:50:44 -0500
+	id 20KD1ZfU004092 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 20 Jan 2022 08:01:35 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id D440F404728D; Thu, 20 Jan 2022 12:50:43 +0000 (UTC)
+	id 8558A401E92; Thu, 20 Jan 2022 13:01:35 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CF6AE4047286
-	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 12:50:43 +0000 (UTC)
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 81FD4401DBD
+	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 13:01:35 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B6DC3832E67
-	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 12:50:43 +0000 (UTC)
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com
-	[209.85.128.53]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-240-HcvuOFBoOb6Jq9u2D8V88w-1; Thu, 20 Jan 2022 07:50:42 -0500
-X-MC-Unique: HcvuOFBoOb6Jq9u2D8V88w-1
-Received: by mail-wm1-f53.google.com with SMTP id
-	r9-20020a1c4409000000b0034e043aaac7so562415wma.5
-	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 04:50:41 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-	:content-language:to:references:from:in-reply-to
-	:content-transfer-encoding;
-	bh=VWpBArRJ6Jeyb61elmLYIEZfUbuRZMv5iX0smCG4CNs=;
-	b=duWb6Rh0UWIEsR/0Uln2XtuBigbroAQCOb5aWPvnDZ2Z9aw8mkD6hxmjEnuHhidJgu
-	RJhmDcv1OeSAwqo5OJ/g/FKqgffrKNohwsAoFQpKLWnBVUT3SDonG+CQtggcc9U0kMW1
-	sl3i7zdo9UHJvv4cxvkco59YkamEmnxltQjdjGY1t9izbQ7SJwA4ntGfLavJ5x1Ejh8r
-	rAqjbYqhXL+KvOwmE417r7p4976lTGbbvdVQvmEn07osDRcouf/4NVO21FU2af1/wrOA
-	S91jR+Aug/sCGQHENOMwOuZHVpYUKB6TY1oD0SFYnhjm2NUXmKzTU4raLNb43eiG+a0t
-	pifg==
-X-Gm-Message-State: AOAM531qQ/QWvRToLH/puNkMF2K7oJ6SmA5midYOTFBkWsS17gsb9iAu
-	+oVDqAvGVC3llOktekCgrNNPzdE4zfdf1w==
-X-Google-Smtp-Source: ABdhPJzZrLo3V0fFOzlREMGXYTRnctfPaLfHn18fx9H9vzEQtmmwbdh2MZj8Ns6qygo1e7ixfuBf7Q==
-X-Received: by 2002:a1c:21d6:: with SMTP id h205mr1229071wmh.164.1642683040316;
-	Thu, 20 Jan 2022 04:50:40 -0800 (PST)
-Received: from [192.168.1.130] ([87.74.163.68])
-	by smtp.gmail.com with ESMTPSA id
-	l20sm10943347wms.24.2022.01.20.04.50.39 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 20 Jan 2022 04:50:39 -0800 (PST)
-Message-ID: <2f8af423-72cd-57c5-4864-158969fd662a@gmail.com>
-Date: Thu, 20 Jan 2022 12:50:50 +0000
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 69AE9185A7BA
+	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 13:01:35 +0000 (UTC)
+Received: from mail.schoeppi.net (mail.schoeppi.net [193.41.226.221]) by
+	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-36-Bd0o9ruNPxOqkfZ7iSR3qQ-1; Thu, 20 Jan 2022 08:01:33 -0500
+X-MC-Unique: Bd0o9ruNPxOqkfZ7iSR3qQ-1
+Received: from k.n5t.de (unknown [172.19.7.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits)
+	server-digest SHA256) (Client did not present a certificate)
+	by mail.schoeppi.net (Postfix) with ESMTPS id 06CFB2EB5DE
+	for <blinux-list@redhat.com>; Thu, 20 Jan 2022 13:55:24 +0100 (CET)
+Date: Thu, 20 Jan 2022 13:55:22 +0100
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Running a Linux VM on Windows and making it talk?
+Message-ID: <YelburhFkqY1AXFh@k.n5t.de>
+References: <CABKqQvErSiA=YnCNo6MjtANW8LyqW+sQi=o_wPNPc0gTAZE5Pg@mail.gmail.com>
+	<alpine.DEB.2.11.2201201340550.1250@debian.work>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.4.1
-Subject: Re: Before I install Arch on bare metal...few questions
-To: blinux-list@redhat.com
-References: <4ab924de-d686-a301-1ea3-e38214aba35e@gmail.com>
-	<20220120122837.ipmq2bz3lp227tmg@alex-pc>
-In-Reply-To: <20220120122837.ipmq2bz3lp227tmg@alex-pc>
+In-Reply-To: <alpine.DEB.2.11.2201201340550.1250@debian.work>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -98,7 +77,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -115,70 +94,51 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Disposition: inline
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-U28gbW9yZSBxdWVzdGlvbnMgdGhhdCBJIGRpZG4ndCBnZXQgYXJvdW5kIHRvIGFza2luZyBlYXJs
-aWVyIGFuZCB0aG91Z2h0IApvZiBhZnRlciBzZW5kaW5nIHRoYXQgZmlyc3QgbWVzc2FnZQoKCjEu
-IEkndmUgcnVuIGludG8gdGhpcyAobW9zdGx5KSBvbiBhIFZNLCBidXQgaXMgdGhlcmUgYW4gYWR2
-YW50YWdlIG9mIApncnViIG92ZXIgc3lzdGVtLWQgYm9vdD8gSSd2ZSBuZXZlciBnb3QgYSBWTSB0
-byBib290IHVzaW5nIGdydWIgc28gSSdtIApub3Qgc3VyZSBob3cgaXQnZCBhZmVjdCBiYXJlIG1l
-dGFsCgoKMi4gRnJvbSBhbiBBLUExMXkgcGVyc3BlY3RpdmUuIEknbSBub3RpbmcgZG93biB3aGF0
-IEkgbmVlZC4gSGVyZSdzIG15IApjdXJyZW50IGxpc3QKCmFsc2EtdXRpbHMgZXNwZWFrdXAgb3Jj
-YSBzcGVlY2gtZGlzcGF0Y2hlcgoKSXMgdGhhdCBhbGwgSSBuZWVkIGZvciBhIHdvcmtpbmcgREUg
-bGlrZSBHbm9tZSBvciBNYXRlLCBpLmUuIGNhbiBJIGp1c3QgCmluc3RhbGwgdGhvc2UgZm91ciBw
-YWNrYWdlcywgZGVwZW5kZW5jaWVzLCBhbmQgYW5kIGVuZCB1cCB3aXRoIGEgd29ya2luZyAKc3lz
-dGVtPwoKSSBkb24ndCByZWFsbHkgd2FudCB0byBudWtlIG15IFNvbHVzIGluc3RhbGwgdW50aWwg
-SSBrbm93IEFyY2ggaXMgCndvcmtpbmcsIGJ1dCBlcXVhbGx5IEkgZG9uJ3Qgd2FudCB0byBvdmVy
-ZG8gaW5zdGFsbGluZyBzdHVmZiBhbmQgZ2V0IApzd2FtcGQgd2l0aCBhIGh1bmRyZWQgdXBkYXRl
-cyBldmVyeSBkYXkgZm9yIGFuIGV4dHJlbWUgZXhhbXBsZS4gSSd2ZSAKbWFuYWdlZCB0byBwYXJl
-IGl0IGRvd24gdG8gb25lIG9yIHR3byB3aXRoIGEgbGVhbiwgbWluaW1hbCBzeXN0ZW0uIApIb3Bl
-ZnVsbHkgSSBjYW4gcmVwbGljYXRlIHRoYXQgb24gYmFyZSBtZXRhbAoKClNvIGdpdmVuIEkndmUg
-U29sdXMgb24gL2Rldi9zZGEsIGFuZCBJIHB1dCBBcmNoIG9uIC9kZXYvc2RiIGZvciBleGFtcGxl
-LCAKd291bGQgSSBuZWVkIHRvIGluc3RhbGwgR3J1YiB0byBiZSBhYmxlIHRvIHN3YXAgYmV0d2Vl
-biB0aGUgdHdvIAppbnN0YWxsZWQgT1NlcyBhcyBuZWVkZWQ/IEknbSBub3QgMTAwJSBzdXJlIGlm
-IGluc3RhbGxpbmcgR3J1YiBhcyBwYXJ0IApvZiB0aGUgQXJjaCBpbnN0YWxsIHdpbGwgYnJlYWsg
-YmVpbmcgYWJsZSB0byBib290IGludG8gU29sdXMgdGhvdWdoCgpPbiAxLzIwLzIyIDEyOjI4LCBM
-aW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+IE9uIFRodSwgSmFuIDIw
-LCAyMDIyIGF0IDEyOjEyOjU0QU0gKzAwMDAsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1
-c3Npb24gd3JvdGU6Cj4+IFNvLCBhcyBpdCBzYXlzLiBJIHZlcnkgbXVjaCBsaWtlIG15IEFyY2gg
-Vk0uCj4+Cj4+IEFuZCBJJ3ZlIGRvbmUgYSB0b24gb2YgaW5zdGFsbHMgb24gYSBxZW11IFZNLCB0
-aG91Z2ggSSdtIG5vdyB0aGlua2luZyBvZgo+PiBzd2l0Y2hpbmcgdG8gYmFyZSBtZXRhbHNvIEkg
-Y2FuIHR3ZWFrIG15IHN5c3RlbSBob3cgSSB3YW50Lgo+Pgo+Pgo+PiBTby4uLi5iZWZvcmUgSSBk
-byB0aGlzLgo+Pgo+PiAxLiBJJ20gd29ycmllZCBzb21ldGhpbmcnbGwgZ28gd3JvbmcgaW4gdGhl
-IGFyY2hpbnN0YWxsIHNjcmlwdCwgb3IgdGhlCj4+IG1hbnVhbCBpbnN0YWxsIGFuZCBudWtlIG15
-IChjdXJyZW50bHkgd29ya2luZykgc3lzdGVtCj4gaWYgeW91IGFyZSBjYXJlZnVsIHdoZW4gcGFy
-dGl0aW9uaW5nIHRoZSBkaXNrLCB0aGVuIHRoaXMgd2lsbCBub3QgaGFwcGVuLgo+Cj4+IDIuIFdp
-bGwgbXkgVVNCIGhlYWRwaG9uZXMgYmUgY29ubmVjdGVkIG91dCBvZiB0aGUgYm94IG9yIG5vdD8g
-T24gYSBWTSB0aGV5Cj4+IGFyZSBidXQgdGhhdCBkb2Vzbid0IG1lYW4gYSB0aGluZyB3aGVuIGl0
-IGNvbWVzIHRvIGJhcmUgbWV0YWwKPiBJIHRoaW5rIHllcy4gaWYgbm90IHBsZWFzZSBlbWFpbCBt
-ZSBhdCBhbGV4MTllcEBhcmNobGludXgub3JnCj4KPj4gMy4gSSBoYXZlIHR3byBtYWNoaW5lcywg
-b25lJ3MgL2Rldi9zZGEsIHdoaWNoIEknbSBhc3N1bWluZyB3aWxsIGxpa2VseQo+PiBpbnN0YWxs
-IGZpbmUsIGhvcGVmdWxseQo+Pgo+Pgo+PiBUSGUgb3RoZXIsIGEgbGFwdG9wLCBpcyAvZGV2L252
-bWUsIHdoaWNoIGlzIHdoYXQgSSdtIHdvcnJpZWQgYWJvdXQuIEFueXRoaW5nCj4+IHNwZWNpYWwg
-SSBuZWVkIGZvciBBcmNoIHRvIGluc3RhbGwgb24gYW4gTlZNRT8KPiBuby4gYnV0IEkgcmVjb21t
-ZW5kIHRvIHJlYWQgYXJjaHdpa2kgcGFnZSBhYm91dCBudm1lLgo+Cj4+IDQuIENhbiBJIHdpdGgg
-dHdvIEhERCwgL2Rldi9zZGEgKG15IGN1cnJlbnQgU29sdXMgc3lzdGVtKXdvciBhbmQgL2Rldi9z
-ZGIgKGEKPj4gMi43VCBkcml2ZSksIGluc3RhbGwgQXJjaCBvbiAvZGV2L3NkYiBhbmQgcGljayBh
-bmQgY2hvb3NlIHdoaWNoIGRpc3RybyB0bwo+PiBib290PyBJIHJlbWVtYmVywqAgd2F5IHRvIGRv
-IGEgY29uc29sZSBjb21tYW5kIHRvIHJlYm9vdCBhbmQgaGF2ZSBHcnViIHNlbGVjdAo+PiB3aGlj
-aCB0byBib290IHVwLCBidXQgSSdtIG5vdCBzdXJlIGlmIHRoYXQncyBzdGlsbCBhIHRoaW5nPwo+
-IHN1cmUgeW91IGNhbi4gaWYgeW91IGhhdmUgZWZpLCB0aGVuIGl0IHdpbGwgYmUgdmVyeSBzaW1w
-bGUuCj4KPj4gNS4gV2FzIHRoZXJlIGV2ZXIgYSBjb25zZW5zdXMgb24gaG93IG9mdGVuIHRvIGRv
-IGEgcGFjbWFuIC1TeXl1IGluIEFyY2g/Cj4gYXMgb2Z0ZW4gYXMgeW91IG5lZWQgaXQuIHRoZSBv
-bmx5IHByb2JsZW0gaXMgdGhhdCBpZiB5b3UgZG8gbm90IHVwZGF0ZQo+IHN5c3RlbSBmb3IgYSB2
-ZXJ5IGxvbmcgdGltZSAoZm9yIGV4YW1wbGUsIGEgeWVhciksIHRoZW4gbGF0ZXIgaXQgY2FuCj4g
-YmUgYSBsaXR0bGUgbW9yZSBkaWZmaWN1bHQgdG8gZG8uCj4KPiAtLQo+IFNpbmNlcmVseSwgQWxl
-eGFuZGVyCj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-Xwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBo
-dHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlz
-dCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVk
-aGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
+On Thu, Jan 20, 2022 at 01:48:58PM +0200, Linux for blind general discussion wrote:
+>Once you have it running, you can use control-g to switch the keyboard to the
+>
+>Oh and do not install the enhanced keyboard driver that VMWare offers,
+>apparently it causes big problems with Windows screen readers.
+
+I am also using VMware player and Workstation Pro on Windows 10 for linux 
+guests and generaly I am very happy with this kind of setup. I've activated 
+the enhanced keyboard drivers from VMware and I can not say that they cause 
+problems with NVDA or Jaws, but maybe I just do not notice them :-). What 
+kind of problems are this? Do you have any examples?
+
+TBH I do not even know what the enhanced keyboard driver does... If it 
+rellay causes problems maybe I should also uninstall it...
+
+>I've not tried running a GUI under VMWare, but I don't expect any issues.
+
+I've done it and its working like it installed on a normal machine.
+
+BTW.: Have you managed  to copy content from the Windows clipboard into a 
+console of the linux guest or do you know if this is possible by using just 
+the keyboard? Is this what the enhanced keyboard driver is necessary for? 
+And is tere a way to copy the content of the clipboard from the Linux guest 
+to the Windows host?
+
+In general I am very happy with the setup and running a Linux guest on 
+Windows with VMware, but exchanging content between the two systems could be 
+easier, especialy for the content stored in the clipboard.
+
+Cheers,
+
+
+  Schoepp
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
