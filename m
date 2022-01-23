@@ -2,69 +2,89 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id EA1D1496FCC
-	for <lists+blinux-list@lfdr.de>; Sun, 23 Jan 2022 06:15:09 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 08A30497044
+	for <lists+blinux-list@lfdr.de>; Sun, 23 Jan 2022 06:52:58 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1642914908;
+	s=mimecast20190719; t=1642917178;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=QK6xLKYid0kGjychTKSvq/80Yb7kN4VdaKEoRRhJmIY=;
-	b=Vdgj3kN68nG28NXNvkSS+r2Q9B7lxHHJEoVzZ9cawayJd8gyOjRy1Q9+/GF19FoCTEVhax
-	iOCFwGbkBaZVcUXZmXIAR0hEntw6jbKuyhy3w+hypUHEdOkLrxYeoLig+ZvsH5yo9qsQfN
-	4ZPndZgYpqN9pSZkys6yJ8tcOe3pmx4=
+	bh=REyV56roJHlpA41ywgGi32KSK3gtm/2IsXnmRcGYek8=;
+	b=Py7H36+8BDP3rQQYraEE/HVd3iW2fRIpLSuXRvjlw7nIi9jAPhM5Toj19ajaX9pqzMrQfz
+	VsujM5he9/h6f2AZOpziElbQ3Ni6av5P9AtAzsmAZzQ7OggnWQGHJKWlwtFpnObomRF6Za
+	jt8slpmvvv5ecTvg1A5XHoHtEv1UUkM=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-621-PAA6ysu-Og2vJDGW8s4Kxg-1; Sun, 23 Jan 2022 00:15:03 -0500
-X-MC-Unique: PAA6ysu-Og2vJDGW8s4Kxg-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-119-SgHa0MlTNBGLxbas5I-ecA-1; Sun, 23 Jan 2022 00:52:54 -0500
+X-MC-Unique: SgHa0MlTNBGLxbas5I-ecA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7CA221006AA4;
-	Sun, 23 Jan 2022 05:14:57 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0073B4DC13;
-	Sun, 23 Jan 2022 05:14:54 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 09A6A1853028;
+	Sun, 23 Jan 2022 05:52:50 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B84734698E;
+	Sun, 23 Jan 2022 05:52:49 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EA5DA4BB7B;
-	Sun, 23 Jan 2022 05:14:48 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.10])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 26BD21809CB8;
+	Sun, 23 Jan 2022 05:52:48 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20N54xbp006755 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 23 Jan 2022 00:04:59 -0500
+	id 20N5o0ix009759 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 23 Jan 2022 00:50:00 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 65B5A401E89; Sun, 23 Jan 2022 05:04:59 +0000 (UTC)
+	id 6E17C53DC; Sun, 23 Jan 2022 05:50:00 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 627D7401DAD
-	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 05:04:59 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4C86A811E76
-	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 05:04:59 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 69A5453D0
+	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 05:49:57 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7DF7F38035C9
+	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 05:49:57 +0000 (UTC)
+Received: from wout4-smtp.messagingengine.com
+	(wout4-smtp.messagingengine.com [64.147.123.20]) by relay.mimecast.com
+	with ESMTP with STARTTLS (version=TLSv1.2,
 	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-137-_07gQkBsMFmE-OeNExpJtg-1; Sun, 23 Jan 2022 00:04:56 -0500
-X-MC-Unique: _07gQkBsMFmE-OeNExpJtg-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4JhLdh3r7GzFmW
-	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 00:04:56 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4JhLdh3KZjzcbc; Sun, 23 Jan 2022 00:04:56 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4JhLdh2qbKzcbP
-	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 00:04:56 -0500 (EST)
-Date: Sun, 23 Jan 2022 00:04:56 -0500
-To: blinux-list@redhat.com
-Subject: web page problem
-Message-ID: <2ca4507f-ab68-76a0-8bdf-56502d49fa4d@panix.com>
+	us-mta-421-dkkaqsjFM0C9TP70Uk6DGA-1; Sun, 23 Jan 2022 00:49:55 -0500
+X-MC-Unique: dkkaqsjFM0C9TP70Uk6DGA-1
+Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
+	by mailout.west.internal (Postfix) with ESMTP id D657832007CF
+	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 00:49:53 -0500 (EST)
+Received: from mailfrontend1 ([10.202.2.162])
+	by compute1.internal (MEProxy); Sun, 23 Jan 2022 00:49:53 -0500
+X-ME-Sender: <xms:gezsYaMVCa-KfMUidDor7lb_vHwjkynD-a2QOwxx0hzWabXHKadfQA>
+	<xme:gezsYY_EiERcIlZR-Zk1STqd-luXVJCiu9Pv0FdqczCkjlpZJo-mBAMz600PhkWC3
+	-NYZM_uD22AtsjAzVw>
+X-ME-Received: <xmr:gezsYRSDCDxFjGRGNLEj5tDylgX7LdjhAlPFaoQpqs47T89gNmZVcG7S8tmsUNhnhB59OJOvpiBL9U8du8wxUSDTU80flxTXuQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrvdefgdeklecutefuodetggdotefrodftvf
+	curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+	uegrihhlohhuthemuceftddtnecunecujfgurhepfffhvffujgfkfhggtgesthdtredttd
+	dtvdenucfhrhhomhepvehhihhmvgcujfgrrhhtuceotghhihhmvgeshhhusggvrhhtqdhh
+	uhhmphhhrhgvhidrtghomheqnecuggftrfgrthhtvghrnhepffehtdfhvddvueeuieehvd
+	efffeutdegueduhffgleetledvuddugfelkeevtdevnecuvehluhhsthgvrhfuihiivgep
+	tdenucfrrghrrghmpehmrghilhhfrhhomheptghhihhmvgeshhhusggvrhhtqdhhuhhmph
+	hhrhgvhidrtghomh
+X-ME-Proxy: <xmx:gezsYaszt6hGe_NvN6142i_BOJCTekPugb8hKr6nvxcjs1vygZvZ4A>
+	<xmx:gezsYSdmVJYnP0tcAF5vcBTjf64gaRjzOVl-IIPNNTzvUtnthcxbWQ>
+	<xmx:gezsYe0kkVTL47zErsLYR6isHKuQ1e35kFWBqnhIKLFdhFJobFbvsw>
+	<xmx:gezsYUpaJXEI1W6v0LpAhzx8x-6iFSdX70XG5GqTVWzngVE2mdv0lw>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA for
+	<blinux-list@redhat.com>; Sun, 23 Jan 2022 00:49:52 -0500 (EST)
+Date: Sat, 22 Jan 2022 21:49:51 -0800 (PST)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: web page problem
+In-Reply-To: <2ca4507f-ab68-76a0-8bdf-56502d49fa4d@panix.com>
+Message-ID: <f7cb1031-ef34-54ca-8e60-287e8b52c616@hubert-humphrey.com>
+References: <2ca4507f-ab68-76a0-8bdf-56502d49fa4d@panix.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -74,7 +94,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -91,28 +111,16 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Is it possible when a file had its version updated on its web page to get
-the urls of the new versions so the new versions can be downloaded?  html
-doesn't support wild cards so this can't be done with wget.  I'd like to
-be able to do this with a script if at all possible.  I know perl does
-wildcards well, but don't know if perl can handle a job like this.
-If a file is on a web page it can be checked using wget with --spider
-option followed by the url name.
-Since such a case will return a 0 errorlevel, it's possible to put a &&
-followed by a wget -bc url to download the file if it exists.
-once the file is downloading
-wc -l wget-log && grep -i saved wget-log && rm wget-log
-command run every so often shows the growing size of wget-log and at the
-end will show the file name and then remove wget-log  The magic is in that
-&& pipe from one command to the next.
+I wonder if you could use lftp for your project?
+Chime
 
 _______________________________________________
 Blinux-list mailing list
