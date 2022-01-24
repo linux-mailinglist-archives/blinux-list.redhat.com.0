@@ -1,76 +1,75 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id EE410497657
-	for <lists+blinux-list@lfdr.de>; Mon, 24 Jan 2022 00:33:33 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2E6954976CC
+	for <lists+blinux-list@lfdr.de>; Mon, 24 Jan 2022 01:51:58 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1642980813;
+	s=mimecast20190719; t=1642985517;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=nRfEC0A0LG3uZcv8bgnpR4sz/mg9LWvlVquKj/r9KKE=;
-	b=cMdPH27IWF0BmBhRCuT2dx5WoO0BZJRLGB8LfIft7ZTIVGiblJG1Sug8ElJfr+NTaEzyvx
-	FEsuaVzpvXurd9bvTYftaHHzssxUXzjNmkScSBWCH0fPKOFSJG5D06eSs7mo16TcohAl7H
-	7lFFxTNy5Bme+d2DGNlhAXbUFZiFfn0=
+	bh=IDJ+1gxF8i0Y12ImcYQ/IqrPMS2zM39Iiy6/HU2Dc+4=;
+	b=WHRoN8d6gn98QJD1oXvjRsfDVSeGKEeKf5cnKUmgIM8QuDKjKf2h/Y2jTMXwagMcZEVNQo
+	/mKnYuie8YvZRre1GJ+95rr3Wp/u8FfRDLz3ISWkO3LAbxzLl4KLpeKT2HKazlg4GGcs4o
+	zia7BQ/LqmsXluoRAj2zmleOBXnZ9xI=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-19-1AfoRsVEONy5zZq5MUtJvg-1; Sun, 23 Jan 2022 18:33:29 -0500
-X-MC-Unique: 1AfoRsVEONy5zZq5MUtJvg-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-570-509cM0qeOhednJtTLMvmsg-1; Sun, 23 Jan 2022 19:51:53 -0500
+X-MC-Unique: 509cM0qeOhednJtTLMvmsg-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 519842F26;
-	Sun, 23 Jan 2022 23:33:21 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6722955F54;
-	Sun, 23 Jan 2022 23:33:13 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9CD6D1853020;
+	Mon, 24 Jan 2022 00:51:49 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C9C5C78DD4;
+	Mon, 24 Jan 2022 00:51:46 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 47B6E1809CB8;
-	Sun, 23 Jan 2022 23:33:05 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2986B4BB7B;
+	Mon, 24 Jan 2022 00:51:39 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.7])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20NNWtcU008784 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 23 Jan 2022 18:32:55 -0500
+	id 20O0pVjq014397 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 23 Jan 2022 19:51:31 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 7C1FB2166B46; Sun, 23 Jan 2022 23:32:55 +0000 (UTC)
+	id 5D5681402407; Mon, 24 Jan 2022 00:51:31 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 778322166B25
-	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 23:32:51 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D9CFE380393E
-	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 23:32:51 +0000 (UTC)
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 59DE61402403
+	for <blinux-list@redhat.com>; Mon, 24 Jan 2022 00:51:31 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 20DBC80A0B1
+	for <blinux-list@redhat.com>; Mon, 24 Jan 2022 00:51:31 +0000 (UTC)
 Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
 	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
 	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-325-yTcSK7NrOSivgXIE4SMi1w-1; Sun, 23 Jan 2022 18:32:49 -0500
-X-MC-Unique: yTcSK7NrOSivgXIE4SMi1w-1
+	us-mta-14-SptxCJ_4MZqv4jSzYhLSNQ-1; Sun, 23 Jan 2022 19:51:29 -0500
+X-MC-Unique: SptxCJ_4MZqv4jSzYhLSNQ-1
 Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4JhqD12X5bz2wX2
-	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 18:32:49 -0500 (EST)
+	by mailbackend.panix.com (Postfix) with ESMTP id 4Jhrym2LHtz3lZr
+	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 19:51:28 -0500 (EST)
 Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4JhqD12TFXzcbc; Sun, 23 Jan 2022 18:32:49 -0500 (EST)
+	id 4Jhrym1GH5zcbc; Sun, 23 Jan 2022 19:51:28 -0500 (EST)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4JhqD127KczcbC
-	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 18:32:49 -0500 (EST)
-Date: Sun, 23 Jan 2022 18:32:49 -0500
+	by panix1.panix.com (Postfix) with ESMTP id 4Jhrym0fn8zcbP
+	for <blinux-list@redhat.com>; Sun, 23 Jan 2022 19:51:28 -0500 (EST)
+Date: Sun, 23 Jan 2022 19:51:27 -0500
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: web page problem
-In-Reply-To: <alpine.DEB.2.21.2201231537250.9928@nkl.local>
-Message-ID: <c7152d36-aef-d9ed-dce4-aad6ff49f86@panix.com>
-References: <2ca4507f-ab68-76a0-8bdf-56502d49fa4d@panix.com>
-	<alpine.DEB.2.21.2201231136070.9928@nkl.local>
-	<2bbfbfc9-f8d3-9c36-5b5-2de9e3f2fb3e@panix.com>
-	<alpine.DEB.2.21.2201231537250.9928@nkl.local>
+Subject: Re: Configuring ratpoison
+In-Reply-To: <64e01cbd-199d-cff7-020a-4e8b3ade7a19@slint.fr>
+Message-ID: <e0e9740-3cd8-37ee-936-575e53672dc2@panix.com>
+References: <47701df7-e208-a9dc-b03d-2aa6d6a74b03@gmail.com>
+	<64e01cbd-199d-cff7-020a-4e8b3ade7a19@slint.fr>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -80,7 +79,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
+X-MIME-Autoconverted: from QUOTED-PRINTABLE to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 20O0pVjq014397
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -97,55 +98,37 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Thanks, that works.  That shortens my script considerably.  Now I need
-arrange to spider the website for the sha512 file and if that's not
-available exit the script.  That should be a short operation.  The large
-file takes time downloading and the original script I have runs the
-integrity check on the file once finished.
-I used the b and c options on wget to make log files and some code to
-report on download progress in a more civilized fashion than wget and when
-the log file was finished remove it and exit the loop.
-while [ -f wget-log ]; do
-sleep 30
-wc -l wget-log && grep -i saved wget-log && rm wget-log
-done
-Maybe I can get wget --spider to put the urls in jenux.inp then download
-those andrun basename on the sha512 file and pass that to sha512sum -c for
-an integrity check once download is complete.
-This is more interesting than I thought it would be before trying this
-again.
-
-
-On Sun, 23 Jan 2022, Linux for blind general discussion wrote:
-
-> Hi
->
-> Try something like
->
-> wget --recursive --no-check-certificate -A 'Jenux-????.??.??-dual.iso'
-> https://nashcentral.duckdns.org/projects/
->
-> on one line. This will download only the .iso file but replicates the
-> directory structure including hostname. Add the '--no-directories' to get
-> files to the current directory.
->
->
-> --no-check-certificate was included because site has expired certificate.
->
->
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SSBnb3QgcmF0cG9pc29uIGFuZCBzdHJ5Y2huaW5lIGluc3RhbGxlZCBhbmQgcmFuIHRoZSBzZXR1
+cC5zaCBzY3JpcHQgaW4Kc3RyeWNobmluZS4gIFRoZSBmaXJzdCBzY3JlZW4gb2Ygb3B0aW9ucyBJ
+IGRpZG4ndCB1bmRlcnN0YW5kIHNvIGhpdCBlbnRlcgpvbiB0aGF0IHNjcmVlbiB3aXRob3V0IHNl
+bGVjdGluZyBhbnl0aGluZy4gIElmIEkgaGFkIHRvIGd1ZXNzLCBJJ2QgZ3Vlc3MKdGhhdCB3YXMg
+YSBsYW5ndWFnZSBzZWxlY3Rpb24gc2NyZWVuIGJ1dCBlbmdsaXNoIHNvIGZhciBhcyBJIGNvdWxk
+IHRlbGwKd2Fzbid0IG9uIHRoYXQgc2NyZWVuLgoKCk9uIFN1biwgMjMgSmFuIDIwMjIsIExpbnV4
+IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cgo+IEhpIEJyYW5kdCwKPgo+IEkg
+Zm9yd2FyZGVkIHlvdXIgcXVlc3Rpb24gdG8gbXkgZnJpZW5kIFN0b3JtIERyYWdvbiBvbiBJUkMg
+YW5kIGhlcmUgaGlzIGhpcyBhbnN3ZXI6Cj4gKDE2OjI0OjIwKSBzdG9ybTogRGlkaWVyU3BhaWVy
+OiBodHRwczovL2dpdC4ybWIuY29kZXMvfnN0b3JtZHJhZ29uMjk3Ni9zdHJ5Y2huaW5lCj4gKDE2
+OjI1OjA5KSBzdG9ybTogVGhhdCdzIG15IHNjcmlwdCB0aGF0IGNyZWF0ZXMgYSAucmF0cG9pc29u
+cmMuIEl0J3Mgd2hhdCBJIHVzZQo+IGV2ZXJ5IGRheSBmb3IgbXkgWCBzZXNzaW9uLgo+Cj4gQ2hl
+ZXJzLAo+IERpZGllcgo+IC0tCj4gRGlkaWVyIFNwYWllcgo+IFNsaW50IG1haW50YWluZXIKPgo+
+IExlIDIzLzAxLzIwMjIgPyAxNDo0MCwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lv
+biBhID9jcml0wqA6Cj4gPiBIaSBhbGwuCj4gPgo+ID4KPiA+IEkgaW5zdGFsbGVkIHJhdHBvaXNv
+biBvbiBteSBTbGludCBzeXN0ZW0sIGFuZCBkb24ndCBoYXZlIGVpdGhlciB+Ly5yYXRwb2lzb25y
+Ywo+ID4gb3IgL2V0Yy9yYXRwb2lzb24uCj4gPgo+ID4KPiA+IFdoZXJlIGNhbiBJIGdldCBhIGdv
+b2QgcmF0cG9pc29uIGNvbmZpZyBmaWxlPyBEb2VzIG9uZSBvZiB0aGUgT3JjYSB1c2VycywgSSdk
+Cj4gPiBhc3N1bWUgdGhhdCB3b3VsZCBiZSBtb3N0IG9mIHVzLCBoYXZlIG9uZSBvbiBnaXRodWIg
+b3Igc29tZXdhcmU/Cj4gPgo+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJl
+ZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2Js
+aW51eC1saXN0CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6
+Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdA==
 
