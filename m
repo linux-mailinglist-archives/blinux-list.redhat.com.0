@@ -2,92 +2,90 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4F7E349AFDD
-	for <lists+blinux-list@lfdr.de>; Tue, 25 Jan 2022 10:36:09 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id C1A5B49B4EA
+	for <lists+blinux-list@lfdr.de>; Tue, 25 Jan 2022 14:24:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1643103368;
+	s=mimecast20190719; t=1643117071;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=PgQraE7KSw5eBTPq4alxKS3yEhRpjIZTf44w5mzUbqE=;
-	b=ivM3fOVXiNlfoPijXhyMB/aDAopT6xiyuylCnb2uK/PMNtas3v9QpH7LM3MyZDoVfwazsk
-	1L2PpwhcDWPp6FejhQGyxDWdGwYPNkq+Wc7tBVptdYRLkxYX/qkMVTFe0d+i6NJfStdvnt
-	LCLb1osmfAZswZK6i1f45OJ3Q9oi8f4=
+	bh=Rear1LF2TmTP2NOcqhff+8W6u/u3U4m4dGZf3gaeesU=;
+	b=V95AgLGr6uXOUMgEKfFYP0hUoHGO4l+xtBEMKua2ErAuntUYNDXCvQMvQ8FeR6emhVoPNr
+	Fy58ag9UgOzD4qLc5Cae8ZVwjBwen+I9RD4eBzaWioo4znfvUpupOpbc+PL9rkXJYQKSvQ
+	LodnWxO7QBiyfoW9suvKbckfUll+BrI=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-175-TGK3-7ULNhKPrHELQSRvpg-1; Tue, 25 Jan 2022 04:36:04 -0500
-X-MC-Unique: TGK3-7ULNhKPrHELQSRvpg-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-453-oGC5vV_xOua600gsXitPFQ-1; Tue, 25 Jan 2022 08:24:28 -0500
+X-MC-Unique: oGC5vV_xOua600gsXitPFQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 79FFB1B2C99E;
-	Tue, 25 Jan 2022 09:35:59 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 30D041932483;
+	Tue, 25 Jan 2022 13:24:23 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 545367B9DC;
-	Tue, 25 Jan 2022 09:35:55 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CE4F0752C5;
+	Tue, 25 Jan 2022 13:24:20 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 17C6C1809CB9;
-	Tue, 25 Jan 2022 09:35:44 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.9])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0084C1809CB8;
+	Tue, 25 Jan 2022 13:24:09 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20P9ZaED002981 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 25 Jan 2022 04:35:36 -0500
+	id 20PDO1bv021432 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 25 Jan 2022 08:24:01 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 8A6DF492D1D; Tue, 25 Jan 2022 09:35:36 +0000 (UTC)
+	id 42FC5400E135; Tue, 25 Jan 2022 13:24:01 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8607B492C3B
-	for <blinux-list@redhat.com>; Tue, 25 Jan 2022 09:35:36 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6B6143802ADD
-	for <blinux-list@redhat.com>; Tue, 25 Jan 2022 09:35:36 +0000 (UTC)
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com
-	[209.85.128.48]) by relay.mimecast.com with ESMTP with STARTTLS
+	(mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3F1BE40ED413
+	for <blinux-list@redhat.com>; Tue, 25 Jan 2022 13:24:01 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 282163C00133
+	for <blinux-list@redhat.com>; Tue, 25 Jan 2022 13:24:01 +0000 (UTC)
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com
+	[209.85.128.42]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-553-kuOlHA54PGK8jOw1kgzqqQ-1; Tue, 25 Jan 2022 04:35:28 -0500
-X-MC-Unique: kuOlHA54PGK8jOw1kgzqqQ-1
-Received: by mail-wm1-f48.google.com with SMTP id n8so24815669wmk.3
-	for <blinux-list@redhat.com>; Tue, 25 Jan 2022 01:35:28 -0800 (PST)
+	us-mta-618-FJ72SaKkNvqmlc0j8bsKFA-1; Tue, 25 Jan 2022 08:23:59 -0500
+X-MC-Unique: FJ72SaKkNvqmlc0j8bsKFA-1
+Received: by mail-wm1-f42.google.com with SMTP id
+	l12-20020a7bc34c000000b003467c58cbdfso1607929wmj.2
+	for <blinux-list@redhat.com>; Tue, 25 Jan 2022 05:23:58 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
-	bh=MQt++3g8L7J8njAG8Uq7NnQWFnFFqsRQfoYwhsw5TqI=;
-	b=RLWmAL7faZzYDhvtvvkkZE8Du2aT2PcfaXBxyk1kcD0nSNP+CsgUI2ANfyZld6twsP
-	IzWhHFjcsO7aDKQvGjWlzezlxxVei8NrXMOMwOjO2h2j6cpq42QYbW87CRSkE/XmHgsb
-	dLPOgOpaERefr0cNu/FA1nZeE3Blm2+PI+liR+sYB31ClSqZOpoHNK5p0oYmmK6q3Pb/
-	HxvuAARrR88sPWkApMbb4Dv6QqTVfkvdF+Mq8BZ4n3iGkW7ZjAZeIFK5xYptYgl+wFKa
-	mN5TwfnZyVskLFR4HNDhfmxZ4PfdZDnVC/OQmO2f0N6o1UzgRKD2hGvrh2LmNEM9Yx6Q
-	YDsw==
-X-Gm-Message-State: AOAM53365n18acqlLtte3Juptso9UGonv0XruPkGLswCc1Epfe7Zt3ro
-	w/Ti8zrusGC0SjbkZ3zkciTjZKtlu/B5nQ==
-X-Google-Smtp-Source: ABdhPJw2m0mvi8sFrQMukGdIIJDFmosA4XNneZ/GXOLcaHpEIk1swzsOqIjHkABsx4CE9vBIjMzq2Q==
-X-Received: by 2002:a05:600c:19d3:: with SMTP id
-	u19mr2064636wmq.103.1643103326976; 
-	Tue, 25 Jan 2022 01:35:26 -0800 (PST)
+	h=x-gm-message-state:to:from:subject:message-id:date:user-agent
+	:mime-version:content-transfer-encoding;
+	bh=8cnZzQ7fnkB5E1J2VpCkU7pf0FLcNZzRAFjHuaP35yI=;
+	b=1TBuEfcKV9C7MvM9No5JKpgXYhscK1y1zkLU/VEjmm8TbQ6f5ePZadAjS2H4jsxm9P
+	MlSfTHonxN4cF/4rXvHQSu71bDVqQBeax32hCuGJT/3Qng8bf7gDR+8dfByqZ4iW74oU
+	lC3MU4PghCEWnU2X6969hH+xbuBu/7MW5k6YEXMHqk1dFeWHhz5kq1ZyBYcpzCfAVSnE
+	ZOxGwzJg1gIkDwcII8BeyVrJQTyYv9QzPZifadGb80oKvR4L9czoaopV3zVgSzazgH/E
+	ctsOyviNFU2tkGqLRmgs5sFWnD0bYP3Hb6PvWMKwY9fS5dcWZtyk/5vG0WLyg3N36Vcu
+	oE5w==
+X-Gm-Message-State: AOAM530hOfDbjYTQHseJCI93F0b3ysg+P1Wy1Mb6tkgd+wo2rGkkbX87
+	HmkTnuemf0fQh8ytdA3OlBMVLFUNKt/VOA==
+X-Google-Smtp-Source: ABdhPJyJJq8Inf9KdXH+Uj8ZSRbWvJa3UJA6tHt1bgEB6cHTdFTOImTLPv3o6tB7KSzqbYIqnyKsPw==
+X-Received: by 2002:a05:600c:1f06:: with SMTP id
+	bd6mr2960943wmb.117.1643117037430; 
+	Tue, 25 Jan 2022 05:23:57 -0800 (PST)
 Received: from [192.168.1.130] ([87.74.163.68])
-	by smtp.gmail.com with ESMTPSA id m14sm8965457wrp.4.2022.01.25.01.35.26
-	for <blinux-list@redhat.com>
+	by smtp.gmail.com with ESMTPSA id
+	m187sm320460wme.25.2022.01.25.05.23.56 for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Tue, 25 Jan 2022 01:35:26 -0800 (PST)
-Subject: Re: Applications menu missing in Ratpoison
+	Tue, 25 Jan 2022 05:23:57 -0800 (PST)
 To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <2aac53e8-ef6b-62e2-0539-0db8ab234818@gmail.com>
-	<CAO2sX32o1VFUNCT9U--rnyN5x0b7KgJE8Uv6XR3jOkz2tkC60g@mail.gmail.com>
-Message-ID: <147eecb5-462c-2058-4307-40f6e04b2704@gmail.com>
-Date: Tue, 25 Jan 2022 09:35:37 +0000
+Subject: Arch from existing install or VM, how easy is it?
+Message-ID: <a55af976-4d5d-aa02-4acf-c2d1bfecbf13@gmail.com>
+Date: Tue, 25 Jan 2022 13:24:08 +0000
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
 	Firefox/68.0 SeaMonkey/2.53.10.2
 MIME-Version: 1.0
-In-Reply-To: <CAO2sX32o1VFUNCT9U--rnyN5x0b7KgJE8Uv6XR3jOkz2tkC60g@mail.gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -96,7 +94,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -113,7 +111,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -121,25 +119,33 @@ X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-FOr me on Arch and Ratpoison, did you try presing alt F1?
+So I'm looking at the Arch wiki currently, and wondering what the 
+easiest way to achieve what I want is.
 
-In my Ratpoison setup on Arch that brings up a menu of apps you can 
-search by typing
+For context, I have a Solus install, in /dev/sda I have /dev/sdb as a 
+2.7T drive with nothing on it, no partitions, no file system at all 
+going by lsblk
 
-Linux for blind general discussion wrote:
-> I'm on a Debian-based system, not Slint, but pulling Ratpoison up in
-> Aptitude and consulting its dependencies and recommendations, it would
-> seem you need a separate package in order to have an applications menu
-> as ratpoison only does window management. The version of Ratpoison
-> recommends 9menu and menu, the former of which is designed for the 9wm
-> window manager and the latter of which might be specific to Debian and
-> its derivatives.
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
+I have a 16g qemu VM (thanks quickemu) that boots up fine in qemu as well.
+
+I've read over the pages about installing, installing from an existing 
+Linux system, and moving a VM install out of that VM.
+
+Which would be the safest option, bearing in mind Solus's quirks about 
+how it does things, to get a working, bootable Arch system?
+
+What I'm after is putting Arch on /dev/sdb and using that 2.7T of space, 
+preferably without having to shut down and reboot from a USB stick. I 
+ruled out the replace an existing OS option in the install from an 
+existing Linux install, mostly since I like having my fallback option.
+
+So is what I'm after relatively doable? I've gone over the wiki pages a 
+few times and am not sure which method will get me a working system that 
+I can boot into the easiest.
+
+Ideally I don't want to have to shut down my computer, boot from a USB 
+stick and then fight with the install guide because of something I 
+typoed, given how typo prone I can be at times
 
 _______________________________________________
 Blinux-list mailing list
