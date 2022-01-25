@@ -1,88 +1,93 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7AD1F4994AE
-	for <lists+blinux-list@lfdr.de>; Mon, 24 Jan 2022 21:50:42 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4F7E349AFDD
+	for <lists+blinux-list@lfdr.de>; Tue, 25 Jan 2022 10:36:09 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1643057441;
+	s=mimecast20190719; t=1643103368;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=GqSxvgCpCvkIQgU3o+6HMcCP9B8BF7KIwcStx8P1L+g=;
-	b=RIFqskcuHyzb5YN9ck9cmmK8eC+vVQEcmNztVDtBW/g+YO8DXyhq7wcLrECz9iVThHVgw0
-	NYmSk9SDCY21sENXdrAzl8UrOP6y++MXbBvIJLkNN6XkvejZJ8qmRdlzUzvlXMuwJMRjwv
-	+SJyQ9Pjn+chPEPnIHFP444Ut+tqww0=
+	bh=PgQraE7KSw5eBTPq4alxKS3yEhRpjIZTf44w5mzUbqE=;
+	b=ivM3fOVXiNlfoPijXhyMB/aDAopT6xiyuylCnb2uK/PMNtas3v9QpH7LM3MyZDoVfwazsk
+	1L2PpwhcDWPp6FejhQGyxDWdGwYPNkq+Wc7tBVptdYRLkxYX/qkMVTFe0d+i6NJfStdvnt
+	LCLb1osmfAZswZK6i1f45OJ3Q9oi8f4=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-592-ILG05zQbPcqdWtnI1abCIw-1; Mon, 24 Jan 2022 15:50:38 -0500
-X-MC-Unique: ILG05zQbPcqdWtnI1abCIw-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-175-TGK3-7ULNhKPrHELQSRvpg-1; Tue, 25 Jan 2022 04:36:04 -0500
+X-MC-Unique: TGK3-7ULNhKPrHELQSRvpg-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 171F483DD52;
-	Mon, 24 Jan 2022 20:50:31 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 79FFB1B2C99E;
+	Tue, 25 Jan 2022 09:35:59 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 529EBE72A;
-	Mon, 24 Jan 2022 20:50:30 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 545367B9DC;
+	Tue, 25 Jan 2022 09:35:55 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8FD301809CB9;
-	Mon, 24 Jan 2022 20:50:27 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 17C6C1809CB9;
+	Tue, 25 Jan 2022 09:35:44 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.9])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20OKoLYk018752 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 24 Jan 2022 15:50:21 -0500
+	id 20P9ZaED002981 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 25 Jan 2022 04:35:36 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 01FDC2166B46; Mon, 24 Jan 2022 20:50:21 +0000 (UTC)
+	id 8A6DF492D1D; Tue, 25 Jan 2022 09:35:36 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F1FEB2166B25
-	for <blinux-list@redhat.com>; Mon, 24 Jan 2022 20:50:18 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0D7A328EE128
-	for <blinux-list@redhat.com>; Mon, 24 Jan 2022 20:50:18 +0000 (UTC)
-Received: from mail-qk1-f173.google.com (mail-qk1-f173.google.com
-	[209.85.222.173]) by relay.mimecast.com with ESMTP with STARTTLS
+	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8607B492C3B
+	for <blinux-list@redhat.com>; Tue, 25 Jan 2022 09:35:36 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6B6143802ADD
+	for <blinux-list@redhat.com>; Tue, 25 Jan 2022 09:35:36 +0000 (UTC)
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com
+	[209.85.128.48]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-322-gtupFZB6N9SDFdXKVQw5uQ-1; Mon, 24 Jan 2022 15:50:16 -0500
-X-MC-Unique: gtupFZB6N9SDFdXKVQw5uQ-1
-Received: by mail-qk1-f173.google.com with SMTP id 71so5864197qkf.4
-	for <blinux-list@redhat.com>; Mon, 24 Jan 2022 12:50:16 -0800 (PST)
+	us-mta-553-kuOlHA54PGK8jOw1kgzqqQ-1; Tue, 25 Jan 2022 04:35:28 -0500
+X-MC-Unique: kuOlHA54PGK8jOw1kgzqqQ-1
+Received: by mail-wm1-f48.google.com with SMTP id n8so24815669wmk.3
+	for <blinux-list@redhat.com>; Tue, 25 Jan 2022 01:35:28 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=wcaQuR1pnbOZchCBl039mvfOGPPikwsrThq67Ps29iA=;
-	b=LYhFjhMiPU7l4jpz8XoJlJGn+rC9WM5cE22A/R9KEDEtq1Dps5RFgHurYNXcvVfYbr
-	KO227HbBK3EM56rNXMPcSfGNGNdHqzGmCAMGe3WPsvY5QQy9xnqyuBkWrdg2U7k9xPsN
-	RnsQSq4ju0oeH+kY2k5iqHD9EEmc+BOHZ05bgwcub5O59uo8bdZ8w6SS4RbbpCijJb1C
-	mM3TFTZv62iySPMYPvPlv14QFCPv4qxIxrHG0QwzyTwajZslw7LhndY7b6kmqabxGUwj
-	ejtqULRs1jAiX6aq/0fR8+N0KT7mVDJJE2rg7Sb+dOVwQQg2YOshLKJt4wIDKI5BHRsL
-	cRdQ==
-X-Gm-Message-State: AOAM530I54hGkqb9t47Swk0yX2Xi3TMJ6bAQ8HZ26Ne1grISnE2YQwlD
-	L2LZ4lrcjscdjAv+C+eO3b8ABWhhCZkurpXXxyc/t/La
-X-Google-Smtp-Source: ABdhPJwxbg17VaS0tKXDC5TfdZdiNjVZ1DmmutJLajJ3wlkFhElnSBqqNIH4JT3+JV9fAj1zySnbSVcZMZdd6wGTby4=
-X-Received: by 2002:a05:620a:15ad:: with SMTP id
-	f13mr2771613qkk.124.1643057415468; 
-	Mon, 24 Jan 2022 12:50:15 -0800 (PST)
-MIME-Version: 1.0
-Received: by 2002:a05:6214:e8f:0:0:0:0 with HTTP; Mon, 24 Jan 2022 12:50:15
-	-0800 (PST)
-In-Reply-To: <2aac53e8-ef6b-62e2-0539-0db8ab234818@gmail.com>
-References: <2aac53e8-ef6b-62e2-0539-0db8ab234818@gmail.com>
-Date: Mon, 24 Jan 2022 20:50:15 +0000
-Message-ID: <CAO2sX32o1VFUNCT9U--rnyN5x0b7KgJE8Uv6XR3jOkz2tkC60g@mail.gmail.com>
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
+	bh=MQt++3g8L7J8njAG8Uq7NnQWFnFFqsRQfoYwhsw5TqI=;
+	b=RLWmAL7faZzYDhvtvvkkZE8Du2aT2PcfaXBxyk1kcD0nSNP+CsgUI2ANfyZld6twsP
+	IzWhHFjcsO7aDKQvGjWlzezlxxVei8NrXMOMwOjO2h2j6cpq42QYbW87CRSkE/XmHgsb
+	dLPOgOpaERefr0cNu/FA1nZeE3Blm2+PI+liR+sYB31ClSqZOpoHNK5p0oYmmK6q3Pb/
+	HxvuAARrR88sPWkApMbb4Dv6QqTVfkvdF+Mq8BZ4n3iGkW7ZjAZeIFK5xYptYgl+wFKa
+	mN5TwfnZyVskLFR4HNDhfmxZ4PfdZDnVC/OQmO2f0N6o1UzgRKD2hGvrh2LmNEM9Yx6Q
+	YDsw==
+X-Gm-Message-State: AOAM53365n18acqlLtte3Juptso9UGonv0XruPkGLswCc1Epfe7Zt3ro
+	w/Ti8zrusGC0SjbkZ3zkciTjZKtlu/B5nQ==
+X-Google-Smtp-Source: ABdhPJw2m0mvi8sFrQMukGdIIJDFmosA4XNneZ/GXOLcaHpEIk1swzsOqIjHkABsx4CE9vBIjMzq2Q==
+X-Received: by 2002:a05:600c:19d3:: with SMTP id
+	u19mr2064636wmq.103.1643103326976; 
+	Tue, 25 Jan 2022 01:35:26 -0800 (PST)
+Received: from [192.168.1.130] ([87.74.163.68])
+	by smtp.gmail.com with ESMTPSA id m14sm8965457wrp.4.2022.01.25.01.35.26
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Tue, 25 Jan 2022 01:35:26 -0800 (PST)
 Subject: Re: Applications menu missing in Ratpoison
-To: blinux-list@redhat.com
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <2aac53e8-ef6b-62e2-0539-0db8ab234818@gmail.com>
+	<CAO2sX32o1VFUNCT9U--rnyN5x0b7KgJE8Uv6XR3jOkz2tkC60g@mail.gmail.com>
+Message-ID: <147eecb5-462c-2058-4307-40f6e04b2704@gmail.com>
+Date: Tue, 25 Jan 2022 09:35:37 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Firefox/68.0 SeaMonkey/2.53.10.2
+MIME-Version: 1.0
+In-Reply-To: <CAO2sX32o1VFUNCT9U--rnyN5x0b7KgJE8Uv6XR3jOkz2tkC60g@mail.gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -91,7 +96,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -108,21 +113,33 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I'm on a Debian-based system, not Slint, but pulling Ratpoison up in
-Aptitude and consulting its dependencies and recommendations, it would
-seem you need a separate package in order to have an applications menu
-as ratpoison only does window management. The version of Ratpoison
-recommends 9menu and menu, the former of which is designed for the 9wm
-window manager and the latter of which might be specific to Debian and
-its derivatives.
+FOr me on Arch and Ratpoison, did you try presing alt F1?
+
+In my Ratpoison setup on Arch that brings up a menu of apps you can 
+search by typing
+
+Linux for blind general discussion wrote:
+> I'm on a Debian-based system, not Slint, but pulling Ratpoison up in
+> Aptitude and consulting its dependencies and recommendations, it would
+> seem you need a separate package in order to have an applications menu
+> as ratpoison only does window management. The version of Ratpoison
+> recommends 9menu and menu, the former of which is designed for the 9wm
+> window manager and the latter of which might be specific to Debian and
+> its derivatives.
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
 
 _______________________________________________
 Blinux-list mailing list
