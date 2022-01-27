@@ -2,109 +2,82 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0593349E898
-	for <lists+blinux-list@lfdr.de>; Thu, 27 Jan 2022 18:12:43 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 222E749E93E
+	for <lists+blinux-list@lfdr.de>; Thu, 27 Jan 2022 18:43:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1643303563;
+	s=mimecast20190719; t=1643305419;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=afxUjCoxYkpyAUflLhvHvg83qm9pT9F8rEhRdMnwI4U=;
-	b=Yfbbg3AsLPnDOHA6sv5rsP3vQOP3WvwJU/0zmaLHCfGaB6XVHW/ka0I/xR2MQUWQCf2XTB
-	wa/o7nvIydPwgD0M4gL9YMeGPwRgNk0Ut57sgKRxonS59koLOr6TzeJdKFXLpEpmdFvfw3
-	JCKfcItjq6VZOWsH0WsnbFk+q3oRjPM=
+	bh=F1jN+q84EgUkqSNU5zv4R6LiIiVbLdFGzX/kd/+nfPQ=;
+	b=hkVgL6XN357JB1uEKNtqZj6wM5DwOPAGyG+wT3G02UNTiiJD/oqZzJYzkiwNJ9XHFpx9Qo
+	jmiISuSizxDW7sapQFR0ijuHVRsBiW0QTeiDhQmYvOuVz67vNL1yCnFdatvDiuoZr1pCKW
+	q0IHN1vornxzUDZ8kQKxHYWtVh5GA+k=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-482-Ep6yjnhhP0uGS7RT1KVu1A-1; Thu, 27 Jan 2022 12:12:34 -0500
-X-MC-Unique: Ep6yjnhhP0uGS7RT1KVu1A-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-652-zwzg4raCOuOD_VSxqhMi3w-1; Thu, 27 Jan 2022 12:43:35 -0500
+X-MC-Unique: zwzg4raCOuOD_VSxqhMi3w-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A7A5C1018722;
-	Thu, 27 Jan 2022 17:12:29 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D4FCF1091DA0;
+	Thu, 27 Jan 2022 17:43:28 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 310528379E;
-	Thu, 27 Jan 2022 17:12:27 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id EBF8C7A44E;
+	Thu, 27 Jan 2022 17:43:25 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B52BA1806D2B;
-	Thu, 27 Jan 2022 17:12:20 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4F5271806D03;
+	Thu, 27 Jan 2022 17:43:24 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20RHCEut020235 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 27 Jan 2022 12:12:14 -0500
+	id 20RHhIPP023616 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 27 Jan 2022 12:43:18 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 43F5176CF; Thu, 27 Jan 2022 17:12:14 +0000 (UTC)
+	id 692EF40885BA; Thu, 27 Jan 2022 17:43:18 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3F4E776E9
-	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 17:12:10 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 64E6640885BD
+	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 17:43:18 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 85C5D2A59542
-	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 17:12:10 +0000 (UTC)
-Received: from sonic306-20.consmr.mail.gq1.yahoo.com
-	(sonic306-20.consmr.mail.gq1.yahoo.com [98.137.68.83]) by
-	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-64-8NmgD9AJNfqypYignQsZJA-1; Thu, 27 Jan 2022 12:12:08 -0500
-X-MC-Unique: 8NmgD9AJNfqypYignQsZJA-1
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048;
-	t=1643303527; bh=rIQmuyO344vTIoIHJ5uNPl0TycUs5YNpJrLxbxV9A+r=;
-	h=X-Sonic-MF:Date:Subject:To:From:From:Subject;
-	b=tAMNhfiYtpwSCEzC6Mad8m/YQw7EuM3EZEf/s+r6xPQR5D61SYSbc+KNY0Mwhm8Wk5fhdhSFw/Fm0JA9ipz1cp6zXNyem9wPKGhYWV3IgKg0lBXHB63UsSTTaOI4hyXb4BGEcDvCF+gndSJXHEa7rW0HHS8i49oj4RRniqAGR2Q2lqtKIMxLuNB87MPWMXLtigvHja9TZLTJQ0Usufn6xZWTrx8DEA2plV+yEkDbT8cgG3Hkvum8OIkVnU8uhmvn+NQOsT22XGATc1RoNylvvwJbDoaJPH9kCf3tEtBL9pI601kmrQgy1taqxlhVEE136QxbnAd1k+FP2HB13bWQOw==
-X-YMail-OSG: hkwlOWMVM1m.nx.Ih91JtbiSnPNStwNwXwzpyCSzWdFp1Ggst6MSAaN8LaVIr5K
-	ORNbj9hlx17S_fJf1IxxlqDNmEQaIT9e_AHstA2Uy33GNfcG1HBHU7m7kG429etEqQ21uxE9RAMm
-	kHyLXFgR_S5_H2HHQwvBxTWlWIkwU_xqKK3ng5JBLSBgIjZNKuQJX_Q23K.dTu0oBhhuLIxuOZiE
-	OJc6sP.AEIi2SQxmuTg1fbTPf4N33wy.A4h9Xf5gGUkVF3J_hSye_pMQOY4Xjj3socdDx10rWpCc
-	Ky6.SIqxK2jtcTGkuv3o36RWafy2vrXtz1eASo0XKEcWQEw5e4e.hK0yqcjL80FkZ5m68Y8br1Vl
-	6eE71WFlIkSo5qNzRfyEacfPW6YWC6mBbii6GLJaCUyG04JJLM8o8v2A1yFQzlJuH9u2P7LXFNwD
-	KuLPeiQO49S2d63Im16yutdXhFGCkizXjkQmLUFpJwNdQ7Aa3PyVvLnB9ZW1z6IdQKuDyfdhZFjx
-	gCj1S6yZpd6gNH21OmPfIhkzHUT65IDADQ_RlzIOzBvcF8Do4RCjMVEce7ekvfeQ7WELqrNhwIxg
-	c_itCyH1A1E7EO_ABSt7gBZ2Ipyf_9_XQIf1dMqiCuPoDWH3DKESxRDWqpKuLbo1tG6iie6d9ix1
-	xiA.B0CXJal7BujmNl5T_H7sWXX3vd.GUfdxe5nC1__B72kHsna3qdf99smjFO.TnUu4F5_Epv3K
-	F6s7h73S6t1BLgaigFopIr8lrMTvMO0IHN1mmAnl.MxI3l9awJwM6l2mw6MmYJlY_viBB8R476J8
-	XBst1w4K4_KJ9VQ7Q9m6LJzpqrN2HgZrTIq1YIk1bMWAtVeAhnRXc7rtNZneoFypactQW_jiqudZ
-	_7LFAzjvj8nXavITOnQjelNWJqOQCv8oYSdybIhcwG9wG5KEIuZM2vA2lFQwj7btIJbHgXN0Tzoc
-	fQppnn37Lme7cKZ8HgTwV95eC5SmwTHfy0w26gA1V2PZYp5QOBBaE1n9anITXA_fbcmIylxf9bgo
-	fHvSuvP6OLBHSO5KPOawiI0oo9w6jCH2uCl1YbtXsM00BH4yWLpp67yzBPMB3JI3bO8UJwZvnm8e
-	ENG_pxKhMI3zt3Lpmai8Z3Q1NFERtkUFQT8SujzQl6IOSZ2QGdPovPwcPgAtGZLa30ux1B2oH0IF
-	irI0aNA94uNN.W.qDr9b0tqu7fq1GtbKgHEnzjvG43OiT8IxIsW.fPPQYChany0tE3715__W0eQM
-	ICiSJPBdeXYl8xCKkCDn8zpIzx3OmBoUCO_HvSTjLA31AYibz8UCZSc.Vn5IMyp81gl92vymJ0Ek
-	a3OpcfaIUJLNXg8PL56CgKE4n2urEdC0Em99HPMGmW2ap_4tjsZQ8ABCp1eVPcnY9rnloCux7SVF
-	7kNPLZj3PmurJpsr7_tHoColhmwVSsix7CGaGEO32TYvp3zvaka7tEY8YsLz474x_3iLt9csbVbO
-	5X0lSIgD6K70rdV.rya8tDjy6SuOBMEi5gLQcMqx_TWMgcLDVmPzTRf8ST28y6T7lE5oDT2leO3k
-	bFZIZSNxENKFsHSLW1Dj62c.4Sj5Rt0wv9WKqXHXlRbDevlZI_GSl2JGSuTIBkMXd0oMxRACRDRD
-	n7eJw331Fhdn12YpqcGsUUJKdS.QyXd_R_27aK_NDqRkqtnwCFblWX3O3fh_pbNY94vZ2yWqaVfd
-	nGH._7CHHc.PqG5oDSG7cjOqKZh59Tx4vf19X1rw0xksozCto2ysQUyXif3yPpUzY7cNd2bDDSFX
-	leievGAsmpvqRvUwTOtSON9UIVayw4JKQyvpAfzctd1EWlaGpRS8zVAT.v0.epB5EXzLqXxn_f3i
-	sQVApu_Z9DKICuWBwjfGyDWe87DQNKbvL.465c9v7WQaXGaoZlDBK46AXroxCe42.53Re20YoAew
-	bJOQT8CuJFh3Fw3K5SXe7YI6Agy5aX38xpYxVzkOiqBj2nxijT7qUT_HCrPOAC3lHXHWrJBSDxxc
-	kXujJJAe6H8sbqyj6M0QbHHAJAfi4AOhj1dUAsskOnXjyJ2iXRFC42on01rVLBvG53luVgKNgy6.
-	ugI_gDP6Y9l1bZgS6AhTIDVqT.AXbTPekzpQT8v5OJ9Ert_8l4OTU3iZ0sd8Ou2K8hYQmuiP0or.
-	wZysDOLsZ2eXkw5oWjqM7ei.HHR8qRdEdcgOm6PoyGrFIxJJkTdFP0M1IBRsBwkHVZShtg9P6z1p
-	HA1ILme2xpbEvoWFmwEcz0SOcFtenuJnI9H1V
-X-Sonic-MF: <albert.e.sten_clanton@verizon.net>
-Received: from sonic.gate.mail.ne1.yahoo.com by
-	sonic306.consmr.mail.gq1.yahoo.com with HTTP;
-	Thu, 27 Jan 2022 17:12:07 +0000
-Received: by kubenode537.mail-prod1.omega.bf1.yahoo.com (VZM Hermes SMTP
-	Server) with ESMTPA ID 43e98feb97152266e12f0ca7f9221ebe; 
-	Thu, 27 Jan 2022 17:12:04 +0000 (UTC)
-Message-ID: <65b0122b-fda4-8521-d8b7-4231784b0e55@verizon.net>
-Date: Thu, 27 Jan 2022 12:12:02 -0500
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4852C2B699F2
+	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 17:43:18 +0000 (UTC)
+Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com
+	[209.85.214.176]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-10-iF5k-HxLNSytF44l0_txRg-1; Thu, 27 Jan 2022 12:43:16 -0500
+X-MC-Unique: iF5k-HxLNSytF44l0_txRg-1
+Received: by mail-pl1-f176.google.com with SMTP id z5so3100491plg.8
+	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 09:43:16 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=JUbbgTMRK00vGtHEsT0DDap5e2hK2XG0hTY+o6s8JK4=;
+	b=CJBEExbmNwLJpk4ZVyYDQJD2IP34B71F/sGGAmioyAQL3HBe11tppw6qBCz7sjrVS4
+	cVcQO+a1/BI1FUuCnf6R6eQIksZGM2sjSja51sW0+nXWfzhYgnHJTh2tpjncz5AbJFB6
+	1kKYiQaN7BxgwDI3oLxZBz9A716sVPGJwWk0cka8YGcWa5gKz3uIekV+Iij20DGIc3O9
+	61LslEhapFUS7Qh5tetAaiehkO2kDOoy8PPieiJulQhl+m9YZ0By2DwBgApnEyF6FLwp
+	cpnk6+p9v8mwzRH4yG35zyeSYqn6s4c9GICxNR9kernXIQEcyCSOl8indS/8kezFtb8i
+	Etbg==
+X-Gm-Message-State: AOAM533joaXASC1QcdjBb6xPLfV4AWD37BgMrcRggnp/tnrDthr8/1RE
+	CEKqus8pqkW9yXjLC3QnJdllJDeMpTjxvdl2RUW5BIpm
+X-Google-Smtp-Source: ABdhPJwwDgbFol7HbBtKWHBVNotT57k9Ojc+F6AovBxdSg3txcSIxCxDuwleNC8zgdymMUMcgeUSBcboxj9BrgbDnuc=
+X-Received: by 2002:a17:90a:cc07:: with SMTP id
+	b7mr5229094pju.43.1643305395014; 
+	Thu, 27 Jan 2022 09:43:15 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.5.0
-Subject: Re: Why do you use Linux? expanded from Converting text to mp3
-To: Linux for blind general discussion <blinux-list@redhat.com>
+Received: by 2002:a05:6a10:b655:0:0:0:0 with HTTP; Thu, 27 Jan 2022 09:43:14
+	-0800 (PST)
+In-Reply-To: <65b0122b-fda4-8521-d8b7-4231784b0e55@verizon.net>
 References: <cf56de9a-9035-bbe0-ef8c-1e9e6468e8c@hubert-humphrey.com>
 	<Pine.LNX.4.64.2201261620360.2109039@server2.shellworld.net>
 	<571c96f3-44ae-eba3-bff9-39d1449e61d3@hubert-humphrey.com>
@@ -117,7 +90,11 @@ References: <cf56de9a-9035-bbe0-ef8c-1e9e6468e8c@hubert-humphrey.com>
 	<Pine.LNX.4.64.2201262008180.2112285@server2.shellworld.net>
 	<YfH3P14/As9FjG9P@panix.com>
 	<Pine.LNX.4.64.2201262104141.2112985@server2.shellworld.net>
-In-Reply-To: <Pine.LNX.4.64.2201262104141.2112985@server2.shellworld.net>
+	<65b0122b-fda4-8521-d8b7-4231784b0e55@verizon.net>
+Date: Thu, 27 Jan 2022 11:43:14 -0600
+Message-ID: <CABKqQvEs2vow3jFJMs7T3XyXDozZRPRxA+HOWEtMcbt0WV1uFg@mail.gmail.com>
+Subject: Re: Why do you use Linux? expanded from Converting text to mp3
+To: blinux-list@redhat.com
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -126,7 +103,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -143,189 +120,291 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-R3JlZXRpbmdzIQoKCkkgYWdyZWUgd2l0aCBtdWNoIG9mIHdoYXQgb3RoZXJzIGhhdmUgd3JpdHRl
-biwgYnV0IEkgZ3Vlc3MgSSdsbCBwaXBlIHVwIAphIGxpdHRsZS4KCgpJIGJlY2FtZSBpbnRlcmVz
-dGVkIGluIExpbnV4IChvciBHTlUvTGludXgsIGFzIHNvbWUgaW5zaXN0IG9uKSBmb3IgdHdvIApy
-ZWFzb25zLCBiYWNrIGluIHRoZSBsYXRlIDE5OTAncy7CoCBTb2Z0d2FyZSBmcmVlZG9tIHdhcyB0
-aGUgZmlyc3QuwqAgVGhlIApzZWNvbmQgd2FzIHRoYXQgaXQgaGFkIHJlYWwgdGV4dCB0ZXJtaW5h
-bHMsIHdoaWNoIEkgd2FzIHVzZWQgdG8gd2l0aCAKRE9TLsKgIFRoZSBmaXJzdCByZWFzb24gaXMg
-dml0YWwgdG8gbXkgdGhpbmtpbmcsIGFuZCB0aGUgc2Vjb25kIHJlYXNvbiAKcmVtYWlucyB2ZXJ5
-IGltcG9ydGFudCwgdGhvdWdoIEkgdXNlIHRoZSBndWkgbW9yZSB0aGFuIHRoZSBjb21tYW5kIGxp
-bmUgCm1vc3QgZGF5cy4KCgpJIHdhcyBhIHByb2dyYW1tZXIgaW4gdGhvc2UgZGF5cywgYW5kIEkg
-aG9wZSB0byBkbyBpdCBhZ2FpbiBmb3IgcGF5IHNvbWUgCmRheS7CoCBPbmUgb2YgbXkgY29udGlu
-dW91cyBhbmQgdHJvdWJsaW5nIHRhc2tzIHdhcyB0byBnZXQgdGhlIHNhbWUgCmFjY2VzcyB0byB0
-aGUgbWFpbmZyYW1lIGNvbXB1dGVycyBJIHdvcmtlZCBvbiBhcyBJJ2QgaGFkIHVzaW5nIERPUy7C
-oCBJdCAKbmV2ZXIgaGFwcGVuZWQsIHRob3VnaCBJIGNhbid0IHNheSB3aGV0aGVyIGl0IGhhcyBo
-YXBwZW5lZCBmb3Igc29tZWJvZHkgCmVsc2Ugc2luY2UgdGhlbi7CoCBJIGhhZCB0byB1c2UgSkFX
-UyBkdXJpbmcgdGhvc2UgbGFzdCB5ZWFycyBvZiB0aGUgam9iLsKgIApBbHRob3VnaCBKQVdTIHNj
-cmlwdGluZyBoZWxwZWQgc29tZXdoYXQsIGl0IHNlZW1lZCB0byBtZSB0aGF0ICgxKSBKQVdTIApu
-ZWVkZWQgbW9yZSBiYXNpYyBjdXN0b21pemluZyB0byBkbyB3aGF0IEkgbmVlZGVkIGFuZCAoMikg
-dGhpcyB3YXNuJ3QgCm5lYXJseSBhcyBpbXBvcnRhbnQgdG8gdGhlIGNvbXBhbnkgYXMgaXQgd2Fz
-IHRvIG1lLsKgIEkgZmlndXJlZCB0aGF0IGlmIApKQVdTIGhhZCBiZWVuIGZyZWUgc29mdHdhcmUs
-IG1lYW5pbmcgZnJlZSBhcyBpbiBmcmVlZG9tIHJhdGhlciB0aGFuIGZyZWUgCmFzIGluIGJlZXIs
-IG9uZSBvciBtb3JlIGZvbGtzIHdobyBrbmV3IG1vcmUgdGhhbiBJIGRpZCBjb3VsZCBoZWxwIG1l
-IGRvIAp0aGUgY3VzdG9taXppbmc6wqAgdGhlIGNvZGUgd291bGQgaGF2ZSBiZWVuIGF0IGhhbmQu
-CgoKTXkgTGludXggam91cm5leSBoYXMgYmVlbiBsb25nIGFuZCBvZnRlbiBxdWl0ZSByb2NreS7C
-oCBNeSBpZ25vcmFuY2UgCnJlbWFpbnMgdmFzdCwgcGFydGx5IGJlY2F1c2Ugb2YgbXkgb3duIGlu
-YWRlcXVhY2llcyBhbmQgcGFydGx5IGJlY2F1c2UgSSAKZmluZCBkb2N1bWVudGF0aW9uIG9mdGVu
-IHNwYXJzZSBvciBoYXJkIHRvIGZvbGxvdy7CoCBFdmVuIHNvLCBJJ20gbXVjaCAKbW9yZSBhYmxl
-IHRvIGZpeCB0aGluZ3MgbXlzZWxmIHRoYW4gSSBjYW4gd2l0aCBvdXIgV2luZG93cyBtYWNoaW5l
-cy7CoCAKWWVzLCBJIHVzZSBXaW5kb3dzIG1vc3QgZGF5cywgbW9zdGx5IGJlY2F1c2UgbXkgd2lm
-ZSBkb2Vzbid0IHdhbnQgdG8gCmFiYW5kb24gaXQuwqAgKFNoZSBsaWtlcyB0aGUgc3BlZWNoIG91
-dHB1dCBiZXR0ZXIsIGFuZCBJIGFncmVlLsKgIFNoZSBhbHNvIApkb3VidHMgdGhlIHdpc2RvbSBv
-ZiB1c2luZyBzb2Z0d2FyZSB0aGF0IGZldyBpZiBhbnkgb2YgdGhlIHBlb3BsZSBzaGUgCnNoYXJl
-cyBkb2N1bWVudHMgd2l0aCBhcmUgdXNpbmcsIGEgdmlldyBJIHRoaW5rIGlzIGxlc3Mgd2FycmFu
-dGVkLinCoCBCdXQgCkkgZGFyZSB0byBob3BlIHRoYXQgaWYgSSBjYW4gZ2V0IGhlciBWb3hpbiBv
-ciBzb21ldGhpbmcgb2YgdGhlIHNvcnQgCndvcmtpbmcsIG1heWJlIGluIHRpbWUgc2hlJ2xsIGJl
-IHdpbGxpbmcgdG8gZHJvcCBXaW5kb3dzIGludG8gdGhlIGFieXNzLiAKTXkgcmVhc29ucyBhcmUg
-cHJhY3RpY2FsIGFzIHdlbGwgYXMgcHJpbmNpcGxlZCwgYnV0IEkndmUgd3JpdHRlbiBsb25nIApl
-bm91Z2ggdGhhdCBJJ2xsIGxlYXZlIGl0IGF0IHRoYXQuCgoKQmVzdCEKCkFsCgoKCgpPbiAxLzI2
-LzIyIDIxOjE5LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+IE9r
-YXkgdGhlbiwKPiBUaGlzIGlsbHVzdHJhdGVzIGFub3RoZXIgcG9pbnQgd2hpY2ggZ290IHRvdWNo
-ZWTCoCBvbiBpbiBhIGRpZmZlcmVudCAKPiB0aHJlYWQgYXMgd2VsbC4KPiBUaGUsIHlvdSBtdXN0
-IGJlIHByZXBhcmVkIHRvIGRvIHByb2dyYW1taW5nIGlmIHlvdSBhcmUgZ29pbmcgdG8gdXNlIAo+
-IExpbnV4IGZsdWlkbHksIGlmIGF0IGFsbC4KPiBPbiBhbiBlbnRpcmVseSBkaWZmZXJlbnQgbGlz
-dCBJIGFtIG9uLCBmb2xrcyB3ZXJlIGNvbXBsYWluaW5nIGFib3V0IAo+IHdpbmRvd3MgMTAgYW5k
-IHdpbmRvd3MgMTEsIGJlY2F1c2Ugb2YgdGhlIGNoYW5nZXMuCj4gQ29tcHV0ZXJzIGFyZSBpbmNy
-ZWFzaW5nbHkgc3VjaCBjcml0aWNhbCBwYXJ0cyBvZiBvdXIgbGl2ZXMsIGJhbmtpbmcgCj4gc2hv
-cHBpbmcsIGV2ZW4gdm90aW5nLCB0aGF0IG1hbnkgb24gdGhlIGxpc3Qgc3Bva2Ugb2YganVzdCB3
-YW50aW5nIHRvIAo+IHNpdCBkb3duIGF0IHRoZWlyIGNvbXB1dGVyIGFuZCBoYXZlIHRoaW5ncyB3
-b3JrLi4uc28gdGhleSBzdGlsbCB1c2UgCj4gb2xkZXIgZWRpdGlvbnMgb2YgdGhpbmdzIGxpa2Ug
-V2luZG93c8KgIFhQP8KgIGFuZCBXaW5kb3dzwqAgNy4KPiBJIGFkbWl0IHRoYXQgaXMgcGFydCBv
-ZiB3aHkgdGhlIG91dCBvZiB0aGUgYm94IGNvbmNlcHQgZGlzY3Vzc2VkIGhlcmUgCj4gd2hlcmUg
-QWNjZXNzIGlzIGNvbmNlcm5lZCBzZWVtcyBhIGJpdCwgc3BlYWtpbmcgcGVyc29uYWxseSwgbGlr
-ZSBhIAo+IG1pc2NvbmNlcHRpb24uCj4gRmV3IG9uIHRoZSBsaXN0IEkgcmVmZXJlbmNlZCBhYm92
-ZSBhcmUgdXNpbmcgYWRhcHRpdmUgdG9vbHMsIGFuZCBzb21lIAo+IG9mIHRoZW0gYXJlIHNjaWVu
-dGlzdHMsIHdpdGggbWFueSBub3Qgd2FudGluZyBjb25maWd1cmluZyB0byBiZSBhIHBhcnQgCj4g
-b2YgdGhlaXIgY29tcHV0ZXIgbGl2ZXMuCj4gwqBTbywgd2h5IGRvIHlvdSB1c2UgTGludXg/Cj4g
-d2hhdCBtYWtlcyBpdCB3b3J0aCB0aGUgdGltZSB0aGUgdHJhaW5pbmcgYW5kIHRoZSB0cmlhbMKg
-IC8gZXJyb3I/Cj4gT2gsIGFuZCBpcyBpdCB5b3VyIG9ubHkgb3BlcmF0aW5nIHN5c3RlbT8KPiBX
-YW50IHRvIGFzayB0aGUgbGF0dGVyIGJlY2F1c2UgSSBrbm93IHNvbWVvbmUgd2hvIGluZGVlZCB1
-c2VzIExpbnV4IAo+IGV4Y2x1c2l2ZWx5LCB2b3dpbmcgbmV2ZXIgdG8gdG91Y2ggd2luZG93cyBh
-Z2Fpbi4KPiBQbGVhc2UgZmVlbCBmcmVlIHRvIGV4cHJlc3MgaW4gZGV0YWlsLCBuZXZlciBtaW5k
-IG15IHBlcnNvbmFsIAo+IHNpdHVhdGlvbiwgYmVjYXVzZSB0aGUgam91cm5hbGlzdCBpbiBtZSBp
-cyBpbnRlcmVzdGVkIGFzIHdlbGwuCj4gS2FyZW4KPgo+Cj4KPiBPbiBXZWQsIDI2IEphbiAyMDIy
-LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Cj4+IEZhaXIgcG9p
-bnQuCj4+Cj4+IEFzIHJlZ2FyZHMgdGhlIGtleWJvYXJkLCBJIGFncmVlIHdpdGggdGhlIG1haW4g
-a2V5Ym9hcmQgcGhpbG9zb3BoeSwgYW5kCj4+IGluIGZhY3Qgc3BlYWt1cCBkb2VzIGFsbG93IHlv
-dSB0byBjdXN0b21pemUgaXQgdG8gdXNlIHRoZSBtYWluIAo+PiBrZXlib2FyZCBpbnN0ZWFkIG9m
-IHRoZQo+PiBrZXlwYWQuIEhvd2V2ZXIsIGl0IHRvb2sgbWUgYSB3aGlsZSB0byBjdXN0b21pemUg
-aXQgdG8gbXkgbGlraW5nIGFuZAo+PiByZXF1aXJlZCBxdWl0ZSBhIGJpdCBvZiBzdHVkeSBhbmQg
-Z2VuZXJhdGluZyBvZiBwZXJzb25hbCBrZXltYXBzLCBzbwo+PiBtaWdodCBub3QgYmUgb2YgYW55
-IGludGVyZXN0IHRvIHRob3NlIHdobyBhcmVuJ3QgY29tZm9ydGFibGUgbWFraW5nCj4+IHNvbWUg
-bG93IGxldmVsIG1vZGlmaWNhdGlvbnMuCj4+Cj4+IE9uIFdlZCwgSmFuIDI2LCAyMDIyIGF0IDA4
-OjE2OjA4UE0gLTA1MDAsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIAo+PiBkaXNjdXNzaW9uIHdy
-b3RlOgo+Pj4gV2hpY2ggbWF5IGlsbHVzdHJhdGUgbXkgcG9pbnQuCj4+PiBJIGNhbiB1c2UgdGhv
-c2Ugd2l0aG91dCBjaGFuZ2luZyB3aGF0IEkgaGF2ZSBub3cuCj4+PiBTcGVha2luZyBwZXJzb25h
-bGx5IGlmIExpbnV4IGRvZXMgbm90IHByb3ZpZGUgZXF1YWwgYWNjZXNzIHRvIGJvdGggCj4+PiBo
-YXJkd2FyZQo+Pj4gYW5kwqAgc29mdHdhcmUgc3BlZWNoLCBpbiBib3RoIGl0cyBjb21tYW5kIGxp
-bmUgYW5kIGdyYXBoaWNhbCAKPj4+IHBsYXRmb3JtcywgSSBhbQo+Pj4gdW5zdXJlwqAganVzdCB3
-aGVyZSB0aGUgYWR2YW50YWdlIGlzIGZvciBtZSBwZXJzb25hbGx5Lgo+Pj4gT25lIHRoaW5nIEkg
-cGVyc29uYWxseSBkaXNsaWtlZCB3aXRoIHNwZWFrdXAsIGF0IGxlYXN0IHRoZSB0aW1lcyBJIAo+
-Pj4gdHJpZWQgaXQKPj4+IHllYXJzIGJhY2sgd2FzIHRoZSBuZWVkIHRvIHJlbW92ZSBteSBoYW5k
-cyBmcm9tIHRoZSBrZXlib2FyZCBmb3IgbWFueQo+Pj4gdGhpbmdzLgo+Pj4gVGhhdCBtYXkgbm90
-IGhvbGQgdHJ1ZSBhbGwgdGhlIHdheSBhcm91bmQsIGJ1dCBJIGFtIGEgc29saWQgdHlwaXN0IAo+
-Pj4gYW5kIGRvCj4+PiBub3QgbGlrZSBoYXZpbmcgdG8gcmVtb3ZlIG1heSBoYW5kcywgc2F5IHVz
-ZSB0aGUgbnVtYmVyIHBhZCwgaWYgSSAKPj4+IHdhbnQgYXMgSQo+Pj4gd29yayBjb250ZW50Lgo+
-Pj4gVGhhdCBpcyBtZSB0aG91Z2gsIHdoaWNoIGlzIG9uZSBtYWdpY2FsIHRoaW5nIGFib3V0IHBl
-cnNvbmFsIGNvbXB1dGVycy4KPj4+IGV2ZXJ5b25lIGJyaW5ncyB0aGVpciBkZXNpcmVzIGFuZCB1
-c2FnZSBnb2FscyB0byB0aGVpciBtYWNoaW5lcy4KPj4+IFdoaWNoIHRvIG15IG1pbmQgYWdhaW4g
-cGVyc29uYWxseSBtZWFucyBMaW51eCBzaG91bGQsIGlmIGl0IGFjdHVhbGx5IAo+Pj4gY2FuLCBi
-ZQo+Pj4gZmxleGlibGUgZW5vdWdoIGZvciBhbGwgY2hvaWNlcyB0byB3b3JrIGluIGl0IGNvbW1h
-bmQgbGluZSBhbmQgCj4+PiBncmFwaGljYWwuCj4+PiBLYXJlbgo+Pj4KPj4+Cj4+Pgo+Pj4gT24g
-V2VkLCAyNiBKYW4gMjAyMiwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90
-ZToKPj4+Cj4+Pj4gSSBkb24ndCB1c2UgRmlyZWZveC4gSSB1c2UgYSB0ZXh0IGJhc2VkIGJyb3dz
-ZXIsIGVpdGhlciBseW54LCB3M20sIAo+Pj4+IG9yIGxpbmtzICh0aGUgY2hhaW4pIGRlcGVuZGlu
-Zy4KPj4+Pgo+Pj4+IE9uIFdlZCwgSmFuIDI2LCAyMDIyIGF0IDA3OjQ4OjQyUE0gLTA1MDAsIExp
-bnV4IGZvciBibGluZCBnZW5lcmFsIAo+Pj4+IGRpc2N1c3Npb24gd3JvdGU6Cj4+Pj4+IFJ1ZHks
-Cj4+Pj4+IEFzIGFuIGV4YW1wbGUsIG1heSBJIGFzayB3aGF0IGVkaXRpb27CoCBvZsKgIEZpcmVm
-b3ggeW91IGFyZSBydW5uaW5nIAo+Pj4+PiB3aXRoIHRoYXQKPj4+Pj4gZGVjdGFsayBFeHByZXNz
-Pwo+Pj4+PiBLYXJlbgo+Pj4+Pgo+Pj4+Pgo+Pj4+Pgo+Pj4+PiBPbiBXZWQsIDI2IEphbiAyMDIy
-LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4+Pgo+Pj4+Pj4g
-S2FyZW4sCj4+Pj4+PiBJIHVzZSBMaW51eCBzcGVha3VwIHdpdGggYSBEZWN0YWxrIGV4cHJlc3Mg
-c3BlZWNoIHN5bnRoZXNpemVyLiAKPj4+Pj4+IEFuZCBJIGJlbGlldmUgc3BlYWt1cCBhbHNvIGhh
-bmRsZXMgdGhlCj4+Pj4+PiBzbG90IGNhcmQgdmVyc2lvbiBvZiBkZWN0YWxrIHRob3VnaCB5b3Un
-bGwgbmVlZCBhIGRlc2t0b3AgUEMgdGhhdCAKPj4+Pj4+IHN1cHBvcnRzIGl0LCBzbyB0aGUgc29m
-dHdhcmUgaXMgdGhlcmUuCj4+Pj4+Pgo+Pj4+Pj4KPj4+Pj4+IFJ1ZHkKPj4+Pj4+Cj4+Pj4+PiBP
-biBXZWQsIEphbiAyNiwgMjAyMiBhdCAwNToyMjozNVBNIC0wNTAwLCBMaW51eCBmb3IgYmxpbmQg
-Z2VuZXJhbCAKPj4+Pj4+IGRpc2N1c3Npb24gd3JvdGU6Cj4+Pj4+Pj4gS3lsZSwKPj4+Pj4+PiBp
-IGRvIG5vdCBjb25zaWRlciBteSBoYXJkd2FyZSBkZWNrdGFsayBwcm92aWRlZCB2aWEgbXkgcmVh
-ZGluZyAKPj4+Pj4+PiBlZGdlIHRvIGJlIGFuCj4+Pj4+Pj4gZXhhbXBsZSBvZiB0ZXh0IHRvIHNw
-ZWVjaC4KPj4+Pj4+PiBCeSBkZWZpbml0aW9uLCBhbmQgdGhlcmUgYXJlIG1hbnksIHRoZSB0ZXJt
-LCB3aGljaCByZWZlcnMgdG8gdGFraW5nCj4+Pj4+Pj4gaW5mb3JtYXRpb24gaW4gdGV4dCBmb3Jt
-YXTCoCBhbmTCoCByZW5kZXJpbmcgaXQgYWxvdWQgZG9lcyBub3QsIAo+Pj4+Pj4+IHNwZWFraW5n
-Cj4+Pj4+Pj4gcGVyc29uYWxseSzCoCBlcXVhbCBwcm9udW5jaWF0aW9uIGVhc2UuCj4+Pj4+Pj4g
-SW4gZmFjdCBvbmUgdGhlb3J5IGFib3V0IHRoaXMgaGFzIHRvIGRvIHdpdGggcHJlc2VydmluZyB0
-aGUgCj4+Pj4+Pj4gYXVkaW9ib29rCj4+Pj4+Pj4gbWFya2V0Lgo+Pj4+Pj4+IGdyYW50ZWQsIGFz
-wqAgd2FzIHBvaW50ZWQgb3V0IGluIGEgdGhyZWFkIHNvbWUgdGltZSBhZ28sIEkgYW0gbm90IAo+
-Pj4+Pj4+IGxpa2VseSB0bwo+Pj4+Pj4+IGxlYXJuIGFib3V0IExpbnV4IHNjcmVlbiByZWFkZXJz
-LCBubyBkcml2ZXIgZXhpc3RzIGZvciBteSAKPj4+Pj4+PiBoYXJkd2FyZSBzcGVlY2gsCj4+Pj4+
-Pj4gYW5kIHNvZnR3YXJlIHN5bnRoZXNpemVyIHNvdXJjZXPCoCBjdXJyZW50bHkgZG8gYSBudW1i
-ZXIgb24gbXkgCj4+Pj4+Pj4gYnJhaW4uCj4+Pj4+Pj4gS2FyZW4KPj4+Pj4+Pgo+Pj4+Pj4+Cj4+
-Pj4+Pj4KPj4+Pj4+PiBPbiBXZWQsIDI2IEphbiAyMDIyLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJh
-bCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4+Pj4+Cj4+Pj4+Pj4+IFRoYXQgYmVpbmcgc2FpZCwgdGhl
-IGF1ZGlvcGhpbGUgaW4gbWUgY2Fubm90IHJlc2lzdCBwb2ludGluZyAKPj4+Pj4+Pj4gb3V0IHRo
-YXQKPj4+Pj4+Pj4gcHJvbnVuY2lhdGlvbiBhYmlsaXRpZXMgb2YgdHRzIGFyZSBvZiBmYXIgbGVz
-cyBxdWFsaXR5IHRoYW4gdGhvc2UKPj4+Pj4+Pj4gcHJvdmlkZWQgYnkgbWFueSBhY3R1YWwgc2Ny
-ZWVuIHJlYWRlcnMsIGF0IGxlYXN0IHRoZSBvbmVzIEkgaGF2ZQo+Pj4+Pj4+PiB1c2VkLi4ud2hp
-Y2g/Pz8/IGRvZXMgbm90IGluY2x1ZGUgYW55IGZvciBMaW51eC4KPj4+Pj4+Pj4KPj4+Pj4+Pj4K
-Pj4+Pj4+Pj4gVGhhdCBiZWluZyBzYWlkLCB0aGUgdGVjaG5vZmlsZSBpbiBtZSBjYW5ub3QgcmVz
-aXN0IHBvaW50aW5nIAo+Pj4+Pj4+PiBvdXQgdGhlCj4+Pj4+Pj4+IGZhY3QgdGhhdCBldmVyeSBz
-Y3JlZW4gcmVhZGVyIGZvciBldmVyeSBPUyB1c2VzIG5vdGhpbmcgYnV0IFRUUwo+Pj4+Pj4+PiB0
-ZWNobm9sb2d5IHRvIHJlYWQgdGhlIHNjcmVlbi4gV2VsbCwgSSBndWVzcyBCZU15RXllcyBkb2Vz
-bid0LCAKPj4+Pj4+Pj4gYnV0IGl0J3MKPj4+Pj4+Pj4gbm90IGV4YWN0bHkgYSBzY3JlZW4gcmVh
-ZGVyLCB1bmxlc3MgeW91IG5lZWQgdGhlIHZvbHVudGVlciB0byAKPj4+Pj4+Pj4gcmVhZCBhCj4+
-Pj4+Pj4+IHNjcmVlbiBmb3IgeW91Lgo+Pj4+Pj4+Pgo+Pj4+Pj4+PiB+IEt5bGUKPj4+Pj4+Pj4K
-Pj4+Pj4+Pj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-Pj4+Pj4+Pj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+Pj4+Pj4+IEJsaW51eC1saXN0QHJl
-ZGhhdC5jb20KPj4+Pj4+Pj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0
-aW5mby9ibGludXgtbGlzdAo+Pj4+Pj4+Pgo+Pj4+Pj4KPj4+Pj4+PiBfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+Pj4+Pj4+IEJsaW51eC1saXN0IG1haWxp
-bmcgbGlzdAo+Pj4+Pj4+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+Pj4+PiBodHRwczovL2xp
-c3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+Pj4+Pgo+Pj4+
-Pj4KPj4+Pj4+IC0tIAo+Pj4+Pj4gUnVkeSBWZW5lcgo+Pj4+Pj4gV2Vic2l0ZTogaHR0cDovL3d3
-dy5ydWR5dmVuZXIuY29tCj4+Pj4+PiBUd2l0dGVyOiBodHRwczovL3R3aXR0ZXIuY29tL1J1ZHlT
-YWx0Cj4+Pj4+PiBUaGUgZGlmZmVyZW5jZSBiZXR3ZWVuIHRydXRoIGFuZCBmYWxzZWhvb2QgaXMg
-dGhhdCB0cnV0aCByZW1haW5zIAo+Pj4+Pj4gY29uc3RhbnQgbm8gbWF0dGVyIHdoaWNoIHBvbGl0
-aWNhbCBwYXJ0eSBob2xkcyB0aGUgbWFqb3JpdHkuCj4+Pj4+PiDCoC0gQS4gUi4gVmVuZXIKPj4+
-Pj4+Cj4+Pj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-Xwo+Pj4+Pj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+Pj4+PiBCbGludXgtbGlzdEByZWRo
-YXQuY29tCj4+Pj4+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZv
-L2JsaW51eC1saXN0Cj4+Pj4+Pgo+Pj4+Pj4KPj4+Pj4KPj4+Pj4gX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+Pj4gQmxpbnV4LWxpc3QgbWFpbGluZyBs
-aXN0Cj4+Pj4+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+Pj4gaHR0cHM6Ly9saXN0bWFuLnJl
-ZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+Pj4+Cj4+Pj4gLS0gCj4+Pj4g
-UnVkeSBWZW5lcgo+Pj4+IFdlYnNpdGU6IGh0dHA6Ly93d3cucnVkeXZlbmVyLmNvbQo+Pj4+IFR3
-aXR0ZXI6IGh0dHBzOi8vdHdpdHRlci5jb20vUnVkeVNhbHQKPj4+PiBUaGUgZGlmZmVyZW5jZSBi
-ZXR3ZWVuIHRydXRoIGFuZCBmYWxzZWhvb2QgaXMgdGhhdCB0cnV0aCByZW1haW5zIAo+Pj4+IGNv
-bnN0YW50IG5vIG1hdHRlciB3aGljaCBwb2xpdGljYWwgcGFydHkgaG9sZHMgdGhlIG1ham9yaXR5
-Lgo+Pj4+IMKgLSBBLiBSLiBWZW5lcgo+Pj4+Cj4+Pj4gX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KPj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+
-PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+Pj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20v
-bWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+Pj4+Cj4+Pj4KPj4+Cj4+PiBfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+Pj4gQmxpbnV4LWxpc3QgbWFp
-bGluZyBsaXN0Cj4+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+PiBodHRwczovL2xpc3RtYW4u
-cmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+Cj4+IC0tIAo+PiBSdWR5
-IFZlbmVyCj4+IFdlYnNpdGU6IGh0dHA6Ly93d3cucnVkeXZlbmVyLmNvbQo+PiBUd2l0dGVyOiBo
-dHRwczovL3R3aXR0ZXIuY29tL1J1ZHlTYWx0Cj4+IFRoZSBkaWZmZXJlbmNlIGJldHdlZW4gdHJ1
-dGggYW5kIGZhbHNlaG9vZCBpcyB0aGF0IHRydXRoIHJlbWFpbnMgCj4+IGNvbnN0YW50IG5vIG1h
-dHRlciB3aGljaCBwb2xpdGljYWwgcGFydHkgaG9sZHMgdGhlIG1ham9yaXR5Lgo+PiDCoC0gQS4g
-Ui4gVmVuZXIKPj4KPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KPj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+IEJsaW51eC1saXN0QHJlZGhhdC5j
-b20KPj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgt
-bGlzdAo+Pgo+Pgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29t
-Cj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlz
-dAo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGlu
-dXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3Rt
-YW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
+Hi Rynhardt,
+
+The file
+~/.config/speech-dispatcher/modules/espeak-ng.conf does not exist on
+my system. There is no .config folder in my home directory either. Do
+I have to create all this stuff?! Thanks.
+
+Amanda[0]
+
+On 1/27/22, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> Greetings!
+>
+>
+> I agree with much of what others have written, but I guess I'll pipe up
+> a little.
+>
+>
+> I became interested in Linux (or GNU/Linux, as some insist on) for two
+> reasons, back in the late 1990's.  Software freedom was the first.  The
+> second was that it had real text terminals, which I was used to with
+> DOS.  The first reason is vital to my thinking, and the second reason
+> remains very important, though I use the gui more than the command line
+> most days.
+>
+>
+> I was a programmer in those days, and I hope to do it again for pay some
+> day.  One of my continuous and troubling tasks was to get the same
+> access to the mainframe computers I worked on as I'd had using DOS.  It
+> never happened, though I can't say whether it has happened for somebody
+> else since then.  I had to use JAWS during those last years of the job.
+> Although JAWS scripting helped somewhat, it seemed to me that (1) JAWS
+> needed more basic customizing to do what I needed and (2) this wasn't
+> nearly as important to the company as it was to me.  I figured that if
+> JAWS had been free software, meaning free as in freedom rather than free
+> as in beer, one or more folks who knew more than I did could help me do
+> the customizing:  the code would have been at hand.
+>
+>
+> My Linux journey has been long and often quite rocky.  My ignorance
+> remains vast, partly because of my own inadequacies and partly because I
+> find documentation often sparse or hard to follow.  Even so, I'm much
+> more able to fix things myself than I can with our Windows machines.
+> Yes, I use Windows most days, mostly because my wife doesn't want to
+> abandon it.  (She likes the speech output better, and I agree.  She also
+> doubts the wisdom of using software that few if any of the people she
+> shares documents with are using, a view I think is less warranted.)  But
+> I dare to hope that if I can get her Voxin or something of the sort
+> working, maybe in time she'll be willing to drop Windows into the abyss.
+> My reasons are practical as well as principled, but I've written long
+> enough that I'll leave it at that.
+>
+>
+> Best!
+>
+> Al
+>
+>
+>
+>
+> On 1/26/22 21:19, Linux for blind general discussion wrote:
+>> Okay then,
+>> This illustrates another point which got touched  on in a different
+>> thread as well.
+>> The, you must be prepared to do programming if you are going to use
+>> Linux fluidly, if at all.
+>> On an entirely different list I am on, folks were complaining about
+>> windows 10 and windows 11, because of the changes.
+>> Computers are increasingly such critical parts of our lives, banking
+>> shopping, even voting, that many on the list spoke of just wanting to
+>> sit down at their computer and have things work...so they still use
+>> older editions of things like Windows  XP?  and Windows  7.
+>> I admit that is part of why the out of the box concept discussed here
+>> where Access is concerned seems a bit, speaking personally, like a
+>> misconception.
+>> Few on the list I referenced above are using adaptive tools, and some
+>> of them are scientists, with many not wanting configuring to be a part
+>> of their computer lives.
+>>  So, why do you use Linux?
+>> what makes it worth the time the training and the trial  / error?
+>> Oh, and is it your only operating system?
+>> Want to ask the latter because I know someone who indeed uses Linux
+>> exclusively, vowing never to touch windows again.
+>> Please feel free to express in detail, never mind my personal
+>> situation, because the journalist in me is interested as well.
+>> Karen
+>>
+>>
+>>
+>> On Wed, 26 Jan 2022, Linux for blind general discussion wrote:
+>>
+>>> Fair point.
+>>>
+>>> As regards the keyboard, I agree with the main keyboard philosophy, and
+>>> in fact speakup does allow you to customize it to use the main
+>>> keyboard instead of the
+>>> keypad. However, it took me a while to customize it to my liking and
+>>> required quite a bit of study and generating of personal keymaps, so
+>>> might not be of any interest to those who aren't comfortable making
+>>> some low level modifications.
+>>>
+>>> On Wed, Jan 26, 2022 at 08:16:08PM -0500, Linux for blind general
+>>> discussion wrote:
+>>>> Which may illustrate my point.
+>>>> I can use those without changing what I have now.
+>>>> Speaking personally if Linux does not provide equal access to both
+>>>> hardware
+>>>> and  software speech, in both its command line and graphical
+>>>> platforms, I am
+>>>> unsure  just where the advantage is for me personally.
+>>>> One thing I personally disliked with speakup, at least the times I
+>>>> tried it
+>>>> years back was the need to remove my hands from the keyboard for many
+>>>> things.
+>>>> That may not hold true all the way around, but I am a solid typist
+>>>> and do
+>>>> not like having to remove may hands, say use the number pad, if I
+>>>> want as I
+>>>> work content.
+>>>> That is me though, which is one magical thing about personal computers.
+>>>> everyone brings their desires and usage goals to their machines.
+>>>> Which to my mind again personally means Linux should, if it actually
+>>>> can, be
+>>>> flexible enough for all choices to work in it command line and
+>>>> graphical.
+>>>> Karen
+>>>>
+>>>>
+>>>>
+>>>> On Wed, 26 Jan 2022, Linux for blind general discussion wrote:
+>>>>
+>>>>> I don't use Firefox. I use a text based browser, either lynx, w3m,
+>>>>> or links (the chain) depending.
+>>>>>
+>>>>> On Wed, Jan 26, 2022 at 07:48:42PM -0500, Linux for blind general
+>>>>> discussion wrote:
+>>>>>> Rudy,
+>>>>>> As an example, may I ask what edition  of  Firefox you are running
+>>>>>> with that
+>>>>>> dectalk Express?
+>>>>>> Karen
+>>>>>>
+>>>>>>
+>>>>>>
+>>>>>> On Wed, 26 Jan 2022, Linux for blind general discussion wrote:
+>>>>>>
+>>>>>>> Karen,
+>>>>>>> I use Linux speakup with a Dectalk express speech synthesizer.
+>>>>>>> And I believe speakup also handles the
+>>>>>>> slot card version of dectalk though you'll need a desktop PC that
+>>>>>>> supports it, so the software is there.
+>>>>>>>
+>>>>>>>
+>>>>>>> Rudy
+>>>>>>>
+>>>>>>> On Wed, Jan 26, 2022 at 05:22:35PM -0500, Linux for blind general
+>>>>>>> discussion wrote:
+>>>>>>>> Kyle,
+>>>>>>>> i do not consider my hardware decktalk provided via my reading
+>>>>>>>> edge to be an
+>>>>>>>> example of text to speech.
+>>>>>>>> By definition, and there are many, the term, which refers to taking
+>>>>>>>> information in text format  and  rendering it aloud does not,
+>>>>>>>> speaking
+>>>>>>>> personally,  equal pronunciation ease.
+>>>>>>>> In fact one theory about this has to do with preserving the
+>>>>>>>> audiobook
+>>>>>>>> market.
+>>>>>>>> granted, as  was pointed out in a thread some time ago, I am not
+>>>>>>>> likely to
+>>>>>>>> learn about Linux screen readers, no driver exists for my
+>>>>>>>> hardware speech,
+>>>>>>>> and software synthesizer sources  currently do a number on my
+>>>>>>>> brain.
+>>>>>>>> Karen
+>>>>>>>>
+>>>>>>>>
+>>>>>>>>
+>>>>>>>> On Wed, 26 Jan 2022, Linux for blind general discussion wrote:
+>>>>>>>>
+>>>>>>>>> That being said, the audiophile in me cannot resist pointing
+>>>>>>>>> out that
+>>>>>>>>> pronunciation abilities of tts are of far less quality than those
+>>>>>>>>> provided by many actual screen readers, at least the ones I have
+>>>>>>>>> used...which???? does not include any for Linux.
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> That being said, the technofile in me cannot resist pointing
+>>>>>>>>> out the
+>>>>>>>>> fact that every screen reader for every OS uses nothing but TTS
+>>>>>>>>> technology to read the screen. Well, I guess BeMyEyes doesn't,
+>>>>>>>>> but it's
+>>>>>>>>> not exactly a screen reader, unless you need the volunteer to
+>>>>>>>>> read a
+>>>>>>>>> screen for you.
+>>>>>>>>>
+>>>>>>>>> ~ Kyle
+>>>>>>>>>
+>>>>>>>>> _______________________________________________
+>>>>>>>>> Blinux-list mailing list
+>>>>>>>>> Blinux-list@redhat.com
+>>>>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>>>>>>>
+>>>>>>>
+>>>>>>>> _______________________________________________
+>>>>>>>> Blinux-list mailing list
+>>>>>>>> Blinux-list@redhat.com
+>>>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>>>>>
+>>>>>>>
+>>>>>>> --
+>>>>>>> Rudy Vener
+>>>>>>> Website: http://www.rudyvener.com
+>>>>>>> Twitter: https://twitter.com/RudySalt
+>>>>>>> The difference between truth and falsehood is that truth remains
+>>>>>>> constant no matter which political party holds the majority.
+>>>>>>>  - A. R. Vener
+>>>>>>>
+>>>>>>> _______________________________________________
+>>>>>>> Blinux-list mailing list
+>>>>>>> Blinux-list@redhat.com
+>>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>>>>>
+>>>>>>>
+>>>>>>
+>>>>>> _______________________________________________
+>>>>>> Blinux-list mailing list
+>>>>>> Blinux-list@redhat.com
+>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>>>
+>>>>> --
+>>>>> Rudy Vener
+>>>>> Website: http://www.rudyvener.com
+>>>>> Twitter: https://twitter.com/RudySalt
+>>>>> The difference between truth and falsehood is that truth remains
+>>>>> constant no matter which political party holds the majority.
+>>>>>  - A. R. Vener
+>>>>>
+>>>>> _______________________________________________
+>>>>> Blinux-list mailing list
+>>>>> Blinux-list@redhat.com
+>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>>>
+>>>>>
+>>>>
+>>>> _______________________________________________
+>>>> Blinux-list mailing list
+>>>> Blinux-list@redhat.com
+>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>
+>>> --
+>>> Rudy Vener
+>>> Website: http://www.rudyvener.com
+>>> Twitter: https://twitter.com/RudySalt
+>>> The difference between truth and falsehood is that truth remains
+>>> constant no matter which political party holds the majority.
+>>>  - A. R. Vener
+>>>
+>>> _______________________________________________
+>>> Blinux-list mailing list
+>>> Blinux-list@redhat.com
+>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>
+>>>
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
