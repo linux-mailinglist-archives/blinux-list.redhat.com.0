@@ -1,86 +1,89 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8049549D822
-	for <lists+blinux-list@lfdr.de>; Thu, 27 Jan 2022 03:40:50 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id C7BD549D8BC
+	for <lists+blinux-list@lfdr.de>; Thu, 27 Jan 2022 03:59:24 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1643251249;
+	s=mimecast20190719; t=1643252363;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=PYRoU0sTIy4Miq6Mn32uvu3jcJrpgI/LIjtSYain8J4=;
-	b=SI18YoGYXjaBdNVdvFTmJxmmHx2tCfIR8sGewe70iKJ0Hi2wM8M9ksx2YxsXbJVQ52H6S3
-	C8CThrqarKvgU54szuwKNKtjnT0qV2Q2FIvB1QxPx9Jge0qcb5X2mXuIuxEqVsA0TVjzj7
-	JV8zjn1Lq9kWJw2I3o5gpEr0+4VxHu4=
+	bh=eWEy0xA1tft0hN31jEDtDzJtgjBGzKhYAw27E1XWCXE=;
+	b=BCRTtVSZqOa5XCmpcFmEzqGbBMdX5Tx25yNcxg8pxe7MdN2gwKZsGG2QX7rW+kVkG/9XUS
+	ZuylssqE6gORGwMcjQoaWoDd7EZcXAPKqXNaOfJX3Vyla6v+KIjTTNHlE2eaJkU1ON8vDr
+	k+ZZAdk4oJJYNEWL0GC3OWb22tDP+oo=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-336-OnOyge5WNyGsOejfAYpHcg-1; Wed, 26 Jan 2022 21:40:45 -0500
-X-MC-Unique: OnOyge5WNyGsOejfAYpHcg-1
+ us-mta-85-FenNo9cTPX-ydnSoYH8zpA-1; Wed, 26 Jan 2022 21:59:20 -0500
+X-MC-Unique: FenNo9cTPX-ydnSoYH8zpA-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9A79D1083F62;
-	Thu, 27 Jan 2022 02:40:41 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 087E45FC22;
-	Thu, 27 Jan 2022 02:40:37 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 610341083F61;
+	Thu, 27 Jan 2022 02:59:15 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CDF6A68D90;
+	Thu, 27 Jan 2022 02:59:14 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 96F051809CB8;
-	Thu, 27 Jan 2022 02:40:33 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.8])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8F7DF4BB7C;
+	Thu, 27 Jan 2022 02:59:12 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20R2dPjZ015677 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 26 Jan 2022 21:39:25 -0500
+	id 20R2x69o016766 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 26 Jan 2022 21:59:06 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id F3BF7C080B3; Thu, 27 Jan 2022 02:39:24 +0000 (UTC)
+	id 2C1B240885B3; Thu, 27 Jan 2022 02:59:06 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id EFD37C080B2
-	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:39:24 +0000 (UTC)
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2817240885B2
+	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:59:06 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D6F32380670D
-	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:39:24 +0000 (UTC)
-Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com
-	[209.85.160.171]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0EE40101A54C
+	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:59:06 +0000 (UTC)
+Received: from out2-smtp.messagingengine.com (out2-smtp.messagingengine.com
+	[66.111.4.26]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-418-tXFmu7SeOYOtxbbLXQNnlg-1; Wed, 26 Jan 2022 21:39:23 -0500
-X-MC-Unique: tXFmu7SeOYOtxbbLXQNnlg-1
-Received: by mail-qt1-f171.google.com with SMTP id r14so1397587qtt.5
-	for <blinux-list@redhat.com>; Wed, 26 Jan 2022 18:39:22 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=TA0PdcOc3VgzKCs2NB/IX6/lCmzAT1drtnAdzkiIqlc=;
-	b=qbFGA+hF5v/rRkkS/1/4wJ6uA3MyPP9/QKSNZ5a43sO+wdDVX0lkobWcg8yJ6od9La
-	PLg7ZRRtCS+l+q7iTpaVReomRnTClx1+JeDQqamvkRbnsUB8oMQ686Tb9jGxJq4uyPH+
-	KLG1REFtEm76DmYt8LKfqs57xyxV5K1joTnntNPQnBeoAeMnrscGgkvS8F0b7JqN7ekD
-	WphnQHAzcKjIICA48dwrW41xIowK9jgXO0yCkxfMxRL/gxkCAbOCltG4vrjLon7YkrP0
-	vE6SIaPcHTWCKU4YLrIv6+P/nDvSdNadj0OcFAiPpsaET7/37UPJJJWvQeBT3XR0EcFh
-	tHfQ==
-X-Gm-Message-State: AOAM532I8mfZk0tC/bcy+0v2faxni8KLnkmhcLTMJt6p/MHBAqm+gcSl
-	F6EbRzJ4Y482AF7u+C+hIiWiKK2EKp2zNmL/b5wZOJ6a
-X-Google-Smtp-Source: ABdhPJyUiZ122/TfDxF4Y0ETlkqDWlaEBTD8Gq/EUVjlkEkuM5DdTIg8H7AVjC+rVIRjWYl66f4pXVj1IMTYOb4JoiE=
-X-Received: by 2002:a05:622a:47:: with SMTP id
-	y7mr1210667qtw.215.1643251162428; 
-	Wed, 26 Jan 2022 18:39:22 -0800 (PST)
-MIME-Version: 1.0
-Received: by 2002:a05:6214:e8f:0:0:0:0 with HTTP; Wed, 26 Jan 2022 18:39:21
-	-0800 (PST)
-In-Reply-To: <Pine.LNX.4.64.2201262008180.2112285@server2.shellworld.net>
-References: <20220126124056.239f2e2f@bigbox.attlocal.net>
-	<CAO2sX33vHD5OWH3gN-pQ1HThebwFCrvGUTFdXf4rTi19e2NOWQ@mail.gmail.com>
-	<cf56de9a-9035-bbe0-ef8c-1e9e6468e8c@hubert-humphrey.com>
+	us-mta-549-k7R5MiKbOHWFT2ZUe0rfYQ-1; Wed, 26 Jan 2022 21:59:03 -0500
+X-MC-Unique: k7R5MiKbOHWFT2ZUe0rfYQ-1
+Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
+	by mailout.nyi.internal (Postfix) with ESMTP id 8D7125C0041
+	for <blinux-list@redhat.com>; Wed, 26 Jan 2022 21:59:03 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+	by compute1.internal (MEProxy); Wed, 26 Jan 2022 21:59:03 -0500
+X-ME-Sender: <xms:dwryYQLxBU_C_4ddFoF5gJdy8I-ie1GUPrIBX3Vq5g0dWSGekiP6GQ>
+	<xme:dwryYQKG3S2nuW0HcWadn1sl-SjZ6YZ4kqjczMDmak5fUl0XuMm5cC7Cobdrob6t9
+	8-sZV9aGOnP8JGOGqU>
+X-ME-Received: <xmr:dwryYQsz8MoJIQdppG_v_VDZFCQChuTEwsrrk14pgXPM9loVGtX-I-QfAzy3Raf0NYZTA--Jkdg91bblSbV4mK6ZkKrPStmLwg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrfedvgdehfecutefuodetggdotefrodftvf
+	curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+	uegrihhlohhuthemuceftddtnecunecujfgurhepfffhvffujgfkfhggtgesthdtredttd
+	dtvdenucfhrhhomhepvehhihhmvgcujfgrrhhtuceotghhihhmvgeshhhusggvrhhtqdhh
+	uhhmphhhrhgvhidrtghomheqnecuggftrfgrthhtvghrnhepffehtdfhvddvueeuieehvd
+	efffeutdegueduhffgleetledvuddugfelkeevtdevnecuvehluhhsthgvrhfuihiivgep
+	tdenucfrrghrrghmpehmrghilhhfrhhomheptghhihhmvgeshhhusggvrhhtqdhhuhhmph
+	hhrhgvhidrtghomh
+X-ME-Proxy: <xmx:dwryYdYJKRMoBgkLmpnTquu4-nyIVwW0nFvK7xwQWJnplH9I4X9hZw>
+	<xmx:dwryYXY42-ilkLwHRo8y52MVFYF0-fBqdkgSXDSnzABZxJJv2op3Eg>
+	<xmx:dwryYZCqv_ux9D772WSqWbU0JJ3N45zSzJvzj1eJ8DIg7NzQvdNBVw>
+	<xmx:dwryYR2314uM4L8WEk44msOILT0UoSM93ragr8mbEZuWZE-bELoa2g>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA for
+	<blinux-list@redhat.com>; Wed, 26 Jan 2022 21:59:03 -0500 (EST)
+Date: Wed, 26 Jan 2022 18:59:01 -0800 (PST)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Why do you use Linux? expanded from  Converting text to mp3
+In-Reply-To: <Pine.LNX.4.64.2201262104141.2112985@server2.shellworld.net>
+Message-ID: <5929a81c-ed88-909b-cd50-ad9db6bf2f62@hubert-humphrey.com>
+References: <cf56de9a-9035-bbe0-ef8c-1e9e6468e8c@hubert-humphrey.com>
 	<Pine.LNX.4.64.2201261620360.2109039@server2.shellworld.net>
 	<571c96f3-44ae-eba3-bff9-39d1449e61d3@hubert-humphrey.com>
 	<Pine.LNX.4.64.2201261646080.2109442@server2.shellworld.net>
@@ -90,10 +93,9 @@ References: <20220126124056.239f2e2f@bigbox.attlocal.net>
 	<Pine.LNX.4.64.2201261947360.2111580@server2.shellworld.net>
 	<YfHvt+4aziezYwjx@panix.com>
 	<Pine.LNX.4.64.2201262008180.2112285@server2.shellworld.net>
-Date: Thu, 27 Jan 2022 02:39:21 +0000
-Message-ID: <CAO2sX319aHogPMLp3gF10-H2sQBrH9Qgx=Nf=05ZKBAQJyumGQ@mail.gmail.com>
-Subject: Re: Converting text to mp3
-To: blinux-list@redhat.com
+	<YfH3P14/As9FjG9P@panix.com>
+	<Pine.LNX.4.64.2201262104141.2112985@server2.shellworld.net>
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -102,7 +104,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -124,38 +126,43 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I don't know how any speech synth, be it hardware or software works at
-the nuts-and-bolts level, but I suspect the people who make the
-DeckTalk synths have put more effort into ensuring their devices work
-with Windows than they have for Linux and wouldn't be surprised if
-they've never published any documentation that would assist with
-building a deckTalk speech dispatcher module or whatever would be
-needed to get them working with Orca. There's hardware far more
-mainstream than hardware speech synths that have shoddy or
-non-existent Linux support because the hardware vendor gave Linux
-users no choice but reverse engineer how to talk with their devices.
-
-And even if the decktalks are fully documented and it's just a matter
-of someone with the right skills writing the needed bit of code, there
-aren't that many people working on Linux accessibility, and I get the
-impression people using hardware synths are a small percentage of an
-already small demographic, so it isn't surprising that no one has made
-supporting hardware synths a priority. Orca has only a single active
-developer, best I can tell, Debian's Accessibility Team is one person,
-the Slint distribution is maintained by one person, Vinux collapsed
-due to lack of manpower, and those are just the examples I can name
-off top of my head. I don't pay attention to what's going on over in
-Windows land, but I would be surprised if NVDA doesn't eclipse Orca in
-number of developer hours that go into it just by virtue of Window's
-larger user base, and for all I know, the people behind JAWS might
-have someone they pay just to maintain hardware synth support.
-
-Admittedly, a missing feature really sucks for those who need it most,
-but there's not much that can be done if there isn't someone with the
-time, capability, and willingness to implement it.
+Hi Karen-and-thanks for an introspective topic. My road to Linux was a slow 
+transition. I had my first PC with DOS6 from 1994-97. Got windows95 so I would 
+have an easier time playing mp3s, which were fairly new at that time. The 
+concept of just being able to mash enter on a highlighted file to play was 
+appealing. But a majority of the time I was stilling going to a DOS prompt to 
+get in to a shell account to read mail in what was then pine. In 2003 once the 
+late Bill Acker helped set me up with DecPC drivers, we tried a duel boot 
+system, including first Redhat9 and later Fedora. Because there were so many 
+anoying issues with those DecTalk drivers, I found myself going back to windows 
+where DecTalk sounded great. Maybe early 2005 got either a newer pc and 
+certainly a USB DecTalk, which I still have. 1 night in 2006 a friend from 
+HighSchool was here, I tried playing him a Weird Al video, but each time 
+Windows Media Player would lockup. I finally just went back in Linux-and-played 
+him an audio version. Next time we went from Fedora 6 to 9 we practicly had a 
+ceremony when we got rid of windows forever. In 2010 with needing a new PC, I 
+switched to Debian, as they have more of the latest packages.
+In 2006 I got involved with a local Linux LUG, where I occasionally received 
+many hours of valuable asistance-and-even sometimes I was able to help.
+Even though I have many struggles with web-sites which I cannot access because 
+of the javascript disease, I am still willing to stick with Linux, as once its 
+setup, it is a comfortable envirenment.
+I have a Chromebook which I almost exclusively only attend Zoom meetings, as 
+far as I know, no1 has  written any commandline scripts to run Zoom in a 
+non-graphical setting. I also have a Mac but have not really looked in to 
+classes at an Apple store, but at least all of these machines have Linux I can 
+run.
+Just last evening I was trying to help my Wife in windows7 but its practicly a 
+foreign language now from win98.
+And lastly Karen, Linux provides me so much customization. I have 24 text 
+consoles. My Linux expert wrote me software to play-and-record streams with 4 
+sound-cards. I think I recorded maybe 10 streams at a time-and-later edited 
+them, as well as ajusting levels. So I have `much flexibility in Linux-and-am 
+`really happy here at nearly 70 next month. Thanks so much for listening
+Chime
 
 _______________________________________________
 Blinux-list mailing list
