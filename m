@@ -2,68 +2,69 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9F3DF49D7D2
-	for <lists+blinux-list@lfdr.de>; Thu, 27 Jan 2022 03:04:27 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 19E2449D7F2
+	for <lists+blinux-list@lfdr.de>; Thu, 27 Jan 2022 03:19:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1643249066;
+	s=mimecast20190719; t=1643249971;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=pQvPH+ZmfZDeqme2i8dDcxZGGeaAHfz8CHW6zFq3MI8=;
-	b=TduptSQ62mU/zpNpkKpv2lPXB6D40ZEcTc9B/qCJGkeDrh9NIrfQZqjkgEsuUxEpYF73oc
-	GdC8mu6sf8lJpSksqqDgJD22xPY6j/Hub2yaHfXCh8vlp7vHp/FFzFfn84b6OghmH/SvEa
-	bQ1/t1kVaCoLHkFVRn0qaALTlXaRecY=
+	bh=ux6YDaWPGxogk9vu6W1Tnjhuu3k4BtqZpGZWfnjqcUY=;
+	b=br7rhyiKz3tvTQ5MdSbbwLJ9OaIej0n2zoJv243sCMO9RJi9vQw/BZy/wEQSerU7kp156V
+	f5EzICgySiogaUfaeQwITqTZDWQg1qnY4QXea8JN4jYdLiaj2+mtHW1poEo0DMHUhYWMtS
+	xCsubB9CNQTtjiIXjNOOnuFzTV2qw/s=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-591-L0Igh13uMG6QeLiDFtZx-g-1; Wed, 26 Jan 2022 21:04:23 -0500
-X-MC-Unique: L0Igh13uMG6QeLiDFtZx-g-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-35-rxTeyNFnPMOm2ySe-SN53Q-1; Wed, 26 Jan 2022 21:19:27 -0500
+X-MC-Unique: rxTeyNFnPMOm2ySe-SN53Q-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 0E1811006AA0;
-	Thu, 27 Jan 2022 02:04:19 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 21CF91083F61;
+	Thu, 27 Jan 2022 02:19:24 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 45FDB519B9;
-	Thu, 27 Jan 2022 02:04:18 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 56462101F6CF;
+	Thu, 27 Jan 2022 02:19:23 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 068851809CB8;
-	Thu, 27 Jan 2022 02:04:17 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5143C1809CB8;
+	Thu, 27 Jan 2022 02:19:22 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20R24Co5013087 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 26 Jan 2022 21:04:12 -0500
+	id 20R2JGJQ014715 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 26 Jan 2022 21:19:16 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 031972180157; Thu, 27 Jan 2022 02:04:12 +0000 (UTC)
+	id 016CB112133E; Thu, 27 Jan 2022 02:19:16 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F2E32218013F
-	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:04:08 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id F15841121319
+	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:19:12 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8B6F81C05158
-	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:04:08 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7D0911C05EA1
+	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:19:12 +0000 (UTC)
 Received: from server2.shellworld.net (server2.shellworld.net
 	[66.172.12.120]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-186-b-ll1BjKNmaZyrdtksQBpA-1; Wed, 26 Jan 2022 21:04:06 -0500
-X-MC-Unique: b-ll1BjKNmaZyrdtksQBpA-1
+	us-mta-671-BfcaHdM6MB6BHJ2Riwg4qw-1; Wed, 26 Jan 2022 21:19:10 -0500
+X-MC-Unique: BfcaHdM6MB6BHJ2Riwg4qw-1
 Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id 180B1620237; Thu, 27 Jan 2022 02:04:05 +0000 (UTC)
+	id 85B38620279; Thu, 27 Jan 2022 02:19:09 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id 17249620223
-	for <blinux-list@redhat.com>; Wed, 26 Jan 2022 21:04:05 -0500 (EST)
-Date: Wed, 26 Jan 2022 21:04:05 -0500 (EST)
+	by server2.shellworld.net (Postfix) with ESMTP id 84E8E62021E
+	for <blinux-list@redhat.com>; Wed, 26 Jan 2022 21:19:09 -0500 (EST)
+Date: Wed, 26 Jan 2022 21:19:09 -0500 (EST)
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Converting text to mp3
+Subject: Why do you use Linux? expanded from  Converting text to mp3
 In-Reply-To: <YfH3P14/As9FjG9P@panix.com>
-Message-ID: <Pine.LNX.4.64.2201262103140.2112985@server2.shellworld.net>
+Message-ID: <Pine.LNX.4.64.2201262104141.2112985@server2.shellworld.net>
 References: <cf56de9a-9035-bbe0-ef8c-1e9e6468e8c@hubert-humphrey.com>
 	<Pine.LNX.4.64.2201261620360.2109039@server2.shellworld.net>
 	<571c96f3-44ae-eba3-bff9-39d1449e61d3@hubert-humphrey.com>
@@ -84,7 +85,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -101,7 +102,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -109,8 +110,31 @@ X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I am going to change the subject line  so the person seeking their 
-solution need not have their thread hijacked.
+Okay  then,
+This illustrates another point which got touched  on in a different thread 
+as well.
+The, you must be prepared to do programming if you are going to use Linux 
+fluidly, if at all.
+On an entirely different list I am on, folks were complaining about 
+windows 10 and windows 11, because of the changes.
+Computers are increasingly such critical parts of our lives, banking 
+shopping, even voting, that many on the list spoke of just wanting to sit 
+down at their computer and have things work...so they still use older 
+editions of things like Windows  XP?  and Windows  7.
+I admit that is part of why the out of the box concept discussed here where 
+Access is concerned seems a bit, speaking personally, like a 
+misconception.
+Few on the list I referenced above are using adaptive tools, and some of 
+them are scientists, with many not wanting configuring to be a part of 
+their computer lives.
+  So, why do you use Linux?
+what makes it worth the time the training and the trial  / error?
+Oh, and is it your only operating system?
+Want to ask the latter because I know someone who indeed uses Linux 
+exclusively, vowing never to touch windows again.
+Please feel free to express in detail, never mind my personal situation, 
+because the journalist in me is interested as well.
+Karen
 
 
 
