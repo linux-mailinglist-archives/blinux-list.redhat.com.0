@@ -1,71 +1,86 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 19E2449D7F2
-	for <lists+blinux-list@lfdr.de>; Thu, 27 Jan 2022 03:19:32 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8049549D822
+	for <lists+blinux-list@lfdr.de>; Thu, 27 Jan 2022 03:40:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1643249971;
+	s=mimecast20190719; t=1643251249;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ux6YDaWPGxogk9vu6W1Tnjhuu3k4BtqZpGZWfnjqcUY=;
-	b=br7rhyiKz3tvTQ5MdSbbwLJ9OaIej0n2zoJv243sCMO9RJi9vQw/BZy/wEQSerU7kp156V
-	f5EzICgySiogaUfaeQwITqTZDWQg1qnY4QXea8JN4jYdLiaj2+mtHW1poEo0DMHUhYWMtS
-	xCsubB9CNQTtjiIXjNOOnuFzTV2qw/s=
+	bh=PYRoU0sTIy4Miq6Mn32uvu3jcJrpgI/LIjtSYain8J4=;
+	b=SI18YoGYXjaBdNVdvFTmJxmmHx2tCfIR8sGewe70iKJ0Hi2wM8M9ksx2YxsXbJVQ52H6S3
+	C8CThrqarKvgU54szuwKNKtjnT0qV2Q2FIvB1QxPx9Jge0qcb5X2mXuIuxEqVsA0TVjzj7
+	JV8zjn1Lq9kWJw2I3o5gpEr0+4VxHu4=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-35-rxTeyNFnPMOm2ySe-SN53Q-1; Wed, 26 Jan 2022 21:19:27 -0500
-X-MC-Unique: rxTeyNFnPMOm2ySe-SN53Q-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-336-OnOyge5WNyGsOejfAYpHcg-1; Wed, 26 Jan 2022 21:40:45 -0500
+X-MC-Unique: OnOyge5WNyGsOejfAYpHcg-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 21CF91083F61;
-	Thu, 27 Jan 2022 02:19:24 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9A79D1083F62;
+	Thu, 27 Jan 2022 02:40:41 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 56462101F6CF;
-	Thu, 27 Jan 2022 02:19:23 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 087E45FC22;
+	Thu, 27 Jan 2022 02:40:37 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5143C1809CB8;
-	Thu, 27 Jan 2022 02:19:22 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 96F051809CB8;
+	Thu, 27 Jan 2022 02:40:33 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.8])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20R2JGJQ014715 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 26 Jan 2022 21:19:16 -0500
+	id 20R2dPjZ015677 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 26 Jan 2022 21:39:25 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 016CB112133E; Thu, 27 Jan 2022 02:19:16 +0000 (UTC)
+	id F3BF7C080B3; Thu, 27 Jan 2022 02:39:24 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F15841121319
-	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:19:12 +0000 (UTC)
+	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id EFD37C080B2
+	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:39:24 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7D0911C05EA1
-	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:19:12 +0000 (UTC)
-Received: from server2.shellworld.net (server2.shellworld.net
-	[66.172.12.120]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D6F32380670D
+	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 02:39:24 +0000 (UTC)
+Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com
+	[209.85.160.171]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-671-BfcaHdM6MB6BHJ2Riwg4qw-1; Wed, 26 Jan 2022 21:19:10 -0500
-X-MC-Unique: BfcaHdM6MB6BHJ2Riwg4qw-1
-Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id 85B38620279; Thu, 27 Jan 2022 02:19:09 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id 84E8E62021E
-	for <blinux-list@redhat.com>; Wed, 26 Jan 2022 21:19:09 -0500 (EST)
-Date: Wed, 26 Jan 2022 21:19:09 -0500 (EST)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Why do you use Linux? expanded from  Converting text to mp3
-In-Reply-To: <YfH3P14/As9FjG9P@panix.com>
-Message-ID: <Pine.LNX.4.64.2201262104141.2112985@server2.shellworld.net>
-References: <cf56de9a-9035-bbe0-ef8c-1e9e6468e8c@hubert-humphrey.com>
+	us-mta-418-tXFmu7SeOYOtxbbLXQNnlg-1; Wed, 26 Jan 2022 21:39:23 -0500
+X-MC-Unique: tXFmu7SeOYOtxbbLXQNnlg-1
+Received: by mail-qt1-f171.google.com with SMTP id r14so1397587qtt.5
+	for <blinux-list@redhat.com>; Wed, 26 Jan 2022 18:39:22 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+	:message-id:subject:to;
+	bh=TA0PdcOc3VgzKCs2NB/IX6/lCmzAT1drtnAdzkiIqlc=;
+	b=qbFGA+hF5v/rRkkS/1/4wJ6uA3MyPP9/QKSNZ5a43sO+wdDVX0lkobWcg8yJ6od9La
+	PLg7ZRRtCS+l+q7iTpaVReomRnTClx1+JeDQqamvkRbnsUB8oMQ686Tb9jGxJq4uyPH+
+	KLG1REFtEm76DmYt8LKfqs57xyxV5K1joTnntNPQnBeoAeMnrscGgkvS8F0b7JqN7ekD
+	WphnQHAzcKjIICA48dwrW41xIowK9jgXO0yCkxfMxRL/gxkCAbOCltG4vrjLon7YkrP0
+	vE6SIaPcHTWCKU4YLrIv6+P/nDvSdNadj0OcFAiPpsaET7/37UPJJJWvQeBT3XR0EcFh
+	tHfQ==
+X-Gm-Message-State: AOAM532I8mfZk0tC/bcy+0v2faxni8KLnkmhcLTMJt6p/MHBAqm+gcSl
+	F6EbRzJ4Y482AF7u+C+hIiWiKK2EKp2zNmL/b5wZOJ6a
+X-Google-Smtp-Source: ABdhPJyUiZ122/TfDxF4Y0ETlkqDWlaEBTD8Gq/EUVjlkEkuM5DdTIg8H7AVjC+rVIRjWYl66f4pXVj1IMTYOb4JoiE=
+X-Received: by 2002:a05:622a:47:: with SMTP id
+	y7mr1210667qtw.215.1643251162428; 
+	Wed, 26 Jan 2022 18:39:22 -0800 (PST)
+MIME-Version: 1.0
+Received: by 2002:a05:6214:e8f:0:0:0:0 with HTTP; Wed, 26 Jan 2022 18:39:21
+	-0800 (PST)
+In-Reply-To: <Pine.LNX.4.64.2201262008180.2112285@server2.shellworld.net>
+References: <20220126124056.239f2e2f@bigbox.attlocal.net>
+	<CAO2sX33vHD5OWH3gN-pQ1HThebwFCrvGUTFdXf4rTi19e2NOWQ@mail.gmail.com>
+	<cf56de9a-9035-bbe0-ef8c-1e9e6468e8c@hubert-humphrey.com>
 	<Pine.LNX.4.64.2201261620360.2109039@server2.shellworld.net>
 	<571c96f3-44ae-eba3-bff9-39d1449e61d3@hubert-humphrey.com>
 	<Pine.LNX.4.64.2201261646080.2109442@server2.shellworld.net>
@@ -75,8 +90,10 @@ References: <cf56de9a-9035-bbe0-ef8c-1e9e6468e8c@hubert-humphrey.com>
 	<Pine.LNX.4.64.2201261947360.2111580@server2.shellworld.net>
 	<YfHvt+4aziezYwjx@panix.com>
 	<Pine.LNX.4.64.2201262008180.2112285@server2.shellworld.net>
-	<YfH3P14/As9FjG9P@panix.com>
-MIME-Version: 1.0
+Date: Thu, 27 Jan 2022 02:39:21 +0000
+Message-ID: <CAO2sX319aHogPMLp3gF10-H2sQBrH9Qgx=Nf=05ZKBAQJyumGQ@mail.gmail.com>
+Subject: Re: Converting text to mp3
+To: blinux-list@redhat.com
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -85,7 +102,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -102,189 +119,43 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Okay  then,
-This illustrates another point which got touched  on in a different thread 
-as well.
-The, you must be prepared to do programming if you are going to use Linux 
-fluidly, if at all.
-On an entirely different list I am on, folks were complaining about 
-windows 10 and windows 11, because of the changes.
-Computers are increasingly such critical parts of our lives, banking 
-shopping, even voting, that many on the list spoke of just wanting to sit 
-down at their computer and have things work...so they still use older 
-editions of things like Windows  XP?  and Windows  7.
-I admit that is part of why the out of the box concept discussed here where 
-Access is concerned seems a bit, speaking personally, like a 
-misconception.
-Few on the list I referenced above are using adaptive tools, and some of 
-them are scientists, with many not wanting configuring to be a part of 
-their computer lives.
-  So, why do you use Linux?
-what makes it worth the time the training and the trial  / error?
-Oh, and is it your only operating system?
-Want to ask the latter because I know someone who indeed uses Linux 
-exclusively, vowing never to touch windows again.
-Please feel free to express in detail, never mind my personal situation, 
-because the journalist in me is interested as well.
-Karen
+I don't know how any speech synth, be it hardware or software works at
+the nuts-and-bolts level, but I suspect the people who make the
+DeckTalk synths have put more effort into ensuring their devices work
+with Windows than they have for Linux and wouldn't be surprised if
+they've never published any documentation that would assist with
+building a deckTalk speech dispatcher module or whatever would be
+needed to get them working with Orca. There's hardware far more
+mainstream than hardware speech synths that have shoddy or
+non-existent Linux support because the hardware vendor gave Linux
+users no choice but reverse engineer how to talk with their devices.
 
+And even if the decktalks are fully documented and it's just a matter
+of someone with the right skills writing the needed bit of code, there
+aren't that many people working on Linux accessibility, and I get the
+impression people using hardware synths are a small percentage of an
+already small demographic, so it isn't surprising that no one has made
+supporting hardware synths a priority. Orca has only a single active
+developer, best I can tell, Debian's Accessibility Team is one person,
+the Slint distribution is maintained by one person, Vinux collapsed
+due to lack of manpower, and those are just the examples I can name
+off top of my head. I don't pay attention to what's going on over in
+Windows land, but I would be surprised if NVDA doesn't eclipse Orca in
+number of developer hours that go into it just by virtue of Window's
+larger user base, and for all I know, the people behind JAWS might
+have someone they pay just to maintain hardware synth support.
 
-
-On Wed, 26 Jan 2022, Linux for blind general discussion wrote:
-
-> Fair point.
->
-> As regards the keyboard, I agree with the main keyboard philosophy, and
-> in fact speakup does allow you to customize it to use the main keyboard instead of the
-> keypad. However, it took me a while to customize it to my liking and
-> required quite a bit of study and generating of personal keymaps, so
-> might not be of any interest to those who aren't comfortable making
-> some low level modifications.
->
-> On Wed, Jan 26, 2022 at 08:16:08PM -0500, Linux for blind general discussion wrote:
->> Which may illustrate my point.
->> I can use those without changing what I have now.
->> Speaking personally if Linux does not provide equal access to both hardware
->> and  software speech, in both its command line and graphical platforms, I am
->> unsure  just where the advantage is for me personally.
->> One thing I personally disliked with speakup, at least the times I tried it
->> years back was the need to remove my hands from the keyboard for many
->> things.
->> That may not hold true all the way around, but I am a solid typist and do
->> not like having to remove may hands, say use the number pad, if I want as I
->> work content.
->> That is me though, which is one magical thing about personal computers.
->> everyone brings their desires and usage goals to their machines.
->> Which to my mind again personally means Linux should, if it actually can, be
->> flexible enough for all choices to work in it command line and graphical.
->> Karen
->>
->>
->>
->> On Wed, 26 Jan 2022, Linux for blind general discussion wrote:
->>
->>> I don't use Firefox. I use a text based browser, either lynx, w3m, or links (the chain) depending.
->>>
->>> On Wed, Jan 26, 2022 at 07:48:42PM -0500, Linux for blind general discussion wrote:
->>>> Rudy,
->>>> As an example, may I ask what edition  of  Firefox you are running with that
->>>> dectalk Express?
->>>> Karen
->>>>
->>>>
->>>>
->>>> On Wed, 26 Jan 2022, Linux for blind general discussion wrote:
->>>>
->>>>> Karen,
->>>>> I use Linux speakup with a Dectalk express speech synthesizer. And I believe speakup also handles the
->>>>> slot card version of dectalk though you'll need a desktop PC that supports it, so the software is there.
->>>>>
->>>>>
->>>>> Rudy
->>>>>
->>>>> On Wed, Jan 26, 2022 at 05:22:35PM -0500, Linux for blind general discussion wrote:
->>>>>> Kyle,
->>>>>> i do not consider my hardware decktalk provided via my reading edge to be an
->>>>>> example of text to speech.
->>>>>> By definition, and there are many, the term, which refers to taking
->>>>>> information in text format  and  rendering it aloud does not, speaking
->>>>>> personally,  equal pronunciation ease.
->>>>>> In fact one theory about this has to do with preserving the audiobook
->>>>>> market.
->>>>>> granted, as  was pointed out in a thread some time ago, I am not likely to
->>>>>> learn about Linux screen readers, no driver exists for my hardware speech,
->>>>>> and software synthesizer sources  currently do a number on my brain.
->>>>>> Karen
->>>>>>
->>>>>>
->>>>>>
->>>>>> On Wed, 26 Jan 2022, Linux for blind general discussion wrote:
->>>>>>
->>>>>>> That being said, the audiophile in me cannot resist pointing out that
->>>>>>> pronunciation abilities of tts are of far less quality than those
->>>>>>> provided by many actual screen readers, at least the ones I have
->>>>>>> used...which???? does not include any for Linux.
->>>>>>>
->>>>>>>
->>>>>>> That being said, the technofile in me cannot resist pointing out the
->>>>>>> fact that every screen reader for every OS uses nothing but TTS
->>>>>>> technology to read the screen. Well, I guess BeMyEyes doesn't, but it's
->>>>>>> not exactly a screen reader, unless you need the volunteer to read a
->>>>>>> screen for you.
->>>>>>>
->>>>>>> ~ Kyle
->>>>>>>
->>>>>>> _______________________________________________
->>>>>>> Blinux-list mailing list
->>>>>>> Blinux-list@redhat.com
->>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>>>
->>>>>
->>>>>> _______________________________________________
->>>>>> Blinux-list mailing list
->>>>>> Blinux-list@redhat.com
->>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>
->>>>>
->>>>> --
->>>>> Rudy Vener
->>>>> Website: http://www.rudyvener.com
->>>>> Twitter: https://twitter.com/RudySalt
->>>>> The difference between truth and falsehood is that truth remains constant no matter which political party holds the majority.
->>>>>  - A. R. Vener
->>>>>
->>>>> _______________________________________________
->>>>> Blinux-list mailing list
->>>>> Blinux-list@redhat.com
->>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>
->>>>>
->>>>
->>>> _______________________________________________
->>>> Blinux-list mailing list
->>>> Blinux-list@redhat.com
->>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>
->>> --
->>> Rudy Vener
->>> Website: http://www.rudyvener.com
->>> Twitter: https://twitter.com/RudySalt
->>> The difference between truth and falsehood is that truth remains constant no matter which political party holds the majority.
->>>  - A. R. Vener
->>>
->>> _______________________________________________
->>> Blinux-list mailing list
->>> Blinux-list@redhat.com
->>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>
->>>
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->
-> -- 
-> Rudy Vener
-> Website: http://www.rudyvener.com
-> Twitter: https://twitter.com/RudySalt
-> The difference between truth and falsehood is that truth remains constant no matter which political party holds the majority.
->  - A. R. Vener
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+Admittedly, a missing feature really sucks for those who need it most,
+but there's not much that can be done if there isn't someone with the
+time, capability, and willingness to implement it.
 
 _______________________________________________
 Blinux-list mailing list
