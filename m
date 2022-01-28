@@ -1,101 +1,72 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7D5B949F2BC
-	for <lists+blinux-list@lfdr.de>; Fri, 28 Jan 2022 06:05:03 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id A0CCF49F632
+	for <lists+blinux-list@lfdr.de>; Fri, 28 Jan 2022 10:23:01 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1643346302;
+	s=mimecast20190719; t=1643361780;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=T1Y71XNfUVqXq693jkyf5ELQmMaa+RIEmQMOiZit1sY=;
-	b=dE0xBj7vzJq/2SK6GjZSpcnhGqlcMPYkJ5Av6X6p6Wu0bm6afMq0/1J2kDH0e+YSbIPdPb
-	4MUozar26BjnUTO+O6ASWw9pHkSwK6onyEeuIDUarQdRQTRryfSLWtg7Bs7QL1FMjc+Uzq
-	Hx8jwL6p3sVDTdmXHoj2A8cGIj2cbXE=
+	bh=mHzjVwuXyhngiO8HT/EjgmYYKOdub1vjcNyQZuX4UI4=;
+	b=WXSnLmupbiV/rKpFRi4gUaHR+gWoLlMqhsjGaJ4Yqtf4XDQJ0o8drd7m0xYzOun49Ym7Sk
+	W162h1mrnqLh9wT8ZgJDVAx7Q8KPGfT01OztCU++bSNY2bvOUulvq6+K3mrVPmW0JiEO+V
+	2dyI2ARDLJy4tGoTIR4c5QmX6g/EiGc=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-587-YWAF5-P1NTOASs2X2ZEjxg-1; Fri, 28 Jan 2022 00:04:59 -0500
-X-MC-Unique: YWAF5-P1NTOASs2X2ZEjxg-1
+ us-mta-228-jOdL7-JPPu6FhkUElMF7Nw-1; Fri, 28 Jan 2022 04:22:56 -0500
+X-MC-Unique: jOdL7-JPPu6FhkUElMF7Nw-1
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1229F2F25;
-	Fri, 28 Jan 2022 05:04:55 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A6B2F108A6;
-	Fri, 28 Jan 2022 05:04:51 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7B0FC1083F66;
+	Fri, 28 Jan 2022 09:22:52 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 936771F2F8;
+	Fri, 28 Jan 2022 09:22:50 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 8E6441809C87;
-	Fri, 28 Jan 2022 05:04:44 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.2])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1A3824BB7C;
+	Fri, 28 Jan 2022 09:22:43 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20S54aPM012460 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 28 Jan 2022 00:04:36 -0500
+	id 20S9MZE0030098 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 28 Jan 2022 04:22:36 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 7403140885B2; Fri, 28 Jan 2022 05:04:36 +0000 (UTC)
+	id DDFAD2166BB1; Fri, 28 Jan 2022 09:22:35 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7010A40885BA
-	for <blinux-list@redhat.com>; Fri, 28 Jan 2022 05:04:36 +0000 (UTC)
+	(mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D953B2166BA4
+	for <blinux-list@redhat.com>; Fri, 28 Jan 2022 09:22:31 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5801980B712
-	for <blinux-list@redhat.com>; Fri, 28 Jan 2022 05:04:36 +0000 (UTC)
-Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com
-	[209.85.222.178]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-426-vyuVkhm2N6urcybt49-tuQ-1; Fri, 28 Jan 2022 00:04:33 -0500
-X-MC-Unique: vyuVkhm2N6urcybt49-tuQ-1
-Received: by mail-qk1-f178.google.com with SMTP id q5so4666358qkc.1
-	for <blinux-list@redhat.com>; Thu, 27 Jan 2022 21:04:33 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=smEuHrLGAaXtDnx8b8znX/VwKxWjdJwEDfD/rT5RijE=;
-	b=DcPDPnEwclZeXtWg4CFIIvzxqe0VPzmnha3+RcGr4clu1fyyK8khQiaC1NiAOqiDml
-	0vNXkxqu9v23lzTmjU9kUicuwxuZxjKBiB3mKC+vQVLnGpcX/sbatEnywCjm5Ab6CQyR
-	44MbS82M6clpB17saYIhQMlZrXkwLfrrLI6K75O7R9ZiEzprbkirTAsV67MfCdX04+DD
-	fL+a85UCRxhua77m2FmM42hMt8t1ZKHKO0jQmVNNyziZCtzg2xINABv0kWGhiTHud/C3
-	d8/1YmriOwm6/NKcCL7rUhUarCd7P25YsOGn5ytR9EZBJiOy+w/kZsnkRdSub3uzf1vE
-	PfnA==
-X-Gm-Message-State: AOAM530V7qQ6qJpS8N248UyHVWCMJn301qL3xZaNMJbfcszM3n1xKjmc
-	rhrkSO4ffvhF5EJMDsIZiJDO0uwAOnd2gLwQuP3DKrmx
-X-Google-Smtp-Source: ABdhPJwujM0lGAVFlQFEuRXi8Wze7EHkwRpNl3mvsk/hgXoKaKaYf568ODASVHty4G6vi+DmZvIu7LXoPFRutYJPhio=
-X-Received: by 2002:a05:620a:4f3:: with SMTP id
-	b19mr4735407qkh.387.1643346272785; 
-	Thu, 27 Jan 2022 21:04:32 -0800 (PST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E33053C13DB9
+	for <blinux-list@redhat.com>; Fri, 28 Jan 2022 09:22:30 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-403-J7aLLVR0Mi-mejGTWDglhA-1;
+	Fri, 28 Jan 2022 04:22:27 -0500
+X-MC-Unique: J7aLLVR0Mi-mejGTWDglhA-1
+Received: from [192.168.1.37] (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
+	[176.172.247.100])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 98D70246AE
+	for <blinux-list@redhat.com>; Fri, 28 Jan 2022 09:22:20 +0100 (CET)
+Message-ID: <cbe48dfc-be66-5392-ac0a-fae46aa017ae@slint.fr>
+Date: Fri, 28 Jan 2022 10:22:22 +0100
 MIME-Version: 1.0
-Received: by 2002:a05:6214:e8f:0:0:0:0 with HTTP; Thu, 27 Jan 2022 21:04:32
-	-0800 (PST)
-In-Reply-To: <CABKqQvF12fg-iDHTjQ3nhXNUfJ=zpfWC7qT7ahVQsMfMhqz7zQ@mail.gmail.com>
-References: <571c96f3-44ae-eba3-bff9-39d1449e61d3@hubert-humphrey.com>
-	<Pine.LNX.4.64.2201261646080.2109442@server2.shellworld.net>
-	<cfcd28b0-26c2-77b8-fca9-b8a99955c092@gmail.com>
-	<Pine.LNX.4.64.2201261716150.2109950@server2.shellworld.net>
-	<YfHMypPcZ5/yJq+k@panix.com>
-	<Pine.LNX.4.64.2201261947360.2111580@server2.shellworld.net>
-	<YfHvt+4aziezYwjx@panix.com>
-	<Pine.LNX.4.64.2201262008180.2112285@server2.shellworld.net>
-	<YfH3P14/As9FjG9P@panix.com>
-	<Pine.LNX.4.64.2201262104141.2112985@server2.shellworld.net>
-	<YfIP1c5bihD/wxmY@panix.com>
-	<CABKqQvF2jRBAb=Rw9MzgCq-U_0r7rGNA1uqTodcrxKuTGYorrQ@mail.gmail.com>
-	<CAPo=n-9UfJA2kW-Lc32Uy6X3Q+vU6TMHkz3GH+R2Y8bfmBFSeQ@mail.gmail.com>
-	<CABKqQvF12fg-iDHTjQ3nhXNUfJ=zpfWC7qT7ahVQsMfMhqz7zQ@mail.gmail.com>
-Date: Fri, 28 Jan 2022 05:04:32 +0000
-Message-ID: <CAO2sX323VuKngdShose_k6H_y6eR_Mu67jKu5y15cB4KpmvDtg@mail.gmail.com>
-Subject: Re: Why do you use Linux? expanded from Converting text to mp3
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.5.1
+Subject: Re: Slint install problem
 To: blinux-list@redhat.com
+References: <295A066D-05BF-4695-972E-E91261CDBFAB@icloud.com>
+In-Reply-To: <295A066D-05BF-4695-972E-E91261CDBFAB@icloud.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -104,7 +75,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 20S9MZE0030098
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -126,34 +99,48 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-I've never had issue with the default speech rate in Orca and for some
-reason, Orca+Spacebar refuses to bring up Orca's settings on my
-system, so I can't check, but two things that come to mind:
-
-1. are you sure 100% is the maximum for whatever setting you changed
-in Orca's settings? Because, in the context of speech rate, it would
-be logical for 100% to be the default, not the maximum and that you
-should be able to crank it up to more than 100% of the default rate.
-
-2. Did you restart Orca, your xsession, or your computer after
-changing the config files? Programs often only read relevant config
-files when launched, so editing config files directly instead of using
-the program's internal settings screen often only takes effect after
-restarting the program in question, though it can sometimes take a
-reboot to get the altered config up and running. If I'm not mistaken,
-bringing up a run dialog(alt+F2 on most graphical setups) and
-executing
-
-orca --replace
-
-will restart Orca, though I'm not sure if restarting Orca will be
-enough for an altered espeak-ng configuration to take effect.
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGkgUm9iCgpEaWRpZXIsIFNsaW50IG1haW50YWluZXIgaGVyZS4KCkEgZmV3IHF1ZXN0aW9ucyBi
+ZWxvdzoKMS4gRGlkIHlvdSBjaGVjayB0aGUgaW50ZWdyaXR5IG9mIHRoZSBJU08gYWZ0ZXIgaGF2
+aW5nIGRvd25sb2FkZWQgaXQ/CkZvciB0aGlzIHlvdSBuZWVkIHRvIGRvd25sb2FkIGJvdGggdGhl
+IElTTyBhbmQgdGhlIGNoZWNrc3VtOgp3Z2V0IGh0dHBzOi8vc2xhY2t3YXJlLnVrL3NsaW50L3g4
+Nl82NC9zbGludC0xNC4yLjEvaXNvL3NsaW50NjQtMTQuMi4xLjQuaXNvCndnZXQKaHR0cHM6Ly9z
+bGFja3dhcmUudWsvc2xpbnQveDg2XzY0L3NsaW50LTE0LjIuMS9pc28vc2xpbnQ2NC0xNC4yLjEu
+NC5pc28uc2hhMjU2L2lzby9zbGludDY0LTE0LjIuMS40Lmlzby5zaGEyNTYKVGhlbiB0aGlzIGNv
+bW1hbmQ6CnNoYTI1NnN1bSBzbGludDY0LTE0LjIuMS40Lmlzby5zaGEyNTYKc2hvdWxkIGdpdmUg
+dGhpcyBvdXRwdXQ6Ck9LCmVsc2UsIHJlZG8gdGhlIGRvd253bG9hZHMuCjIuIFdoaWNoIHZpdHJ1
+YWxpemF0aW9uIHNvZnR3YXJlIGFyZSB5b3UgdXNpbmc/CndydCBzb3VuZCBhbmQgc3BlZWNoLCB0
+aGUgYmVzdCBpcyBieSBmYXIgUWVtdSwgd2hpY2ggaXMgYXZhaWxhYmxlIGZvciBNYWNPUzoKaHR0
+cHM6Ly93d3cucWVtdS5vcmcvZG93bmxvYWQvI21hY29zCkhvd2V2ZXIgSSBjYW4ndCB0ZXN0LCBh
+cyBJIGRvIG5vdCBvd24gYSBNYWMuCjMuIFdoZW4gYXNrZWQgaWYgeW91IHdhbnRlZCB0byBoYXZl
+IHNwZWVjaCBkdXJpbmcgaW5zdGFsbGF0aW9uLCBkaWQgeW91IHByZXNzCiJTIiBhcyBzdWdnZXN0
+ZWQ/IEVsc2UgeW91IHdpbGwgaGF2ZSBubyBzcGVlY2ggZ29pbmcgZnVydGhlci4KCk90aGVyIHRo
+YXQgdGhhdCwgdHdvIHRpcHMgaWYgeW91IGxvb3NlIHNwZWVjaCBkdXJpbmcgaW5zdGFsbGF0aW9u
+CiAoYWx0aG91Z2ggdGhpcyBzaG91bGQgbm90IGhhcHBlbik6CmEuIHByZXNzIHRoZSBrZXkgUHJp
+bnRTY3JlZW4gd2hpY2ggdG9nZ2xlcyBlc3BlYWt1cCBvbi9vZmYKYi4gZ28gdG8gYW5vdGhlciBj
+b25zb2xlIHByZXNzaW5nIEFsdCtGMiwgdGhlIHByZXNzIEVudGVyIHRvIGFjdGl2YXRlIGl0LCB0
+aGVuIHR5cGU6Ci9ldGMvcmMuZC9yYy5lc3BlYWt1cCByZXN0YXJ0CnRoZW4gZ28gYmFjayB0byB0
+aGUgaW5zdGFsbGVyIHByZXNzaW5nIEFsdCtGMQoKQWxsIHRoaXMgYmVpbmcgc2FpZCB5b3Ugd2ls
+bCBiZSB3YXkgYmV0dGVyIG9mZiBpbnN0YWxsaW5nIG9uIGEgcmVtb3ZhYmxlIGRyaXZlCnRoYW4g
+aW4gYSBWTS4gVGhpcyBjYW4gYmUgYW4gVVNCIGNvbm5lY3RlZCBTU0QsIGhhcmQgZGlzaywgb3Ig
+ZXZlbiBhbiBVU0Igc3RpY2ssCnBvc3NpYmx5IGVuY2xvc2luZyBhbiBTRCBjYXJkLCBvciBhbiBT
+RCBjYXJkIGRpcmVjdGx5IGNvbm5lY3RlZCB0byB0aGUgbWFpbgpib2FyZCAoYnVyIGNhdmVhdDsg
+bm90IGFsbCBmaXJtd2FyZSBhbGxvdyB0byBib290IGZyb20gYSBTRCBjYXJkIGlmIG5vdCBpbiBh
+bgpVU0IgZW5jbG9zdXJlKS4gQWxsIHRoZXNlIHNvbHV0aW9ucyBhbGxvdyBkdWFsIGJvb3Rpbmcg
+d2l0aCB5b3VyIGV4aXN0aW5nCnN5c3RlbSwgd2hpY2ggd2lsbCBzdGF5IHVudG91Y2hlZC4KCkNo
+ZWVycywKRGlkaWVyCgoKTGUgMjgvMDEvMjAyMiDDoCAwNDoxNSwgTGludXggZm9yIGJsaW5kIGdl
+bmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3JpdMKgOgo+IFRyeWluZyB0byBpbnN0YWxsIFNsaW50IG9u
+IGEgVk0uCj4gSSBnZXQgc3BlZWNoIHVwIHVudGlsIEkgY2hvb3NlIGF1dG8gc2V0dXAuCj4gQXMg
+SSB0eXBlIHRoZSB3b3JkIGF1dG8sIHRoZSBsZXR0ZXIgQSBpcyBlY2hvZWQsIGJ1dCB0aGUgdSB0
+IG8gYW5kIHRoZSBlbnRlciBrZXkgaXMgbm90LiBUaGVyZSBpcyBubyBtb3JlIHNwZWVjaCBhZnRl
+ciB0aGF0Lgo+IFRoYW5rcywKPiBSb2IKPiAKPiAKPiBfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51
+eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xp
+c3RpbmZvL2JsaW51eC1saXN0Cj4gCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhh
+dC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgt
+bGlzdA==
 
