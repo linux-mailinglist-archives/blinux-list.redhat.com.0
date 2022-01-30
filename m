@@ -2,95 +2,74 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id D985A4A33A5
-	for <lists+blinux-list@lfdr.de>; Sun, 30 Jan 2022 05:10:17 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A59EE4A33AF
+	for <lists+blinux-list@lfdr.de>; Sun, 30 Jan 2022 05:27:52 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1643515816;
+	s=mimecast20190719; t=1643516871;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=NTwWv0ZuJLZ+Ss46dhXM1sIrUo6r3c7ETRhzQAr+g5c=;
-	b=BzgSyUZAUBxV/a4jd3U0NMiuDwUVeRHB1F65hrzh8+Cv0puscjrmD0FYInUDgG29xgWKKK
-	wux+Es0Hvt6MnJQv6PJak4F7sgGMEKEk2Mf2o/L93MuDBpvu9/JFWVo9WQ3SRhCGayIlRp
-	WSDcJb4Nh8vWauMLPDG9bTypJRjV3hs=
+	bh=c8gEkT5BhOuurOy4cKOTfhBK2s/v+s0hle7v+nOzv10=;
+	b=ClFQCsXOkUeQdcuVN8gqY8t6Epe9giWANRwg21K8mrsbPWGWddJ/uve3wJ+sai51fJ6n7F
+	GBmY6tK5lYXHHbv50CRAiNaPaQnAEg2pVaab9ibDTrMeU4Oga+mvKaoV15YEKirg9J17Na
+	67CUY1Mbur4iL7Ci7NsIy83pnO38gXU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-335-jt-5dYvyPFmMmKKY4RQI5w-1; Sat, 29 Jan 2022 23:10:13 -0500
-X-MC-Unique: jt-5dYvyPFmMmKKY4RQI5w-1
+ us-mta-447-lwSp4OSfMpazxCThDDJV7g-1; Sat, 29 Jan 2022 23:27:48 -0500
+X-MC-Unique: lwSp4OSfMpazxCThDDJV7g-1
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 291D91006AA5;
-	Sun, 30 Jan 2022 04:10:09 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D85DD1006AA4;
+	Sun, 30 Jan 2022 04:27:43 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0F8EE5ED27;
-	Sun, 30 Jan 2022 04:10:09 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 892715E27A;
+	Sun, 30 Jan 2022 04:27:43 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id DB5AD4CA93;
-	Sun, 30 Jan 2022 04:10:08 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.10])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 770CE4BB7C;
+	Sun, 30 Jan 2022 04:27:42 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.8])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 20U4A6hr000690 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 29 Jan 2022 23:10:06 -0500
+	id 20U4RbIW002682 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 29 Jan 2022 23:27:37 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 38DDB401E68; Sun, 30 Jan 2022 04:10:06 +0000 (UTC)
+	id 10226C0809B; Sun, 30 Jan 2022 04:27:37 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 34ABD401E54
-	for <blinux-list@redhat.com>; Sun, 30 Jan 2022 04:10:06 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1B8B6101A54C
-	for <blinux-list@redhat.com>; Sun, 30 Jan 2022 04:10:06 +0000 (UTC)
-Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com
-	[209.85.219.51]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-326-AmYLl1qIObmrGqiHSByr9Q-1; Sat, 29 Jan 2022 23:10:04 -0500
-X-MC-Unique: AmYLl1qIObmrGqiHSByr9Q-1
-Received: by mail-qv1-f51.google.com with SMTP id k9so9637677qvv.9
-	for <blinux-list@redhat.com>; Sat, 29 Jan 2022 20:10:03 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-	:content-language:to:references:from:in-reply-to
-	:content-transfer-encoding;
-	bh=5fQURt87vvA1Jf7Gk4V77SG/0pDIXffaek/kCrQ+a1g=;
-	b=myaLD/Zi6ZuFq/Sqga3aevDZ1T3bgdAmioquHHGer44e1PZ01Z2veYiTFiQ5G8W2Fl
-	AowTg5LLauzJf8sZQ1wGasHFm2oxfo7Nk79lc40ykfsYNpYe+0VFq3E1ds7BqPfzWcw9
-	BhdsT1iIAE9HdMEoje1vo73Ac2sFO7KJRG7vLN/8oX2b5XD3FMXYk7bnjkkejk79i8tk
-	gjzvqvROY46AOcwThbgdTcZHAw4MPvAS2svfXg3VKrHFytESBID0c9wzlPZmhQMQJ1NR
-	rcPVLe/8VbrDBimtrk2CIY4WhVVFfvWU6kQQi232824D7srWo8v02BQ3r/O5HPCEpmiP
-	Bjrw==
-X-Gm-Message-State: AOAM533SjLc0067621IBn9iilnhtJyOPbt+jgFrRl/C/lvn8iYGH1JuL
-	9AAKYM5Fo6W8Ty4V0YgAhSlwsp+gluKYEA==
-X-Google-Smtp-Source: ABdhPJyU1HWf0s3qiYI1z9cz2zxK7v4sA//DtUsuTfbZ8v4SOsyX4LhtXC3JnQ+DsejPFwycm0BQtg==
-X-Received: by 2002:a05:6214:27e9:: with SMTP id
-	jt9mr12205895qvb.65.1643515803279; 
-	Sat, 29 Jan 2022 20:10:03 -0800 (PST)
-Received: from ?IPV6:2603:6080:6302:e002:e826:5227:4681:6e2d?
-	(2603-6080-6302-e002-e826-5227-4681-6e2d.res6.spectrum.com.
-	[2603:6080:6302:e002:e826:5227:4681:6e2d])
-	by smtp.gmail.com with ESMTPSA id
-	u16sm6396396qko.130.2022.01.29.20.10.02 for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Sat, 29 Jan 2022 20:10:03 -0800 (PST)
-Message-ID: <13bfe498-3333-d2a4-63eb-35d0cd73bbd6@gmail.com>
-Date: Sat, 29 Jan 2022 23:10:02 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.5.0
-Subject: Re: Looking for good radio software
+	(mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0C2B9C07F46
+	for <blinux-list@redhat.com>; Sun, 30 Jan 2022 04:27:37 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EA6DD1C04B4D
+	for <blinux-list@redhat.com>; Sun, 30 Jan 2022 04:27:36 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-501-icIID1ofPiqtRFdK4z0VTQ-1; Sat, 29 Jan 2022 23:27:34 -0500
+X-MC-Unique: icIID1ofPiqtRFdK4z0VTQ-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4JmdTL0639z2rpq
+	for <blinux-list@redhat.com>; Sat, 29 Jan 2022 23:27:34 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4JmdTK6Pjkzcbc; Sat, 29 Jan 2022 23:27:33 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4JmdTK641pzcbC
+	for <blinux-list@redhat.com>; Sat, 29 Jan 2022 23:27:33 -0500 (EST)
+Date: Sat, 29 Jan 2022 23:27:33 -0500
 To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Looking for good radio software
+In-Reply-To: <fb33c316-a8f2-a123-2169-257d635a9ade@gmail.com>
+Message-ID: <551c7a13-7276-386b-7af0-fb1fe9348da3@panix.com>
 References: <76ca400a-9d22-df23-7de2-82c3e3a16967@gmail.com>
-In-Reply-To: <76ca400a-9d22-df23-7de2-82c3e3a16967@gmail.com>
+	<fb33c316-a8f2-a123-2169-257d635a9ade@gmail.com>
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -99,7 +78,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -121,15 +100,32 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-OK now looking at this for myself, it seems you will need to go to 
-pandora.com to create an account, but once you have that set up, you're 
-good to go with Pithos.
+A competitor to the python package is pianobar but that's run from command
+line or terminal so far as I know.
 
-~Kyle
+
+On Sat, 29 Jan 2022, Linux for blind general discussion wrote:
+
+> One of the best ways I've found to listen to music is with a desktop
+> application called Pithos. It's a Pandora client, so you will need an account,
+> but although I already had one, I believe it allows you to set it up from
+> within the app. The added benefit of Pithos over the Pandora website is that
+> it eliminates the ads, so you get what could be considered the Pandora Plus
+> experience at no cost right from within Pithos. Just the music, and everyone
+> and everything you wanna mix together, completely free and uninterrupted.
+>
+> ~Kyle
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
+>
 
 _______________________________________________
 Blinux-list mailing list
