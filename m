@@ -2,75 +2,72 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id A565F4A681E
-	for <lists+blinux-list@lfdr.de>; Tue,  1 Feb 2022 23:41:41 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A44524A687E
+	for <lists+blinux-list@lfdr.de>; Wed,  2 Feb 2022 00:26:05 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1643755300;
+	s=mimecast20190719; t=1643757964;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=afXgFwV7lB66/c7Hamy49bQKGSKMufiEaBogbQPreaA=;
-	b=OtTzMKn6YsFHc2d5xel5RqnHP8PNOGfQ1W6ZVPR+1P/G2sowxJroEW3Jvpbm8Lz30pEuOy
-	iIC+Rh0wtfvjJdkq2E+HfGa/zaEpPpqdJRlKnUHd0tcILPK7fVtc+bbE7v8jKiKMyhdEwg
-	aqdhF7NNb5Z+20/u384pvHamQUG2xh8=
+	bh=tFatPtaQaiGudz51Alvg/biiXdotPUOuZ7CO9R/BGnM=;
+	b=O7RzfWIXYDWpW/HgrClA1BTnDLXcaJ4v7l3lOHxRbCislmbOC39nhD//nhLJCiawJrbRtB
+	1Af/novkEAD8fJ96vy0M5HH4oMixGBUbgcMjZuEh4kzpPMigNICS2ukBzoDWPdus6iEpqN
+	mM/ANw591/RTlgyHx2IyLS5zp4X9JX0=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-390-iYfYnlSbM2yiYpNkSs_GGA-1; Tue, 01 Feb 2022 17:41:36 -0500
-X-MC-Unique: iYfYnlSbM2yiYpNkSs_GGA-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-644-MkKU86sNOuqi38rBEJPDtg-1; Tue, 01 Feb 2022 18:25:21 -0500
+X-MC-Unique: MkKU86sNOuqi38rBEJPDtg-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 514221091DA0;
-	Tue,  1 Feb 2022 22:41:32 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C797B6ABBF;
-	Tue,  1 Feb 2022 22:41:29 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B240F814245;
+	Tue,  1 Feb 2022 23:25:16 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D55235DBA1;
+	Tue,  1 Feb 2022 23:25:15 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id A86A718095C9;
-	Tue,  1 Feb 2022 22:41:20 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.10])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 174544BB7C;
+	Tue,  1 Feb 2022 23:25:15 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 211MfDBN020022 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 1 Feb 2022 17:41:14 -0500
+	id 211NOIE2024249 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 1 Feb 2022 18:24:18 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id A9330401E37; Tue,  1 Feb 2022 22:41:13 +0000 (UTC)
+	id 1A0631121319; Tue,  1 Feb 2022 23:24:18 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A5736401E2A
-	for <blinux-list@redhat.com>; Tue,  1 Feb 2022 22:41:13 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 167131121318
+	for <blinux-list@redhat.com>; Tue,  1 Feb 2022 23:24:15 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9141485A5A8
-	for <blinux-list@redhat.com>; Tue,  1 Feb 2022 22:41:13 +0000 (UTC)
-Received: from bullseyemail.carmickle.com (bullseyemail.carmickle.com
-	[50.116.61.232]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F0161800B24
+	for <blinux-list@redhat.com>; Tue,  1 Feb 2022 23:24:14 +0000 (UTC)
+Received: from smtprelay02.ispgateway.de (smtprelay02.ispgateway.de
+	[80.67.18.14]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-204-oTRpX2LAPMqbZfLubvG8yw-1; Tue, 01 Feb 2022 17:41:11 -0500
-X-MC-Unique: oTRpX2LAPMqbZfLubvG8yw-1
-Received: from [192.168.116.128] (unknown [176.230.58.34])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by bullseyemail.carmickle.com (Postfix) with ESMTPSA id 339E638B11A5
-	for <blinux-list@redhat.com>; Tue,  1 Feb 2022 22:41:10 +0000 (UTC)
-Date: Wed, 2 Feb 2022 00:41:08 +0200 (IST)
-X-X-Sender: gshang@debian.work
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: SSH server authentication (was Re: Remaining DecTalk Issues in
-	Speakup?)
-In-Reply-To: <676174e9-5e3b-f5e8-9993-e8ff1810fa0@hubert-humphrey.com>
-Message-ID: <alpine.DEB.2.11.2202020036350.1960@debian.work>
-References: <bfd3d4b4-13fe-acc4-406a-87cfae17403d@hubert-humphrey.com>
-	<alpine.DEB.2.11.2202011838480.1960@debian.work>
-	<676174e9-5e3b-f5e8-9993-e8ff1810fa0@hubert-humphrey.com>
-User-Agent: Alpine 2.11 (DEB 23 2013-08-11)
-MIME-Version: 1.0
+	us-mta-442-FxIElRqBNnSOBeYHAb3pjA-1; Tue, 01 Feb 2022 18:24:13 -0500
+X-MC-Unique: FxIElRqBNnSOBeYHAb3pjA-1
+Received: from [37.4.229.93] (helo=smtpclient.apple)
+	by smtprelay02.ispgateway.de with esmtpsa (TLS1.2) tls
+	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+	(envelope-from <chrys@linux-a11y.org>) id 1nF2Uu-0000SN-BV
+	for blinux-list@redhat.com; Wed, 02 Feb 2022 00:23:40 +0100
+Mime-Version: 1.0 (1.0)
+Subject: Re: Remaining DecTalk Issues?
+Date: Wed, 2 Feb 2022 00:24:07 +0100
+Message-Id: <F366FAAA-FE98-4742-89CC-1D16580E53B3@linux-a11y.org>
+References: <6015a48-55b2-85e3-3e2e-20dcebfcd2d@hubert-humphrey.com>
+In-Reply-To: <6015a48-55b2-85e3-3e2e-20dcebfcd2d@hubert-humphrey.com>
+To: blinux-list@redhat.com
+X-Df-Sender: Y2hyeXNAbGludXgtYTExeS5vcmc=
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -79,7 +76,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 211NOIE2024249
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -96,37 +95,27 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-On Tue, 1 Feb 2022, Linux for blind general discussion wrote:
-
-> Hi Jeff: Yes its Unstable. Usually any1 here needs a dot pem file to get in.
-
-hmm OK well you may want to look at 
-/usr/share/doc/openssh-server/changelog.Debian.gz for any package changes. 
-I'm not running Syd anywhere so can't be of much help.
-
-> For some reason, even though openssh is installed, it doesn't tab-complete, 
-> so I cannot give you a version number.
-
-Firstly, openssh-server is the package name, the binary is called sshd. 
-And it's in /usr/sbin which won't be in a regular user's path.
-
-If you want to see the package version for any package, you can run:
-
-dpkg -s openssh-server
-
-HTH,
-Geoff.
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SG93ZHkgQ2hpbWUsCgpnb29kIHRvIGtub3cuICBJIHdpbGwgUE0geW91IGFib3V0IGEgY2FsbC4g
+SSBkbyBub3QgZmluZCB0aW1lLgoKWWVzLCBmZW5yaXIgc3VwcG9ydHMgc3BlZWNoLWRpc3BhdGNo
+ZXIuIFZveGluIGlzIGF2YWlsYWJsZSBmb3IgdGhhdC4KCkNoZWVycyBjaHJ5cwoKPiBBbSAwMS4w
+Mi4yMDIyIHVtIDE4OjQwIHNjaHJpZWIgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lv
+biA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT46Cj4gCj4g77u/SGkgQ2hyaXM6IEkgYW0gaW4gU291
+dGhlcm4gQ2FsaWZvcm5pYSwgUGFjaWZpYyBTdGFuZGFyZCB0aW1lLCB3aGVyZSByaWdodCBub3cg
+aXQgaXMgOTM3QU0uIEkgdHJ1c3QgRmVucmlyIGFsc28gc3VwcG9ydHMgdGhlIG5ldyBlbWJlZGRl
+ZCB2b2ljZXMgaW4gVm94aW4/IEkgdGhpbmsgR2lsbGVzLWFuZC1vdGhlcnMgaGF2ZSBzdWdnZXN0
+ZWQgRmVucmlyLiBUaGFua3MgaW4gYWR2YW5jZQo+IENoaW1lCj4gCj4gX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxp
+c3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20v
+bWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+IAoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgt
+bGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGlu
+Zm8vYmxpbnV4LWxpc3Q=
 
