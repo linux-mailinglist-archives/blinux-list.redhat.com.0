@@ -1,86 +1,94 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 99EE64AA4E5
-	for <lists+blinux-list@lfdr.de>; Sat,  5 Feb 2022 01:07:47 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 186C24AA4FE
+	for <lists+blinux-list@lfdr.de>; Sat,  5 Feb 2022 01:21:44 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644019666;
+	s=mimecast20190719; t=1644020503;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=3DR+0nqqAvj77p0VTrITFP4rPxA2hLBRpsRQ2t5wbR0=;
-	b=BBBstjS8acOSnNH9hw7UJbIqSLP4pnvPPcfsnzwLfNMklrEC/OX7AoztSAbK5jWozkam62
-	ldYGE68JMcmF5C1bs1UPHUhErLhrgykcNA702FqT3qea1hAbExyVlAk2fVGhwGW0/WyNN9
-	7j7KNxW2uefouGr9wmipGR3mAG17Ul4=
+	bh=Bj/AIWnt2fb9H4kO8eaXUtHBSnV8uQPjAiW8ir1Jbkg=;
+	b=XBkOu7RIRGnk+yNf92z9b/YETsDo/UQAbRmrAB+vY2od/NTadKxkJLq+yiFI3ErXodC6ZC
+	Ht0irEcksq01yJS1fDJvtVPUQ0BYxh5XWknljLOSiuVETuvjhisOMLmFICNhG5uRGbnyZx
+	aSBUjomDLn8Yld6Zl1MiuEP+ucbQ84s=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-617-sz84a-OMNoy6gb9w0ZyLew-1; Fri, 04 Feb 2022 19:07:43 -0500
-X-MC-Unique: sz84a-OMNoy6gb9w0ZyLew-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-656-BGuUn5EIP3-WosVflst36Q-1; Fri, 04 Feb 2022 19:21:39 -0500
+X-MC-Unique: BGuUn5EIP3-WosVflst36Q-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2B50018A0F1C;
-	Sat,  5 Feb 2022 00:07:39 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 713916C1A2;
-	Sat,  5 Feb 2022 00:07:36 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 57FA51091DA2;
+	Sat,  5 Feb 2022 00:21:36 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 905A762D51;
+	Sat,  5 Feb 2022 00:21:35 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3D3701809CB8;
-	Sat,  5 Feb 2022 00:07:28 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2392B4BB7B;
+	Sat,  5 Feb 2022 00:21:34 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 215035KJ026125 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 4 Feb 2022 19:03:05 -0500
+	id 2150HZpe027971 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 4 Feb 2022 19:17:35 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 7CE1B1120ABD; Sat,  5 Feb 2022 00:03:05 +0000 (UTC)
+	id E6DD42024CB8; Sat,  5 Feb 2022 00:17:34 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 77F1A1120AB3
-	for <blinux-list@redhat.com>; Sat,  5 Feb 2022 00:03:02 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id DF2EC2026D2F
+	for <blinux-list@redhat.com>; Sat,  5 Feb 2022 00:17:31 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4A7193802ACA
-	for <blinux-list@redhat.com>; Sat,  5 Feb 2022 00:03:02 +0000 (UTC)
-Received: from st43p00im-ztdg10061801.me.com (st43p00im-ztdg10061801.me.com
-	[17.58.63.170]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-64-yGvXAlzmNiq0gayUXotsfg-1; Fri, 04 Feb 2022 19:03:00 -0500
-X-MC-Unique: yGvXAlzmNiq0gayUXotsfg-1
-Received: from [192.168.0.39] (c-73-237-149-120.hsd1.ga.comcast.net
-	[73.237.149.120])
-	by st43p00im-ztdg10061801.me.com (Postfix) with ESMTPSA id EC61EC0501
-	for <blinux-list@redhat.com>; Sat,  5 Feb 2022 00:02:59 +0000 (UTC)
-Message-ID: <cb0030ca-3242-f314-2ded-fb385c9fb5d5@icloud.com>
-Date: Fri, 4 Feb 2022 19:02:58 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.5.0
-Subject: Re: Help with YT-DLP
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B56113C00130
+	for <blinux-list@redhat.com>; Sat,  5 Feb 2022 00:17:31 +0000 (UTC)
+Received: from wout1-smtp.messagingengine.com
+	(wout1-smtp.messagingengine.com [64.147.123.24]) by relay.mimecast.com
+	with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-22-Wdg33WZsMhab5-AHO1Muog-1; Fri, 04 Feb 2022 19:17:29 -0500
+X-MC-Unique: Wdg33WZsMhab5-AHO1Muog-1
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+	by mailout.west.internal (Postfix) with ESMTP id D61BB3201FB9
+	for <blinux-list@redhat.com>; Fri,  4 Feb 2022 19:17:28 -0500 (EST)
+Received: from mailfrontend1 ([10.202.2.162])
+	by compute4.internal (MEProxy); Fri, 04 Feb 2022 19:17:28 -0500
+X-ME-Sender: <xms:GML9YXFXV-96k8Gs345-z5RNZTuAIujyY6iGFohDW9lwRkz7Xo-saQ>
+	<xme:GML9YUXd4UIiclTthcpovFPTBLzhy06jVB3PGTTUlXSCSdtzMKNfMDqCOfyZgC7HE
+	RBFPHNbh8YTELrICmU>
+X-ME-Received: <xmr:GML9YZKM8y_dm3SzmqcelfyRxueCm6G2i6_y4fUlRlGnoKxOMzKRv8H6ibC4MR6q_tMkX0M2egiOBH3loLJOVhpQSv3W1hclDg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrhedtgddvtdcutefuodetggdotefrodftvf
+	curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+	uegrihhlohhuthemuceftddtnecunecujfgurhepfffhvffujgfkfhggtgesthdtredttd
+	dtvdenucfhrhhomhepvehhihhmvgcujfgrrhhtuceotghhihhmvgeshhhusggvrhhtqdhh
+	uhhmphhhrhgvhidrtghomheqnecuggftrfgrthhtvghrnhepffehtdfhvddvueeuieehvd
+	efffeutdegueduhffgleetledvuddugfelkeevtdevnecuvehluhhsthgvrhfuihiivgep
+	tdenucfrrghrrghmpehmrghilhhfrhhomheptghhihhmvgeshhhusggvrhhtqdhhuhhmph
+	hhrhgvhidrtghomh
+X-ME-Proxy: <xmx:GML9YVFyebK-buxr921YN6Tedm-UHh-yXAP3KHoQ7oDDVqqtGdQkzQ>
+	<xmx:GML9YdU2WvfmACjO-VVBn2SdRIs2Xe8lvoVAHGTkxulx4XVIueF7-A>
+	<xmx:GML9YQNT7yGPRH2H2KcRgIfVXbTYhpHyxKFVxL3lUI6_YQZMUMMJNQ>
+	<xmx:GML9YcCTSC0MbUILTruCj9Ap8icyQuZ8Nqic4c3MQI7NrcucUOUYUw>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA for
+	<blinux-list@redhat.com>; Fri, 4 Feb 2022 19:17:27 -0500 (EST)
+Date: Fri, 4 Feb 2022 16:17:26 -0800 (PST)
 To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Help with YT-DLP
+In-Reply-To: <cb0030ca-3242-f314-2ded-fb385c9fb5d5@icloud.com>
+Message-ID: <df4c8f1-5264-8de0-6eac-d3a11a45062@hubert-humphrey.com>
 References: <d3189fce-4aee-cb12-9498-2e19f7692ae0@icloud.com>
 	<87F1D5DF-B674-4C23-8D16-FA6F8E345415@linux-a11y.org>
 	<b6b3ae87-95f6-9e92-0d91-51da13c97572@icloud.com>
 	<20220204.224600.337.7@[192.168.1.100]>
-In-Reply-To: <20220204.224600.337.7@[192.168.1.100]>
-X-Proofpoint-Virus-Version: =?UTF-8?Q?vendor=3Dfsecure_engine=3D1.1.170-22c6f66c430a71ce266a39bfe25bc?=
-	=?UTF-8?Q?2903e8d5c8f:6.0.138, 18.0.572,
-	17.0.605.474.0000000_definitions?=
-	=?UTF-8?Q?=3D2020-02-14=5F11:2020-02-14=5F02, 2020-02-14=5F11,
-	2020-01-23?= =?UTF-8?Q?=5F02_signatures=3D0?=
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0
-	bulkscore=0 mlxscore=0
-	mlxlogscore=999 suspectscore=0 clxscore=1015 spamscore=0 malwarescore=0
-	adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
-	engine=8.12.0-2009150000 definitions=main-2202040130
+	<cb0030ca-3242-f314-2ded-fb385c9fb5d5@icloud.com>
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -89,7 +97,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -106,98 +114,21 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-OK thanks,
-
-I like this, having the link at the end is easier.
-
-Thanks,
-
-Rob
-
-
-On 2/4/22 17:46, Linux for blind general discussion wrote:
-> My usual youtube-dl line is as follows
-> yt-dlp -ciw -x --audio-format mp3 -o "%(title)s.%(ext)s" <video-link>
-> This names the file as title.mp3
-> ----- Original Message -----
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: Linux for blind general discussion <blinux-list@redhat.com>
-> Date: Fri, 4 Feb 2022 17:19:23 -0500
-> Subject: Re: Help with YT-DLP
->
->> Thank you Chrys,
-> That fixed it.
->
-> Now I need to find out how to have the video named, instead of just
-> letters and numbers.
->
-> Thanks,
->
-> Rob
->
->
-> On 2/4/22 16:57, Linux for blind general discussion wrote:
->> Howdy Rob,
->>
->> Well there is an open single tick but missing the closing one in -o parameter. So the string is not terminated.
->>
->> Cheers chrys
->>
->>> Am 04.02.2022 um 22:40 schrieb Linux for blind general discussion <blinux-list@redhat.com>:
->>>
->>> ?Hi,
->>>
->>> I am trying to use yt-dlp to convert YouTube video to mp3.
->>>
->>> I installed the latest version of yt-dlp using the info below.
->>>
->>> sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/local/bin/yt-dlp
->>>
->>> sudo chmod a+rx /usr/local/bin/yt-dlp
->>>
->>> update command
->>> yt-dlp -U
->>>
->>> When I use the below command, I get nothing but a greater than sign.
->>>
->>> yt-dlp -f 'ba' -x --audio-format mp3 https://www.youtube.com/watch?v=dQw4w9WgXcQ -o '%(id)s.mp3
->>>
->>>
->>> Thanks,
->>>
->>> Rob
->>>
->>>
->>> _______________________________________________
->>> Blinux-list mailing list
->>> Blinux-list@redhat.com
->>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
+Actually I use youtube-viewer to find items-and-have yt-dlp grab them. However, 
+I probably have `thousands of news videos with seemingly randem 
+numbers-and-letters after an actual title, just before an extention. Would love 
+to cleanup all of that. Sure I realize if I were to convert all of these to 
+straight audio, I would save alot of space. I suppose if youtube items had tags 
+similar to mp3s, this would be much easier. Thanks so much in advance
+Chime
 
 _______________________________________________
 Blinux-list mailing list
