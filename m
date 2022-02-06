@@ -2,86 +2,91 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 68E004AAD91
-	for <lists+blinux-list@lfdr.de>; Sun,  6 Feb 2022 03:57:26 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id AC8184AAFEF
+	for <lists+blinux-list@lfdr.de>; Sun,  6 Feb 2022 15:27:06 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644116245;
+	s=mimecast20190719; t=1644157625;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=HsEEmbpNhHV6p2/AlgEuC9z1quAGAPNHHjvv6XWxZOo=;
-	b=RoDd/Dbbyk0PRP/UGKyv7koetGB3ReOLUysVwtvfbHXm1wlu1HKAtnwFXUssCGSAZjp+xs
-	j7iHb/uqdSpsCGVcsYzejUN6mokGPyO+YQP612UWkQqs/1kPpo2eYuOGwxGYXtMsKLTBCE
-	oENnw03NQQP2zBZTS4ozEpEt8BlgFuE=
+	bh=usWx/wxqQaojrT6TwHyZcA+U3FusVS6eMHCU03zgFzc=;
+	b=KbRkMnXzselB4wEHHb9dNfZ/hDTFeTZ8bOoyaDkEEJLrKWEApkhYn2cJ0lwxBn3L4MrZjP
+	5Ceqzuabr/jm+zrT4Ry2fkdIntoXzC1qQKpP2ch17BAf4FSJfsbq1d0gaxHlu7WwbAvUUh
+	2gCWXchRlC8JudgbFOKtYcgkxTA29VY=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-333-rTTOaj-ZMRCPdIzYgFHGLw-1; Sat, 05 Feb 2022 21:57:23 -0500
-X-MC-Unique: rTTOaj-ZMRCPdIzYgFHGLw-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-477-UkjxuNHKP-qbYYOBthQa_g-1; Sun, 06 Feb 2022 09:27:02 -0500
+X-MC-Unique: UkjxuNHKP-qbYYOBthQa_g-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D41D01091DA3;
-	Sun,  6 Feb 2022 02:57:19 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 4EAB61853024;
+	Sun,  6 Feb 2022 14:26:55 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B67C556F6B;
-	Sun,  6 Feb 2022 02:57:19 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A28927243E;
+	Sun,  6 Feb 2022 14:26:49 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 578AD1809CB8;
-	Sun,  6 Feb 2022 02:57:18 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 7A1401809CB8;
+	Sun,  6 Feb 2022 14:26:41 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.8])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 2162rLA3031461 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 5 Feb 2022 21:53:21 -0500
+	id 216EQUxw012178 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 6 Feb 2022 09:26:30 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 250ED776C; Sun,  6 Feb 2022 02:53:21 +0000 (UTC)
+	id 6E3EBC202CB; Sun,  6 Feb 2022 14:26:30 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2082B76CC
-	for <blinux-list@redhat.com>; Sun,  6 Feb 2022 02:53:18 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 284E81C04B57
-	for <blinux-list@redhat.com>; Sun,  6 Feb 2022 02:53:18 +0000 (UTC)
-Received: from mail-qk1-f171.google.com (mail-qk1-f171.google.com
-	[209.85.222.171]) by relay.mimecast.com with ESMTP with STARTTLS
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6A68CC202C8
+	for <blinux-list@redhat.com>; Sun,  6 Feb 2022 14:26:30 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 50BFD185A79C
+	for <blinux-list@redhat.com>; Sun,  6 Feb 2022 14:26:30 +0000 (UTC)
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com
+	[209.85.221.44]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-245-YnDgWc7UM3-AFAW5zj1D_g-1; Sat, 05 Feb 2022 21:53:16 -0500
-X-MC-Unique: YnDgWc7UM3-AFAW5zj1D_g-1
-Received: by mail-qk1-f171.google.com with SMTP id g145so8218722qke.3
-	for <blinux-list@redhat.com>; Sat, 05 Feb 2022 18:53:16 -0800 (PST)
+	us-mta-672-wJ79FX5zM1efJYa4y1Wg6Q-1; Sun, 06 Feb 2022 09:26:28 -0500
+X-MC-Unique: wJ79FX5zM1efJYa4y1Wg6Q-1
+Received: by mail-wr1-f44.google.com with SMTP id k1so3921133wrd.8
+	for <blinux-list@redhat.com>; Sun, 06 Feb 2022 06:26:28 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=XRNEiQyMEQ7p2SCKUa/nd+AjH2rrV5DbbEnRGBlICwE=;
-	b=71zSkG3BcSXy4vXvYPfA1yYNFog//XVYrBtpopqZtBzCfiJ64E0rwhHVm2QQHMJy38
-	HvIrBfQRygCcrRezHCi39TNFrxsQoQEBmIFeAExbta6uVYdSZueCqHaDrs2csCK4dhkf
-	m/ZUJBcgjB8Iee4DSaEeFbkHesr+8V41BmUaYZVBh5ChSSJqZUooF1LYcRTLzTDu8c/5
-	YYEDgMbiFLYQdWK3stKaez+8uGLWVVqJljYpmXFqGkZogM4NtKXiyUzokYZxse8c6TCE
-	E1EonrV6Bj+t81SS3FPJyi0XHL+PtceWnbkSQSGOTV5JuGjAz/YeuEkVlsADt1erq5T4
-	SA0A==
-X-Gm-Message-State: AOAM533q8qLL/jzq9mnvID3UuoI8KFQ6VTccZ7NwA1Vs3oyNwXwZx5dn
-	25szdhzNVbHyhAqzG6dLBPyzEEBVbtlqavD4tdm/O5R2
-X-Google-Smtp-Source: ABdhPJxPCeAzEzx5vJLvQdw7XMB1dnfdtEIL5pRQc806F5jSldkV1ffp3xLOPSuL037yzf/oqKIVhlcWYj08EYU5tN8=
-X-Received: by 2002:a05:620a:31a7:: with SMTP id
-	bi39mr3301462qkb.124.1644115995850; 
-	Sat, 05 Feb 2022 18:53:15 -0800 (PST)
-MIME-Version: 1.0
-Received: by 2002:a05:6214:518d:0:0:0:0 with HTTP; Sat, 5 Feb 2022 18:53:15
-	-0800 (PST)
-In-Reply-To: <9806e258-e16a-8d36-6e2f-463b9b9613f6@gmail.com>
-References: <9806e258-e16a-8d36-6e2f-463b9b9613f6@gmail.com>
-Date: Sun, 6 Feb 2022 02:53:15 +0000
-Message-ID: <CAO2sX33yfEAf+OBizwFG9iifoUNwHvUqY6EAxVsiiKAVLJCKRg@mail.gmail.com>
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
+	bh=1bFHVXGO7jvvV7l2dgmR8CucXPHyO87sZvNRM8L+CZI=;
+	b=xsIM7QG8Kpi9qYn6oVa8QUZg7lmaD2q3LCEE5A76NgrI7leBNrb3rWkLkN6deUyOOQ
+	Wo/sY9uXqGmOpkPPM4KjHfnro8My9dRJqOKXyyHMPKOGSfrT1MNNZy3HcUj6sMg7+T4U
+	WWvbSioGbFFsVLCmk3F27deeosbPo+X554nFR+LAb1x7xflRSyXnkTKQHwMHt1HFFMhm
+	98/LpVVE/h+NTyeT87Ddwlj4pQ1+A6V2db6fiQM1vdC1P4GmyHhelU75uecztD8P9AbF
+	kf+qOz/fqd3a0Frl0emATApnkrclInL4SCEYGwwU99TnVeF4Ie6EvxeUkxQilGAe2zAF
+	KbCw==
+X-Gm-Message-State: AOAM531NmAnlUzdZn5FwM5ltQW8xPB7ZoOsNHw5mNhEoYOxobBf8IePH
+	HLiS/zzNGIy9rMH45uIHio/paSwDloVzCg==
+X-Google-Smtp-Source: ABdhPJwrQ2pKmvj9eINhn7ukSkidaQz4M3NFxZpUlm0RMvqrYyDrusKOupyPn6Gs8FTc/U6dSwRWyg==
+X-Received: by 2002:a5d:458d:: with SMTP id p13mr6716421wrq.580.1644157586959; 
+	Sun, 06 Feb 2022 06:26:26 -0800 (PST)
+Received: from [192.168.1.130] ([87.74.163.68])
+	by smtp.gmail.com with ESMTPSA id
+	be11sm7329000wmb.19.2022.02.06.06.26.26 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Sun, 06 Feb 2022 06:26:26 -0800 (PST)
 Subject: Re: Firefox inaccessible in Ubuntu-GNOME 22.04
-To: blinux-list@redhat.com
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <9806e258-e16a-8d36-6e2f-463b9b9613f6@gmail.com>
+	<CAO2sX33yfEAf+OBizwFG9iifoUNwHvUqY6EAxVsiiKAVLJCKRg@mail.gmail.com>
+Message-ID: <a44451c2-1f67-ef10-5168-cf292c8a7a3e@gmail.com>
+Date: Sun, 6 Feb 2022 14:26:40 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Firefox/68.0 SeaMonkey/2.53.10.2
+MIME-Version: 1.0
+In-Reply-To: <CAO2sX33yfEAf+OBizwFG9iifoUNwHvUqY6EAxVsiiKAVLJCKRg@mail.gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -90,7 +95,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -107,17 +112,26 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Was Firefox installed via a Snapt package or a .deb? I haven't tried
-Ubuntu in years, I remember hearing reports that snapt packages often
-break accessibility for some reason.
+Can confirm, naps on my desktop don't connect to the atk for various reasons
+
+Linux for blind general discussion wrote:
+> Was Firefox installed via a Snapt package or a .deb? I haven't tried
+> Ubuntu in years, I remember hearing reports that snapt packages often
+> break accessibility for some reason.
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
 
 _______________________________________________
 Blinux-list mailing list
