@@ -1,83 +1,89 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id B90E94AE4A7
-	for <lists+blinux-list@lfdr.de>; Tue,  8 Feb 2022 23:37:29 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id C93824AE47A
+	for <lists+blinux-list@lfdr.de>; Tue,  8 Feb 2022 23:34:55 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644359848;
+	s=mimecast20190719; t=1644359694;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=yWB1hzFWwxizE5cdUE/G077J6ghY4ibGtTu1s0f/7XU=;
-	b=EqgD+JfCDCPKjNwHGLdDikm8bAX2X0s1Cz7uC7uKTzYRdM7Xq/S+piKExKeL7nSv5FEXYq
-	lE2fPBQp6SoGOBI4XK30APskxu9xuo8CmteALSSSzDqHVjnQ6ddCqPm31B73pcuowASvHq
-	v5TE68o/OrcG9VBL3zRIOkm4JYBe59I=
+	bh=uzgQ+x1Gt8DVkKJFA97E5qUI6ABQT6JtwKdgqug9xfE=;
+	b=MTkrDq6KvVM21icnCE4R6Ekxes/tGsIBi9IPN2h9m//qanf0sYspFEGBHsHzMjK7G4O+0p
+	0kQBCx1Xe0txxdn3nw7RoKlZmdQcxH0KDsL9bPesVqMnwTRTArHio8kqmrw1JGzJ5PpGd8
+	ain/4X0xAs6XZeTOAwffroKTvwB1AB8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-192-_Y2V2mVVMs2qbF7UXEL8hA-1; Tue, 08 Feb 2022 17:37:23 -0500
-X-MC-Unique: _Y2V2mVVMs2qbF7UXEL8hA-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-493-C3xwf5HEOQu3qrU-ryMzDw-1; Tue, 08 Feb 2022 17:34:51 -0500
+X-MC-Unique: C3xwf5HEOQu3qrU-ryMzDw-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id AB41C180FCAC;
-	Tue,  8 Feb 2022 22:37:19 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8A6415DB89;
-	Tue,  8 Feb 2022 22:37:19 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A9E821091DAC;
+	Tue,  8 Feb 2022 22:34:46 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5DD08108AB;
+	Tue,  8 Feb 2022 22:34:44 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0FCEA4BB7B;
-	Tue,  8 Feb 2022 22:37:19 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.10])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D5E3F1802FE8;
+	Tue,  8 Feb 2022 22:34:40 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 217HwIHl026981 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 7 Feb 2022 12:58:18 -0500
+	id 217InGkw030506 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 7 Feb 2022 13:49:16 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 3FD00401E2A; Mon,  7 Feb 2022 17:58:18 +0000 (UTC)
+	id 3B42B112131F; Mon,  7 Feb 2022 18:49:16 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3C102401DB1
-	for <blinux-list@redhat.com>; Mon,  7 Feb 2022 17:58:18 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 373911121318
+	for <blinux-list@redhat.com>; Mon,  7 Feb 2022 18:49:13 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id ECECA185A7A4
-	for <blinux-list@redhat.com>; Mon,  7 Feb 2022 17:58:17 +0000 (UTC)
-Received: from mail-qv1-f42.google.com (mail-qv1-f42.google.com
-	[209.85.219.42]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EF2BE8039D5
+	for <blinux-list@redhat.com>; Mon,  7 Feb 2022 18:49:12 +0000 (UTC)
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com
+	[209.85.221.44]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-60-mMFlIY7yMKKDchvzzUXydg-1; Mon, 07 Feb 2022 12:58:15 -0500
-X-MC-Unique: mMFlIY7yMKKDchvzzUXydg-1
-Received: by mail-qv1-f42.google.com with SMTP id d8so12022526qvv.2
-	for <blinux-list@redhat.com>; Mon, 07 Feb 2022 09:58:15 -0800 (PST)
+	us-mta-464-2vw9eaYiNSm3lZu8N6uxMw-1; Mon, 07 Feb 2022 13:49:11 -0500
+X-MC-Unique: 2vw9eaYiNSm3lZu8N6uxMw-1
+Received: by mail-wr1-f44.google.com with SMTP id s10so23931233wra.5
+	for <Blinux-list@redhat.com>; Mon, 07 Feb 2022 10:49:10 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
-	bh=NkU7js8N1WcWIk7FG738LTmsBEK9BNV8+ss7jrV9QWI=;
-	b=JjnvgNNh05W1SdNWW7ABle6V3gmSUDAV0NswvGEVt1XZ0W8ez7xhoffUsbQgzEZ07f
-	r7I75yGjaU430y81mlHhL+sClIdOdLh4yPZcoTG4Q2KQxJ7RBWG+AhMgZHuT/74eRSjI
-	IUrdiEDMYyaoK0B/hx4tU216LrzkKTJEzqr+7/WJa33E2WXiDOolX8lnrzTCXL01PzE/
-	qFUA9SOyTMhWeylXb73DPedPCi3jpbUAw0JLRIbWhZ15SGekHf1/mrb9SvCu4LR7T9Oi
-	OuZdWEZp5Jo451o9e0UfN52ipW3/tp3fPT7j6VurYKbrl2VoGHox743PyistYoJ8+Jp5
-	EJvA==
-X-Gm-Message-State: AOAM531qtKAcdGOHZ33CX67/wMlpkLqoawZPjSr6HAMobnD7Wi9ZH2n6
-	nUfFm+ED0bpsEWtKO4jQFz8Ahc1YfYzlE1ofZv4XLLvd
-X-Google-Smtp-Source: ABdhPJzS7bWuLlG9q/v/5sqc+WiBdIHTzxwPFvA4tuCpeCZIV/u/8N7Wah0wpN4LemA8G4zIJDXMzGjFg32nRjLyr0E=
-X-Received: by 2002:a05:6214:20af:: with SMTP id
-	15mr477278qvd.105.1644256695088; 
-	Mon, 07 Feb 2022 09:58:15 -0800 (PST)
+	h=x-gm-message-state:message-id:date:mime-version:user-agent
+	:content-language:to:from:subject:content-transfer-encoding;
+	bh=5T4sRbSTgudSB8RNkiDKky6537vvzqD5FWnxI9nl8mk=;
+	b=Jd9u9wdpGjWQqhi287GwIYZAOTirGKtLmazcw2Lli2hxuf/dAm7zuTUkoU3Bge0Mz4
+	hpJMxBL+zKirZVYXgneJEAz4TC98jPnmoo6j/JNPooqKS/VDMBqZt4TSbXjTr+vuuld8
+	nLVZiAcABHCBy9dnlTRMkqW3lHyo5NXpRESGWWkVOM174sVOEluQPDLitSfSLq9ji1W4
+	UTf0IPAT6IHrz547szJO4Pd56hrw4i8bn/iClKYm1Z15EGIc7QlbinYCl6dNqojoHYUi
+	n+emk1rccTpzl8J+1tUxtmxO7PyNeNe8m9l2lxlOe/MjzclbjmjBC5cEl39XM3E8UZMg
+	0s0A==
+X-Gm-Message-State: AOAM532un4mniT/0NpD12aH2WX/pLpoFi9UtxYwruC717qEXhwRwY4wu
+	g/4wv8OBpYftS6i8JlTZ3ZZMwqweMnI=
+X-Google-Smtp-Source: ABdhPJxdzQZzXf+zojxHHBVtwKAg1BBFKuxBVJJjAerYcPtB7CF6oq1M1+xc5HHIV7nnxF8ZWModMA==
+X-Received: by 2002:adf:d0c9:: with SMTP id z9mr628404wrh.245.1644259749634;
+	Mon, 07 Feb 2022 10:49:09 -0800 (PST)
+Received: from [192.168.8.130] ([41.216.202.12])
+	by smtp.gmail.com with ESMTPSA id
+	o10sm11705129wri.19.2022.02.07.10.49.08 for <Blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Mon, 07 Feb 2022 10:49:09 -0800 (PST)
+Message-ID: <291bcc92-8153-06b1-5831-937bb8d7f289@gmail.com>
+Date: Mon, 7 Feb 2022 20:49:06 +0200
 MIME-Version: 1.0
-Received: by 2002:a05:6214:518d:0:0:0:0 with HTTP; Mon, 7 Feb 2022 09:58:14
-	-0800 (PST)
-Date: Mon, 7 Feb 2022 17:58:14 +0000
-Message-ID: <CAO2sX32WSqGjm_b77ZD57jCmycBaHpL-aXzdSeaRK4ggE=eh+g@mail.gmail.com>
-Subject: Novelty TTS Voices and calling TTS programmatically.
-To: Linux for blind general discussion <blinux-list@redhat.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.5.1
+To: Linux for blind general discussion <Blinux-list@redhat.com>
+Subject: Has anyone gotten i3 accessible yet? or is there a better option
+	besides ratpoison, which is great, btw
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -86,7 +92,8 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Mimecast-Spam-Signature: yes
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -103,44 +110,40 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Okay, so I have two questions that really aren't related except they
-both deal with TTS and were born out of the same idea.
+Hi all,
 
-The first is whether there exist any, for lack of a better term,
-novelty voices. Things like pirate, cowboy, comically exaggerated
-foreign or regional accents, voices designed to sound like old school
-sci-fi robots instead of just being relics from the early days of
-tTTS, etc. Preferably free-to-use and compatible with espeak-ng or
-another TTS engine that's readily available for Linux.
 
-The second is whether there's a way to invoke a TTS engine from within
-a program. I'm a old hat at writing C++ terminal applications that
-read from the keyboard or a text file and write to the screen or a
-text file, but what if, instead of just writing output to the screen,
-I wanted to invoke a TTS engine and have it speak the output in a
-voice of my choosing? Or in other words, how do I make terminal apps
-self-voicing? I know the basics of invoking espeak-ng from the command
-line, putting a string in quotes to have it read directly, using thee
--v option to set the voice and the -f option to read from a file, and
-I know enough bash scripting to do simple conditional logic, but being
-able to invoke it from within a C++ program would offer greater
-flexibility, and while I know the system function can be used to
-execute external programs, I've always gotten the impression that
-should be a last resort).
+The subject encompassed basically all I wanted to know.
 
-What sparked these questions was the idea of a talking pirate skull
-that speaks the roll of a d20 and adds an appropriate quip and
-thinking about how to make it more flexible without having to record
-voice clips for every spoken phrase... though I confess to not knowing
-how to make my programs play audio files either.
+
+I remember a while ago someone built a talking arch installer using the 
+ezarch scripts. On their page they listed i3 as an accessible option, 
+but I could never get the thing to install on a VM, and at the time I 
+wasn't going to break my Windows install to test it. Now, maybe, but I 
+cannot for the life of me remember what that project was called.
+
+
+If anyone got any tiling WM setups, besides ratpoison to work as they 
+should, please let me know.
+
+
+I really love the way ratpoison doesn't slow this machine down at all.
+
+-- 
+Warm regards,
+
+Brandt Steenkamp
+
+Sent from the Slint machine using Thunderbird
 
 _______________________________________________
 Blinux-list mailing list
