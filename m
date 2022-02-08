@@ -1,69 +1,90 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id D7D444AE4DA
-	for <lists+blinux-list@lfdr.de>; Tue,  8 Feb 2022 23:44:11 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5C6834AE4DB
+	for <lists+blinux-list@lfdr.de>; Tue,  8 Feb 2022 23:44:31 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644360250;
+	s=mimecast20190719; t=1644360270;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=KJuz14jBQe9YgiePuVKCqNchN5P4ceMDx7xEkFukUgE=;
-	b=KfSXmaNDYY0L2tkwwM0JNel5NFn+lKr/LxmfX3CBV+cM4ccPbZ9SdBz00cCYbI8nImyuqU
-	YmEmp1/01fYT8kotI9zhACtp4lBdspuUyyT/mmt1EmVB6rsrPGZAIkIvKFvDcEijWFJg0x
-	t02hT1DnzwxfOu4YwmZ6GjZ+0nlgYjw=
+	bh=4iWcoV0ZNcIzm/+/eB2oVCUS22amkjFS4IV9FHq3sd8=;
+	b=IXrdHmkpw8i0XRiOIiANRIPRQe6UjvIUjKdCK+gPZED8hCI30OXx+SZyLJBXM7ZEDAZOLh
+	HYU8fNh8/5YWEzfanRQhLdoGe8Vy9qwltZo1i25uUfiEWJjcxem8vkT8/EOLRF9TYk+2Ae
+	Vs4RDUJhNXseqd7L02CQjTIN67tqX7M=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-258-i72kuTOION-iSwzuK_prMQ-1; Tue, 08 Feb 2022 17:44:09 -0500
-X-MC-Unique: i72kuTOION-iSwzuK_prMQ-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-517-5SVttBz9N4m7_PH6en71Ew-1; Tue, 08 Feb 2022 17:44:21 -0500
+X-MC-Unique: 5SVttBz9N4m7_PH6en71Ew-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 531101926DA7;
-	Tue,  8 Feb 2022 22:44:05 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E2C495DBB9;
-	Tue,  8 Feb 2022 22:44:04 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id ECEE981460A;
+	Tue,  8 Feb 2022 22:44:14 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CEB55108B6;
+	Tue,  8 Feb 2022 22:44:14 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 984391832B16;
-	Tue,  8 Feb 2022 22:44:04 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.1])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id AD306473A4;
+	Tue,  8 Feb 2022 22:44:14 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 218AKSaH003243 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 8 Feb 2022 05:20:29 -0500
+	id 218B7qIl005359 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 8 Feb 2022 06:07:52 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id BF54840CFD02; Tue,  8 Feb 2022 10:20:28 +0000 (UTC)
+	id 89FAD401DB6; Tue,  8 Feb 2022 11:07:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BB67B40CFD01
-	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 10:20:28 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8A79F380452D
-	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 10:20:28 +0000 (UTC)
-Received: from mail-4316.protonmail.ch (mail-4316.protonmail.ch
-	[185.70.43.16]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-261-69Y3z82ENdOOdD1XoHewdA-1; Tue, 08 Feb 2022 05:20:26 -0500
-X-MC-Unique: 69Y3z82ENdOOdD1XoHewdA-1
-Date: Tue, 08 Feb 2022 10:20:16 +0000
-To: Linux for blind general discussion <blinux-list@redhat.com>,
-	speechd-discuss@nongnu.org
-Subject: For all .NET developers: A new SpeechDispatcher client library
-Message-ID: <fa7165b8-bba6-84ea-cb30-3fbb3a23d917@protonmail.com>
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 839A5401E48
+	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 11:07:52 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6B8B8801E8D
+	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 11:07:52 +0000 (UTC)
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.18]) by
+	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-10-2kUPnQVLOAqIGw0CjRH6SQ-1; Tue, 08 Feb 2022 06:07:50 -0500
+X-MC-Unique: 2kUPnQVLOAqIGw0CjRH6SQ-1
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.1.100] ([208.107.97.40]) by mail.gmx.net (mrgmx004
+	[212.227.17.184]) with ESMTPSA (Nemesis) id 1MvbBk-1o8nkQ3ySc-00sc4e
+	for <blinux-list@redhat.com>; Tue, 08 Feb 2022 12:07:49 +0100
+Message-ID: <20220208.110845.007.12@[192.168.1.100]>
+To: blinux-list@redhat.com
+Subject: YT-dlp help
+Date: Tue, 08 Feb 2022 05:08:45 -0600
 MIME-Version: 1.0
-X-Spam-Status: No, score=-1.2 required=10.0 tests=ALL_TRUSTED,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FROM,
-	T_SCC_BODY_TEXT_LINE shortcircuit=no autolearn=disabled version=3.4.4
-X-Spam-Checker-Version: SpamAssassin 3.4.4 (2020-01-24) on
-	mailout.protonmail.ch
+User-Agent: POP Peeper Pro (5.2.2.0)
+X-Provags-ID: V03:K1:YgktXAJCdOGBrrzjcqeqb1mdxqvfX2zGN4tNNGFq1hGDnasIntU
+	VREoV7mDHI4PipFR5b6pxRoc3D814X9aRkWA/2ItyJyawkFqWP2yYzQDFEuKdZ25/XM041p
+	jKaFxglDVMwTHJRbn+ixRje8EPIJvX6fGkO1cnoteADb7cbK+mfQSQoOEpqAveBJ3sWcxaj
+	iIeoGGVxl4eHTrlg8JmXA==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:k7q+p9s2vD8=:B7LjVbFatgcAEipRS9fm88
+	ysQc42TQiBMMVWGeI6ldLXzR5VrXSbPDAkCwtXrGWn2tMbG0sxQ89RH5ZhPjupRU9sfUz3Ths
+	wGBFMPdsfi/7JgqtS+QmfNyvD9s4oIheXtRk+rX/QycD8ZWzba7I00PmshMk5e3Htyhj8gIEd
+	ofe6aI6VrrWUna4Xt5RyrVA3mJoV8ab1pPBE50LokRygD+Md8S6Mb+D8Nlik99s2IxfgdR2aZ
+	a5M1GvGYadJWwSrsz2v42TnxwUgBdLdDiHlYcBFZ0YZABdTLI0jcVGVmRbsdQ1Y0aD2JwRL4X
+	hQpAIJ1Wc7nnnjMfiMMvQILUjhp34o1OjrXI2G0w6NZjXUpzExJvk1FG7Dnl0vCHeJGT7FimA
+	Zpy4IQkiS1FHgD3wZf4Sy4Hm2EGvH+BAvBms4xnYj4L1PT58lruPg1tznoxy9ZtULR5feXV6J
+	9JNs7Ql+e03cX0K2GjrOyViM6vC7O4Z7GxbNZYdF/PIcR4tfQGL0eq/mmq8bNjV9NyHwAnvS5
+	88Nv1/HA3gLMdVtXi6VrB0o55bRHGO7/vbcSSBI/U3WXvb7G/LbpAMKStUcbGy6c1/lxlrCAY
+	1dSQABG58reXVXaib2ffkkRXPRWefpJmV1IJv1qnakl9Dd3fhcYcKItTLxnJLK3Ltqd9aeBdZ
+	Fo7gKlQ9HZTBs/+NA3NXAqN65OH3qN7afFUoPbQjTEXop0wx5fkLs5nsoD39R9Ej5RX/uNJ1i
+	7lZqPfScBHVdefrqRELgmsnu5IaxUTC7qzJHPb/iqIHRLn+3CD0dZKq4QeyCv1ALhzxJu+n7R
+	rllKwCzm+NU9VCRgPuB/QhAsGHhsRbLEc0OVf+5OzFd0GZ4D6G4nrDt6Ix/DUlFbdjGLdQkj+
+	4KVTbY8tDRC0JP0lWJL2LQxMWOpFMdYjeEJ+xPjruYuPTKtUMbfS6kCQkopQvhyP3CaNyGAW6
+	U/oh8IGGZFRVMqPb9UUOZNod4pEDUulB7oiXSEezWVWO4M7N2Pdr/M+LGBMe7W/ppZCKSMTDA
+	FKcCI+pbtht1+UqMsv4hJ4Dc6hbXorEnLKzQdW/hDzU9yAoNPf6V8+JHKD7hYWKegtGPHGdAi
+	ilD6dTXWOJjVcE=
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -72,9 +93,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
 X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 218AKSaH003243
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 218B7qIl005359
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -91,7 +112,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -99,38 +120,9 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hello everyone,
-as some of you may know, C# is among my favourite languages for quite a
-some time.
-However, one particular drawback of using it on Linux was that there was
-no library for using Speech dispatcher, i.e. getting speech was a bit
-problematic.
-That's why I've decided to develop a full-fledged Speech dispatcher in
-pure C#, and as of today, Im happy to release it for anyone to use under
-the terms of the GNU Lesser General Public License v2.1.
-For more information, see the official project repository:
-https://github.com/RastislavKish/SpeechDispatcher
+So there's a page on youtube and I want to get a listing of all the videos on it complete with urls. I want to be able to download most of them, but not all, so I want to be able to cherry pick through the list, copyt he urls to a text file, and download the ones I want with the -a option.
 
-Please note these are the first releases, so minor bugs can occur, feel
-free to open an issue or contact me personally if you find any.
-
-I admit the documentation is kind of... non-existent at this point. I'm
-not sure when do I get to writing one, I have lot of other projects
-going on, so I don't want to spend much time on tasks like this.
-Please use the Python speechd documentation meanwhile, it should give
-you a good hint on how to use things.
-
-If you have any questions, feel free to ask here, on my mail or on the
-GitHub repository discussions (I'm not sure whether it sends
-notifications about new topics, so if i don't respond for a longer
-period of time, just mention me or send me a message).
-
-Happy coding!
-
-Best regards
-
-Rastislav
-
+There's --flat-playlist but this doesn't actually seem to do anything. Is there a way to do what I want?
 
 
 _______________________________________________
