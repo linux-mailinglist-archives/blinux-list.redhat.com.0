@@ -1,89 +1,69 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id C93824AE47A
-	for <lists+blinux-list@lfdr.de>; Tue,  8 Feb 2022 23:34:55 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id D7D444AE4DA
+	for <lists+blinux-list@lfdr.de>; Tue,  8 Feb 2022 23:44:11 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644359694;
+	s=mimecast20190719; t=1644360250;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=uzgQ+x1Gt8DVkKJFA97E5qUI6ABQT6JtwKdgqug9xfE=;
-	b=MTkrDq6KvVM21icnCE4R6Ekxes/tGsIBi9IPN2h9m//qanf0sYspFEGBHsHzMjK7G4O+0p
-	0kQBCx1Xe0txxdn3nw7RoKlZmdQcxH0KDsL9bPesVqMnwTRTArHio8kqmrw1JGzJ5PpGd8
-	ain/4X0xAs6XZeTOAwffroKTvwB1AB8=
+	bh=KJuz14jBQe9YgiePuVKCqNchN5P4ceMDx7xEkFukUgE=;
+	b=KfSXmaNDYY0L2tkwwM0JNel5NFn+lKr/LxmfX3CBV+cM4ccPbZ9SdBz00cCYbI8nImyuqU
+	YmEmp1/01fYT8kotI9zhACtp4lBdspuUyyT/mmt1EmVB6rsrPGZAIkIvKFvDcEijWFJg0x
+	t02hT1DnzwxfOu4YwmZ6GjZ+0nlgYjw=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-493-C3xwf5HEOQu3qrU-ryMzDw-1; Tue, 08 Feb 2022 17:34:51 -0500
-X-MC-Unique: C3xwf5HEOQu3qrU-ryMzDw-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-258-i72kuTOION-iSwzuK_prMQ-1; Tue, 08 Feb 2022 17:44:09 -0500
+X-MC-Unique: i72kuTOION-iSwzuK_prMQ-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A9E821091DAC;
-	Tue,  8 Feb 2022 22:34:46 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 531101926DA7;
+	Tue,  8 Feb 2022 22:44:05 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5DD08108AB;
-	Tue,  8 Feb 2022 22:34:44 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E2C495DBB9;
+	Tue,  8 Feb 2022 22:44:04 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D5E3F1802FE8;
-	Tue,  8 Feb 2022 22:34:40 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 984391832B16;
+	Tue,  8 Feb 2022 22:44:04 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.1])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 217InGkw030506 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 7 Feb 2022 13:49:16 -0500
+	id 218AKSaH003243 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 8 Feb 2022 05:20:29 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 3B42B112131F; Mon,  7 Feb 2022 18:49:16 +0000 (UTC)
+	id BF54840CFD02; Tue,  8 Feb 2022 10:20:28 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 373911121318
-	for <blinux-list@redhat.com>; Mon,  7 Feb 2022 18:49:13 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EF2BE8039D5
-	for <blinux-list@redhat.com>; Mon,  7 Feb 2022 18:49:12 +0000 (UTC)
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com
-	[209.85.221.44]) by relay.mimecast.com with ESMTP with STARTTLS
+	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BB67B40CFD01
+	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 10:20:28 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8A79F380452D
+	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 10:20:28 +0000 (UTC)
+Received: from mail-4316.protonmail.ch (mail-4316.protonmail.ch
+	[185.70.43.16]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-464-2vw9eaYiNSm3lZu8N6uxMw-1; Mon, 07 Feb 2022 13:49:11 -0500
-X-MC-Unique: 2vw9eaYiNSm3lZu8N6uxMw-1
-Received: by mail-wr1-f44.google.com with SMTP id s10so23931233wra.5
-	for <Blinux-list@redhat.com>; Mon, 07 Feb 2022 10:49:10 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:message-id:date:mime-version:user-agent
-	:content-language:to:from:subject:content-transfer-encoding;
-	bh=5T4sRbSTgudSB8RNkiDKky6537vvzqD5FWnxI9nl8mk=;
-	b=Jd9u9wdpGjWQqhi287GwIYZAOTirGKtLmazcw2Lli2hxuf/dAm7zuTUkoU3Bge0Mz4
-	hpJMxBL+zKirZVYXgneJEAz4TC98jPnmoo6j/JNPooqKS/VDMBqZt4TSbXjTr+vuuld8
-	nLVZiAcABHCBy9dnlTRMkqW3lHyo5NXpRESGWWkVOM174sVOEluQPDLitSfSLq9ji1W4
-	UTf0IPAT6IHrz547szJO4Pd56hrw4i8bn/iClKYm1Z15EGIc7QlbinYCl6dNqojoHYUi
-	n+emk1rccTpzl8J+1tUxtmxO7PyNeNe8m9l2lxlOe/MjzclbjmjBC5cEl39XM3E8UZMg
-	0s0A==
-X-Gm-Message-State: AOAM532un4mniT/0NpD12aH2WX/pLpoFi9UtxYwruC717qEXhwRwY4wu
-	g/4wv8OBpYftS6i8JlTZ3ZZMwqweMnI=
-X-Google-Smtp-Source: ABdhPJxdzQZzXf+zojxHHBVtwKAg1BBFKuxBVJJjAerYcPtB7CF6oq1M1+xc5HHIV7nnxF8ZWModMA==
-X-Received: by 2002:adf:d0c9:: with SMTP id z9mr628404wrh.245.1644259749634;
-	Mon, 07 Feb 2022 10:49:09 -0800 (PST)
-Received: from [192.168.8.130] ([41.216.202.12])
-	by smtp.gmail.com with ESMTPSA id
-	o10sm11705129wri.19.2022.02.07.10.49.08 for <Blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Mon, 07 Feb 2022 10:49:09 -0800 (PST)
-Message-ID: <291bcc92-8153-06b1-5831-937bb8d7f289@gmail.com>
-Date: Mon, 7 Feb 2022 20:49:06 +0200
+	us-mta-261-69Y3z82ENdOOdD1XoHewdA-1; Tue, 08 Feb 2022 05:20:26 -0500
+X-MC-Unique: 69Y3z82ENdOOdD1XoHewdA-1
+Date: Tue, 08 Feb 2022 10:20:16 +0000
+To: Linux for blind general discussion <blinux-list@redhat.com>,
+	speechd-discuss@nongnu.org
+Subject: For all .NET developers: A new SpeechDispatcher client library
+Message-ID: <fa7165b8-bba6-84ea-cb30-3fbb3a23d917@protonmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.5.1
-To: Linux for blind general discussion <Blinux-list@redhat.com>
-Subject: Has anyone gotten i3 accessible yet? or is there a better option
-	besides ratpoison, which is great, btw
+X-Spam-Status: No, score=-1.2 required=10.0 tests=ALL_TRUSTED,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FROM,
+	T_SCC_BODY_TEXT_LINE shortcircuit=no autolearn=disabled version=3.4.4
+X-Spam-Checker-Version: SpamAssassin 3.4.4 (2020-01-24) on
+	mailout.protonmail.ch
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -92,8 +72,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Mimecast-Spam-Signature: yes
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 218AKSaH003243
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -110,40 +91,47 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi all,
+Hello everyone,
+as some of you may know, C# is among my favourite languages for quite a
+some time.
+However, one particular drawback of using it on Linux was that there was
+no library for using Speech dispatcher, i.e. getting speech was a bit
+problematic.
+That's why I've decided to develop a full-fledged Speech dispatcher in
+pure C#, and as of today, Im happy to release it for anyone to use under
+the terms of the GNU Lesser General Public License v2.1.
+For more information, see the official project repository:
+https://github.com/RastislavKish/SpeechDispatcher
+
+Please note these are the first releases, so minor bugs can occur, feel
+free to open an issue or contact me personally if you find any.
+
+I admit the documentation is kind of... non-existent at this point. I'm
+not sure when do I get to writing one, I have lot of other projects
+going on, so I don't want to spend much time on tasks like this.
+Please use the Python speechd documentation meanwhile, it should give
+you a good hint on how to use things.
+
+If you have any questions, feel free to ask here, on my mail or on the
+GitHub repository discussions (I'm not sure whether it sends
+notifications about new topics, so if i don't respond for a longer
+period of time, just mention me or send me a message).
+
+Happy coding!
+
+Best regards
+
+Rastislav
 
 
-The subject encompassed basically all I wanted to know.
-
-
-I remember a while ago someone built a talking arch installer using the 
-ezarch scripts. On their page they listed i3 as an accessible option, 
-but I could never get the thing to install on a VM, and at the time I 
-wasn't going to break my Windows install to test it. Now, maybe, but I 
-cannot for the life of me remember what that project was called.
-
-
-If anyone got any tiling WM setups, besides ratpoison to work as they 
-should, please let me know.
-
-
-I really love the way ratpoison doesn't slow this machine down at all.
-
--- 
-Warm regards,
-
-Brandt Steenkamp
-
-Sent from the Slint machine using Thunderbird
 
 _______________________________________________
 Blinux-list mailing list
