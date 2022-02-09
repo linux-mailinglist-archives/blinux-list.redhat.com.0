@@ -2,69 +2,71 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 089384B00C9
-	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 23:57:30 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 63BE44B0133
+	for <lists+blinux-list@lfdr.de>; Thu, 10 Feb 2022 00:27:55 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644447450;
+	s=mimecast20190719; t=1644449274;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
-	 content-type:content-type:in-reply-to:in-reply-to:
-	 references:references:list-id:list-help:list-unsubscribe:
-	 list-subscribe:list-post; bh=DHNbgJgtbNmH94griX8Q1Zjmh1GLh4qITFT0NJPZd48=;
-	b=gigpXx90BcY5+2/Lbrk4aLlqQSFiAfmc3Hs22gZpynfZYhQu9Qu4dDZqMEQZVd9YNs9TTV
-	D4dt4kxscSFVSDFaDuzle94iAbpfa7A1NGju6NrcXHnUflJlsMQKpDVB5rhZGVJkCA6hT0
-	czoufhuIa9Twi5qE2qIDZvBb64/woik=
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 list-unsubscribe:list-subscribe:list-post;
+	bh=VkJnQ47ZjE8nQZxabGp9N83YYuYnq7utYKvIFXfds4E=;
+	b=Adm8ZU7zXjCatYiZTGrALtwflMKhsWC7Ej5ylsORSgtUUXVmXO0i1y/e8pEB1waN0IZJmY
+	PeQ7+TJwJXthlJFX7dqQZrKdm3gxbC50iYjeyvcx7JST6TD7QO/uQsuDwlL0B3uh0peDEv
+	bb8bak3oUhTvJGvH9rzG2WFluRJAygc=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-631-9E_Hb0G1OK-9bh1vdjHAFg-1; Wed, 09 Feb 2022 17:57:26 -0500
-X-MC-Unique: 9E_Hb0G1OK-9bh1vdjHAFg-1
+ us-mta-645-nPefk2o7PJ-6lSyhPFoMww-1; Wed, 09 Feb 2022 18:27:51 -0500
+X-MC-Unique: nPefk2o7PJ-6lSyhPFoMww-1
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id AEC5E801B0B;
-	Wed,  9 Feb 2022 22:57:22 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 23D7A83DD21;
+	Wed,  9 Feb 2022 23:27:47 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 473B54EC7F;
-	Wed,  9 Feb 2022 22:57:22 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id ABAF0519C4;
+	Wed,  9 Feb 2022 23:27:44 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4AEF21809CB8;
-	Wed,  9 Feb 2022 22:57:21 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.7])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 37E3C1809CB8;
+	Wed,  9 Feb 2022 23:27:43 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 219MvGVQ022711 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 9 Feb 2022 17:57:16 -0500
+	id 219NLUZA025460 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 9 Feb 2022 18:21:30 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 469FD141DC29; Wed,  9 Feb 2022 22:57:16 +0000 (UTC)
+	id 45D65401E79; Wed,  9 Feb 2022 23:21:30 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 42F24140242B
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 22:57:16 +0000 (UTC)
+	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 41D0E401E78
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 23:21:30 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
+	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 29BDB800B29
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 22:57:16 +0000 (UTC)
-Received: from server2.shellworld.net (server2.shellworld.net
-	[66.172.12.120]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-199-zs5NTkYRP5ShACdF2sbaBA-1; Wed, 09 Feb 2022 17:57:14 -0500
-X-MC-Unique: zs5NTkYRP5ShACdF2sbaBA-1
-Received: by server2.shellworld.net (Postfix, from userid 1005)
-	id 314BC620CB1; Wed,  9 Feb 2022 22:57:13 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
-	by server2.shellworld.net (Postfix) with ESMTP id 2C1D76200AE
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 17:57:13 -0500 (EST)
-Date: Wed, 9 Feb 2022 17:57:13 -0500 (EST)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Coqui TTS has blew my mind!
-In-Reply-To: <7a0e0ac7-5e7d-a41a-b775-6782a87ba869@protonmail.com>
-Message-ID: <Pine.LNX.4.64.2202091755540.340174@server2.shellworld.net>
-References: <7a0e0ac7-5e7d-a41a-b775-6782a87ba869@protonmail.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0A78A28EE166
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 23:21:30 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+	relay.mimecast.com with ESMTP id us-mta-554-ROsVVzU0NYGHvHtw2YbVeA-1;
+	Wed, 09 Feb 2022 18:21:27 -0500
+X-MC-Unique: ROsVVzU0NYGHvHtw2YbVeA-1
+Received: from [192.168.1.37] (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
+	[176.172.247.100])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 87BCA242CE
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 23:21:15 +0100 (CET)
+Message-ID: <b767e62d-8e12-46e2-b412-fc376ae8b073@slint.fr>
+Date: Thu, 10 Feb 2022 00:21:15 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.6.0
+Subject: Re: Is Youtube-viewer Broken?
+To: blinux-list@redhat.com
+References: <bd935680-f9c0-3efe-8a8-3d3bf0fee08d@hubert-humphrey.com>
+In-Reply-To: <bd935680-f9c0-3efe-8a8-3d3bf0fee08d@hubert-humphrey.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -73,7 +75,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 219NLUZA025460
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -95,151 +99,55 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: MULTIPART/MIXED;
-	BOUNDARY="-1404930036-2049715565-1644447433=:340174"
+Content-Language: en-US
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
----1404930036-2049715565-1644447433=:340174
-Content-Type: TEXT/PLAIN; charset=utf-8; format=flowed
-Content-Transfer-Encoding: QUOTED-PRINTABLE
-
-Where are the audio samples?
-The words are presented, but save for a single YouTube link, there is=20
-nothing  to download, at least not in command line lynx.
-
-
-
-On Wed, 9 Feb 2022, Linux for blind general discussion wrote:
-
-> Hello everyone,
->
-> may be I've discovered America, but yesterday I mostly randomly came acro=
-ss:
->
-> https://erogol.github.io/ddc-samples/
->
->
-> And the voice has completely blew my mind!
->
-> Like, I knew the TTS area has advanced significantly in the recent
-> years, but I thought the new neural voices are mostly closed features of
-> companies like Google or Microsoft.
->
-> I had no idea we had something so beautiful on linux and completely
-> open-source!
->
->
-> Plus, it's not just the license that makes this so interesting, but also
-> the usability.
->
-> There were the Deepmind papers even before and some open projects trying
-> to implement them, but the level of completeness and usability varied
-> significantly, even if a project was usable, getting it to work required
-> some effort (at least the projects I saw).
->
->
-> With Coqui, the situation is completely differrent.
->
-> As the above mentioned blog says, all you need to do is:
->
->
-> $ pip3 install TTS
->
-> $ tts --text "Hello, this is an experimental sentence."
->
->
-> And you have a synthesized result!
->
->
-> Or you can launch the server:
->
-> $ tts-server
->
->
-> And play in the web browser. Note that the audio is sent only after it's
-> fully synthesized, so you'll need to wait a bit to listen it.
->
->
-> The only problematic part is the limit of decoder steps, which is set to
-> 500 by default.
->
-> I'm not sure why did they put it so low, with this value, the TTS is
-> unable to speak longer sentences.
->
->
-> Fortunately, the fix is very easy. All I needed to do was to open
-> ~/.local/lib/python3.8/site-packages/TTS/tts/configs/tacotron_config.py
->
-> and modify the line:
->
-> =C2=A0=C2=A0=C2=A0 max_decoder_steps: int =3D 500
->
-> to
->
-> =C2=A0=C2=A0=C2=A0 max_decoder_steps: int =3D 0
->
->
-> which seems to disable the limit.
->
->
-> After this step, I can synthesize very long sentences, and the quality
-> is absolutely glamorous!
->
->
-> So I wanted to share. I may be actually the last person discoverying it
-> here, though I did not see it mentioned in TTS discussions on this list.
->
->
-> I've even thought about creating a speech dispatcher version of this. It
-> would certainly be doable, though I'm afraid what would the synthesis
-> sound like with the irregularities of navigation with a screenreader.
-> These voices are intended for reading longer texts and consistent
-> phrases, with punctuation, complete information etc.
->
-> The intonation would probably get a bit weird with for example just a
-> half sentence, as happens when navigating a document or webpage line by
-> line.
->
->
-> Another limitation would be the one of speed. On my laptop, the realtime
-> factor (processing duration / audio length) is around 0.8, what means it
-> could handle real-time synthesis at the default speed without delays.
->
->
-> The situation would get more complicated with higher speeds, though.
->
-> It wouldn't be impossible, but one would need a GPU to handle
-> significantly higher speech rates.
->
->
-> So I wonder.
->
->
-> But anyway, this definitely made my day. :)
->
->
-> Best regards
->
->
-> Rastislav
->
->
->
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
----1404930036-2049715565-1644447433=:340174
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
----1404930036-2049715565-1644447433=:340174--
+SGkgQ2hpbWUsCgpub3QgYSBkaXJlY3QgYW5zd2VyIHRvIHlvdXIgcXVlc3Rpb24gYnV0IEkgcmVj
+b21tZW5kIHVzaW5nIGluc3RlYWQgcGlwZS12aWV3ZXIsCmFsc28gbWFpbnRhaW5lZCBieSB0cml6
+ZW46IGh0dHBzOi8vZ2l0aHViLmNvbS90cml6ZW4vcGlwZS12aWV3ZXIsIHdoaWNoIGRvZXNuJ3QK
+bmVlZCBhIFlvdVR1YmUgQVBJIGtleS4KCkFsc28gSSBzdWdnZXN0IHRvIHN3aXRjaCBmcm9tIHlv
+dXR1YmUtZGwgdG8geXQtZGxwIHdoaWNoIGNhbiBkbyB0aGUgc2FtZSBhbmQKbW9yZS4gaWYgcHJl
+c2VudCBpdCBpcyBhbHNvIHVzZWQgYXMgZG93bmxvYWRlciBieSBkZWZhdWx0IGluIHJlY2VudCB2
+ZXJzaW9ucyBvZiBtcHYuCgpDaGVlcnMsCkRpZGllcgotLQpEaWRpZXIgU3BhaWVyClNsaW50IG1h
+aW50YWluZXIKCkxlIDA5LzAyLzIwMjIgw6AgMjM6NDUsIExpbnV4IGZvciBibGluZCBnZW5lcmFs
+IGRpc2N1c3Npb24gYSDDqWNyaXTCoDoKPiBIaSBBbGw6IEkgdXNlIHRoaXMgYWxvdC4gSSBub3Rp
+Y2UgdGhpcyBtb3JuaW5nIHRoZXNlIGZvbGxvd2luZyBlcnJvcnMgd2hlbgo+IHRyeWluZyB0byB1
+cGRhdGUgdGhlIHBhY2thZ2UgZnJvbSBhIHNjcmlwdC4KPiBDYW4ndCBsb2NhdGUgTW9kdWxlL0J1
+aWxkLnBtIGluIEBJTkMgKHlvdSBtYXkgbmVlZCB0byBpbnN0YWxsIHRoZSBNb2R1bGU6OkJ1aWxk
+Cj4gbW9kdWxlKSAoQElOQyBjb250YWluczogL2V0Yy9wZXJsIC91c3IvbG9jYWwvbGliL3g4Nl82
+NC1saW51eC1nbnUvcGVybC81LjM0LjAKPiAvdXNyL2xvY2FsL3NoYXJlL3BlcmwvNS4zNC4wIC91
+c3IvbGliL3g4Nl82NC1saW51eC1nbnUvcGVybDUvNS4zNAo+IC91c3Ivc2hhcmUvcGVybDUgL3Vz
+ci9saWIveDg2XzY0LWxpbnV4LWdudS9wZXJsLWJhc2UKPiAvdXNyL2xpYi94ODZfNjQtbGludXgt
+Z251L3BlcmwvNS4zNCAvdXNyL3NoYXJlL3BlcmwvNS4zNAo+IC91c3IvbG9jYWwvbGliL3NpdGVf
+cGVybCkgYXQgQnVpbGQuUEwgbGluZSA2Lgo+IEJFR0lOIGZhaWxlZC0tY29tcGlsYXRpb24gYWJv
+cnRlZCBhdCBCdWlsZC5QTCBsaW5lIDYuCj4gQ2FuJ3QgbG9jYXRlIE1vZHVsZS9CdWlsZC5wbSBp
+biBASU5DICh5b3UgbWF5IG5lZWQgdG8gaW5zdGFsbCB0aGUgTW9kdWxlOjpCdWlsZAo+IG1vZHVs
+ZSkgKEBJTkMgY29udGFpbnM6IC9ldGMvcGVybCAvdXNyL2xvY2FsL2xpYi94ODZfNjQtbGludXgt
+Z251L3BlcmwvNS4zNC4wCj4gL3Vzci9sb2NhbC9zaGFyZS9wZXJsLzUuMzQuMCAvdXNyL2xpYi94
+ODZfNjQtbGludXgtZ251L3Blcmw1LzUuMzQKPiAvdXNyL3NoYXJlL3Blcmw1IC91c3IvbGliL3g4
+Nl82NC1saW51eC1nbnUvcGVybC1iYXNlCj4gL3Vzci9saWIveDg2XzY0LWxpbnV4LWdudS9wZXJs
+LzUuMzQgL3Vzci9zaGFyZS9wZXJsLzUuMzQKPiAvdXNyL2xvY2FsL2xpYi9zaXRlX3BlcmwpIGF0
+IC9ob21lL2NoaW1lL3lvdXR1YmUtdmlld2VyLy4vQnVpbGQgbGluZSA0MS4KPiBCRUdJTiBmYWls
+ZWQtLWNvbXBpbGF0aW9uIGFib3J0ZWQgYXQgL2hvbWUvY2hpbWUveW91dHViZS12aWV3ZXIvLi9C
+dWlsZCBsaW5lIDQxLgo+IENhbid0IGxvY2F0ZSBNb2R1bGUvQnVpbGQucG0gaW4gQElOQyAoeW91
+IG1heSBuZWVkIHRvIGluc3RhbGwgdGhlIE1vZHVsZTo6QnVpbGQKPiBtb2R1bGUpIChASU5DIGNv
+bnRhaW5zOiAvZXRjL3BlcmwgL3Vzci9sb2NhbC9saWIveDg2XzY0LWxpbnV4LWdudS9wZXJsLzUu
+MzQuMAo+IC91c3IvbG9jYWwvc2hhcmUvcGVybC81LjM0LjAgL3Vzci9saWIveDg2XzY0LWxpbnV4
+LWdudS9wZXJsNS81LjM0Cj4gL3Vzci9zaGFyZS9wZXJsNSAvdXNyL2xpYi94ODZfNjQtbGludXgt
+Z251L3BlcmwtYmFzZQo+IC91c3IvbGliL3g4Nl82NC1saW51eC1nbnUvcGVybC81LjM0IC91c3Iv
+c2hhcmUvcGVybC81LjM0Cj4gL3Vzci9sb2NhbC9saWIvc2l0ZV9wZXJsKSBhdCAvaG9tZS9jaGlt
+ZS95b3V0dWJlLXZpZXdlci8uL0J1aWxkIGxpbmUgNDEuCj4gQkVHSU4gZmFpbGVkLS1jb21waWxh
+dGlvbiBhYm9ydGVkIGF0IC9ob21lL2NoaW1lL3lvdXR1YmUtdmlld2VyLy4vQnVpbGQgbGluZSA0
+MS4KPiBCYWNrIGFnYWluIGxpdmUsIHllcyBJIGFtIGluIERlYmlhbiBTSUQtYW5kLXllcyBJIHJ1
+biBhbiB1cGRhdGUtYW5kLWZ1bGwtdXBncmFkZQo+IGVhY2ggZGF5LiBJZiB0aGVzZSBhcmUgcGVy
+bCByZWxhdGVkLCBwbGVhc2UgaW5mb3JtIG9uIGEgc3BlY2lmaWMgY29tbWFuZCB0bwo+IGluc3Rh
+bGwgZWl0aGVyIGFwdCwgcGlwLCBvciBwaXAzPyBIb25lc3RseSBJIGtub3cgbm90aGluZyBvZiBp
+bnN0YWxsaW5nIG1vZHVsZXMuCj4gVGhhbmtzIHNvIG11Y2ggaW4gYWR2dmFuY2UKPiBDaGltZQo+
+IAo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQmxp
+bnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8v
+bGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPiAKCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBt
+YWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0
+LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
 
