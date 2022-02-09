@@ -2,91 +2,73 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 501874AE5C6
-	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 01:11:29 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id DFA814AE647
+	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 02:11:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644365488;
+	s=mimecast20190719; t=1644369076;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=wvs57NaTHgCCnxvdAZcZ/9d/FBIcNqqujX87btth0H8=;
-	b=OUVpjWe8jsUJLmoXpe7lgJ9oEhe+6Iklx4aq8guyYyjzXzNBaOs9bg+exHuqRdk4FUvtcn
-	kJqO3pdlH46ojs4sAPPxx3cCuB/bdYE7jNPHLgytav9PM15irwF/O6z77PiItahB/tkLSF
-	NOnN2ioU36g/X55+XeCOylYZqExnPo4=
+	bh=RhvljNuRyEeimc/gT94vme9M7byBvGyGV6Mu/pnz+Fs=;
+	b=WXdvc2oal8W+CU/pSuR1kb9hj7MdzGutEIs3g+u3XNqKyQsCLnNUHUhLCoI2ofrfSQmwCU
+	oWR6i2ILs4UowhA3La5epbTh1rXVTtxI+Ffq7Pcef6Gkh1AVlhaB8hWomY8uHahQaRAXkQ
+	fGknsypT0OXrFWjMHvmk3PhwTnp2uvE=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-186-dOvqhsHdNCOuqOTqQRKwZw-1; Tue, 08 Feb 2022 19:11:24 -0500
-X-MC-Unique: dOvqhsHdNCOuqOTqQRKwZw-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-448-T0msFAHhNe6hWxEN5W-jYw-1; Tue, 08 Feb 2022 20:11:09 -0500
+X-MC-Unique: T0msFAHhNe6hWxEN5W-jYw-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9E5832F26;
-	Wed,  9 Feb 2022 00:11:20 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8E49A108CC;
-	Wed,  9 Feb 2022 00:11:18 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 298F9190B2A8;
+	Wed,  9 Feb 2022 01:10:54 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4A8EF60C17;
+	Wed,  9 Feb 2022 01:10:52 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6B10E4BB7B;
-	Wed,  9 Feb 2022 00:11:12 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id CA3BD1809CB9;
+	Wed,  9 Feb 2022 01:10:40 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.7])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 2190B6nd006460 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 8 Feb 2022 19:11:06 -0500
+	id 2191AUu8011906 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 8 Feb 2022 20:10:31 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 00C7B2026D13; Wed,  9 Feb 2022 00:11:06 +0000 (UTC)
+	id A08611410DD5; Wed,  9 Feb 2022 01:10:30 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id EAD352026D11
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 00:11:02 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7D4612B699E1
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 00:11:02 +0000 (UTC)
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com
-	[209.85.221.46]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-582-pETG95SnO8ikmvBsu_F1KA-1; Tue, 08 Feb 2022 19:11:00 -0500
-X-MC-Unique: pETG95SnO8ikmvBsu_F1KA-1
-Received: by mail-wr1-f46.google.com with SMTP id s10so1149874wra.5
-	for <blinux-list@redhat.com>; Tue, 08 Feb 2022 16:11:00 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:subject:to:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
-	bh=CoH8EYZm/e5c+LHBF2QcTmqOcm7CdVOvPrJOO6Y4EMY=;
-	b=Rf9IS7AuaSvPozkVusGD77weWn2eyWRjXRE9WasUJs8KMsQSEDvkaNXIfPlwipYOyA
-	sJGxVqzROMFjeSMFytUQxkdT1c2FELI2sAGQ5X2h4vC/W+yeCpEc5I8uOzpJo3TDmW0B
-	S5ZOeLyfWCm2gtUVM6cgpVbjorI8URh3VhpnVSiaZPOgrDouaYDG/OlvLPciwIDhHjG6
-	TNFsAzqoAIDeKILGsNkDX3j3Fa9zKR5JSLLnBDqs9t087Ndw01bSXYSSxitA0pn+rbbV
-	APbTRX+HnqB44+fjGRFxOVWIxCosoI/rk2FORT7TLolgCXjWQdnFMiOeOn0eTp4ZFGTI
-	E4Pw==
-X-Gm-Message-State: AOAM530E/xgAc37L2hHR/M0Fx5mgXnMRxBYQHFM8MDjCC5SGM+Y+Cgqy
-	vvifWuIrdk63uBD3SkrutZzAWVfnU8Mzuw==
-X-Google-Smtp-Source: ABdhPJzPu7TtXAI2YjQS9MglgTe1hRymqpyc+k/Q1L3Ufxjlt4LS9CFx8ShcsAhGSoi0nNln8dRHsg==
-X-Received: by 2002:a5d:4082:: with SMTP id o2mr5093159wrp.691.1644365459040; 
-	Tue, 08 Feb 2022 16:10:59 -0800 (PST)
-Received: from [192.168.1.130] ([87.74.163.68])
-	by smtp.gmail.com with ESMTPSA id e3sm8158138wrr.94.2022.02.08.16.10.58
-	for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Tue, 08 Feb 2022 16:10:58 -0800 (PST)
-Subject: Re: Has anyone gotten i3 accessible yet? or is there a better option
-	besides ratpoison, which is great, btw
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9CEE7140240A
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 01:10:30 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 88ED5858EEC
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 01:10:30 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-259-SUCzFldsNUGsBOGmVNZNSQ-1; Tue, 08 Feb 2022 20:10:28 -0500
+X-MC-Unique: SUCzFldsNUGsBOGmVNZNSQ-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4JthdG2qs0zlsc
+	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 20:10:26 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4JthdG21yGzcbc; Tue,  8 Feb 2022 20:10:26 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4JthdG1RXpzcbC
+	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 20:10:26 -0500 (EST)
+Date: Tue, 8 Feb 2022 20:10:26 -0500
 To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <291bcc92-8153-06b1-5831-937bb8d7f289@gmail.com>
-Message-ID: <10ddd15f-34b1-4137-b114-e5d44c31b12b@gmail.com>
-Date: Wed, 9 Feb 2022 00:11:14 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
-	Firefox/68.0 SeaMonkey/2.53.10.2
+Subject: Re: YT-dlp help
+In-Reply-To: <20220208.110845.007.12@[192.168.1.100]>
+Message-ID: <4d6dc1f4-ce61-4f59-2b45-e02ac16ee3a@panix.com>
+References: <20220208.110845.007.12@[192.168.1.100]>
 MIME-Version: 1.0
-In-Reply-To: <291bcc92-8153-06b1-5831-937bb8d7f289@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -95,7 +77,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -112,42 +94,33 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Not really a WM...
+Yes, the --play-list-items switch followed by comma-separated numbers and
+dash-separated ranges is your friend.  First video in the playlist is 1 so
+count from there.  So first run yt-dlp with --simulate and save the
+playlist to a file.  Figure your item numbers from that file then build
+your actual download command with your selected --playlist-items list.
 
-But I've adapted Strychnine to work with LXDE/LXQT. I couldn't get i3 to 
-work and I'm not touching xmonad at all. I'm not sure about Stumpwm 
-however....but I've yet to find anything as intuitive as Ratpoison 
-personally. If i3 can be made accessible, I'd like that but I'm not 
-sure. Wasn't there a github/gitlab bounty for it a while ago?
 
-Linux for blind general discussion wrote:
-> Hi all,
+On Tue, 8 Feb 2022, Linux for blind general discussion wrote:
+
+> So there's a page on youtube and I want to get a listing of all the videos on it complete with urls. I want to be able to download most of them, but not all, so I want to be able to cherry pick through the list, copyt he urls to a text file, and download the ones I want with the -a option.
+>
+> There's --flat-playlist but this doesn't actually seem to do anything. Is there a way to do what I want?
 >
 >
-> The subject encompassed basically all I wanted to know.
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
 >
->
-> I remember a while ago someone built a talking arch installer using 
-> the ezarch scripts. On their page they listed i3 as an accessible 
-> option, but I could never get the thing to install on a VM, and at the 
-> time I wasn't going to break my Windows install to test it. Now, 
-> maybe, but I cannot for the life of me remember what that project was 
-> called.
->
->
-> If anyone got any tiling WM setups, besides ratpoison to work as they 
-> should, please let me know.
->
->
-> I really love the way ratpoison doesn't slow this machine down at all.
 >
 
 _______________________________________________
