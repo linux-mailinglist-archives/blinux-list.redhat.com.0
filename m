@@ -1,101 +1,84 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id BA9604AE661
-	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 02:55:31 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id D336D4AE669
+	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 03:12:24 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644371730;
+	s=mimecast20190719; t=1644372743;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=FeCcGatyfKfE819Pww0O2mgntn+JYMJWpTIpJyNY2LE=;
-	b=F9MfY5RsmbBgy1vmyPFkYOWqCyvolaB9XHViEAhfPMk8cJaJwm8chta2slCaLGQLYVVi6j
-	PLLUY1w1jJFI1tu/EiWxROiR8qGzCax5PddSNe7364xPTxht0JxP0jLcFy24EnTirMnKiV
-	Ezrxu4CQsrfWYjJ5aA5B4DokFVhJszI=
+	bh=tdszGbptBN23nKdaYbl8f7Lu9lwS0HiTbVfvngJ/u+Q=;
+	b=HUsyGRrvi96ykKY/v6hVjbnvAsKZzjbYCaPESTsD/1HeST0RE9QyFhFtTIDmCYX+ZYih8B
+	NHZyMKuVSDyEnkhXdEFCiQ+f/Z/w1p1rMYJsXSo3rfBygS7tfJqsZ32WoU+PFUyhklj5+S
+	h2twbcMpyFJV3O4pHJMwTIvx1CliqmU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-277-dz5XI8L-MJWHCNF0Dj6Gpw-1; Tue, 08 Feb 2022 20:55:29 -0500
-X-MC-Unique: dz5XI8L-MJWHCNF0Dj6Gpw-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-372-oTUjHSBzPdO2Zmu4dbmjBQ-1; Tue, 08 Feb 2022 21:12:20 -0500
+X-MC-Unique: oTUjHSBzPdO2Zmu4dbmjBQ-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 39617100C662;
-	Wed,  9 Feb 2022 01:55:21 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D2FC9100C662;
+	Wed,  9 Feb 2022 02:12:10 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 211AF12E26;
-	Wed,  9 Feb 2022 01:55:21 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 90D55879C2;
+	Wed,  9 Feb 2022 02:12:09 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EEE834CA93;
-	Wed,  9 Feb 2022 01:55:19 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5F98F4BB7C;
+	Wed,  9 Feb 2022 02:12:05 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.8])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 2191tEIJ014987 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 8 Feb 2022 20:55:14 -0500
+	id 2192BxeI016988 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 8 Feb 2022 21:11:59 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 031711121320; Wed,  9 Feb 2022 01:55:14 +0000 (UTC)
+	id 21128C080B3; Wed,  9 Feb 2022 02:11:59 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F07C91121324
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 01:55:08 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1D396C080B1
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 02:11:59 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 03E9B185A7A4
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 02:11:59 +0000 (UTC)
+Received: from pb-smtp21.pobox.com (pb-smtp21.pobox.com [173.228.157.53]) by
+	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-263-mkTvo3h7OaK_a_ga6xr2MA-1; Tue, 08 Feb 2022 21:11:57 -0500
+X-MC-Unique: mkTvo3h7OaK_a_ga6xr2MA-1
+Received: from pb-smtp21.pobox.com (unknown [127.0.0.1])
+	by pb-smtp21.pobox.com (Postfix) with ESMTP id 6484D188771
+	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 21:11:56 -0500 (EST)
+	(envelope-from joelz@pobox.com)
+Received: from pb-smtp21.sea.icgroup.com (unknown [127.0.0.1])
+	by pb-smtp21.pobox.com (Postfix) with ESMTP id 5D890188770
+	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 21:11:56 -0500 (EST)
+	(envelope-from joelz@pobox.com)
+Received: from sprite (unknown [107.181.177.182])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2F4C085A5BE
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 01:55:08 +0000 (UTC)
-Received: from gateway13.unifiedlayer.com (gateway13.unifiedlayer.com
-	[74.220.216.63]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-100-5xSWOzbcNxCgriEhZAqt3g-1; Tue, 08 Feb 2022 20:55:06 -0500
-X-MC-Unique: 5xSWOzbcNxCgriEhZAqt3g-1
-Received: from cm6.websitewelcome.com (unknown [108.167.139.19])
-	by gateway13.unifiedlayer.com (Postfix) with ESMTP id 00CCF20090E4C
-	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 19:55:04 -0600 (CST)
-Received: from uscentral455.accountservergroup.com ([174.136.13.174])
-	by cmsmtp with ESMTP
-	id HcCGnAjwPtGNQHcCGnlnoN; Tue, 08 Feb 2022 19:55:04 -0600
-X-Authority-Reason: nr=8
-Received: from 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
-	([76.222.220.222]:42534 helo=bigbox.attlocal.net)
-	by uscentral455.accountservergroup.com with esmtpsa (TLS1.2) tls
-	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
-	(envelope-from <blinux.list@thechases.com>) id 1nHcCG-003SHv-NN
-	for blinux-list@redhat.com; Tue, 08 Feb 2022 19:55:04 -0600
-Date: Tue, 8 Feb 2022 19:55:03 -0600
+	by pb-smtp21.pobox.com (Postfix) with ESMTPSA id 00E4B18876F
+	for <blinux-list@redhat.com>; Tue,  8 Feb 2022 21:11:54 -0500 (EST)
+	(envelope-from joelz@pobox.com)
+Received: from jroth by sprite with local (Exim 4.94.2)
+	(envelope-from <joelz@pobox.com>) id 1nHcS6-0002qa-R7
+	for blinux-list@redhat.com; Tue, 08 Feb 2022 16:11:26 -1000
+Date: Tue, 8 Feb 2022 16:11:26 -1000
 To: blinux-list@redhat.com
 Subject: Re: De-arrowing my system...how easy it is?
-Message-ID: <20220208195503.3efe4f70@bigbox.attlocal.net>
-In-Reply-To: <CAO2sX31toO=qxKykAemhKi2HFwGSasjWNCUDf=O2uEEDS9Dqeg@mail.gmail.com>
+Message-ID: <20220209021126.77jrwzckqpknzfm7@sprite>
 References: <7c4915b9-ca3a-9c1a-1132-b9896e94cbaa@gmail.com>
-	<YgMV348HDT3todvP@panix.com>
-	<CAO2sX31toO=qxKykAemhKi2HFwGSasjWNCUDf=O2uEEDS9Dqeg@mail.gmail.com>
 MIME-Version: 1.0
-X-AntiAbuse: This header was added to track abuse,
-	please include it with any abuse report
-X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
-X-AntiAbuse: Original Domain - redhat.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - thechases.com
-X-BWhitelist: no
-X-Source-IP: 76.222.220.222
-X-Source-L: No
-X-Exim-ID: 1nHcCG-003SHv-NN
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
-	(bigbox.attlocal.net) [76.222.220.222]:42534
-X-Source-Auth: tim@thechases.com
-X-Email-Count: 2
-X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
-X-Local-Domain: yes
+In-Reply-To: <7c4915b9-ca3a-9c1a-1132-b9896e94cbaa@gmail.com>
+X-Pobox-Relay-ID: A67A7D24-894D-11EC-B544-CBA7845BAAA9-04347428!pb-smtp21.pobox.com
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -104,7 +87,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 2192BxeI016988
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -121,30 +106,36 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 
-Tim here.  I think they're in the "kbd" package.
+Do you want to change key bindings in the console or under X?
 
-https://packages.debian.org/bullseye/kbd
+On Tue, Feb 08, 2022 at 12:14:06PM +0000, Linux for blind general discussio=
+n wrote:
+> =A0=A0=A0 So, this is something I'm wondering.
+>=20
+> Given I'm on my laptop currently, I'm wondering how easy it'd be to shift
+> the arrow keys function to, say, control+shift and maybe the vim key
+> bindings so I don't have to take my hands entirely of the keyboard to do
+> things that the arrow keys do, like neavigating a web page, selecting tex=
+t,
+> and so on?
+>=20
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
 
-which I would have figured was in the default deployment, but if you
-need to add it, it should be an
+--=20
+Joel Roth
 
-  $ sudo apt install kbd
-
-away.
-
--tim
-
-On February  9, 2022, Linux for blind general discussion wrote:
-> Any idea what package provides dumpkeys, showkeys, and loadkeys?
-> Because these commands don't seem to exist on my system.
 
 _______________________________________________
 Blinux-list mailing list
