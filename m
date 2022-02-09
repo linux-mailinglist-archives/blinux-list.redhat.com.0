@@ -1,92 +1,96 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 51F3C4AF260
-	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 14:09:57 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 605D64AF289
+	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 14:21:18 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644412196;
+	s=mimecast20190719; t=1644412877;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
-	 content-type:content-type:in-reply-to:in-reply-to:
-	 references:references:list-id:list-help:list-unsubscribe:
-	 list-subscribe:list-post; bh=IgNPMADykF/55UX7IWw/27o42sqWf+ducCKn1p75kqk=;
-	b=a8eT/0CjIbI9ozG3yo5zG9H2hpr/Z4txddErMfHbcpboLVAS7FHzxzy5Kp/NO65TV//KLZ
-	jSMPImfEnmtmOrULdqHIqQ/XQUG/l7NilAHCjzPcFA+AochrDvIwveKaVazr/8kr/fJ2Bu
-	PrPfyIayGv75jcc5KtgwtchHV1wY8kM=
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 list-unsubscribe:list-subscribe:list-post;
+	bh=hweqjb1XYV4zz7esbXBRBAxDZXeNRuBUmZVB48dewQM=;
+	b=gKt04wlIBO1i4Mux/+ItVwWiUKKsU9jTa5lhnI+RVzMgaLjVLP5VhILxtWAJ1nUWmhyzK+
+	JVBQKo8wE1m3mdKTWI8pKcAmOOSOeP2ryKLnXkMo/Y13qNb9+5jlSAGAAZ9jVNiaaYVwJY
+	iYo8PWwHrRVqEnbTvthjOSrCPOmHgM8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-130-V_Jdm-SXNl-sFqxJp2k8cw-1; Wed, 09 Feb 2022 08:09:54 -0500
-X-MC-Unique: V_Jdm-SXNl-sFqxJp2k8cw-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-619-nBQIesGYM3Sf-CWMGYAv0A-1; Wed, 09 Feb 2022 08:21:12 -0500
+X-MC-Unique: nBQIesGYM3Sf-CWMGYAv0A-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 21C3B5201;
-	Wed,  9 Feb 2022 13:09:50 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 0FE2C51086;
+	Wed,  9 Feb 2022 13:21:09 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CE07C105B1EB;
-	Wed,  9 Feb 2022 13:09:47 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BE13527CC4;
+	Wed,  9 Feb 2022 13:21:08 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id AAACC1809C88;
-	Wed,  9 Feb 2022 13:09:40 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 593821809CB8;
+	Wed,  9 Feb 2022 13:21:06 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.7])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 219D9XFZ019523 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 9 Feb 2022 08:09:33 -0500
+	id 219DL2Bp020796 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 9 Feb 2022 08:21:02 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 47165202699A; Wed,  9 Feb 2022 13:09:33 +0000 (UTC)
+	id E4A39142B968; Wed,  9 Feb 2022 13:21:01 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 424F52026985
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 13:09:30 +0000 (UTC)
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E09601410F3B
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 13:21:01 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0E484899EC2
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 13:09:30 +0000 (UTC)
-Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com
-	[209.85.214.177]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C6CB4802E5B
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 13:21:01 +0000 (UTC)
+Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com
+	[209.85.222.169]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-283-MlY4GO2fM22WTUstCEjlGQ-2; Wed, 09 Feb 2022 08:09:28 -0500
-X-MC-Unique: MlY4GO2fM22WTUstCEjlGQ-2
-Received: by mail-pl1-f177.google.com with SMTP id y18so2129821plb.11
-	for <blinux-list@redhat.com>; Wed, 09 Feb 2022 05:09:28 -0800 (PST)
+	us-mta-367-0KAVjnTQOlaXrBV4_f0c4A-1; Wed, 09 Feb 2022 08:21:00 -0500
+X-MC-Unique: 0KAVjnTQOlaXrBV4_f0c4A-1
+Received: by mail-qk1-f169.google.com with SMTP id j24so1504119qkk.10
+	for <blinux-list@redhat.com>; Wed, 09 Feb 2022 05:21:00 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:date:from:to:subject:in-reply-to:message-id
-	:references:mime-version;
-	bh=PMmitpldzhoD+qK6B2lSW689gf6wYAiXisCgODCmztE=;
-	b=S9ES4xRbLoPtw2PpMGja8Wh9PMEi+1v54eHQDYOmqtAXkvVILO4QMZlhaHJxzDYuee
-	OK6wMBf8ZW5ni+Li7YS51/slcmdW4qgbYFgD6hm510HCfpEO9jxEJDuclMKu7MDv0Ad/
-	xhJaC0JcOrPonWV7rMZVBFgp3i+fMHxXweFdX5WwQ5URjYUDIngUqB8alDHoApPvTbDP
-	rtajSuZKptyLRmpQkMXOwiQ8fbj8NtSXPihPgu3SBkU/9AQowB1k5qLQRPJoxNeX8jFH
-	y2qwPHhET0ayOsKHG/3RYs0HaeFaAlxyJh9Kyg6V/S05/Z9W9eDMIJZDlZgMjKFSjJpm
-	Uijg==
-X-Gm-Message-State: AOAM5328gA9Hd9ZgnGOmA4p3ZmJZMZay6Wv5+m/2WTGu2j6/Olpj0ZNw
-	PcDDi4W+s8e5bqzxV2ke6kgxrKL/llI=
-X-Google-Smtp-Source: ABdhPJwK2bzrZYlNjonf186iCi1WcPUrpgHhpVjwOQGKAcsYMdqAKYYYGdogCADJO8OQnzIkIOPTZA==
-X-Received: by 2002:a17:90b:1806:: with SMTP id
-	lw6mr3286273pjb.124.1644412167649; 
-	Wed, 09 Feb 2022 05:09:27 -0800 (PST)
-Received: from [192.168.0.108] (123-193-252-152.dynamic.kbronet.com.tw.
-	[123.193.252.152]) by smtp.gmail.com with ESMTPSA id
-	h10sm20482447pfc.103.2022.02.09.05.09.26 for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-	Wed, 09 Feb 2022 05:09:27 -0800 (PST)
-Date: Wed, 9 Feb 2022 21:09:09 +0800 (CST)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Coqui TTS has blew my mind!
-In-Reply-To: <65db3283-530f-6961-d077-b43077f69b65@protonmail.com>
-Message-ID: <cbffc970-b88a-29d0-cbef-d8a84077201c@home.net>
-References: <7a0e0ac7-5e7d-a41a-b775-6782a87ba869@protonmail.com>
-	<95b092c6-91fa-5c95-5ae5-f2418892d8e8@linux-a11y.org>
-	<ef4109e0-e0a7-738a-a389-627329b6bac0@linux-a11y.org>
-	<65db3283-530f-6961-d077-b43077f69b65@protonmail.com>
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=W/oMYWDabF3vua1kquoWPxNAV9a8y1CtR4ZcTLocFTs=;
+	b=uR4cFeTPr5ghDcbMMBgLO/qOg8u0cZNu7pNMcxEsWv+4ZkOAMCkvBdXwDej2kVs/Rq
+	cLOxacQfsYEC+wutEklib9gK1Bean3M0UUU8qzx79kOcQe+d10klXfcs1oGyt81GMMG9
+	ky8Z+DSTuV2lTHhZo91d+8Q7/Kg9vjUulzRp4GUfkLvGNQ8zyg3+vlNkOFqzkZhjPMnA
+	gAUodp27aTqTA0kPQmnmuuuBWOdZp13+pi9InW8weeY/XjYD+GqDsmt7tDO/LcO8sNT8
+	S6kQptzpur5G7hYWpSoV2rrCJJIOCrx8luAD37LUk58OahJORbqqOuEUmEqMipGxMkNs
+	gccg==
+X-Gm-Message-State: AOAM53295nUrvjEkOvbjoO3NBhv+nIFF2WwbeGvYqtweX4Eo95tMyJYn
+	k2IYVS40Dn2StnxIin5rQTqoDyxjfN6Axw==
+X-Google-Smtp-Source: ABdhPJxfrSXcq6TMWHAtVfrAQ08pY/ROyUZz66u9INZR/Gq6iOGdfQY1X0mS/yugIAUxeTcebltlIQ==
+X-Received: by 2002:a05:620a:110d:: with SMTP id
+	o13mr1018104qkk.170.1644412859685; 
+	Wed, 09 Feb 2022 05:20:59 -0800 (PST)
+Received: from ?IPV6:2603:6080:6302:e002:e826:5227:4681:6e2d?
+	(2603-6080-6302-e002-e826-5227-4681-6e2d.res6.spectrum.com.
+	[2603:6080:6302:e002:e826:5227:4681:6e2d])
+	by smtp.gmail.com with ESMTPSA id
+	u63sm8339839qkh.43.2022.02.09.05.20.59 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Wed, 09 Feb 2022 05:20:59 -0800 (PST)
+Message-ID: <dc9290f3-0808-50eb-1998-9721443999c4@gmail.com>
+Date: Wed, 9 Feb 2022 08:20:58 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.5.0
+Subject: Re: Coqui TTS has blew my mind!
+To: blinux-list@redhat.com
+References: <7a0e0ac7-5e7d-a41a-b775-6782a87ba869@protonmail.com>
+In-Reply-To: <7a0e0ac7-5e7d-a41a-b775-6782a87ba869@protonmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -95,7 +99,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -112,220 +116,28 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: multipart/mixed; boundary="8323328-1885741634-1644412167=:3498"
-
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
---8323328-1885741634-1644412167=:3498
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8BIT
-
-Sorry! My English is not well. How to let it speakChinese? Please give a 
-sample of command-line. Thank you!
-
-On Wed, 9 Feb 2022, Linux for blind general discussion wrote:
-
-> Date: Wed, 09 Feb 2022 11:59:26 +0000
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: blinux-list@redhat.com
-> Subject: Re: Coqui TTS has blew my mind!
-> 
-> Hello Chrys,
->
-> I think the problem is that Python 3.10 is not supported as of now.
->
-> https://pypi.org/project/TTS/
->
->
-> Though I'm not sure why. May be some of the backing libraries are not
-> yet compatible, I remember this being a problem in the past with new
-> releases of TensorFlow.
->
->
-> Perhaps a virtual environment with lower Python version could do the trick?
->
->
-> Best regards
->
->
-> Rastislav
->
->
-> Dňa 9. 2. 2022 o 11:48 Linux for blind general discussion napísal(a):
->> Howdy,
->>
->> just want to try coqui again (after a while) and just got this:
->> $ pip3 install TTS
->> Defaulting to user installation because normal site-packages is not
->> writeable
->> ERROR: Could not find a version that satisfies the requirement TTS
->> ERROR: No matching distribution found for TTS
->>
->> any ideas?
->>
->> cheers chrys
->>
->> Am 09.02.22 um 11:40 schrieb Linux for blind general discussion:
->>> Howdy Rastislav,
->>>
->>> yea Coqui is awsome. it was initial part of mozillas TTS and STT efforts.
->>> we really should have  an speech-dispatcher driver for that :).
->>>
->>> by the way, keep up your great work! Just take a look at the C#
->>> speech-dispatcher bindings.
->>>
->>> cheers chrys
->>>
->>> Am 09.02.22 um 11:25 schrieb Linux for blind general discussion:
->>>> Hello everyone,
->>>>
->>>> may be I've discovered America, but yesterday I mostly randomly came
->>>> across:
->>>>
->>>> https://erogol.github.io/ddc-samples/
->>>>
->>>>
->>>> And the voice has completely blew my mind!
->>>>
->>>> Like, I knew the TTS area has advanced significantly in the recent
->>>> years, but I thought the new neural voices are mostly closed features of
->>>> companies like Google or Microsoft.
->>>>
->>>> I had no idea we had something so beautiful on linux and completely
->>>> open-source!
->>>>
->>>>
->>>> Plus, it's not just the license that makes this so interesting, but also
->>>> the usability.
->>>>
->>>> There were the Deepmind papers even before and some open projects trying
->>>> to implement them, but the level of completeness and usability varied
->>>> significantly, even if a project was usable, getting it to work required
->>>> some effort (at least the projects I saw).
->>>>
->>>>
->>>> With Coqui, the situation is completely differrent.
->>>>
->>>> As the above mentioned blog says, all you need to do is:
->>>>
->>>>
->>>> $ pip3 install TTS
->>>>
->>>> $ tts --text "Hello, this is an experimental sentence."
->>>>
->>>>
->>>> And you have a synthesized result!
->>>>
->>>>
->>>> Or you can launch the server:
->>>>
->>>> $ tts-server
->>>>
->>>>
->>>> And play in the web browser. Note that the audio is sent only after it's
->>>> fully synthesized, so you'll need to wait a bit to listen it.
->>>>
->>>>
->>>> The only problematic part is the limit of decoder steps, which is set to
->>>> 500 by default.
->>>>
->>>> I'm not sure why did they put it so low, with this value, the TTS is
->>>> unable to speak longer sentences.
->>>>
->>>>
->>>> Fortunately, the fix is very easy. All I needed to do was to open
->>>> ~/.local/lib/python3.8/site-packages/TTS/tts/configs/tacotron_config.py
->>>>
->>>> and modify the line:
->>>>
->>>>        max_decoder_steps: int = 500
->>>>
->>>> to
->>>>
->>>>        max_decoder_steps: int = 0
->>>>
->>>>
->>>> which seems to disable the limit.
->>>>
->>>>
->>>> After this step, I can synthesize very long sentences, and the quality
->>>> is absolutely glamorous!
->>>>
->>>>
->>>> So I wanted to share. I may be actually the last person discoverying it
->>>> here, though I did not see it mentioned in TTS discussions on this list.
->>>>
->>>>
->>>> I've even thought about creating a speech dispatcher version of this. It
->>>> would certainly be doable, though I'm afraid what would the synthesis
->>>> sound like with the irregularities of navigation with a screenreader.
->>>> These voices are intended for reading longer texts and consistent
->>>> phrases, with punctuation, complete information etc.
->>>>
->>>> The intonation would probably get a bit weird with for example just a
->>>> half sentence, as happens when navigating a document or webpage line by
->>>> line.
->>>>
->>>>
->>>> Another limitation would be the one of speed. On my laptop, the realtime
->>>> factor (processing duration / audio length) is around 0.8, what means it
->>>> could handle real-time synthesis at the default speed without delays.
->>>>
->>>>
->>>> The situation would get more complicated with higher speeds, though.
->>>>
->>>> It wouldn't be impossible, but one would need a GPU to handle
->>>> significantly higher speech rates.
->>>>
->>>>
->>>> So I wonder.
->>>>
->>>>
->>>> But anyway, this definitely made my day. :)
->>>>
->>>>
->>>> Best regards
->>>>
->>>>
->>>> Rastislav
->>>>
->>>>
->>>>
->>>>
->>>> _______________________________________________
->>>> Blinux-list mailing list
->>>> Blinux-list@redhat.com
->>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>
->>> _______________________________________________
->>> Blinux-list mailing list
->>> Blinux-list@redhat.com
->>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
---8323328-1885741634-1644412167=:3498
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+
+I've seen it before, but I only was able to get as far as the samples you heard. I got the following error when I tried to install it.
+
+$ pip3 install TTS
+
+Defaulting to user installation because normal site-packages is not writeable
+ERROR: Could not find a version that satisfies the requirement TTS (from versions: none)
+ERROR: No matching distribution found for TTS
+
+It is very good for reading longer texts, at least according to the samples I've heard, but is rather resource intensive for use with something like a screen reader. Hopefully there is an option to decode to an audio file. That would certainly solve the text to mp3 issue discussed earlier on this list.
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
 https://listman.redhat.com/mailman/listinfo/blinux-list
---8323328-1885741634-1644412167=:3498--
 
