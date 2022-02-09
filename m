@@ -1,95 +1,78 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id A9AB04AF74F
-	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 17:57:12 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id E5D2B4AF7D9
+	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 18:10:23 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644425831;
+	s=mimecast20190719; t=1644426623;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=6BEbBsyq7+NyA9I3pZH0LAL3cyPsigruO912EuuU1GE=;
-	b=MOoTip1A3CCw4I2ttWg/6HHFw7gi5faErikbrSmRepmIrlgGID/yTm/6K44BWlX1mRB6Ao
-	/496P9pk2D6i1m0BBzUY+AkG53gDadHx1wCJTkewKmglsHzWzKgEjM6RUm8YAmYQNh37fT
-	RsEjMpvDGZjT2WLzQqq9mcH/mwzJwzM=
+	bh=CUaobnY8UJZ8eXI9+JNvCQXHVwBHJG1W4q16XyLgMU8=;
+	b=OVVwWZ076avdH34IB1oNQovKgY802bWi1GNpW6CSwcODn8MKHAL6jCCPKY4X2+DfPN7l2I
+	Jq8quFp1KJtMEiSVDYxumaFl7LyFZ0marQAzrGhbtBp1h3p0+WAH8TC3EQPcQNUUZOSrGH
+	VgACgfs5wYxwirQtNrQIv38+KYnYzac=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-240-2A-dIkQNNYCx56e4Iq5p_w-1; Wed, 09 Feb 2022 11:57:07 -0500
-X-MC-Unique: 2A-dIkQNNYCx56e4Iq5p_w-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+ us-mta-67-NumbzborNwWNDgKInXv0MQ-1; Wed, 09 Feb 2022 12:10:21 -0500
+X-MC-Unique: NumbzborNwWNDgKInXv0MQ-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6CA4C64093;
-	Wed,  9 Feb 2022 16:57:03 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 67114802932;
+	Wed,  9 Feb 2022 17:10:14 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2200C753E3;
-	Wed,  9 Feb 2022 16:57:01 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 97C9384D1C;
+	Wed,  9 Feb 2022 17:10:13 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BC72C1809C88;
-	Wed,  9 Feb 2022 16:56:58 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.9])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1245C1809CB8;
+	Wed,  9 Feb 2022 17:10:12 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 219GupMa019527 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 9 Feb 2022 11:56:52 -0500
+	id 219HA6gk022119 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 9 Feb 2022 12:10:06 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 95E34492D1F; Wed,  9 Feb 2022 16:56:51 +0000 (UTC)
+	id 5F284112132E; Wed,  9 Feb 2022 17:10:06 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 92216492D1C
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 16:56:51 +0000 (UTC)
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5B3FD1121315
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 17:10:03 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6EEEE3C01C22
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 16:56:51 +0000 (UTC)
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.15]) by
-	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 35008185A79C
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 17:10:03 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
 	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-380-w5sv9KgKNYCNon6onyOhXA-1; Wed, 09 Feb 2022 11:56:49 -0500
-X-MC-Unique: w5sv9KgKNYCNon6onyOhXA-1
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [192.168.1.100] ([208.107.97.40]) by mail.gmx.net (mrgmx005
-	[212.227.17.184]) with ESMTPSA (Nemesis) id 1MeU4s-1ns0V90Tno-00aTON
-	for <blinux-list@redhat.com>; Wed, 09 Feb 2022 17:56:47 +0100
-Message-ID: <20220209.165742.812.14@[192.168.1.100]>
-To: blinux-list@redhat.com
-Subject: Re: regex help
-Date: Wed, 09 Feb 2022 10:57:42 -0600
+	us-mta-194-e3W3CK0-M1-rTzEgSFYmDw-1; Wed, 09 Feb 2022 12:10:00 -0500
+X-MC-Unique: e3W3CK0-M1-rTzEgSFYmDw-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4Jv5wR4MyjzGsW
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 12:09:59 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4Jv5wR4BkVzcbc; Wed,  9 Feb 2022 12:09:59 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4Jv5wR3rnhzcbC
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 12:09:59 -0500 (EST)
+Date: Wed, 9 Feb 2022 12:09:59 -0500
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Has anyone gotten i3 accessible yet? or is there a better option
+	besides ratpoison, which is great, btw
+In-Reply-To: <CAO2sX30tkfHK=CR5Bz717rOKEYxyw5iXRiqfLW=BiYBtVAXffA@mail.gmail.com>
+Message-ID: <9559c617-742a-eb76-e2b6-f9339fcbefac@panix.com>
+References: <291bcc92-8153-06b1-5831-937bb8d7f289@gmail.com>
+	<da2dd400-8055-3777-60a3-89c1b8a34df5@protonmail.com>
+	<CAO2sX30tkfHK=CR5Bz717rOKEYxyw5iXRiqfLW=BiYBtVAXffA@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <7b45db32-7c88-03e9-ce04-9b7295fd8e37@gmail.com>
-References: <20220209.123818.520.13@[192.168.1.100]> <87ee4cdrvs.fsf@yahoo.com>
-	<7b45db32-7c88-03e9-ce04-9b7295fd8e37@gmail.com>
-User-Agent: POP Peeper Pro (5.2.2.0)
-X-Provags-ID: V03:K1:CmE++bigbRzJ/JvJdITiS7TSZ5F2+h50mG5v/qzzmvx/1q0I9uh
-	oRKDjzZTsVqu4fqSKF13Ipa4cUFZzWYOcx0upw8ZTA7smeOiLZ7oe7+OSoshfmtX/V670p1
-	pEUhuQDijro/+No8Uz1ZsPq+I2TW871mP5Mj0BswrEKGwVT/KjGUj4kNMRuoNnQEEYhf0N9
-	CDBQzF1wsIEYGtvt5GWSw==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:UDyTvL3REbk=:DKbJmyt3uYpXfwVElgz1ll
-	CVtY2RoguR0VuK63GO2yYI9o5Z3PqzwEiXclGit6IbarL4/WZR6ykTJz2z5fULycKtK91jszS
-	R9xoOSCQ5zsB3adNYNwQJCd3i7j/+GbyujRwIAG0vkkNZsKudF+XdgNz+GaKr0yZgZH5+Tlqi
-	ex1TBTR7orHKrdiPtBUtMpWIEfKmmT8TbVJ40RE/1kAyN+n/skREq6QlauKXjEAEz1hAeUuil
-	YaIkqO42ZSn1F5ob1RjfbcIQ+nsv86HRrF48nWTRmFDik4NIbAb0wJZoXMVYbJplcVe0YjmMH
-	tcBl/g1gzlZ91oItpiWC0/PYLlyrk3J0gOhDHlxf+sR5lP9teLkNsbCzLF0PTy2u54nIwhVq5
-	1oIhWIKEP7aaC/tsG9sF/qZ2tOecAeD24q1eOIB5eu2a/Pwvom4K7d4ZBmfCK5+Y6+7QCSqQp
-	udD5vlcb6SAmzQhZjg+pi/4Z25lqDapb99wvAuXEPCcet1B21VbEN/FKD/BgSTJbkX8rblmvk
-	Xj0VGf+VqeFCwSximZ6T9q0VpzJ7SRqW8g6DMSidpvHvzsX5CLiF7IUQyBdTNgQZBUuNR3bIr
-	S+Yj8wx2S2gmMR/fOOO8NuSyLdCcA/kPCa9VFr6Gf834gCXVTQbnemg8772rBI+M5q//50NQ9
-	fKLLVu/IhwRqbFu37u5jiPTxBITqti5kBcZU//zKV5m8yTsXO8BT53MYunyjFfzTcswQf3OlR
-	rOOppsxSDaDwZnxymX7XT3Xs+A2B5QFDxvVVVguhZUfzLrnUzKcq2ZOzYExn8oUSpAcJi+/mS
-	xAo+eZgA1WVvOMySQ4jUY62RN+EaYBZUC3XHUEbGO3fdANqulwBPstlNuB0eFmZqg58NnfmmB
-	t5LnoFINAL/yQNirFHqeVw7hlnwOvyFKMXp2XS6GliECJkXYYeW6plhWM/A/iibMVWU9MdvCe
-	sBkhfjw5MkM/DFyls0/5mSs6KIiD5YM21GbL0K25BWatm/O8NgfUXxKUlgdRIiqcTkg4DtxY5
-	MvtBrBGXbG9Ozv++QsebfRRHbglPCknDP3IxFakAnjZz/eqrzX3QIBY1yGN5KEojG9gAul+eo
-	K4ivPrH0Dd0Kos=
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -98,9 +81,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 219GupMa019527
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -117,32 +98,57 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=WINDOWS-1252
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-This one did it. Thanks a lot.
+I think the solution is to get xfce accessible and combined with ratpoison
+and strychnine on some of this old hardware there might be room for orca
+to work well.
 
------ Original Message -----
-From: Linux for blind general discussion <blinux-list@redhat.com>
-To: blinux-list@redhat.com
-Date: Wed, 9 Feb 2022 16:16:32 +0100
-Subject: Re: regex help
 
->  > Is=A0it=A0possible=A0to=A0craft=A0a=A0regex=A0to=A0just=A0find=A0all=
-=A0single=A0letters,
->  > followed by a dot? What file renamer is the best one to use for this?
->  > The=A0one=A0I=A0currently=A0use=A0is=A0brename
-> Alberto:
-> Hi,
-> nice brename, I just installed and played it in last two minutes.
-> So, try with:
-> brename -d -p "(\b\w)\." -r '$1'
-> Alberto
+On Wed, 9 Feb 2022, Linux for blind general discussion wrote:
+
+> I think the point of wanting an accessible ratpoison, i3, etc. setup
+> is that Gnome and Mate are both fairly hefty environments in terms of
+> resource usage, and Orca, if you'll pardon the pun, is a whale of a
+> resource user itself while these alternative window managers are
+> designed to be as lightweight as their creators could manage.
+>
+> One of Linux's appeals is breathing new life into old hardware, and
+> there are many machines that would choke on modern Windows and could
+> handle either Gnome/Mate or Orca, but can't handle both Gnome/Mate and
+> Orca and still have enough resources left over for running apps with
+> acceptable performance. And since the only real alternative to Orca is
+> ditch the GUI and do everything in the console, the focus for putting
+> an accessible desktop on old machines tends to be onstripping out
+> unused parts of the desktop environment and switching the vital
+> components to lighter weight alternatives.
+>
+> Also, as its name suggests, ratpoison is built from the ground up with
+> a keyboard-only, no mouse setup in mind, and blind users tend to fall
+> into the category of users who don't like using a mouse.
+>
+> Anyways, I myself am using the fast, light window manager(flwm)... but
+> I can't really speak to its accessibility since my setup doesn't
+> include anything remotely resembling a full desktop. Firefox is the
+> only graphical application I use and I launch it via a script I did
+> not write and understand next to nothing of how it works that
+> basically gives me Firefox+orca running as a kiosk on top of
+> flwm(though, while a true kiosk would prevent closing Firefox, on my
+> setup, closing firefox ends the xsession and drops back to the
+> console. The script uses compiz as its default Window manager, but
+> changing which window manager it uses is the one thing I've figured
+> out, and flwm was just the smallest window manager I tried that worked
+> as a drop in replacement... and even then, Firefox+Orca are such a
+> Behemoth and Leviathan combo that some websites(or having many tabs
+> open) slow my 4GB Ram, i7 20-something-hundred machine to a crawl(My
+> system drive being platter based probably doesn't help matters
+> either).
 >
 > _______________________________________________
 > Blinux-list mailing list
@@ -150,7 +156,6 @@ Subject: Re: regex help
 > https://listman.redhat.com/mailman/listinfo/blinux-list
 >
 >
-
 
 _______________________________________________
 Blinux-list mailing list
