@@ -1,78 +1,101 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id E5D2B4AF7D9
-	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 18:10:23 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id F28C14AF966
+	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 19:13:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644426623;
+	s=mimecast20190719; t=1644430430;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=CUaobnY8UJZ8eXI9+JNvCQXHVwBHJG1W4q16XyLgMU8=;
-	b=OVVwWZ076avdH34IB1oNQovKgY802bWi1GNpW6CSwcODn8MKHAL6jCCPKY4X2+DfPN7l2I
-	Jq8quFp1KJtMEiSVDYxumaFl7LyFZ0marQAzrGhbtBp1h3p0+WAH8TC3EQPcQNUUZOSrGH
-	VgACgfs5wYxwirQtNrQIv38+KYnYzac=
+	bh=23BW/sO8GMbvnrOVSESdYvbfLSx0y3xom7TyGcUfUzU=;
+	b=WjYr5BHxcjg0R6Ul0d8oNrYKPWnApTlIBAwRwqTouIQ8Z0gywZPSUby0XN+tKPzQ7MztmD
+	Sv+m3jPKw/wQADu1iFM4ZDfRnOAY48u3uL9vkclxu5onlSii+Tx6w8LDIqomfrJdovQ13T
+	Ctnx6SkyJGpAT3Ow+L1C1g5ry6wzhOk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-67-NumbzborNwWNDgKInXv0MQ-1; Wed, 09 Feb 2022 12:10:21 -0500
-X-MC-Unique: NumbzborNwWNDgKInXv0MQ-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-674-4oQ9lQczN56r4zKEesU6ew-1; Wed, 09 Feb 2022 13:13:46 -0500
+X-MC-Unique: 4oQ9lQczN56r4zKEesU6ew-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 67114802932;
-	Wed,  9 Feb 2022 17:10:14 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 585D58144E3;
+	Wed,  9 Feb 2022 18:13:42 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 97C9384D1C;
-	Wed,  9 Feb 2022 17:10:13 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 14CC710A4028;
+	Wed,  9 Feb 2022 18:13:40 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1245C1809CB8;
-	Wed,  9 Feb 2022 17:10:12 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 08AF11809C88;
+	Wed,  9 Feb 2022 18:13:33 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 219HA6gk022119 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 9 Feb 2022 12:10:06 -0500
+	id 219IDQ7G027989 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 9 Feb 2022 13:13:26 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 5F284112132E; Wed,  9 Feb 2022 17:10:06 +0000 (UTC)
+	id 799B9401E66; Wed,  9 Feb 2022 18:13:26 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5B3FD1121315
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 17:10:03 +0000 (UTC)
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 753D5401E78
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 18:13:26 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 35008185A79C
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 17:10:03 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-194-e3W3CK0-M1-rTzEgSFYmDw-1; Wed, 09 Feb 2022 12:10:00 -0500
-X-MC-Unique: e3W3CK0-M1-rTzEgSFYmDw-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4Jv5wR4MyjzGsW
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 12:09:59 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4Jv5wR4BkVzcbc; Wed,  9 Feb 2022 12:09:59 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4Jv5wR3rnhzcbC
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 12:09:59 -0500 (EST)
-Date: Wed, 9 Feb 2022 12:09:59 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Has anyone gotten i3 accessible yet? or is there a better option
-	besides ratpoison, which is great, btw
-In-Reply-To: <CAO2sX30tkfHK=CR5Bz717rOKEYxyw5iXRiqfLW=BiYBtVAXffA@mail.gmail.com>
-Message-ID: <9559c617-742a-eb76-e2b6-f9339fcbefac@panix.com>
-References: <291bcc92-8153-06b1-5831-937bb8d7f289@gmail.com>
-	<da2dd400-8055-3777-60a3-89c1b8a34df5@protonmail.com>
-	<CAO2sX30tkfHK=CR5Bz717rOKEYxyw5iXRiqfLW=BiYBtVAXffA@mail.gmail.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5B7E4106655A
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 18:13:26 +0000 (UTC)
+Received: from gateway12.unifiedlayer.com (gateway12.unifiedlayer.com
+	[74.220.211.17]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-127-aEili4DMN7qmPe0g4K_u9g-1; Wed, 09 Feb 2022 13:13:24 -0500
+X-MC-Unique: aEili4DMN7qmPe0g4K_u9g-1
+Received: from cm4.websitewelcome.com (unknown [108.167.139.16])
+	by gateway12.unifiedlayer.com (Postfix) with ESMTP id BB076200A01B6
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 11:51:13 -0600 (CST)
+Received: from uscentral455.accountservergroup.com ([174.136.13.174])
+	by cmsmtp with ESMTP
+	id Hr7ZntUH4cfn8Hr7ZniCv6; Wed, 09 Feb 2022 11:51:13 -0600
+X-Authority-Reason: nr=8
+Received: from 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
+	([76.222.220.222]:65131 helo=bigbox.attlocal.net)
+	by uscentral455.accountservergroup.com with esmtpsa (TLS1.2) tls
+	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+	(envelope-from <blinux.list@thechases.com>) id 1nHr7Z-002fbC-Fg
+	for blinux-list@redhat.com; Wed, 09 Feb 2022 11:51:13 -0600
+Date: Wed, 9 Feb 2022 11:51:12 -0600
+To: blinux-list@redhat.com
+Subject: Re: regex help
+Message-ID: <20220209115112.077dcede@bigbox.attlocal.net>
+In-Reply-To: <CAO2sX33BR+rnxEVtDOnAzyP=bQ0cB1bkLKpkVKGSmZdYJiSiog@mail.gmail.com>
+References: <20220209.123818.520.13@192.168.1.100>
+	<20220209090549.4659750f@bigbox.attlocal.net>
+	<CAO2sX33BR+rnxEVtDOnAzyP=bQ0cB1bkLKpkVKGSmZdYJiSiog@mail.gmail.com>
 MIME-Version: 1.0
+X-AntiAbuse: This header was added to track abuse,
+	please include it with any abuse report
+X-AntiAbuse: Primary Hostname - uscentral455.accountservergroup.com
+X-AntiAbuse: Original Domain - redhat.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - thechases.com
+X-BWhitelist: no
+X-Source-IP: 76.222.220.222
+X-Source-L: No
+X-Exim-ID: 1nHr7Z-002fbC-Fg
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 76-222-220-222.lightspeed.rcsntx.sbcglobal.net
+	(bigbox.attlocal.net) [76.222.220.222]:65131
+X-Source-Auth: tim@thechases.com
+X-Email-Count: 1
+X-Source-Cap: dGhlY2hhc2U7dGhlY2hhc2U7dXNjZW50cmFsNDU1LmFjY291bnRzZXJ2ZXJncm91cC5jb20=
+X-Local-Domain: yes
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -81,7 +104,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -98,7 +121,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -106,56 +129,60 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-I think the solution is to get xfce accessible and combined with ratpoison
-and strychnine on some of this old hardware there might be room for orca
-to work well.
+Tim here, replying inline.
 
+> rename.ul "." " " *.txt
+> repeat until all periods are gone.
 
-On Wed, 9 Feb 2022, Linux for blind general discussion wrote:
+Because this wil turn "dave.txt" into "davetxt", removing the period
+before the extension (I see your process puts them back in after the
+fact), I'd solve this with the Perl "rename" utility using
 
-> I think the point of wanting an accessible ratpoison, i3, etc. setup
-> is that Gnome and Mate are both fairly hefty environments in terms of
-> resource usage, and Orca, if you'll pardon the pun, is a whale of a
-> resource user itself while these alternative window managers are
-> designed to be as lightweight as their creators could manage.
->
-> One of Linux's appeals is breathing new life into old hardware, and
-> there are many machines that would choke on modern Windows and could
-> handle either Gnome/Mate or Orca, but can't handle both Gnome/Mate and
-> Orca and still have enough resources left over for running apps with
-> acceptable performance. And since the only real alternative to Orca is
-> ditch the GUI and do everything in the console, the focus for putting
-> an accessible desktop on old machines tends to be onstripping out
-> unused parts of the desktop environment and switching the vital
-> components to lighter weight alternatives.
->
-> Also, as its name suggests, ratpoison is built from the ground up with
-> a keyboard-only, no mouse setup in mind, and blind users tend to fall
-> into the category of users who don't like using a mouse.
->
-> Anyways, I myself am using the fast, light window manager(flwm)... but
-> I can't really speak to its accessibility since my setup doesn't
-> include anything remotely resembling a full desktop. Firefox is the
-> only graphical application I use and I launch it via a script I did
-> not write and understand next to nothing of how it works that
-> basically gives me Firefox+orca running as a kiosk on top of
-> flwm(though, while a true kiosk would prevent closing Firefox, on my
-> setup, closing firefox ends the xsession and drops back to the
-> console. The script uses compiz as its default Window manager, but
-> changing which window manager it uses is the one thing I've figured
-> out, and flwm was just the smallest window manager I tried that worked
-> as a drop in replacement... and even then, Firefox+Orca are such a
-> Behemoth and Leviathan combo that some websites(or having many tabs
-> open) slow my 4GB Ram, i7 20-something-hundred machine to a crawl(My
-> system drive being platter based probably doesn't help matters
-> either).
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+  's/(?<=\b[[:alpha:]])\.(?=.*\.[^.]*$)//g'
+
+This requires that there be at least one period (the one before
+the extension) after any period that is removed.
+
+> rename.ul "  " " " *txt
+> repeat until double spaces are gone.
+
+Similarly, you can consolidate all sequences of spaces in one pass:
+
+  's/  +/ /g'
+
+Additionally, these can be combined with a semicolon in the same pass:
+
+  rename -n 's/(?<=\b[[:alpha:]])\.(?=.*\.[^.]*$)//g;s/  +/ /g'
+
+I have one huge ugly command that cleans up the podcast filenames in
+my queue, removing troublesome characters (a "#" character in the
+filename trips up my player, and I don't like periods & spaces,
+swapping them to underscores and then condensing multiple runs of
+them down to a single underscore).  Once you've gotten the command
+figured out, I put it in a shell-script and don't have to ever think
+about it again. (smile)
+
+> So while we're on the subject of renaming stuff, can anyone suggest
+> a more current rename utility where doing a simple search and
+> replace on all files in the working directory is as simple as:
+> 
+> command "string to replace" "string to replace with" *
+
+While not exactly what you're asking, for individual files, I often
+use shell brace-expansion like
+
+  mv long_file_{previous_bit,new_portion}_example.txt
+
+which can save a lot of typing.  This also works nicely for taking
+backups of a file like
+
+  cp important_file.txt{,.bak}
+
+Hope this gives you some more options to work with (and if you have
+regex questions, I'm a sucker for playing with them, often hanging
+out in /r/regex on Reddit helping folks there)
+
+-tim
 
 _______________________________________________
 Blinux-list mailing list
