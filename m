@@ -2,84 +2,68 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3D3104B0090
-	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 23:45:36 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 089384B00C9
+	for <lists+blinux-list@lfdr.de>; Wed,  9 Feb 2022 23:57:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644446735;
+	s=mimecast20190719; t=1644447450;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
-	 list-unsubscribe:list-subscribe:list-post;
-	bh=HuQFRA3ynu8ED+v+1G1avV6IVRqn0B1BaU1NtTggbVI=;
-	b=iULDAOo2yrgHAkF7/jIXBzL4zfq7FyaQYABi4xxPv856MP4WKvDAxh35Rl+3HcMWZmatR9
-	8cgYqK5v5W2/zs0xR766seITXSQenNrLDvfJu+RvAB+l6xRzBjtYffsnNhtsJWMGPw9F5b
-	uoeEuvOKVObtZAAXPeNxFRC3ML7JKVw=
+	 content-type:content-type:in-reply-to:in-reply-to:
+	 references:references:list-id:list-help:list-unsubscribe:
+	 list-subscribe:list-post; bh=DHNbgJgtbNmH94griX8Q1Zjmh1GLh4qITFT0NJPZd48=;
+	b=gigpXx90BcY5+2/Lbrk4aLlqQSFiAfmc3Hs22gZpynfZYhQu9Qu4dDZqMEQZVd9YNs9TTV
+	D4dt4kxscSFVSDFaDuzle94iAbpfa7A1NGju6NrcXHnUflJlsMQKpDVB5rhZGVJkCA6hT0
+	czoufhuIa9Twi5qE2qIDZvBb64/woik=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-477-V67nNKs4NG6M1L-50dZ0uQ-1; Wed, 09 Feb 2022 17:45:31 -0500
-X-MC-Unique: V67nNKs4NG6M1L-50dZ0uQ-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-631-9E_Hb0G1OK-9bh1vdjHAFg-1; Wed, 09 Feb 2022 17:57:26 -0500
+X-MC-Unique: 9E_Hb0G1OK-9bh1vdjHAFg-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 79281802925;
-	Wed,  9 Feb 2022 22:45:27 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id AEC5E801B0B;
+	Wed,  9 Feb 2022 22:57:22 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5D7507A22C;
-	Wed,  9 Feb 2022 22:45:27 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 473B54EC7F;
+	Wed,  9 Feb 2022 22:57:22 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 16D1D1809CB8;
-	Wed,  9 Feb 2022 22:45:27 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.3])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4AEF21809CB8;
+	Wed,  9 Feb 2022 22:57:21 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.7])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 219MjN6s021945 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 9 Feb 2022 17:45:24 -0500
+	id 219MvGVQ022711 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 9 Feb 2022 17:57:16 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id D0E9A1121334; Wed,  9 Feb 2022 22:45:23 +0000 (UTC)
+	id 469FD141DC29; Wed,  9 Feb 2022 22:57:16 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CC5881121315
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 22:45:20 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 42F24140242B
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 22:57:16 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DBC98811E76
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 22:45:20 +0000 (UTC)
-Received: from out4-smtp.messagingengine.com (out4-smtp.messagingengine.com
-	[66.111.4.28]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 29BDB800B29
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 22:57:16 +0000 (UTC)
+Received: from server2.shellworld.net (server2.shellworld.net
+	[66.172.12.120]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-604-Cy68BN0QNUmFu_jHmvqvTg-1; Wed, 09 Feb 2022 17:45:19 -0500
-X-MC-Unique: Cy68BN0QNUmFu_jHmvqvTg-1
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.nyi.internal (Postfix) with ESMTP id BDCF15C0131
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 17:45:18 -0500 (EST)
-Received: from mailfrontend2 ([10.202.2.163])
-	by compute1.internal (MEProxy); Wed, 09 Feb 2022 17:45:18 -0500
-X-ME-Sender: <xms:_kMEYkhmSqqVEld08LSGkcMKyqzltpBUQn8wdr-Qa6xepW8ByxqUPA>
-	<xme:_kMEYtBY6Fs83XWNNiJ9g6UlVjbjJSSesBq-e2i6MfZGkcQn39g2usSyXcm9DFTvE
-	U1YZzw1_El9OpMZkk8>
-X-ME-Received: <xmr:_kMEYsEI2RjphhMZaMWqXRsnYQ7DY_3cKnIUJA2dEMdMAL6nWi_uOcHMz9bDGj0EJj6qgVC6Nube5F3PygOXYiE-iepu8wvU5g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddriedtgddtudcutefuodetggdotefrodftvf
-	curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-	uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-	fjughrpeffhffvuffkgggtsehttdertddttddvnecuhfhrohhmpeevhhhimhgvucfjrghr
-	thcuoegthhhimhgvsehhuhgsvghrthdqhhhumhhphhhrvgihrdgtohhmqeenucggtffrrg
-	htthgvrhhnpeejffffudejleeuffeivedtieettedtkefggfekvdeujeetkedtheefhffh
-	vdetkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-	gthhhimhgvsehhuhgsvghrthdqhhhumhhphhhrvgihrdgtohhm
-X-ME-Proxy: <xmx:_kMEYlSMFUeeUS0IO0rK0lPOg8acJtO_g5xBqvuYUsg81lwBGsIAfA>
-	<xmx:_kMEYhz88xGbp_upcd1NH1pRSJzuLZ2XA8czeNKjiSNKzdoxZuH8sA>
-	<xmx:_kMEYj4cGgzuz_Bmf6Iz4gbUYR-Un4t-t9K4YJztG47xrRBT6IMqyQ>
-	<xmx:_kMEYqvV8J2b94Pv57tpKCedErw4-31Hqvn_R4dobAFZfqMM5gpUIg>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA for
-	<blinux-list@redhat.com>; Wed, 9 Feb 2022 17:45:18 -0500 (EST)
-Date: Wed, 9 Feb 2022 14:45:17 -0800 (PST)
-To: Blinux Discussion List <blinux-list@redhat.com>
-Subject: Is Youtube-viewer Broken?
-Message-ID: <bd935680-f9c0-3efe-8a8-3d3bf0fee08d@hubert-humphrey.com>
+	us-mta-199-zs5NTkYRP5ShACdF2sbaBA-1; Wed, 09 Feb 2022 17:57:14 -0500
+X-MC-Unique: zs5NTkYRP5ShACdF2sbaBA-1
+Received: by server2.shellworld.net (Postfix, from userid 1005)
+	id 314BC620CB1; Wed,  9 Feb 2022 22:57:13 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+	by server2.shellworld.net (Postfix) with ESMTP id 2C1D76200AE
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 17:57:13 -0500 (EST)
+Date: Wed, 9 Feb 2022 17:57:13 -0500 (EST)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Coqui TTS has blew my mind!
+In-Reply-To: <7a0e0ac7-5e7d-a41a-b775-6782a87ba869@protonmail.com>
+Message-ID: <Pine.LNX.4.64.2202091755540.340174@server2.shellworld.net>
+References: <7a0e0ac7-5e7d-a41a-b775-6782a87ba869@protonmail.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -89,7 +73,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -106,47 +90,156 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: MULTIPART/MIXED;
+	BOUNDARY="-1404930036-2049715565-1644447433=:340174"
 
-Hi All: I use this alot. I notice this morning these following errors when 
-trying to update the package from a script.
-Can't locate Module/Build.pm in @INC (you may need to install the Module::Build 
-module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.34.0 
-/usr/local/share/perl/5.34.0 /usr/lib/x86_64-linux-gnu/perl5/5.34 
-/usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base 
-/usr/lib/x86_64-linux-gnu/perl/5.34 /usr/share/perl/5.34 
-/usr/local/lib/site_perl) at Build.PL line 6.
-BEGIN failed--compilation aborted at Build.PL line 6.
-Can't locate Module/Build.pm in @INC (you may need to install the Module::Build 
-module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.34.0 
-/usr/local/share/perl/5.34.0 /usr/lib/x86_64-linux-gnu/perl5/5.34 
-/usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base 
-/usr/lib/x86_64-linux-gnu/perl/5.34 /usr/share/perl/5.34 
-/usr/local/lib/site_perl) at /home/chime/youtube-viewer/./Build line 41.
-BEGIN failed--compilation aborted at /home/chime/youtube-viewer/./Build line 
-41.
-Can't locate Module/Build.pm in @INC (you may need to install the Module::Build 
-module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.34.0 
-/usr/local/share/perl/5.34.0 /usr/lib/x86_64-linux-gnu/perl5/5.34 
-/usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base 
-/usr/lib/x86_64-linux-gnu/perl/5.34 /usr/share/perl/5.34 
-/usr/local/lib/site_perl) at /home/chime/youtube-viewer/./Build line 41.
-BEGIN failed--compilation aborted at /home/chime/youtube-viewer/./Build line 
-41.
-Back again live, yes I am in Debian SID-and-yes I run an 
-update-and-full-upgrade each day. If these are perl related, please inform on a 
-specific command to install either apt, pip, or pip3? Honestly I know nothing 
-of installing modules. Thanks so much in advvance
-Chime
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
+---1404930036-2049715565-1644447433=:340174
+Content-Type: TEXT/PLAIN; charset=utf-8; format=flowed
+Content-Transfer-Encoding: QUOTED-PRINTABLE
+
+Where are the audio samples?
+The words are presented, but save for a single YouTube link, there is=20
+nothing  to download, at least not in command line lynx.
+
+
+
+On Wed, 9 Feb 2022, Linux for blind general discussion wrote:
+
+> Hello everyone,
+>
+> may be I've discovered America, but yesterday I mostly randomly came acro=
+ss:
+>
+> https://erogol.github.io/ddc-samples/
+>
+>
+> And the voice has completely blew my mind!
+>
+> Like, I knew the TTS area has advanced significantly in the recent
+> years, but I thought the new neural voices are mostly closed features of
+> companies like Google or Microsoft.
+>
+> I had no idea we had something so beautiful on linux and completely
+> open-source!
+>
+>
+> Plus, it's not just the license that makes this so interesting, but also
+> the usability.
+>
+> There were the Deepmind papers even before and some open projects trying
+> to implement them, but the level of completeness and usability varied
+> significantly, even if a project was usable, getting it to work required
+> some effort (at least the projects I saw).
+>
+>
+> With Coqui, the situation is completely differrent.
+>
+> As the above mentioned blog says, all you need to do is:
+>
+>
+> $ pip3 install TTS
+>
+> $ tts --text "Hello, this is an experimental sentence."
+>
+>
+> And you have a synthesized result!
+>
+>
+> Or you can launch the server:
+>
+> $ tts-server
+>
+>
+> And play in the web browser. Note that the audio is sent only after it's
+> fully synthesized, so you'll need to wait a bit to listen it.
+>
+>
+> The only problematic part is the limit of decoder steps, which is set to
+> 500 by default.
+>
+> I'm not sure why did they put it so low, with this value, the TTS is
+> unable to speak longer sentences.
+>
+>
+> Fortunately, the fix is very easy. All I needed to do was to open
+> ~/.local/lib/python3.8/site-packages/TTS/tts/configs/tacotron_config.py
+>
+> and modify the line:
+>
+> =C2=A0=C2=A0=C2=A0 max_decoder_steps: int =3D 500
+>
+> to
+>
+> =C2=A0=C2=A0=C2=A0 max_decoder_steps: int =3D 0
+>
+>
+> which seems to disable the limit.
+>
+>
+> After this step, I can synthesize very long sentences, and the quality
+> is absolutely glamorous!
+>
+>
+> So I wanted to share. I may be actually the last person discoverying it
+> here, though I did not see it mentioned in TTS discussions on this list.
+>
+>
+> I've even thought about creating a speech dispatcher version of this. It
+> would certainly be doable, though I'm afraid what would the synthesis
+> sound like with the irregularities of navigation with a screenreader.
+> These voices are intended for reading longer texts and consistent
+> phrases, with punctuation, complete information etc.
+>
+> The intonation would probably get a bit weird with for example just a
+> half sentence, as happens when navigating a document or webpage line by
+> line.
+>
+>
+> Another limitation would be the one of speed. On my laptop, the realtime
+> factor (processing duration / audio length) is around 0.8, what means it
+> could handle real-time synthesis at the default speed without delays.
+>
+>
+> The situation would get more complicated with higher speeds, though.
+>
+> It wouldn't be impossible, but one would need a GPU to handle
+> significantly higher speech rates.
+>
+>
+> So I wonder.
+>
+>
+> But anyway, this definitely made my day. :)
+>
+>
+> Best regards
+>
+>
+> Rastislav
+>
+>
+>
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+---1404930036-2049715565-1644447433=:340174
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
 https://listman.redhat.com/mailman/listinfo/blinux-list
+---1404930036-2049715565-1644447433=:340174--
 
