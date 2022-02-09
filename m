@@ -1,72 +1,91 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 63BE44B0133
-	for <lists+blinux-list@lfdr.de>; Thu, 10 Feb 2022 00:27:55 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6A7A44B0174
+	for <lists+blinux-list@lfdr.de>; Thu, 10 Feb 2022 00:55:57 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644449274;
+	s=mimecast20190719; t=1644450956;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=VkJnQ47ZjE8nQZxabGp9N83YYuYnq7utYKvIFXfds4E=;
-	b=Adm8ZU7zXjCatYiZTGrALtwflMKhsWC7Ej5ylsORSgtUUXVmXO0i1y/e8pEB1waN0IZJmY
-	PeQ7+TJwJXthlJFX7dqQZrKdm3gxbC50iYjeyvcx7JST6TD7QO/uQsuDwlL0B3uh0peDEv
-	bb8bak3oUhTvJGvH9rzG2WFluRJAygc=
+	bh=YFVPHNs9hD0Yc6ZhfA9CV16TFYEekQGNU8M+rdcK3FM=;
+	b=cp7b92PBL3BCvSG117Rq4LGnwoQpFsselyDc1TP9j6yFH6geefqMZUnvQgZHSwURYEauD/
+	Oh5bNGeYqPMe0IZdkJBH4besWUVvWT3KIlzHW5LUXEtJ0IGrE+GqDg3IlXREeBmTmyVK9G
+	dfA8eUaG9rvOsGQhAdYmagkXlbRcrNk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-645-nPefk2o7PJ-6lSyhPFoMww-1; Wed, 09 Feb 2022 18:27:51 -0500
-X-MC-Unique: nPefk2o7PJ-6lSyhPFoMww-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-452-bjf8Ln1MN8-6cKR9PkNMtg-1; Wed, 09 Feb 2022 18:55:52 -0500
+X-MC-Unique: bjf8Ln1MN8-6cKR9PkNMtg-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 23D7A83DD21;
-	Wed,  9 Feb 2022 23:27:47 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 733468143E5;
+	Wed,  9 Feb 2022 23:55:48 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id ABAF0519C4;
-	Wed,  9 Feb 2022 23:27:44 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E2D905DBAF;
+	Wed,  9 Feb 2022 23:55:46 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 37E3C1809CB8;
-	Wed,  9 Feb 2022 23:27:43 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.10])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 9C55B1809CB8;
+	Wed,  9 Feb 2022 23:55:43 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.5])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 219NLUZA025460 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 9 Feb 2022 18:21:30 -0500
+	id 219Npscj027212 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 9 Feb 2022 18:51:54 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 45D65401E79; Wed,  9 Feb 2022 23:21:30 +0000 (UTC)
+	id 6E86776EE; Wed,  9 Feb 2022 23:51:54 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 41D0E401E78
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 23:21:30 +0000 (UTC)
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6A2DB7774
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 23:51:50 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0A78A28EE166
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 23:21:30 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
-	relay.mimecast.com with ESMTP id us-mta-554-ROsVVzU0NYGHvHtw2YbVeA-1;
-	Wed, 09 Feb 2022 18:21:27 -0500
-X-MC-Unique: ROsVVzU0NYGHvHtw2YbVeA-1
-Received: from [192.168.1.37] (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
-	[176.172.247.100])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id 87BCA242CE
-	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 23:21:15 +0100 (CET)
-Message-ID: <b767e62d-8e12-46e2-b412-fc376ae8b073@slint.fr>
-Date: Thu, 10 Feb 2022 00:21:15 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.6.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3CB991097B00
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 23:51:50 +0000 (UTC)
+Received: from out4-smtp.messagingengine.com (out4-smtp.messagingengine.com
+	[66.111.4.28]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-13-RnUDSmqTM5qo0boJcAj7uw-1; Wed, 09 Feb 2022 18:51:48 -0500
+X-MC-Unique: RnUDSmqTM5qo0boJcAj7uw-1
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+	by mailout.nyi.internal (Postfix) with ESMTP id 18A6C5C00D2
+	for <blinux-list@redhat.com>; Wed,  9 Feb 2022 18:51:48 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+	by compute4.internal (MEProxy); Wed, 09 Feb 2022 18:51:48 -0500
+X-ME-Sender: <xms:k1MEYgZbMDBneYpsnUfRpMUXgstJ5KJkUA95cXcPCb45bg58rRE_iQ>
+	<xme:k1MEYrZB3FueG7VGI5n_RJ7DUiEIiaB7cPHhQ6wwuZOpWPz9NGu7MBfX9ZDPmJD1s
+	Vrg5CmuCH-kQamjHfI>
+X-ME-Received: <xmr:k1MEYq_W-V7VwL7N2qgZy7ZVbzbRYdv-Ox5jcea7GjjCz8MfmuHWzVPbnrJLtB1Z1IPW9JzOyGWLw6TiVYlRbjXzrjA0TTTZcQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddriedtgddufecutefuodetggdotefrodftvf
+	curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+	uegrihhlohhuthemuceftddtnecunecujfgurhepfffhvffujgfkfhggtgesthdtredttd
+	dtvdenucfhrhhomhepvehhihhmvgcujfgrrhhtuceotghhihhmvgeshhhusggvrhhtqdhh
+	uhhmphhhrhgvhidrtghomheqnecuggftrfgrthhtvghrnhepffehtdfhvddvueeuieehvd
+	efffeutdegueduhffgleetledvuddugfelkeevtdevnecuvehluhhsthgvrhfuihiivgep
+	tdenucfrrghrrghmpehmrghilhhfrhhomheptghhihhmvgeshhhusggvrhhtqdhhuhhmph
+	hhrhgvhidrtghomh
+X-ME-Proxy: <xmx:k1MEYqoOede0QP1rZ5v_mzqoTr4TfhQzo6lThzJmYKqVuNpBBQpVrw>
+	<xmx:k1MEYrq-s66nbFY2RUFL4YKXu70Lyq9KXygBbv51X-wkT5RsYMso3A>
+	<xmx:k1MEYoTtQYCI7B2x04Eee2RLxyQWd5Gptq_B185DcMWhqR8RV_HujA>
+	<xmx:lFMEYlG1Rp2iMrCeduMEZFoN-fCu0d9BrEuExHJG6U9TVDvzRFHmaA>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA for
+	<blinux-list@redhat.com>; Wed, 9 Feb 2022 18:51:47 -0500 (EST)
+Date: Wed, 9 Feb 2022 15:51:46 -0800 (PST)
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Is Youtube-viewer Broken?
-To: blinux-list@redhat.com
+In-Reply-To: <b767e62d-8e12-46e2-b412-fc376ae8b073@slint.fr>
+Message-ID: <d4c2176a-4263-ea61-a73-c2aa8232c2@hubert-humphrey.com>
 References: <bd935680-f9c0-3efe-8a8-3d3bf0fee08d@hubert-humphrey.com>
-In-Reply-To: <bd935680-f9c0-3efe-8a8-3d3bf0fee08d@hubert-humphrey.com>
+	<b767e62d-8e12-46e2-b412-fc376ae8b073@slint.fr>
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -75,9 +94,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 219NLUZA025460
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -94,60 +111,25 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-SGkgQ2hpbWUsCgpub3QgYSBkaXJlY3QgYW5zd2VyIHRvIHlvdXIgcXVlc3Rpb24gYnV0IEkgcmVj
-b21tZW5kIHVzaW5nIGluc3RlYWQgcGlwZS12aWV3ZXIsCmFsc28gbWFpbnRhaW5lZCBieSB0cml6
-ZW46IGh0dHBzOi8vZ2l0aHViLmNvbS90cml6ZW4vcGlwZS12aWV3ZXIsIHdoaWNoIGRvZXNuJ3QK
-bmVlZCBhIFlvdVR1YmUgQVBJIGtleS4KCkFsc28gSSBzdWdnZXN0IHRvIHN3aXRjaCBmcm9tIHlv
-dXR1YmUtZGwgdG8geXQtZGxwIHdoaWNoIGNhbiBkbyB0aGUgc2FtZSBhbmQKbW9yZS4gaWYgcHJl
-c2VudCBpdCBpcyBhbHNvIHVzZWQgYXMgZG93bmxvYWRlciBieSBkZWZhdWx0IGluIHJlY2VudCB2
-ZXJzaW9ucyBvZiBtcHYuCgpDaGVlcnMsCkRpZGllcgotLQpEaWRpZXIgU3BhaWVyClNsaW50IG1h
-aW50YWluZXIKCkxlIDA5LzAyLzIwMjIgw6AgMjM6NDUsIExpbnV4IGZvciBibGluZCBnZW5lcmFs
-IGRpc2N1c3Npb24gYSDDqWNyaXTCoDoKPiBIaSBBbGw6IEkgdXNlIHRoaXMgYWxvdC4gSSBub3Rp
-Y2UgdGhpcyBtb3JuaW5nIHRoZXNlIGZvbGxvd2luZyBlcnJvcnMgd2hlbgo+IHRyeWluZyB0byB1
-cGRhdGUgdGhlIHBhY2thZ2UgZnJvbSBhIHNjcmlwdC4KPiBDYW4ndCBsb2NhdGUgTW9kdWxlL0J1
-aWxkLnBtIGluIEBJTkMgKHlvdSBtYXkgbmVlZCB0byBpbnN0YWxsIHRoZSBNb2R1bGU6OkJ1aWxk
-Cj4gbW9kdWxlKSAoQElOQyBjb250YWluczogL2V0Yy9wZXJsIC91c3IvbG9jYWwvbGliL3g4Nl82
-NC1saW51eC1nbnUvcGVybC81LjM0LjAKPiAvdXNyL2xvY2FsL3NoYXJlL3BlcmwvNS4zNC4wIC91
-c3IvbGliL3g4Nl82NC1saW51eC1nbnUvcGVybDUvNS4zNAo+IC91c3Ivc2hhcmUvcGVybDUgL3Vz
-ci9saWIveDg2XzY0LWxpbnV4LWdudS9wZXJsLWJhc2UKPiAvdXNyL2xpYi94ODZfNjQtbGludXgt
-Z251L3BlcmwvNS4zNCAvdXNyL3NoYXJlL3BlcmwvNS4zNAo+IC91c3IvbG9jYWwvbGliL3NpdGVf
-cGVybCkgYXQgQnVpbGQuUEwgbGluZSA2Lgo+IEJFR0lOIGZhaWxlZC0tY29tcGlsYXRpb24gYWJv
-cnRlZCBhdCBCdWlsZC5QTCBsaW5lIDYuCj4gQ2FuJ3QgbG9jYXRlIE1vZHVsZS9CdWlsZC5wbSBp
-biBASU5DICh5b3UgbWF5IG5lZWQgdG8gaW5zdGFsbCB0aGUgTW9kdWxlOjpCdWlsZAo+IG1vZHVs
-ZSkgKEBJTkMgY29udGFpbnM6IC9ldGMvcGVybCAvdXNyL2xvY2FsL2xpYi94ODZfNjQtbGludXgt
-Z251L3BlcmwvNS4zNC4wCj4gL3Vzci9sb2NhbC9zaGFyZS9wZXJsLzUuMzQuMCAvdXNyL2xpYi94
-ODZfNjQtbGludXgtZ251L3Blcmw1LzUuMzQKPiAvdXNyL3NoYXJlL3Blcmw1IC91c3IvbGliL3g4
-Nl82NC1saW51eC1nbnUvcGVybC1iYXNlCj4gL3Vzci9saWIveDg2XzY0LWxpbnV4LWdudS9wZXJs
-LzUuMzQgL3Vzci9zaGFyZS9wZXJsLzUuMzQKPiAvdXNyL2xvY2FsL2xpYi9zaXRlX3BlcmwpIGF0
-IC9ob21lL2NoaW1lL3lvdXR1YmUtdmlld2VyLy4vQnVpbGQgbGluZSA0MS4KPiBCRUdJTiBmYWls
-ZWQtLWNvbXBpbGF0aW9uIGFib3J0ZWQgYXQgL2hvbWUvY2hpbWUveW91dHViZS12aWV3ZXIvLi9C
-dWlsZCBsaW5lIDQxLgo+IENhbid0IGxvY2F0ZSBNb2R1bGUvQnVpbGQucG0gaW4gQElOQyAoeW91
-IG1heSBuZWVkIHRvIGluc3RhbGwgdGhlIE1vZHVsZTo6QnVpbGQKPiBtb2R1bGUpIChASU5DIGNv
-bnRhaW5zOiAvZXRjL3BlcmwgL3Vzci9sb2NhbC9saWIveDg2XzY0LWxpbnV4LWdudS9wZXJsLzUu
-MzQuMAo+IC91c3IvbG9jYWwvc2hhcmUvcGVybC81LjM0LjAgL3Vzci9saWIveDg2XzY0LWxpbnV4
-LWdudS9wZXJsNS81LjM0Cj4gL3Vzci9zaGFyZS9wZXJsNSAvdXNyL2xpYi94ODZfNjQtbGludXgt
-Z251L3BlcmwtYmFzZQo+IC91c3IvbGliL3g4Nl82NC1saW51eC1nbnUvcGVybC81LjM0IC91c3Iv
-c2hhcmUvcGVybC81LjM0Cj4gL3Vzci9sb2NhbC9saWIvc2l0ZV9wZXJsKSBhdCAvaG9tZS9jaGlt
-ZS95b3V0dWJlLXZpZXdlci8uL0J1aWxkIGxpbmUgNDEuCj4gQkVHSU4gZmFpbGVkLS1jb21waWxh
-dGlvbiBhYm9ydGVkIGF0IC9ob21lL2NoaW1lL3lvdXR1YmUtdmlld2VyLy4vQnVpbGQgbGluZSA0
-MS4KPiBCYWNrIGFnYWluIGxpdmUsIHllcyBJIGFtIGluIERlYmlhbiBTSUQtYW5kLXllcyBJIHJ1
-biBhbiB1cGRhdGUtYW5kLWZ1bGwtdXBncmFkZQo+IGVhY2ggZGF5LiBJZiB0aGVzZSBhcmUgcGVy
-bCByZWxhdGVkLCBwbGVhc2UgaW5mb3JtIG9uIGEgc3BlY2lmaWMgY29tbWFuZCB0bwo+IGluc3Rh
-bGwgZWl0aGVyIGFwdCwgcGlwLCBvciBwaXAzPyBIb25lc3RseSBJIGtub3cgbm90aGluZyBvZiBp
-bnN0YWxsaW5nIG1vZHVsZXMuCj4gVGhhbmtzIHNvIG11Y2ggaW4gYWR2dmFuY2UKPiBDaGltZQo+
-IAo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQmxp
-bnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8v
-bGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPiAKCgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBt
-YWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0
-LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
+Hi Didier-and-thanks for your suggestions. I supposedly had pipe-viewer 
+installed, but I get similar errors to ones I sent along earlier. Yes, am 
+useing yt-dlp instead of youtube-dl to grab, but I  like youtube-viewer as it 
+will display 50 results-and-after my suggestions has a favorites list for 
+channels. At least 1 of Trizen's other projects displayed 2 consecutive groups 
+of duplicate results. Youtube-viewer does the trick, but I certainly wish I 
+could go far past 50 results. Thank you
+Chime
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
