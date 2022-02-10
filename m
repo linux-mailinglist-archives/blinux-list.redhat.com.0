@@ -1,81 +1,87 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8A8EA4B0E4A
-	for <lists+blinux-list@lfdr.de>; Thu, 10 Feb 2022 14:19:40 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4EB564B1278
+	for <lists+blinux-list@lfdr.de>; Thu, 10 Feb 2022 17:16:06 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644499179;
+	s=mimecast20190719; t=1644509765;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=1I9hIoy/BHbl1CrIAKqR+k8GmZwqdCK6R77FhCkeWjg=;
-	b=W/aFu+AGgdDw0jw7KjOmA4I3fU1jxgTa0nGxjwbGtKmWYMcj02UGCaFcRxeECbpzXUDRFk
-	VKQoeEQzfcoU8I/GRaQiey+1qGH0jpgEHdHM63rtn6P1rASqGIkZn4iZ+y8NE9ZFuLgJP2
-	gTMjVCu8S0f0ZemMVvPSnGJo1hMJ4f4=
+	bh=SQu/xN1j2gr8nOCyePvDdACooTde4PJwZyqLBj610Mc=;
+	b=H0Aa7RadRJQYNPguDlh422ZmvftDyTT8IkCDCaooMtmkkTKpX/2R7UuDi63alFWS/3Wgio
+	HckFiUqxZcbdLDUgWHIAUOv7YAVPjEFnMgyBTPvhOdxC3NCgFfAnwR9ObhUad9kIlvgiJL
+	eoerapL9CJC/F+YphEQiae1RVefkAp8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-342-xLNrxhAUNl-wpw24DKU9JQ-1; Thu, 10 Feb 2022 08:19:36 -0500
-X-MC-Unique: xLNrxhAUNl-wpw24DKU9JQ-1
+ us-mta-537-CwZFaE5lNp28ul-BPA9YmA-1; Thu, 10 Feb 2022 11:16:01 -0500
+X-MC-Unique: CwZFaE5lNp28ul-BPA9YmA-1
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5C5C01091DA1;
-	Thu, 10 Feb 2022 13:19:32 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 819C864A7B;
+	Thu, 10 Feb 2022 16:15:55 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5C071752DC;
-	Thu, 10 Feb 2022 13:19:31 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 557746FAEC;
+	Thu, 10 Feb 2022 16:15:52 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EA9A618095C9;
-	Thu, 10 Feb 2022 13:19:29 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.10])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id C804E18095C9;
+	Thu, 10 Feb 2022 16:15:47 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.1])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21ADJO4d031576 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 10 Feb 2022 08:19:24 -0500
+	id 21AGFdLj015398 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 10 Feb 2022 11:15:39 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 2750F401E7F; Thu, 10 Feb 2022 13:19:24 +0000 (UTC)
+	id 5818A40FF69A; Thu, 10 Feb 2022 16:15:39 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2413E401474
-	for <blinux-list@redhat.com>; Thu, 10 Feb 2022 13:19:24 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 53C1040FF694
+	for <blinux-list@redhat.com>; Thu, 10 Feb 2022 16:15:39 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0FB91811E84
-	for <blinux-list@redhat.com>; Thu, 10 Feb 2022 13:19:24 +0000 (UTC)
-Received: from mail2-relais-roc.national.inria.fr
-	(mail2-relais-roc.national.inria.fr [192.134.164.83]) by
-	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-440-UIejc6OKNgmviP7EfJOgcw-1; Thu, 10 Feb 2022 08:19:22 -0500
-X-MC-Unique: UIejc6OKNgmviP7EfJOgcw-1
-X-IronPort-AV: E=Sophos;i="5.88,358,1635199200"; d="scan'208";a="20704300"
-Received: from nat-inria-interne-52-gw-01-bso.bordeaux.inria.fr (HELO begin)
-	([194.199.1.52]) by mail2-relais-roc.national.inria.fr with
-	ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Feb 2022 14:19:20 +0100
-Received: from samy by begin with local (Exim 4.95)
-	(envelope-from <samuel.thibault@ens-lyon.org>) id 1nI9M0-0023ih-0c;
-	Thu, 10 Feb 2022 14:19:20 +0100
-Date: Thu, 10 Feb 2022 14:19:19 +0100
-To: Linux for blind general discussion <blinux-list@redhat.com>,
-	slint@freelists.org, debian-accessibility@lists.debian.org,
-	orca-list <orca-list@gnome.org>
-Subject: Re: Jos Lemmens passed away on November 9, 2021
-Message-ID: <20220210131919.yhhfdanceg6egv3m@begin>
-Mail-Followup-To: Linux for blind general discussion <blinux-list@redhat.com>, 
-	slint@freelists.org, debian-accessibility@lists.debian.org, 
-	orca-list <orca-list@gnome.org>
-References: <bafa422c-eba4-223a-0d2f-f632f5bd6445@slint.fr>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3099F85A5BC
+	for <blinux-list@redhat.com>; Thu, 10 Feb 2022 16:15:39 +0000 (UTC)
+Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com
+	[209.85.160.169]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-609-3wuPSluIMP2vX4ObKfzNcg-1; Thu, 10 Feb 2022 11:15:37 -0500
+X-MC-Unique: 3wuPSluIMP2vX4ObKfzNcg-1
+Received: by mail-qt1-f169.google.com with SMTP id z1so5784209qto.3
+	for <blinux-list@redhat.com>; Thu, 10 Feb 2022 08:15:37 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:date:from:to:subject:message-id:mime-version;
+	bh=N1TqLVG6UnRoGMxnj8QxV5xI8gQTK3tFNdxyxmzBJIk=;
+	b=KwKr491urQwo7q6P1udNI1wKguLf4KO+y0EG3tCVZj7dR7RkvU2WI97SPzERflpQR7
+	pNFY9pabLc04KOTfTt4TaaAX5xcpNtq1iqpxV15jdpEj0G7SkX9f8xseLYnHolsCJjwQ
+	M3RItWud/JEnfc9MHgjF+jkL7uuCvi2DCWk7/4Fy1hsyFH378tdon42gjDjIiVSMHWWM
+	bJ1RTVFU5eJE4KiFgNS4TlpWtv11MwVso3/RBQDjSJLo20gisQSUXX981R4tnJ2LTiJs
+	FfNHjoiUYaByC7oKWrX7EBy7pdzHi440IVMe+BSWxdvllfU1KegC+iThk/+1a/YSMAMp
+	iENg==
+X-Gm-Message-State: AOAM531YEHS9lgjT2BwUpMHHZkgXhFumOl3CyeTFx6bCVPDniFx7iVJC
+	/BsGF/B660B9tojkXunlIOOVrkL2uQQ=
+X-Google-Smtp-Source: ABdhPJyhtn5/WXJyAyhyULB0ugD88MFRXvlM3ZNwl4H4rwL50LU6GGWfud94XtN9kD0WqHeNSee22A==
+X-Received: by 2002:ac8:5bc1:: with SMTP id b1mr5368627qtb.453.1644509736768; 
+	Thu, 10 Feb 2022 08:15:36 -0800 (PST)
+Received: from dans-mac-mini-2.home
+	(pool-74-98-213-46.pitbpa.fios.verizon.net. [74.98.213.46])
+	by smtp.gmail.com with ESMTPSA id
+	n6sm10940081qtx.23.2022.02.10.08.15.35 for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+	Thu, 10 Feb 2022 08:15:36 -0800 (PST)
+Date: Thu, 10 Feb 2022 11:15:34 -0500 (EST)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Is Youtube-viewer Broken?
+Message-ID: <c151a291-1f61-406b-e691-97588d613b9@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <bafa422c-eba4-223a-0d2f-f632f5bd6445@slint.fr>
-Organization: I am not organized
-User-Agent: NeoMutt/20170609 (1.8.3)
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -84,7 +90,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -104,27 +110,55 @@ Errors-To: blinux-list-bounces@redhat.com
 X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
-X-Mimecast-Spam-Score: 0
+X-Mimecast-Spam-Score: 1
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hello,
 
-> Los was the developer of eBook-speaker and daisy-player.
+Did you try yt-dlp -U?  The "U" is in capss.  This seems to update indepemndently of the individual repository sorce.  I'm guessing it is
+baked into the python code.
 
-For information, we have set up
+On Thu, 10 Feb 2022, Linux for blind general discussion wrote:
 
-https://github.com/book-readers/daisy-player
-https://github.com/book-readers/ebook-speaker
+> Hello,
+>
+> Slint being not Arch, yt-dlp will not be upgraded in Slint every time there is a
+> new release, which is very often[1], and our package is not that old (version
+> 2021.12.03	). However, what do you miss in the currently provided version?
+>
+> In any case yt-dlp will be upgraded in upcoming Slint 15.0
+> Cheers,
+> Didier
+>
+> [1] Typing "git tag -l "2021*|wc -l" in the cloned upstream repository tells us
+> that there have been no less than 50 upstream releases of yt-dlp last year.
+>
+> Le 10/02/2022 ?? 01:56, Linux for blind general discussion a ??crit??:
+> > yt-dlp on slint is outdated.
+> >
+> >
+> > On Wed, 9 Feb 2022, Linux for blind general discussion wrote:
+> >
+> >> Hi Didier-and-thanks for your suggestions. I supposedly had pipe-viewer
+> >> installed, but I get similar errors to ones I sent along earlier. Yes, am
+> >> useing yt-dlp instead of youtube-dl to grab, but I  like youtube-viewer as it
+> >> will display 50 results-and-after my suggestions has a favorites list for
+> >> channels. At least 1 of Trizen's other projects displayed 2 consecutive groups
+> >> of duplicate results. Youtube-viewer does the trick, but I certainly wish I
+> >> could go far past 50 results. Thank you
+> >> Chime
+>
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
 
-to continue the development of ebook-speaker and daisy-player.
-Contributions welcome!
-
-Samuel
-(unfortunately github doesn't list developers who don't have a github
-account, so Jos doesn't appear as contributor of the whole thing :/ )
+-- 
+ent-
+XR
 
 _______________________________________________
 Blinux-list mailing list
