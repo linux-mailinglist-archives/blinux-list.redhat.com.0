@@ -1,71 +1,71 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 45AC84B2D14
-	for <lists+blinux-list@lfdr.de>; Fri, 11 Feb 2022 19:45:26 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0EBA94B2D46
+	for <lists+blinux-list@lfdr.de>; Fri, 11 Feb 2022 20:06:12 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644605125;
+	s=mimecast20190719; t=1644606372;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=LcLoaydCe58ejfEH/2SlPDIWylVBPR5BMOpFFcxYFhs=;
-	b=EOjBMHUwRIfs8rNJ8bWuUYQfJByl4+I7FRtwKhyuL9PLU/EWYfD9ZIc4gUkmbdmygCVePy
-	MmbYqzLw6D1GU9ij49vzdUlPZWHsXZiYR7h3ooeFBUs3wob4rk+YZGgV44yoW6DQFu8uCu
-	nSDkR/gFMK+sL4Y+3hvYmd4Bjg3sdAs=
+	bh=BLjTy31P0FGZWYFXoG8Qk9pGC20wrQqULkEBV/iEfQ8=;
+	b=GoAUMFs6unaTvVSNTNhUWT1k8eDvBdj+Saro7+qPkQaV4QEVOTdkKu62qEkvTwFHbO44Pm
+	RxzTA1GiSddw3kUv62oMe+r6yPliLhHf6Ktv8SYcdCiwp7A/9VchoBasU7ND8cCb9YPWS4
+	MU07qohTAK/3gv7gisD+guBH2wIzcbo=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-445-q-87Ox4cNGyOFFECKPz4LA-1; Fri, 11 Feb 2022 13:45:21 -0500
-X-MC-Unique: q-87Ox4cNGyOFFECKPz4LA-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-324-LPCaOy6iNK6T_8lt5_0FzA-1; Fri, 11 Feb 2022 14:06:10 -0500
+X-MC-Unique: LPCaOy6iNK6T_8lt5_0FzA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 4CB77760C0;
-	Fri, 11 Feb 2022 18:45:16 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6A5A11091DA0;
+	Fri, 11 Feb 2022 19:06:06 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A55A778AA2;
-	Fri, 11 Feb 2022 18:45:13 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id AC84560BE5;
+	Fri, 11 Feb 2022 19:06:05 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3EB731809C87;
-	Fri, 11 Feb 2022 18:45:07 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.2])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E35EF1809CB8;
+	Fri, 11 Feb 2022 19:06:03 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.3])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21BIgUPo012083 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 11 Feb 2022 13:42:30 -0500
+	id 21BJ5vXs013544 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 11 Feb 2022 14:05:57 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id A1C7C40F5E84; Fri, 11 Feb 2022 18:42:29 +0000 (UTC)
+	id 04C2A1120ABD; Fri, 11 Feb 2022 19:05:57 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9E39F40F5E80
-	for <blinux-list@redhat.com>; Fri, 11 Feb 2022 18:42:29 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 00908112131B
+	for <blinux-list@redhat.com>; Fri, 11 Feb 2022 19:05:52 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 39D573C00114
-	for <blinux-list@redhat.com>; Fri, 11 Feb 2022 18:42:28 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
-	relay.mimecast.com with ESMTP id us-mta-39-RkEki9LdO6ei17ac4TfbZQ-1;
-	Fri, 11 Feb 2022 13:42:15 -0500
-X-MC-Unique: RkEki9LdO6ei17ac4TfbZQ-1
-Received: from [192.168.1.37] (men75-h08-176-172-247-100.dsl.sta.abo.bbox.fr
-	[176.172.247.100])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id 7C8C520D84
-	for <blinux-list@redhat.com>; Fri, 11 Feb 2022 18:42:03 +0100 (CET)
-Message-ID: <83b15bfd-98f0-01fa-746b-538657b214e1@slint.fr>
-Date: Fri, 11 Feb 2022 19:42:03 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.6.0
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2551B3C11C87
+	for <blinux-list@redhat.com>; Fri, 11 Feb 2022 19:05:46 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-271-I5ZQoBuDNcWDBLQRg3JtUQ-1; Fri, 11 Feb 2022 14:05:39 -0500
+X-MC-Unique: I5ZQoBuDNcWDBLQRg3JtUQ-1
+Received: from panix3.panix.com (panix3.panix.com [166.84.1.3])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4JwNNy4Q8yz152n
+	for <blinux-list@redhat.com>; Fri, 11 Feb 2022 14:05:38 -0500 (EST)
+Received: by panix3.panix.com (Postfix, from userid 20196)
+	id 4JwNNy4sDDz1QXL; Fri, 11 Feb 2022 14:05:38 -0500 (EST)
+Date: Fri, 11 Feb 2022 14:05:38 -0500
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Launching a GUI Web browser and Orca from a console?
-To: blinux-list@redhat.com
+Message-ID: <YgazgghwpYflanwE@panix.com>
 References: <c96e82a-bc5-2072-f11d-f1facb919cf2@brandt-slint.local>
+MIME-Version: 1.0
 In-Reply-To: <c96e82a-bc5-2072-f11d-f1facb919cf2@brandt-slint.local>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -75,9 +75,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
-X-MIME-Autoconverted: from quoted-printable to 8bit by
-	lists01.pubmisc.prod.ext.phx2.redhat.com id 21BIgUPo012083
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -94,38 +92,52 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Disposition: inline
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SGkgQnJhbmR0LAoKSSB0cmllZCB0aGlzOgoxLiBjcmVhdGUgYSBmaWxlICJjb21tYW5kIiB3aXRo
-IHRoaXMgY29udGVudDoKCm9yY2Etb24Kb3JjYSAmCmZpcmVmb3gKClRoZW4gSSB0eXBlZCBmcm9t
-IGEgdHR5OgoKeHZmYi1ydW4gc2ggY29tbWFuZAoKSSBjb3VsZCBoZWFyIG9yY2Egc3RhcnQgYW5k
-IHByZXNlbnQgdGhlIGZpcmVmb3ggd2luZG93IGJ1dCBkbyBub3Qga25vdyBhIHdheSB0bwppbnRl
-cmFjdCB3aXRoIGZpcmVmb3ggZnJvbSB0aGUgdHR5Li4uCgpUaGVyZSBpcyB0aGUgU2VsZW5pdW0g
-cHJvamVjdDogaHR0cHM6Ly93d3cuc2VsZW5pdW0uZGV2L2RvY3VtZW50YXRpb24vCmFuZCB5b3Ug
-Y2FuIGluc3RhbGwgdGhlIFB5dGhvbiBsYW5ndWFnZSBiaW5kaW5ncyBmb3IgU2VsZW5pdW0gV2Vi
-RHJpdmVyIHR5cGluZwphcyByb290OgpzbGFwdC1zcmMgLWkgc2VsZW5pdW0KYnV0IHRoaXMgaXMg
-bW9yZSB0byBidWlsZCB0ZXN0cyBvZiBicm93c2VyIGludGVyYWN0aW9ucywgbm90IHJlYWxseSB3
-aGF0IHlvdSBhcmUKYWZ0ZXIuLi4gCQoKQ2hlZXJzLAoKRGlkaWVyCi0tCkRpZGllciBTcGFpZXIK
-U2xpbnQgbWFpbnRhaW5lcgoKTGUgMTEvMDIvMjAyMiDDoCAxNzozMSwgTGludXggZm9yIGJsaW5k
-IGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3JpdMKgOgo+IEhpIGFsbCwKPiAKPiBJIGtub3cgdGhp
-cyBpcyBkb2FibGUsIGJ1dCBoYXZlIG5ldmVyIGFjdHVhbGx5IGRvbmUgaXQgbXlzZWxmLgo+IAo+
-IEkgYW0gbG9va2luZyBmb3IgZWl0aGVyIGEgc2NyaXB0LMKgIG9yIHRoZSBpbmZvIEkgbWF5IG5l
-ZWQgdG8gd3JpdGUgbXkgb3duLCB0bwo+IGxhdW5jaCBhbnkgb2YgbXkgR1VJIHdlYiBicm93c2Vy
-cyB3aXRoIE9yY2EsIHdpdGhvdXQgYWN0dWFsbHkgc3RhcnRpbmcgdXAgYQo+IGRlc2t0b3AsIE1h
-dGUsIEdub21lLCBldGMsIG9yIGZpcnN0IHN0YXJ0aW5nIHVwIGEgV00sIHdlYXRoZXIgRmx1eGJv
-eCBvciByYXRwb2lzb24uCj4gCj4gSWYgYW55b25lIGNvdWxkIHBsZWFzZSBwb2ludCBtZSBpbiBh
-IGRpcmVjdGlvbiwgSSdkIGFwcHJlY2lhdGUgaXQuCj4gCj4gSSBhY3R1YWxseSBuZWVkIHRoaXMg
-Zm9yIHdvcmssIG15IGNsaWVudHMgbGlrZSBjYWxsaW5nIG9uIEdvb2dsZSBEdW8uIFdoeSwgSQo+
-IGhhdmUgbm8gaWRlYSEKPiAKPiBXYXJtIHJlZ2FyZHMsCj4gCj4gQnJhbmR0IFN0ZWVua2FtcAo+
-IAo+IFNlbnQgZnJvbSB0aGUgU2xpbnQgY29uc29sZSB1c2luZyBBbHBpbmUKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5n
-IGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9t
-YWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
+I'd like to be able to do this too. I've never used a GUI desktop.
+The only reason I'd even consider a GUI interface is to web browse sites that are inimical to lynx, links, and w3m.
+
+On Fri, Feb 11, 2022 at 06:31:15PM +0200, Linux for blind general discussion wrote:
+> Hi all,
+> 
+> I know this is doable, but have never actually done it myself.
+> 
+> I am looking for either a script,  or the info I may need to write my own,
+> to launch any of my GUI web browsers with Orca, without actually starting up
+> a desktop, Mate, Gnome, etc, or first starting up a WM, weather Fluxbox or
+> ratpoison.
+> 
+> If anyone could please point me in a direction, I'd appreciate it.
+> 
+> I actually need this for work, my clients like calling on Google Duo. Why, I
+> have no idea!
+> 
+> Warm regards,
+> 
+> Brandt Steenkamp
+> 
+> Sent from the Slint console using Alpine
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+
+-- 
+Rudy Vener
+Website: http://www.rudyvener.com
+Twitter: https://twitter.com/RudySalt
+The difference between truth and falsehood is that truth remains the same no matter which political party holds the majority.
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
