@@ -1,92 +1,82 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 795574B3BA7
-	for <lists+blinux-list@lfdr.de>; Sun, 13 Feb 2022 15:11:45 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9BFE44B3E6F
+	for <lists+blinux-list@lfdr.de>; Mon, 14 Feb 2022 00:45:17 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644761504;
+	s=mimecast20190719; t=1644795916;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=zL+U7UOhli0CY8XwEDHURJV9KZVUoX4ANn3lJrPPh08=;
-	b=Xv8iH0UbZt3SbO9T8OzVzm5/wOlIygyvYuXQUp1vhtwdWBOo78kwP/keEsKW+ovalBH0gF
-	2M/caDHVV514x+dv0IeZvUXbjnM23q6RHLhCVRBxF1El6baZjPFtWo39zVPw0jOU6pNutF
-	GZu9YrddhM9s/6qpJvc2XYjbyB1imNc=
+	bh=9jSyqOfFAnLMjrCPHB/dTxSweZgYEzIurQ4g5cOizXc=;
+	b=APEWviGWDg7y6GE9SFFpJWgh2Kh25Pj6alGI4nP1loqRztZcOreqGKzMtUk1RT9fDs7/8I
+	MixkHb3268lnGxLf8hWa9eVkrx2iOgi/fpERE0KnjRx0XIQnt00i6OVqEhMxmkeGPZxdYk
+	z6c8AiuvTcgrQ5c1lMUn3veihLk639g=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-6-yT7w9j94MVKyWuwUup1hJg-1; Sun, 13 Feb 2022 09:11:39 -0500
-X-MC-Unique: yT7w9j94MVKyWuwUup1hJg-1
+ us-mta-115-_xu2F-C6OeOrE5hNRsWJUQ-1; Sun, 13 Feb 2022 18:45:12 -0500
+X-MC-Unique: _xu2F-C6OeOrE5hNRsWJUQ-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C96B51808320;
-	Sun, 13 Feb 2022 14:11:35 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 77225801B0F;
+	Sun, 13 Feb 2022 23:45:08 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 18AEF7C141;
-	Sun, 13 Feb 2022 14:11:31 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A57B0795AF;
+	Sun, 13 Feb 2022 23:45:04 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 438944BB7C;
-	Sun, 13 Feb 2022 14:11:26 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.9])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id E90154BB7B;
+	Sun, 13 Feb 2022 23:44:54 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21DE45sx027912 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 13 Feb 2022 09:04:05 -0500
+	id 21DNiisj004684 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 13 Feb 2022 18:44:44 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 83F20492CA8; Sun, 13 Feb 2022 14:04:05 +0000 (UTC)
+	id B08C72026D60; Sun, 13 Feb 2022 23:44:44 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7FAB1492CA4
-	for <blinux-list@redhat.com>; Sun, 13 Feb 2022 14:04:05 +0000 (UTC)
+	(mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id ABCED2026D4C
+	for <blinux-list@redhat.com>; Sun, 13 Feb 2022 23:44:41 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 66CEF101CC63
-	for <blinux-list@redhat.com>; Sun, 13 Feb 2022 14:04:05 +0000 (UTC)
-Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com
-	[209.85.210.180]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 720233804500
+	for <blinux-list@redhat.com>; Sun, 13 Feb 2022 23:44:41 +0000 (UTC)
+Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com
+	[209.85.210.178]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-270-rrGhNbbiOFaGjuC2XznhaA-1; Sun, 13 Feb 2022 09:04:02 -0500
-X-MC-Unique: rrGhNbbiOFaGjuC2XznhaA-1
-Received: by mail-pf1-f180.google.com with SMTP id i30so24730918pfk.8
-	for <Blinux-list@redhat.com>; Sun, 13 Feb 2022 06:04:02 -0800 (PST)
+	us-mta-392-EKzC7yaVMwWD-6EAr0jGDA-1; Sun, 13 Feb 2022 18:44:39 -0500
+X-MC-Unique: EKzC7yaVMwWD-6EAr0jGDA-1
+Received: by mail-pf1-f178.google.com with SMTP id f6so5287011pfj.11
+	for <blinux-list@redhat.com>; Sun, 13 Feb 2022 15:44:39 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-	:content-language:from:to:references:in-reply-to
-	:content-transfer-encoding;
-	bh=+V082vqSCqx4RZzSJ2QiyTcC5VB9ElBkKMSY6/y1Bjw=;
-	b=O1rk6nnY9/9NT6zFlQqumhExwA6hrmOJ/i2S3hvHblQ8HPfHMkW0F5jCfLo1buctrz
-	z1W/1kxieVRvUZynaz2nz+CgujgwqiTFm5cT3isnv37gS6VJiNPHE2zGGKjnFeDCsVpx
-	gwAgtFXqZCBio9kk/lY3ajWdKE+EMpJJa3uIhmMqHcyXlMm9y7YRJ02CyOt1OVxojVEH
-	A0U7dRu1Vr0dCg5gY6hLCvXxkdZO4/LWbEkSKHSqcluO63MnnNJ22pI/OqNDqWzOiOIl
-	t/lEL9DofKQEyE7zkzfO3rTgpBUs4dMd1ymCRYEx65S6TBfxGIWMKSRqD4aN9PBlryYx
-	5sqA==
-X-Gm-Message-State: AOAM533A7JOA0mHa4TKN202KqNtub1Mp7uuoJdISbzRnYi4EozUhY93k
-	B/syLauZFI0LUTCuK5T0s2m3XfQJzZQ=
-X-Google-Smtp-Source: ABdhPJwCxejUtbxt3nOUE74uFqmlO407fUIGpg196CU0JMysyW15YSNwZRS2klHgxXN10Su9QE/dlg==
-X-Received: by 2002:aa7:9576:: with SMTP id x22mr10331805pfq.56.1644761040692; 
-	Sun, 13 Feb 2022 06:04:00 -0800 (PST)
-Received: from [192.168.1.107] ([103.121.18.92])
-	by smtp.gmail.com with ESMTPSA id
-	oo9sm7816529pjb.10.2022.02.13.06.03.59 for <Blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Sun, 13 Feb 2022 06:04:00 -0800 (PST)
-Message-ID: <51cd92ef-5223-1114-3b18-b30c3182a118@gmail.com>
-Date: Sun, 13 Feb 2022 21:03:57 +0700
+	h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+	bh=R6yKV3W61uS0BYlvys5Mq5ZfHN42aAGFP1ByldYGoXo=;
+	b=2tSXAZO4QjnqoYlq3jXpBTl4lcIdc4S4H8JafxI5D+g0CLAkQEDrcQIovNNq2J7wIn
+	hDlP2gNpqyWnnRNBx0yTeB/VMjNkRnr4Ud2fcqDdFtsaNoz7P3SqL3oRsFtEbibSEl0e
+	RMdgLpARs04b32soHUJkSfVUJUQ3GT1qN2o1CHIjHoDC1m9li4uuPQObvNs6UZw6JCfv
+	JN1nzqt41+boWJb03umax8F5sicAGBlwuhC/t28KXPgW5R97sazi061L0PEsYXRR0un5
+	ZLVxL8wiqdA5evpME6FLUNnoQ3mt/EcgPUGtjCMc3zuQhdZU98yjmLbTfcuRyfmP/syB
+	buVQ==
+X-Gm-Message-State: AOAM530fDfpxe5xroW5UYF3KvefCBSO4j54k5AbDqpwhSpicpD/FS8ey
+	zWgVm4uBQM1JczyROPIDnMVUP9Q77S/uwKVppIxSHwng
+X-Google-Smtp-Source: ABdhPJwxfKyO/S/PTYnZbd4kv2CNak26WgGCb2jHZtf4PpTHaxBQbSCY5GSpS5Ks79bl56F7rtPfDrAP++76UGDzu4k=
+X-Received: by 2002:a63:e34a:: with SMTP id o10mr9577635pgj.130.1644795878126; 
+	Sun, 13 Feb 2022 15:44:38 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.5.0
-Subject: Re: Coqui STS model data
-To: Blind Linux <Blinux-list@redhat.com>
-References: <60d78e73-30de-c36a-482c-8ed70596bee3@gmail.com>
-In-Reply-To: <60d78e73-30de-c36a-482c-8ed70596bee3@gmail.com>
+Received: by 2002:a05:6a10:f951:0:0:0:0 with HTTP; Sun, 13 Feb 2022 15:44:37
+	-0800 (PST)
+Date: Sun, 13 Feb 2022 17:44:37 -0600
+Message-ID: <CABKqQvGqKyUTj5KmvkgpOq9H89T9vxxz-LqFZPDZ=WZ5NXOQhQ@mail.gmail.com>
+Subject: How do you customize the way punctuations are pronounced in Orca?
+To: Linux for blind general discussion <blinux-list@redhat.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -95,7 +85,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -117,28 +107,20 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-QXBwYXJlbnRseSBJIG5lZWQgdG8gbG9vayBhIGJpdCBoYXJkZXLCoCA6KQoKCkkgZmluZCB3b3Jr
-aW5nwqAgaW5zdHJ1Y3Rpb24gaGVyZQoKaHR0cHM6Ly9wZXRld2FyZGVuLmNvbS8yMDIxLzEyLzI3
-L2hvdy10by1nZXQtc3RhcnRlZC13aXRoLWNvcXVpcy1vcGVuLXNvdXJjZS1vbi1kZXZpY2Utc3Bl
-ZWNoLXRvLXRleHQtdG9vbC8jY29udGVudAoKQW55d2F5IHRoZXNlIFNUUyBpcyBsb29raW5nIGF3
-ZXNvbWUuLgoKUmVnYXJkcwpPbiAyLzEzLzIyIDIwOjEwLCBFZGhvYXJpIFNldGl5b3NvIHdyb3Rl
-Ogo+IEhpIGxpc3QsCj4KPgo+IEkgd2FudCB0byBleHBlcmltZW50IHdpdGggQ29xdWkgU1RTIGFu
-ZCBuZWVkIHNvbWUgYWR2aWNlLgo+Cj4gSSBkb3dubG9hZCBzYW1wbGUgY29kZSBmcm9tCj4KPiAt
-LSBodHRwczovL2dpdGh1Yi5jb20vY29xdWktYWkvU1RULWV4YW1wbGVzCj4KPiBGaXJzdCBJIHRy
-aWVkIHRoZSBweXRob24gbWljX21pY192YWRfc3RyZWFtaW5nLyBidXQgd2hlbiBJIHJhbiBpdCBJ
-J3ZlIAo+IGxvc3QgYWxsIGF1ZGlvIGFuZCBjb250cm9sLiBJIGhhZCB0byBnbyB0byB0dHkxIGFu
-ZCByZWJvb3QgbXkgc3lzdGVtLgo+IEFuZCB0aGVuIHRyaWVkIHRoZSBub2RlanNfbWljX3ZhZF9z
-dHJlYW1pbmcvCj4KPiBJdCBhc2tzIGZvciBtb2RlbCBkYXRhIHdoaWNoIEkgdHJ5IHRvIGZldGNo
-IGZyb20KPiBodHRwczovL2NvcXVpLmFpL2VuZ2xpc2gvY29xdWkvdjEuMC4wLWRpZ2l0cwo+Cj4g
-SSBhbHJlYWR5IHVzZSBib3RoIG15IGVtYWlsIGFkZHJlc3MgYW5kIHN0aWxsIGdvdCBub3RoaW5n
-IGluIG15IGluYm94Lgo+Cj4gQ2FuIGFueW9uZSBjYW4gc2hlZCBsaWdodCBvbiB3aGF0IHRvIGRv
-Pwo+IEknZCBhcHByZWNpYXRlIGFueSBoZWxwLgo+Cj4gQmVzdCBSZWdhcmRzCj4KPgo+IEVkaG9h
-cmkgU2V0aXlvc28KPgotLSAKRWRob2FyaSBTZXRpeW9zbwoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51
-eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0
-aW5mby9ibGludXgtbGlzdA==
+I know you can switch between the usual All, Some, etc, I want to
+control how punctuations are pronounced, e.g. '!' can be spoken as
+"explanation mark," "exclaim," or "bang," When I am writing code, I
+like to hear the punctuation, but shorten it as much as practical.
+This makes code easier to read IMO. Is there a configuration file that
+will allow me to make these changes?
+
+Amanda[0]
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
