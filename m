@@ -1,90 +1,94 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 062264B561A
-	for <lists+blinux-list@lfdr.de>; Mon, 14 Feb 2022 17:25:15 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id AA0174B56D8
+	for <lists+blinux-list@lfdr.de>; Mon, 14 Feb 2022 17:38:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644855915;
+	s=mimecast20190719; t=1644856721;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=JTNDtE7I10leXJeOEZjvOT3BweLfLKTH/J1jvdtgC2w=;
-	b=GUQLEbEl4hyDQq/UmI8ej8aScv7HCNj9b2nARcjlGwFZHnfUXyIStPqmkZqRVhT2+Iy3Jq
-	28y2+l8DM9teYbjwS2yrxImj+Z+HXk75FKHfdVwKDB2fTh0rs08cE41K6gemjf7Li/gc1N
-	1ybQeTkpVRIEFwSyy4xPOXIZ0Uy55U4=
+	bh=tpakdZteZCgI/OUpWMUgVmzJ8M2Ktss/0SqPHIs8Ym4=;
+	b=KYs8UVD4zii7Q7Djzz3oNDm2Jk60UhYncUrIWKnuIxuGrkd+P7CNyc7A+0L3qem6RVg2ek
+	QbFS0No5MJ1WrW93YIfMIKy6nH2JvCuXpAIX9FNlngVH68nKDtwJ9E6QUaC2/SAxkeRUJs
+	74MJO6NzBcyjnThqn3minHsUnNPy+9c=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-102-5K4aHtt1P_ajEjUY7pfWkg-1; Mon, 14 Feb 2022 11:25:12 -0500
-X-MC-Unique: 5K4aHtt1P_ajEjUY7pfWkg-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-637-u8JBUQJSPC6eaWW910qUyA-1; Mon, 14 Feb 2022 11:38:38 -0500
+X-MC-Unique: u8JBUQJSPC6eaWW910qUyA-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 50C30100C623;
-	Mon, 14 Feb 2022 16:25:08 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0AA9075535;
-	Mon, 14 Feb 2022 16:25:08 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D77D0100C662;
+	Mon, 14 Feb 2022 16:38:33 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 826B975746;
+	Mon, 14 Feb 2022 16:38:31 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id CF2144BB7C;
-	Mon, 14 Feb 2022 16:25:07 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.9])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 22FC71806D03;
+	Mon, 14 Feb 2022 16:38:29 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21EGP5J6025591 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 14 Feb 2022 11:25:05 -0500
+	id 21EGaseU028285 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 14 Feb 2022 11:36:54 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 44308492D17; Mon, 14 Feb 2022 16:25:05 +0000 (UTC)
+	id 12EA55361C0; Mon, 14 Feb 2022 16:36:54 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3FFBC492CB0
-	for <blinux-list@redhat.com>; Mon, 14 Feb 2022 16:25:05 +0000 (UTC)
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0F2085361C1
+	for <blinux-list@redhat.com>; Mon, 14 Feb 2022 16:36:54 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 26D2985A5BE
-	for <blinux-list@redhat.com>; Mon, 14 Feb 2022 16:25:05 +0000 (UTC)
-Received: from mail-qt1-f178.google.com (mail-qt1-f178.google.com
-	[209.85.160.178]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EA86710F9813
+	for <blinux-list@redhat.com>; Mon, 14 Feb 2022 16:36:53 +0000 (UTC)
+Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com
+	[209.85.216.47]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-155-QPw7xgopMWG6TQoaHvFzCw-1; Mon, 14 Feb 2022 11:25:03 -0500
-X-MC-Unique: QPw7xgopMWG6TQoaHvFzCw-1
-Received: by mail-qt1-f178.google.com with SMTP id b5so15866248qtq.11
-	for <blinux-list@redhat.com>; Mon, 14 Feb 2022 08:25:03 -0800 (PST)
+	us-mta-341-790JuiNGORaHtyVQttyJ-A-1; Mon, 14 Feb 2022 11:36:51 -0500
+X-MC-Unique: 790JuiNGORaHtyVQttyJ-A-1
+Received: by mail-pj1-f47.google.com with SMTP id b8so3192544pjb.4
+	for <blinux-list@redhat.com>; Mon, 14 Feb 2022 08:36:51 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=b3fCmmTitG3DmHHrx5yWvNsqvb4o7BNFSPX3Ht8znVY=;
-	b=v4rl5jk9Jj31suTmWZ0EfenO+IRZAMvnFljpUikDv97V4qScsRLL1O0d/zq2sOE8wO
-	Lyn4maZQrlq6tl49JkWzsNxUQSZbC3mZKQhuNRUerrx2h2FdzzBlojo3dTbaKp2ji9pt
-	Yt+FVkXQKE2e4nxmUQoH0eOWkZIDykqjFlCL843tbPD0Ex8p3e6+0RYBEGyfXWcRywnZ
-	7ANZgku9sKn4/GIJvTJPwXHg+SOS4U3FaFOzH2PG76lYI9i7EptnM3YuT2VdHln895gY
-	nG86eVv4dvkaX4hE/dCGE/iJeCdS0G+Fsg15r6e3qt5Aypyp9Ct4p4/y/Qkia7moXBVg
-	dM3g==
-X-Gm-Message-State: AOAM5319Kn9tdixjqopIqUIAEaLNefaiyFfEkpKHOl4Ec//+N/YqGLw0
-	9/++Oth9+XtQ9WPpZvLixKecbbDbYMQALNF33GTtPtmSSJI=
-X-Google-Smtp-Source: ABdhPJx8ZiLgRDq2hMq3kSrpp+CaN6AaOqMppw+X4+E99806duKHO2MwwyIixdptG2WcCCivhajiqtzUnpmgox6VP80=
-X-Received: by 2002:ac8:7d0a:: with SMTP id g10mr420391qtb.635.1644855902756; 
-	Mon, 14 Feb 2022 08:25:02 -0800 (PST)
-MIME-Version: 1.0
-Received: by 2002:a05:6214:d06:0:0:0:0 with HTTP; Mon, 14 Feb 2022 08:25:02
-	-0800 (PST)
+	h=x-gm-message-state:mime-version:subject:from:in-reply-to:date
+	:content-transfer-encoding:message-id:references:to;
+	bh=SvQujJdHKcqGA4FwMPKzfov09sn3K9rfYqtglc0HnWo=;
+	b=CPfUTqZ2m/uJTHSHfQKWrpDJiiN9a8eSFaw9FKRoyCpxIhbZWmNxbaQQ+JlYnZcgID
+	jDlfut9GZNoGoYx+m2oNej2fBJDuTJw5vwxYiJoTEB+mC5NSZ3FP0bQwmJ8fsQ27/1No
+	fbEK1LMq91/+UQV13TsZipyJriNn3dP82vzI+bw6wR7SFn+ZLc6vhVI7DTKw9z7l2Hz5
+	a96aY3elTSdJ/GC4nWHH4KdZvJA3o+EI/n9q19xdonuvu4i4LxwHdrFHHC51tzV1odql
+	cNuLaRkHEND3ggTIKgRCiifnZYV9kSlXpLfVYhyOMTqYAHIS+r7g65HyV0nhVRUdVtKB
+	YaVA==
+X-Gm-Message-State: AOAM5307F1CaH8PbcYnC6zigUnSBtri6i6l8HbIEETVDNbyQk0oMPoVZ
+	e7sIuiVMHn4vLbmbR+OokrbERB5/SDVfnQ==
+X-Google-Smtp-Source: ABdhPJzTZlvXqqW8rfcQVlVOSznionKn/OhD0HQQeEGVuY0VFWMcY6m2PCH9psCQKLm9WEDxUd5ZOA==
+X-Received: by 2002:a17:902:9b92:: with SMTP id
+	y18mr544382plp.142.1644856610648; 
+	Mon, 14 Feb 2022 08:36:50 -0800 (PST)
+Received: from [192.168.4.38] (24-113-81-134.wavecable.com. [24.113.81.134])
+	by smtp.gmail.com with ESMTPSA id
+	my18sm15037311pjb.57.2022.02.14.08.36.50
+	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+	Mon, 14 Feb 2022 08:36:50 -0800 (PST)
+Mime-Version: 1.0 (Mac OS X Mail 13.4 \(3608.120.23.2.7\))
+Subject: Re: How do you customize the way punctuations are pronounced in Orca?
 In-Reply-To: <CAO2sX30a0b3abFF-gn8m3sCFWcg6i5RQRB6P-o_+9d4FMaaV3g@mail.gmail.com>
+Date: Mon, 14 Feb 2022 08:36:48 -0800
+Message-Id: <51BFC8C1-7D2A-48A3-A4D4-D513CE92C5AC@cfcl.com>
 References: <CABKqQvGqKyUTj5KmvkgpOq9H89T9vxxz-LqFZPDZ=WZ5NXOQhQ@mail.gmail.com>
 	<f8278111-3fc6-107d-d5fb-8f85587232c8@gmail.com>
 	<CABKqQvFFkhtQg1y37tFVfWEogVi4=eQ5uTT4VYAGDNGViMF-Gg@mail.gmail.com>
 	<20220214.153145.899.28@192.168.1.100>
 	<CAO2sX30a0b3abFF-gn8m3sCFWcg6i5RQRB6P-o_+9d4FMaaV3g@mail.gmail.com>
-Date: Mon, 14 Feb 2022 16:25:02 +0000
-Message-ID: <CAO2sX33sU7yDrUgD9Z2OBnA9db26s+FW3qaLopwEkdUPbDfMrA@mail.gmail.com>
-Subject: Re: How do you customize the way punctuations are pronounced in Orca?
 To: blinux-list@redhat.com
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -94,7 +98,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-MIME-Autoconverted: from quoted-printable to 8bit by
+	lists01.pubmisc.prod.ext.phx2.redhat.com id 21EGaseU028285
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -111,7 +117,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -119,8 +125,15 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Also, is there a way of adding pronunciation rules to Orca via direct
-editing of config files?
+
+> On Feb 14, 2022, at 08:23, someone (?) wrote:
+> 
+> ... part of me wants to force my screen readers to pronounce W as "vey".
+
+Oy vey!  Seriously, you could have it spoken as "dub", which is a common shorthand in terms like "www" (i.e., dub-dub-dub).
+
+- Rich Morin
+
 
 _______________________________________________
 Blinux-list mailing list
