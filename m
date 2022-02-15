@@ -1,87 +1,88 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 57E324B74D7
-	for <lists+blinux-list@lfdr.de>; Tue, 15 Feb 2022 20:51:10 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id D9E1A4B74DA
+	for <lists+blinux-list@lfdr.de>; Tue, 15 Feb 2022 20:54:18 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1644954669;
+	s=mimecast20190719; t=1644954857;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=tIqm0sXq5r1De2vFZjiS24GuVLbPV3nsJ099gegTr+M=;
-	b=Y1eV77tbnTqNubLzXjGfwZY6s/QgqdUJLf+iV59nQBEHyRXt8atsIFlY1kJz+XUCPwRgY4
-	qvmY5mq3JEHBMombvbbEGHX+nlaCD0JeYFmgVMgceTwtYi8drWo0LKHmVFxYPhJJowlx8t
-	nIi1ydhzwIHVUzW+Egjoi7VTGESmjIQ=
+	bh=R5lDNhCCtAisik6jD/BcXjf+UIJXHrj0cexzLWBf4Mg=;
+	b=aAcOiOK4nGmdmXRVRCz1qlENCMeiJ28b27+F1w9T952N6kMJyzakU4VotwbwUzofF11N/1
+	z5B+Hfg2x0SdIJhN5cmLoLy0kDolX97cW2OVjJjtHl4bd3HtNN0ieyF3oNhVj6aw7Nk2h/
+	zJC/SXhJaxG8Bbl9blfKbsEzxvsh/7s=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-464-gFUWh9k4O62kwNICIPOGcA-1; Tue, 15 Feb 2022 14:51:05 -0500
-X-MC-Unique: gFUWh9k4O62kwNICIPOGcA-1
+ us-mta-341-MGF9mACKN5GRyltIuHD2MQ-1; Tue, 15 Feb 2022 14:54:14 -0500
+X-MC-Unique: MGF9mACKN5GRyltIuHD2MQ-1
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id BACBF835B4D;
-	Tue, 15 Feb 2022 19:51:01 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 506AE5DF21;
-	Tue, 15 Feb 2022 19:51:01 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5541B801B30;
+	Tue, 15 Feb 2022 19:54:10 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 36E2E5DF2E;
+	Tue, 15 Feb 2022 19:54:10 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B2A524BB7C;
-	Tue, 15 Feb 2022 19:51:00 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 81E821809CB9;
+	Tue, 15 Feb 2022 19:54:09 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.8])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21FJotdf002626 for <blinux-list@listman.util.phx.redhat.com>;
-	Tue, 15 Feb 2022 14:50:55 -0500
+	id 21FJs6mw002849 for <blinux-list@listman.util.phx.redhat.com>;
+	Tue, 15 Feb 2022 14:54:06 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id BF36A2166B4F; Tue, 15 Feb 2022 19:50:55 +0000 (UTC)
+	id 51099C080A9; Tue, 15 Feb 2022 19:54:06 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BB0D32166B46
-	for <blinux-list@redhat.com>; Tue, 15 Feb 2022 19:50:52 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4D26CC080A7
+	for <blinux-list@redhat.com>; Tue, 15 Feb 2022 19:54:06 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 929AB1C05EA8
-	for <blinux-list@redhat.com>; Tue, 15 Feb 2022 19:50:52 +0000 (UTC)
-Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com
-	[209.85.222.181]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 34612801005
+	for <blinux-list@redhat.com>; Tue, 15 Feb 2022 19:54:06 +0000 (UTC)
+Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com
+	[209.85.160.174]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-570-UtuiHfSUPW2NfMo50N58Kg-1; Tue, 15 Feb 2022 14:50:51 -0500
-X-MC-Unique: UtuiHfSUPW2NfMo50N58Kg-1
-Received: by mail-qk1-f181.google.com with SMTP id bs32so18349700qkb.1
-	for <blinux-list@redhat.com>; Tue, 15 Feb 2022 11:50:51 -0800 (PST)
+	us-mta-161-v4LbIXQ3PEuIZQilYNu4yA-1; Tue, 15 Feb 2022 14:54:04 -0500
+X-MC-Unique: v4LbIXQ3PEuIZQilYNu4yA-1
+Received: by mail-qt1-f174.google.com with SMTP id ca12so1967514qtb.4
+	for <blinux-list@redhat.com>; Tue, 15 Feb 2022 11:54:04 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
 	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
 	:content-language:to:references:from:in-reply-to
 	:content-transfer-encoding;
-	bh=vD+FHKfNiLozD5dTf79U4eGmp+W5EvfEjkxfmtU2xhU=;
-	b=lGfhLiizqBLqT6bY0ZFd8afQM23PG5PmfmHD8OevI9X7OoCk5EGBe9INEYz21clkEz
-	4ExytH0chq/efgkaETEYq7pAqCywnQKX3HBDxr/AcB9PANq34n1iv6j4NqtYF/GtY0AV
-	KNbJyTWNjIRQ8oCrFgUZGAd4iYsQpX4RVAECM2Zs1TEYVhfJcgmLJ39SxqTdm/AiFqNU
-	dkL33YGY6DXZJ5atuiBU+ZhZtCBMbDP2NJSAJd92trrC7g0WGGSom3psJZOsWtBNO663
-	XdMX0NWAMNeXwLzlyIkLp1/Yl0+y4Z8M8jDeRmi0zb0t7wQFu45Dxq0qRuXBj/5LWn0n
-	3aqQ==
-X-Gm-Message-State: AOAM533AR3HGX6eSXkXRzduQfnhzitGcbuPrBStaRAmsU1Q4kE7pypy6
-	cLyiMP8nJIXwF4ZEYEHKNGgeEusbiUys5g==
-X-Google-Smtp-Source: ABdhPJxB5uaxMzBB8HbG0aePV2MJreKm4RkdgLmGPcRwgUdpslTbT3vrKb2jk9PvVkjNUvUmsniZNw==
-X-Received: by 2002:a05:620a:15b2:: with SMTP id
-	f18mr362434qkk.160.1644954650425; 
-	Tue, 15 Feb 2022 11:50:50 -0800 (PST)
+	bh=yeUzq3rdxnzyXwckaAwy+1ZVePeQHapWWNPjQoXBspc=;
+	b=ZKKQnSvNUBuJd4B0I1aKG3MFnPXorYe8n/KfNc9GfQ3mfRcv4pBRxt+Y33Et5EGBNz
+	O2YbFl/ahi/idoDmAhSrRc8OToo+EhEVlem2qG76TglVgMPzckbVs2u5IViTgVkSLg4O
+	CaNZoV4yLBiT8E3us/6sBRRcsLsUqBZQK6VFe/ulnho4iADLl+DorE/hGtpEhF6tCAEW
+	C619lox7XHEcnoVJ2KJ8gR7mXIv4NzLcpzlX8O99ArslzQjKcw5QFVTOXjLcNepEtkM8
+	R0MzeO75fCf1epl7kD5GvnzvWqBUpq+5t/LORLDtMHigLinBHDSbHbshHSuJRbK/SGUz
+	ujgQ==
+X-Gm-Message-State: AOAM532yzZ0IUdUFVEpB6/NzSw6v/NoTtkN6y2sba+Sq9FtcjZM7NPI9
+	vG3i6bAbA+b+KL/QqdjTBsX3QNJLKvJtCQ==
+X-Google-Smtp-Source: ABdhPJz8MV9Un0ZonBhVhPIOejws4y8Tvb4zz51EEBLTYo1kUYRwQTkkRswpuaX1A8auVqg3B53n/Q==
+X-Received: by 2002:a05:622a:1981:: with SMTP id
+	u1mr557453qtc.175.1644954843469; 
+	Tue, 15 Feb 2022 11:54:03 -0800 (PST)
 Received: from ?IPV6:2601:192:4c80:1420:7467:d1fd:59b:2e92?
 	([2601:192:4c80:1420:7467:d1fd:59b:2e92])
-	by smtp.gmail.com with ESMTPSA id
-	x7sm14376616qkp.98.2022.02.15.11.50.49 for <blinux-list@redhat.com>
+	by smtp.gmail.com with ESMTPSA id 5sm20267942qtp.81.2022.02.15.11.54.02
+	for <blinux-list@redhat.com>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Tue, 15 Feb 2022 11:50:50 -0800 (PST)
-Message-ID: <f756ee8f-b545-705f-63c2-8bbb0eb1366c@gmail.com>
-Date: Tue, 15 Feb 2022 14:50:49 -0500
+	Tue, 15 Feb 2022 11:54:03 -0800 (PST)
+Message-ID: <bac75179-5e55-1893-4303-f56f3e04d148@gmail.com>
+Date: Tue, 15 Feb 2022 14:54:02 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
 	Thunderbird/91.5.1
@@ -97,7 +98,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -123,8 +124,9 @@ Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-There's Fedora, Solus, Debian, Slint, Arch, that I can think of so far, 
-excluding Ubuntu and spins.
+I forgot Devuan, or, would you just consider that a Debian spin?
+
+
 
 On 2/15/22 14:47, Linux for blind general discussion wrote:
 > What other options do we, the Blind Linux users have? And, no, I 
