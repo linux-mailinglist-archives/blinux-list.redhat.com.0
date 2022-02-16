@@ -1,68 +1,78 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 369394B87A4
-	for <lists+blinux-list@lfdr.de>; Wed, 16 Feb 2022 13:29:48 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id EE1294B8895
+	for <lists+blinux-list@lfdr.de>; Wed, 16 Feb 2022 14:13:53 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1645014587;
+	s=mimecast20190719; t=1645017232;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=A/kEgjoC2BooAENRmJREWh4IdzZJMF3M8SbsHGsyJ3M=;
-	b=KoAX13RYY9FdPyEI+VM7Q2SEU+wpzVwpho43DGjCitmQIEKAFOLehOp5RxUBhUNKheT713
-	bxU1ACVD9QBwMWbqUq2m6tzIcc60GNp2r/1EwZVSU4+TOIhnBfIgfyjfRvQbwYnXwB8MK1
-	HGGNMe1RJOj3aTdLXiU1rofKu6+2MoA=
+	bh=XFOpmQTLbRnVk7tFsSSq2ZpRuMzAhe5plm8q7xk23Pk=;
+	b=HCtyGObqR4+KkJ2qRN74xRdxnxmK2LBztqCzcTzkUY9+UjCJs/i8BNG4Aq5popdt9DIzi9
+	RQgTGItrrfTsQfSOrcrISK43og1Sp23DxZbdQSJH13Yh1TIqwuzv1V1JpChoDXupDazYfh
+	9vV0LcMcOhGewwHEQJ/tkgMqJInJetw=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-577-Acx_foLaPPyxCw7TV9OCGw-1; Wed, 16 Feb 2022 07:29:43 -0500
-X-MC-Unique: Acx_foLaPPyxCw7TV9OCGw-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-612-rZcv_Qp5P8G1ClSwQRP-6w-1; Wed, 16 Feb 2022 08:13:49 -0500
+X-MC-Unique: rZcv_Qp5P8G1ClSwQRP-6w-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7A5A6814246;
-	Wed, 16 Feb 2022 12:29:39 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8CDDD1853022;
+	Wed, 16 Feb 2022 13:13:44 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 473222AA96;
-	Wed, 16 Feb 2022 12:29:37 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 393F36FAF5;
+	Wed, 16 Feb 2022 13:13:43 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 1810C4BB7B;
-	Wed, 16 Feb 2022 12:29:29 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 493AE4BB7B;
+	Wed, 16 Feb 2022 13:13:40 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.7])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21GCOpV4022895 for <blinux-list@listman.util.phx.redhat.com>;
-	Wed, 16 Feb 2022 07:24:52 -0500
+	id 21GDDYfD028289 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 16 Feb 2022 08:13:35 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 71BED1466C4B; Wed, 16 Feb 2022 12:24:51 +0000 (UTC)
+	id B679814582F5; Wed, 16 Feb 2022 13:13:34 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6DFB21466C47
-	for <blinux-list@redhat.com>; Wed, 16 Feb 2022 12:24:51 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3DDC128EE16D
-	for <blinux-list@redhat.com>; Wed, 16 Feb 2022 12:24:51 +0000 (UTC)
-Received: from michel.telenet-ops.be (michel.telenet-ops.be
-	[195.130.137.88]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-655-bJpFC0H-PyqHbUKp0X-LOA-1; Wed, 16 Feb 2022 07:24:49 -0500
-X-MC-Unique: bJpFC0H-PyqHbUKp0X-LOA-1
-Received: from linuxcomputers ([IPv6:2a02:1811:b61c:2900:6413:a942:89ec:f67b])
-	by michel.telenet-ops.be with bizsmtp
-	id voQn2600R0oMXft06oQnC1; Wed, 16 Feb 2022 13:24:48 +0100
-Received: from aldo by linuxcomputers with local (Exim 4.93)
-	(envelope-from <yellowpenguin@telenet.be>) id 1nKJMV-00026x-IK
-	for blinux-list@redhat.com; Wed, 16 Feb 2022 13:24:47 +0100
-Date: Wed, 16 Feb 2022 13:24:47 +0100
-To: Blinux List <blinux-list@redhat.com>
-Subject: "Screen on" then nothing at login
-Message-ID: <20220216122447.GA8036@linuxcomputers>
+	(mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B291014582F1
+	for <blinux-list@redhat.com>; Wed, 16 Feb 2022 13:13:34 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 962E03C01C0B
+	for <blinux-list@redhat.com>; Wed, 16 Feb 2022 13:13:34 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-217-icVSzlW4NUaK9AuXJvJIrw-1; Wed, 16 Feb 2022 08:13:32 -0500
+X-MC-Unique: icVSzlW4NUaK9AuXJvJIrw-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4JzJLN3VC4z2wnQ
+	for <blinux-list@redhat.com>; Wed, 16 Feb 2022 08:13:32 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4JzJLN32DYzcbc; Wed, 16 Feb 2022 08:13:32 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4JzJLN2hrlzcbC
+	for <blinux-list@redhat.com>; Wed, 16 Feb 2022 08:13:32 -0500 (EST)
+Date: Wed, 16 Feb 2022 08:13:32 -0500
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Accessibility of installing Distros?
+In-Reply-To: <c54f8e3-b720-644-923-78399bfc5417@brandt-slint.local>
+Message-ID: <c31eb4b2-6edc-9957-ca8e-669d263064@panix.com>
+References: <4ced451-6f9c-3d8c-3a80-ce15147d9f2b@brandt-slint.local>
+	<bac75179-5e55-1893-4303-f56f3e04d148@gmail.com>
+	<F9575516-3959-465F-B245-A179D7FA122C@gmail.com>
+	<f97f5363-fc3c-cb1d-e323-ccea994d3a98@panix.com>
+	<c54f8e3-b720-644-923-78399bfc5417@brandt-slint.local>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -89,81 +99,106 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hello,
+Debian doesn't provide a non-free iso it provides an unofficial iso.  The
+unofficial iso debian provides is for extra firmware support.  So far as I
+know debuan doesn't provide a firmware iso.
 
-each time I boot now my Ubuntu 20.04.3 LTS with Gnome as graphical desktop,
-I no longer hear Espeak talking, and the one and only message I can read is
-"Scherm aan" what means "Screen on" in English.
 
-How can I trace the source of the problem ? Here is my .xsession-errors, but
-are there other useful files to check ? 
+On Wed, 16 Feb 2022, Linux for blind general discussion wrote:
 
-Cf. .xsession-errors: 
-
-### 
-
-dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-dbus-update-activation-environment: setting DISPLAY=:0
-dbus-update-activation-environment: setting XAUTHORITY=/home/aldo/.Xauthority
-dbus-update-activation-environment: setting GTK_MODULES=gail:atk-bridge
-dbus-update-activation-environment: setting QT_ACCESSIBILITY=1
-dbus-update-activation-environment: setting SHELL=/bin/bash
-dbus-update-activation-environment: setting QT_ACCESSIBILITY=1
-dbus-update-activation-environment: setting XDG_CONFIG_DIRS=/etc/xdg/xdg-unity:/etc/xdg
-dbus-update-activation-environment: setting XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
-dbus-update-activation-environment: setting GTK_IM_MODULE=ibus
-dbus-update-activation-environment: setting GTK2_MODULES=overlay-scrollbar
-dbus-update-activation-environment: setting LANGUAGE=nl_BE:nl
-dbus-update-activation-environment: setting QT4_IM_MODULE=ibus
-dbus-update-activation-environment: setting MANDATORY_PATH=/usr/share/gconf/unity.mandatory.path
-dbus-update-activation-environment: setting XMODIFIERS=@im=ibus
-dbus-update-activation-environment: setting DESKTOP_SESSION=unity
-dbus-update-activation-environment: setting GTK_MODULES=gail:atk-bridge
-dbus-update-activation-environment: setting PWD=/home/aldo
-dbus-update-activation-environment: setting XDG_SESSION_DESKTOP=unity
-dbus-update-activation-environment: setting LOGNAME=aldo
-dbus-update-activation-environment: setting QT_QPA_PLATFORMTHEME=appmenu-qt5
-dbus-update-activation-environment: setting XDG_SESSION_TYPE=x11
-dbus-update-activation-environment: setting GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
-dbus-update-activation-environment: setting XAUTHORITY=/home/aldo/.Xauthority
-dbus-update-activation-environment: setting XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/aldo
-dbus-update-activation-environment: setting LD_PRELOAD=libgtk3-nocsd.so.0
-dbus-update-activation-environment: setting GDM_LANG=nl
-dbus-update-activation-environment: setting HOME=/home/aldo
-dbus-update-activation-environment: setting IM_CONFIG_PHASE=1
-dbus-update-activation-environment: setting LANG=nl_BE.UTF-8
-dbus-update-activation-environment: setting XDG_CURRENT_DESKTOP=Unity:Unity7:ubuntu
-dbus-update-activation-environment: setting XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-dbus-update-activation-environment: setting GTK_CSD=0
-dbus-update-activation-environment: setting CLUTTER_IM_MODULE=ibus
-dbus-update-activation-environment: setting XDG_SESSION_CLASS=user
-dbus-update-activation-environment: setting DEFAULTS_PATH=/usr/share/gconf/unity.default.path
-dbus-update-activation-environment: setting USER=aldo
-dbus-update-activation-environment: setting DISPLAY=:0
-dbus-update-activation-environment: setting SHLVL=1
-dbus-update-activation-environment: setting QT_IM_MODULE=ibus
-dbus-update-activation-environment: setting XDG_RUNTIME_DIR=/run/user/1000
-dbus-update-activation-environment: setting XDG_DATA_DIRS=/usr/share/unity:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/var/lib/snapd/desktop
-dbus-update-activation-environment: setting PATH=/home/aldo/.local/bin:/home/aldo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-dbus-update-activation-environment: setting GDMSESSION=unity
-dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-dbus-update-activation-environment: setting _=/usr/bin/dbus-update-activation-environment
-Failed to get properties: Unit name gnome-session-manager@.service is neither a valid invocation ID nor unit name.
-
-###
-
-Thanx,
-
-Aldo.
+> Question regarding Debuan,
+>
+> Is it, like Debian, only free software, or do they also provide a non-free
+> Iso?
+>
+> Standard Debian doesn't install on my hardware due to non-free Wi-Fi drivers
+> being required. Which is rather strange, since both Trisquel and Fedora, both
+> shipping with only free software install just fine.
+>
+> Warm regards,
+>
+> Brandt Steenkamp
+>
+> Sent from the Slint console using Alpine
+>
+> On Tue, 15 Feb 2022, Linux for blind general discussion wrote:
+>
+> > Date: Tue, 15 Feb 2022 15:41:32 -0500
+> > From: Linux for blind general discussion <blinux-list@redhat.com>
+> > To: Linux for blind general discussion <blinux-list@redhat.com>
+> > Subject: Re: Accessibility of installing Distros?
+> >
+> > A debian spin without systemd.  debuan.org for any interested.
+> >
+> >
+> > On Tue, 15 Feb 2022, Linux for blind general discussion wrote:
+> >
+> >> Never heard of this one.
+> >>
+> >> Warm regards,
+> >>
+> >> Brandt Steenkamp
+> >>
+> >> Sent from my MacBook Air
+> >>
+> >> Contact:
+> >>
+> >> Phone: +27 (0)60 525 9181 <tel://+27605259181>
+> >>
+> >> Email: brandt.steenkamp@gmail.com <mailto:brandt.steenkamp@gmail.com>
+> >>
+> >> Twitter: @brandtsteenkamp <http://www.twitter.com/brandtsteenkamp>
+> >>
+> >>
+> >>
+> >>
+> >>> On 15 Feb 2022, at 21:54, Linux for blind general discussion
+> >>> <blinux-list@redhat.com> wrote:
+> >>>
+> >>> I forgot Devuan, or, would you just consider that a Debian spin?
+> >>>
+> >>>
+> >>>
+> >>> On 2/15/22 14:47, Linux for blind general discussion wrote:
+> >>>> What other options do we, the Blind Linux users have? And, no, I really
+> >>>> don't count Ubuntu spins, (Mint, Trisquel, PopOS, Accessible Coconut,
+> >>>> etc.)
+> >>>
+> >>> _______________________________________________
+> >>> Blinux-list mailing list
+> >>> Blinux-list@redhat.com
+> >>> https://listman.redhat.com/mailman/listinfo/blinux-list
+> >>>
+> >>
+> >> _______________________________________________
+> >> Blinux-list mailing list
+> >> Blinux-list@redhat.com
+> >> https://listman.redhat.com/mailman/listinfo/blinux-list
+> >>
+> >>
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://listman.redhat.com/mailman/listinfo/blinux-list
+> >
+> >
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
+>
 
 _______________________________________________
 Blinux-list mailing list
