@@ -2,83 +2,95 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 85BE64BAD34
-	for <lists+blinux-list@lfdr.de>; Fri, 18 Feb 2022 00:22:47 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1CF244BAF2B
+	for <lists+blinux-list@lfdr.de>; Fri, 18 Feb 2022 02:36:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1645140166;
+	s=mimecast20190719; t=1645148201;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=6kRcumm/e9+YxPOvGP4oRTMgRX0s8Pztjte50bzKb8c=;
-	b=ImD3XP5MAMrpRUatxjZBQ3hu15bdtdRXyXHxhmfSenxu+v9p0N7M9sKgQszZMNJ45GJcF5
-	3ZFLC6bIL+8KQrbdsCZgaPMgvgRVKB726ybY6MJqmS4Tgnn1iQrgFdHYrgcd/BnCTKHb1Y
-	B9c1NuuLi/fJBQxVMnOJAlY8jNDbHuw=
+	bh=uz7GygAd2fnm5zs7DPwzE8cB8lpRZuvLxAA3xDHriH0=;
+	b=X7QMkehRixTrYSPjwQGHkaR4s7ZiMRigRNbrCtchopntW1lpj22j3FTjCEig9u3MjaQkqP
+	LKmdPThoK4Ss+V+ircraw0j5EwhnN0ioVG0zCXEoV8+TRZhaGe9zg4c22afwTCh9t+L3jZ
+	R2RpUlNue91FjFWb5131DH5j0Wht9LM=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-122-oMCrYaXpN02Jo0ncZCuJlA-1; Thu, 17 Feb 2022 18:22:43 -0500
-X-MC-Unique: oMCrYaXpN02Jo0ncZCuJlA-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-428-PUqZH7hAOOqRQUbVkFBLPQ-1; Thu, 17 Feb 2022 20:36:37 -0500
+X-MC-Unique: PUqZH7hAOOqRQUbVkFBLPQ-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 262E5100CCC0;
-	Thu, 17 Feb 2022 23:22:38 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 15EB12F4A;
+	Fri, 18 Feb 2022 01:36:33 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 169064EC85;
-	Thu, 17 Feb 2022 23:22:35 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4641F5F70B;
+	Fri, 18 Feb 2022 01:36:31 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 949EF4BB7B;
-	Thu, 17 Feb 2022 23:22:24 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.10])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 9E91E4BB7B;
+	Fri, 18 Feb 2022 01:36:26 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.8])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21HNLPX3005442 for <blinux-list@listman.util.phx.redhat.com>;
-	Thu, 17 Feb 2022 18:21:25 -0500
+	id 21I1aJCr014328 for <blinux-list@listman.util.phx.redhat.com>;
+	Thu, 17 Feb 2022 20:36:19 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 065275361F9; Thu, 17 Feb 2022 23:21:25 +0000 (UTC)
+	id 77928C15E71; Fri, 18 Feb 2022 01:36:19 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 023D45361EC
-	for <blinux-list@redhat.com>; Thu, 17 Feb 2022 23:21:24 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[205.139.110.120])
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 73176C27FA6
+	for <blinux-list@redhat.com>; Fri, 18 Feb 2022 01:36:19 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DD8D03C01C13
-	for <blinux-list@redhat.com>; Thu, 17 Feb 2022 23:21:24 +0000 (UTC)
-Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com
-	[209.85.222.177]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5A90D811E78
+	for <blinux-list@redhat.com>; Fri, 18 Feb 2022 01:36:19 +0000 (UTC)
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com
+	[209.85.216.50]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-226-Mc7WmgfJNFuv731C7LEO6Q-1; Thu, 17 Feb 2022 18:21:23 -0500
-X-MC-Unique: Mc7WmgfJNFuv731C7LEO6Q-1
-Received: by mail-qk1-f177.google.com with SMTP id o10so6348111qkg.0
-	for <blinux-list@redhat.com>; Thu, 17 Feb 2022 15:21:23 -0800 (PST)
+	us-mta-50-sudUtWmmOruKZkjyD6LLBQ-1; Thu, 17 Feb 2022 20:36:17 -0500
+X-MC-Unique: sudUtWmmOruKZkjyD6LLBQ-1
+Received: by mail-pj1-f50.google.com with SMTP id
+	v13-20020a17090ac90d00b001b87bc106bdso10992890pjt.4
+	for <blinux-list@redhat.com>; Thu, 17 Feb 2022 17:36:17 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
-	bh=gp1xyOJzP+Lnm7CqOkT6yoP2I2/oKfvKBuQkY1bEEgw=;
-	b=ZS+KsfWaFx9gzvLx77D6HW89x/zesr1D5153vjOmcJxjd8rkPskRaMbdNufrp8rFbS
-	2S0FwYi9qEYg3FA5HitoGHHkU+UfnLtI5tMZtMjVf3PfEvRXR3tNSq8MtMdACh8XDfN7
-	nakpadeqRCR7UAc+qK8/X99X+9IzjhZk3d1VgNiy9m9zbfZcsZOnYzNN8EWIY1NaHaNM
-	4bf+sPPH/Cqr0v9WtEtPjtnpigFqeGKdp4XpUU+IuT9CGHeXTOrfyfYu0Nv2FSwghp5n
-	UpUdFI18JsoHdWkSRQkfJ3cJzPTad7lCSDpW5VWw8Mltlw2AQmjwbmmnCDB++GYe+dCv
-	dHcQ==
-X-Gm-Message-State: AOAM532rxOIA2H/ftLC55t2ysuoEekEsaXbRBvcOEUCsg0gmrwPZlPzF
-	EgnFSQGTLiRjwTtDIFeHngXJ5NCFRQGk/L+PjBIPf5E5A0I=
-X-Google-Smtp-Source: ABdhPJzN+XPFqhKWVYD0TOHnw/TN7CmWgF0sKTsGJVZQ93Qe2LZP3xCgTTvmRcyaiVD9L+z39ISM/uuZ8CJ+U9Sw8UY=
-X-Received: by 2002:a37:b885:0:b0:606:f607:d820 with SMTP id
-	i127-20020a37b885000000b00606f607d820mr3003475qkf.124.1645140082690;
-	Thu, 17 Feb 2022 15:21:22 -0800 (PST)
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=pP6A2ipczcXMTKpAEP2uX6IiTxEp52jBiQqAlP+XVKY=;
+	b=EdQn99BavEFdXAzopb6cXDHJ7qsC5/zZcaM6AmEpzmahjhegxFs/Yur8qj/wqfVyk4
+	7BpW9oATop1VMwB4R16K1t+nXmExDbIEopD4A/GZqSVUSc7+88fEinDJ/lS8HES24fbl
+	EVaz+MpihX/DvzJyr5r1sAcONwKFyoBIGEN1HYUIYv2MIl3/KtZkDWzZrXsSNU/wFzIk
+	fT0c01Hx/c2tmt7mG42b3o96sBKRAaG2+LPO3wpOAJxtHL0yD/7lHvjTCGSmgm7Ygeg/
+	yCuhVYrXybQIY7A7MJYIgS7h/y3D2pdpAFYtE/64O1iB7pB3zZlNDxGYDzOyHKp3VMOU
+	dlKg==
+X-Gm-Message-State: AOAM532g9r91KBKyMdnTYR3pkS84LFxmMoEuQ2nnKVXeEQ1HahppSfkw
+	po95RS81PfhMHRysEYE9IfSLsEusOuq/nw==
+X-Google-Smtp-Source: ABdhPJxYIfqEXeCTG682I2GkDVOyzsNsHGgYIVqQsTrBp1dyzlZcdJw7y3gcSZnMGQtrJOxA9qjlUw==
+X-Received: by 2002:a17:90a:6001:b0:1bb:83e8:1694 with SMTP id
+	y1-20020a17090a600100b001bb83e81694mr10116380pji.127.1645148176076;
+	Thu, 17 Feb 2022 17:36:16 -0800 (PST)
+Received: from [10.200.1.221] ([103.233.155.116])
+	by smtp.gmail.com with ESMTPSA id u4sm796758pfk.220.2022.02.17.17.36.14
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Thu, 17 Feb 2022 17:36:15 -0800 (PST)
+Message-ID: <5b6b458c-2410-b30a-ae14-2f966df719d8@gmail.com>
+Date: Fri, 18 Feb 2022 08:36:13 +0700
 MIME-Version: 1.0
-Received: by 2002:a05:6214:d06:0:0:0:0 with HTTP; Thu, 17 Feb 2022 15:21:22
-	-0800 (PST)
-Date: Thu, 17 Feb 2022 23:21:22 +0000
-Message-ID: <CAO2sX33__rOyjd2u+J1jBnxgU9qZFz8V=y1AeP_+LYNz7y1iHQ@mail.gmail.com>
-Subject: xvfb-run: Program executes, but I can't control it.
-To: Linux for blind general discussion <blinux-list@redhat.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.5.0
+Subject: Re: Coqui STS model data
+To: blinux-list@redhat.com
+References: <60d78e73-30de-c36a-482c-8ed70596bee3@gmail.com>
+	<51cd92ef-5223-1114-3b18-b30c3182a118@gmail.com>
+	<fb50c590-1e80-91d5-7021-5bad2fe196b6@protonmail.com>
+In-Reply-To: <fb50c590-1e80-91d5-7021-5bad2fe196b6@protonmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -87,7 +99,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -104,68 +116,61 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Okay, so I recently came across xvfb, the X virtual framebuffer as a
-potential solution for running graphical applications without the need
-for a full desktop.
-
-I used aptitude to install the version provided by Debian Testing.
-
-As an initial test, I decided to try running a visual novel that has
-built-in TTS for the parts without voice acting, and since the game
-isn't in my path, I cd to where the game is stored and run
-
-xvfb-run ./game.sh
-
-I hear the game's startup sound followed by the title screen music, so
-I know the game is running... but control is still at the command line
-and all I can get out the TTY I ran xvfb from is the usual stuff that
-happens when you press kees a terminal application doesn't register as
-input and a message about not having a steamclient on my system. All I
-can really do is ctrl+c to quit the inaccessible game and xvfb.
-
-Knowing guis sometimes get ran on a TTY other than the one that
-spawned them, I check all the available TTYs, but none of them are
-connected to the game.
-
-My initial test was performed on tty3 while I had my usual
-Firefox+Orca on top of abarebones FLWM session launched by a script
-that is a black box to me running on tty1, so I try shutting down
-Firefox+Orca, rebooting my machine, and running the game before
-launching anything else graphical... and got the same results.
-
-Getting the game to run at all is a step forward, but it doesn't mean
-much if I can't actually control it.
-
-Also, it turns out I only have access to tty1-tty10 on my system, not
-that that matters much, as it's not common I even get up to tty6.
-
-So any ideas what went wrong or what I need to do to get my keyboard
-talking to the game I launched with xvfb?
-
-If it matters, my installed system is customized from an older version
-of Knoppix, with all of the installed software that isn't Knoppix
-specific upgraded to Debian Testing or Unstable(I was using Unstable
-until a update a few days ago broke my xserver and forced me to
-downgrade those packages to Testing and switching my active
-sources.list entry to testing to prevent accidentially upgrading to
-the broken versions again)... also, after getting the game working, my
-next planned step is to get Orca+Firefox(trying to replace the script
-I don't understand with something more flexible that should work even
-if I switch to a vanilla Debian install) and then Orca+Seamonkey(since
-I understand it to be the lightest, full-featured graphical web
-browser for Linux and the best alternative to Firefox and chromium)
-working with xvfb.
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGkgUmFzdGlzbGF2LAoKVGhlIE5WaWRpYSBOZW1vIGlzIGluZGVlZCB2ZXJ5IGludGVyZXN0aW5n
+LiBXaWxsIHRha2UgYW5vdGhlciBsb29rLgpJJ20gYWltaW5nIHRvIGNyZWF0ZSBzaW1wbGUgdm9p
+Y2UgYXNzaXN0YW50IHByb2plY3QgaW4gbGludXguIFNpbWlsYXIgdG8gVm9pY2UgQXR0YWNrCgpo
+dHRwczovL3ZvaWNlYXR0YWNrLmNvbS8KCk15IGZpcnN0IHJlc2VhcmNoIGxlYWQgbWUgdG8gRGVl
+cFNwZWVjaCBidXQgaXQgYXBwZWFycyBpdCBpcyBubyBsb25nZXIgYWN0aXZlbHkgZGV2ZWxvcGVk
+IGFuZCBDb3F1aSBpcyBjb250aW51YXRpb24gb2YgRFMuIEknbGwgY2hlY2sgb3V0IE5lbW8gYW5k
+IGNvbXBhcmUgd2hpY2ggb25lIGlzIHN1aXRlZCBmb3IgbXkgcHJvamVjdC4KUmVhbGx5IGFwcHJl
+Y2lhdGUgdGhlIHRpcHMuCgpUaGFua3MKCk9uIDIvMTgvMjIgMDI6MDUsIExpbnV4IGZvciBibGlu
+ZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gSGVsbG8sCj4KPiB3aGVuIGl0IGNvbWVzIHRv
+IFNUVCwgdGhlcmUgYXJlIG11bHRpcGxlIHJlYWxseSBpbnRlcmVzdGluZyBvcGVuLXNvdXJjZQo+
+IHByb2plY3RzIGdvaW5nIG9uLgo+Cj4KPiBhc2lkZSBDb3F1aSBTVFQsIHRoZXJlIGFyZSBNb3pp
+bGxhJ3MgZGVlcCBzcGVlY2gsIFZvc2sgYW5kIE5WSURJQSdzIE5lbW8uCj4KPgo+IEkndmUgcmVh
+ZCBhbiBhcnRpY2xlIHJlY2VudGx5Ogo+Cj4gaHR0cHM6Ly9tZWRpdW0uY29tL0BuaWNrLm5hZ2Fy
+aS9jb21wYXJpbmctNC1wb3B1bGFyLW9wZW4tc291cmNlLXNwZWVjaC10by10ZXh0LW5ldXJhbC1u
+ZXR3b3JrLW1vZGVscy05MjY3NmE5ZjkyNjUKPgo+Cj4gY29tcGFyaW5nIDQgcG9wdWxhciBPU1Mg
+c3BlZWNoIHJlY29nbml0aW9uIGZyYW1ld29ya3MsIGFuZCBOZW1vIHdpdGgKPiBxdWFydHpOZXQg
+Y2FtZSBvdXQgYXMgdGhlIGJlc3QgY2hvaWNlLgo+Cj4KPiAgIEZyb20gaXRzIHJlcG9zaXRvcnk6
+Cj4KPiBodHRwczovL2dpdGh1Yi5jb20vTlZJRElBL05lTW8KPgo+Cj4gSXQgc2VlbXMgcmVhbGx5
+IGludGVyZXN0aW5nLgo+Cj4KPiBCZXN0IHJlZ2FyZHMKPgo+Cj4gUmFzdGlzbGF2Cj4KPgo+IETF
+iGEgMTMuIDIuIDIwMjIgbyAxNTowMyBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9u
+IG5hcMOtc2FsKGEpOgo+PiBBcHBhcmVudGx5IEkgbmVlZCB0byBsb29rIGEgYml0IGhhcmRlcsKg
+IDopCj4+Cj4+Cj4+IEkgZmluZCB3b3JraW5nwqAgaW5zdHJ1Y3Rpb24gaGVyZQo+Pgo+PiBodHRw
+czovL3BldGV3YXJkZW4uY29tLzIwMjEvMTIvMjcvaG93LXRvLWdldC1zdGFydGVkLXdpdGgtY29x
+dWlzLW9wZW4tc291cmNlLW9uLWRldmljZS1zcGVlY2gtdG8tdGV4dC10b29sLyNjb250ZW50Cj4+
+Cj4+IEFueXdheSB0aGVzZSBTVFMgaXMgbG9va2luZyBhd2Vzb21lLi4KPj4KPj4gUmVnYXJkcwo+
+PiBPbiAyLzEzLzIyIDIwOjEwLCBFZGhvYXJpIFNldGl5b3NvIHdyb3RlOgo+Pj4gSGkgbGlzdCwK
+Pj4+Cj4+Pgo+Pj4gSSB3YW50IHRvIGV4cGVyaW1lbnQgd2l0aCBDb3F1aSBTVFMgYW5kIG5lZWQg
+c29tZSBhZHZpY2UuCj4+Pgo+Pj4gSSBkb3dubG9hZCBzYW1wbGUgY29kZSBmcm9tCj4+Pgo+Pj4g
+LS0gaHR0cHM6Ly9naXRodWIuY29tL2NvcXVpLWFpL1NUVC1leGFtcGxlcwo+Pj4KPj4+IEZpcnN0
+IEkgdHJpZWQgdGhlIHB5dGhvbiBtaWNfbWljX3ZhZF9zdHJlYW1pbmcvIGJ1dCB3aGVuIEkgcmFu
+IGl0IEkndmUKPj4+IGxvc3QgYWxsIGF1ZGlvIGFuZCBjb250cm9sLiBJIGhhZCB0byBnbyB0byB0
+dHkxIGFuZCByZWJvb3QgbXkgc3lzdGVtLgo+Pj4gQW5kIHRoZW4gdHJpZWQgdGhlIG5vZGVqc19t
+aWNfdmFkX3N0cmVhbWluZy8KPj4+Cj4+PiBJdCBhc2tzIGZvciBtb2RlbCBkYXRhIHdoaWNoIEkg
+dHJ5IHRvIGZldGNoIGZyb20KPj4+IGh0dHBzOi8vY29xdWkuYWkvZW5nbGlzaC9jb3F1aS92MS4w
+LjAtZGlnaXRzCj4+Pgo+Pj4gSSBhbHJlYWR5IHVzZSBib3RoIG15IGVtYWlsIGFkZHJlc3MgYW5k
+IHN0aWxsIGdvdCBub3RoaW5nIGluIG15IGluYm94Lgo+Pj4KPj4+IENhbiBhbnlvbmUgY2FuIHNo
+ZWQgbGlnaHQgb24gd2hhdCB0byBkbz8KPj4+IEknZCBhcHByZWNpYXRlIGFueSBoZWxwLgo+Pj4K
+Pj4+IEJlc3QgUmVnYXJkcwo+Pj4KPj4+Cj4+PiBFZGhvYXJpIFNldGl5b3NvCj4+Pgo+PiAtLQo+
+PiBFZGhvYXJpIFNldGl5b3NvCj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+PiBCbGludXgtbGlz
+dEByZWRoYXQuY29tCj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGlu
+Zm8vYmxpbnV4LWxpc3QKPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVkaGF0
+LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4
+LWxpc3QKCi0tIApFZGhvYXJpIFNldGl5b3NvCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RA
+cmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2Js
+aW51eC1saXN0
 
