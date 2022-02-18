@@ -2,87 +2,86 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4E7494BC177
-	for <lists+blinux-list@lfdr.de>; Fri, 18 Feb 2022 21:57:30 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7DC714BC219
+	for <lists+blinux-list@lfdr.de>; Fri, 18 Feb 2022 22:31:09 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1645217849;
+	s=mimecast20190719; t=1645219868;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
-	 content-type:content-type:in-reply-to:in-reply-to:
-	 references:references:list-id:list-help:list-unsubscribe:
-	 list-subscribe:list-post; bh=HQlKCwL1l3pBTk0ZrzyKTx8gxSWgAHMis+MpWq6Xfk8=;
-	b=W20q3g9w6h4qO3vs0aPVvubILB+04TZiTQnvau9BqjoXEJDLIiSlWq9yXhV/YhSE23DcjQ
-	BQa/vIftM9UsnDJA1LjCdKcd66eLS9+yrUf6UX3vXDuvLjqCIU3ESINV7EilmBqBnkZKdk
-	Zcxt1oBwgyK8foyzbEyjqqsvkfgswMg=
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 list-unsubscribe:list-subscribe:list-post;
+	bh=x+aUEwmczcmSZdWYTl6Vgk3uNT0ncaSXnRdMohMUkSE=;
+	b=ceZrFYAKmeE7JZ1fnJ9IYtqJ8TzN6ZfCGQooGJweXcOzPWH7z2Z/E42ElAJo3zMhlKMHWS
+	2Z+RkqjvoO4ICNtqV2K4q4HtC9l9vd3ybuP4ambmZQ2RAWfnPRr50rmMOqUdSD2VXOsIh4
+	fWklxGxqZun3yUEIKzduv48H4x6wWjk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-371-gLEvELPAPVK5ySjTA1Fyvg-1; Fri, 18 Feb 2022 15:57:25 -0500
-X-MC-Unique: gLEvELPAPVK5ySjTA1Fyvg-1
+ us-mta-553-ThOfb-fOM46ciireKjTAzg-1; Fri, 18 Feb 2022 16:31:04 -0500
+X-MC-Unique: ThOfb-fOM46ciireKjTAzg-1
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CF9931091DA1;
-	Fri, 18 Feb 2022 20:57:21 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 291BC10246F6;
-	Fri, 18 Feb 2022 20:57:21 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D5A23801AC5;
+	Fri, 18 Feb 2022 21:31:00 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 46288100E107;
+	Fri, 18 Feb 2022 21:31:00 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id CC7AA4CA9B;
-	Fri, 18 Feb 2022 20:57:19 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.9])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id D80431809CAA;
+	Fri, 18 Feb 2022 21:30:58 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.2])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21IKnpNW006102 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 18 Feb 2022 15:49:51 -0500
+	id 21ILUq6J009494 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 18 Feb 2022 16:30:52 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id B8B1548FB11; Fri, 18 Feb 2022 20:49:51 +0000 (UTC)
+	id 09D5A40885AB; Fri, 18 Feb 2022 21:30:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B4730401D2B
-	for <blinux-list@redhat.com>; Fri, 18 Feb 2022 20:49:51 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9B75285A5BC
-	for <blinux-list@redhat.com>; Fri, 18 Feb 2022 20:49:51 +0000 (UTC)
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com
-	[209.85.221.42]) by relay.mimecast.com with ESMTP with STARTTLS
+	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 05C0D40885A0
+	for <blinux-list@redhat.com>; Fri, 18 Feb 2022 21:30:52 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E1A3F811E76
+	for <blinux-list@redhat.com>; Fri, 18 Feb 2022 21:30:51 +0000 (UTC)
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com
+	[209.85.128.54]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-173-_3bgbRkUM2Wb6TGjIHaEUQ-1; Fri, 18 Feb 2022 15:49:49 -0500
-X-MC-Unique: _3bgbRkUM2Wb6TGjIHaEUQ-1
-Received: by mail-wr1-f42.google.com with SMTP id d27so16480113wrb.5
-	for <blinux-list@redhat.com>; Fri, 18 Feb 2022 12:49:49 -0800 (PST)
+	us-mta-412-AS0JXJUyPXuQxGeQbsspFA-1; Fri, 18 Feb 2022 16:30:50 -0500
+X-MC-Unique: AS0JXJUyPXuQxGeQbsspFA-1
+Received: by mail-wm1-f54.google.com with SMTP id
+	bg21-20020a05600c3c9500b0035283e7a012so7325807wmb.0
+	for <blinux-list@redhat.com>; Fri, 18 Feb 2022 13:30:49 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:from:date:to:subject:in-reply-to:message-id
-	:references:mime-version;
-	bh=x2RlLpRUUy87gdjB57KlbneLQSjGYVra4DhNPHKTZYM=;
-	b=WeZv4oBARvzkNuS4jzPypxVl4VzNngM6D1QvWIkqmNGIQwZLzckPLtcdQyqOsA/nGG
-	PVecRE5z+H+pAz8XbhoWIeY9H31BBEZUhqUdK5nXNq6sj7KVGgSTTS+Fx19SQZEMinbv
-	2Lluz3QpqByER6gkWugC7iXLRUx4hllAVV5C4Le0DZPfBw2ivuwkPajrUQfsfpnfThar
-	5CkZn6JpDlPyT3qwfRXM5jk5SJoyPtv3iHR0vlO36uVYpZaZckAxrS85B2RrrNoFvDqB
-	NQYZOqsK7S1gIp6qKhvxhqdHwJDK4X7cEPdJBcplg1PWKWur23qHB7Oa5Hb+fYklmqFL
-	LxXw==
-X-Gm-Message-State: AOAM530kscrRvHGqNzP7N2Qp37wDK+PIPYYT9m+3QLyfsQl7mIXW2GUI
-	CDX/PgrYVSiCEWpCfejZWnG2P/35/w7eIA==
-X-Google-Smtp-Source: ABdhPJwYwp8H6BY8RujM2Z3CX49N74exBFNZcBmUtk81JoXj/tT9hBJvfdsysLdxIH3aJcZ6z79rww==
-X-Received: by 2002:a05:6000:104f:b0:1e4:b53a:85d9 with SMTP id
-	c15-20020a056000104f00b001e4b53a85d9mr7202183wrx.594.1645217388391;
-	Fri, 18 Feb 2022 12:49:48 -0800 (PST)
-Received: from brandt-slint ([197.184.176.211])
+	h=x-gm-message-state:subject:to:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-transfer-encoding;
+	bh=tVMIGvIs7rq7NgtGYGSqtnBEXo2VjBOl1Y4OiP9Lkmg=;
+	b=39k/Il9LCJImBAuXPAtAlSPsSlwuvO4WZfjuekcF+0L11gDNL4x7HzW41cVKRcpk52
+	YE6u+SiYRf9VHGxs0r5iuvzRabkjdfeAjCerZ4Nx38vSIqnXdvH8c+w2dhfdEZ99lrWI
+	Cv71KVF0t5pYISSUvk1nUOzGRasn9qUsXJAQNHkeX9QKFHD/Gcr+7bFxtdaHf+lbtgDX
+	ROG3kNDuedz4omclgd1MvjJhHYl2zePT7xzne9nrwnddLbL+jfpIM/MeSXwAYWwZzKpK
+	niY3FW25+MTzLzsDtHH9y7DMD1oYBfgMTqoKW5ApQBxNgxz7e3WO1KAH7ThuZ3vVwlOt
+	pqLg==
+X-Gm-Message-State: AOAM533DQvx9XKSPw5D2/9AoyuEtFFzP6ilDodKvB58kGWhhbcwqiaL7
+	X/TaxCpPJPcV009hwnogsDkHiBOOkwg=
+X-Google-Smtp-Source: ABdhPJwDkNC+mbLnYJ6u5ojCKQ/n6D7uEm/Tv7dJreoZc/ErmfdCYw81qtVDVeJlpnw9MPoaCsE/Jg==
+X-Received: by 2002:a05:600c:1d87:b0:37b:fdd5:bca4 with SMTP id
+	p7-20020a05600c1d8700b0037bfdd5bca4mr8600117wms.4.1645219848107;
+	Fri, 18 Feb 2022 13:30:48 -0800 (PST)
+Received: from [192.168.1.130] ([90.250.160.235])
 	by smtp.gmail.com with ESMTPSA id
-	b6-20020a05600c150600b0037d1bee9360sm348741wmg.41.2022.02.18.12.49.46
+	p1-20020a05600c430100b0037bd9b73ff3sm482781wme.5.2022.02.18.13.30.47
 	for <blinux-list@redhat.com>
-	(version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-	Fri, 18 Feb 2022 12:49:47 -0800 (PST)
-X-Google-Original-From: Brandt Steenkamp <brandt@brandt-slint.local>
-Date: Fri, 18 Feb 2022 22:49:33 +0200 (SAST)
-To: Linux for blind general discussion <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Fri, 18 Feb 2022 13:30:47 -0800 (PST)
 Subject: Re: Accessibility of installing Distros?
-In-Reply-To: <9276cbb6-d550-e929-1880-451bde2003eb@gmail.com>
-Message-ID: <6c414d23-2677-ec44-931b-9e0116b332e@brandt-slint.local>
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <4ced451-6f9c-3d8c-3a80-ce15147d9f2b@brandt-slint.local>
 	<bac75179-5e55-1893-4303-f56f3e04d148@gmail.com>
 	<F9575516-3959-465F-B245-A179D7FA122C@gmail.com>
@@ -99,7 +98,13 @@ References: <4ced451-6f9c-3d8c-3a80-ce15147d9f2b@brandt-slint.local>
 	<8c364cb-a27b-bfc1-692-60bed09fe233@brandt-slint.local>
 	<da65fc-344a-9e1d-835e-417e8b11c0a3@panix.com>
 	<9276cbb6-d550-e929-1880-451bde2003eb@gmail.com>
+	<6c414d23-2677-ec44-931b-9e0116b332e@brandt-slint.local>
+Message-ID: <6336c392-b51b-6a54-1ca5-d941d0526e1f@gmail.com>
+Date: Fri, 18 Feb 2022 21:30:21 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+	Firefox/68.0 SeaMonkey/2.53.10.2
 MIME-Version: 1.0
+In-Reply-To: <6c414d23-2677-ec44-931b-9e0116b332e@brandt-slint.local>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -108,7 +113,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -130,169 +135,114 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: multipart/mixed; boundary="0-1380757474-1645217387=:2592"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
---0-1380757474-1645217387=:2592
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8BIT
-
-Using espeak I can do really fast, but synthesizors that try and sound 
-human, sorry, but the deafblind guy in the room simply gets a headache and 
-gets lossed.
-
-Warm regards,
-
-Brandt Steenkamp
-
-Sent from the Slint console using Alpine
-
-On Fri, 18 Feb 2022, Linux for blind general discussion wrote:
-
-> Date: Fri, 18 Feb 2022 19:40:58 +0000
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: Linux for blind general discussion <blinux-list@redhat.com>
-> Subject: Re: Accessibility of installing Distros?
-> 
-> Going off of vanilla Arch here but it uses espeakup by default as the 
-> speech synth and method in the accessible boot (which is down arrow when 
-> booting off a stick or CD) and it's easy to understand. I get it. Some 
-> people can do stupidly high speech rates. But not everyone can. I've 
-> left espeakup alone on my box and it works pretty well, I can adjust it 
-> easily and it's easy to understand and follow along with. Even at top 
-> speed it's not insanely fast
->
-> Linux for blind general discussion wrote:
->> If you install espeak-ng in extra packages then in the chroot environment:
->> sysctl disable fenrir
->> then sysctl enable espeak
->> before rebooting that should at least put an end to fenrir eventually.
->> The fenrir speech speed is too fast; it can be adjusted downward but I
->> think never ought to have been set that fast for installation or
->> post-install use.  Maybe speech-rate=0.5 would be better and at the speed
->> espeak uses by default.
->>
->>
->> On Fri, 18 Feb 2022, Linux for blind general discussion wrote:
->>
->>> The issue is that it's already on a desktop, usually Mate.
->>>
->>> If I install it again, I'm installing it console only, and then building 
-> it as
->>> I see fit, which would be with ratpoison only.
->>>
->>> Will probably go to Arch directly anyway. Why get something that, firstly
->>> speaks with a Screen reader I never bothered to learn, since Speakup works
->>> well enough for my needs, secondly speaks so darn fast no human can 
-> understand
->>> the thing, especially if, like me you can hardly hear anything anymore 
-> anyway?
->>>
->>> I can build my system in vanilla Arch as well as with anything else. I, 
-> for
->>> example wouldn't install Firefox at all, but probably one of the Chromium
->>> based browsers plus elinks for when I'm beeing lazy and want to stay on a
->>> console.
->>>
->>> Warm regards,
->>>
->>> Brandt Steenkamp
->>>
->>> Sent from the Slint console using Alpine
->>>
->>> On Fri, 18 Feb 2022, Linux for blind general discussion wrote:
->>>
->>>> Date: Fri, 18 Feb 2022 13:41:19 -0500
->>>> From: Linux for blind general discussion <blinux-list@redhat.com>
->>>> To: Linux for blind general discussion <blinux-list@redhat.com>
->>>> Subject: Re: Accessibility of installing Distros?
->>>>
->>>> Have you tried running startx to turn orca on?  You may find that works.
->>>>
->>>>
->>>> On Fri, 18 Feb 2022, Linux for blind general discussion wrote:
->>>>
->>>>> Sometimes it would finish the install, then reboot, and come up speaking
->>>>> with
->>>>> Fenrir with a very annoying voice, especially if you, like me is legally
->>>>> deafblind, then after typing your username and password, Fenrir would 
-> just
->>>>> die
->>>>> and you are stuck, I know it's a desktop environment, but nothing turns
->>>>> orca
->>>>> on.
->>>>>
->>>>>
->>>>> So much for an accessible distro.
->>>>>
->>>>>
->>>>> This is why I love Slint. It does exactly what "you", tell it to do, not
->>>>> the
->>>>> dev.
->>>>>
->>>>>
->>>>> No disrespect to Mr. Nash, I'm sure he's a perfectly nice guy, not that
->>>>> I've
->>>>> ever spoken to him though.
->>>>>
->>>>> Warm regards,
->>>>>
->>>>> Brandt Steenkamp
->>>>>
->>>>> Sent from the Slint machine using Thunderbird
->>>>>
->>>>> On 2022/02/18 17:10, Linux for blind general discussion wrote:
->>>>>> Makes at least two of us.  The installer always found itself looping 
-> and
->>>>>> repeating failed package retrieval.
->>>>>>
->>>>>>
->>>>>>
->>>>>> Cheers,
->>>>>>
->>>>>>
->>>>>>
->>>>>> Dave
->>>>>>
->>>>>>
->>>>>>
->>>>>>
->>>>>> On 2/17/22 13:12, Linux for blind general discussion wrote:
->>>>>>> I could never get Jenux to work correctly on my setup.
->>>>>> _______________________________________________
->>>>>> Blinux-list mailing list
->>>>>> Blinux-list@redhat.com
->>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>> _______________________________________________
->>>>> Blinux-list mailing list
->>>>> Blinux-list@redhat.com
->>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>
->>>>
->>>> _______________________________________________
->>>> Blinux-list mailing list
->>>> Blinux-list@redhat.com
->>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
---0-1380757474-1645217387=:2592
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
---0-1380757474-1645217387=:2592--
+SSBtYXkgYmUgd2F5IG9mZiBvbiB0aGlzLCBidXQgdG8gbXkgZWFycywgdGhlIHNwZWVkIGlzIGJv
+dXQgdGhlIHNhbWUgCndpdGggYSB5YXkgLVMgKG9yIFBhcnUgb3IgaG93ZXZlciB5b3UgaW5zdGFs
+bCB5b3VyIEFVUiBwYWNrYWdlcykgZmVucmlyIApvciBmZW5yaXItZ2l0IHRob3VnaC4gSXQncyBu
+b3Qgc28gbXVjaCB0aGUgc3BlZWQgSSdtIGZpbmRpbmcgYSBwcm9ibGVtLCAKaXQncyB0aGUgdm9p
+Y2UsIGJ1dC4uLgoKSSBjYW4gZG8gOTklIG9mIHdoYXQgSSB3YW50IGluIFJhdHBvaXNvbiB0aG91
+Z2gsIGFuZCBvbmx5IHJlYWxseSBuZWVkIGEgClRUWSBmb3IgbG9nZ2luZyBpbiB0aG91Z2guIE9u
+Y2UgUmF0cG9pc29uJ3MgdXAgYW5kIHJ1bm5pbmcgaXQncyBnb29kIG9sZCAKT3JjYSBhbmQgZXNw
+ZWFrLU5HIGluIG15IGhlYWRwaG9uZXMKCkxpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Np
+b24gd3JvdGU6Cj4gVXNpbmcgZXNwZWFrIEkgY2FuIGRvIHJlYWxseSBmYXN0LCBidXQgc3ludGhl
+c2l6b3JzIHRoYXQgdHJ5IGFuZCBzb3VuZCAKPiBodW1hbiwgc29ycnksIGJ1dCB0aGUgZGVhZmJs
+aW5kIGd1eSBpbiB0aGUgcm9vbSBzaW1wbHkgZ2V0cyBhIGhlYWRhY2hlIAo+IGFuZCBnZXRzIGxv
+c3NlZC4KPgo+IFdhcm0gcmVnYXJkcywKPgo+IEJyYW5kdCBTdGVlbmthbXAKPgo+IFNlbnQgZnJv
+bSB0aGUgU2xpbnQgY29uc29sZSB1c2luZyBBbHBpbmUKPgo+IE9uIEZyaSwgMTggRmViIDIwMjIs
+IExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4KPj4gRGF0ZTogRnJp
+LCAxOCBGZWIgMjAyMiAxOTo0MDo1OCArMDAwMAo+PiBGcm9tOiBMaW51eCBmb3IgYmxpbmQgZ2Vu
+ZXJhbCBkaXNjdXNzaW9uIDxibGludXgtbGlzdEByZWRoYXQuY29tPgo+PiBUbzogTGludXggZm9y
+IGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4KPj4gU3Vi
+amVjdDogUmU6IEFjY2Vzc2liaWxpdHkgb2YgaW5zdGFsbGluZyBEaXN0cm9zPwo+Pgo+PiBHb2lu
+ZyBvZmYgb2YgdmFuaWxsYSBBcmNoIGhlcmUgYnV0IGl0IHVzZXMgZXNwZWFrdXAgYnkgZGVmYXVs
+dCBhcyB0aGUgCj4+IHNwZWVjaCBzeW50aCBhbmQgbWV0aG9kIGluIHRoZSBhY2Nlc3NpYmxlIGJv
+b3QgKHdoaWNoIGlzIGRvd24gYXJyb3cgCj4+IHdoZW4gYm9vdGluZyBvZmYgYSBzdGljayBvciBD
+RCkgYW5kIGl0J3MgZWFzeSB0byB1bmRlcnN0YW5kLiBJIGdldCAKPj4gaXQuIFNvbWUgcGVvcGxl
+IGNhbiBkbyBzdHVwaWRseSBoaWdoIHNwZWVjaCByYXRlcy4gQnV0IG5vdCBldmVyeW9uZSAKPj4g
+Y2FuLiBJJ3ZlIGxlZnQgZXNwZWFrdXAgYWxvbmUgb24gbXkgYm94IGFuZCBpdCB3b3JrcyBwcmV0
+dHkgd2VsbCwgSSAKPj4gY2FuIGFkanVzdCBpdCBlYXNpbHkgYW5kIGl0J3MgZWFzeSB0byB1bmRl
+cnN0YW5kIGFuZCBmb2xsb3cgYWxvbmcgCj4+IHdpdGguIEV2ZW4gYXQgdG9wIHNwZWVkIGl0J3Mg
+bm90IGluc2FuZWx5IGZhc3QKPj4KPj4gTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lv
+biB3cm90ZToKPj4+IElmIHlvdSBpbnN0YWxsIGVzcGVhay1uZyBpbiBleHRyYSBwYWNrYWdlcyB0
+aGVuIGluIHRoZSBjaHJvb3QgCj4+PiBlbnZpcm9ubWVudDoKPj4+IHN5c2N0bCBkaXNhYmxlIGZl
+bnJpcgo+Pj4gdGhlbiBzeXNjdGwgZW5hYmxlIGVzcGVhawo+Pj4gYmVmb3JlIHJlYm9vdGluZyB0
+aGF0IHNob3VsZCBhdCBsZWFzdCBwdXQgYW4gZW5kIHRvIGZlbnJpciBldmVudHVhbGx5Lgo+Pj4g
+VGhlIGZlbnJpciBzcGVlY2ggc3BlZWQgaXMgdG9vIGZhc3Q7IGl0IGNhbiBiZSBhZGp1c3RlZCBk
+b3dud2FyZCBidXQgSQo+Pj4gdGhpbmsgbmV2ZXIgb3VnaHQgdG8gaGF2ZSBiZWVuIHNldCB0aGF0
+IGZhc3QgZm9yIGluc3RhbGxhdGlvbiBvcgo+Pj4gcG9zdC1pbnN0YWxsIHVzZS7CoCBNYXliZSBz
+cGVlY2gtcmF0ZT0wLjUgd291bGQgYmUgYmV0dGVyIGFuZCBhdCB0aGUgCj4+PiBzcGVlZAo+Pj4g
+ZXNwZWFrIHVzZXMgYnkgZGVmYXVsdC4KPj4+Cj4+Pgo+Pj4gT24gRnJpLCAxOCBGZWIgMjAyMiwg
+TGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90ZToKPj4+Cj4+Pj4gVGhlIGlz
+c3VlIGlzIHRoYXQgaXQncyBhbHJlYWR5IG9uIGEgZGVza3RvcCwgdXN1YWxseSBNYXRlLgo+Pj4+
+Cj4+Pj4gSWYgSSBpbnN0YWxsIGl0IGFnYWluLCBJJ20gaW5zdGFsbGluZyBpdCBjb25zb2xlIG9u
+bHksIGFuZCB0aGVuIAo+Pj4+IGJ1aWxkaW5nIAo+PiBpdCBhcwo+Pj4+IEkgc2VlIGZpdCwgd2hp
+Y2ggd291bGQgYmUgd2l0aCByYXRwb2lzb24gb25seS4KPj4+Pgo+Pj4+IFdpbGwgcHJvYmFibHkg
+Z28gdG8gQXJjaCBkaXJlY3RseSBhbnl3YXkuIFdoeSBnZXQgc29tZXRoaW5nIHRoYXQsIAo+Pj4+
+IGZpcnN0bHkKPj4+PiBzcGVha3Mgd2l0aCBhIFNjcmVlbiByZWFkZXIgSSBuZXZlciBib3RoZXJl
+ZCB0byBsZWFybiwgc2luY2UgCj4+Pj4gU3BlYWt1cCB3b3Jrcwo+Pj4+IHdlbGwgZW5vdWdoIGZv
+ciBteSBuZWVkcywgc2Vjb25kbHkgc3BlYWtzIHNvIGRhcm4gZmFzdCBubyBodW1hbiBjYW4gCj4+
+IHVuZGVyc3RhbmQKPj4+PiB0aGUgdGhpbmcsIGVzcGVjaWFsbHkgaWYsIGxpa2UgbWUgeW91IGNh
+biBoYXJkbHkgaGVhciBhbnl0aGluZyBhbnltb3JlIAo+PiBhbnl3YXk/Cj4+Pj4KPj4+PiBJIGNh
+biBidWlsZCBteSBzeXN0ZW0gaW4gdmFuaWxsYSBBcmNoIGFzIHdlbGwgYXMgd2l0aCBhbnl0aGlu
+ZyAKPj4+PiBlbHNlLiBJLCAKPj4gZm9yCj4+Pj4gZXhhbXBsZSB3b3VsZG4ndCBpbnN0YWxsIEZp
+cmVmb3ggYXQgYWxsLCBidXQgcHJvYmFibHkgb25lIG9mIHRoZSAKPj4+PiBDaHJvbWl1bQo+Pj4+
+IGJhc2VkIGJyb3dzZXJzIHBsdXMgZWxpbmtzIGZvciB3aGVuIEknbSBiZWVpbmcgbGF6eSBhbmQg
+d2FudCB0byAKPj4+PiBzdGF5IG9uIGEKPj4+PiBjb25zb2xlLgo+Pj4+Cj4+Pj4gV2FybSByZWdh
+cmRzLAo+Pj4+Cj4+Pj4gQnJhbmR0IFN0ZWVua2FtcAo+Pj4+Cj4+Pj4gU2VudCBmcm9tIHRoZSBT
+bGludCBjb25zb2xlIHVzaW5nIEFscGluZQo+Pj4+Cj4+Pj4gT24gRnJpLCAxOCBGZWIgMjAyMiwg
+TGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90ZToKPj4+Pgo+Pj4+PiBEYXRl
+OiBGcmksIDE4IEZlYiAyMDIyIDEzOjQxOjE5IC0wNTAwCj4+Pj4+IEZyb206IExpbnV4IGZvciBi
+bGluZCBnZW5lcmFsIGRpc2N1c3Npb24gPGJsaW51eC1saXN0QHJlZGhhdC5jb20+Cj4+Pj4+IFRv
+OiBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIDxibGludXgtbGlzdEByZWRoYXQu
+Y29tPgo+Pj4+PiBTdWJqZWN0OiBSZTogQWNjZXNzaWJpbGl0eSBvZiBpbnN0YWxsaW5nIERpc3Ry
+b3M/Cj4+Pj4+Cj4+Pj4+IEhhdmUgeW91IHRyaWVkIHJ1bm5pbmcgc3RhcnR4IHRvIHR1cm4gb3Jj
+YSBvbj/CoCBZb3UgbWF5IGZpbmQgdGhhdCAKPj4+Pj4gd29ya3MuCj4+Pj4+Cj4+Pj4+Cj4+Pj4+
+IE9uIEZyaSwgMTggRmViIDIwMjIsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24g
+d3JvdGU6Cj4+Pj4+Cj4+Pj4+PiBTb21ldGltZXMgaXQgd291bGQgZmluaXNoIHRoZSBpbnN0YWxs
+LCB0aGVuIHJlYm9vdCwgYW5kIGNvbWUgdXAgCj4+Pj4+PiBzcGVha2luZwo+Pj4+Pj4gd2l0aAo+
+Pj4+Pj4gRmVucmlyIHdpdGggYSB2ZXJ5IGFubm95aW5nIHZvaWNlLCBlc3BlY2lhbGx5IGlmIHlv
+dSwgbGlrZSBtZSBpcyAKPj4+Pj4+IGxlZ2FsbHkKPj4+Pj4+IGRlYWZibGluZCwgdGhlbiBhZnRl
+ciB0eXBpbmcgeW91ciB1c2VybmFtZSBhbmQgcGFzc3dvcmQsIEZlbnJpciAKPj4+Pj4+IHdvdWxk
+IAo+PiBqdXN0Cj4+Pj4+PiBkaWUKPj4+Pj4+IGFuZCB5b3UgYXJlIHN0dWNrLCBJIGtub3cgaXQn
+cyBhIGRlc2t0b3AgZW52aXJvbm1lbnQsIGJ1dCBub3RoaW5nIAo+Pj4+Pj4gdHVybnMKPj4+Pj4+
+IG9yY2EKPj4+Pj4+IG9uLgo+Pj4+Pj4KPj4+Pj4+Cj4+Pj4+PiBTbyBtdWNoIGZvciBhbiBhY2Nl
+c3NpYmxlIGRpc3Ryby4KPj4+Pj4+Cj4+Pj4+Pgo+Pj4+Pj4gVGhpcyBpcyB3aHkgSSBsb3ZlIFNs
+aW50LiBJdCBkb2VzIGV4YWN0bHkgd2hhdCAieW91IiwgdGVsbCBpdCB0byAKPj4+Pj4+IGRvLCBu
+b3QKPj4+Pj4+IHRoZQo+Pj4+Pj4gZGV2Lgo+Pj4+Pj4KPj4+Pj4+Cj4+Pj4+PiBObyBkaXNyZXNw
+ZWN0IHRvIE1yLiBOYXNoLCBJJ20gc3VyZSBoZSdzIGEgcGVyZmVjdGx5IG5pY2UgZ3V5LCAKPj4+
+Pj4+IG5vdCB0aGF0Cj4+Pj4+PiBJJ3ZlCj4+Pj4+PiBldmVyIHNwb2tlbiB0byBoaW0gdGhvdWdo
+Lgo+Pj4+Pj4KPj4+Pj4+IFdhcm0gcmVnYXJkcywKPj4+Pj4+Cj4+Pj4+PiBCcmFuZHQgU3RlZW5r
+YW1wCj4+Pj4+Pgo+Pj4+Pj4gU2VudCBmcm9tIHRoZSBTbGludCBtYWNoaW5lIHVzaW5nIFRodW5k
+ZXJiaXJkCj4+Pj4+Pgo+Pj4+Pj4gT24gMjAyMi8wMi8xOCAxNzoxMCwgTGludXggZm9yIGJsaW5k
+IGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90ZToKPj4+Pj4+PiBNYWtlcyBhdCBsZWFzdCB0d28gb2Yg
+dXMuwqAgVGhlIGluc3RhbGxlciBhbHdheXMgZm91bmQgaXRzZWxmIAo+Pj4+Pj4+IGxvb3Bpbmcg
+Cj4+IGFuZAo+Pj4+Pj4+IHJlcGVhdGluZyBmYWlsZWQgcGFja2FnZSByZXRyaWV2YWwuCj4+Pj4+
+Pj4KPj4+Pj4+Pgo+Pj4+Pj4+Cj4+Pj4+Pj4gQ2hlZXJzLAo+Pj4+Pj4+Cj4+Pj4+Pj4KPj4+Pj4+
+Pgo+Pj4+Pj4+IERhdmUKPj4+Pj4+Pgo+Pj4+Pj4+Cj4+Pj4+Pj4KPj4+Pj4+Pgo+Pj4+Pj4+IE9u
+IDIvMTcvMjIgMTM6MTIsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6
+Cj4+Pj4+Pj4+IEkgY291bGQgbmV2ZXIgZ2V0IEplbnV4IHRvIHdvcmsgY29ycmVjdGx5IG9uIG15
+IHNldHVwLgo+Pj4+Pj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCj4+Pj4+Pj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+Pj4+Pj4gQmxpbnV4LWxp
+c3RAcmVkaGF0LmNvbQo+Pj4+Pj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4v
+bGlzdGluZm8vYmxpbnV4LWxpc3QKPj4+Pj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCj4+Pj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+Pj4+
+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+Pj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29t
+L21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4+Pj4+Cj4+Pj4+Cj4+Pj4+IF9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+Pj4+IEJsaW51eC1saXN0
+IG1haWxpbmcgbGlzdAo+Pj4+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+Pj4+IGh0dHBzOi8v
+bGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4+Cj4+PiBf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+Pj4gQmxpbnV4
+LWxpc3QgbWFpbGluZyBsaXN0Cj4+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+PiBodHRwczov
+L2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+Cj4+IF9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+IEJsaW51eC1s
+aXN0IG1haWxpbmcgbGlzdAo+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+IGh0dHBzOi8vbGlz
+dG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPgo+IF9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFp
+bGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRo
+YXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGlu
+dXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlz
+dGluZm8vYmxpbnV4LWxpc3Q=
 
