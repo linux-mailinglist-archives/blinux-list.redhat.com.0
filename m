@@ -2,76 +2,86 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 71C9F4BC3C1
-	for <lists+blinux-list@lfdr.de>; Sat, 19 Feb 2022 01:54:44 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 30F774BC4D2
+	for <lists+blinux-list@lfdr.de>; Sat, 19 Feb 2022 03:26:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1645232083;
+	s=mimecast20190719; t=1645237595;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ONrtHByVUZb+R6owpZNq7la+8LXYDwes1zgHduWltZY=;
-	b=QWVeU0hnMz6OXnW5Tr2GBAnQiHIawWSXAnbpVtWvlWnWaeuJmZ7jVjUEHaZMrEMOGwJwfr
-	8qIzqvH/IZyy5UVPMWSZ1BImW3O5NFIPsJ/bfnSxmIm5T8erUXjgPSBS1AehZQla2gWM/h
-	Qp9TxwrrXC2UXaJBe7SBJNMHSZ0WDfY=
+	bh=2SBnlVaVJp76kpqp7jsCXdlBYJgeZPYbARHEJprdz8A=;
+	b=bEmzf1XG2a4j/XC6ku0iYkJ6Ifr8HWvOww+pTAKlbD5PW9CIYwlJ0Y5mRoF7CZlK9mvE8U
+	V7MX536tW+8j4kdrPnERsfd16te5DWP7+qNcrGoxsA2B4v8SAk6aRpSEg32gLPIt/YByrY
+	4YUscEjoctqGAiQY9kEW6tv3sqsZtmE=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-464-jCbDuN2jO4Oz_pNuBhSxUg-1; Fri, 18 Feb 2022 19:54:39 -0500
-X-MC-Unique: jCbDuN2jO4Oz_pNuBhSxUg-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-512-qrPuMC1LOmmYECSnf55Sfw-1; Fri, 18 Feb 2022 21:26:31 -0500
+X-MC-Unique: qrPuMC1LOmmYECSnf55Sfw-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9CC39801ADA;
-	Sat, 19 Feb 2022 00:54:35 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id F38471006AA3;
+	Sat, 19 Feb 2022 02:26:26 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3809C7AB46;
-	Sat, 19 Feb 2022 00:54:34 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A971245CBE;
+	Sat, 19 Feb 2022 02:26:25 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EA3024BB7B;
-	Sat, 19 Feb 2022 00:54:32 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.8])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EEA864BB7C;
+	Sat, 19 Feb 2022 02:26:17 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21J0pvvj021844 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 18 Feb 2022 19:51:57 -0500
+	id 21J2J43G027540 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 18 Feb 2022 21:19:04 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id E2ACFC07F51; Sat, 19 Feb 2022 00:51:56 +0000 (UTC)
+	id 16B522024CD6; Sat, 19 Feb 2022 02:19:04 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id DE5BFC080BF
-	for <blinux-list@redhat.com>; Sat, 19 Feb 2022 00:51:56 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 11B9A2024CD2
+	for <blinux-list@redhat.com>; Sat, 19 Feb 2022 02:19:00 +0000 (UTC)
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
 	[205.139.110.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C5273811E76
-	for <blinux-list@redhat.com>; Sat, 19 Feb 2022 00:51:56 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-44-tlMdDo-kPgakTC4VRiRDDw-1; Fri, 18 Feb 2022 19:51:54 -0500
-X-MC-Unique: tlMdDo-kPgakTC4VRiRDDw-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4K0qlG0tQ9z16Fd
-	for <blinux-list@redhat.com>; Fri, 18 Feb 2022 19:51:54 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4K0qlG0VpTzcbc; Fri, 18 Feb 2022 19:51:53 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4K0qlF71RVzcbP
-	for <blinux-list@redhat.com>; Fri, 18 Feb 2022 19:51:53 -0500 (EST)
-Date: Fri, 18 Feb 2022 19:51:53 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Mutt or Alpine
-In-Reply-To: <20220218165833.6b951ab0@bigbox.attlocal.net>
-Message-ID: <7fbdbde4-ef8e-c8c0-27af-6c882a5c5a73@panix.com>
-References: <e65d0f59-7906-79ba-14d2-dca16d712667@gmail.com>
-	<f54d231-df3b-411e-fff6-5d526ac1677c@brandt-slint.local>
-	<20220218165833.6b951ab0@bigbox.attlocal.net>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C990C811E78
+	for <blinux-list@redhat.com>; Sat, 19 Feb 2022 02:19:00 +0000 (UTC)
+Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com
+	[209.85.128.176]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-376-TI6PlyzbMZyB9onLow2BaA-1; Fri, 18 Feb 2022 21:18:58 -0500
+X-MC-Unique: TI6PlyzbMZyB9onLow2BaA-1
+Received: by mail-yw1-f176.google.com with SMTP id
+	00721157ae682-2d07ae0b1c0so84590097b3.2
+	for <blinux-list@redhat.com>; Fri, 18 Feb 2022 18:18:58 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+	:message-id:subject:to;
+	bh=OpdkIbgHSBjejGpTnaaIrfZ2IKWpK8tqKxwlhqPdqH8=;
+	b=Y7cx4XxhgZta1OHH3Ppx3Rx2NbAnCFgIJMHdkcytHQS7ZAhEPe45T8blpT+lAftJoS
+	ysYWDp/yBYzzSGhpo9+C1upRlBoRCILhu5kzEWz33gsEYhMdvbJ1j/DeYce79hETNKwJ
+	XGrAiZuAWS0efJxc/XBp2T1UMHpWjeWaxlT1mBUOKkxijugokOlGqULUkLQK5R++UShB
+	Dn2DQxP9XNDzTJA4iM04NHVtWAeNmniKdolVk7DQUYPMjPR86M3Qqtvyd0qNmbsHswMV
+	kkTcnEnjs2EWHf46rvVt+NNS3/c/k3LGfg2l/bBv1MmnPrvGt8Wsq5LBOAuYeQzjVVEe
+	4TnQ==
+X-Gm-Message-State: AOAM533XEXNtDxwBWhnZcevtH5tQzur9fijfJd2ihJ1ABagr1NOwIZ1v
+	hYWLS9py/A7fhjbAfidzMyZ8LLrYwRg3phUCds/Xzhg3m+U=
+X-Google-Smtp-Source: ABdhPJwJEuHsBt99tZUUi+UaOnxLHZ57dIjkr6iYt7TsGCXH693SwrTOCcViTfvQAbugPW27LKsT3j3lu0g7joq0avo=
+X-Received: by 2002:a0d:e254:0:b0:2d6:b453:3188 with SMTP id
+	l81-20020a0de254000000b002d6b4533188mr8760071ywe.116.1645237138044;
+	Fri, 18 Feb 2022 18:18:58 -0800 (PST)
 MIME-Version: 1.0
+References: <CABKqQvH20Loc2_se1mdNFU88jKc6Qfz1QDqnf=iKRoRDLoP_eQ@mail.gmail.com>
+In-Reply-To: <CABKqQvH20Loc2_se1mdNFU88jKc6Qfz1QDqnf=iKRoRDLoP_eQ@mail.gmail.com>
+Date: Fri, 18 Feb 2022 20:18:46 -0600
+Message-ID: <CAGJxbF60i1058w_AooSVG4Og7yaXfe5TcShD_iMP53r1Fq15Og@mail.gmail.com>
+Subject: Re: Problem with VS Code and the Braille display
+To: "blinux-list@redhat.com" <blinux-list@redhat.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -80,8 +90,9 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -97,7 +108,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -105,86 +116,23 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Mutt comes with the fleacollar.sh script that gets much of the setup done
-though it's a little weak on setting up gpg2.
+Linux's braille support, especially in the GUI, is quite... untested. You
+can always file an issue on VS Code's Github page.
+Devin Prater
+r.d.t.prater@gmail.com
 
 
-On Fri, 18 Feb 2022, Linux for blind general discussion wrote:
 
-> Tim here.  I've used both mutt/neomutt and alpine (and pine back in
-> the day).
+
+On Fri, Feb 18, 2022 at 5:48 PM Linux for blind general discussion <
+blinux-list@redhat.com> wrote:
+
+> The first half of my display is always taken up by the name of the file!
+> It should show nothing but the contents of the line in the file that I
+> am editing. How do I fix it? Who would want to waste their display by
+> always showing the title? I don't get it.
 >
-> The big advantage of mutt/neomutt is power/flexibility.  I've found
-> that it's less of a mail-reader and more a toolkit for creating your
-> custom mail-reader experience from the parts that it brings to the
-> table.  And everything is configured using the ~/.muttrc file alone
-> (no nice user-interface for tweaking settings) which can be daunting
-> if you don't have a solid grasp of what's going on under the hood.
-> It plays well with external tools like notmuch for indexing and your
-> mailcap definitions for using external programs to open attachments,
-> or using urlview/urlscan to search a message-body for URLs to open.
-> It's still not great at multi-account, requiring a lot of manual care
-> in setting it up (this is my biggest frustration in using it, and the
-> main reason I don't use it more frequently).
->
-> As far as *easier*, alpine wins pretty hands-down.  It has a
-> settings-editing interface for configuring pretty much everything.
-> Like Pico/Nano, it also keeps the list of commands along the bottom
-> of the screen, making it more new-user friendly.  It has a concept of
-> "roles" which I haven't explored recently, but it sounds like a way
-> to manage multiple accounts better than mutt/neomutt does.
->
-> -tim
->
->
->
-> On February 18, 2022, Linux for blind general discussion wrote:
-> > If you want to use an email client with Orca, stick to Thunderbird.
-> >
-> > I find Orca unwieldy in the terminal anyway.
-> >
-> > If, however, you wish to do so with Speakup or Fenrir, I personally
-> > prefer Alpine.
-> >
-> > Why? Simple. I don't know Mutt at all.
-> >
-> > Warm regards,
-> >
-> > Brandt Steenkamp
-> >
-> > Sent from the Slint console using Alpine
-> >
-> > On Fri, 18 Feb 2022, Linux for blind general discussion wrote:
-> >
-> > > Date: Fri, 18 Feb 2022 16:00:22 +0000
-> > > From: Linux for blind general discussion <blinux-list@redhat.com>
-> > > To: Linux for blind general discussion <blinux-list@redhat.com>
-> > > Subject: Mutt or Alpine
-> > >
-> > > So I'm using Mutt, but...
-> > >
-> > > What does Mutt have over Alpine and vice versa, why would I use
-> > > one over the other?
-> > >
-> > > Mutt seems faster to me, but Alpine seems more user friendly
-> > > without making temporary files while composing a message (unles I
-> > > can tell Mutt/Neomutt to delete those automatically
-> > >
-> > > So is there a consensus of which is the easier choice to use with
-> > > Orca?
-> > >
-> > > _______________________________________________
-> > > Blinux-list mailing list
-> > > Blinux-list@redhat.com
-> > > https://listman.redhat.com/mailman/listinfo/blinux-list
-> > >
-> > >
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
+> Amanda[0]
 >
 > _______________________________________________
 > Blinux-list mailing list
@@ -192,7 +140,6 @@ On Fri, 18 Feb 2022, Linux for blind general discussion wrote:
 > https://listman.redhat.com/mailman/listinfo/blinux-list
 >
 >
-
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
