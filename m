@@ -1,75 +1,87 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 10DF84BDA56
-	for <lists+blinux-list@lfdr.de>; Mon, 21 Feb 2022 15:42:21 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8EBC54C1F74
+	for <lists+blinux-list@lfdr.de>; Thu, 24 Feb 2022 00:16:04 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1645454541;
+	s=mimecast20190719; t=1645658163;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=cJuvimojnSopUwWlGGuJO5pBxLrJVY5+7cRvm3Zabjg=;
-	b=I8dbjL2vhOKIV3sQ6tDT8Qa/U895D2Qyxd/2SRMeRJnavtYpHEIScoHOzKXSfzWJiMq6cg
-	vu81rcUYau/sQodKORSJFDHf0wYz4etVlWZD4ZVAIznfo36wORXVrNc2kMt16JDp9m8qQQ
-	0NzWsrVjsEx4Bz4xf7SLoWiLa4gIMPA=
+	bh=nPybxoMPc95HMXTPl0yHUrVd/NG9/jWrG5IRIc0cJcc=;
+	b=LsJZRESXcq3ZZRmngpHffmu2+kTKS+4xB1VXAQee4pFD4xLyOLyL5yhc23laSjyjK0QFBz
+	U5ZlV0/cOkqKqc61W8ZJDkUG9JTko50iZDYW7/5bIdraaf59FUh+BgaEMwPZtS2JLWPVRw
+	TPHxP+1pa57P/goXyNRQIAqJ2Aex9o8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-209-ov3WS4LzOTqnVCeCUUKsBA-1; Mon, 21 Feb 2022 09:42:17 -0500
-X-MC-Unique: ov3WS4LzOTqnVCeCUUKsBA-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-656-jX7fbjbvOMiHeZGAz9yfzg-1; Wed, 23 Feb 2022 18:16:01 -0500
+X-MC-Unique: jX7fbjbvOMiHeZGAz9yfzg-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 3FB121091DA0;
-	Mon, 21 Feb 2022 14:42:12 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0F7A374EAB;
-	Mon, 21 Feb 2022 14:42:08 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 126C38145E7;
+	Wed, 23 Feb 2022 23:15:55 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id B256D5DB9B;
+	Wed, 23 Feb 2022 23:15:51 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 711974CA93;
-	Mon, 21 Feb 2022 14:42:03 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id BB06418095C9;
+	Wed, 23 Feb 2022 23:15:37 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21LEfuuM021984 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 21 Feb 2022 09:41:56 -0500
+	id 21NNDSXd006459 for <blinux-list@listman.util.phx.redhat.com>;
+	Wed, 23 Feb 2022 18:13:28 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 0252E5361CB; Mon, 21 Feb 2022 14:41:56 +0000 (UTC)
+	id 6A91D5361EB; Wed, 23 Feb 2022 23:13:28 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id F2EFD5361DD
-	for <blinux-list@redhat.com>; Mon, 21 Feb 2022 14:41:55 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 66B0A5361DF
+	for <blinux-list@redhat.com>; Wed, 23 Feb 2022 23:13:28 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DA6B31C05AE4
-	for <blinux-list@redhat.com>; Mon, 21 Feb 2022 14:41:55 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-539-nIQPkKaoNlWZq2SDvaAyFA-1; Mon, 21 Feb 2022 09:41:54 -0500
-X-MC-Unique: nIQPkKaoNlWZq2SDvaAyFA-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4K2Q4167bCz2nl3
-	for <blinux-list@redhat.com>; Mon, 21 Feb 2022 09:41:53 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4K2Q415hnjzcbf; Mon, 21 Feb 2022 09:41:53 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4K2Q415MVwzcbd
-	for <blinux-list@redhat.com>; Mon, 21 Feb 2022 09:41:53 -0500 (EST)
-Date: Mon, 21 Feb 2022 09:41:53 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: re: mutt or alpine
-In-Reply-To: <alpine.DEB.2.11.2202211350120.1580@debian.work>
-Message-ID: <e459e442-677f-11b7-ba3-6544eecb408a@panix.com>
-References: <edc2d213-6272-de0-503b-5f3082f2ab95@panix.com>
-	<13df69b9-b6e0-94a4-66b9-ba596636429d@panix.com>
-	<alpine.DEB.2.11.2202211350120.1580@debian.work>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4D03D802A6A
+	for <blinux-list@redhat.com>; Wed, 23 Feb 2022 23:13:28 +0000 (UTC)
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com
+	[209.85.128.51]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-179-8z4SLNB9PFuoiZAYoHeq7Q-1; Wed, 23 Feb 2022 18:13:26 -0500
+X-MC-Unique: 8z4SLNB9PFuoiZAYoHeq7Q-1
+Received: by mail-wm1-f51.google.com with SMTP id
+	m13-20020a7bca4d000000b00380e379bae2so2501799wml.3
+	for <blinux-list@redhat.com>; Wed, 23 Feb 2022 15:13:26 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:date:from:to:subject:message-id:mime-version
+	:content-disposition;
+	bh=Yk8sWwuO5/BjctMjMuZ5k62vm434H9M+2dgURk2iyMM=;
+	b=ixFpyOEk/tIElpP7IPKA5ggJ/dGAP5B8bgj0ed7NvGx0UGSH16JF9UslrnI722QqJK
+	Xs7d1YLOjIDMI8XpvbFZ2mRaJ2Y0P6eKQs58wXyTDcjz8MQJyOphIdOQhVMF4J75A/Mf
+	CH4l8LLOlA3jQqac5h/oxeEfSZjjLE6WrqDYPjKNgTnUrdLBTeAir1LHmGAQEL1X4BXo
+	fk4T6ia3uCNkhn8aOYfrCgMwmrQMUlLay1nrwsStWO6LLWIsjxNKxOEgbNbxR9S8mmWR
+	FbTkbu/TB9tq/M00HR/xFbdkb3VXFuJjfeoxr4QhPTZcMK9AIpLjBH3tbneklWGV8+5p
+	kTQQ==
+X-Gm-Message-State: AOAM533w2MAVGB8sTU5tfd/Nfm753t9GduhDiewcH8zYj57KKc/zwQVD
+	8I6eFzSETyzeWPhK2N5JOMcux1D/10Fwsw==
+X-Google-Smtp-Source: ABdhPJziWexydHdi0mME/8bq+Ub914RMJkr23BRlS5o5N8/ncNTvQBHkFGrl+sViywAIfhT0yeH0dA==
+X-Received: by 2002:a05:600c:601b:b0:380:d0e9:53c0 with SMTP id
+	az27-20020a05600c601b00b00380d0e953c0mr19564wmb.102.1645658004912;
+	Wed, 23 Feb 2022 15:13:24 -0800 (PST)
+Received: from waffles ([90.250.160.235]) by smtp.gmail.com with ESMTPSA id
+	m12-20020a7bce0c000000b0037bed2a6fbfsm924152wmc.37.2022.02.23.15.13.24
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+	Wed, 23 Feb 2022 15:13:24 -0800 (PST)
+Date: Wed, 23 Feb 2022 23:13:38 +0000
+To: blinux-list@redhat.com
+Subject: Easiest way to back up/pull data from a cloud w/speakup or Fenrir?
+Message-ID: <Yha/ohci65ePLjtV@waffles>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
@@ -96,46 +108,29 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-It's an undocumented configuration option,
-compensate-for-deficient-imap-servers
-I have it set in my .pinerc file.  By undocumented I mean if you're on any
-option in configuration and you hit control-g you should get an
-explanation of what the option does whether on or off.  This one has none.
+As it says...
 
+What's the simplest way to back up data to a cloud server and pull it
+back down?
 
-On Mon, 21 Feb 2022, Linux for blind general discussion wrote:
+I have a new laptop. It's running vanilla Arch post install, I want to
+pull down my configs and saved and backed up .config directory from my
+old machine, but every provider I'm trying needs a browser window, it
+seems like.
 
-> On Mon, 21 Feb 2022, Linux for blind general discussion wrote:
->
-> > One over-arching consideration especially with
-> > software and more generally with operating systems is length of support.
-> > With operating systems much email is sent on other lists whether to
-> > upgrade or not.  Very simply, everyone has a choice of upgrade or bail.
-> > In the case of bail, the move gets made to different operating systems.
->
-> Regarding ALPINE support, there is a good low-traffic mailing list which
-> provides good support.  The current maintainer is an active participant there.
->
-> http://mailman12.u.washington.edu/mailman/listinfo/alpine-info
->
-> HTH,
-> Geoff.
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
->
+So is there any that I can run from a purely text mode install,
+preferably from the repos or AUR that'll let me download my files? I'm
+hoping there is because I, rankly, don't want to install a desktop for
+just this one thing
 
 _______________________________________________
 Blinux-list mailing list
