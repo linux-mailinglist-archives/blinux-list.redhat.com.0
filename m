@@ -2,86 +2,90 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id B10F04C4DA9
-	for <lists+blinux-list@lfdr.de>; Fri, 25 Feb 2022 19:23:58 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3F10B4C4E4D
+	for <lists+blinux-list@lfdr.de>; Fri, 25 Feb 2022 20:08:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1645813437;
+	s=mimecast20190719; t=1645816095;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=gAWc1MQyXCYQwlHjBnnqAPgZCHuGbcxWA86r/t3NY6g=;
-	b=Lh2jGLX0qSK+nX5MesmNt1JLG7YDmMmn/RiwXBGX7bkBIlvn3+YU4Bmgm/BXgtlwMNBX3b
-	e7fge7ePWyAIb6H/NRUnc+d6Hcjhpc8otx9Aql4J08X/NFBVSU7+6wNBnKTpY4q2lO8zgC
-	lN52QZXzb4tpW0Gdx5YmWRBEGZzpdU0=
+	bh=x0N4WMrjc9XDcTdWRjdEc8V0iAhX8+IPNH62OUXSL2M=;
+	b=XUuTDf2ncvhiBeXT9/CphZmz1ytaws4+I8H11aRY9WVBeEuE5va7W6ASbuJ3tS+vySL6Ns
+	AVs2K1IJ+kDWbLE5VV6K1gIjjp4k/YgHDn3R7VxvTOB/hUIRadiomAbu6V3XzSWouMCZqU
+	lMcx9E9oGk95d9foYMd4QXNhHvJU41g=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-662-P9jNIX2qNX2Sk4f-GeE8TA-1; Fri, 25 Feb 2022 13:23:54 -0500
-X-MC-Unique: P9jNIX2qNX2Sk4f-GeE8TA-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-168-w4z4zBaZPDy3XS5YhQcJcg-1; Fri, 25 Feb 2022 14:08:13 -0500
+X-MC-Unique: w4z4zBaZPDy3XS5YhQcJcg-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D3D35804310;
-	Fri, 25 Feb 2022 18:23:49 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 50E578BB2F;
-	Fri, 25 Feb 2022 18:23:45 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 215E91006AA7;
+	Fri, 25 Feb 2022 19:08:09 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8BE515D99B;
+	Fri, 25 Feb 2022 19:08:08 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0EE271809C98;
-	Fri, 25 Feb 2022 18:23:37 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.2])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0CD0D4A701;
+	Fri, 25 Feb 2022 19:08:07 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21PINS8P005385 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 25 Feb 2022 13:23:28 -0500
+	id 21PJ80V0008476 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 25 Feb 2022 14:08:00 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 794EB4010A0E; Fri, 25 Feb 2022 18:23:28 +0000 (UTC)
+	id A696D2166B17; Fri, 25 Feb 2022 19:08:00 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7563E400E12D
-	for <blinux-list@redhat.com>; Fri, 25 Feb 2022 18:23:28 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5BF91108C1C6
-	for <blinux-list@redhat.com>; Fri, 25 Feb 2022 18:23:28 +0000 (UTC)
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com
-	[209.85.128.41]) by relay.mimecast.com with ESMTP with STARTTLS
+	(mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A24322166B13
+	for <blinux-list@redhat.com>; Fri, 25 Feb 2022 19:07:57 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6E06D185A7B2
+	for <blinux-list@redhat.com>; Fri, 25 Feb 2022 19:07:57 +0000 (UTC)
+Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com
+	[209.85.218.52]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-121-vx79twfHPmWedkeEfrA-Dg-1; Fri, 25 Feb 2022 13:23:26 -0500
-X-MC-Unique: vx79twfHPmWedkeEfrA-Dg-1
-Received: by mail-wm1-f41.google.com with SMTP id y5so2166091wmi.0
-	for <blinux-list@redhat.com>; Fri, 25 Feb 2022 10:23:26 -0800 (PST)
+	us-mta-45-RmQfreGAO6-03_2G0GZMWg-1; Fri, 25 Feb 2022 14:07:55 -0500
+X-MC-Unique: RmQfreGAO6-03_2G0GZMWg-1
+Received: by mail-ej1-f52.google.com with SMTP id vz16so12773404ejb.0
+	for <Blinux-list@redhat.com>; Fri, 25 Feb 2022 11:07:55 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:date:from:to:subject:message-id:mime-version
-	:content-disposition;
-	bh=vUBHIY/7LbWczkovW9lTnLuDiRustSYozqMrDf25bJg=;
-	b=xS1zXA3SZ1EY7xtQjMRIemqUWG6Tu3nBl3aoq3cbUJ+W79p23vGGbjZhMwtyjlsT2d
-	dV/d8lMqCU9fnSVSRK9Fn1+4laDX3uPl/Gf7RG4lcrGd69QxR+Ol82Lw6YEVG/rFzzxR
-	odQUOPjn4ekFX0HBNffTuEUCUizvb8z8JTC73fwMdt+8UAY86atF6c0NGhBme9nyltq9
-	zTyspLLamN3YaqNO0nvclP3c3Gg8Fd42Qdwl3d3h0/1clITV1kJsgtOgg9Etxy7Mqkp3
-	nV0StkBZvFhBs0NGe8zWuqEcmK0QNkyKqscJHGZL9umo9d9cn/GU9rD0dDUFQOvx+Z6p
-	qzBw==
-X-Gm-Message-State: AOAM531sPVzk8y0Rpbdr5MnZ9DEkcVwKN8cNUz/lPrsu/WRSwEExYcXv
-	Xva+5mF4RoTMvj5xjIuBSGY5kuM9g6HjgQ==
-X-Google-Smtp-Source: ABdhPJwUtKJZZ5KhHPBRxIoqo3+kp7dFRwfyuACOmZDLckC5Hbnnrf2/mLKc7t3vOcV042hICjemqw==
-X-Received: by 2002:a7b:c844:0:b0:37b:b986:7726 with SMTP id
-	c4-20020a7bc844000000b0037bb9867726mr3809674wml.160.1645813404632;
-	Fri, 25 Feb 2022 10:23:24 -0800 (PST)
-Received: from waffles ([90.250.160.235]) by smtp.gmail.com with ESMTPSA id
-	g17-20020a5d6991000000b001ef7bb82df6sm1032902wru.52.2022.02.25.10.23.23
-	for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-	Fri, 25 Feb 2022 10:23:24 -0800 (PST)
-Date: Fri, 25 Feb 2022 18:23:36 +0000
-To: blinux-list@redhat.com
-Subject: Talking Dosbox for Linux. Any luck?
-Message-ID: <YhkeqFRoBM82EqFv@waffles>
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:to
+	:content-language:from:subject:content-transfer-encoding;
+	bh=63iuWXc91knej56bzzfmWs5Mj8usTHe6Z/wXNe84r/M=;
+	b=rHsMr4dg5urYV3a/wKmjKq6TJIRkXAeHGSREPRCF6QM2szB2Ab1YfpC2JQ5t/Dd+Sa
+	FVBiSaKYV/0JNAd3NKB5NSkX7uliC8jVcV3pd53PDSnLVCsp71ub7nVeWhgvB6Y+Ff/9
+	DTG5ByGCHyjnAB4mVM1YV6VmPCXaUM1/u42V7chU4j1syjjsvFafzVI89JrepU1H3hOs
+	OFYvSeMGStBwqLewzIdGqotKXZFZ1zURn8BJD8s2yDogAI8bzlKLLzBURCrBDTHsHJmi
+	4aSQ5imU8VFsTfVx2ma7WztTTyK0jHUyKfx6d54xJ4A4OUAEbD89/f05cfxww12pEbvj
+	eylw==
+X-Gm-Message-State: AOAM533IAXWPAJ938wNBqdRhkadX/ujdABIHiT5V97a53BK0Kr5zk5tS
+	G1dmzSAjoGWmrb565In2QtdJth6UEpe4Gg==
+X-Google-Smtp-Source: ABdhPJwDNBw+9gEAxRNZqksE4d43mPxXcv9qGncHKnaXJVqhkBUPUNAx/ChwJ4ihNPYdISfwhs26iA==
+X-Received: by 2002:a17:907:20d2:b0:6b5:1bad:89f2 with SMTP id
+	qq18-20020a17090720d200b006b51bad89f2mr7087764ejb.331.1645816073846;
+	Fri, 25 Feb 2022 11:07:53 -0800 (PST)
+Received: from [192.168.8.130] ([197.184.177.193])
+	by smtp.gmail.com with ESMTPSA id
+	ee21-20020a056402291500b00410d4261313sm1681111edb.24.2022.02.25.11.07.52
+	for <Blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Fri, 25 Feb 2022 11:07:53 -0800 (PST)
+Message-ID: <37760ebe-f519-16b6-2f46-691c0708aedf@gmail.com>
+Date: Fri, 25 Feb 2022 21:07:50 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.6.1
+To: Blinux-list@redhat.com
+Subject: Voice assistant on Linux?
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -90,7 +94,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -107,24 +111,33 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I stumbled across talking DOSBOX in the AUR and on Gitlab
+Hi all,
 
-Anyone had any luck iwth it? I'm trying it in a Qemu machine and not
-having much luck but that may be down to my Qemu graphic s and card
-setup. So, is there anyone who has had luck with this?
 
-https://gitlab.com/jticket1024/talking-dos-box
+I was just curious, on the Mac we have Siri, in Winbloat they have 
+Cortana and on the ChromeBook they have Google's voice assistant.
 
-is the gitlab link or it
+
+Do we have anything reasonably good?
+
+
+I have heard Youtube videos where people built Voice assistants using 
+their Linux machines, is any of this available for install and use?
+
+Warm regards,
+
+Brandt Steenkamp
+
+Sent using Thunderbird from the Slint machine
 
 _______________________________________________
 Blinux-list mailing list
