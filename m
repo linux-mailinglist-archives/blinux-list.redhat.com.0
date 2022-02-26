@@ -2,78 +2,96 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id A35474C54C5
-	for <lists+blinux-list@lfdr.de>; Sat, 26 Feb 2022 10:05:48 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4FA624C5516
+	for <lists+blinux-list@lfdr.de>; Sat, 26 Feb 2022 11:08:22 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1645866347;
+	s=mimecast20190719; t=1645870101;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=5eWLM/GYaeTSKDT5hRm6XzIP2Iv2oRgQ9wJEUED/2VU=;
-	b=ACOrpivejNY83At9+ZMuAZ/fwfdUwPXs/wQyNHwknIFBOcTiJPfdF/Y5/vrtnbns5bK/6+
-	yoAkDYStilXGPN4VNOPTMogHVNVXUyV19zS1rqhAGRn4IiY4fA70ZC9vRrGzyplnkhIIH8
-	zdRjJHECmfkvYjzPQs7V0QiNqhC4ohs=
+	bh=zyneNlnkDJQQT/7oukhECHMCvSCXhPDHs2amkjdVK10=;
+	b=MqqzQnCW5JWVSYnLiW+KGMV9TZzfoXyyAFNvIktxpNgjhNO5UIAIAF+00Uix7ZyRqlcHyE
+	nBwESR9mLErNdsNnXf3SckGvoRGNPAaMviC/6z2dohHNRCKE3zA6qgeyCcHjY6TrH1QcAb
+	KwTKyDk7i600TE2HKHZP2An7eJ8ywZk=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-14-iCRSQmr8MJGeyfk_yna5YA-1; Sat, 26 Feb 2022 04:05:43 -0500
-X-MC-Unique: iCRSQmr8MJGeyfk_yna5YA-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-50-VVWWxNQiNji7CvZz_7X5yg-1; Sat, 26 Feb 2022 05:08:16 -0500
+X-MC-Unique: VVWWxNQiNji7CvZz_7X5yg-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A96108145FA;
-	Sat, 26 Feb 2022 09:05:39 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7B094A293F;
-	Sat, 26 Feb 2022 09:05:34 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 55DEE1091DA0;
+	Sat, 26 Feb 2022 10:08:13 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 0A936895B9;
+	Sat, 26 Feb 2022 10:08:08 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 5572B18095C9;
-	Sat, 26 Feb 2022 09:05:25 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.6])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 0AEB34ED27;
+	Sat, 26 Feb 2022 10:08:08 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.9])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21Q948r4028612 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 26 Feb 2022 04:04:08 -0500
+	id 21QA5SUr032637 for <blinux-list@listman.util.phx.redhat.com>;
+	Sat, 26 Feb 2022 05:05:28 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 820312144B21; Sat, 26 Feb 2022 09:04:08 +0000 (UTC)
+	id 09447492CA9; Sat, 26 Feb 2022 10:05:28 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7DD672180158
-	for <blinux-list@redhat.com>; Sat, 26 Feb 2022 09:04:05 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 27D0485A5BC
-	for <blinux-list@redhat.com>; Sat, 26 Feb 2022 09:04:05 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 04C23492CA8
+	for <blinux-list@redhat.com>; Sat, 26 Feb 2022 10:05:27 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C5DF629AA2FC
+	for <blinux-list@redhat.com>; Sat, 26 Feb 2022 10:05:27 +0000 (UTC)
+Received: from hera.aquilenet.fr (hera.aquilenet.fr [185.233.100.1]) by
+	relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
 	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-422-CqVddoo8Nvi36d2SmLHlPQ-1; Sat, 26 Feb 2022 04:03:57 -0500
-X-MC-Unique: CqVddoo8Nvi36d2SmLHlPQ-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4K5LKm2x4Dz2YR4
-	for <blinux-list@redhat.com>; Sat, 26 Feb 2022 04:03:56 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4K5LKm2GvNzcbc; Sat, 26 Feb 2022 04:03:56 -0500 (EST)
+	us-mta-601-vDdmfWDTNEqz1hhSnvrTrA-1; Sat, 26 Feb 2022 05:05:25 -0500
+X-MC-Unique: vDdmfWDTNEqz1hhSnvrTrA-1
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4K5LKm1yDczcbC
-	for <blinux-list@redhat.com>; Sat, 26 Feb 2022 04:03:56 -0500 (EST)
-Date: Sat, 26 Feb 2022 04:03:56 -0500
+	by hera.aquilenet.fr (Postfix) with ESMTP id 1A8D0348
+	for <blinux-list@redhat.com>; Sat, 26 Feb 2022 10:58:39 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at aquilenet.fr
+Received: from hera.aquilenet.fr ([127.0.0.1])
+	by localhost (hera.aquilenet.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 14MaP8LxzO_k for <blinux-list@redhat.com>;
+	Sat, 26 Feb 2022 10:58:38 +0100 (CET)
+Received: from begin (unknown [IPv6:2a01:cb19:956:1b00:de41:a9ff:fe47:ec49])
+	by hera.aquilenet.fr (Postfix) with ESMTPSA id 33002331
+	for <blinux-list@redhat.com>; Sat, 26 Feb 2022 10:58:38 +0100 (CET)
+Received: from samy by begin with local (Exim 4.95)
+	(envelope-from <samuel.thibault@ens-lyon.org>) id 1nNtqW-00D83A-Vo
+	for blinux-list@redhat.com; Sat, 26 Feb 2022 10:58:36 +0100
+Date: Sat, 26 Feb 2022 10:58:36 +0100
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Voice assistant on Linux?
-In-Reply-To: <CAJ4cocyr56pDGi7Y8D6w5beJwVcDUR0M4vpX13-4Kfo9prB2jA@mail.gmail.com>
-Message-ID: <16c8178b-53d0-655d-1179-93b9cd48e96@panix.com>
-References: <37760ebe-f519-16b6-2f46-691c0708aedf@gmail.com>
-	<5a55ff72-4742-1540-5859-c169a1ab81f8@free2.ml>
-	<1f5fe928-53cd-2c91-4ff6-f14339f36d19@gmail.com>
-	<753fd4ae-d611-e942-7270-a777b53858cf@free2.ml>
-	<e995e809-c3fc-20f7-a633-82e9fd1e4e87@gmail.com>
-	<CAJ4cocyr56pDGi7Y8D6w5beJwVcDUR0M4vpX13-4Kfo9prB2jA@mail.gmail.com>
+Subject: Re: Do we have the sleep function in Orca?
+Message-ID: <20220226095836.lftrrnevabjg5bnj@begin>
+Mail-Followup-To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <877d9ixl4s.fsf.ref@yahoo.com>
+ <877d9ixl4s.fsf@yahoo.com>
 MIME-Version: 1.0
+In-Reply-To: <877d9ixl4s.fsf@yahoo.com>
+Organization: I am not organized
+User-Agent: NeoMutt/20170609 (1.8.3)
+X-Spamd-Bar: +
+X-Spam-Level: *
+X-Rspamd-Server: hera
+X-Rspamd-Queue-Id: 1A8D0348
+X-Spamd-Result: default: False [1.40 / 15.00]; ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[]; FROM_HAS_DN(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[]; MIME_GOOD(-0.10)[text/plain];
+	PREVIOUSLY_DELIVERED(0.00)[blinux-list@redhat.com];
+	RCPT_COUNT_ONE(0.00)[1]; HAS_ORG_HEADER(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3]; MID_RHS_NOT_FQDN(0.50)[];
+	TO_DN_ALL(0.00)[]; FROM_EQ_ENVFROM(0.00)[];
+	MIME_TRACE(0.00)[0:+]; SUBJECT_ENDS_QUESTION(1.00)[];
+	RCVD_TLS_LAST(0.00)[]
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -82,7 +100,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -99,70 +117,25 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-The github link was given for those without snapd so they could try
-building the package from source.
+Hello,
 
+Linux for blind general discussion wrote:
+> Is there a way to make Orca sleep when you launch a programme that
+> self-voices or a  game?
 
-On Fri, 25 Feb 2022, Linux for blind general discussion wrote:
+You can press ctrl-orca-space to start the per-application profile
+configuration, and disable speech there.
 
-> Hello as fast as far as I know there are some things but not really
-> efficient working
->
-> Linux for blind general discussion <blinux-list@redhat.com> schrieb am Fr.,
-> 25. Feb. 2022 22:30:
->
-> > Unfortunately my system (Slint) cannot run snapd, no Systemd.
-> >
-> >
-> > I tested Almond, but no use, you have to type queries and in that time I
-> > could've asked an Echo.
-> >
-> >
-> > Warm regards,
-> >
-> > Brandt Steenkamp
-> >
-> > Sent using Thunderbird from the Slint machine
-> >
-> > On 2022/02/25 21:30, Linux for blind general discussion wrote:
-> > > I thought I remembered someone telling me that you could install Alexa
-> > > using Snap, but I also remember it being somewhat experimental or
-> > > something.
-> > >
-> > >
-> > > Yes, I also have a couple of Alexa devices, I just keep them out of
-> > > bedrooms and bathrooms, what I consider to be the most private parts
-> > > of the house. They stay in the livingroom and kitchen, where they are
-> > > most useful at any rate.
-> > >
-> > > ~Kyle
-> > >
-> > > _______________________________________________
-> > > Blinux-list mailing list
-> > > Blinux-list@redhat.com
-> > > https://listman.redhat.com/mailman/listinfo/blinux-list
-> > >
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
-> >
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+Samuel
 
 _______________________________________________
 Blinux-list mailing list
