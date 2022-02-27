@@ -2,94 +2,75 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4E35F4C5A11
-	for <lists+blinux-list@lfdr.de>; Sun, 27 Feb 2022 09:26:21 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id DF8C34C5AA3
+	for <lists+blinux-list@lfdr.de>; Sun, 27 Feb 2022 12:27:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1645950380;
+	s=mimecast20190719; t=1645961235;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=i6VZv+jZjgOAJVP1d3Nyn43E+Fc7OSxwuyADw/mI8WA=;
-	b=QDH9rpPdVpKW7nYqAR/8sbcFwuhwbb+Q6+AsjLHrWrA1I65VuQY2anOeVjthOtb5T7kIw1
-	Vo82ikhPQKVA2jMwAg23ktyVuFADUJtQ1xSz/Y6qZD3BmhElo56CJEjhXjlKxuabuCLx+8
-	sRCf+ytG5MEweqargVUD/ZbQmdQdFCY=
+	bh=oNR0JgtJAc7m/CXSKjdaXfZXbdBFDNcESGg28J2iyW8=;
+	b=OtgJBrY7E4+KeQ/Hxe7TehxGpmkHI6PXdhqSauc2JrbricIaZKTBjTO2BicpwnACdB6cCN
+	XskbSZqck2ZNwYl5WMKgBSeEWu7/P/SeL5ObITbCSYA4iqWx86WjsKr0DtUnoQMdKh88dC
+	c0KKUJN1AQM4J9SM/8E0t3DGELad6D4=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-556-hUwNDDTLNLaYa11JBHpHlQ-1; Sun, 27 Feb 2022 03:26:15 -0500
-X-MC-Unique: hUwNDDTLNLaYa11JBHpHlQ-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-144-_2Qr7n_iPvGYtRt3B1EXNg-1; Sun, 27 Feb 2022 06:27:12 -0500
+X-MC-Unique: _2Qr7n_iPvGYtRt3B1EXNg-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9DD17800423;
-	Sun, 27 Feb 2022 08:26:10 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 84EFC1037F41;
-	Sun, 27 Feb 2022 08:26:07 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B3F3C8145F7;
+	Sun, 27 Feb 2022 11:27:07 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A0DA87A53B;
+	Sun, 27 Feb 2022 11:27:05 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id DA7B61809C83;
-	Sun, 27 Feb 2022 08:25:58 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.5])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B4C7D4BB40;
+	Sun, 27 Feb 2022 11:26:58 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.6])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21R8Pnd5025773 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 27 Feb 2022 03:25:49 -0500
+	id 21RBQoRP005570 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 27 Feb 2022 06:26:50 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 87F247AC8; Sun, 27 Feb 2022 08:25:49 +0000 (UTC)
+	id EF1942166B25; Sun, 27 Feb 2022 11:26:49 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 817F27AC4
-	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 08:25:45 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id EB43C2166B2F
+	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 11:26:46 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
 	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 571AD3C153BA
-	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 08:25:45 +0000 (UTC)
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com
-	[209.85.221.53]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-141-o_FFnnvwNMObIu0lC7fwkw-1; Sun, 27 Feb 2022 03:25:43 -0500
-X-MC-Unique: o_FFnnvwNMObIu0lC7fwkw-1
-Received: by mail-wr1-f53.google.com with SMTP id s13so10794998wrb.6
-	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 00:25:42 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-	:content-language:to:references:from:in-reply-to
-	:content-transfer-encoding;
-	bh=z0GML6V1xzOEtkUCbsI34cPkfEM48GzjW+5gSepY/Vw=;
-	b=E3qJwLlH9up0UosKwdLXXnXK4j4bOUrPSbxZXpzyhjJUdLosjMLhfceYMp4vDtJwg8
-	CcWWzs1+Tiv6N+4770kpE05v76k6gO6kVPdNT1D1uuClPfMUn5PQdauBsMUpVAf24WWg
-	xvBng6uBllgLckxN07TehSrLfOv+y+euHvrihk+7+bCBGJmsYbdj5M2rAgHKX+ZAUoDY
-	a9qedbZ7UUNkAZ8HNOGhFUDaZRoKnWUtni4VRD2xICOoyhB1TED3iDXTw13W1+aXUksp
-	bExgh6yIU58XClmps7KmL/ZpzbLC9LQke8EbtWZKscg7z3pmRuCfAgrhRAi1QfTA+R4C
-	9BGw==
-X-Gm-Message-State: AOAM531wOK9/0JmB5zojWo/ZJ/m5AIRkuuw3nNBhuT3kSaRkqQeAXd08
-	dm28kct2fkOjAWcenq2tUKbmUHShNEcoDg==
-X-Google-Smtp-Source: ABdhPJyfe71KLFkYFEPRv7LM8avRUhgubDmSL/AXVdc6ygVWybCpr0tpk/yKII1cu5+MibYJneksgA==
-X-Received: by 2002:a5d:548b:0:b0:1ed:e0b2:188c with SMTP id
-	h11-20020a5d548b000000b001ede0b2188cmr11679172wrv.122.1645950341682;
-	Sun, 27 Feb 2022 00:25:41 -0800 (PST)
-Received: from [192.168.8.130] ([197.184.177.193])
-	by smtp.gmail.com with ESMTPSA id
-	o22-20020a05600c4fd600b0038133076dcesm8059212wmq.16.2022.02.27.00.25.40
-	for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Sun, 27 Feb 2022 00:25:41 -0800 (PST)
-Message-ID: <8bd3c4a1-d001-3434-ce82-04967ad63c38@gmail.com>
-Date: Sun, 27 Feb 2022 10:25:38 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.6.1
-Subject: Re: Testing Linux distros
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8DB2C3C02186
+	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 11:26:46 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+	by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-161-lyh_li8vNPmAHBHgYl9A9A-1; Sun, 27 Feb 2022 06:26:44 -0500
+X-MC-Unique: lyh_li8vNPmAHBHgYl9A9A-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4K61S35wspz2vTD
+	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 06:26:43 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4K61S35CXPzcbc; Sun, 27 Feb 2022 06:26:43 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4K61S34hCNzcbC
+	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 06:26:43 -0500 (EST)
+Date: Sun, 27 Feb 2022 06:26:43 -0500
 To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Testing Linux distros
+In-Reply-To: <8bd3c4a1-d001-3434-ce82-04967ad63c38@gmail.com>
+Message-ID: <9688392-e67a-60bc-1c21-e9b3bdf9abb5@panix.com>
 References: <6236d693-6b68-d164-9484-30e73574a4cb@gmail.com>
 	<9a599fc5-a62-f1ed-94d2-a475ad65bd4d@panix.com>
-In-Reply-To: <9a599fc5-a62-f1ed-94d2-a475ad65bd4d@panix.com>
+	<8bd3c4a1-d001-3434-ce82-04967ad63c38@gmail.com>
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -98,7 +79,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -115,63 +96,79 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I have a 1 tb external USB3 drive which I will use then. Unfortunately 
-it's not an SSD, but what can you do?
+What you ought to do if you haven't done it already is buy an external
+drive case for that kind of drive and put the drive in that case.
+You can use the drive from inside the case connected to your computer and
+the drive will have more protection that way.
 
 
-Warm regards,
+On Sun, 27 Feb 2022, Linux for blind general discussion wrote:
 
-Brandt Steenkamp
-
-Sent using Thunderbird from the Slint machine
-
-On 2022/02/26 23:51, Linux for blind general discussion wrote:
-> A guess, you're not using an extractable ssd on that machine.  If correct,
-> can the machine boot off an external drive in a USB port?  If not, you're
-> left with kemu and the like.  If yes, and you can get a external ssd drive
-> with usb connection put the testing system on that drive and replace it
-> there as needed.  That keeps your main drive separate and you can use that
-> for normal work.  External drive holders for the older type of drives like
-> ide and sasi and scsi are also on the market though you'd need to get an
-> extra drive or two for the holder.
+> I have a 1 tb external USB3 drive which I will use then. Unfortunately it's
+> not an SSD, but what can you do?
 >
 >
+> Warm regards,
 >
-> On Sat, 26 Feb 2022, Linux for blind general discussion wrote:
+> Brandt Steenkamp
 >
->> Hi all,
->>
->>
->> I am tired of having to reinstall my distro of choice every time I get fed up
->> of testing one distro or another.
->>
->>
->> How would you go about testing if, like me, you only have the one Linux
->> capable machine? Yes, I know you can technically run some distros on the M1
->> MacBook, but, just, no thanks.
->>
->>
->> I really, for one, don't like the VMware thing, and virtualbox is a pain.
->>
->>
->> I'm thinking qemu with virtManager, but would like some input. This is how I
->> run, only when really necessary, mind you, my production Windows.
->> Unfortunately I need it to do my work, so cannot kill the thing.
->>
->>
+> Sent using Thunderbird from the Slint machine
+>
+> On 2022/02/26 23:51, Linux for blind general discussion wrote:
+> > A guess, you're not using an extractable ssd on that machine.  If correct,
+> > can the machine boot off an external drive in a USB port?  If not, you're
+> > left with kemu and the like.  If yes, and you can get a external ssd drive
+> > with usb connection put the testing system on that drive and replace it
+> > there as needed.  That keeps your main drive separate and you can use that
+> > for normal work.  External drive holders for the older type of drives like
+> > ide and sasi and scsi are also on the market though you'd need to get an
+> > extra drive or two for the holder.
+> >
+> >
+> >
+> > On Sat, 26 Feb 2022, Linux for blind general discussion wrote:
+> >
+> >> Hi all,
+> >>
+> >>
+> >> I am tired of having to reinstall my distro of choice every time I get fed
+> >> up
+> >> of testing one distro or another.
+> >>
+> >>
+> >> How would you go about testing if, like me, you only have the one Linux
+> >> capable machine? Yes, I know you can technically run some distros on the M1
+> >> MacBook, but, just, no thanks.
+> >>
+> >>
+> >> I really, for one, don't like the VMware thing, and virtualbox is a pain.
+> >>
+> >>
+> >> I'm thinking qemu with virtManager, but would like some input. This is how
+> >> I
+> >> run, only when really necessary, mind you, my production Windows.
+> >> Unfortunately I need it to do my work, so cannot kill the thing.
+> >>
+> >>
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://listman.redhat.com/mailman/listinfo/blinux-list
+> >
+>
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://listman.redhat.com/mailman/listinfo/blinux-list
+>
 >
 
 _______________________________________________
