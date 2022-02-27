@@ -1,89 +1,93 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3F8A84C5ED2
-	for <lists+blinux-list@lfdr.de>; Sun, 27 Feb 2022 21:40:28 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4D7284C5EDB
+	for <lists+blinux-list@lfdr.de>; Sun, 27 Feb 2022 21:55:09 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1645994427;
+	s=mimecast20190719; t=1645995308;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=g0i6JBtEp2QZfhZvHXpqrlw4oG1xmU2VRFUZPtq+Xl0=;
-	b=co2YkiLEgvofeTEaYMsqXH4E1Ylhit2OqWAAtRoZkYdeFlyc8KS2Mh13hi7DV3nAfCrbUj
-	+QzMHaqRo5cYFywIdwLqXK828en49q6XIKwca5gDG1PsNR/DgZ4+4fIy06nLhnKbI3jci+
-	sLPYKo8IoqjQDit78hXEpmqKwGsAJGY=
+	bh=cJV/WMhKnQpGnkWnTC4d+oGXpytL3xlXMjOSLcwioQ0=;
+	b=i7OaDmDFdX4tSe/SCeBZbOD19VVfj/k8/FHrVUQH7jTADMW6Cb1b+lL0R7o2uF8SyZWtLc
+	YaYdWWW7X5Q35eSkeQAgsK95Mbe9y6oJVbWRXmYjT8XwvdJtev9ms0AbezHJpGXAJvBrIi
+	4CzfCCWjB4ykv06go/ON5mwKMDfiXSY=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-538-TfqUoY2PMhyP-RK_mx_jGA-1; Sun, 27 Feb 2022 15:40:23 -0500
-X-MC-Unique: TfqUoY2PMhyP-RK_mx_jGA-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+ us-mta-589-bzYmmolINniExayOrxLzhg-1; Sun, 27 Feb 2022 15:55:05 -0500
+X-MC-Unique: bzYmmolINniExayOrxLzhg-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 211872D4;
-	Sun, 27 Feb 2022 20:40:15 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 909C280733B;
+	Sun, 27 Feb 2022 20:55:00 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3F90B2D1F1;
-	Sun, 27 Feb 2022 20:40:11 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8CAF0ADEE;
+	Sun, 27 Feb 2022 20:54:59 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B9A4F4BB40;
-	Sun, 27 Feb 2022 20:39:55 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.1])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 3F5F34A701;
+	Sun, 27 Feb 2022 20:54:58 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.9])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21RKdkHU007563 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 27 Feb 2022 15:39:46 -0500
+	id 21RKsqmX008219 for <blinux-list@listman.util.phx.redhat.com>;
+	Sun, 27 Feb 2022 15:54:52 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 354FD400DB0E; Sun, 27 Feb 2022 20:39:46 +0000 (UTC)
+	id 4CCE7435331; Sun, 27 Feb 2022 20:54:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 31331400E877
-	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 20:39:46 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 484AC4538DA
+	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 20:54:52 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[207.211.31.120])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 19DDF82A6C2
-	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 20:39:46 +0000 (UTC)
-Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com
-	[209.85.160.170]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2FB69801E95
+	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 20:54:52 +0000 (UTC)
+Received: from out3-smtp.messagingengine.com (out3-smtp.messagingengine.com
+	[66.111.4.27]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-460-yY8_BKoHNaK26NrVTz9O4Q-1; Sun, 27 Feb 2022 15:39:44 -0500
-X-MC-Unique: yY8_BKoHNaK26NrVTz9O4Q-1
-Received: by mail-qt1-f170.google.com with SMTP id q10so7346075qtw.4
-	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 12:39:44 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=QF+grevgOxY0Einu0X6pMhL+wDiQJPbXVlzNdOtcGHY=;
-	b=q/X3LEkBG9tv5O5+K5ZqXNgZh/dcwLWHSzfCXr5tv31qaADddLlPQ4H1M4L7jQaOdQ
-	ICjhNkEinpnrC6644kGe9TaWfNPVHzp3mUnbAD38QtUo8gOE0sxq9iflHrzc92OdiG7U
-	d9LgWHqsnObZsSkr+YXuzfxeQrlOXM56HWO5zn8AItCbvrH1OVtu/k2wKTpkaEVxrpWN
-	m8Ukg6L8IsEIZZum60deFnpF+hU7e9sVcBMZkioTUIlUiPv2qc1DFUQvfA0ePKuuHkI3
-	RzYRYnkGTJKmzQHyyRHMId8M4IX5M3J1GPF17j43pUc9KaQ7v8xpSRM+uxjlEXvl9CJG
-	RDYg==
-X-Gm-Message-State: AOAM533V8zYW0PQUdm6exXpPK+K3Ct0U8K/T/pieQKmrUIPo3LReTe15
-	8KwzJSGpOGyQval6s0BUPbSgsmXO3FY1dEdjANSy874hJkw=
-X-Google-Smtp-Source: ABdhPJxpliqcN8G+QPJFqUMwTbRnOgq/vWSeMDubG815AW45XhMxug3zkDOO5Ppr54YdvaPnKmGFu1EdGJczurioUXg=
-X-Received: by 2002:ac8:5d8b:0:b0:2dd:d855:66e0 with SMTP id
-	d11-20020ac85d8b000000b002ddd85566e0mr14397471qtx.258.1645994383241;
-	Sun, 27 Feb 2022 12:39:43 -0800 (PST)
-MIME-Version: 1.0
-Received: by 2002:ad4:5f08:0:0:0:0:0 with HTTP; Sun, 27 Feb 2022 12:39:42
-	-0800 (PST)
-In-Reply-To: <c5d02c2a-8fe1-7d26-ef60-c7c8b192b7e9@protonmail.com>
+	us-mta-635-XuQZNAYfO0CMAjiZ2qWPTg-1; Sun, 27 Feb 2022 15:54:50 -0500
+X-MC-Unique: XuQZNAYfO0CMAjiZ2qWPTg-1
+Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
+	by mailout.nyi.internal (Postfix) with ESMTP id D8BA15C0195
+	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 15:54:49 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+	by compute2.internal (MEProxy); Sun, 27 Feb 2022 15:54:49 -0500
+X-ME-Sender: <xms:GeUbYtpDWysdNwOODt9Lvc_IumoVpZrQpwUSLZiCOHJIB0s8oM369Q>
+	<xme:GeUbYvrbv1VFK9FktmLIV1oUfifGq_o5Y0sb7okfD1u2KE4TCHf0QE93i-Afd8HaP
+	mtYLgiueTP2mbnc81c>
+X-ME-Received: <xmr:GeUbYqOdK3A-wi1hoWJ5U6zV5D59lGYxYXNGOJtSqTnKDbNPY1tBHjOyluNPMeTWcrIwvq56lIr7TBmRbWz2v8pWbwomzPvwRA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvvddrleekgddugedtucetufdoteggodetrfdotf
+	fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+	uceurghilhhouhhtmecufedttdenucenucfjughrpeffhffvufgjkfhfgggtsehttdertd
+	dttddvnecuhfhrohhmpeevhhhimhgvucfjrghrthcuoegthhhimhgvsehhuhgsvghrthdq
+	hhhumhhphhhrvgihrdgtohhmqeenucggtffrrghtthgvrhhnpeffhedthfdvvdeuueeihe
+	dvfeffuedtgeeuudfhgfelteelvdduudfgleekvedtveenucevlhhushhtvghrufhiiigv
+	pedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegthhhimhgvsehhuhgsvghrthdqhhhumh
+	hphhhrvgihrdgtohhm
+X-ME-Proxy: <xmx:GeUbYo78WeMD8x9jdykMAgCiOVG6h1QnENJa6sQDLu5-veWhZ-JMhQ>
+	<xmx:GeUbYs7gY9k5T3UWp3qsPcfwzrB_QZ_QepWRLYvH3aaA35r9p1RuRg>
+	<xmx:GeUbYghoTq78t6QAu7BHFNLyVtenVz58E7XB-JxhiAUCLWXDddO7dQ>
+	<xmx:GeUbYhXUQbiM9Z_ni8hhx1Fnt_j5BiUqQrg1aYpO5ZGj6HRgjyEkyA>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA for
+	<blinux-list@redhat.com>; Sun, 27 Feb 2022 15:54:49 -0500 (EST)
+Date: Sun, 27 Feb 2022 12:54:47 -0800 (PST)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: Voting: Which game would you like to have on Linux?
+In-Reply-To: <CAO2sX33bsq5dtKCJg-J_XgqTM2LRWj6W1gU7D9FDdM3hhH_dqg@mail.gmail.com>
+Message-ID: <3aa8b542-556-90ee-80ff-16d7754096eb@hubert-humphrey.com>
 References: <9aeacc35-abfb-de7d-99ef-35ea86114b2f@protonmail.com>
 	<FE6B19F6-999D-4FBE-8CB8-4A552ABCA9ED@cfcl.com>
 	<c5d02c2a-8fe1-7d26-ef60-c7c8b192b7e9@protonmail.com>
-Date: Sun, 27 Feb 2022 20:39:42 +0000
-Message-ID: <CAO2sX33bsq5dtKCJg-J_XgqTM2LRWj6W1gU7D9FDdM3hhH_dqg@mail.gmail.com>
-Subject: Re: Voting: Which game would you like to have on Linux?
-To: blinux-list@redhat.com
+	<CAO2sX33bsq5dtKCJg-J_XgqTM2LRWj6W1gU7D9FDdM3hhH_dqg@mail.gmail.com>
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -92,7 +96,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -109,28 +113,26 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Now that you mention it, arrows to move around the board and shifted
-arrows to shift the board does sound like an elegant, one handed
-control scheme for 2048. Using modifier keys on the arrow keys never
-occured to me, possibly because I can't recall a program that ever did
-anything with such beyond the standard "hold shift and use navigation
-keys to select text" function most are familiar with.
-
-Mastermind... That's the game where one player has 10 turns to guess
-the series of 4 colored pegs the other player selected, and at each
-turn, the Code master indicates how many of the guess's colors are in
-the answer and how many ae in the correct postion? Memory is a bit
-fuzzy since I was in highschool or possibly even middle school last
-time I played it, and it's beennearly 17 years since I graduated high
-school.
+O, I can't resist. What about some of the older DOS World Series Baseball 
+games? In addition-and-since I am not a programmer, but as an Aquarian, 
+sometimes a dreamer, I wished I could have created a Boxing game, however, with 
+the flare of when Boxing was on Radio. Certainly you would certainly use your 
+left-and-right arrows to punch. Also, the late Jim Kitchen suggested, you would 
+decide before a round began which type of fight? a for agressive, maybe an r 
+for rope a dope. I suppose unless you were to get an announcer with experience 
+to record samples for a game such as that, I `really wouldn't think any speech 
+synthisizer can adequately do play-by-play or in this case blow-by-blow. I am 
+sure I've had this dream since the 90s, not2mention probably no1 under 60 would 
+hardly remember Boxing on Radio.
+Chime
 
 _______________________________________________
 Blinux-list mailing list
