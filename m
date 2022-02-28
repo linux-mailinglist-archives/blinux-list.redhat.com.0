@@ -1,91 +1,89 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id B9BF84C6092
-	for <lists+blinux-list@lfdr.de>; Mon, 28 Feb 2022 02:07:49 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2A9B74C6273
+	for <lists+blinux-list@lfdr.de>; Mon, 28 Feb 2022 06:24:24 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1646010468;
+	s=mimecast20190719; t=1646025863;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=tD1+PMaPjYjaAClgmiSyYZirFLFrB1iVkqOzYi1XQbA=;
-	b=E76D9cSP24zeyrntXR+rOPmPe7FmsYcGYYylC3Qxff2uSu8//e7eH9vsqux8ANGU9jAacZ
-	+KnYFh8BleJ5dwDwIekna6x6tvoF4A//Dpm2gnCvmt7vl2le2eQKICpsPLBH277rzwG+gh
-	E4JiCWMnlYUUyZ9GItkon/9bXe3sSno=
+	bh=g77MT7bsQK5CyFAbmpRvvNAh/xx3OPqEkI3MDH+EeMg=;
+	b=cjpYK7jJCTJuFxJJBTe7mTBf+GDEDJVnYqswbW6tZw/Z7wJYjHJ3DOqVkmNqUjrhR5X3/6
+	YQsP0LykAnVcfC16NVtaulduA+brNz1nZVRbArQM4fN3GBQqAd6zRuxttQJjQ/sXcKV88T
+	oHCVFxZF80vx4sOu8BuQibvHTexgqy8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-201-b5hcG9wyMEeb2-fs-MVukQ-1; Sun, 27 Feb 2022 20:07:44 -0500
-X-MC-Unique: b5hcG9wyMEeb2-fs-MVukQ-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-362-nkQmZbVUNgSpf3CHvUGBew-1; Mon, 28 Feb 2022 00:24:16 -0500
+X-MC-Unique: nkQmZbVUNgSpf3CHvUGBew-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 372531091DA0;
-	Mon, 28 Feb 2022 01:07:41 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1A8C25D9F3;
-	Mon, 28 Feb 2022 01:07:41 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D5A8E800422;
+	Mon, 28 Feb 2022 05:24:11 +0000 (UTC)
+Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 873834CEF8;
+	Mon, 28 Feb 2022 05:24:07 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id B74144ED27;
-	Mon, 28 Feb 2022 01:07:40 +0000 (UTC)
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 87F601809C83;
+	Mon, 28 Feb 2022 05:23:58 +0000 (UTC)
 Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
 	[10.11.54.4])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21S17ZtX025103 for <blinux-list@listman.util.phx.redhat.com>;
-	Sun, 27 Feb 2022 20:07:36 -0500
+	id 21S5NoE1007834 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 28 Feb 2022 00:23:51 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 68BDE2026D64; Mon, 28 Feb 2022 01:07:35 +0000 (UTC)
+	id D2C482026D6A; Mon, 28 Feb 2022 05:23:50 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 63CD72026D4D
-	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 01:07:32 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F410329ABA39
-	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 01:07:31 +0000 (UTC)
-Received: from ams1.kyle.tk (kyle.tk [45.148.122.133]) by relay.mimecast.com
-	with ESMTP with STARTTLS (version=TLSv1.2,
-	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-637-DrYvkadJPLeB_1gJ04hI8A-1; Sun, 27 Feb 2022 20:07:30 -0500
-X-MC-Unique: DrYvkadJPLeB_1gJ04hI8A-1
-Received: from localhost (localhost [127.0.0.1])
-	by ams1.kyle.tk (Postfix) with ESMTP id 7FE9E1BBDFB
-	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 01:07:28 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at ams1.kyle.tk
-Received: from ams1.kyle.tk ([127.0.0.1])
-	by localhost (ams1.kyle.tk [127.0.0.1]) (amavisd-new, port 10026)
-	with LMTP id vdZH0XKBU9AA for <blinux-list@redhat.com>;
-	Mon, 28 Feb 2022 01:07:27 +0000 (UTC)
-Received: from [IPV6:2603:6080:6302:e002:e826:5227:4681:6e2d]
-	(2603-6080-6302-e002-e826-5227-4681-6e2d.res6.spectrum.com
-	[IPv6:2603:6080:6302:e002:e826:5227:4681:6e2d])
-	(Authenticated sender: kyle@free2.ml)
-	by ams1.kyle.tk (Postfix) with ESMTPSA id 754491BB0A1
-	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 01:07:26 +0000 (UTC)
-Message-ID: <aa4a4dd9-4707-95d9-1db0-14ec1a715b0a@free2.ml>
-Date: Sun, 27 Feb 2022 20:07:19 -0500
+	(mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CE2292026D69
+	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 05:23:47 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A52423C02B7A
+	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 05:23:47 +0000 (UTC)
+Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com
+	[209.85.128.179]) by relay.mimecast.com with ESMTP with STARTTLS
+	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-464-4Rq1aFxeMS6-F2BOIhqKlw-1; Mon, 28 Feb 2022 00:23:44 -0500
+X-MC-Unique: 4Rq1aFxeMS6-F2BOIhqKlw-1
+Received: by mail-yw1-f179.google.com with SMTP id
+	00721157ae682-2db2add4516so62199997b3.1
+	for <blinux-list@redhat.com>; Sun, 27 Feb 2022 21:23:44 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20210112;
+	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+	:message-id:subject:to;
+	bh=/3SwTD5AB0lMORtm+mMIB7rROTVbSCWU45QjfIM1HBY=;
+	b=MYBqdb1amezmRxjeWKx1JUVEapGVyrKGZBISt95FP27XKqOvpBsaaWMtSsTGD/PVQa
+	0Xci8bZJ9snSUc6+PsPbel4GHUsjRqHqxp85rWtiWC0h7sw9qR0FFciT5YI3dgtW7dej
+	J9m53PQYgv/DJPvu4F458nIWfZ0C2T9yljG9PlBhKU5lLh8O8LMDwlKHZo/P86wwG9hG
+	8dE3PLMcsRMS46Q7W8R0tgpbMb6GZKTrGVwFK4fLSK3rwwgq4HWDbJY7edjFq1FYA/0l
+	nt6YQvrjbiMguvsL4Y1N/WtRu4NF6hcn+YHAEbKrW2YUkWFi2pBLOYtFj+lak06KRJ8v
+	tF/g==
+X-Gm-Message-State: AOAM530Kg24odjwd5uYUc+efs1gexWLT5l7EcC8ScDEGifo4H30gdT7C
+	kZkxWk//x2Rnd1nxABBkrYdjsx3DwcPiWd/ruRY++AF2B6c=
+X-Google-Smtp-Source: ABdhPJya26bX3ZZys4ebmQ6ZFo1Qs4PIWrPwzSaBThb6ezHlXOKoY8VMT/SkfI3rKIAO5wK4nJG3hJDnhe9ug/AIrGo=
+X-Received: by 2002:a81:5dd6:0:b0:2d6:3041:12e0 with SMTP id
+	r205-20020a815dd6000000b002d6304112e0mr18573840ywb.331.1646025824103;
+	Sun, 27 Feb 2022 21:23:44 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.5.0
-Subject: Re: Voting: Which game would you like to have on Linux?
-To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <9aeacc35-abfb-de7d-99ef-35ea86114b2f@protonmail.com>
-	<FE6B19F6-999D-4FBE-8CB8-4A552ABCA9ED@cfcl.com>
-	<c5d02c2a-8fe1-7d26-ef60-c7c8b192b7e9@protonmail.com>
-	<CAO2sX33bsq5dtKCJg-J_XgqTM2LRWj6W1gU7D9FDdM3hhH_dqg@mail.gmail.com>
-	<3aa8b542-556-90ee-80ff-16d7754096eb@hubert-humphrey.com>
-	<CAO2sX303T7OgFDkL5qZwAwDc2T1miTVrrAaB24EZ=i-R8H6syw@mail.gmail.com>
-	<92f91c3f-56f6-ae03-0f4e-d52c3fc64daf@free2.ml>
-	<CAO2sX321e0PL969ePjSzSKvy=HxDoueBc-P2jFwS50sM+ZR6AQ@mail.gmail.com>
-	<57d14a3d-be66-d3ed-51f2-78a5cee23d06@free2.ml>
-	<CAN8Cudgf03ND87hvLuabqwX8Yni_MTBraSxWN5s4P=ipwux=2A@mail.gmail.com>
-In-Reply-To: <CAN8Cudgf03ND87hvLuabqwX8Yni_MTBraSxWN5s4P=ipwux=2A@mail.gmail.com>
+References: <34339ff7-af34-775-fd30-fd75f6878d4@gmail.com>
+	<CAGJxbF6DEJG5_SEtveQhe8Ruv_oCZZ2-dXkyJ0UM19ydPa7aXg@mail.gmail.com>
+	<576cde22-17c2-56d9-6ca4-0887d397fc18@free2.ml>
+In-Reply-To: <576cde22-17c2-56d9-6ca4-0887d397fc18@free2.ml>
+Date: Sun, 27 Feb 2022 23:23:32 -0600
+Message-ID: <CAGJxbF6HvSESRtSOyDOYU4fj5ob+uU62af5PVRzyr7CAMd89Wg@mail.gmail.com>
+Subject: Re: Use alexa on linux
+To: "blinux-list@redhat.com" <blinux-list@redhat.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -96,6 +94,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 X-loop: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.12
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.12
@@ -111,25 +110,50 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-It was primarily designed in 1985 by Microsoft to make the use of IBM
-> personal computers easier, for those who were intimidated by MS-DOS in its text only glory
+Yep. I've been looking for a way to run Alexa on Linux, since her
+book-reading voice is just amazing. Of course you have to have books in
+Kindle but she sounds so good, it's worth it to me. Oh and everything else
+of course.
+Devin Prater
+r.d.t.prater@gmail.com
 
 
-It was originally developed in 1981 by Xerox Corporation, and I believe 
-they called it Rooms at that time. Microsoft, as has been their business 
-strategy from day one, stole the technology and played their little game 
-of keep-away with it, just as they did with DOS before it, which was not 
-theirs either.
 
+
+On Sun, Feb 27, 2022 at 5:26 PM Linux for blind general discussion <
+blinux-list@redhat.com> wrote:
+
+> This, unfortunately, is an old article.
+>
+>
+> By unfortunately, I take it you mean that the hopes and changes expected
+> in the article have not been realized. Sad really, since Alexa really is
+> a good app, and it would be nice to be able to run it on the desktop,
+> since it does allow muting the mic fairly easily, and it already
+> interfaces with my music services and my thermostat. I would like to get
+> that going through Home Assistant or similar, but it seems to require a
+> masters in computer science just to get it going, and I can't seem to
+> get Mycroft working with home automation skills ... I don't think they
+> exist yet. I guess it is still a bit too new for that. I get errors when
+> trying to interface Mycroft with music services as well. It does pretty
+> nice stuff with the weather and timers and alarms though.
+>
+> ~Kyle
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
