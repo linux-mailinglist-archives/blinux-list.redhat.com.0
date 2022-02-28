@@ -2,88 +2,83 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id E54BC4C78D7
-	for <lists+blinux-list@lfdr.de>; Mon, 28 Feb 2022 20:43:42 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 31F444C7910
+	for <lists+blinux-list@lfdr.de>; Mon, 28 Feb 2022 20:56:04 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1646077421;
+	s=mimecast20190719; t=1646078163;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=5Nn6nAhid/KOJHrdbnNko6KsfJP9Aht9fgE8HlQlP+g=;
-	b=iYh5NeOyPWPdR6HGpkLHsdW2vX/8oPSQoMTOQb6CaJcr6mYlmmoM4pBlnlsExxnMCQcHfy
-	LRVBWdP2JBdc7lsV5Q8moQf0+kdsCnFPiySXhvIOyRuwqvWIwHJ6Og9rAYGkt2bMiA4qne
-	RwRYcJbf4QESFAKWvrKQkqRGJKKQVpI=
+	bh=t5fqfNSdHzM1REv6FWwDT4Z3JywJt8D7VyrXokGpwRE=;
+	b=a0OB34D7XKZS8DxdchShKRUPPQCXfvBl7WAVMcgpjs80jNGAqqXM/RaT/dG7l0ydpSv876
+	MTvbyDnH+3CFoSNfXXypizInqsUNJHtehNZJCiQPiYRPwF6QVgtlxWyE2k9WhwbUGNscJO
+	jLDSB7oei0OcZLNNrGR3/D5NOxVQJI8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-656-JkKYNploPC60l9Z-lm22Fw-1; Mon, 28 Feb 2022 14:43:38 -0500
-X-MC-Unique: JkKYNploPC60l9Z-lm22Fw-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+ us-mta-304-hslo5YADPvKgo2vJwmH9Pw-1; Mon, 28 Feb 2022 14:55:59 -0500
+X-MC-Unique: hslo5YADPvKgo2vJwmH9Pw-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 4498051DC;
-	Mon, 28 Feb 2022 19:43:33 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A97131091DA3;
+	Mon, 28 Feb 2022 19:55:55 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CD90F30582;
-	Mon, 28 Feb 2022 19:43:32 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 29E1561F20;
+	Mon, 28 Feb 2022 19:55:53 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 76A3B4BB40;
-	Mon, 28 Feb 2022 19:43:30 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.2])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 2FBC54A701;
+	Mon, 28 Feb 2022 19:55:52 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.10])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 21SJhQVJ004107 for <blinux-list@listman.util.phx.redhat.com>;
-	Mon, 28 Feb 2022 14:43:26 -0500
+	id 21SJtjqH004728 for <blinux-list@listman.util.phx.redhat.com>;
+	Mon, 28 Feb 2022 14:55:47 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 74850400F3EA; Mon, 28 Feb 2022 19:43:26 +0000 (UTC)
+	id E1726401E37; Mon, 28 Feb 2022 19:55:45 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 70825400E136
-	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 19:43:26 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
-	[207.211.31.120])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 58B131C04B4B
-	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 19:43:26 +0000 (UTC)
-Received: from mail-qv1-f47.google.com (mail-qv1-f47.google.com
-	[209.85.219.47]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-353-KFlYR6FFOJ2596lrj_WKyg-1; Mon, 28 Feb 2022 14:43:24 -0500
-X-MC-Unique: KFlYR6FFOJ2596lrj_WKyg-1
-Received: by mail-qv1-f47.google.com with SMTP id 8so14397328qvf.2
-	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 11:43:23 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=lAOHrOas4St3r3CRdIXlpY4MBV4TOqoGH1Fr3JNdUUI=;
-	b=p27yszk7L3fWmPvf8urOMN0PuudNCfPontPXtL8uSlgmC2h5bjoljUoZwDukdG3C/r
-	EbRfibykoC7i9dxUAHMUvdTMzE3HLJtyFrQPYEZCBEC9qho8sWUlquWrmL2PNnb4E6pK
-	KW1VyryQ2wrbbdrh/bmjpPpyTMABF7f2+RcokpnEqhSnrLsHEpEbZNi56UHxvPN0iQ0h
-	IbGXb47cXRXr00KPL8bYeNiuSZdtSSessveC6OUoBDG1TVWmLsVl64JTi9wFoRXPJ+wc
-	JgLf6cOG0x9eq500RJy1ertubsYJ2AIWhsqZNlxf4D+0vKILdXHlvXKz1VzOYQU3ZvvX
-	/g/Q==
-X-Gm-Message-State: AOAM531LEXod29ylHYtNrkgS1v7K9YAx2aUiqkIAuxibk1nGAJRxXScG
-	6m7Jt9c32k2h2Wd4AGGiHlLf+iSHik8UmDhIqQ15fFQE/sI=
-X-Google-Smtp-Source: ABdhPJxQa+ToujuiB55S0ZmwWODLQJLIccLZ6aIVWW6XWijrfzrwrMPkKASmx7Gl5iu9VnPjxt+G5evPJu8UZ3ugrx8=
-X-Received: by 2002:ac8:5d8b:0:b0:2dd:d855:66e0 with SMTP id
-	d11-20020ac85d8b000000b002ddd85566e0mr17731095qtx.258.1646077403203;
-	Mon, 28 Feb 2022 11:43:23 -0800 (PST)
+	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id DD451401476
+	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 19:55:45 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C546683395C
+	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 19:55:45 +0000 (UTC)
+Received: from ams1.kyle.tk (kyle.tk [45.148.122.133]) by relay.mimecast.com
+	with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-407-357J27KXPrC3W2_IEt_uXQ-1; Mon, 28 Feb 2022 14:55:43 -0500
+X-MC-Unique: 357J27KXPrC3W2_IEt_uXQ-1
+Received: from localhost (localhost [127.0.0.1])
+	by ams1.kyle.tk (Postfix) with ESMTP id E3F461BBDFB
+	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 19:55:40 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at ams1.kyle.tk
+Received: from ams1.kyle.tk ([127.0.0.1])
+	by localhost (ams1.kyle.tk [127.0.0.1]) (amavisd-new, port 10026)
+	with LMTP id cUGp6Gm1yic2 for <blinux-list@redhat.com>;
+	Mon, 28 Feb 2022 19:55:40 +0000 (UTC)
+Received: from [IPV6:2603:6080:6302:e002:e826:5227:4681:6e2d]
+	(2603-6080-6302-e002-e826-5227-4681-6e2d.res6.spectrum.com
+	[IPv6:2603:6080:6302:e002:e826:5227:4681:6e2d])
+	(Authenticated sender: kyle@free2.ml)
+	by ams1.kyle.tk (Postfix) with ESMTPSA id E0D671BB0B4
+	for <blinux-list@redhat.com>; Mon, 28 Feb 2022 19:55:39 +0000 (UTC)
+Message-ID: <4dc439c2-c23b-8322-dd54-469a56e61858@free2.ml>
+Date: Mon, 28 Feb 2022 14:55:35 -0500
 MIME-Version: 1.0
-Received: by 2002:ad4:5f08:0:0:0:0:0 with HTTP; Mon, 28 Feb 2022 11:43:22
-	-0800 (PST)
-In-Reply-To: <30be31e3-1962-44f3-a7ea-c5895e9870b1@gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.5.0
+Subject: Re: Use alexa on linux
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <b58188d0-6477-4bd2-1f6-3e9115dafb5a@gmail.com>
 	<30be31e3-1962-44f3-a7ea-c5895e9870b1@gmail.com>
-Date: Mon, 28 Feb 2022 19:43:22 +0000
-Message-ID: <CAO2sX31c1gHuFLJBdvqNh-QBvAoCW4Sjx0+0NXe8D89Q8M6SUg@mail.gmail.com>
-Subject: Re: Use alexa on linux
-To: blinux-list@redhat.com
+	<CAO2sX31c1gHuFLJBdvqNh-QBvAoCW4Sjx0+0NXe8D89Q8M6SUg@mail.gmail.com>
+In-Reply-To: <CAO2sX31c1gHuFLJBdvqNh-QBvAoCW4Sjx0+0NXe8D89Q8M6SUg@mail.gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -92,7 +87,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -109,24 +104,27 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Yeah, I have an older model Echo(second generation I think, the one
-that's a tall cylinder with four buttons on top) and am kind of
-interested in trying to get one of these digital assistents running on
-my old desktop or a Raspberry Pi, especially if I can type a question
-at the command line instead of speaking and hoping it can hear me,
-hears what I said, and that I didn't trip over my words) but I'm
-hesitant to install anything that isn't an apt-get install away... and
-everything I've heard about snapd suggests the package format breaks
-accessibility of sortware that's accessible when installed through
-other means.
+Snap packages don't generally break accessibility, and the fact that 
+text mode packages can be distributed via snapd does make it a bit more 
+attractive for some than flatpak, even with the drawbacks of having to 
+mount a loopdev for every package, along with the implementation being 
+so completely sandboxed that it is impractical if not impossible to 
+share dependencies between packages. That said, different snapd 
+implementations do tend to work somewhat differently for some reason, 
+and many of the newer versions seem to be breaking accessibility of 
+graphical packages, making it hard to recommend distribution via that 
+method.
+
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
