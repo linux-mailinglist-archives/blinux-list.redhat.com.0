@@ -1,90 +1,79 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 628AF4CDCDD
-	for <lists+blinux-list@lfdr.de>; Fri,  4 Mar 2022 19:44:20 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 479834CDCE7
+	for <lists+blinux-list@lfdr.de>; Fri,  4 Mar 2022 19:48:28 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1646419459;
+	s=mimecast20190719; t=1646419707;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=sENm9Gx25hQ73oq4vAnI3ELJXoov8Vt8R4awChTZUjw=;
-	b=c/RCJiMoMKzjTeukeWwK6rdZKsNrjNrbXTDie9BTrNHZHxDgLLPV17WAlVRIU2rZ6UC7Cw
-	K6kRbMS/fURtUpaVjgGw4OSHAw1DXZzrt7FIxibl4gpjKouCStQmnZDpXmrbJfPdk26IJ5
-	NOlrA/nwYssDPClLSZPZEjF+8/3rx4A=
+	bh=7iv69Qbckknbt2LELInfhD99DyA+Sqfsz0nDrNoT2vE=;
+	b=QEfjbrfCk9hp+xzV5z0gdrT11ifaL1fRxXEGn1xJcQUUuJLHNQJxAWFNH7keI0jkmEgtnz
+	n3oYPw3wok1jDdarfDs96vjXnMFGar2Xjm1xc5c+9xp6cMB+G7ySG7BUsu6ua8F6pPObLV
+	WaaH9yKx0zSljslOPmqCKmrxrMg3REI=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-347-dAK-4cyANAKnjuwt-mHL-w-1; Fri, 04 Mar 2022 13:44:16 -0500
-X-MC-Unique: dAK-4cyANAKnjuwt-mHL-w-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+ us-mta-584-F1W-Vr_-OC6d2-54GJj8Ig-1; Fri, 04 Mar 2022 13:48:23 -0500
+X-MC-Unique: F1W-Vr_-OC6d2-54GJj8Ig-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7B4BD51DF;
-	Fri,  4 Mar 2022 18:44:11 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 99AFB801AFE;
+	Fri,  4 Mar 2022 18:48:19 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8FB12106F777;
-	Fri,  4 Mar 2022 18:44:07 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 808FB8000F;
+	Fri,  4 Mar 2022 18:48:19 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6131818095C9;
-	Fri,  4 Mar 2022 18:44:02 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.7])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 007E018095C9;
+	Fri,  4 Mar 2022 18:48:18 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.1])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 224IhK5S030803 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 4 Mar 2022 13:43:20 -0500
+	id 224ImEw7031014 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 4 Mar 2022 13:48:14 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 237CF141DC2A; Fri,  4 Mar 2022 18:43:20 +0000 (UTC)
+	id A8C32400E86C; Fri,  4 Mar 2022 18:48:14 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
 	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1EDDF141DC29
-	for <blinux-list@redhat.com>; Fri,  4 Mar 2022 18:43:20 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
-	bits)) (No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0584F101AA45
-	for <blinux-list@redhat.com>; Fri,  4 Mar 2022 18:43:20 +0000 (UTC)
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com
-	[209.85.221.48]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-549-uWjkbfDOOSGd8Plfd5E_xQ-1; Fri, 04 Mar 2022 13:43:18 -0500
-X-MC-Unique: uWjkbfDOOSGd8Plfd5E_xQ-1
-Received: by mail-wr1-f48.google.com with SMTP id j17so14030004wrc.0
-	for <blinux-list@redhat.com>; Fri, 04 Mar 2022 10:43:17 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-	:content-language:to:references:from:in-reply-to
-	:content-transfer-encoding;
-	bh=yeyiQuo4kDT1GWQTtWXfLaAXbKdzOUHmVK3A+RQqvls=;
-	b=oF5nlakrDL919uc+r/EUf9WTobofEsLs6HkhE6T59qAivC3XUtzmwLBF5Hn/W1jX8r
-	jzuU0kv0zJhG0yjbS+PNQjSadaTt5GcKUYtU80QJuhP4nD9s3xpkuDrWcSIbnoq/RGqx
-	odoEY6+ZVa5/ERcGLDGGaTygnSjKCIpKcPFL7YvZYTob5jI+Bu+ub7LnMzL2fLAlq93g
-	7ntaLMvpRGSTpbbumqf9X1u6Chsj6NFp5SaTQEJ4RR5Nii1IoI09wlIm3BNwPmAc2qfS
-	fi36YckPL3hY+kEXCzbGPlEH0Po3gMHMFt6DoLeMQD40FBC8rREYkfqoioD2sj4DZgKd
-	KNQg==
-X-Gm-Message-State: AOAM531kqQBrSI2g6tXkJgaF4b2/ck2bWPvl3g5JNvXBxe0cHkjPpdwd
-	hpiox+NwA+W0ULFutqTVgH2sUbj5kzEglQ==
-X-Google-Smtp-Source: ABdhPJws8OlJxLlHkHX+tO1Qh5Szc79ZbfUPv+a98tpvOF49rJZWQwAKEo0muOVYwZMO8oZQGb7WCQ==
-X-Received: by 2002:adf:ed46:0:b0:1f0:619a:f900 with SMTP id
-	u6-20020adfed46000000b001f0619af900mr50538wro.311.1646419396297;
-	Fri, 04 Mar 2022 10:43:16 -0800 (PST)
-Received: from [192.168.1.130] ([90.250.160.235])
-	by smtp.gmail.com with ESMTPSA id
-	l8-20020a5d6688000000b001f04ae0bb6csm5092744wru.58.2022.03.04.10.43.15
-	for <blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Fri, 04 Mar 2022 10:43:15 -0800 (PST)
-Message-ID: <518c6e49-0315-d3ac-1586-0a2f6c99c7d7@gmail.com>
-Date: Fri, 4 Mar 2022 18:43:29 +0000
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A49A040CFD1B
+	for <blinux-list@redhat.com>; Fri,  4 Mar 2022 18:48:14 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com
+	[205.139.110.120])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8BE79101CC63
+	for <blinux-list@redhat.com>; Fri,  4 Mar 2022 18:48:14 +0000 (UTC)
+Received: from ams1.kyle.tk (kyle.tk [45.148.122.133]) by relay.mimecast.com
+	with ESMTP with STARTTLS (version=TLSv1.2,
+	cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+	us-mta-388-Zd8SpipXNJGBLl7ERcPBNA-1; Fri, 04 Mar 2022 13:48:12 -0500
+X-MC-Unique: Zd8SpipXNJGBLl7ERcPBNA-1
+Received: from localhost (localhost [127.0.0.1])
+	by ams1.kyle.tk (Postfix) with ESMTP id 425861BBE00
+	for <blinux-list@redhat.com>; Fri,  4 Mar 2022 18:48:11 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at ams1.kyle.tk
+Received: from ams1.kyle.tk ([127.0.0.1])
+	by localhost (ams1.kyle.tk [127.0.0.1]) (amavisd-new, port 10026)
+	with LMTP id rIiapOCicLrZ for <blinux-list@redhat.com>;
+	Fri,  4 Mar 2022 18:48:10 +0000 (UTC)
+Received: from [IPV6:2603:6080:6302:e002:8616:d376:ace:323b]
+	(2603-6080-6302-e002-8616-d376-0ace-323b.res6.spectrum.com
+	[IPv6:2603:6080:6302:e002:8616:d376:ace:323b])
+	(Authenticated sender: kyle@free2.ml)
+	by ams1.kyle.tk (Postfix) with ESMTPSA id B2E411BB099
+	for <blinux-list@redhat.com>; Fri,  4 Mar 2022 18:48:10 +0000 (UTC)
+Message-ID: <94b49596-52c1-cb49-2e80-f31f68c8d082@free2.ml>
+Date: Fri, 4 Mar 2022 13:48:07 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.6.1
+	Thunderbird/91.5.0
 Subject: Re: Google is nuking simple username/password sign ins?
 To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <YiHciAX/R+L65BU3@waffles>
@@ -100,7 +89,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -117,7 +106,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -126,32 +115,22 @@ Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-not sure but I'd be interested too. Double so if I can point my Mutt at 
-it and get it without a lot of hassle. I tried with the mutt Oauth2.0 
-script and it broke, majorly...
+I don't really use webmaill, but from what I've seen, RoundCube seems to 
+have a pretty nice interface, and you should be able to get it to 
+interface with any IMAP mailbox without too much trouble. You should be 
+able to run RoundCube locally and connect it to your non-Gmail IMAP 
+mailbox without too much trouble, although I can't be absolutely sure, 
+since I have only set it up to connect to IMAP mailboxes on the same 
+machine. I once did find a webmail that looked to me similar to 
+RoundCube, but it required logging into your mailbox from a third-party 
+website, and you probably don't want to do that. As for webmail in 
+general, it all looks clunky to me, even Gmail's basic HTML view, so I 
+can't really comment on what would be comparable to it that would best 
+suit your needs. Do have a look at a local RoundCube installation 
+though. As long as you have an IMAP mailbox, RoundCube should be able to 
+connect with it, and it's not as clunky-looking as some I've tried.
 
-So yes, I'm right with you on the hunt for a new email provider. Time to 
-forward all my email to this new provider
-
-On 3/4/22 18:38, Linux for blind general discussion wrote:
-> Well, that's just vague enough to be worthless.
->
-> While on the subject, anyone know of any Gmail alternative with a web
-> interface comparable to Gmail's basic HTML view? If it adds in such
-> missing features such as forcing replay to list as default when
-> replying to messages from mailing lists, manually merging
-> conversations, and having folders/labels for contacts, that would be
-> nice to.
->
-> Fortunately, I don't use many of Google's services(Gmail, search,
-> YouTube) and Gmail is the only one that really requires logging in
-> often enough to maintain a persistent cookie on my personal machine.
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
