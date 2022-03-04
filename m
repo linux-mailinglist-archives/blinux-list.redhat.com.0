@@ -2,88 +2,96 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0F7794CDCC0
-	for <lists+blinux-list@lfdr.de>; Fri,  4 Mar 2022 19:38:27 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 628AF4CDCDD
+	for <lists+blinux-list@lfdr.de>; Fri,  4 Mar 2022 19:44:20 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1646419107;
+	s=mimecast20190719; t=1646419459;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=3QnKDxOmMn2ezNAQ+HEGzlBzW4jEU6bpnOC4CYMiV7w=;
-	b=hL5D1GEP3gw4m+5Kwr5UDXv8Rdkvx0KNcZnbafapoxeh6MIZcb3Zfe7+APCV1xiJhZ4V3m
-	acHujZH3FxxlTKoxAR6E9sPCLO/7Cva/NtOL54c0L8mPMs47I2N4brMFNNCq6WTGA9ThCx
-	VQAsg602vzBdKu8IuN+w0eAnt6PaggY=
+	bh=sENm9Gx25hQ73oq4vAnI3ELJXoov8Vt8R4awChTZUjw=;
+	b=c/RCJiMoMKzjTeukeWwK6rdZKsNrjNrbXTDie9BTrNHZHxDgLLPV17WAlVRIU2rZ6UC7Cw
+	K6kRbMS/fURtUpaVjgGw4OSHAw1DXZzrt7FIxibl4gpjKouCStQmnZDpXmrbJfPdk26IJ5
+	NOlrA/nwYssDPClLSZPZEjF+8/3rx4A=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-583-7ey5CFNrN1mDtWVssOXJUg-1; Fri, 04 Mar 2022 13:38:23 -0500
-X-MC-Unique: 7ey5CFNrN1mDtWVssOXJUg-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+ us-mta-347-dAK-4cyANAKnjuwt-mHL-w-1; Fri, 04 Mar 2022 13:44:16 -0500
+X-MC-Unique: dAK-4cyANAKnjuwt-mHL-w-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D28AF51DC;
-	Fri,  4 Mar 2022 18:38:19 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7B4BD51DF;
+	Fri,  4 Mar 2022 18:44:11 +0000 (UTC)
 Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 86B8687B8D;
-	Fri,  4 Mar 2022 18:38:19 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8FB12106F777;
+	Fri,  4 Mar 2022 18:44:07 +0000 (UTC)
 Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id EB79B1809C98;
-	Fri,  4 Mar 2022 18:38:18 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.4])
+	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 6131818095C9;
+	Fri,  4 Mar 2022 18:44:02 +0000 (UTC)
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com
+	[10.11.54.7])
 	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 224IcFco030425 for <blinux-list@listman.util.phx.redhat.com>;
-	Fri, 4 Mar 2022 13:38:15 -0500
+	id 224IhK5S030803 for <blinux-list@listman.util.phx.redhat.com>;
+	Fri, 4 Mar 2022 13:43:20 -0500
 Received: by smtp.corp.redhat.com (Postfix)
-	id 071182024CB8; Fri,  4 Mar 2022 18:38:15 +0000 (UTC)
+	id 237CF141DC2A; Fri,  4 Mar 2022 18:43:20 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com
-	(mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 028EC2024CAE
-	for <blinux-list@redhat.com>; Fri,  4 Mar 2022 18:38:11 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 62D4E833963
-	for <blinux-list@redhat.com>; Fri,  4 Mar 2022 18:38:11 +0000 (UTC)
-Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com
-	[209.85.222.169]) by relay.mimecast.com with ESMTP with STARTTLS
+	(mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1EDDF141DC29
+	for <blinux-list@redhat.com>; Fri,  4 Mar 2022 18:43:20 +0000 (UTC)
+Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+	bits)) (No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0584F101AA45
+	for <blinux-list@redhat.com>; Fri,  4 Mar 2022 18:43:20 +0000 (UTC)
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com
+	[209.85.221.48]) by relay.mimecast.com with ESMTP with STARTTLS
 	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-472-W64VX3isNom4yqEs_DSCLg-1; Fri, 04 Mar 2022 13:38:09 -0500
-X-MC-Unique: W64VX3isNom4yqEs_DSCLg-1
-Received: by mail-qk1-f169.google.com with SMTP id f21so7106642qke.13
-	for <blinux-list@redhat.com>; Fri, 04 Mar 2022 10:38:09 -0800 (PST)
+	us-mta-549-uWjkbfDOOSGd8Plfd5E_xQ-1; Fri, 04 Mar 2022 13:43:18 -0500
+X-MC-Unique: uWjkbfDOOSGd8Plfd5E_xQ-1
+Received: by mail-wr1-f48.google.com with SMTP id j17so14030004wrc.0
+	for <blinux-list@redhat.com>; Fri, 04 Mar 2022 10:43:17 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20210112;
-	h=x-gm-message-state:mime-version:in-reply-to:references:from:date
-	:message-id:subject:to;
-	bh=rbpKkIddfaNE/dLtq8+XrgnTjp2OCkksSYm5RxFkT/4=;
-	b=ro9WDjOi7mNiStQt8lus8teOQslm5FPUc7lqfp+3JBiVypXwcdvb3+ufc/XC9Mwx/5
-	0qMwhPXoTL5Gb0dZLb67dk9SW0du7aY93+b7xHThG/B0eumf6W3jj3CbriDWfde3n7Wz
-	OhWNyIY19Tr3PF01QS9VnspFY8FeVDB5Lx1pGUTO5XRmwOc5dm0zyQgGSP/3kwtt7R28
-	pV5WLEFYrfiUnjD6SHZyFY4BcG2I7s5ceiTYdbTFRoj5SF2s+9+Ne8gPzE17HIvSE42W
-	ckkubXygW3cVhC/00ezPsZvOLszuLbOvJSHN4TeVzZrJYxnHJDjMFrjPCm6WvqvDceV/
-	7EOw==
-X-Gm-Message-State: AOAM5331idjSbWav3kMZkyC1aQpcklIAx8PH3Gf7v2Yu3R66qja2hyC8
-	k4AQNInKu4kJ0qtENqfFitf1UnHndge0QO/gbkGcdgpQ6vo=
-X-Google-Smtp-Source: ABdhPJwpW06QMrcIG51BvcjU5jgGArEHWhakU9pvMlF4W4LUL9t5qM1DtyCvOuvy+chYIXRXqtM4N1WPvxZXoZbefNA=
-X-Received: by 2002:a37:a493:0:b0:46b:1df6:a85b with SMTP id
-	n141-20020a37a493000000b0046b1df6a85bmr3408199qke.469.1646419089285;
-	Fri, 04 Mar 2022 10:38:09 -0800 (PST)
+	h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+	:content-language:to:references:from:in-reply-to
+	:content-transfer-encoding;
+	bh=yeyiQuo4kDT1GWQTtWXfLaAXbKdzOUHmVK3A+RQqvls=;
+	b=oF5nlakrDL919uc+r/EUf9WTobofEsLs6HkhE6T59qAivC3XUtzmwLBF5Hn/W1jX8r
+	jzuU0kv0zJhG0yjbS+PNQjSadaTt5GcKUYtU80QJuhP4nD9s3xpkuDrWcSIbnoq/RGqx
+	odoEY6+ZVa5/ERcGLDGGaTygnSjKCIpKcPFL7YvZYTob5jI+Bu+ub7LnMzL2fLAlq93g
+	7ntaLMvpRGSTpbbumqf9X1u6Chsj6NFp5SaTQEJ4RR5Nii1IoI09wlIm3BNwPmAc2qfS
+	fi36YckPL3hY+kEXCzbGPlEH0Po3gMHMFt6DoLeMQD40FBC8rREYkfqoioD2sj4DZgKd
+	KNQg==
+X-Gm-Message-State: AOAM531kqQBrSI2g6tXkJgaF4b2/ck2bWPvl3g5JNvXBxe0cHkjPpdwd
+	hpiox+NwA+W0ULFutqTVgH2sUbj5kzEglQ==
+X-Google-Smtp-Source: ABdhPJws8OlJxLlHkHX+tO1Qh5Szc79ZbfUPv+a98tpvOF49rJZWQwAKEo0muOVYwZMO8oZQGb7WCQ==
+X-Received: by 2002:adf:ed46:0:b0:1f0:619a:f900 with SMTP id
+	u6-20020adfed46000000b001f0619af900mr50538wro.311.1646419396297;
+	Fri, 04 Mar 2022 10:43:16 -0800 (PST)
+Received: from [192.168.1.130] ([90.250.160.235])
+	by smtp.gmail.com with ESMTPSA id
+	l8-20020a5d6688000000b001f04ae0bb6csm5092744wru.58.2022.03.04.10.43.15
+	for <blinux-list@redhat.com>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Fri, 04 Mar 2022 10:43:15 -0800 (PST)
+Message-ID: <518c6e49-0315-d3ac-1586-0a2f6c99c7d7@gmail.com>
+Date: Fri, 4 Mar 2022 18:43:29 +0000
 MIME-Version: 1.0
-Received: by 2002:ad4:5cc2:0:0:0:0:0 with HTTP;
-	Fri, 4 Mar 2022 10:38:08 -0800 (PST)
-In-Reply-To: <9c284d34-9e1c-a3ac-72fc-ba0c041877ec@gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	Thunderbird/91.6.1
+Subject: Re: Google is nuking simple username/password sign ins?
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <YiHciAX/R+L65BU3@waffles>
 	<Pine.LNX.4.64.2203041303520.273578@server2.shellworld.net>
 	<9c284d34-9e1c-a3ac-72fc-ba0c041877ec@gmail.com>
-Date: Fri, 4 Mar 2022 18:38:08 +0000
-Message-ID: <CAO2sX33E7R760BEc4kn+F5U7tNCWijUSPc_PbK9-OQ+pJ1psfg@mail.gmail.com>
-Subject: Re: Google is nuking simple username/password sign ins?
-To: blinux-list@redhat.com
+	<CAO2sX33E7R760BEc4kn+F5U7tNCWijUSPc_PbK9-OQ+pJ1psfg@mail.gmail.com>
+In-Reply-To: <CAO2sX33E7R760BEc4kn+F5U7tNCWijUSPc_PbK9-OQ+pJ1psfg@mail.gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Definition; Similar Internal Domain=false;
 	Similar Monitored External Domain=false;
@@ -92,7 +100,7 @@ X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
 	Custom Display Name List=false; Reply-to Address Mismatch=false;
 	Targeted Threat Dictionary=false;
 	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 X-loop: blinux-list@redhat.com
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
@@ -109,26 +117,41 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 	<mailto:blinux-list-request@redhat.com?subject=subscribe>
 Sender: blinux-list-bounces@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Well, that's just vague enough to be worthless.
+not sure but I'd be interested too. Double so if I can point my Mutt at 
+it and get it without a lot of hassle. I tried with the mutt Oauth2.0 
+script and it broke, majorly...
 
-While on the subject, anyone know of any Gmail alternative with a web
-interface comparable to Gmail's basic HTML view? If it adds in such
-missing features such as forcing replay to list as default when
-replying to messages from mailing lists, manually merging
-conversations, and having folders/labels for contacts, that would be
-nice to.
+So yes, I'm right with you on the hunt for a new email provider. Time to 
+forward all my email to this new provider
 
-Fortunately, I don't use many of Google's services(Gmail, search,
-YouTube) and Gmail is the only one that really requires logging in
-often enough to maintain a persistent cookie on my personal machine.
+On 3/4/22 18:38, Linux for blind general discussion wrote:
+> Well, that's just vague enough to be worthless.
+>
+> While on the subject, anyone know of any Gmail alternative with a web
+> interface comparable to Gmail's basic HTML view? If it adds in such
+> missing features such as forcing replay to list as default when
+> replying to messages from mailing lists, manually merging
+> conversations, and having folders/labels for contacts, that would be
+> nice to.
+>
+> Fortunately, I don't use many of Google's services(Gmail, search,
+> YouTube) and Gmail is the only one that really requires logging in
+> often enough to maintain a persistent cookie on my personal machine.
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
 
 _______________________________________________
 Blinux-list mailing list
