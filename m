@@ -2,153 +2,104 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 78F134CE4F2
-	for <lists+blinux-list@lfdr.de>; Sat,  5 Mar 2022 14:03:44 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2D0E44CE56A
+	for <lists+blinux-list@lfdr.de>; Sat,  5 Mar 2022 16:03:39 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1646485423;
+	s=mimecast20190719; t=1646492618;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=xvYSdPoc50O97+qkHH6hH3eHjb7CzyRWOOtl3iCcKCY=;
-	b=R7tJdd+om7fA4ROj5SW89dipzG0NfKbVH+6lfRPR40Cgm9II6VAdUrMdwh8ElYKH0sa+Ey
-	KaYNdApHLpH4QxJwRYjsscr+oqFkchHWx0f1liAp1jSQilclHfYs22xSg/0JQeA6o4vgiV
-	XpZqxYewthFfQNsPdvyCsxdD65inAcU=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=f/Q3HGE3JW1Oz0WrtD2ergLvkOYRyPEwp5E6Dcn2W4w=;
+	b=Nu9FzYTB90yZFyAsDEYna3bxrTYtCSFQpn1OpKCPxvAAuvYgoykra0e2lE8aZFfWQTwDrY
+	E7A835EcD0s/VoiTe/KMAJoH3gjcqyvQd+eMU6HcF+VnXSo+1MC2Kwrl62+yPEVuv0cZZi
+	YugkZrSSA5GmuhnLBd4ZT0HlKMpaNZQ=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-170-Pl8md09ONnyTXjH2ON8z1g-1; Sat, 05 Mar 2022 08:03:41 -0500
-X-MC-Unique: Pl8md09ONnyTXjH2ON8z1g-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+ us-mta-302-CTSqLXNKPTqW4yipZvQpEA-1; Sat, 05 Mar 2022 10:03:34 -0500
+X-MC-Unique: CTSqLXNKPTqW4yipZvQpEA-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 94695824FA7;
-	Sat,  5 Mar 2022 13:03:35 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CD3717B8D5;
-	Sat,  5 Mar 2022 13:03:28 +0000 (UTC)
-Received: from lists01.pubmisc.prod.ext.phx2.redhat.com (lists01.pubmisc.prod.ext.phx2.redhat.com [10.5.19.33])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 80CDF65D0A;
-	Sat,  5 Mar 2022 13:03:13 +0000 (UTC)
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com
-	[10.11.54.2])
-	by lists01.pubmisc.prod.ext.phx2.redhat.com (8.13.8/8.13.8) with ESMTP
-	id 225D0fbv005226 for <blinux-list@listman.util.phx.redhat.com>;
-	Sat, 5 Mar 2022 08:00:42 -0500
-Received: by smtp.corp.redhat.com (Postfix)
-	id C6B4D40D282B; Sat,  5 Mar 2022 13:00:41 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 377A4811E76;
+	Sat,  5 Mar 2022 15:03:33 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 484F7141DC28;
+	Sat,  5 Mar 2022 15:03:24 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 7B5BD1931BE1;
+	Sat,  5 Mar 2022 15:03:23 +0000 (UTC)
+Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com
-	(mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id C2DE340D2828
-	for <blinux-list@redhat.com>; Sat,  5 Mar 2022 13:00:41 +0000 (UTC)
-Received: from us-smtp-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AC1862A5954C
-	for <blinux-list@redhat.com>; Sat,  5 Mar 2022 13:00:41 +0000 (UTC)
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com
-	[209.85.221.49]) by relay.mimecast.com with ESMTP with STARTTLS
-	(version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
-	us-mta-158-bgAsVmW2M0i7auVp2E8c2w-1; Sat, 05 Mar 2022 08:00:40 -0500
-X-MC-Unique: bgAsVmW2M0i7auVp2E8c2w-1
-Received: by mail-wr1-f49.google.com with SMTP id u1so16421387wrg.11
-	for <Blinux-list@redhat.com>; Sat, 05 Mar 2022 05:00:39 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20210112;
-	h=x-gm-message-state:message-id:date:mime-version:user-agent
-	:content-language:to:from:subject:content-transfer-encoding;
-	bh=nQoap28w/PwBZpNcihct1mwXFo8OmkF04mkXvRJEG2c=;
-	b=QgmwihX9ZJlAA0Z6sZlIW9PAx0fvoRLrKhVbM9SGoJ90f7/2TV7cVl398ms+hRyvOE
-	e41qOzJXH3pEEIBc6Ch00ROkikNpiR/rr7HnQTKPvTVp/DbbskTPBD2Y8lobtYlI2UGS
-	l2OkyygeStmPETgUabvgQpB/VLgql08bqWZFPSu9H2ZlE/5o2gtdJ8g6e9fPcO5gWafF
-	DK35peXp5PmGdtcHsBYA+Jtg8liazAC1A3G+cpSzBUsrMDfkJdQ1Xn2okWwwWAR3n6/V
-	uM0hhQ7U6Abl+j+2sSTx4A0K01NPrJi6afYEcA6hIKN+JHBE82OILle/OLwQzN9oXTfb
-	filA==
-X-Gm-Message-State: AOAM532dZURrFY4JS4/EHLsQMWirGPc5qNUVe9k7QcRQml26JVlWOX5g
-	5yPmEtKTPMf7HnuvLXbrXzPtcfd5XWBr9w==
-X-Google-Smtp-Source: ABdhPJxhk1tJXWwFDBGBNiZtiTQTAbHHf1jDAAGQOmwCVZoMbCSWGbPx69LbJhWqOVLZ+IYu174i1Q==
-X-Received: by 2002:a5d:4485:0:b0:1ef:d619:4de2 with SMTP id
-	j5-20020a5d4485000000b001efd6194de2mr2433004wrq.88.1646485238481;
-	Sat, 05 Mar 2022 05:00:38 -0800 (PST)
-Received: from [192.168.8.130] ([197.184.176.12])
-	by smtp.gmail.com with ESMTPSA id
-	q124-20020a1ca782000000b00382b3260778sm12711501wme.3.2022.03.05.05.00.36
-	for <Blinux-list@redhat.com>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Sat, 05 Mar 2022 05:00:37 -0800 (PST)
-Message-ID: <8682c221-924e-6c20-8595-4f4fd9c3ff37@gmail.com>
-Date: Sat, 5 Mar 2022 15:00:34 +0200
+Date: Sat, 5 Mar 2022 10:00:53 -0500
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
-	Thunderbird/91.6.1
-To: Linux for blind general discussion <Blinux-list@redhat.com>
-Subject: Keychron K10 keyboard and Linux
-X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection
-	Definition; Similar Internal Domain=false;
-	Similar Monitored External Domain=false;
-	Custom External Domain=false; Mimecast External Domain=false;
-	Newly Observed Domain=false; Internal User Name=false;
-	Custom Display Name List=false; Reply-to Address Mismatch=false;
-	Targeted Threat Dictionary=false;
-	Mimecast Threat Dictionary=false; Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
-X-loop: blinux-list@redhat.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.6.1
+Subject: Re: Snap, Flatpak and/or AppImages?
+To: blinux-list@redhat.com
+References: <8111ae82-7282-633d-6d59-b0a76b3a4460@gmail.com>
+ <01a237c2-5a31-5b77-9212-e0b7d618fe45@free2.ml>
+ <81891cf3-8c55-9710-fb4f-0b172f69fa95@free2.ml>
+ <f6f1709d-1e1f-6979-8036-a1a261f6f330@protonmail.com>
+ <37d011eb-16c0-f52d-1e12-f6e422ca4c5c@free2.ml>
+In-Reply-To: <37d011eb-16c0-f52d-1e12-f6e422ca4c5c@free2.ml>
+Message-ID: <mailman.2.1646492601.61339.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
-X-Mailman-Version: 2.1.12
-Precedence: junk
-Reply-To: blinux-list@redhat.com
+X-Mailman-Version: 2.1.29
+Precedence: list
 List-Id: Linux for blind general discussion <blinux-list.redhat.com>
 List-Unsubscribe: <https://listman.redhat.com/mailman/options/blinux-list>,
-	<mailto:blinux-list-request@redhat.com?subject=unsubscribe>
-List-Archive: <https://listman.redhat.com/archives/blinux-list>
+ <mailto:blinux-list-request@redhat.com?subject=unsubscribe>
+List-Archive: <http://listman.redhat.com/archives/blinux-list/>
 List-Post: <mailto:blinux-list@redhat.com>
 List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
-	<mailto:blinux-list-request@redhat.com?subject=subscribe>
-Sender: blinux-list-bounces@redhat.com
+ <mailto:blinux-list-request@redhat.com?subject=subscribe>
+Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Hi all,
-
-
-A good friend of mine just sent me a Keychron K10 mechanical keyboard.
-
-
-It supports both the Mac as well as the Windows keyboard layouts. 
-However, for some reason, on the Linux system, I found that many 
-functions doesn't work correctly if you have the keyboard set for 
-Windows. There are some things you have to take in to account if you are 
-using a Mac layout, for example, the Super and alt keys are switched 
-around, and you need to hit FN with your function keys, though I really 
-have no issue with this.
-
-
-The one question I have, how do you connect a keyboard using Bluetooth 
-to your Linux machine from a TTY? I'd prefer if this happens 
-automatically when the machine have to be restarted, getting to the 
-physical laptop is rather difficult at the moment, since it's on the 
-back of my desk.
-
--- 
-Warm regards,
-
-Brandt Steenkamp
-
-Sent using Thunderbird from the Slint machine
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+IMKgwqDCoCBJbWFnZXMgYXJlIGdlbmVyYWxseSB1c2VkIGZvciBuZXcgaW5zdGFsbGF0aW9uIG9y
+IGxpdmUgYm9vdCBzdWNoIGFzIApmb3IgcmVwYWlyIGRpc2tzLsKgIFBhY2thZ2UgbWFuYWdlcnMg
+YXJlIGJlc3QgdG8gYWRkLCByZW1vdmUsIG9yIHVwZGF0ZSAKYW4gYWxyZWFkeSBpbnN0YWxsZWQg
+c3lzdGVtLsKgIEkgdGhpbmsgd2hvZXZlciBzdGFydGVkIHRoaXMgdGhyZWFkIApkb2Vzbid0IHVu
+ZGVyc3RhbmQgdGhhdCB5b3UgbmVlZCB0byB1c2UgdGhlIGNvcnJlY3QgdG9vbCBmb3IgdGhlIGpv
+YiB5b3UgCmFyZSB0cnlpbmcgdG8gYWNjb21wbGlzaC4KCklmIHlvdXIgYWxyZWFkeSBpbnN0YWxs
+ZWQgc3lzdGVtIGRvZXNuJ3QgaGF2ZSBhbiBlZGl0b3Igb3IgYSBnYW1lIHlvdSAKd2FudCB0byB1
+c2UsIHRoZW4gdGhlIHBhY2thZ2UgbWFuYWdlciBhbGxvd3MgeW91IHRvIGFkZCBpdC4gUmVkaGF0
+IHVzZXMgCnRoZSAncnBtJyBwYWNrYWdlIG1hbmFnZXIsIGFuZCBvdGhlciBkaXN0cmlidXRpb25z
+IGNob29zZSBkaWZmZXJlbnQgdG9vbHMuCgoKCk9uIDMvNC8yMDIyIDU6MDggUE0sIExpbnV4IGZv
+ciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gU28gaXQgZG9lcyBzZWVtIHRoZW4g
+bGlrZSBhcHBJbWFnZXMgYXJlIHRoZSB3YXkgdG8gZ28uIEl0IHNvdW5kcyBsaWtlIAo+IHdlIGdl
+dCB0aGUgYWJzb2x1dGUgYmVzdCBvZiBldmVyeSBwb3NzaWJsZSBzY2VuYXJpbyBpbiB0aGlzIHNl
+ZW1pbmdseSAKPiBhbnRpcXVhdGVkIGJ1dCBhY3R1YWxseSBoaWdobHkgaW5ub3ZhdGl2ZSBwb3J0
+YWJsZSBhcHAgdGVjaG5vbG9neS4gV2h5IAo+IG9oIHdoeSBkbyB3ZSBoYXZlIHBlb3BsZSBzYXlp
+bmcgdGhhdCBmbGF0cGFrIGlzIHRoZSBmdXR1cmUsIG9yIHdvcnNlLCAKPiBzbmFwZCBpcyB0aGUg
+ZnV0dXJlLCB3aGVuIHdlIGhhdmUgYXBwSW1hZ2VzIHRoYXQgYXJlIGhpZ2hseSBwb3J0YWJsZSwg
+Cj4gYW5kIGNhbiBldmVuIGJlIHNhbmRib3hlZCBpbiBtdWNoIHRoZSBzYW1lIHdheSwgYnV0IGFy
+ZSBtdWNoIG1vcmUgCj4gdmVyc2F0aWxlIG93aW5nIHRvIHRoZSBwb3J0YWJpbGl0eT8gSXQncyBy
+ZWFsbHkgbmljZSB0byBiZSBhYmxlIHRvIHB1dCAKPiBhbGwgdGhlIGFwcEltYWdlcyBJIG5lZWQg
+b24gYSBVU0IgZHJpdmUgYW5kIGp1c3QgdXNlIHRoZW0gb24gYW55IExpbnV4IAo+IGNvbXB1dGVy
+LiBJIGd1ZXNzIHRoZSBvbmUgZHJhd2JhY2sgSSBjYW4gc2VlIGlzIHRoZSB1cGRhdGUgcHJvYmxl
+bSwgCj4gd2hlcmUgbW9zdCBkb24ndCB1cGRhdGUgdGhlbXNlbHZlcywgYnV0IGhhdmluZyByZXBv
+c2l0b3JpZXMgYW5kIAo+IGFwcEltYWdlIG1hbmFnZXJzIGF2YWlsYWJsZSB3b3VsZCBzZWVtIHRv
+IHJlc29sdmUgdGhhdCBpc3N1ZSwgYWxzbyBpbiAKPiBhIGhpZ2hseSBwb3J0YWJsZSB3YXkuCj4K
+PiB+S3lsZQo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4g
+aHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgt
+bGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4u
+cmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cg==
 
