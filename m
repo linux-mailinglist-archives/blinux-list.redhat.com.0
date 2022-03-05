@@ -2,51 +2,51 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2D0E44CE56A
-	for <lists+blinux-list@lfdr.de>; Sat,  5 Mar 2022 16:03:39 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 635A54CE645
+	for <lists+blinux-list@lfdr.de>; Sat,  5 Mar 2022 18:39:12 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1646492618;
+	s=mimecast20190719; t=1646501951;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=f/Q3HGE3JW1Oz0WrtD2ergLvkOYRyPEwp5E6Dcn2W4w=;
-	b=Nu9FzYTB90yZFyAsDEYna3bxrTYtCSFQpn1OpKCPxvAAuvYgoykra0e2lE8aZFfWQTwDrY
-	E7A835EcD0s/VoiTe/KMAJoH3gjcqyvQd+eMU6HcF+VnXSo+1MC2Kwrl62+yPEVuv0cZZi
-	YugkZrSSA5GmuhnLBd4ZT0HlKMpaNZQ=
+	bh=fbCglHWtOjPTHg0nQtUDrclIwB7kooiWCaLTGiPgDk8=;
+	b=MQfjP7DxtAzpFPMRhmSEzo4fE57NkUsCYHJTmaLjDHhDs8jIrDVdTUF1PsHrCeG5Lv7Jrv
+	6RxX4gF1uEKFjf6ncN9AlDsRicZ1p2uxVG9L8NYiYBheIUGvu2BMA8f3voqM6AAUH5YP4r
+	doHSq9mk2YeVLVjuMxu+u6O2QpHeDrc=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-302-CTSqLXNKPTqW4yipZvQpEA-1; Sat, 05 Mar 2022 10:03:34 -0500
-X-MC-Unique: CTSqLXNKPTqW4yipZvQpEA-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+ us-mta-536-ZC73sYK0Oauee2IqQM4GYw-1; Sat, 05 Mar 2022 12:39:07 -0500
+X-MC-Unique: ZC73sYK0Oauee2IqQM4GYw-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 377A4811E76;
-	Sat,  5 Mar 2022 15:03:33 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4E67F811E75;
+	Sat,  5 Mar 2022 17:39:06 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 484F7141DC28;
-	Sat,  5 Mar 2022 15:03:24 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id E9139C080A0;
+	Sat,  5 Mar 2022 17:39:00 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 7B5BD1931BE1;
-	Sat,  5 Mar 2022 15:03:23 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 40A3A1931BE9;
+	Sat,  5 Mar 2022 17:39:00 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sat, 5 Mar 2022 10:00:53 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.6.1
+Mime-Version: 1.0 (Mac OS X Mail 15.0 \(3693.60.0.1.1\))
 Subject: Re: Snap, Flatpak and/or AppImages?
-To: blinux-list@redhat.com
+Date: Sat, 5 Mar 2022 19:38:51 +0200
 References: <8111ae82-7282-633d-6d59-b0a76b3a4460@gmail.com>
  <01a237c2-5a31-5b77-9212-e0b7d618fe45@free2.ml>
  <81891cf3-8c55-9710-fb4f-0b172f69fa95@free2.ml>
  <f6f1709d-1e1f-6979-8036-a1a261f6f330@protonmail.com>
  <37d011eb-16c0-f52d-1e12-f6e422ca4c5c@free2.ml>
-In-Reply-To: <37d011eb-16c0-f52d-1e12-f6e422ca4c5c@free2.ml>
-Message-ID: <mailman.2.1646492601.61339.blinux-list@redhat.com>
+ <mailman.2.1646492601.61339.blinux-list@redhat.com>
+To: blinux-list@redhat.com
+In-Reply-To: <mailman.2.1646492601.61339.blinux-list@redhat.com>
+X-Content-Filtered-By: Mailman/MimeDel 2.1.29
+Message-ID: <mailman.4.1646501939.61342.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -62,44 +62,65 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-IMKgwqDCoCBJbWFnZXMgYXJlIGdlbmVyYWxseSB1c2VkIGZvciBuZXcgaW5zdGFsbGF0aW9uIG9y
-IGxpdmUgYm9vdCBzdWNoIGFzIApmb3IgcmVwYWlyIGRpc2tzLsKgIFBhY2thZ2UgbWFuYWdlcnMg
-YXJlIGJlc3QgdG8gYWRkLCByZW1vdmUsIG9yIHVwZGF0ZSAKYW4gYWxyZWFkeSBpbnN0YWxsZWQg
-c3lzdGVtLsKgIEkgdGhpbmsgd2hvZXZlciBzdGFydGVkIHRoaXMgdGhyZWFkIApkb2Vzbid0IHVu
-ZGVyc3RhbmQgdGhhdCB5b3UgbmVlZCB0byB1c2UgdGhlIGNvcnJlY3QgdG9vbCBmb3IgdGhlIGpv
-YiB5b3UgCmFyZSB0cnlpbmcgdG8gYWNjb21wbGlzaC4KCklmIHlvdXIgYWxyZWFkeSBpbnN0YWxs
-ZWQgc3lzdGVtIGRvZXNuJ3QgaGF2ZSBhbiBlZGl0b3Igb3IgYSBnYW1lIHlvdSAKd2FudCB0byB1
-c2UsIHRoZW4gdGhlIHBhY2thZ2UgbWFuYWdlciBhbGxvd3MgeW91IHRvIGFkZCBpdC4gUmVkaGF0
-IHVzZXMgCnRoZSAncnBtJyBwYWNrYWdlIG1hbmFnZXIsIGFuZCBvdGhlciBkaXN0cmlidXRpb25z
-IGNob29zZSBkaWZmZXJlbnQgdG9vbHMuCgoKCk9uIDMvNC8yMDIyIDU6MDggUE0sIExpbnV4IGZv
-ciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gU28gaXQgZG9lcyBzZWVtIHRoZW4g
-bGlrZSBhcHBJbWFnZXMgYXJlIHRoZSB3YXkgdG8gZ28uIEl0IHNvdW5kcyBsaWtlIAo+IHdlIGdl
-dCB0aGUgYWJzb2x1dGUgYmVzdCBvZiBldmVyeSBwb3NzaWJsZSBzY2VuYXJpbyBpbiB0aGlzIHNl
-ZW1pbmdseSAKPiBhbnRpcXVhdGVkIGJ1dCBhY3R1YWxseSBoaWdobHkgaW5ub3ZhdGl2ZSBwb3J0
-YWJsZSBhcHAgdGVjaG5vbG9neS4gV2h5IAo+IG9oIHdoeSBkbyB3ZSBoYXZlIHBlb3BsZSBzYXlp
-bmcgdGhhdCBmbGF0cGFrIGlzIHRoZSBmdXR1cmUsIG9yIHdvcnNlLCAKPiBzbmFwZCBpcyB0aGUg
-ZnV0dXJlLCB3aGVuIHdlIGhhdmUgYXBwSW1hZ2VzIHRoYXQgYXJlIGhpZ2hseSBwb3J0YWJsZSwg
-Cj4gYW5kIGNhbiBldmVuIGJlIHNhbmRib3hlZCBpbiBtdWNoIHRoZSBzYW1lIHdheSwgYnV0IGFy
-ZSBtdWNoIG1vcmUgCj4gdmVyc2F0aWxlIG93aW5nIHRvIHRoZSBwb3J0YWJpbGl0eT8gSXQncyBy
-ZWFsbHkgbmljZSB0byBiZSBhYmxlIHRvIHB1dCAKPiBhbGwgdGhlIGFwcEltYWdlcyBJIG5lZWQg
-b24gYSBVU0IgZHJpdmUgYW5kIGp1c3QgdXNlIHRoZW0gb24gYW55IExpbnV4IAo+IGNvbXB1dGVy
-LiBJIGd1ZXNzIHRoZSBvbmUgZHJhd2JhY2sgSSBjYW4gc2VlIGlzIHRoZSB1cGRhdGUgcHJvYmxl
-bSwgCj4gd2hlcmUgbW9zdCBkb24ndCB1cGRhdGUgdGhlbXNlbHZlcywgYnV0IGhhdmluZyByZXBv
-c2l0b3JpZXMgYW5kIAo+IGFwcEltYWdlIG1hbmFnZXJzIGF2YWlsYWJsZSB3b3VsZCBzZWVtIHRv
-IHJlc29sdmUgdGhhdCBpc3N1ZSwgYWxzbyBpbiAKPiBhIGhpZ2hseSBwb3J0YWJsZSB3YXkuCj4K
-PiB+S3lsZQo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4g
-aHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgt
-bGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4u
-cmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cg==
+Hi,
+
+I understand this, not all package managers have all packages you may need, I know this, Ubuntu 20.04 LTS does not have BRLTTY above 6.3, which doesn't support my display, that's why I cannot run Ubuntu.
+
+This is where AppImages, Snap and Flatpak can really make a difference, and it already does.
+
+Please note, I used BRLTTY and Ubuntu as an example.
+
+Warm regards,
+
+Brandt Steenkamp
+
+Sent from my MacBook Air
+
+Contact:
+
+Phone: +27 (0)60 525 9181 <tel://+27605259181>
+
+Email: brandt.steenkamp@gmail.com <mailto:brandt.steenkamp@gmail.com>
+
+Twitter: @brandtsteenkamp <http://www.twitter.com/brandtsteenkamp>
+
+
+
+
+> On 05 Mar 2022, at 17:00, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> 
+>     Images are generally used for new installation or live boot such as for repair disks.  Package managers are best to add, remove, or update an already installed system.  I think whoever started this thread doesn't understand that you need to use the correct tool for the job you are trying to accomplish.
+> 
+> If your already installed system doesn't have an editor or a game you want to use, then the package manager allows you to add it. Redhat uses the 'rpm' package manager, and other distributions choose different tools.
+> 
+> 
+> 
+> On 3/4/2022 5:08 PM, Linux for blind general discussion wrote:
+>> So it does seem then like appImages are the way to go. It sounds like we get the absolute best of every possible scenario in this seemingly antiquated but actually highly innovative portable app technology. Why oh why do we have people saying that flatpak is the future, or worse, snapd is the future, when we have appImages that are highly portable, and can even be sandboxed in much the same way, but are much more versatile owing to the portability? It's really nice to be able to put all the appImages I need on a USB drive and just use them on any Linux computer. I guess the one drawback I can see is the update problem, where most don't update themselves, but having repositories and appImage managers available would seem to resolve that issue, also in a highly portable way.
+>> 
+>> ~Kyle
+>> 
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>> 
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
