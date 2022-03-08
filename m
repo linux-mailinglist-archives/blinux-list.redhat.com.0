@@ -1,45 +1,52 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id C95E54D18A0
-	for <lists+blinux-list@lfdr.de>; Tue,  8 Mar 2022 14:04:20 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7796D4D190D
+	for <lists+blinux-list@lfdr.de>; Tue,  8 Mar 2022 14:21:20 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1646744659;
+	s=mimecast20190719; t=1646745679;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Ph/JDrDyqVj2bDIZew6S5HuJuWfvqpn3xi+TPGftJn4=;
-	b=GSH+rahzpUsECywTscjfHl8qCd2cIdiJGKgiRtA2JmKM6Qd1l6zoh6DXw9OFVNvuHj49MH
-	OK2k5APRHQO/yAskQgtQbLuOrhwE/Ek1fTX+MPcahAOAWjLIy2pbQ/WBKauBY9FfCkmVAL
-	IOEz/WdGwv0LqhsWoHbH8Fvhpr2SvQ8=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=AJSR+Q4GaLzfgOWmxqUt/Zile7bwNhdUIb9RvJBo+/Y=;
+	b=fvuRj3xfUDun221ixtcpwBDkbS1VvGlhwph2QAx+owQzIDbuqqcrdDFJfGp1QrPZruSYg/
+	vxyM3GyUE5SgIFpWPddpWcx61nsiQ5HPmCrazrBrKo2xMKO+Z5UWyjFvHQ1LAlb8+sw0JM
+	vX4GLHVvBbQ5T4MPP8VJWmPSOQxM7Wg=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-454-wwY4Jro_PGy12G_guea5Zw-1; Tue, 08 Mar 2022 08:04:18 -0500
-X-MC-Unique: wwY4Jro_PGy12G_guea5Zw-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-275-D4sqd4bDMheGagmF6BgZlA-1; Tue, 08 Mar 2022 08:21:16 -0500
+X-MC-Unique: D4sqd4bDMheGagmF6BgZlA-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 552851C168E2;
-	Tue,  8 Mar 2022 13:04:16 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7150C811E81;
+	Tue,  8 Mar 2022 13:21:14 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 412AE698CD4;
-	Tue,  8 Mar 2022 13:04:16 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id D345441136E5;
+	Tue,  8 Mar 2022 13:21:13 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id B0BA0196BB9C;
-	Tue,  8 Mar 2022 13:04:15 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 511FF196BBA2;
+	Tue,  8 Mar 2022 13:21:13 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Tue, 8 Mar 2022 13:04:20 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.6.1
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Kodi and Kodi screenreader, any updates/luck?
-Message-ID: <mailman.357.1646744655.111209.blinux-list@redhat.com>
+X-Spam-Flag: NO
+X-Spam-Score: -1
+X-Spam-Level: 
+X-Spam-Status: No, score=-1 tagged_above=-999 required=6.2
+ tests=[ALL_TRUSTED=-1] autolearn=disabled
+Mime-Version: 1.0 (Mac OS X Mail 15.0 \(3693.60.0.1.1\))
+Subject: Re: Starting lightdm in text mode
+Date: Tue, 8 Mar 2022 14:15:14 +0100
+References: <mailman.343.1646741549.111209.blinux-list@redhat.com>
+ <mailman.328.1646744428.111206.blinux-list@redhat.com>
+To: blinux-list@redhat.com
+In-Reply-To: <mailman.328.1646744428.111206.blinux-list@redhat.com>
+Message-ID: <mailman.388.1646745673.111201.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -55,29 +62,44 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I've been poking at this for the past few days since I want to set up a 
-media server on my home network for photos, videos, etc.
+Hi!
+Can it be something with the  BRLTTY that  might have caused this to happen.
+You might ask on the BRLTTY list.
+/A
 
-So I figured okay. I know how to get Kodi to connect to that and it's 
-something my folks are familiar with. I'll use that.
-
-Now to my problem. I know out of the box it doesn't come with a 
-screenreader. I know in older versions I could just grab it fromm the 
-repo but that doesn't work any more.
-
-And so, I googled about it, and found a forum thread about it, but that 
-didn't end up working. So....if anyone's on here who uses Kodi with the 
-screenreader, any luck with it/any working updates or should I move to 
-something else?
+> 8 mars 2022 kl. 14:00 skrev Linux for blind general discussion <blinux-list@redhat.com>:
+> 
+> No idea...
+> 
+> But related question, I do wonder if there's any text mode only display managers. yes I know you can startx aftr login, but I do like how display managers give you the F1-F6 TTY, something I can't, AFAIK and correct me if I'm wrong, get with startx?
+> 
+> 
+> I'm not sure if downgrading lightdm would solv ethe issue? If you're on Arch grab the downgrade package from the AUR. It may be available in other distros, I honestly dunno if it is or not, and I orget how oyu downgrade packages in Debian/Ubuntu or Fedora and no clue on Slackware stuff
+> 
+> 
+> On 3/8/22 11:31, Linux for blind general discussion wrote:
+>> Hello,
+>> 
+>> I use Debian in command mode. Until about a year ago, when I booted  up, lightdm would start in text mode and ask for user and password. It would then start Mate with Orca. I could use the GUI by pressing Alt+F7. Then it suddenly started setting the screen to not-text mode.
+>> To be able to use the machine in my  primary uses I had to disable lightdm. This meant that I couldn't use Mate. I just switched to Windows for a GUI. How can I configure lightdm to not put the screen in grap;hics mode and to again ask for username and password in text mode where brltty can handle them. Then start the GUI in tty7.
+>> 
+>> Thanks,
+>> John
+>> 
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
