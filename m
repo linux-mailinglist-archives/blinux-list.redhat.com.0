@@ -2,47 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id D52674D2451
-	for <lists+blinux-list@lfdr.de>; Tue,  8 Mar 2022 23:32:41 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 740C44D4464
+	for <lists+blinux-list@lfdr.de>; Thu, 10 Mar 2022 11:19:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1646778760;
+	s=mimecast20190719; t=1646907598;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=sUduhBvK5fXOmeUMjWMHXX/FcXwn0ImJ0op9lV1knzw=;
-	b=istVQVNX1av2j73w2dIBNHcYZ0AhiDhGaA1CG2ICoTZlg3YCbOVE1YlwOzWMfkXMSL9pIk
-	MlPdla70u2DBSDj1lYTCfEgm103pu3DNMoT0U3qBHfPZ6x5YqNO/naZ7KR73BoSQhZmBvw
-	UkK5UA6CoJ5vDb4XoocxA831lfdDsEs=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=loT79jZFgA3tCyNz21DbinZFXNLyZlH5uIddfy1ZlC0=;
+	b=GMC+cS9SC0uJS9Xb5XwnnjyC2EgUubjsv6wUv2+jm3XhjMXz+eBipYe8eQ7QE7cDd8TzuX
+	B//i/EAeCpYlwxMNgx56owJjJPeqq67NWvlk7KgDDQvPTOu0wIUAzBJPAYPwVMBfjKTAuN
+	g8Dlh6HDM7NxAAD9mhXWSklCiGDCTxQ=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-547-_JijNnhMP-iEY7ls3HlWJQ-1; Tue, 08 Mar 2022 17:32:37 -0500
-X-MC-Unique: _JijNnhMP-iEY7ls3HlWJQ-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+ us-mta-439-jkzLMnPpMH2txYZpmI6QZA-1; Thu, 10 Mar 2022 05:19:55 -0500
+X-MC-Unique: jkzLMnPpMH2txYZpmI6QZA-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8A09F811E78;
-	Tue,  8 Mar 2022 22:32:35 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A8A92299E744;
+	Thu, 10 Mar 2022 10:19:48 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 8292C400F3FE;
-	Tue,  8 Mar 2022 22:32:32 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id B00DB463EB3;
+	Thu, 10 Mar 2022 10:19:37 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 37EE0195F41E;
-	Tue,  8 Mar 2022 22:32:32 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id E613F195357D;
+	Thu, 10 Mar 2022 10:19:36 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Tue, 8 Mar 2022 17:31:12 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: zoom-linux fail
-In-Reply-To: <mailman.421.1646776060.111206.blinux-list@redhat.com>
-References: <mailman.421.1646772618.111205.blinux-list@redhat.com>
- <mailman.412.1646773207.111206.blinux-list@redhat.com>
- <mailman.421.1646776060.111206.blinux-list@redhat.com>
+Date: Thu, 10 Mar 2022 11:19:16 +0100
 MIME-Version: 1.0
-Message-ID: <mailman.530.1646778751.111205.blinux-list@redhat.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.6.1
+Subject: Re: Starting lightdm in text mode
+To: blinux-list@redhat.com
+References: <mailman.343.1646741549.111209.blinux-list@redhat.com>
+In-Reply-To: <mailman.343.1646741549.111209.blinux-list@redhat.com>
+Message-ID: <mailman.1241.1646907576.111208.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,63 +58,40 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-I logged in with the desktop app but couldn't get onto any of the menu
-controls with the keyboard.  This zoom-linux app isn't ready for prime
-time.  I used f7 to enable caret navigation and tried with flat review.
-A browser with web interface probably will work better though a new
-version of the zoom-linux app is available I couldn't move onto the button
-to do the update.
-I'm removing the zoom-linux app from my machine since it is taking up
-space and providing no utility.
-
-
-On Tue, 8 Mar 2022, Linux for blind general discussion wrote:
-
-> I tried with the desktop app.  Chrome isn't on this system but could put
-> it on if that would help.
->
->
-> On Tue, 8 Mar 2022, Linux for blind general discussion wrote:
->
-> > How are you trying to sign in? Are you using a browser, and if so, which one,
-> > or are you trying to use the desktop app, which I believe may be based on
-> > Chrome in some way? From browsers, specifically Firefox and Brave here, I was
-> > able to open a dropdown that said "host a meeting" that opened up and allowed
-> > me to select "with video off" or "with video on." Once I selected which I
-> > wanted, a new page loaded asking me for an email and a password. Under this
-> > there are links in case you forgot your password or to read the terms of
-> > service and privacy policy and a button that says "Sign In." I have never
-> > hosted a Zoom meeting, although I did once set it up, so I didn't go any
-> > further because I don't remember my password. But as far as I could see, the
-> > email and password were the only things needed once I decided whether I wanted
-> > to host a meeting with or without video. Hope it helps.
-> >
-> > ~Kyle
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGkgSm9obiwKCkkgZmFpbCB0byBzZWUgaG93IG5vdCBoYXZpbmcgbGlnaHRkbSBpbnN0YWxsZWQg
+Y2FuZSBwcmV2ZW50IHlvdSB0byBzdGFydCBNYXRlLgoKSGVyZSAoU2xpbnQsIG5vdCBEZWJpYW4p
+LCBhZnRlciBoYXZpbmcgc2VsZWN0ZWQgTWF0ZSBhcyBkZXNrdG9wIHdpdGggdGhlCnNlc3Npb24t
+Y2hvb3NlciBjb21tYW5kLCBqdXN0IHR5cGluZyBzdGFydHggc3RhcnRzIE1hdGUuCgpUaGVuIGZy
+b20gTWF0ZSBqdXN0IHByZXNzaW5nIEN0cmwrQWx0K0YyIHRocm91Z2ggQ3RybCtBbHQrRjYgbWFr
+ZSB5b3Ugc3dpdGNoIG9uZQpvZiB0aGUgY29uc29sZXMgKHR0eTIgdGhyb3VnaCB0dHk2KSwga2Vl
+cGluZyBCcmFpbGxlIGluIGFsbCBlbnZpcm9ubWVudHMuCgpZb3UgY2FuIGFsc28gc3dpdGNoIGJh
+Y2sgdG8gTWF0ZSBwcmVzc2luZyBBbHQrRjcgYW5kIGFsc28gc3dpdGNoIHRvIGZyb21hIGEKY29u
+c29sZSB0byBhbm90aGVyIG9uZSAobnVtYmVyIG4pIHByZXNzaW5nIEFsdCtGbi4KCkFueXdheSB5
+b3UgY291bGQgcG9zdCBpbiB0aGUgZGViaWFuLWFjY2Vzc2liaWx0eSBtYWlsaW5nIGxpc3QgdG8g
+Z2V0IGhlbHAgb24KRGViaWFuIHNwZWNpZmljIGlzc3Vlcy4KCkNoZWVycywKRGlkaWVyCi0tCkRp
+ZGllciBTcGFpZXIKU2xpbnQgbWFpbnRhaW5lcgoKTGUgMDgvMDMvMjAyMiDDoCAxMjozMSwgTGlu
+dXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3JpdMKgOgo+IEhlbGxvLAo+IAo+
+IEkgdXNlIERlYmlhbiBpbiBjb21tYW5kIG1vZGUuIFVudGlsIGFib3V0IGEgeWVhciBhZ28sIHdo
+ZW4gSSBib290ZWQgIHVwLCBsaWdodGRtIHdvdWxkIHN0YXJ0IGluIHRleHQgbW9kZSBhbmQgYXNr
+IGZvciB1c2VyIGFuZCBwYXNzd29yZC4gSXQgd291bGQgdGhlbiBzdGFydCBNYXRlIHdpdGggT3Jj
+YS4gSSBjb3VsZCB1c2UgdGhlIEdVSSBieSBwcmVzc2luZyBBbHQrRjcuIFRoZW4gaXQgc3VkZGVu
+bHkgc3RhcnRlZCBzZXR0aW5nIHRoZSBzY3JlZW4gdG8gbm90LXRleHQgbW9kZS4gCj4gVG8gYmUg
+YWJsZSB0byB1c2UgdGhlIG1hY2hpbmUgaW4gbXkgIHByaW1hcnkgdXNlcyBJIGhhZCB0byBkaXNh
+YmxlIGxpZ2h0ZG0uIFRoaXMgbWVhbnQgdGhhdCBJIGNvdWxkbid0IHVzZSBNYXRlLiBJIGp1c3Qg
+c3dpdGNoZWQgdG8gV2luZG93cyBmb3IgYSBHVUkuIEhvdyBjYW4gSSBjb25maWd1cmUgbGlnaHRk
+bSB0byBub3QgcHV0IHRoZSBzY3JlZW4gaW4gZ3JhcDtoaWNzIG1vZGUgYW5kIHRvIGFnYWluIGFz
+ayBmb3IgdXNlcm5hbWUgYW5kIHBhc3N3b3JkIGluIHRleHQgbW9kZSB3aGVyZSBicmx0dHkgY2Fu
+IGhhbmRsZSB0aGVtLiBUaGVuIHN0YXJ0IHRoZSBHVUkgaW4gdHR5Ny4KPiAKPiBUaGFua3MsCj4g
+Sm9obgo+IAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+QmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9s
+aXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo=
 
