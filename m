@@ -1,43 +1,48 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 075D64D472C
-	for <lists+blinux-list@lfdr.de>; Thu, 10 Mar 2022 13:43:40 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id D7C4D4D4798
+	for <lists+blinux-list@lfdr.de>; Thu, 10 Mar 2022 14:02:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1646916220;
+	s=mimecast20190719; t=1646917361;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=W95Jm/cEizogopD/jV46JdE/xvg72eYrPXlXghkEcYw=;
-	b=KaZqNo5RnZzTGRka6dsbK1ol6t089YJtfAvPkdL8uzJ8AUIQOX1uUiqMr6kFmOfuMyBeq4
-	a6fXe6Y0PnnZaJ15o8QD8uog+2v12g+4sPmbMID7EvR9V0dYAAzsDHp6Hxin9P35R+n8AE
-	Mpa0tcj33RMDS6u9aV8EQMYY+Qmdlhw=
+	bh=yyZZhK4QvfN+5e39fZ34Vxgg/NmovS92dL9RqtZdW5A=;
+	b=EKqTdgMbJIrSd45+J6KlbhPZ7NQGIEasdYQokAOsqKDT6h1v6KsGxPyuAGlc9eINEu2Ryi
+	zsvyMwpOfuke8PzAKRiqEWyyK2rzFv2kGTlvDO7tRpEhJ4vQR//Dr3LmFBNlrijM4Jyq/z
+	Fna0X2SuOgexbQDJVJdXkBnOPpvkEl4=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-442-1S54sgCnOI-4keclXenBSQ-1; Thu, 10 Mar 2022 07:43:36 -0500
-X-MC-Unique: 1S54sgCnOI-4keclXenBSQ-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+ us-mta-401-53YtYiezPIGlrJXNCytBkQ-1; Thu, 10 Mar 2022 08:02:40 -0500
+X-MC-Unique: 53YtYiezPIGlrJXNCytBkQ-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 034681C06900;
-	Thu, 10 Mar 2022 12:43:35 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 81961296A628;
+	Thu, 10 Mar 2022 13:02:38 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id B0823401E9D;
-	Thu, 10 Mar 2022 12:43:29 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id B45FFC08093;
+	Thu, 10 Mar 2022 13:02:37 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 04130195FD44;
-	Thu, 10 Mar 2022 12:43:29 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 512FB195FD58;
+	Thu, 10 Mar 2022 13:02:37 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 10 Mar 2022 12:43:21 +0000
-To: blinux-list@redhat.com
-Subject: Looking for a lightweight browser....agai
 MIME-Version: 1.0
-Message-ID: <mailman.1159.1646916207.111204.blinux-list@redhat.com>
+In-Reply-To: <mailman.1246.1646909919.111208.blinux-list@redhat.com>
+References: <mailman.343.1646741549.111209.blinux-list@redhat.com>
+ <mailman.1241.1646907576.111208.blinux-list@redhat.com>
+ <mailman.1246.1646909919.111208.blinux-list@redhat.com>
+Date: Thu, 10 Mar 2022 13:02:25 +0000
+Subject: Re: Starting lightdm in text mode
+To: blinux-list@redhat.com
+Message-ID: <mailman.1213.1646917356.111203.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -53,24 +58,37 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-I know I asked this before...but I'll ask again in case things have changed
+In all fairness, console switching seems to vary a bit from
+distro-to-distro, from number of consoles available, to which one is
+used for the xserver when booting direct to the desktop, and whether a
+manually started xserver runs on the console that invoked it or a
+different one... There's probably a way to configure this, but I've
+never heard anyone talking about it.
 
-I'm looking for a browser that both works with Orca, and doesn't take up gigs of memory. looking at you, FF 98...
+My understanding is the most common setups include:
 
-So what are my options asie from terminal browsers that like to fall over an put random escape and ASCII codes in my vim documents?
+12 consoles, autostarted xserver runs on tty1, manually started
+xserver runs on thee console that invoked startx.
 
-I've got Seamonkey and Brave on right now to test and Brave seems more of a memory hog than Seamonkey. I know. I've got 32 gigs of RAM but I still don't want a browser to eat up a few gigs of it.
+User has access to tty1-tty6, autostarted xserver runs on tty7,
+manually started xserver runson ttyn+6 where ttyn is the invoking
+console... I understand the main advantage of this setup is that if
+the xserver becomes unresponsie, you can easily kill it by switching
+back to the invoking console and ctrl+C the startx command.
 
-So any ideas? I can't really use something like w3m or elinks sadly...mostly because it doesn't do what I need it to
+My own system is closer to the former... though I have no idea which
+console it would use if it booted straight into the desktop and I only
+have 10 consoles... I've also heard of people whose systems have 24
+consoles, and for switching, left and right alt are considered
+distinct keys.
 
 _______________________________________________
 Blinux-list mailing list
