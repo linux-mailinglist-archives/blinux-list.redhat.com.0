@@ -1,48 +1,49 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 290724D57D6
-	for <lists+blinux-list@lfdr.de>; Fri, 11 Mar 2022 03:00:46 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8602E4D5818
+	for <lists+blinux-list@lfdr.de>; Fri, 11 Mar 2022 03:24:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1646964045;
+	s=mimecast20190719; t=1646965441;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=xD+pa8p3lboTMvnq798t2N5Y855nPAO6JAkDBcIlYmg=;
-	b=QPV4mujWKSz7J8HchX+dpgVtvnncMYsWCnXtieUmcO+Aa9IwTw3DYhqwbGVJUO60M1Jc+i
-	es1/dz05O0iwuDx6YfuI2QgkclsYU0f5K6zqnEJeD1L7D83isyYwQiGFs4y1ynHqo1D8NV
-	wBe0p+TzW0IrOWf4h+xN7vW1R87q7Og=
+	bh=fAx4LCbbCjQ8aIdxBhev1Jeo/29BDwC3dqOKHwKcsLE=;
+	b=Gig8BhSleKm97ZNkRR3mp7QbhLyIvli30xAHLqQ0Fvc0B3KYqUEEAg+0Bheog8kmWQUj/M
+	2sXrOw7V6wBmk/Txxqqnd6q2N8IWRbkKrE5btVTdIo9W85YkLGS5ydh0YMrKZYsSMv5O+a
+	JYATefaaBT4tl5CinbbbwuW5+txOA6k=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-563-tbIejAaeO7q3BjV8YEscdQ-1; Thu, 10 Mar 2022 21:00:41 -0500
-X-MC-Unique: tbIejAaeO7q3BjV8YEscdQ-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+ us-mta-46-kLM3SbglPLO8cMqymT3gIQ-1; Thu, 10 Mar 2022 21:23:58 -0500
+X-MC-Unique: kLM3SbglPLO8cMqymT3gIQ-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 12E701C04B4E;
-	Fri, 11 Mar 2022 02:00:40 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A831A29A9CCA;
+	Fri, 11 Mar 2022 02:23:56 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 62A1540D2826;
-	Fri, 11 Mar 2022 02:00:39 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 12288141DEE1;
+	Fri, 11 Mar 2022 02:23:56 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 62087197165E;
-	Fri, 11 Mar 2022 02:00:37 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id ABEFC197165F;
+	Fri, 11 Mar 2022 02:23:55 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-To: blinux-list@redhat.com
-Subject: Re: YT-DLP downloading from text file help
-Date: Thu, 10 Mar 2022 20:01:43 -0600
+Date: Fri, 11 Mar 2022 10:23:42 +0800 (CST)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: timidity question
+In-Reply-To: <mailman.1127.1646925747.111205.blinux-list@redhat.com>
+References: <mailman.1102.1646908108.111207.blinux-list@redhat.com>
+ <mailman.1206.1646923298.111209.blinux-list@redhat.com>
+ <mailman.1216.1646925508.111209.blinux-list@redhat.com>
+ <mailman.1127.1646925747.111205.blinux-list@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <mailman.1479.1646963349.111202.blinux-list@redhat.com>
-References: <mailman.1479.1646963349.111202.blinux-list@redhat.com>
-User-Agent: POP Peeper Pro (5.2.2.0)
-X-Spam-Flag: NO
-Message-ID: <mailman.1370.1646964036.111207.blinux-list@redhat.com>
+Message-ID: <mailman.1344.1646965435.111205.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,41 +59,47 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=WINDOWS-1252
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-yt-dlp -ciw -x --audio-format mp3 -o "%(title)s.%(ext)s -a list.txt
+No error messages just playing screen:
 
------ Original Message -----
-From: Linux for blind general discussion <blinux-list@redhat.com>
-To: Blinux <blinux-list@redhat.com>
-Date: Thu, 10 Mar 2022 20:49:04 -0500
-Subject: YT-DLP downloading from text file help
+root@NEWASUS:~# timidity g/midi/Roland/2nd\ Time\ Foreground.mid 
+Requested buffer size 32768, fragment size 8192
+ALSA pcm 'default' set buffer size 33868, period size 3760 bytes
+Playing g/midi/Roland/2nd Time Foreground.mid
+MIDI file: g/midi/Roland/2nd Time Foreground.mid
+Format: 0  Tracks: 1  Divisions: 96
+Sequence: 2nd Time Foreground
+Copyright: (C)1991 Roland Corporation
+Playing time: ~69 seconds
+Notes cut: 0
+Notes lost totally: 0
 
-> Dear List,
-
-Can someone help with this script?
-
-I want to download the best quality=A0 mp3 audio of links in a text file.
-
-
-yt-dlp --batch-download -ciw -x --audio-format mp3 -o
-"%(title)s.%(ext)s"download.txt"
-
-Thanks,
-
-Rob
-
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+> Date: Thu, 10 Mar 2022 10:22:18 -0500
+> From: Linux for blind general discussion <blinux-list@redhat.com>
+> To: Linux for blind general discussion <blinux-list@redhat.com>
+> Subject: Re: timidity question
+> 
+> That's very odd. If you have a soundfont line in your timidity config, it 
+> definitely should play, unless the filename is misspelled or something. 
+> Hopefully someone else has another idea, as having a soundfont file specified 
+> in the timidity configuration should make it play midi. Do you get any error 
+> messages when you try to play a file?
+>
+> ~Kyle
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
 
 _______________________________________________
 Blinux-list mailing list
