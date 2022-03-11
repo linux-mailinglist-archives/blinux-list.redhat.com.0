@@ -2,44 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id A3E7E4D5786
-	for <lists+blinux-list@lfdr.de>; Fri, 11 Mar 2022 02:49:20 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 290724D57D6
+	for <lists+blinux-list@lfdr.de>; Fri, 11 Mar 2022 03:00:46 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1646963359;
+	s=mimecast20190719; t=1646964045;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=dL1lbSnbX4W3Glig1TVTH+p3iTKwN4Hnzgmq6exeGo4=;
-	b=Iw6iKYF94yVykTEBkE7E7cB2Cs7HYSheNiIkBL/UZ5PDcuqu2gomg/1Stb6IxfxEwbbyq4
-	mpIIPmudwrZEP5LoqRCxkROwK6PT6C6Nn96U2AqWn3VibdoBdjDt5hdzppGOjeE5wEif4+
-	Gt6iZvdnyHCQmFoMLct1lYYhtMSxJo8=
+	bh=xD+pa8p3lboTMvnq798t2N5Y855nPAO6JAkDBcIlYmg=;
+	b=QPV4mujWKSz7J8HchX+dpgVtvnncMYsWCnXtieUmcO+Aa9IwTw3DYhqwbGVJUO60M1Jc+i
+	es1/dz05O0iwuDx6YfuI2QgkclsYU0f5K6zqnEJeD1L7D83isyYwQiGFs4y1ynHqo1D8NV
+	wBe0p+TzW0IrOWf4h+xN7vW1R87q7Og=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-615-u8ijFPi3Nyu3u7cDTQR7kg-1; Thu, 10 Mar 2022 20:49:15 -0500
-X-MC-Unique: u8ijFPi3Nyu3u7cDTQR7kg-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+ us-mta-563-tbIejAaeO7q3BjV8YEscdQ-1; Thu, 10 Mar 2022 21:00:41 -0500
+X-MC-Unique: tbIejAaeO7q3BjV8YEscdQ-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0CD4329ABA2C;
-	Fri, 11 Mar 2022 01:49:14 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 12E701C04B4E;
+	Fri, 11 Mar 2022 02:00:40 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 1D14341136F8;
-	Fri, 11 Mar 2022 01:49:11 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 62A1540D2826;
+	Fri, 11 Mar 2022 02:00:39 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 4F511197165E;
-	Fri, 11 Mar 2022 01:49:10 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 62087197165E;
+	Fri, 11 Mar 2022 02:00:37 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 10 Mar 2022 20:49:04 -0500
+To: blinux-list@redhat.com
+Subject: Re: YT-DLP downloading from text file help
+Date: Thu, 10 Mar 2022 20:01:43 -0600
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.5.0
-To: Blinux <blinux-list@redhat.com>
-Subject: YT-DLP downloading from text file help
-Message-ID: <mailman.1479.1646963349.111202.blinux-list@redhat.com>
+In-Reply-To: <mailman.1479.1646963349.111202.blinux-list@redhat.com>
+References: <mailman.1479.1646963349.111202.blinux-list@redhat.com>
+User-Agent: POP Peeper Pro (5.2.2.0)
+X-Spam-Flag: NO
+Message-ID: <mailman.1370.1646964036.111207.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -55,20 +58,44 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset=WINDOWS-1252
+Content-Transfer-Encoding: quoted-printable
 
-RGVhciBMaXN0LAoKQ2FuIHNvbWVvbmUgaGVscCB3aXRoIHRoaXMgc2NyaXB0PwoKSSB3YW50IHRv
-IGRvd25sb2FkIHRoZSBiZXN0IHF1YWxpdHnCoCBtcDMgYXVkaW8gb2YgbGlua3MgaW4gYSB0ZXh0
-IGZpbGUuCgoKeXQtZGxwIC0tYmF0Y2gtZG93bmxvYWQgLWNpdyAteCAtLWF1ZGlvLWZvcm1hdCBt
-cDMgLW8gCiIlKHRpdGxlKXMuJShleHQpcyJkb3dubG9hZC50eHQiCgpUaGFua3MsCgpSb2IKCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlz
-dCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVk
-aGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cg==
+yt-dlp -ciw -x --audio-format mp3 -o "%(title)s.%(ext)s -a list.txt
+
+----- Original Message -----
+From: Linux for blind general discussion <blinux-list@redhat.com>
+To: Blinux <blinux-list@redhat.com>
+Date: Thu, 10 Mar 2022 20:49:04 -0500
+Subject: YT-DLP downloading from text file help
+
+> Dear List,
+
+Can someone help with this script?
+
+I want to download the best quality=A0 mp3 audio of links in a text file.
+
+
+yt-dlp --batch-download -ciw -x --audio-format mp3 -o
+"%(title)s.%(ext)s"download.txt"
+
+Thanks,
+
+Rob
+
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
