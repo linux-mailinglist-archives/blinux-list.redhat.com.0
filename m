@@ -1,58 +1,45 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4F12A4D6265
-	for <lists+blinux-list@lfdr.de>; Fri, 11 Mar 2022 14:29:18 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5415B4D68A7
+	for <lists+blinux-list@lfdr.de>; Fri, 11 Mar 2022 19:47:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1647005357;
+	s=mimecast20190719; t=1647024459;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=gIm5LR5cHK3v3tQoSm/mRVzC9IsKH6TmjXlpEy3AG/0=;
-	b=UUDMmjH/ZrFbbjGEpKMC9MNDkGUXk4X/DD6GVQkNfQJqTERDIyZdzjSiDu/aeZjAoUkteR
-	6DroBKO06ia3exFj1426rXf2DVWz0H557QixQ7Tn5qp2NeDhOkBcsH8mSpZYIKHPGl4Yqm
-	+caOl8AGWtVJzBDjpWjtmq7Nm9QZ6zg=
+	bh=qlaewb8fL4ERK69XspyTL918vXtnqOqQw8SGpCb/bEU=;
+	b=DWX8aGl4Z8/4kSLK40u1mrDZ9tQ5qtVjlXDGcCJBR0tYnYMEvrDEfqONpl7y6MhYzxzYIS
+	1T0dg8QR0QHtK0Z3J0FGU087bXVintdchD1lILH6lMyvV07Kb+BlhqQV/DHRu/OrIOdOsi
+	W3cu47Bmo/+GUB4MqRITFo109LWN8d8=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-29-GjOxAQqWOcazUR_uRUQFJg-1; Fri, 11 Mar 2022 08:29:15 -0500
-X-MC-Unique: GjOxAQqWOcazUR_uRUQFJg-1
+ us-mta-386-8yfEVEkjM0-2gxuxmzE15A-1; Fri, 11 Mar 2022 13:47:36 -0500
+X-MC-Unique: 8yfEVEkjM0-2gxuxmzE15A-1
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 299FC3C01B8C;
-	Fri, 11 Mar 2022 13:29:14 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 90FBD1C04B56;
+	Fri, 11 Mar 2022 18:47:34 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 637A71454543;
-	Fri, 11 Mar 2022 13:29:13 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id B3F72142B966;
+	Fri, 11 Mar 2022 18:47:31 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id E269F194035F;
-	Fri, 11 Mar 2022 13:29:12 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 7CF52194036C;
+	Fri, 11 Mar 2022 18:47:31 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Fri, 11 Mar 2022 21:29:01 +0800 (CST)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: timidity question
-In-Reply-To: <mailman.1517.1647004193.111201.blinux-list@redhat.com>
-References: <mailman.1127.1646925747.111205.blinux-list@redhat.com>
- <mailman.1344.1646965435.111205.blinux-list@redhat.com>
- <mailman.1424.1646969106.111201.blinux-list@redhat.com>
- <mailman.1363.1646973593.111205.blinux-list@redhat.com>
- <mailman.1397.1646974152.111207.blinux-list@redhat.com>
- <mailman.1454.1646974650.111209.blinux-list@redhat.com>
- <mailman.1499.1646975078.111202.blinux-list@redhat.com>
- <mailman.1512.1646980334.111202.blinux-list@redhat.com>
- <mailman.1422.1646988332.111207.blinux-list@redhat.com>
- <mailman.1402.1646991817.111205.blinux-list@redhat.com>
- <mailman.1465.1646993442.111206.blinux-list@redhat.com>
- <mailman.1534.1646994043.111202.blinux-list@redhat.com>
- <mailman.1517.1647004193.111201.blinux-list@redhat.com>
+Date: Fri, 11 Mar 2022 19:39:50 +0100
 MIME-Version: 1.0
-Message-ID: <mailman.1526.1647005352.111201.blinux-list@redhat.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+Subject: Crypted LVM and beep tones
+To: blinux-list@redhat.com, debian-accessibility@lists.debian.org
+Message-ID: <mailman.1528.1647024450.111210.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -76,41 +63,20 @@ X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Successful! Thank you very much!
+Hi,
 
-On Fri, 11 Mar 2022, Linux for blind general discussion wrote:
+I have to crypt my harddisk for my working laptop. Allthough it is no 
+big problem to enter the encryption password some seconds after grub I 
+wonder if a acustical signal could be played that tells me that the 
+password prompt is displayed. Also a signal about successfully entered 
+the password or not would be really cool.
 
-> Date: Fri, 11 Mar 2022 08:09:44 -0500
-> From: Linux for blind general discussion <blinux-list@redhat.com>
-> To: Linux for blind general discussion <blinux-list@redhat.com>
-> Subject: Re: timidity question
-> 
-> Try running
->
-> timidity -h
->
-> and looking for the word output. Under "Available output modes" it should 
-> give you a list of what options you can use. I have
->
-> -OO
->
-> both O's capitalized, which indicates libao output. I believe this is what 
-> SoX uses by default, so it just may work.
->
-> timidity -OO file.mid
->
-> does play here, although I also get playback using the default output mode. 
-> But do give that a try if you have -OO listed in your output modes, hopefully 
-> it will help.
->
-> ~Kyle
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+Does anyone know if acustical signals are possible for the described 
+situation? Beep tones like for grub would be absolutely enough.
+
+Cheers,
+
+   Schoepp
 
 _______________________________________________
 Blinux-list mailing list
