@@ -2,45 +2,45 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id D6CED4EC8C6
-	for <lists+blinux-list@lfdr.de>; Wed, 30 Mar 2022 17:50:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id AEE914EC7E4
+	for <lists+blinux-list@lfdr.de>; Wed, 30 Mar 2022 17:11:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1648655421;
+	s=mimecast20190719; t=1648653113;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=4JpklEdcGo4NLXUNoSOFoO84Miia4vOuPk25wNPygtw=;
-	b=f7Dfc20z4bcouIAqLa5DrmIKWxBbZBvZWp2I+xmK8cTienY4PJ0R6Y+xAeS/E5Kh7v8DPA
-	TtsXptefZLls2mnR5Form2ThZ0IY6Xk8KY8xJajAHyDAhwN3F/KBeep/jv5cDvHK6uiLiA
-	LnO1c+pDWR59V8uQ9SU4XPR/WQeAPbs=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=+DSoUKYQCuugtEtYV+Ry4EdKTFFWz/aOIZbCjg83JNI=;
+	b=fvvk2gkhUjDhHwMp14T0sb4mjY3xwERq8mVxNOoBLdUbyGxeeYvt3VxmhXM7GL1I3Hx8n2
+	92MAHL+ysCEBFtMr9k8xv5iKptIeIuIlKyqaOicTXqZFj67SCd15i1e+VGvCYqDuq4PSMH
+	LvTCp6MCvtXkYl9z64bYqbyqnlyBPow=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-540-oE5QGb5qMIyUK8Uu2yUG9g-1; Wed, 30 Mar 2022 11:50:17 -0400
-X-MC-Unique: oE5QGb5qMIyUK8Uu2yUG9g-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+ us-mta-670-MYs_paZjPTOTCI4dEhv9cw-1; Wed, 30 Mar 2022 11:11:49 -0400
+X-MC-Unique: MYs_paZjPTOTCI4dEhv9cw-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id ECA831C0150E;
-	Wed, 30 Mar 2022 15:50:15 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B105D18013AE;
+	Wed, 30 Mar 2022 15:11:47 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 871A140CF8E4;
-	Wed, 30 Mar 2022 15:50:12 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id A4DE057C3DD;
+	Wed, 30 Mar 2022 15:11:40 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id E86481947BBF;
-	Wed, 30 Mar 2022 15:50:11 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id AE94D1947BBF;
+	Wed, 30 Mar 2022 15:11:34 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 30 Mar 2022 10:01:30 -0500
+Date: Wed, 30 Mar 2022 11:11:20 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Looking for a multiple editor
-In-Reply-To: <mailman.5591.1648651427.111206.blinux-list@redhat.com>
 References: <mailman.5591.1648651427.111206.blinux-list@redhat.com>
 MIME-Version: 1.0
-Message-ID: <mailman.5393.1648655411.111204.blinux-list@redhat.com>
+In-Reply-To: <mailman.5591.1648651427.111206.blinux-list@redhat.com>
+Message-ID: <mailman.5401.1648653094.111207.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -56,58 +56,29 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Tim here.  You can make batch-changes to files with sed, ed, or
-vi/vim (and likely many others, but those are the ones I use).
 
-You don't detail what sorts of changes you need to make, so it's hard
-to provide a more complete solution, but some examples:
+This sounds like a job for sed.
+#!/bin/ksh
 
-- if you want to just do a word-substitution through all of your
-  files like changing "John" to "Tim", you can use
-
-   sed -i.bak 's/John/Tim/g' *.txt
-
-  Note that it might over-reach changing things like "Johnson" to
-  "Timson"
-
-- if you want to move a line *down* in a file, you can also use sed,
-  but if you have multiple manipulations (or want to move things
-  *up* in a file) you want to execute, you want to reach for one of
-  the others I listed.  E.g. if you want to move all the lines from
-  the last line containing "Chapter" through the end of the file up
-  to the top of your file, you can do it with
-
-   for f in *.txt; do printf '1\n?Chapter?,$m0\nwq\n' | ed -s "$f" ; done
-
-  which goes to the first line in each file, searches backwards for
-  "Chapter", then from there through the end of the file ("$"), moves
-  ("m") those lines to the beginning of the file (after line 0)
-
-- if your changes are more complex, vim has some very powerful tools
-  for manipulating and scripting across all the files you open with
-  it,  using the ":bufdo" or ":argdo" command.
-
-I do these sorts of edits all the time, so if you have more details
-on the sorts of changes you want to make, I can gladly whip up some
-more usable answer.
-
--tim
+for i in `ls files.*`
+do
+cat $i | sed -e "s/Mike/Joe/g" > /tmp/file$$
+mv /tmp/file$$ $i
+done
 
 
-
-On March 30, 2022, Linux for blind general discussion wrote:
-> I have a number of texts in which I wish to make alterations that
-> are the same for all of them. I think that there is a linux program
-> in which I can list the alterations and them have them made. but I
-> can't remember what it is called. Please refresh my memory.
+On Wed, Mar 30, 2022 at 09:43:41AM -0500, Linux for blind general discussion wrote:
+> I have a number of texts in which I wish to make alterations that are the same for all of them. I think that there is a linux program in which I can list the alterations and them have them made.
+> but I can't remember what it is called. Please refresh my memory.
 > 
 > thanks,
 > John
@@ -118,15 +89,19 @@ On March 30, 2022, Linux for blind general discussion wrote:
 > website: http://www.abilitiessoft.org
 > Status: Company dissolved but website and email addresses  live.
 > Location: Madison, Wisconsin, USA
-> Mission: developing assistive technology software and providing
-> STEM services that are available at no cost
+> Mission: developing assistive technology software and providing STEM services 
+>         that are available at no cost
 > 
 > 
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://listman.redhat.com/mailman/listinfo/blinux-list
-> 
+
+-- 
+Rudy Vener
+Website: http://www.rudyvener.com
+Twitter: https://twitter.com/RudySalt
 
 _______________________________________________
 Blinux-list mailing list
