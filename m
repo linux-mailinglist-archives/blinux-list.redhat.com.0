@@ -2,47 +2,46 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 59D214F5A93
-	for <lists+blinux-list@lfdr.de>; Wed,  6 Apr 2022 12:31:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 837EB4F5E69
+	for <lists+blinux-list@lfdr.de>; Wed,  6 Apr 2022 14:58:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649241081;
+	s=mimecast20190719; t=1649249888;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=We/nVR7N/oSN+2k70Tr4jFDtScRrKCMFYrUvac6JF4I=;
-	b=D9bRlcpT04JP3x2+XF/VHBV9c97GRp1ODZMxGFtSLRK6bfYg1rlL5C8OaWmd2OoCQjSOjW
-	TgDxiaoMGbbeoMj75C2zS676Sirh1smrj5I9lXhOgGFCwDjL+4sW1edcFHk5QswPBbPgfK
-	dPYDQ4vW6iUD4ExQKUOYh2daPp1aSdM=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=60kTM5eNeFiWHgqy2IYMV2A2UOg3ueepWQr1cQlk7Yk=;
+	b=IvDuFJSTyd8IJa/6NJJ43eOpRwLbjYd4HEcc85IRkgGSwFrY0xSNHTltkKXuLBE/bJeIiH
+	AGfJ6ej/vezzn0SP4K4dPvxl8xCBemL8zqpxfgryGAptd6nYqXwOAlGkxWOpk7CyGPHawZ
+	4SlMScYRViGQkbRomgV334ePNhB2Y+A=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-67-4d5rkG0zN8qT4oZJuMD0yw-1; Wed, 06 Apr 2022 06:31:18 -0400
-X-MC-Unique: 4d5rkG0zN8qT4oZJuMD0yw-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+ us-mta-569-YBx6AbCYOT-qmZPlOoWj4A-1; Wed, 06 Apr 2022 08:58:05 -0400
+X-MC-Unique: YBx6AbCYOT-qmZPlOoWj4A-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C07403841D23;
-	Wed,  6 Apr 2022 10:31:16 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C8E85185A7B2;
+	Wed,  6 Apr 2022 12:58:03 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 5004A7AE4;
-	Wed,  6 Apr 2022 10:31:14 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 921FBC27DB9;
+	Wed,  6 Apr 2022 12:58:03 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id B60DE193F6E1;
-	Wed,  6 Apr 2022 10:31:13 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 13276193F6E1;
+	Wed,  6 Apr 2022 12:58:03 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 6 Apr 2022 06:31:10 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: different desktops
-In-Reply-To: <mailman.6967.1649240845.111210.blinux-list@redhat.com>
-References: <mailman.6893.1649230241.111206.blinux-list@redhat.com>
- <mailman.6722.1649237413.111209.blinux-list@redhat.com>
- <mailman.6967.1649240845.111210.blinux-list@redhat.com>
 MIME-Version: 1.0
-Message-ID: <mailman.6970.1649241073.111210.blinux-list@redhat.com>
+Date: Wed, 06 Apr 2022 15:50:24 +0300
+To: blinux-list@redhat.com
+Subject: Fwd: [systemd-devel] Dropping split-usr/unmerged-usr support
+In-Reply-To: <05cf10d04274dcbff07fed88e98dca2eebb24b7d.camel@gmail.com>
+References: <05cf10d04274dcbff07fed88e98dca2eebb24b7d.camel@gmail.com>
+X-Content-Filtered-By: Mailman/MimeDel 2.1.29
+Message-ID: <mailman.6716.1649249882.111207.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,61 +57,57 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-xfce is lightweight and works rather well once you learn the differences.
-One is a whisker menu which has useful stuff on it in addition to the
-other menus.  Patience and fat finger hacking can get you lots of
-information.
+Hi All!
 
+Immo here.
 
-On Wed, 6 Apr 2022, Linux for blind general discussion wrote:
+Sorry for my ignorance and disturbing the usual chatter on the list.
 
-> ratpoison with strychnine is a contender since you don't use the mouse in
-> that environment and everything is pointed at the keyboard.  The icewm
-> environment may be another contender.
->
->
-> On Wed, 6 Apr 2022, Linux for blind general discussion wrote:
->
-> > Sure, imho all desktops were not created equal when it comes to accessibility.
-> >
-> > The fact that Mate is the first to go to says a lot about the ease of
-> > navigating its controls to select applications, getting to the desktop,
-> > launching the default Caja file manager etc.
-> >
-> > These are the things that define accessibility and some desktops are not able
-> > to do that. I am also thinking of the ability to check on the computer status
-> > such as the battery, network connectivity and so forth.
-> >
-> > On Wed, Apr 06, 2022 at 02:30:14AM -0500, Linux for blind general discussion
-> > wrote:
-> > >For a linux user, using the Orca screen-reading program and keyboard
-> > >shortcuts, and not the mouse, would there be any advantage of using one
-> > >desktop over another?
-> > >At this time, which desktops are usable for Orca users?
-> > >
-> > >_______________________________________________
-> > >Blinux-list mailing list
-> > >Blinux-list@redhat.com
-> > >https://listman.redhat.com/mailman/listinfo/blinux-list
-> > >
-> >
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+I guess this is at least for Didier. There are also other speaking
+distros out there that systemd people might not be aware of so I
+forwarded the original message here.
 
+Feel free to answer to my message. I'll forward it to systemd-devel
+if needed.
+
+Distribution maintainers might also want to join systemd-devel if
+not already there.
+
+-------- Original Message --------
+Subject: [systemd-devel] Dropping split-usr/unmerged-usr support
+Date: 2022-04-05 23:07
+ From: Luca Boccassi <luca.boccassi@gmail.com>
+To: systemd-devel@lists.freedesktop.org
+
+Hi,
+
+As part of our spring cleaning effort, we are considering when to drop
+support for split/unmerged-usr filesystem layouts.
+
+A build-time warning was added last year:
+
+https://github.com/systemd/systemd/commit/9afd5e7b975e8051c011ff9c07c95e80bd954469
+
+We are now adding a runtime taint as well.
+
+Which distributions are left running with systemd on a split/unmerged-
+usr system?
+
+(reminder: we refer to a system that boots without a populated /usr as
+split-usr, and a system where bin, sbin and lib* are not symlinks to
+their counterparts under /usr as unmerged-usr)
+
+-- 
+Regards,
+Immo
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
