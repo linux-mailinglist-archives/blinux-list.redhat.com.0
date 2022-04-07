@@ -1,54 +1,52 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 988154F6FB1
-	for <lists+blinux-list@lfdr.de>; Thu,  7 Apr 2022 03:13:25 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id BC3724F7229
+	for <lists+blinux-list@lfdr.de>; Thu,  7 Apr 2022 04:38:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649294004;
+	s=mimecast20190719; t=1649299118;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=anKSnNF1hctNK75DUN79riZPVCvMnrSuaObEy3LplH0=;
-	b=PDgwSFyz1c832HISwu6aSGQw+TfcLAUMotgwWYWTmLu9m9vqrV1vGzPRyqYiC+JW4n6dDB
-	UYar7wjB/QRqRsuveCJBf1tHsHuFKyIXl+Y9DEqSBbn9Nlz+ff/SJBQVHIo6VkjiRkxpsz
-	d+vc4a4BUJMi+r9Zbkea13bEq6vWUcc=
+	bh=yxmZC7wN5vjYn/r1b2nk1BRsMq/KRyjwgobAQaJesis=;
+	b=PhlZitc9oBFDnlltoAjf5r2GhQqZGusZCinGq3dcO8hvC2XQZUFA6mLr21d1ReQ+fveRay
+	05sgDFYrXvuVFMJNp5gxJFh6xls93VYxkASwPV7KHJV/2lZNkp+c9w0pFhaBVx6csdUmBY
+	tz2YDlzezEui0+4xrgq2fFDf9KHIo2Y=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-57-7nEkoEbbOrGAHHYzxGrtDw-1; Wed, 06 Apr 2022 21:13:21 -0400
-X-MC-Unique: 7nEkoEbbOrGAHHYzxGrtDw-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+ us-mta-452-Okd1tMVAO1Co8euqZU2fGg-1; Wed, 06 Apr 2022 22:38:35 -0400
+X-MC-Unique: Okd1tMVAO1Co8euqZU2fGg-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AFCEC1C0170C;
-	Thu,  7 Apr 2022 01:13:19 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 203833802122;
+	Thu,  7 Apr 2022 02:38:33 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 389B57AC3;
-	Thu,  7 Apr 2022 01:13:16 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id C1B55407DEC5;
+	Thu,  7 Apr 2022 02:38:30 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 55EF0194036B;
-	Thu,  7 Apr 2022 01:13:15 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 39951194036C;
+	Thu,  7 Apr 2022 02:38:28 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 6 Apr 2022 21:12:58 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
+Date: Wed, 6 Apr 2022 22:37:35 -0400
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
 Subject: Re: different desktops
-In-Reply-To: <mailman.7138.1649289938.111201.blinux-list@redhat.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <mailman.6893.1649230241.111206.blinux-list@redhat.com>
  <mailman.6722.1649237413.111209.blinux-list@redhat.com>
  <mailman.6967.1649240845.111210.blinux-list@redhat.com>
  <mailman.6938.1649249456.111201.blinux-list@redhat.com>
- <mailman.6620.1649250650.111205.blinux-list@redhat.com>
- <mailman.7064.1649272663.111202.blinux-list@redhat.com>
- <mailman.7086.1649279257.111202.blinux-list@redhat.com>
- <mailman.7116.1649279363.111201.blinux-list@redhat.com>
- <mailman.7138.1649289938.111201.blinux-list@redhat.com>
-MIME-Version: 1.0
-Message-ID: <mailman.6975.1649293995.111209.blinux-list@redhat.com>
+ <ca820abb-dbb3-60c5-39c3-5e316b483ecf@free2.ml>
+In-Reply-To: <ca820abb-dbb3-60c5-39c3-5e316b483ecf@free2.ml>
+Message-ID: <mailman.7030.1649299107.111208.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -64,119 +62,30 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-depending on the distribution you may need to install orca additively.
+Just having a look at Cinnamon on Fedora 35. It's not too bad, and I do 
+like the alt+f1 workspace switcher. Although I can't arrange my 
+workspaces on screen in a 3-by-3 grid the way I like them, it allows me 
+to press alt+f1 and then a single digit to go to the workspace with that 
+number. I can also navigate using the arrows to the workspaces once I do 
+get 9 of them, and they are in a 3-by-3 grid in the switcher. It appears 
+that I can interact with notifications in much the same way I would with 
+GNOME, and this is largely accessible to Orca. There's lots of flat 
+review stuff I need to do, but I don't mind that too terribly much. The 
+main problem I'm having is that I don't know how to access the panel or 
+panels. Alt+control+tab just seems to switch between application windows 
+in much the same way as alt+tab. If I can't get that figured out soon, 
+I'll probably stay with MATE here.
 
-
-On Thu, 7 Apr 2022, Linux for blind general discussion wrote:
-
-> When did Cinnamon get A11y?
->
-> The narrative I've always heard is oh it has no A11Y by design?
->
-> If that's actually changed recently I may give it a shot on Arch then
->
-> On Wed, Apr 06, 2022 at 05:09:20PM -0400, Linux for blind general discussion wrote:
-> > It's getting better and if memory serves is almost up with mate.
-> >
-> >
-> > On Wed, 6 Apr 2022, Linux for blind general discussion wrote:
-> >
-> > > Is Cinnamon as good and accessible as  Mate? If thaat's so, it's great then.
-> > >
-> > > On Wed, Apr 06, 2022 at 03:17:39PM -0400, Linux for blind general discussion
-> > > wrote:
-> > > >Cinnamon would qualify as a desktop and is supposed to be similar to mate
-> > > >in operation.
-> > > >
-> > > >
-> > > >On Wed, 6 Apr 2022, Linux for blind general discussion wrote:
-> > > >
-> > > >> Just pointing out that Ratpoison+Strychnine, IceWm, Openbox and others
-> > > >> aren't
-> > > >> exactly full desktops, but are pretty much just the window manager side of
-> > > >> things. A full desktop would include at least one panel with system
-> > > >> tray/notification area, app indicators such as the battery monitor and
-> > > >> clock,
-> > > >> most of the time a file manager that doubles as a root window desktop that
-> > > >> can
-> > > >> include launchers and mount points and an application menu or some other
-> > > >> type
-> > > >> of launcher that allows you to see the applications on the system and
-> > > >> launch
-> > > >> them, usually grouped into various categories. Strychnine does do some of
-> > > >> this
-> > > >> for Ratpoison, but it's pretty much just a launcher menu and run window
-> > > >> type
-> > > >> of thing. Many components that would make it a full desktop are still
-> > > >> missing,
-> > > >> although it is possible to run Caja or Nautilus and possibly either
-> > > >> mate-panel
-> > > >> or gnome-panel along with it for a more full desktop experience if desired.
-> > > >>
-> > > >>
-> > > >> About the best full desktop experience I've used is GNOME 2.x, which is
-> > > >> continued as the MATE desktop. Some panel applets don't necessarily speak
-> > > >> as
-> > > >> much as they should, for example, nm-applet, which is the network manager,
-> > > >> only says "panel," but for the most part, everything just works and is
-> > > >> navigable with only a keyboard, although I find Orca's "speak object under
-> > > >> mouse" to be fairly useful at times as well. GNOME 3.x and 40+ is another
-> > > >> option, but some things seem to be a little less usable than the MATE
-> > > >> desktop
-> > > >> overall. KDE is coming along, but is still in the early stages of a11y
-> > > >> development, so although many things are starting to work pretty well,
-> > > >> others
-> > > >> are still not quite usable at this stage. For full desktops, the only other
-> > > >> partially usable options are xfce, lxde and lxqt, and all of those seem to
-> > > >> be
-> > > >> getting a bit long in the tooth, and some of these are even starting to
-> > > >> lose
-> > > >> some of the accessibility they once had. So as full desktops go, my three
-> > > >> best
-> > > >> recommendations would be MATE, then GNOME, then KDE. And then there are the
-> > > >> window managers that include keyboard navigation, Ratpoison+Strychnine
-> > > >> probably being the best of those options, although I have heard that IceWM,
-> > > >> Fluxbox and Openbox, as well as possibly i3, can also be made more usable
-> > > >> with
-> > > >> either helper applications or hand-edited configuration files.
-> > > >>
-> > > >> ~Kyle
-> > > >>
-> > > >> _______________________________________________
-> > > >> Blinux-list mailing list
-> > > >> Blinux-list@redhat.com
-> > > >> https://listman.redhat.com/mailman/listinfo/blinux-list
-> > > >>
-> > > >>
-> > > >
-> > > >_______________________________________________
-> > > >Blinux-list mailing list
-> > > >Blinux-list@redhat.com
-> > > >https://listman.redhat.com/mailman/listinfo/blinux-list
-> > > >
-> > >
-> > >
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
