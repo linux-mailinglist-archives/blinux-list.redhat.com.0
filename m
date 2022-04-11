@@ -2,47 +2,45 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id AC1314FC547
-	for <lists+blinux-list@lfdr.de>; Mon, 11 Apr 2022 21:48:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 02B974FC75E
+	for <lists+blinux-list@lfdr.de>; Tue, 12 Apr 2022 00:09:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649706522;
+	s=mimecast20190719; t=1649714961;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=X6ddwMi/kv+v9P0eBBBcjoHrvC71Pv5/sT2R7b1Ow5Y=;
-	b=DEZA9W0xRgcFjvY/mPC48AqV3meOzVCWddIdjkoXi6IZNLgs1CJhx/TF4g5IcGncthiLcP
-	I5OlVrjrXNleitGOGoz5OLgVjIc4Y3O504LjZjgDKimuXWRLaA8RSkJmxypN4G4tSCXo+l
-	8X97zcqQkFUGIjt557eCvPFTMX25hQc=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=GOAw0ouxob79vaRAB/LN7KXhlsulRxLUmcYBGhweGME=;
+	b=aufraVEbd3uCB/VFXTdyeqn8jvxOhNcLkHIAyAW7yPQR8XxEY1efoRBoTH7T90LcZdt3i8
+	YTQ2PRNiSIko6xNMJzCz+nEtt8T/mSXTdlC4GhoVBwqRTy9Lwqwc63DHlVquyqGHt3KyyQ
+	qq8aOgsSH+IusMw2BIykjZ4IUPtlN7E=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-84-ZZLzq5LdPXWEL_Zy673znw-1; Mon, 11 Apr 2022 15:48:38 -0400
-X-MC-Unique: ZZLzq5LdPXWEL_Zy673znw-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+ us-mta-208-YzmLPrFRMLCUe7FclFXQBg-1; Mon, 11 Apr 2022 18:09:18 -0400
+X-MC-Unique: YzmLPrFRMLCUe7FclFXQBg-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C87AA85A5BE;
-	Mon, 11 Apr 2022 19:48:36 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1BD3D1C05ACC;
+	Mon, 11 Apr 2022 22:09:17 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 3FEEC40EC004;
-	Mon, 11 Apr 2022 19:48:36 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id EA2062024CC3;
+	Mon, 11 Apr 2022 22:09:12 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id EC84B1940370;
-	Mon, 11 Apr 2022 19:48:35 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 7EB001940373;
+	Mon, 11 Apr 2022 22:09:12 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
+To: blinux-list@redhat.com
+Subject: Jenux update
+Date: Mon, 11 Apr 2022 18:09:01 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.0
 MIME-Version: 1.0
-References: <mailman.7761.1649684597.111204.blinux-list@redhat.com>
- <mailman.7809.1649705067.111204.blinux-list@redhat.com>
-In-Reply-To: <mailman.7809.1649705067.111204.blinux-list@redhat.com>
-Date: Mon, 11 Apr 2022 15:48:18 -0400
-Subject: Re: The best editor for indentation monitoring
-To: Linux for blind general discussion <blinux-list@redhat.com>
 X-Content-Filtered-By: Mailman/MimeDel 2.1.29
-Message-ID: <mailman.7961.1649706515.111201.blinux-list@redhat.com>
+Message-ID: <mailman.7778.1649714952.111203.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,103 +56,44 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-SSBoYXZlIGJlZW4gdXNpbmcgU3VibGltZSBUZXh0IGZvciBhYm91dCAxMCB5ZWFycyBub3cuIEl0
-J3MgaGlnaGx5CmV4dGVuc2libGUgYW5kIGhhcyBsb2FkcyBvZiBwbHVnLWlucyB3aXRoIGEgUGFj
-a2FnZSBNYW5hZ2VyIHRvIGVhc2lseSBhZGQKYW5kIHJlbW92ZSB0aGVtLiBJdCBhbHNvIHN1cHBv
-cnRzICJjb2RlIGZvbGRpbmciIChjb2xsYXBzaW5nIGNvZGUgYmxvY2tzIGFzClJhc3Rpc2xhdiB3
-YXMgZGVzY3JpYmluZykuIEl0J3MgZnJlZSB0byB0cnkgaXQgb3V0IHdpdGggYW4gaW5maW5pdGUg
-dHJpYWwKcGVyaW9kICh5b3UgZG8gZ2V0IGEgImJ1eSBtZSIgcG9wdXAgZGlhbG9nIGV2ZXJ5IDUw
-IG9yIHNvIHNhdmVzLCBidXQKaGl0dGluZyB0aGUgZXNjYXBlIGtleSBtYWtlIGl0IGdvIGF3YXkp
-LiBUaGUgbGljZW5zZSBpcyBhYm91dCAkMTAwIGlmIHlvdQpkZWNpZGUgdG8gYnV5IGl0IChJIGtu
-b3cgcGVvcGxlIHRoYXQgaGF2ZSBiZWVuIHVzaW5nIGl0IGZvciBhIHZlcnkgbG9uZwp0aW1lIGlu
-IHRoZSB0cmlhbCkuCgpJZiBTdWJsaW1lIGRvZXNuJ3Qgd29yayBmb3IgeW91LCBJJ3ZlIGFsc28g
-dXNlZCBnRWRpdCAoYWxyZWFkeSBpbnN0YWxsZWQgb24KVWJ1bnR1KSBhbmQgS29tb2RvIEVkaXQg
-aW4gdGhlIHBhc3QuIFlvdSBjb3VsZCBhbHNvIGNoZWNrIG91dCBBdG9tIGZyb20gdGhlCkdpdEh1
-YiBndXlzLiBNaWNyb3NvZnQgZG9lcyBtYWtlIFZTIENvZGUgYXZhaWxhYmxlIG9uIFVidW50dSwg
-YnV0IEkndmUgbm90Cmxpa2VkIHRoYXQgb25lIHZlcnkgbXVjaC4KCi0tCkthcmwgV2lsYnVyCjUx
-My0zMjItMjQ4MQprYXJsQGthcmx3aWxidXIubmV0CgpPbiBNb24sIEFwciAxMSwgMjAyMiwgMTU6
-MjQgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8CmJsaW51eC1saXN0QHJlZGhh
-dC5jb20+IHdyb3RlOgoKPiBIaSwKPgo+IGlmIHlvdSBkb24ndCBuZWVkIGFkZGl0aW9uYWwgZnVu
-Y3Rpb25hbGl0eSBsaWtlIGF1dG8tY29tcGxldGlvbiBvcgo+IGludGVsbHkgc2Vuc2UsIG15IFJp
-ZGUgZWRpdG9yIGlzIGRlc2lnbmVkIHRvIG1ha2UgdXNlIG9mIHRoZSBpbmRlbnRhdGlvbgo+IHRv
-IHNpZ25pZmljYW50bHkgZWFzZSBjb2RpbmcgZm9yIGJsaW5kIHBlb3BsZS4KPgo+Cj4gVW5mb3J0
-dW5hdGVseSwgbXkgd2Vic2l0ZSBpcyBkb3duIHJpZ2h0IG5vdyBkdWUgdG8gYSB0cmFuc2l0aW9u
-IHByb2Nlc3MsCj4gc28gSSBjYW4ndCBzZW5kIHlvdSBqdXN0IGEgbGluayB0byBhbiBhcnRpY2xl
-Lgo+Cj4KPiBCdXQgaW4gc2hvcnQsIFJpZGUsIGluc3RlYWQgb2YgdHJlYXRpbmcgdGhlIGNvZGUg
-bGlrZSBhIGJ1bmNoIG9mIGxpbmVzLAo+IHByZXNlbnRzIHlvdSB0aGUgdGV4dCBsaWtlIGEgdHJl
-ZSwgb25seSBzaG93aW5nIHlvdSB0aGUgY3VycmVudCBsZXZlbAo+IGFuZCBpdHMgY29udGVudC4K
-Pgo+Cj4gU2F5IHlvdSBoYXZlIGEgZmlsZSB3aXRoIDUgY2xhc3Nlcy4gVGhlc2UgbWF5IGhhdmUg
-b3ZlciAxMDAgbGluZXMgZWFjaCwKPiBhbmQgaW4gYSBzdGFuZGFyZCBlZGl0b3IsIHlvdSdkIG5l
-ZWQgdG8gY3Jvc3MgYWxsIG9mIHRoZWlyIGNvbnRlbnQsIG9yCj4gdXNlIHNlYXJjaCB0byBnZXQg
-dG8geW91ciBwbGFjZSBvZiBpbnRlcmVzdC4KPgo+Cj4gV2hlcmVhcyBpbiByaWRlLCB5b3UnZCBq
-dXN0IHNlZToKPgo+Cj4gY2xhc3MgQToKPgo+IGNsYXNzIEI6Cj4KPiBDbGFzcyBDOgo+Cj4gQ2xh
-c3MgRDoKPgo+IENsYXNzIEU6Cj4KPgo+IEFuZCBpZiBhbnkgY2xhc3MgY2F0Y2hlcyB5b3VyIGlu
-dGVyZXN0IChiZWNhdXNlIHlvdSB3YW50IHRvIHdvcmsgb24gaXQKPiBvciByZWFkIHRocm91Z2gg
-aXQpLCB5b3UgY2FuIGV4cGFuZCBpdCBhbmQgeW91ciB2aWV3IHdvdWxkIGJlY29tZToKPgo+Cj4g
-Y2xhc3MgQzoKPgo+Cj4gZGVmIF9faW5pdF9fKHNlbGYpOgo+Cj4KPiBkZWYgc2F5X2hpKHNlbGYp
-Ogo+Cj4gZGVmIGFza19hX3F1ZXN0aW9uKHNlbGYpOgo+Cj4KPiBBZ2FpbiwgeW91IHNlZSBqdXN0
-IHRoZSBjb250ZW50IG9mIHlvdXIgY3VycmVudCBsb2NhdGlvbi4KPgo+IElmIGFueSBtZXRob2Qg
-aW50ZXJlc3RzIHlvdSwgeW91IGNhbiBmdXJ0aGVyIGRpdmUgaW4gYW5kIHlvdXIgdmlldyB3b3Vs
-ZAo+IGJlY29tZToKPgo+Cj4gZGVmIHNheV9oaShzZWxmKToKPgo+IHByaW50KGYiSGksIG15IG5h
-bWUgaXMge3NlbGYuX25hbWV9IikKPgo+Cj4gSXQncyBzaW1pbGFyIHRvIGNvZGUgZm9sZGluZywg
-ZXhjZXB0IHRoYXQgaGVyZSB5b3UgZG9uJ3Qgc2VlIGFueXRoaW5nCj4gYnV0IHlvdXIgY3VycmVu
-dCBhcmVhIG9mIGludGVyZXN0LCBhbmQgaGF2ZSBmZXcgc3BlY2lhbCBhYmlsaXRpZXMgZHVlIHRv
-Cj4gdGhlIHdheSBSaWRlIHdvcmtzLgo+Cj4gRm9yIGV4YW1wbGUsIHRoZSBpbmRlbnRhdGlvbiBp
-cyBtYW5hZ2VkIGZ1bGx5IGJ5IHRoZSBwcm9ncmFtLCBhbmQgeW91Cj4gZG9uJ3QgZXZlbiBzZWUg
-aXQgd2hpbGUgY29kaW5nLiBJZiB5b3Ugd2FudCB0byBjaGFuZ2UgaXQgc29tZXdoZXJlLCB5b3UK
-PiBoYXZlIHRvIG1ha2UgYSBjb25zaXN0ZW50IG9wZXJhdGlvbiBsaWtlIGNyZWF0aW5nIGEgbmV3
-IGJsb2NrIG9mIGNvZGUsCj4gbW92aW5nIGV4aXN0aW5nLW9uZXMgZXRjLgo+Cj4gVGhhdCdzIHdo
-eSB5b3UgbGl0ZXJhbGx5IGNhbid0IGdldCBpdCB3cm9uZywgZXZlbiBpZiB5b3Ugd2FudGVkIHRv
-LCB0aGUKPiBlZGl0b3Igd29uJ3QgbGV0IHlvdS4KPgo+Cj4gQ29weWluZyBhbmQgbW92aW5nIGNv
-ZGUgYWxzbyBiZWNvbWVzIHZlcnkgZWFzeSBpbiB0aGlzIHRyZWUgcGhpbG9zb3BoeSwKPiBieSBz
-ZWxlY3Rpbmcgbm9kZXMgaW5zdGVhZCBvZiBzcGVjaWZpYyBsaW5lcywgeW91IGNhbiBoYXZlIGVu
-dGlyZSBibG9ja3MKPiBvZiBjb2RlIGZseWluZyBhcm91bmQganVzdCBsaWtlIHlvdSdkIGJlIGNv
-cHlpbmcgb25lIHdvcmQgb3IgY2hhcmFjdGVyLAo+IHdpdGhvdXQgZXZlciB3b3JyeWluZyB3aGV0
-aGVyIHlvdSBzZWxlY3RlZCBhbGwgdGhlIGxpbmVzIHRoYXQgYmVsb25nCj4gaW50byB5b3VyIHNl
-bGVjdGlvbi4KPgo+Cj4gVGhpcyBwcm9qZWN0IG9yaWdpbmFsbHkgc3RhcnRlZCBmb3IgV2luZG93
-cywgYnV0IEkgcmV3cm90ZSBpdCBmb3IgTGludXgsCj4gaXQgd2FzIHRoZSBmaXJzdCB0aGluZyBJ
-IGRpZCBvbiB0aGUgb3BlbiBwbGF0Zm9ybSwgYXMgbm90IGhhdmluZyBpdCB3YXMKPiBsaWtlIGJl
-aW5nIHdpdGhvdXQgbXkgcmlnaHQgYXJtLgo+Cj4KPiBUaGUgTGludXggdmVyc2lvbiBpcyB3cml0
-dGVuIGluIFJ1c3QsIGlzIGJsYXppbmdseSBmYXN0IGFuZCBoYXMgbWFueQo+IG1vZGVybml6YXRp
-b25zIG92ZXIgdGhlIFdpbmRvd3Mtb25lLgo+Cj4KPiBJIGRpZCBub3QgcmVsZWFzZSBpdCB5ZXQs
-IGFzIHRoZXJyZSBhcmUgc3RpbGwgc29tZSBmb3JtYWxpdGllcyB0byBiZQo+IGRvbmUgbGlrZSBw
-cm9wZXIgc2V0dGluZ3MsIHBlcmhhcHMgYSBtb3JlIHRyYW5zcGFyZW50IGNvbmZpZ3VyYXRpb24s
-IGFuZAo+IEkgd2FudGVkIHRvIHJlcGxhY2UgQmFzcyB3aXRoIE9wZW5BTCBmb3IgYXVkaW8uCj4K
-Pgo+IEJ1dCBpbiB0ZXJtcyBvZiBmdW5jdGlvbmFsaXR5LCBpdCB3b3JrcyBncmVhdC4gSSd2ZSB1
-c2VkIGl0IGZvciBhbGwKPiBzb3J0cyBvZiBkZXZlbG9wbWVudCAtIFJ1c3QsIFB5dGhvbiwgQyMs
-IEtvdGxpbiwgWE1MLCBIVE1MLCBKYXZhU2NyaXB0LAo+IERhcnQsIFZhbGEsIGFuZCB0aGUgZXhw
-ZXJpZW5jZSBoYXMgYmVlbiBhd2Vzb21lIChpdCdzIHRoZSBvbmx5IGNvZGUKPiBlZGl0b3IgSSdt
-IHVzaW5nKS4KPgo+IEkgdXNlIGl0IGV2ZW4gb24gbGFyZ2UgZmlsZXMgKGxpa2UgQW5kcm9pZCBs
-b2dzKSBhbmQgZmlsZXMgd2l0aCB2ZXJ5Cj4gbG9uZyBsaW5lcyAodHlwaWNhbGx5IHVuZm9ybWF0
-dGVkIEpTT24gb3Igb3RoZXIgc2VyaWFsaXphdGlvbiBmb3JtYXQpLAo+IFBsdW1hIHVzdWFsbHkg
-Z2V0cyBzdHVjayB3aXRoIHRoZXNlLCBSaWRlIGRvZXMgbm90IGhhdmUgYW55IHByb2JsZW1zLAo+
-IHNpbmNlIGl0IGRvZXNuJ3QgdXNlIGEgc3RhbmRhcmQgdGV4dCBib3ggZm9yIGlucHV0dGluZyBh
-bmQgZGlzcGxheWluZwo+IHRleHQgKGluIGZhY3QsIGl0IGRvZXMgbm90IGRpc3BsYXkgdGV4dCBh
-dCBhbGwgaGFoYSkuCj4KPgo+IElmIHlvdSBvciBhbnlvbmUgZWxzZSB3b3VsZCBiZSBpbnRlcmVz
-dGVkLCBJIGNhbiBwcm92aWRlIGJldGFzLCBhcyBJCj4gaGF2ZSBubyBpZGVhIHdoZW4gaXMgdGhp
-cyBnb2luZyB0byBiZSByZWxlYXNlZC4KPgo+Cj4gQmVzdCByZWdhcmRzCj4KPgo+IFJhc3Rpc2xh
-dgo+Cj4KPiBExYhhIDExLiA0LiAyMDIyIG8gMTU6NDMgTGludXggZm9yIGJsaW5kIGdlbmVyYWwg
-ZGlzY3Vzc2lvbiBuYXDDrXNhbChhKToKPiA+IEhpLAo+ID4KPiA+IEkgd2FudCB0byB0cnkgd3Jp
-dGUgYSBsaXR0bGUgZ2FtZSBpbiBQeXRob24sIHVzaW5nIEd0ayBmb3IgZ3VpIGFuZAo+ID4gUHl0
-aG9uIGFzIHByb2dyYW1taW5nIGxhbmd1YWdlLiBCdXQgdGhlIGJpZ2dlc3QgcHJvYmxlbSBmb3Ig
-bWUgaXMKPiA+IGluZGVudGF0aW9uLiBTbywgY2FuIHlvdSByZWNvbW1lbmQgbWUgc29tZSBlZGl0
-b3IsIHdoaWNoIHdpbGwgZm9sbG93IGFuZAo+ID4gaWYgcG9zc2libGUgY29ycmVjdCBteSBpbmRl
-bnRhdGlvbj8gRmVkb3JhIC8gVWJ1bnR1Lgo+ID4KPiA+IFRoYW5rcywKPiA+Cj4gPiBQYXZlbAo+
-ID4KPiA+Cj4gPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-Xwo+ID4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gPiBCbGludXgtbGlzdEByZWRoYXQuY29t
-Cj4gPiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1s
-aXN0Cj4gPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4g
-aHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+
-Cj4KX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4
-LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFu
-LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo=
+So I'm downloading Jenux again, and the version number is the same on 
+one site and the other one is 404. How do I know if I'm redownloading 
+the same file I already had with the permission bug?
+
+
+There's two sites:
+
+NashCentral/JenniOS Accessibility Projects 
+<https://nashcentral.duckdns.org/projects.html>
+
+
+and
+
+
+JenniOS/NashCentral Accessibility Projects 
+<https://jennios.com/projects.html>
+
+
+The latter of which is the one that gets a 404. Why are there two sites? 
+Can we be rid of one to cut down on confusion?
+
+
+
+-- 
+Cheers:
+Aaron Spears, AKA Valiant8086 General Partner at Valiant Galaxy Associates "we make (VERY GOOD AUDIOGAMES) for the blind comunity" http://valiantGalaxy.com
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
