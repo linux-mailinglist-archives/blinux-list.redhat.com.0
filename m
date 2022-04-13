@@ -1,52 +1,54 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2A7464FFB16
-	for <lists+blinux-list@lfdr.de>; Wed, 13 Apr 2022 18:20:30 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 146974FFB58
+	for <lists+blinux-list@lfdr.de>; Wed, 13 Apr 2022 18:31:32 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649866829;
+	s=mimecast20190719; t=1649867491;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=6NtZLl75iVMz1wZE24RMmLtaAJcQnCFS1ZqVUYWimAQ=;
-	b=AfU+eYGx3M3vgCpWQiC8S20S5Du/XYfOXISx/XyJgA32w3YR5v7DAflLr1i2OoLOhT6eVh
-	3H4pKE7IHWXAptNnQHvUGxU2gEvoh3Z4N5O859Wn6PwrYN1mJzoH/TdLjgt4jHxSyMgFDM
-	6OfssiAiZ5mS14T331kORivuYcW82ow=
+	bh=KnNnT9/JoYksriN/tm3dBpjbAK66YKEr1ZO8tTfO2K0=;
+	b=T6lDc/XVsjwLv++y8JGZ7V2AWfWxbwOLbw0SoRF/kEt9xFWLBY+dMG5w9DmPXafFni51Je
+	yKRUivuDKj+UMglxAN3XgPSRw6kCA2C7SYA/O5Rcp0eAptkEsbPkC9N2JHyFWwTodaKu9D
+	uBpS/9tb+uXMmfiUaYx8VnzYcIX9H+o=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-346-WdIB5m4xOgqSNl4ptgIXHg-1; Wed, 13 Apr 2022 12:20:25 -0400
-X-MC-Unique: WdIB5m4xOgqSNl4ptgIXHg-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-61-ig0uMgqbOOCRmC2Qa18jmQ-1; Wed, 13 Apr 2022 12:31:24 -0400
+X-MC-Unique: ig0uMgqbOOCRmC2Qa18jmQ-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AFF8A1C0E341;
-	Wed, 13 Apr 2022 16:20:23 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 638993822232;
+	Wed, 13 Apr 2022 16:30:53 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 85F8454ACB1;
-	Wed, 13 Apr 2022 16:20:23 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id CC5AAC44CCA;
+	Wed, 13 Apr 2022 16:30:52 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 1232F1940373;
-	Wed, 13 Apr 2022 16:20:21 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id DB61D1940373;
+	Wed, 13 Apr 2022 16:30:49 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 13 Apr 2022 12:20:13 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: FYI - Command Line Programs for the Blind
-In-Reply-To: <mailman.8242.1649858545.111203.blinux-list@redhat.com>
+MIME-Version: 1.0
+In-Reply-To: <mailman.8286.1649861527.111202.blinux-list@redhat.com>
 References: <mailman.7836.1649830111.111205.blinux-list@redhat.com>
  <mailman.8034.1649840185.111204.blinux-list@redhat.com>
  <mailman.8235.1649845924.111201.blinux-list@redhat.com>
  <mailman.8235.1649853207.111206.blinux-list@redhat.com>
  <mailman.8153.1649856275.111209.blinux-list@redhat.com>
- <mailman.8268.1649857705.111206.blinux-list@redhat.com>
- <mailman.8242.1649858545.111203.blinux-list@redhat.com>
-MIME-Version: 1.0
-Message-ID: <mailman.8375.1649866820.111203.blinux-list@redhat.com>
+ <mailman.8209.1649858812.111208.blinux-list@redhat.com>
+ <mailman.8162.1649859377.111209.blinux-list@redhat.com>
+ <mailman.8191.1649860611.111209.blinux-list@redhat.com>
+ <mailman.8286.1649861527.111202.blinux-list@redhat.com>
+Date: Wed, 13 Apr 2022 16:30:18 +0000
+Subject: Re: FYI - Command Line Programs for the Blind
+To: blinux-list@redhat.com
+Message-ID: <mailman.8346.1649867449.111204.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -62,7 +64,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -70,52 +72,107 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-No version of Windows I've run across to date is self-healing.  If Windows
-were self-healing when a service pack failed to install Windows would
-figure out why and adjust the computer accordingly then repeat the service
-pack install correctly.  Not everybody lives with help desk resources
-available to fix Windows when it falls over and this is why Linux.  In the
-event something happens I can put a different version of Linux in the
-computer and either research the problem on the web or send email and find
-out how to clear the problem then fix the problem myself.
-I'm pretty certain no linux user group exists in Bucks County Pennsylvania
-and nobody where I live knows anything about Linux either other than maybe
-it's a different operating system.
+I think the most important things to remember here are that:
 
+1. People are different and that's okay.
 
-On Wed, 13 Apr 2022, Linux for blind general discussion wrote:
+2. Blind people are just as diverse as people in general.
 
-> Why not use windows 11 then?
-> Just a thought!
-> /A
->
-> > 13 apr. 2022 kl. 15:47 skrev Linux for blind general discussion <blinux-list@redhat.com>:
-> >
-> > Again, you compare apples to oranges. Mutt requires tons of configuration hoops to be jumped through before it is even somewhat useful. This is far worse than the first-run experience in Thunderbird. You say you just transfer a file to get Mutt working on a new machine. The only difference with Thunderbird is that you have to transfer a folder instead of a file. So Thunderbird is still the clear winner here, since it takes far less time to get it set up and actually reading and responding to mail if you've never used it. Once configured, since I already turned off the calendar and such in my initial setup process, and since I needed to set up my email accounts anyway, I found that the new account screen is far easier to use than Mutt's initial configuration hassles, and I only press shift+tab once to get to my message list, which is how it will work if I transfer the ~/.thunderbird folder to a new machine as well, and it will then bypass the new account setup and just work as I e
- xp
->  ect wherever I want to use it.
-> >
-> >
-> > I totally agree about the sensible keybindings. Thins are finally starting to move in that direction, and this is a good thing indeed. Still, there is a lot of work to be done, and most terminal applications will probably have to be rebuilt from the ground up, while still others will need to be developed in order to make the terminal a somewhat more hospitable place for anyone other than a power user. Yes, I do use a terminal for some things that I just find a bit easier that way, but for a long time now, even though most tutorials seem to focus on the power user by telling people to open up a terminal, most of that stuff is copy and paste kind of stuff, and much of it can be done without a terminal as well. It certainly can't hurt to learn a bit about it, but it is a pretty scary place for people who are new to computers. Fortunately though, we do have easy-to-use desktops and applications, and I was able to successfully show someone how to do anything they needed to do on their
-  c
->  omputer, including some pretty advanced stuff, without opening a terminal even once, since the terminal is still useful for some things, but has not been the only way to do things for some time now. Again, I don't knock it, but it definitely can be scary even now that the landscape has improved somewhat fairly recently, and if I can, I avoid terminal use, not for myself, but for teaching new users how to use a Linux computer. I definitely will steer clear of things like Mutt, and certainly EMACS, as these are the kings of the scariest terminal lands that seem to be popular among power users, but I gave up on trying to make these work years ago, as power user though I am, I couldn't get past the extremely steep learning curve just to get them configured. Oh yeah, and Edbrowse was another that I just couldn't get to do anything meaningful for me. Again, that was many years ago now, but I doubt it has become less scary and more usable over the course of that time. Just trying to figu
- re
->   out how to get it to show me part of a single page on a website was not something I could get working, let alone actually trying to click a link that goes somewhere else, even on the same page.
-> >
-> > ~Kyle
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+At the end of the day, debating Mutt versus Thunderbird has about as
+much impact as debating Coke versus Pepsi. Hardcore fans of either
+aren't likely to change their mind for any reason, there's no way of
+doing an objective comparison, and just as how which cola is better
+comes down to the individual's tastebuds, which e-mail client is
+easier to setup and use ultimately comes down to which software
+idiosyncrasies the end user is more comfortable with.
+
+Though, for what it's worth, just as I'm not a fan of colas and much
+prefer Dr. Pepper when it comes to caramel colored fizzy drinks, I'm
+not a fan of e-mail clients and prefer to just use my e-mail's web
+interface... and the last time I checked my e-mail on a machine other
+than my personal one, doing so was as simple as launching Firefox,
+typing gmail.google.com into the address bar, entering my e-mail
+address and password, and then once logged in, I just used what of
+NVDA's navigational hotkeys matched Orca's to check level 3 headings
+for how many unread messages were in my inbox and spam, and jump to
+the checkbox on the first message in the message list... Granted, that
+was years ago, so its entirely possible paranoid security on Google's
+part would make logging in difficult, and they might try forcing me to
+use their bogged down with JavaScript standard view instead of
+respecting my preference for the HTML view.
+
+Granted, the only time I've ever used an e-mail client was theGmail
+app on android 2.2 back when I still had a working eyeball, so I
+suspect I'd find both Mutt and Thunderbird perplexing if I ever gave
+them a try, and the only things I know about SMTP, pop3, and imap is
+the first stands for simple mail transfer protocol and they all have
+something to do with the technical details of e-mail most people are
+ignorant of... Though, I'd probably give Mutt or Alpine a try befor
+Thunderbird or whatever Chromium's companion e-mail client is called
+if only because my setup doesn't really let me run GUI applications
+other than Firefox.
+
+And while I agree the massive overlap in key bindings makes switching
+between GUI applications easy, and its great that Micro exists for
+those wanting to reduce their GUI dependence without having to learn
+an editor with key bindings that predate standardization, I must
+confess that I'm so used to nano's key bindings that I wish I could
+make Firefox switch over to nano-like bindings when I focuse a
+multi-line textbox and the only modern convention I miss when typing
+in nano is the ability to select text by holding shift and using
+arrow/navigation keys...
+
+Honestly, the application I most want that doesn't seem to exist would
+probably be a text-mode web browser that:
+
+1. Arrow and navigation keys move around the page like in an editor.
+
+2. Has Firefox-like keybindings for all the common web browser functions.
+
+3. Has Orca-like keybindings for page navigation.
+
+4. Has a browse/focus mode toggle equivalent to Orca+A.
+
+5. Forces pages with multi-column layouts into single column for
+presentation(or at least as the option to)... This is to avoid
+situations where a console screen reader tries to interleave text from
+a list of links in the left column with the page's main content in the
+center/right column.
+
+6. Supports the functional aspects of JavaScript, HTML5, etc. while
+ignoring the eyecandy aspects.
+
+7. Disables rich web content by default, but has a keyboard shortcut
+to activate it for the current page and a menu for fine tuning which
+rich content is allowed, and whether the allowance is temporary or
+permanent(essentially providing No-Script-like functionality).
+
+8. embeds nano(or the text-mode text editor of the user's choice)
+within focused textboxes(so, if I wanted to post the contents of a
+file on my hard drive via a web form, instead of opening a second tab,
+navigating to the file on my system, and copy and pasting it into the
+form, I could just go into thetext box, get an embedded nano window,
+and use Nano's insert from another file command... and if there's
+multiple files, I could just do that repeatedly... and unlike with
+Firefox's address bar, I'd have tab completion for getting the path to
+the file).
+
+9. The ability to import bookmarks, saved passwords, etc. from a
+Firefox(and other popular browsers) profile would be a nice bonus,
+especially if it was done via a supplementary package that could be
+removed after migrating.
+
+There are probably other features I'd want in my dream text-mode web
+browser, but something that provides a remotely similar browsing
+experience to Firefox+Orca would be amazing and would probably be
+enough to make me ditch the GUI altogether... though I confess, a
+simple means of launching arbitrary GUI applications in a kiosk-like
+manner with Orca would be nice for those rare occasions I'm curious to
+give a GUI application a try... sadly, maintaining a full desktop is
+over kill with how much I live in the GUI, and the script I use to
+launch Firefox with Orca suffers from crippling overspecialization and
+its someone else's work that I don't begin to understand how to adapt
+to applications beyond the handful it was designed for.
 
 _______________________________________________
 Blinux-list mailing list
