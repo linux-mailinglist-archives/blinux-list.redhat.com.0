@@ -2,42 +2,42 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3A26C4FFAD5
-	for <lists+blinux-list@lfdr.de>; Wed, 13 Apr 2022 18:02:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9503E4FFAE6
+	for <lists+blinux-list@lfdr.de>; Wed, 13 Apr 2022 18:06:06 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649865722;
+	s=mimecast20190719; t=1649865965;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=STkejcYQSu47E0X2E54d3pYO+1y7fLBh7p9WC3SNDPU=;
-	b=NP1eDvOfcwmrEbE1V+s4Z4D7bVzWScZ95FM8SI1sRK9ZKOnOR5wpxyOwH1MsDvk5d9MYNv
-	tU/TPqpKdjLRCESlE3FUSJQMZlGKDv00HIaifblOjNm1wh2ie8P5qB4u2VWUWdsywj/js4
-	5Q6ayfR7uv7EIwUKmy5dK7AElsjWohg=
+	bh=URX8f3EDxXALON4gOqyCC0AVuAK/PVglAXIde6RE1x8=;
+	b=MrpTmA9MxFr3nXIhsc2Vqhb8oaMJEb0W9BmFHhyHSndVdy04GxIYf0L3IESrMH7XwrtoPo
+	XeZaLqUo5OxN8QW4Jl39uiQX+o5ouGvmgr9eFoXAlQ1ZwrpCZg0igZP42ZCv2D3Oj+GJkT
+	nhjU0ADuTKVD8SESKuTXstN/vGQT8wc=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-251-rW1B1JvwOzeZXfryeUPcDw-1; Wed, 13 Apr 2022 12:01:57 -0400
-X-MC-Unique: rW1B1JvwOzeZXfryeUPcDw-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+ us-mta-539-afDtUZu7NU-YTMAEwXZVNA-1; Wed, 13 Apr 2022 12:06:02 -0400
+X-MC-Unique: afDtUZu7NU-YTMAEwXZVNA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E1AC886B8B8;
-	Wed, 13 Apr 2022 16:01:39 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 92AF4804192;
+	Wed, 13 Apr 2022 16:06:00 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 7DFF2403365;
-	Wed, 13 Apr 2022 16:01:39 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 66EF4404D2F6;
+	Wed, 13 Apr 2022 16:06:00 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 1784D1940373;
-	Wed, 13 Apr 2022 16:01:39 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id F114F1940373;
+	Wed, 13 Apr 2022 16:05:59 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 13 Apr 2022 12:00:56 -0400
+Date: Wed, 13 Apr 2022 12:05:56 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: FYI - Command Line Programs for the Blind
-In-Reply-To: <mailman.8361.1649864484.111203.blinux-list@redhat.com>
+In-Reply-To: <mailman.8286.1649861527.111202.blinux-list@redhat.com>
 References: <mailman.7836.1649830111.111205.blinux-list@redhat.com>
  <mailman.8034.1649840185.111204.blinux-list@redhat.com>
  <mailman.8235.1649845924.111201.blinux-list@redhat.com>
@@ -46,9 +46,9 @@ References: <mailman.7836.1649830111.111205.blinux-list@redhat.com>
  <mailman.8209.1649858812.111208.blinux-list@redhat.com>
  <mailman.8162.1649859377.111209.blinux-list@redhat.com>
  <mailman.8191.1649860611.111209.blinux-list@redhat.com>
- <mailman.8361.1649864484.111203.blinux-list@redhat.com>
+ <mailman.8286.1649861527.111202.blinux-list@redhat.com>
 MIME-Version: 1.0
-Message-ID: <mailman.8124.1649865698.111205.blinux-list@redhat.com>
+Message-ID: <mailman.8513.1649865959.111210.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -64,7 +64,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -72,27 +72,17 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Maybe lynx --dump url >$HOME/bin/tmpfile| vi $HOME/bin/tmpfile
-perhaps could out the step of entering lynx and saving the rendered page
-for viewing.
+It's advantageous locking full screen programs out if minds work better on
+single task at a time rather than multiple tasks at a time.  The entire
+windows interface and everything emanating from that interface was
+intended for the A.D.H.D. multi-tasking types among us and they do exist.
+Screen can be helpful in my context so long as only one task has focus at
+a time.
 
 
 On Wed, 13 Apr 2022, Linux for blind general discussion wrote:
 
-> I disagree with the concept of the text stream as the most accessible output.
-> For me, it is the text page. To this end I set up my environment to dump almost all output into
-> a temporary file which  I view with the vi editor.
->   For example, my vicmd command will open a file under my $HOME/bin directory, allow me to edit it, and then chmod it to allow execution.
->   My vls command will execute the ls command with all arguments, put
-> the output in a temp file, and  open that file with vi.  Upon exiting it will then delete the file.
->   Often with lynx, it is easier to print the current rendered page
-> to a file, shell out, and then view the page with vi.
->   By far my most useful command is v. This lets me run another command,  and review
-> its output with vi.
->   For me, it is simply easier to examine output data with vi than it is with just speakup alone.
->   I imagine emacspeak has the same advantage, but I never learned emacs, so I can't say so from experience.
->
-> Rudy
+>  I have issues with that approach though, in that okay that may have been the case 20 years ago, but technology has moved on. You now have desktops and things that can convey a full screen experience on Linux with stuff like Orca. I don't feel like deliberately locking out full screen programs helps anyone though. See I feel this is where everyone having differing ideas n what is or isn't accessible comes into play. For me, I have no issues with Mutt and using it, to me it flows and makes sense, whereas I flail around and struggl with Emacspeak and have zero idea where to go or what to even do, and given Edbrowse isn't in the AUR or Arch repos I can't try it however though
 >
 > On Wed, Apr 13, 2022 at 04:36:22PM +0200, Linux for blind general discussion wrote:
 > > It is worth noting that Karl's article linked to in the original post, was
@@ -393,6 +383,12 @@ On Wed, 13 Apr 2022, Linux for blind general discussion wrote:
 > > Blinux-list mailing list
 > > Blinux-list@redhat.com
 > > https://listman.redhat.com/mailman/listinfo/blinux-list
+> >
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
 >
 >
 
