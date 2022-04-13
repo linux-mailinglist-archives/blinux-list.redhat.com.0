@@ -1,40 +1,40 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id D70D44FF972
-	for <lists+blinux-list@lfdr.de>; Wed, 13 Apr 2022 16:52:14 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 10B1C4FFA84
+	for <lists+blinux-list@lfdr.de>; Wed, 13 Apr 2022 17:41:35 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649861533;
+	s=mimecast20190719; t=1649864495;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=oZZSWOqGRs2RYvGprkNuuxOs32RTIDOX6TQp5dtYbag=;
-	b=HkGFiwddHALjA9zWxAFAtXYjRRtC6d8vAN3PtUQE5EqlsRAjSevXJBB2MegvsFxmhdzSOk
-	taM0HYl10rbeCRCOa5McOghj+bvvTkmuI6vnG7r2je7hgdqOnMKu47D6Ykz0Z3C7aAQnZc
-	qd1kMXEMC8RwU1m8mHVBbHgByoTfLc4=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=5ulpylsqWtmkpEM8jqZU+JQ5+V6GVCMjFQfl70yFIPQ=;
+	b=DaYwW8CsmW9ZsmdKsIs5MsZQDrCbQ/24SKnDqd7g/l9sLo4o4cDqzBBpzYoxWUWLOj+YLZ
+	lFddZZ3IU4QJLpW1bJXCKWO8fvEFuX7SK88zsErE97rhEWq2v7Nmu2xvV6O/5Q8RJ1YMLl
+	x27YdTaCOjMai50wUCRLZ7Fb1+OOVjU=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-631-mwXpIMDMPYqyOVSBf1r_ww-1; Wed, 13 Apr 2022 10:52:10 -0400
-X-MC-Unique: mwXpIMDMPYqyOVSBf1r_ww-1
+ us-mta-590-y5ooOSfpP4SMarfwgJC1Lw-1; Wed, 13 Apr 2022 11:41:31 -0400
+X-MC-Unique: y5ooOSfpP4SMarfwgJC1Lw-1
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DC9221C09059;
-	Wed, 13 Apr 2022 14:52:08 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9035C8F1180;
+	Wed, 13 Apr 2022 15:41:28 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 5B23E145B96C;
-	Wed, 13 Apr 2022 14:52:08 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 658D614582F6;
+	Wed, 13 Apr 2022 15:41:25 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id DC4AA193F50E;
-	Wed, 13 Apr 2022 14:52:07 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 7A82F1940376;
+	Wed, 13 Apr 2022 15:41:24 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 13 Apr 2022 15:46:04 +0100
+Date: Wed, 13 Apr 2022 11:40:49 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: FYI - Command Line Programs for the Blind
 References: <mailman.7836.1649830111.111205.blinux-list@redhat.com>
@@ -47,7 +47,7 @@ References: <mailman.7836.1649830111.111205.blinux-list@redhat.com>
  <mailman.8191.1649860611.111209.blinux-list@redhat.com>
 MIME-Version: 1.0
 In-Reply-To: <mailman.8191.1649860611.111209.blinux-list@redhat.com>
-Message-ID: <mailman.8286.1649861527.111202.blinux-list@redhat.com>
+Message-ID: <mailman.8361.1649864484.111203.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -72,7 +72,20 @@ Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
- I have issues with that approach though, in that okay that may have been the case 20 years ago, but technology has moved on. You now have desktops and things that can convey a full screen experience on Linux with stuff like Orca. I don't feel like deliberately locking out full screen programs helps anyone though. See I feel this is where everyone having differing ideas n what is or isn't accessible comes into play. For me, I have no issues with Mutt and using it, to me it flows and makes sense, whereas I flail around and struggl with Emacspeak and have zero idea where to go or what to even do, and given Edbrowse isn't in the AUR or Arch repos I can't try it however though
+I disagree with the concept of the text stream as the most accessible output.
+For me, it is the text page. To this end I set up my environment to dump almost all output into
+a temporary file which  I view with the vi editor.
+  For example, my vicmd command will open a file under my $HOME/bin directory, allow me to edit it, and then chmod it to allow execution.
+  My vls command will execute the ls command with all arguments, put 
+the output in a temp file, and  open that file with vi.  Upon exiting it will then delete the file.
+  Often with lynx, it is easier to print the current rendered page 
+to a file, shell out, and then view the page with vi.
+  By far my most useful command is v. This lets me run another command,  and review
+its output with vi. 
+  For me, it is simply easier to examine output data with vi than it is with just speakup alone.
+  I imagine emacspeak has the same advantage, but I never learned emacs, so I can't say so from experience.
+
+Rudy
 
 On Wed, Apr 13, 2022 at 04:36:22PM +0200, Linux for blind general discussion wrote:
 > It is worth noting that Karl's article linked to in the original post, was
@@ -373,7 +386,11 @@ On Wed, Apr 13, 2022 at 04:36:22PM +0200, Linux for blind general discussion wro
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://listman.redhat.com/mailman/listinfo/blinux-list
-> 
+
+-- 
+Rudy Vener
+Website: http://www.rudyvener.com
+Twitter: https://twitter.com/RudySalt
 
 _______________________________________________
 Blinux-list mailing list
