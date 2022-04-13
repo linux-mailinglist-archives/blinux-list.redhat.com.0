@@ -2,46 +2,55 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id EFD994FFF8F
-	for <lists+blinux-list@lfdr.de>; Wed, 13 Apr 2022 21:45:00 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1FCFE4FFFE6
+	for <lists+blinux-list@lfdr.de>; Wed, 13 Apr 2022 22:21:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649879099;
+	s=mimecast20190719; t=1649881296;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=sbC9/CJ9yGgo+1Wb1ty4C0F1Ebtcr0JpkzEuEyGGCKI=;
-	b=IqPYvMcEJfiDiq+ZaJfSaEYbL51EJgtLRtm02ImNAj8J3Jx/MyKGsqJTc0ymL5fRN/tGd+
-	+40WPhWuJ/ihrOksSx4Yv/s5Pdlq8jWxnDzKPtwQxYneUJzGo/ez2jL9FCcL9X73u9iYIy
-	mHNKhna4ptpEV0YyzW4/yUj11mm/m9k=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=SYrnGsABeEnZGGZ1Qq/gftDR1hlSqJqppso+BkuW830=;
+	b=ip/eoRPsVPLnQkjVbPDpuQSbReVajt8ru/OdZrUyEi3h3K8mA4rNYVSFZZJ9QLQ+KR1nqO
+	kijAiyFLLp40oDo3myTjqkZu5wI9QsmMV7qohxGUWGgzzJJo/YJJ0j2BYOXry9GgREapyN
+	ts+yQRhUWz4R3oHGY/bBZm98/rvKfFE=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-196-e4gQvV2eNke5yxIcUurN-Q-1; Wed, 13 Apr 2022 15:44:58 -0400
-X-MC-Unique: e4gQvV2eNke5yxIcUurN-Q-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-538-TFH_SxaFNMmEwgUOMadVaw-1; Wed, 13 Apr 2022 16:21:32 -0400
+X-MC-Unique: TFH_SxaFNMmEwgUOMadVaw-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 08539802803;
-	Wed, 13 Apr 2022 19:44:57 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1DBB92999B51;
+	Wed, 13 Apr 2022 20:21:31 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id C2460C27EA6;
-	Wed, 13 Apr 2022 19:44:56 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 31D691121331;
+	Wed, 13 Apr 2022 20:21:23 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 4A6C41940353;
-	Wed, 13 Apr 2022 19:44:56 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 58E071940353;
+	Wed, 13 Apr 2022 20:21:22 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 13 Apr 2022 20:44:45 +0100
+Date: Wed, 13 Apr 2022 16:21:10 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: FYI - Command Line Programs for the Blind
-References: <mailman.8265.1649867972.111207.blinux-list@redhat.com>
- <mailman.8540.1649878555.111210.blinux-list@redhat.com>
+In-Reply-To: <mailman.8358.1649872296.111202.blinux-list@redhat.com>
+References: <mailman.7836.1649830111.111205.blinux-list@redhat.com>
+ <mailman.8034.1649840185.111204.blinux-list@redhat.com>
+ <mailman.8235.1649845924.111201.blinux-list@redhat.com>
+ <mailman.8235.1649853207.111206.blinux-list@redhat.com>
+ <mailman.8153.1649856275.111209.blinux-list@redhat.com>
+ <mailman.8209.1649858812.111208.blinux-list@redhat.com>
+ <mailman.8162.1649859377.111209.blinux-list@redhat.com>
+ <mailman.8191.1649860611.111209.blinux-list@redhat.com>
+ <mailman.8361.1649864484.111203.blinux-list@redhat.com>
+ <mailman.8124.1649865698.111205.blinux-list@redhat.com>
+ <mailman.8358.1649872296.111202.blinux-list@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <mailman.8540.1649878555.111210.blinux-list@redhat.com>
-Message-ID: <mailman.8378.1649879095.111202.blinux-list@redhat.com>
+Message-ID: <mailman.8347.1649881281.111208.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -57,182 +66,371 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-V2VsbCBnaXZlbiBob3cgSSd2ZSBiZWVuIGhlbHBpbmcgd2l0aCB0aGUgcmFnb25GTSBvbmUuLi4u
-d2h5IG5vdC4KCkkgbWVhbiwgaWYgYW55b25lIEkga25vdyBjYW5tYWtlIHRoaXMgd29yay4gSXQn
-cyB5b3UuIFlvdSBkbyBncmVhdCBzdHVmZiB3aXRoIHRlcm1pbmFsIHByb2dyYW1zIHNvIHlvdSdy
-ZSB0aGUgZmlyc3Qgb25lIEkgdGhvdWdodCBvZi4gSSBkb24ndCBoYXZlIHRoZSBlbWFpbCB0byBo
-YW5kIGJ1dCB0aGVyZSdzIGEgbGlzdCBvZiA2IG9yIDcgcG9pbnRzIHllcy4uLkknbGwgc2hvb3Qg
-eW91IGFuIGVtYWlsIG9mZiBsaXN0IGFuZCBzZWUgaWYgUmluaGVhcnQgd2FudHMgaW4gb24gdGhp
-c0FwciAxMywgMjAyMiBhdCAwOTozNTo0MFBNICswMjAwLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJh
-bCBkaXNjdXNzaW9uIHdyb3RlOgo+IEhvd2R5LAo+IAo+IERvIGkgdW5kZXJzdGFuZCBjb3JyZWN0
-bHksIHlvdSB3YW5uYSBoaXJlIG1lIHRvIGRldmVsb3AgYSBjb21tYW5kIGxpbmUgYnJvd3Nlcj8g
-Cj4gCj4gaXRzIGEgZ29vZCBhbW91bnQgb2Ygd29yayBidXQgdmVyeSBkb2FibGUgdXRpbGl6aW5n
-IGEgbW9kZXJuIGJyb3dzZXIgZW5naW5lLgo+IAo+IFdlbGwgaSBjb3VsZCBkZWZpbml0ZWx5IGRv
-IHRoaXMuIAo+IElmIHlvdSBhcmUgc2VyaW91cywgeW91IGNhbiBjb250YWN0IG1lIHBlciBtYWls
-IGlmIHRoZXJlIGlzIHNvbWV0aGluZyBjb25jcmV0ZToKPiBjaHJ5cyAoYXQpIGxpbnV4LWExMXku
-b3JnCj4gCj4gSeKAmG0gYSBraW5kIG9mIGEgZGF5d2Fsa2VyLiBJ4oCYbSBub3QgYmxpbmQgYnkg
-bXkgb3duLiBNeSBnaXJsZnJpZW5kIGFuZCBhIGxvdCBvZiBmcmllbmRzIGFyZS4gU28gaSBrbm93
-IHZlcnkgd2VsbCB3aGF0cyBuZWVkZWQgdG8gbWFrZSBwc2V1ZG8gVUlzIGZvciBjb21tYW5kIGxp
-bmUgb3B0aW1pemVkIGZvciBzY3JlZW5yZWFkZXIuIEkgY3JlYXRlZCBteSBvd24gc2NyZWVuIHJl
-YWRlciAoZmVucmlyIGluIGp1c3QgYSBjb3VwbGUgb2Ygd2Vla3MgYW5kIGxlYXJuZWQgYSBsb3Qg
-d2hpbGUgZG9pbmcgdGhhdC4gQWxsIFRoYXQgbWFrZXMgbWUgcmVhbGx5IGVmZmljaWVudCB3b3Jr
-aW5nIG9uIGFjY2Vzc2liaWxpdHkgcmVsYXRlZCBzb2Z0d2FyZSBhbmQgd2FzIGFsc28gdGhlIHJl
-YXNvbiB3aHkgaSB3YXMgaGlyZWQgYnkgRjEyMyBhdCBpdHMgdGltZS4KPiAKPiBNeSBEZWNlbWJl
-ciBwcm9qZWN0IHdhcyBjb21wbGV0ZWx5IHJld29ya2luZyBPQ1JkZXNrdG9wICggaWYgeW91IGtu
-b3cgdGhhdCkuIEluIHRoZSBsYXN0IGNvdXBsZSBvZiBtb250aHMgaSBjb250aW51ZSB3b3JraW5n
-IG9uIG9yY2EgZm9yIGFuIHBsdWdpbiAgZHJpdmVuIGFyY2hpdGVjdHVyZS4gSSBhbHNvIGFkZGVk
-IGFuIE9DUiBwbHVnaW4gZm9yIHRlc3RpbmcgOykuIFF1aXRlIGJhc2ljIHJpZ2h0IG5vdyBidXQg
-ZnVsbHkgZnVuY3Rpb25hbC4gQ3VycmVudGx5IGkgY29uY2VudHJhdGUgb24gcmV3b3JrIG9yY2Fz
-IHNldHRpbmdzIGhhbmRsaW5nIHRvIGJlIGRlY2VudHJhbCBmb3IgdGhlIHBsdWdpbiBhcmNoaXRl
-Y3R1cmUuIFRoYXRzIHJlYWxseSBhIGNoYWwgIGFuZCB0YWtlcyBhIGNvdXBsZSBvZiBtb250aCAo
-YSBsb3Qgb2Ygd29yayBuZWVkZWQgYW5kIGkgZG8gaXQgbW9zdGx5IGluIG15IHNwYXJlIHRpbWUs
-IHNvIGkgaGF2ZSB0byBwYXkgbXkgYmlsbHMgZmlyc3QgOyksIGJ1dCBvbmNlIGNvbXBsZXRlLHdl
-IGNhbiByZW1vdmUgYSBsb3Qgb2Ygc21lbGxpbmcgb2xkIGNvZGUgYWZ0ZXIgdGhhdCApCj4gCj4g
-Q2hlZXJzIGNocnlzCj4gCj4gPiBBbSAxMy4wNC4yMDIyIHVtIDE4OjM5IHNjaHJpZWIgTGludXgg
-Zm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT46Cj4g
-PiAKPiA+IO+7v0knbSBtb3N0bHkgc3VyZSBHb29nbGUncyBmb2lzaXRuZyBzdGFuZGFyZCB2aWV3
-IG9uIGV2ZXJ5b25lIG5vd2FkYXlzLCB0aGV5IGFyZSBzdXBwb3NlZCB0byBiZSBuaXhpbmcgdGhp
-cmQgcGFydHkgc3R1ZmYgaW4gTWF5IG9yIEp1bmUgaG93ZXZlciBzby4uLgo+ID4gCj4gPiBBbmQg
-eWVzLiBJIHRvbyB3YW50IHRoYXQgdGV4dCBtb2RlIGJyb3dzZXIuIEkgdGhpbmsgd2UgbmVlZCB0
-byBmaWd1cmUgb3V0IGEgd2F5IHRvIHBvb2wgcmVzb3VyY2VzIGFuZCBncmFiIENocnlzODcgb24g
-R2l0aHViIGFuZCBnbyBoZXJlLCBjYW4geW91IG1ha2UgdGhpcywgd2UndmUgZ290IFggYW1vdW50
-IG9mIHJlc291cmNlcywgbW9uZXksIGZvb2QsIGJlZXIsIGNvZmZlZWUsIGNhdHMsIGV0Yywgc28g
-aG93IG11Y2ggZG8geW91IG5lZWQgdG8gbWFrZSBpdD8gSSBtZWFuLiBJIHdhbnQgdGhhdCB0ZXh0
-IG1vZGUgYnJvd3Nlci4gVGhlcmUncyBiaXRzIGFuZCBwaWVjZXMgaW4gZXhpc3RpbmcgYnJvd3Nl
-cnMsIHllcyBidXQgbm9ib2R5J3MgZXZlciBwYWNrYWdlZCB0aGVtIGFsbCB0b2dldGhlci4KPiA+
-IAo+ID4gVGhlIHJlYXNvbiBJIHNhaWQgQ2hyeXMgaXMgYmVjYXVzZS4uLi4xLiBJJ20gaGFsZiBl
-eHBlY3RpbmcgQ2hyeXMgdG8gbGVhcCBpbiBoZXJlIGFuZCBnbyB5b3Ugd2FudCBtZSB0byBkbyB3
-aGF0PyBCdXQgdGhlIGJpZ2dlciByZWFzb24gaXMsIHdlbGwsIGxvb2sgYXQgRHJhZ29uRk0sIGl0
-IHNob3dzIHRoYXQgeW91IGNhbiBoYXZlIGEgY29uc29sZSBmaWxlIG1hbmFnZXIgd2l0aCBkZXNr
-dG9wIGxpa2Ugc2hvcnRjdXRzIHRoYXQgZG9lcyBhbGwgdGhlIGZ1bmN0aW9uYWxpdHkgb2Ygc29t
-ZXRoaW5nIGxpa2UgQ2FqYSBvciBOYXV0bGl1cywgYnV0IGluIGEgdGVybWluYWwsIHdpdGggc3Rh
-bmRhcmQga2V5Ym9hcmQgc2hvcnRjdXRzLgo+ID4gCj4gPiBOb3cgaWYgdGhhdCBicm93c2VyIGdv
-dCBtYWRlLCBhbmQgSSBjb3VsZCBkaXRjaCBGRiwgSSBwcm9iYWJseSB3b3VsZC4gTm8uLi5Ccm93
-LnNoIGlzbid0IGEgc3VpdGFibGUgcmVwbGFjZW1lbnQsIG5vdCBieSBhIGxvbmcgc2hvdC4gSSBj
-YW4gcmlnIHVwIHN0YXJ0eCB0byBkbyBPcmNhK0ZpcmVmb3gsIHN1cmUsIGJ1dC4uLi4KPiA+IAo+
-ID4+IE9uIFdlZCwgQXByIDEzLCAyMDIyIGF0IDA0OjMwOjE4UE0gKzAwMDAsIExpbnV4IGZvciBi
-bGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gPj4gSSB0aGluayB0aGUgbW9zdCBpbXBv
-cnRhbnQgdGhpbmdzIHRvIHJlbWVtYmVyIGhlcmUgYXJlIHRoYXQ6Cj4gPj4gCj4gPj4gMS4gUGVv
-cGxlIGFyZSBkaWZmZXJlbnQgYW5kIHRoYXQncyBva2F5Lgo+ID4+IAo+ID4+IDIuIEJsaW5kIHBl
-b3BsZSBhcmUganVzdCBhcyBkaXZlcnNlIGFzIHBlb3BsZSBpbiBnZW5lcmFsLgo+ID4+IAo+ID4+
-IEF0IHRoZSBlbmQgb2YgdGhlIGRheSwgZGViYXRpbmcgTXV0dCB2ZXJzdXMgVGh1bmRlcmJpcmQg
-aGFzIGFib3V0IGFzCj4gPj4gbXVjaCBpbXBhY3QgYXMgZGViYXRpbmcgQ29rZSB2ZXJzdXMgUGVw
-c2kuIEhhcmRjb3JlIGZhbnMgb2YgZWl0aGVyCj4gPj4gYXJlbid0IGxpa2VseSB0byBjaGFuZ2Ug
-dGhlaXIgbWluZCBmb3IgYW55IHJlYXNvbiwgdGhlcmUncyBubyB3YXkgb2YKPiA+PiBkb2luZyBh
-biBvYmplY3RpdmUgY29tcGFyaXNvbiwgYW5kIGp1c3QgYXMgaG93IHdoaWNoIGNvbGEgaXMgYmV0
-dGVyCj4gPj4gY29tZXMgZG93biB0byB0aGUgaW5kaXZpZHVhbCdzIHRhc3RlYnVkcywgd2hpY2gg
-ZS1tYWlsIGNsaWVudCBpcwo+ID4+IGVhc2llciB0byBzZXR1cCBhbmQgdXNlIHVsdGltYXRlbHkg
-Y29tZXMgZG93biB0byB3aGljaCBzb2Z0d2FyZQo+ID4+IGlkaW9zeW5jcmFzaWVzIHRoZSBlbmQg
-dXNlciBpcyBtb3JlIGNvbWZvcnRhYmxlIHdpdGguCj4gPj4gCj4gPj4gVGhvdWdoLCBmb3Igd2hh
-dCBpdCdzIHdvcnRoLCBqdXN0IGFzIEknbSBub3QgYSBmYW4gb2YgY29sYXMgYW5kIG11Y2gKPiA+
-PiBwcmVmZXIgRHIuIFBlcHBlciB3aGVuIGl0IGNvbWVzIHRvIGNhcmFtZWwgY29sb3JlZCBmaXp6
-eSBkcmlua3MsIEknbQo+ID4+IG5vdCBhIGZhbiBvZiBlLW1haWwgY2xpZW50cyBhbmQgcHJlZmVy
-IHRvIGp1c3QgdXNlIG15IGUtbWFpbCdzIHdlYgo+ID4+IGludGVyZmFjZS4uLiBhbmQgdGhlIGxh
-c3QgdGltZSBJIGNoZWNrZWQgbXkgZS1tYWlsIG9uIGEgbWFjaGluZSBvdGhlcgo+ID4+IHRoYW4g
-bXkgcGVyc29uYWwgb25lLCBkb2luZyBzbyB3YXMgYXMgc2ltcGxlIGFzIGxhdW5jaGluZyBGaXJl
-Zm94LAo+ID4+IHR5cGluZyBnbWFpbC5nb29nbGUuY29tIGludG8gdGhlIGFkZHJlc3MgYmFyLCBl
-bnRlcmluZyBteSBlLW1haWwKPiA+PiBhZGRyZXNzIGFuZCBwYXNzd29yZCwgYW5kIHRoZW4gb25j
-ZSBsb2dnZWQgaW4sIEkganVzdCB1c2VkIHdoYXQgb2YKPiA+PiBOVkRBJ3MgbmF2aWdhdGlvbmFs
-IGhvdGtleXMgbWF0Y2hlZCBPcmNhJ3MgdG8gY2hlY2sgbGV2ZWwgMyBoZWFkaW5ncwo+ID4+IGZv
-ciBob3cgbWFueSB1bnJlYWQgbWVzc2FnZXMgd2VyZSBpbiBteSBpbmJveCBhbmQgc3BhbSwgYW5k
-IGp1bXAgdG8KPiA+PiB0aGUgY2hlY2tib3ggb24gdGhlIGZpcnN0IG1lc3NhZ2UgaW4gdGhlIG1l
-c3NhZ2UgbGlzdC4uLiBHcmFudGVkLCB0aGF0Cj4gPj4gd2FzIHllYXJzIGFnbywgc28gaXRzIGVu
-dGlyZWx5IHBvc3NpYmxlIHBhcmFub2lkIHNlY3VyaXR5IG9uIEdvb2dsZSdzCj4gPj4gcGFydCB3
-b3VsZCBtYWtlIGxvZ2dpbmcgaW4gZGlmZmljdWx0LCBhbmQgdGhleSBtaWdodCB0cnkgZm9yY2lu
-ZyBtZSB0bwo+ID4+IHVzZSB0aGVpciBib2dnZWQgZG93biB3aXRoIEphdmFTY3JpcHQgc3RhbmRh
-cmQgdmlldyBpbnN0ZWFkIG9mCj4gPj4gcmVzcGVjdGluZyBteSBwcmVmZXJlbmNlIGZvciB0aGUg
-SFRNTCB2aWV3Lgo+ID4+IAo+ID4+IEdyYW50ZWQsIHRoZSBvbmx5IHRpbWUgSSd2ZSBldmVyIHVz
-ZWQgYW4gZS1tYWlsIGNsaWVudCB3YXMgdGhlR21haWwKPiA+PiBhcHAgb24gYW5kcm9pZCAyLjIg
-YmFjayB3aGVuIEkgc3RpbGwgaGFkIGEgd29ya2luZyBleWViYWxsLCBzbyBJCj4gPj4gc3VzcGVj
-dCBJJ2QgZmluZCBib3RoIE11dHQgYW5kIFRodW5kZXJiaXJkIHBlcnBsZXhpbmcgaWYgSSBldmVy
-IGdhdmUKPiA+PiB0aGVtIGEgdHJ5LCBhbmQgdGhlIG9ubHkgdGhpbmdzIEkga25vdyBhYm91dCBT
-TVRQLCBwb3AzLCBhbmQgaW1hcCBpcwo+ID4+IHRoZSBmaXJzdCBzdGFuZHMgZm9yIHNpbXBsZSBt
-YWlsIHRyYW5zZmVyIHByb3RvY29sIGFuZCB0aGV5IGFsbCBoYXZlCj4gPj4gc29tZXRoaW5nIHRv
-IGRvIHdpdGggdGhlIHRlY2huaWNhbCBkZXRhaWxzIG9mIGUtbWFpbCBtb3N0IHBlb3BsZSBhcmUK
-PiA+PiBpZ25vcmFudCBvZi4uLiBUaG91Z2gsIEknZCBwcm9iYWJseSBnaXZlIE11dHQgb3IgQWxw
-aW5lIGEgdHJ5IGJlZm9yCj4gPj4gVGh1bmRlcmJpcmQgb3Igd2hhdGV2ZXIgQ2hyb21pdW0ncyBj
-b21wYW5pb24gZS1tYWlsIGNsaWVudCBpcyBjYWxsZWQKPiA+PiBpZiBvbmx5IGJlY2F1c2UgbXkg
-c2V0dXAgZG9lc24ndCByZWFsbHkgbGV0IG1lIHJ1biBHVUkgYXBwbGljYXRpb25zCj4gPj4gb3Ro
-ZXIgdGhhbiBGaXJlZm94Lgo+ID4+IAo+ID4+IEFuZCB3aGlsZSBJIGFncmVlIHRoZSBtYXNzaXZl
-IG92ZXJsYXAgaW4ga2V5IGJpbmRpbmdzIG1ha2VzIHN3aXRjaGluZwo+ID4+IGJldHdlZW4gR1VJ
-IGFwcGxpY2F0aW9ucyBlYXN5LCBhbmQgaXRzIGdyZWF0IHRoYXQgTWljcm8gZXhpc3RzIGZvcgo+
-ID4+IHRob3NlIHdhbnRpbmcgdG8gcmVkdWNlIHRoZWlyIEdVSSBkZXBlbmRlbmNlIHdpdGhvdXQg
-aGF2aW5nIHRvIGxlYXJuCj4gPj4gYW4gZWRpdG9yIHdpdGgga2V5IGJpbmRpbmdzIHRoYXQgcHJl
-ZGF0ZSBzdGFuZGFyZGl6YXRpb24sIEkgbXVzdAo+ID4+IGNvbmZlc3MgdGhhdCBJJ20gc28gdXNl
-ZCB0byBuYW5vJ3Mga2V5IGJpbmRpbmdzIHRoYXQgSSB3aXNoIEkgY291bGQKPiA+PiBtYWtlIEZp
-cmVmb3ggc3dpdGNoIG92ZXIgdG8gbmFuby1saWtlIGJpbmRpbmdzIHdoZW4gSSBmb2N1c2UgYQo+
-ID4+IG11bHRpLWxpbmUgdGV4dGJveCBhbmQgdGhlIG9ubHkgbW9kZXJuIGNvbnZlbnRpb24gSSBt
-aXNzIHdoZW4gdHlwaW5nCj4gPj4gaW4gbmFubyBpcyB0aGUgYWJpbGl0eSB0byBzZWxlY3QgdGV4
-dCBieSBob2xkaW5nIHNoaWZ0IGFuZCB1c2luZwo+ID4+IGFycm93L25hdmlnYXRpb24ga2V5cy4u
-Lgo+ID4+IAo+ID4+IEhvbmVzdGx5LCB0aGUgYXBwbGljYXRpb24gSSBtb3N0IHdhbnQgdGhhdCBk
-b2Vzbid0IHNlZW0gdG8gZXhpc3Qgd291bGQKPiA+PiBwcm9iYWJseSBiZSBhIHRleHQtbW9kZSB3
-ZWIgYnJvd3NlciB0aGF0Ogo+ID4+IAo+ID4+IDEuIEFycm93IGFuZCBuYXZpZ2F0aW9uIGtleXMg
-bW92ZSBhcm91bmQgdGhlIHBhZ2UgbGlrZSBpbiBhbiBlZGl0b3IuCj4gPj4gCj4gPj4gMi4gSGFz
-IEZpcmVmb3gtbGlrZSBrZXliaW5kaW5ncyBmb3IgYWxsIHRoZSBjb21tb24gd2ViIGJyb3dzZXIg
-ZnVuY3Rpb25zLgo+ID4+IAo+ID4+IDMuIEhhcyBPcmNhLWxpa2Uga2V5YmluZGluZ3MgZm9yIHBh
-Z2UgbmF2aWdhdGlvbi4KPiA+PiAKPiA+PiA0LiBIYXMgYSBicm93c2UvZm9jdXMgbW9kZSB0b2dn
-bGUgZXF1aXZhbGVudCB0byBPcmNhK0EuCj4gPj4gCj4gPj4gNS4gRm9yY2VzIHBhZ2VzIHdpdGgg
-bXVsdGktY29sdW1uIGxheW91dHMgaW50byBzaW5nbGUgY29sdW1uIGZvcgo+ID4+IHByZXNlbnRh
-dGlvbihvciBhdCBsZWFzdCBhcyB0aGUgb3B0aW9uIHRvKS4uLiBUaGlzIGlzIHRvIGF2b2lkCj4g
-Pj4gc2l0dWF0aW9ucyB3aGVyZSBhIGNvbnNvbGUgc2NyZWVuIHJlYWRlciB0cmllcyB0byBpbnRl
-cmxlYXZlIHRleHQgZnJvbQo+ID4+IGEgbGlzdCBvZiBsaW5rcyBpbiB0aGUgbGVmdCBjb2x1bW4g
-d2l0aCB0aGUgcGFnZSdzIG1haW4gY29udGVudCBpbiB0aGUKPiA+PiBjZW50ZXIvcmlnaHQgY29s
-dW1uLgo+ID4+IAo+ID4+IDYuIFN1cHBvcnRzIHRoZSBmdW5jdGlvbmFsIGFzcGVjdHMgb2YgSmF2
-YVNjcmlwdCwgSFRNTDUsIGV0Yy4gd2hpbGUKPiA+PiBpZ25vcmluZyB0aGUgZXllY2FuZHkgYXNw
-ZWN0cy4KPiA+PiAKPiA+PiA3LiBEaXNhYmxlcyByaWNoIHdlYiBjb250ZW50IGJ5IGRlZmF1bHQs
-IGJ1dCBoYXMgYSBrZXlib2FyZCBzaG9ydGN1dAo+ID4+IHRvIGFjdGl2YXRlIGl0IGZvciB0aGUg
-Y3VycmVudCBwYWdlIGFuZCBhIG1lbnUgZm9yIGZpbmUgdHVuaW5nIHdoaWNoCj4gPj4gcmljaCBj
-b250ZW50IGlzIGFsbG93ZWQsIGFuZCB3aGV0aGVyIHRoZSBhbGxvd2FuY2UgaXMgdGVtcG9yYXJ5
-IG9yCj4gPj4gcGVybWFuZW50KGVzc2VudGlhbGx5IHByb3ZpZGluZyBOby1TY3JpcHQtbGlrZSBm
-dW5jdGlvbmFsaXR5KS4KPiA+PiAKPiA+PiA4LiBlbWJlZHMgbmFubyhvciB0aGUgdGV4dC1tb2Rl
-IHRleHQgZWRpdG9yIG9mIHRoZSB1c2VyJ3MgY2hvaWNlKQo+ID4+IHdpdGhpbiBmb2N1c2VkIHRl
-eHRib3hlcyhzbywgaWYgSSB3YW50ZWQgdG8gcG9zdCB0aGUgY29udGVudHMgb2YgYQo+ID4+IGZp
-bGUgb24gbXkgaGFyZCBkcml2ZSB2aWEgYSB3ZWIgZm9ybSwgaW5zdGVhZCBvZiBvcGVuaW5nIGEg
-c2Vjb25kIHRhYiwKPiA+PiBuYXZpZ2F0aW5nIHRvIHRoZSBmaWxlIG9uIG15IHN5c3RlbSwgYW5k
-IGNvcHkgYW5kIHBhc3RpbmcgaXQgaW50byB0aGUKPiA+PiBmb3JtLCBJIGNvdWxkIGp1c3QgZ28g
-aW50byB0aGV0ZXh0IGJveCwgZ2V0IGFuIGVtYmVkZGVkIG5hbm8gd2luZG93LAo+ID4+IGFuZCB1
-c2UgTmFubydzIGluc2VydCBmcm9tIGFub3RoZXIgZmlsZSBjb21tYW5kLi4uIGFuZCBpZiB0aGVy
-ZSdzCj4gPj4gbXVsdGlwbGUgZmlsZXMsIEkgY291bGQganVzdCBkbyB0aGF0IHJlcGVhdGVkbHku
-Li4gYW5kIHVubGlrZSB3aXRoCj4gPj4gRmlyZWZveCdzIGFkZHJlc3MgYmFyLCBJJ2QgaGF2ZSB0
-YWIgY29tcGxldGlvbiBmb3IgZ2V0dGluZyB0aGUgcGF0aCB0bwo+ID4+IHRoZSBmaWxlKS4KPiA+
-PiAKPiA+PiA5LiBUaGUgYWJpbGl0eSB0byBpbXBvcnQgYm9va21hcmtzLCBzYXZlZCBwYXNzd29y
-ZHMsIGV0Yy4gZnJvbSBhCj4gPj4gRmlyZWZveChhbmQgb3RoZXIgcG9wdWxhciBicm93c2Vycykg
-cHJvZmlsZSB3b3VsZCBiZSBhIG5pY2UgYm9udXMsCj4gPj4gZXNwZWNpYWxseSBpZiBpdCB3YXMg
-ZG9uZSB2aWEgYSBzdXBwbGVtZW50YXJ5IHBhY2thZ2UgdGhhdCBjb3VsZCBiZQo+ID4+IHJlbW92
-ZWQgYWZ0ZXIgbWlncmF0aW5nLgo+ID4+IAo+ID4+IFRoZXJlIGFyZSBwcm9iYWJseSBvdGhlciBm
-ZWF0dXJlcyBJJ2Qgd2FudCBpbiBteSBkcmVhbSB0ZXh0LW1vZGUgd2ViCj4gPj4gYnJvd3Nlciwg
-YnV0IHNvbWV0aGluZyB0aGF0IHByb3ZpZGVzIGEgcmVtb3RlbHkgc2ltaWxhciBicm93c2luZwo+
-ID4+IGV4cGVyaWVuY2UgdG8gRmlyZWZveCtPcmNhIHdvdWxkIGJlIGFtYXppbmcgYW5kIHdvdWxk
-IHByb2JhYmx5IGJlCj4gPj4gZW5vdWdoIHRvIG1ha2UgbWUgZGl0Y2ggdGhlIEdVSSBhbHRvZ2V0
-aGVyLi4uIHRob3VnaCBJIGNvbmZlc3MsIGEKPiA+PiBzaW1wbGUgbWVhbnMgb2YgbGF1bmNoaW5n
-IGFyYml0cmFyeSBHVUkgYXBwbGljYXRpb25zIGluIGEga2lvc2stbGlrZQo+ID4+IG1hbm5lciB3
-aXRoIE9yY2Egd291bGQgYmUgbmljZSBmb3IgdGhvc2UgcmFyZSBvY2Nhc2lvbnMgSSdtIGN1cmlv
-dXMgdG8KPiA+PiBnaXZlIGEgR1VJIGFwcGxpY2F0aW9uIGEgdHJ5Li4uIHNhZGx5LCBtYWludGFp
-bmluZyBhIGZ1bGwgZGVza3RvcCBpcwo+ID4+IG92ZXIga2lsbCB3aXRoIGhvdyBtdWNoIEkgbGl2
-ZSBpbiB0aGUgR1VJLCBhbmQgdGhlIHNjcmlwdCBJIHVzZSB0bwo+ID4+IGxhdW5jaCBGaXJlZm94
-IHdpdGggT3JjYSBzdWZmZXJzIGZyb20gY3JpcHBsaW5nIG92ZXJzcGVjaWFsaXphdGlvbiBhbmQK
-PiA+PiBpdHMgc29tZW9uZSBlbHNlJ3Mgd29yayB0aGF0IEkgZG9uJ3QgYmVnaW4gdG8gdW5kZXJz
-dGFuZCBob3cgdG8gYWRhcHQKPiA+PiB0byBhcHBsaWNhdGlvbnMgYmV5b25kIHRoZSBoYW5kZnVs
-IGl0IHdhcyBkZXNpZ25lZCBmb3IuCj4gPj4gCj4gPj4gX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KPiA+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiA+
-PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4gPj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20v
-bWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+ID4+IAo+ID4gCj4gPiBfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+ID4gQmxpbnV4LWxpc3QgbWFpbGlu
-ZyBsaXN0Cj4gPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4gPiBodHRwczovL2xpc3RtYW4ucmVk
-aGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4gPiAKPiAKPiBfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxp
-bmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0
-LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0CgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4
-LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3Rp
-bmZvL2JsaW51eC1saXN0Cg==
+Maybe this could be done with an alternate command in lynx and an entry in
+a .mailcap file but don't quote me on that.  In any case, use of the = key
+brings up a different view of the web page already opened and it's usually
+the 2nd url entry in that view that will get you back to the web page.
+Copy that url then you could use something like I wrote earlier.  This
+doesn't always work since some web sites are so messed up they have
+misleading urls at the tops of their pages so watch out for that.
+
+
+On Wed, 13 Apr 2022, Linux for blind general discussion wrote:
+
+> It would work if I knew the URL in advance. But I tend
+> to arrive at a page of interest only after browsing through several
+> pages first. For example, I may go to realclearpolitics.com, browse down
+> through today's articles, see an article I want and follow the link to it, then I might
+> hit the p key to print the page and then after printing it, shell out
+> and examine it with vi. After that  I exit the shell and I'm back in the browser, which
+> by the way, will be links (the chain) not lynx (the cat) because the latter no longer
+> works with realclearpolitics.com because of cloud flare.
+>
+>
+> Rudy
+>
+> On Wed, Apr 13, 2022 at 12:00:56PM -0400, Linux for blind general discussion wrote:
+> > Maybe lynx --dump url >$HOME/bin/tmpfile| vi $HOME/bin/tmpfile
+> > perhaps could out the step of entering lynx and saving the rendered page
+> > for viewing.
+> >
+> >
+> > On Wed, 13 Apr 2022, Linux for blind general discussion wrote:
+> >
+> > > I disagree with the concept of the text stream as the most accessible output.
+> > > For me, it is the text page. To this end I set up my environment to dump almost all output into
+> > > a temporary file which  I view with the vi editor.
+> > >   For example, my vicmd command will open a file under my $HOME/bin directory, allow me to edit it, and then chmod it to allow execution.
+> > >   My vls command will execute the ls command with all arguments, put
+> > > the output in a temp file, and  open that file with vi.  Upon exiting it will then delete the file.
+> > >   Often with lynx, it is easier to print the current rendered page
+> > > to a file, shell out, and then view the page with vi.
+> > >   By far my most useful command is v. This lets me run another command,  and review
+> > > its output with vi.
+> > >   For me, it is simply easier to examine output data with vi than it is with just speakup alone.
+> > >   I imagine emacspeak has the same advantage, but I never learned emacs, so I can't say so from experience.
+> > >
+> > > Rudy
+> > >
+> > > On Wed, Apr 13, 2022 at 04:36:22PM +0200, Linux for blind general discussion wrote:
+> > > > It is worth noting that Karl's article linked to in the original post, was
+> > > > not arguing in favour of programs like Mutt. He calls these types of
+> > > > programs full screen programs, and considers them to be less accessible as
+> > > > well. The ideal interface for a blind user according to the article, is a
+> > > > program taking in a stream of text (commands) via standard input, and
+> > > > replying with a stream of text via standard output.
+> > > > It is also interesting that both Karl Dahlke (Edbrowse), and TV Raman
+> > > > (Emacspeak) identified a problem with conveying full screen programs via
+> > > > speech, but chose to solve it in very different ways. Karl Dahlke by
+> > > > reducing the interface to a command line (text in, text out) interface, and
+> > > > TV Raman by conveying more context and semantic information via speech
+> > > > (gathered by hooking the internals of Emacs.)
+> > > >
+> > > > TV Raman's argument is presented in this paper:
+> > > >
+> > > > https://www.cs.cornell.edu/info/people/raman/publications/chi96-emacspeak/paper.html
+> > > >
+> > > > Much of what he proposes there is now possible with modern accessibility
+> > > > API's though.
+> > > >
+> > > > Regards,
+> > > >
+> > > > Rynhardt
+> > > >
+> > > >
+> > > > On Wed, Apr 13, 2022 at 4:16 PM Linux for blind general discussion <
+> > > > blinux-list@redhat.com> wrote:
+> > > >
+> > > > > See to me, Thunderbird is entirely too cluttered by default. I don't need
+> > > > > or want a calendar and search bar. I don't want or need to have to go
+> > > > > digging to turn those things off in first boot. TO me they should be off by
+> > > > > default and opt in, not somthing a user has to go hunting to get rid of on
+> > > > > first boot.
+> > > > >
+> > > > > You are doing the xact same config steps in a CLI email client vs a gGUI
+> > > > > one. THe only difference is a CLI one exposes a lot more of the settings.
+> > > > > It's like putting oil in a car through a hole in the hood, vs opening up
+> > > > > the hood to put the oil into the engine. Both let you put the oil in, but
+> > > > > one lets you get to far more of the engine than the other.
+> > > > >
+> > > > > That's the way I look at CLI vs GUI setup. Sure, you can get to the same
+> > > > > settings in both ways, but a CLI exposes far more of the settings than a
+> > > > > GUI does and makes it easier to view and change. There are, however, things
+> > > > > like Mutt Wizard for, you guessed it, Mutt and sample configs though
+> > > > > whether a new user would know to look for them is a whole other argument
+> > > > > but at the same time, I wouldn't expect a new user to know how to turn off
+> > > > > the calendar in Thunderbird or hide the message pane or folder pane either
+> > > > > if it's their very first time using Thunderbird..
+> > > > >
+> > > > >
+> > > > >  On Wed, Apr 13, 2022 at 03:59:11PM +0200, Linux for blind general
+> > > > > discussion wrote:
+> > > > > > Hi!
+> > > > > > I sometimes have better luck with cli than graphical environment.
+> > > > > > To be honest  Orca seldom comes up with a working braille environment
+> > > > > for me.
+> > > > > > ANd I have to create a special key file for the burlap if its not there.
+> > > > > > Otherwise I have to fiddle around with tons of settings to make braille
+> > > > > work as I want it.
+> > > > > > In cli it just works.
+> > > > > > And I can review the screen how I want to and I never have any issues
+> > > > > with brltty there.
+> > > > > > /A
+> > > > > >
+> > > > > > > 13 apr. 2022 kl. 15:24 skrev Linux for blind general discussion <
+> > > > > blinux-list@redhat.com>:
+> > > > > > >
+> > > > > > > I just fired up Thunderbird to check and yes. I have to tab past the
+> > > > > calendar, the search bar, then the list of folders, then to the specific
+> > > > > message I want. Okay that's 4-5, not 10 tabs....but that's on a brand new
+> > > > > config however. To me...that is less effficient than pulling down my
+> > > > > premade .muttrc and typing mutt then I'm straight into the inbox with zero
+> > > > > flufff like a search field, or a calendar or something getting in the way
+> > > > > at all. yes. I can disable all that stuff. But on first run it is there.
+> > > > > It's there and prompting you to set up a new account right away without, at
+> > > > > least when I was checking it and this may be DE and WM specific, a way to
+> > > > > get to the options menu to declutter Thunderbird's interface without either
+> > > > > going through or quitting out of account setup.
+> > > > > > >
+> > > > > > > don't want a calendar at first boot. if I want to search messages I'll
+> > > > > deliberately go and start a search, I don't want or need a search bar
+> > > > > hovering right above my folder that I need to tab through to get to my
+> > > > > emails, or a message pane. Just give me the list of messages and let me
+> > > > > config Thunderbird how I want, without a ton of stuff getting in the way,
+> > > > > Thunderbird people...See to me, by default, Thunderbird is cluttered with
+> > > > > stufff I, personally, don't need. For my use case, Mutt is simpler and
+> > > > > easier. The key binds make sense. M for a new mail, R to reply, D to
+> > > > > delete, and so on. Yes I had to add urlview to get URLs from a  message but
+> > > > > that is a simple process (at least for me) of pasting two lines into a
+> > > > > file, saving, and quitting that can be done with a graphical text editor.
+> > > > > > >
+> > > > > > > On that note, I'll give a shout out to Micro for being a text editor
+> > > > > that actually has sensible shortcuts. Much as I love Vim, the shortcuts are
+> > > > > as you pointed out, all over the place as far as a : then something. It
+> > > > > makes sense once you grab the hang of it, sure. But....for beginners it's a
+> > > > > learning curve, but the commands do make sense, :wq to wirite changes and
+> > > > > quit the file for example. Chryis's stuff follows the desktop keybinds as
+> > > > > much as is possible as well
+> > > > > > >
+> > > > > > > On that note though each WM/DE does things differently, see opening
+> > > > > apps up in Gnome, Cinnamon, Mate, etc. The huge advantage CLI has (at least
+> > > > > for me) is I don't have to deal with desktops and their varying A11Y
+> > > > > standards, such as Mate freezing up when a Chromium app is exited (or on my
+> > > > > laptop, anything relaly...I think I need to just nuke and go with something
+> > > > > decent there...) or Gnome's control center or Cinnamon or....I know I'll
+> > > > > have Fenrir or espeakup working in one particular way that I can learn
+> > > > > without having to fight with a desktop or WM's idea of what shortcuts are
+> > > > > best, or deal with DE or Wm maintainers who aren't up to speed or able
+> > > > > to/willing to fix A11yY issues.
+> > > > > > >
+> > > > > > > Yes for your average, every day user I'd agree that graphical desktops
+> > > > > are better, but I'd also argue that using the CLI for things doesn't really
+> > > > > hurt. I mean, 99% of tutorials start with open a terminal and type this...
+> > > > > so a bit of CLI knowledge is, I'd say just as useful as being able to use a
+> > > > > desktop. No you don't have to be a power user who lives in a CLI only
+> > > > > world, but at the same time CLI has its advantages as does a desktop though.
+> > > > > > >
+> > > > > > > See if more CLI apps have sensible key binds...I'll recommend them.
+> > > > > Nano is horrific for this as far as that goes, a lot o the older software
+> > > > > absolutely has key binds all over the place. I feel like there needs to be
+> > > > > a giant list of CLI stuff with sensible key binds as well for easy
+> > > > > reference.
+> > > > > > >
+> > > > > > >
+> > > > > > > On Wed, Apr 13, 2022 at 08:32:59AM -0400, Linux for blind general
+> > > > > discussion wrote:
+> > > > > > >> so for some things, a CLI program is better and simpler with less work
+> > > > > > >> involved (for example on Mutt I can just open up my Blinux list
+> > > > > folder, hit
+> > > > > > >> end, R, type then y to send, no need to tab 10 times then enter then
+> > > > > ctrl+r
+> > > > > > >> then ctrl+enter to send this email), ...
+> > > > > > >>
+> > > > > > >>
+> > > > > > >> Where do you get all the tabbing 10 times and all that extra work?
+> > > > > You seem
+> > > > > > >> to have a highly unusual concept of how graphical email programs
+> > > > > work. For
+> > > > > > >> example, using Thunderbird, I was able to open up just my inbox,
+> > > > > press the
+> > > > > > >> shift+tab key once, which seems to be necessary only because of a
+> > > > > focus bug,
+> > > > > > >> press end to get to the bottom of the list, then enter on the message
+> > > > > I
+> > > > > > >> wanted to read, this one in this case, select the exact text I wanted
+> > > > > to
+> > > > > > >> quote above and nothing more, press control+r to reply, edit the
+> > > > > quote ever
+> > > > > > >> so slightly, just to add the ... at the end, go down to the bottom to
+> > > > > write
+> > > > > > >> underneath the quote to answer the question, just as I would in any
+> > > > > text
+> > > > > > >> editor, and when I'm ready to send the message, after proofreading of
+> > > > > > >> course, which I always do, but that's an editor thing, not something
+> > > > > > >> specific to email, I then just press control+enter to send the
+> > > > > message. I
+> > > > > > >> have very easy to use conversation threading, full navigation
+> > > > > capabilities
+> > > > > > >> that I normally see in a web browser, links just open up in the
+> > > > > default
+> > > > > > >> browser without making me have to jump through all kinds of
+> > > > > configuration
+> > > > > > >> hoops just to get that working, and best of all, configuration itself
+> > > > > takes
+> > > > > > >> about 2 minutes from 0 to two email accounts ready to read and
+> > > > > respond to
+> > > > > > >> email, instead of taking weeks or even months to set up and having to
+> > > > > try to
+> > > > > > >> figure out weeks later what is still going wrong and why as was my
+> > > > > problem
+> > > > > > >> when I tried to use Mutt, although I admit it was years ago that I
+> > > > > tried it
+> > > > > > >> and gave up on it, as I never could get external email on an IMAP
+> > > > > server
+> > > > > > >> working correctly; the only way I could use Mutt at all was when I
+> > > > > tried to
+> > > > > > >> run a home-based email server that was my user account @
+> > > > > > >> some.dyndns-provider.domain, and of course that ended up going the
+> > > > > way of
+> > > > > > >> the dodo because already at that time email was something that only
+> > > > > > >> corporate types and server operators with boxes that were much
+> > > > > beefier than
+> > > > > > >> mine in power-sucking data centers with T1 pipes and static IP's could
+> > > > > > >> actually run effectively. I mean now I can just run my email from a
+> > > > > VPS,
+> > > > > > >> which I do, but now we're back to the external email problem again,
+> > > > > since I
+> > > > > > >> use IMAP on the server to let me use any client I want on any device.
+> > > > > > >> Regarding IMAP, I couldn't even get Alpine working with that, even
+> > > > > though
+> > > > > > >> the settings are supposed to be there; I just couldn't find them, and
+> > > > > this
+> > > > > > >> was fairly recently. In Thunderbird, I just add a new account, and
+> > > > > the worst
+> > > > > > >> case is that I may have to specify the IMAP and SMTP servers and ports
+> > > > > > >> manually. But even doing this takes far less time to set up on a new
+> > > > > machine
+> > > > > > >> than text-based email, especially Mutt. I will grant you that of
+> > > > > course I
+> > > > > > >> could just copy over configurations to a new machine, but that is not
+> > > > > > >> limited to Mutt, since Thunderbird and even the browsers have the
+> > > > > ability to
+> > > > > > >> read saved config files that come from other machines. I'm just
+> > > > > referring to
+> > > > > > >> first-run setup, or if I ever need to make any changes to the existing
+> > > > > > >> configurations, which is far easier to do in graphical email programs
+> > > > > of all
+> > > > > > >> kinds.
+> > > > > > >>
+> > > > > > >>
+> > > > > > >> I think the real showstopper for me when it comes to text-based
+> > > > > applications
+> > > > > > >> is the sheer inconsistency between applications. On my graphical
+> > > > > desktop, I
+> > > > > > >> have certain functionality that just works no matter where I am or
+> > > > > what
+> > > > > > >> application I'm using. For example, alt+f4 will close this window,
+> > > > > > >> shift+arrows will highlight text to be copied or cut in most cases,
+> > > > > that is
+> > > > > > >> anywhere that text can be selected, then I have the standard
+> > > > > control+x to
+> > > > > > >> cut, control+c to copy, then control+v to paste to the application
+> > > > > where I
+> > > > > > >> want the text to appear, whether that's in the same application or a
+> > > > > > >> different one. In most cases, control+q also closes an application,
+> > > > > and
+> > > > > > >> control+w closes the current window. These things all work 90% or
+> > > > > more of
+> > > > > > >> the time. With text-based applications, there is much inconsistency.
+> > > > > Just to
+> > > > > > >> give an example, control+x cuts selected text in most desktop
+> > > > > applications,
+> > > > > > >> but it quits Nano, and in most graphical text editors, I press
+> > > > > control+f to
+> > > > > > >> find something, this even works in browsers, but in Nano, I have to
+> > > > > use
+> > > > > > >> control+w. What? And we're not even gonna talk about things like Vim,
+> > > > > or the
+> > > > > > >> dreaded EMACS, or all the other text editors out there, with the
+> > > > > exception
+> > > > > > >> of Micro, since it is on the path to rectify the consistency problem
+> > > > > by
+> > > > > > >> using familiar keybindings for most things. The problem though is
+> > > > > that the
+> > > > > > >> functionality I mentioned in Nano, control+x to quit and control+w to
+> > > > > find
+> > > > > > >> something, are limited to Nano, Pico and I think it's called Pilot.
+> > > > > Most if
+> > > > > > >> not all other text-based editors have their own keybindings that all
+> > > > > work
+> > > > > > >> differently. This is pretty much fine once I have made all my choices
+> > > > > of
+> > > > > > >> favorite apps and either got used to the differences and
+> > > > > inconsistencies or
+> > > > > > >> reconfigured all their keybindings so that they're all the same, but
+> > > > > for
+> > > > > > >> someone just sitting down in front of a computer for the first time
+> > > > > just
+> > > > > > >> trying to edit a file or send an email, or even for someone doing
+> > > > > this for a
+> > > > > > >> long time, the consistency of the graphical desktop applications and
+> > > > > the
+> > > > > > >> functionality they share that is implemented in much the same way
+> > > > > across
+> > > > > > >> applications makes me and many others feel more comfortable at the
+> > > > > computer
+> > > > > > >> and certainly makes us more productive.
+> > > > > > >>
+> > > > > > >> ~Kyle
+> > > > > > >>
+> > > > > > >> _______________________________________________
+> > > > > > >> Blinux-list mailing list
+> > > > > > >> Blinux-list@redhat.com
+> > > > > > >> https://listman.redhat.com/mailman/listinfo/blinux-list
+> > > > > > >>
+> > > > > > >
+> > > > > > > _______________________________________________
+> > > > > > > Blinux-list mailing list
+> > > > > > > Blinux-list@redhat.com
+> > > > > > > https://listman.redhat.com/mailman/listinfo/blinux-list
+> > > > > > >
+> > > > > >
+> > > > > > _______________________________________________
+> > > > > > Blinux-list mailing list
+> > > > > > Blinux-list@redhat.com
+> > > > > > https://listman.redhat.com/mailman/listinfo/blinux-list
+> > > > > >
+> > > > >
+> > > > > _______________________________________________
+> > > > > Blinux-list mailing list
+> > > > > Blinux-list@redhat.com
+> > > > > https://listman.redhat.com/mailman/listinfo/blinux-list
+> > > > >
+> > > > >
+> > > > _______________________________________________
+> > > > Blinux-list mailing list
+> > > > Blinux-list@redhat.com
+> > > > https://listman.redhat.com/mailman/listinfo/blinux-list
+> > >
+> > >
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
