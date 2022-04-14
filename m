@@ -1,45 +1,40 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 332DD501CF2
-	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 22:54:02 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id DB2E2501CFC
+	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 22:59:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649969641;
+	s=mimecast20190719; t=1649969943;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=2doizLCzi5FGFm4/aOXI8rYqO9q3MrlXvXbBNMbizPc=;
-	b=AnhsR5ulUQtlZbEMBxDY8qugRmcU77uwqfNBWeUNfhHRnJ4TKCY9xA/5VoI9odb+m/WzyW
-	WKBrsQ9Uq9D7Go+9ab8anVS8MQ8YjjQjGOTgGv96BrB/UH3Tb1SyQtJaa9fb3KEDeYmha2
-	4puDs2wUGT5mktOeBx9K7BlDRJjXaG8=
+	bh=1mLllZ4Lmsvmc51u8jbTMqb8Kkk3HR3owUO4UZJR8Bw=;
+	b=RwGC7xtyc6UbZRvvFjXOJB9j8PvqgMTOKRSf8QIM+1g1ATQPzBN3J1E0jLPq3i39p/Zz+F
+	E+t75ddC5I5MflD12xSr+130dHbloIFJNFs0CeXzFB3oYOooD8fkdXnFucJiJH2Dt5jVr+
+	uzt6oG5f8Z3bguk3hmYfmgD7Ic7/UBU=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-422-uMlXOV1VN0qar4MyCMvZPw-1; Thu, 14 Apr 2022 16:53:56 -0400
-X-MC-Unique: uMlXOV1VN0qar4MyCMvZPw-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+ us-mta-93-kX2q__LRO2u1iaBE14-pTw-1; Thu, 14 Apr 2022 16:59:00 -0400
+X-MC-Unique: kX2q__LRO2u1iaBE14-pTw-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2D3773C172C8;
-	Thu, 14 Apr 2022 20:53:54 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1D6B129AB454;
+	Thu, 14 Apr 2022 20:58:59 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 06839403361;
-	Thu, 14 Apr 2022 20:53:54 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 45C07401DFD;
+	Thu, 14 Apr 2022 20:58:58 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id BA8CC194034E;
-	Thu, 14 Apr 2022 20:53:53 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id AE709194034E;
+	Thu, 14 Apr 2022 20:58:56 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 14 Apr 2022 16:53:47 -0400
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: FYI - Command Line Programs for the Blind
-To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <mailman.8235.1649853207.111206.blinux-list@redhat.com>
  <mailman.8153.1649856275.111209.blinux-list@redhat.com>
  <mailman.8268.1649857705.111206.blinux-list@redhat.com>
@@ -54,8 +49,13 @@ References: <mailman.8235.1649853207.111206.blinux-list@redhat.com>
  <mailman.8521.1649966212.111207.blinux-list@redhat.com>
  <mailman.8562.1649966917.111208.blinux-list@redhat.com>
  <mailman.8563.1649967054.111208.blinux-list@redhat.com>
-In-Reply-To: <mailman.8563.1649967054.111208.blinux-list@redhat.com>
-Message-ID: <mailman.8696.1649969633.111206.blinux-list@redhat.com>
+ <mailman.8696.1649969633.111206.blinux-list@redhat.com>
+In-Reply-To: <mailman.8696.1649969633.111206.blinux-list@redhat.com>
+Date: Thu, 14 Apr 2022 15:58:32 -0500
+Subject: Re: FYI - Command Line Programs for the Blind
+To: "blinux-list@redhat.com" <blinux-list@redhat.com>
+X-Content-Filtered-By: Mailman/MimeDel 2.1.29
+Message-ID: <mailman.8613.1649969936.111203.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -71,54 +71,86 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-V2UgaGF2ZSBhIG1hY2hpbmUgaGVyZSBydW5uaW5nIFdpbmRvd3MgMTAuwqAgSXQgY2FuIGJlIGZs
-YWt5LS1ub3Qgc28gbXVjaCAKdGhlIG9wZXJhdGluZyBzeXN0ZW0gYXMgc29tZSBvZiB0aGUgc29m
-dHdhcmUgcnVubmluZyB1bmRlciBpdC7CoCBPdXRsb29rLCAKZXNwZWNpYWxseSwgaGFzIGxvdHMg
-b2YgZnVuIGJyaW5naW5nIHNvbWUgdmVyc2lvbiBvZiB0aGUgdW5jZXJ0YWludHkgCnByaW5jaXBs
-ZSB0byBvdXIgbGl2ZXMgaGVyZSBhbG1vc3QgZGFpbHkuCgoKQWwKCgpPbiA0LzE0LzIyIDE2OjEw
-LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+IFdvdy4gTm9uZSBv
-ZiB0aGF0IGhhcHBlbnMgYW55bW9yZS4gSXQncyBiZWVuIHllYXJzIHNpbmNlIHlvdSd2ZSB1c2Vk
-Cj4gV2luZG93cywgaXQgc2VlbXMuCj4gRGV2aW4gUHJhdGVyCj4gci5kLnQucHJhdGVyQGdtYWls
-LmNvbQo+Cj4KPgo+Cj4gT24gVGh1LCBBcHIgMTQsIDIwMjIgYXQgMzowOCBQTSBMaW51eCBmb3Ig
-YmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIDwKPiBibGludXgtbGlzdEByZWRoYXQuY29tPiB3cm90
-ZToKPgo+PiBBbHNvIFdpbmRvd3MganVzdCB3b3Jrcy4gTm90aGluZyBqdXN0IGNyYXNoZXMgb3V0
-IG9mIG5vd2hlcmUsCj4+Cj4+Cj4+IFdoZW4gZGlkIHRoYXQgc3RhcnQgaGFwcGVuaW5nPyBJIGFs
-d2F5cyBmb3VuZCBqdXN0IHNpdHRpbmcgZG93biBhdCBhCj4+IE1pY3Jvc29mdCBjb21wdXRlciB0
-byBiZSBhIHdyZXN0bGluZyBtYXRjaC4gUmFuZG9tIGNyYXNoZXMgdXN1YWxseSBhdAo+PiBqdXN0
-IHRoZSB3cm9uZyB0aW1lLCBtYW55IGhvb3BzIHRvIGp1bXAgdGhyb3VnaCBqdXN0IHRvIGRvIHRo
-aW5ncyBJIHRvb2sKPj4gZm9yIGdyYW50ZWQgZXZlbiBpbiB0aGUgZGF5cyBvZiBnb29kIG9sZC1m
-YXNoaW9uIERPUywganVzdCBwbHVnZ2luZyBpbiBhCj4+IHByaW50ZXIgb3Igb3RoZXIgc2ltcGxl
-IGRldmljZSB3YXMgZW5vdWdoIHRvIHNlbmQgbXkgY29tcHV0ZXIgaW50byBhCj4+IHRhaWxzcGlu
-LCBhbmQgdGhlbiB0aGVyZSBpcyBhbGwgdGhlIGFudGl2aXJ1cyBhbmQgYW50aXNweXdhcmUgc3R1
-ZmYgSQo+PiBoYWQgdG8gcnVuIHRoYXQgc2xvd2VkIGRvd24gdGhlIGNvbXB1dGVyIGFsbW9zdCBh
-cyBtdWNoIGFzIGp1c3QgdGhlCj4+IHNjcmVlbiByZWFkZXIgY291bGQgZG8uIEV2ZW4gdGhlIHZl
-cnkgZmlyc3QgdGltZSBJIHVzZWQgYSBMaW51eAo+PiBjb21wdXRlciwgYmFjayBiZWZvcmUgdGhl
-IGRheXMgb2YgZ3JhcGhpY2FsIGRlc2t0b3BzIHdpdGggYTExeSB0aGF0Cj4+IHdvcmtlZCwgSSB3
-ZW50IGZyb20gY3Vyc2luZyBteSBjb21wdXRlciAzIG9yIG1vcmUgdGltZXMgYSBkYXkgdG8gY3Vy
-c2luZwo+PiBpdCBtYXliZSB0d2ljZSBhIG1vbnRoLCBhbmQgdGhhdCB3YXMgdXN1YWxseSBiZWNh
-dXNlIEkgd2FzIGludGVudGlvbmFsbHkKPj4gYnJlYWtpbmcgc29tZXRoaW5nIHNvIHRoYXQgSSBj
-b3VsZCBsZWFybiBob3cgdG8gZml4IGl0LiBUaGF0IHdhcyBiZWZvcmUKPj4gSSB0cmllZCB0byB3
-cmVzdGxlIHdpdGggRU1BQ1NwZWFrIGFuZCBNdXR0IExPTC4gSSBjdXJzZWQgRU1BQ1NwZWFrIGZv
-cgo+PiBsaWtlIDUgdG8gMTAgbWludXRlcyBiZWZvcmUgSSBqdXN0IGdhdmUgdXAsIGFuZCBhY3R1
-YWxseSB3cmVzdGxlZCB3aXRoCj4+IE11dHQgZm9yIGFib3V0IGEgd2VlayBiZWZvcmUgcnVubmlu
-ZyBiYWNrIHRvIFBpbmUgYmFjayBpbiB0aG9zZSBkYXlzLgo+PiBUaGluZ3MgaGF2ZSBncmVhdGx5
-IGltcHJvdmVkIHNpbmNlIHRoZW4uCj4+Cj4+IH5LeWxlCj4+Cj4+IF9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlz
-dAo+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29t
-L21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4KPj4KPiBfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+
-IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWls
-bWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEBy
-ZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxp
-bnV4LWxpc3QK
+Oh, well yeah I don't use Outlook, I use the Gmail web app.
+Devin Prater
+r.d.t.prater@gmail.com
+
+
+
+
+On Thu, Apr 14, 2022 at 3:53 PM Linux for blind general discussion <
+blinux-list@redhat.com> wrote:
+
+> We have a machine here running Windows 10.  It can be flaky--not so much
+> the operating system as some of the software running under it.  Outlook,
+> especially, has lots of fun bringing some version of the uncertainty
+> principle to our lives here almost daily.
+>
+>
+> Al
+>
+>
+> On 4/14/22 16:10, Linux for blind general discussion wrote:
+> > Wow. None of that happens anymore. It's been years since you've used
+> > Windows, it seems.
+> > Devin Prater
+> > r.d.t.prater@gmail.com
+> >
+> >
+> >
+> >
+> > On Thu, Apr 14, 2022 at 3:08 PM Linux for blind general discussion <
+> > blinux-list@redhat.com> wrote:
+> >
+> >> Also Windows just works. Nothing just crashes out of nowhere,
+> >>
+> >>
+> >> When did that start happening? I always found just sitting down at a
+> >> Microsoft computer to be a wrestling match. Random crashes usually at
+> >> just the wrong time, many hoops to jump through just to do things I took
+> >> for granted even in the days of good old-fashion DOS, just plugging in a
+> >> printer or other simple device was enough to send my computer into a
+> >> tailspin, and then there is all the antivirus and antispyware stuff I
+> >> had to run that slowed down the computer almost as much as just the
+> >> screen reader could do. Even the very first time I used a Linux
+> >> computer, back before the days of graphical desktops with a11y that
+> >> worked, I went from cursing my computer 3 or more times a day to cursing
+> >> it maybe twice a month, and that was usually because I was intentionally
+> >> breaking something so that I could learn how to fix it. That was before
+> >> I tried to wrestle with EMACSpeak and Mutt LOL. I cursed EMACSpeak for
+> >> like 5 to 10 minutes before I just gave up, and actually wrestled with
+> >> Mutt for about a week before running back to Pine back in those days.
+> >> Things have greatly improved since then.
+> >>
+> >> ~Kyle
+> >>
+> >> _______________________________________________
+> >> Blinux-list mailing list
+> >> Blinux-list@redhat.com
+> >> https://listman.redhat.com/mailman/listinfo/blinux-list
+> >>
+> >>
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://listman.redhat.com/mailman/listinfo/blinux-list
+> >
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
