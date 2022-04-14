@@ -2,56 +2,55 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 66F5F500E4E
-	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 15:02:47 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 233AF500E55
+	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 15:04:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649941366;
+	s=mimecast20190719; t=1649941481;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Nx+XHtwsgqIgy8B0ZiNmFqyq2Vqj4qvgyEekxLutRNo=;
-	b=eaGjRHA4FCIzUQW5wmdo7xIHkQ/Mvrh72GGNuTqEBPn6EHx1BIGX0n9fTMvQSYAZLAC3Qc
-	BMWtEyC4hQMo/Ss3neuk4WXyjHAadOxDJwMTN2Pdx7aA5D/irez7/6QNdUeZOP7UF6pfla
-	va7uN2AWwQLuIf3tx8kbELkoThXeFaU=
+	bh=wg9/6U3ldGape1+QoVLI50zcEMwxO0dr/gnfdoG5f7w=;
+	b=VOlvH4BeG8+BWhU5KneC49FEshArXvPuE2oEw8fMABf6kHv3gtIDRcGIPjUcT4UbGuQd8N
+	mxbXagSce493V/D2g0wdTXUQ9mbitPat4AsNzvFTEvC0aT9olnqnhnPgQsFL1UZFxWq6FA
+	D0hB48/fph7+G7saLU6GZa45tt39pxk=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-390-w6X90oCoOSO7gxxXAd6DIg-1; Thu, 14 Apr 2022 09:02:43 -0400
-X-MC-Unique: w6X90oCoOSO7gxxXAd6DIg-1
+ us-mta-62-stTNgcwYM7qLaVKNpPL8BA-1; Thu, 14 Apr 2022 09:04:37 -0400
+X-MC-Unique: stTNgcwYM7qLaVKNpPL8BA-1
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3AC1E3C11C74;
-	Thu, 14 Apr 2022 13:02:41 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 09D2E296A618;
+	Thu, 14 Apr 2022 13:04:36 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id A4109C44CCA;
-	Thu, 14 Apr 2022 13:02:40 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id E9AB8C28109;
+	Thu, 14 Apr 2022 13:04:35 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 22995194034B;
-	Thu, 14 Apr 2022 13:02:40 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 85068194034B;
+	Thu, 14 Apr 2022 13:04:35 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-To: blinux-list@redhat.com
+Date: Thu, 14 Apr 2022 16:04:25 +0300
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: FYI - Command Line Programs for the Blind
-Date: Thu, 14 Apr 2022 08:03:38 -0500
-MIME-Version: 1.0
-In-Reply-To: <mailman.8518.1649940497.111204.blinux-list@redhat.com>
 References: <mailman.8268.1649857705.111206.blinux-list@redhat.com>
+ <mailman.8242.1649858545.111203.blinux-list@redhat.com>
  <mailman.8365.1649876915.111204.blinux-list@redhat.com>
  <mailman.8363.1649886716.111208.blinux-list@redhat.com>
  <mailman.8415.1649894526.111202.blinux-list@redhat.com>
- <mailman.8323.1649896260.111207.blinux-list@redhat.com>
- <mailman.8220.1649898351.111205.blinux-list@redhat.com>
- <mailman.8227.1649901807.111205.blinux-list@redhat.com>
- <mailman.8228.1649902278.111205.blinux-list@redhat.com>
- <mailman.8692.1649939739.111210.blinux-list@redhat.com>
- <mailman.8518.1649940497.111204.blinux-list@redhat.com>
-User-Agent: POP Peeper Pro (5.2.2.0)
-X-Spam-Flag: NO
-Message-ID: <mailman.8515.1649941359.111202.blinux-list@redhat.com>
+ <mailman.8348.1649895614.111209.blinux-list@redhat.com>
+ <mailman.8418.1649896178.111202.blinux-list@redhat.com>
+ <CAO2sX33Pf=GEvGggGYy25irP6hM72QvVvsk3fGtFBnc8CT09yQ@mail.gmail.com>
+ <mailman.8511.1649903521.111206.blinux-list@redhat.com>
+ <mailman.8597.1649918264.111201.blinux-list@redhat.com>
+MIME-Version: 1.0
+In-Reply-To: <mailman.8597.1649918264.111201.blinux-list@redhat.com>
+User-Agent: NeoMutt/20220408
+Message-ID: <mailman.8550.1649941474.111203.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -72,76 +71,39 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-That can be said for any specialized software. High end photo editing software is really only good for that special niche group for example. And they have to go out of their way to buy it and install it.
------ Original Message -----
-From: Linux for blind general discussion <blinux-list@redhat.com>
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Date: Thu, 14 Apr 2022 13:48:10 +0100
-Subject: Re: FYI - Command Line Programs for the Blind
+On Thu, Apr 14, 2022 at 08:37:19AM +0200, Linux for blind general discussion wrote:
+> I am Didier Spaier, Slint maintainer and sighted.
 
-> See to me, I see Orca as part of the installed system, not some special app you have to go install a laJaws or NVDA on Windows however.
->
-> So to me, no, Orca's a part of the distro that helps out disabled (Not just blind....) users however. Something like Fenrir that you have to go out of your way to install specifically, or espeakup, or TDSR, or... would more fit that specialized blindie specific software tag however I feel, since you need to...
->
-> 1. Go installe it from Git, or Pip or your package manager or however you install it
->
-> 2. It doesn't help anyone but blind users. Something like Orca with a magnifier also wouldn't be blind specific since it'd help people with low vision as well for instance however
->
-> That and, well, I just feel like if it's part of the distro or OS, it's not really this hyper specialized thing. It's there when you've installed the system alongside every other package that gets installe.
->
-> Okay for something like vanilla Arch, I'd argue that works against Orca because I had to manually install it and, yes, go out o my way when setting up this box to have Orca on as part of my install and setup routine....but for something like a GUI Arch installer that lets you select accesssibility in the installer, the distinction gets really, really fuzzy since then Orca's installed and part o the system. Ditto for Ubuntu, Debian, et cetera. Kind of a tough one to call
->
-> On Thu, Apr 14, 2022 at 02:33:04PM +0200, Linux for blind general discussion wrote:
-> >
-> > Hmmm, interesting, about "the blind" and being human.
-> >
-> > I have no problem with it anyway, because I just wonder: "The blind" has
-> > and will always refer to humans and not some animals.
-> >
-> > Then about blind-specific products: the Orca you are using on the
-> > computer is certainly a blindie thing, isn't it? The fact that you
-> > require specialised applications 'made for the blind' to participate in
-> > mainstream activities says otherwise.
-> >
-> >
-> > Linux for blind general discussion <blinux-list@redhat.com> writes:
-> >
-> > > Well, no, I didn't mean to replace one for-the-blind specialized Linux
-> > > distribution with another. Everything I said centered around the fact
-> > > that I use something that anyone can use, I work with anyone, and I am
-> > > human above all, not the blind. Slint is also a one-man show that is
-> > > just a specialized Slackware, albeit with some improvements, and even
-> > > Slackware as old as it is is also a one-man show. I am much more in
-> > > favor personally of using distributions with much better community
-> > > support and more than one person maintaining them. Yes, a team can get
-> > > too large for the good of its own project, but two heads are always
-> > > better than one, and three can usually be better than 2.
-> > >
-> > > ~Kyle
-> > >
-> > > _______________________________________________
-> > > Blinux-list mailing list
-> > > Blinux-list@redhat.com
-> > > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
->
-> --
-> Jace's words are up there. Quoted and old messages below this point
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+hello Didier.
+
+> I am frustrated not to be able to follow this discussion as I would like, as in
+> most cases I do not know who speaks, answering to whom and to which message.
+> 
+> This is mostly due to the fact that identities of posters are not displayed in
+> this list in the "From" field.
+
+Yes. I also see this as a problem.
+
+> For Slint we have a dedicated mailing list hosted by freelists.org very easy to
+> use as indicated in the footer added to each message, pasted below:
+> 
+> So I suggest that we open a list on freelists.org (it is free) that would
+> supersede this one.
+
+I'd like to try fixing this mailing list first. did someone try to write
+to the list admin?
+
+> The lists there have a searchable archive by months, which can be sorted by
+> date, date reverse and thread and in case of threads it is indented.
+
+just FYI this list has archive too.
+
+-- 
+Sincerely, Alexander
 
 _______________________________________________
 Blinux-list mailing list
