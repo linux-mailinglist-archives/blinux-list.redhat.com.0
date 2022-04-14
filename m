@@ -2,46 +2,56 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0012C5002DA
-	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 01:59:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id CAA1B5002E0
+	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 02:02:14 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649894382;
+	s=mimecast20190719; t=1649894533;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=qL8EejDrY/6KGkYZ4gDgOzV9n1ZNSL4EHdpyNzxAgus=;
-	b=Vpl4rRhH+sUJdatJzowU2A0q/JAyaeaauUIB3FvFDJIVPj6H9i3DsBxv04FE0XbSAblqkz
-	FU4Z5bstehcEsMwE0M6faSs4X+iLO4rUJE602O2iUtH1Dd5VerWE0RVxI+cVhlPBo7khNr
-	OjzJuBBBoEe4NBEsPzgPwrlhQSxK/c8=
+	bh=hipAUkw5HPYh+Vo/FjigtoU5hEpgNt72SOhFhKBM75I=;
+	b=TfZamVboO4sBClxKKyEDDJuNi0JqJIqyJrx4G30AGqluTkST7l2dHj9kvu9tZpJEl6DhTi
+	cswhOQu6EJDyUWbbVzCHY0RuUbQ6dlNZ4EBsrATddZc/oEK7liQYeXVZYM2lUhcPzxLpqo
+	zHHO4wNLLTy2wdNQyCRdpjSXMi7vF74=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-166-IQsJJZmuNK-XlOfhrJ6A_g-1; Wed, 13 Apr 2022 19:59:39 -0400
-X-MC-Unique: IQsJJZmuNK-XlOfhrJ6A_g-1
+ us-mta-654-GaMTPATIPZmZb6UeHJChSw-1; Wed, 13 Apr 2022 20:02:09 -0400
+X-MC-Unique: GaMTPATIPZmZb6UeHJChSw-1
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4EB5A1C05AAD;
-	Wed, 13 Apr 2022 23:59:38 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E46001C01705;
+	Thu, 14 Apr 2022 00:02:07 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id A6AE71457F07;
-	Wed, 13 Apr 2022 23:59:34 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id CFABF1415113;
+	Thu, 14 Apr 2022 00:02:07 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id D08041940353;
-	Wed, 13 Apr 2022 23:59:32 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 722F41940353;
+	Thu, 14 Apr 2022 00:02:07 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 13 Apr 2022 19:59:25 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: FYI - Command Line Programs for the Blind
-References: <mailman.8265.1649867972.111207.blinux-list@redhat.com>
- <mailman.8540.1649878555.111210.blinux-list@redhat.com>
+Date: Wed, 13 Apr 2022 20:01:35 -0400
 MIME-Version: 1.0
-In-Reply-To: <mailman.8540.1649878555.111210.blinux-list@redhat.com>
-Message-ID: <mailman.8410.1649894371.111202.blinux-list@redhat.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+Subject: Re: FYI - Command Line Programs for the Blind
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <mailman.7836.1649830111.111205.blinux-list@redhat.com>
+ <mailman.8034.1649840185.111204.blinux-list@redhat.com>
+ <mailman.8235.1649845924.111201.blinux-list@redhat.com>
+ <mailman.8235.1649853207.111206.blinux-list@redhat.com>
+ <mailman.8153.1649856275.111209.blinux-list@redhat.com>
+ <mailman.8268.1649857705.111206.blinux-list@redhat.com>
+ <mailman.8242.1649858545.111203.blinux-list@redhat.com>
+ <mailman.8365.1649876915.111204.blinux-list@redhat.com>
+ <mailman.8363.1649886716.111208.blinux-list@redhat.com>
+In-Reply-To: <mailman.8363.1649886716.111208.blinux-list@redhat.com>
+X-Content-Filtered-By: Mailman/MimeDel 2.1.29
+Message-ID: <mailman.8415.1649894526.111202.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -62,171 +72,69 @@ Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-We should be able to get you a grant for this sort of project. I mean, this is exactly
-the kind of project grants are meant for. 
-How much would you need overall?
-Has anyone on this list ever written a grant application?
-I've written exactly one, for a literary grant and was rejected.
-But I'd be willing to do some research for where and how to apply unless someone knows  this off the cuff.
+These are valid points. But what I get from Windows: a mostly clean
+> accessibility experience (mostly thanks to NVDA and community support), and
+> a good many apps designed by and for the blind.
 
 
-Rudy
+Having been on a laptop recently just to test a website, I can say that 
+although improvements have been made that make NVDA easier to use, its 
+virtual buffering makes things harder to use, not easier, and the 
+accessibility experience I found far less clean. This laptop I was on 
+was fairly new, and I still had major problems just browsing because the 
+whole thing was made slower by the screen reader having to copy the page 
+from the website. Even worse since it has to infinite loop over the 
+original and compare it with its copy in case anything ever changes. 
+Next I must point out that although I am blind, I have never fallen into 
+the category of "the blind." This is a point I failed to make early on 
+in this thread, although I make it here. I, AM, NOT, THE, BLIND, I, AM 
+HUMAN! I shout it from the rooftops. I, AM, HUMAN, it's only my eyes 
+that don't work so well. I will also point out that some years ago, I 
+found myself running that horrible beast of a non-operating system just 
+to play two games and to use a twitter client that was made for as you 
+so eloquently put it, "the blind." Once I saw that this was all I was 
+using it for, I tossed that virtual machine into the trash faster than 
+you can say "toss that virtual machine into the trash." I found that it 
+certainly wasn't worth my time and energy to keep it running just for 
+that frivolous activity that I could do on the host Linux OS with just a 
+little more effort, and the Twitter website really isn't so bad that it 
+needs "for the blind" treatment.
 
-On Wed, Apr 13, 2022 at 09:35:40PM +0200, Linux for blind general discussion wrote:
-> Howdy,
-> 
-> Do i understand correctly, you wanna hire me to develop a command line browser? 
-> 
-> its a good amount of work but very doable utilizing a modern browser engine.
-> 
-> Well i could definitely do this. 
-> If you are serious, you can contact me per mail if there is something concrete:
-> chrys (at) linux-a11y.org
-> 
-> I???m a kind of a daywalker. I???m not blind by my own. My girlfriend and a lot of friends are. So i know very well whats needed to make pseudo UIs for command line optimized for screenreader. I created my own screen reader (fenrir in just a couple of weeks and learned a lot while doing that. All That makes me really efficient working on accessibility related software and was also the reason why i was hired by F123 at its time.
-> 
-> My December project was completely reworking OCRdesktop ( if you know that). In the last couple of months i continue working on orca for an plugin  driven architecture. I also added an OCR plugin for testing ;). Quite basic right now but fully functional. Currently i concentrate on rework orcas settings handling to be decentral for the plugin architecture. Thats really a chal  and takes a couple of month (a lot of work needed and i do it mostly in my spare time, so i have to pay my bills first ;), but once complete,we can remove a lot of smelling old code after that )
-> 
-> Cheers chrys
-> 
-> > Am 13.04.2022 um 18:39 schrieb Linux for blind general discussion <blinux-list@redhat.com>:
-> > 
-> > ???I'm mostly sure Google's foisitng standard view on everyone nowadays, they are supposed to be nixing third party stuff in May or June however so...
-> > 
-> > And yes. I too want that text mode browser. I think we need to figure out a way to pool resources and grab Chrys87 on Github and go here, can you make this, we've got X amount of resources, money, food, beer, coffeee, cats, etc, so how much do you need to make it? I mean. I want that text mode browser. There's bits and pieces in existing browsers, yes but nobody's ever packaged them all together.
-> > 
-> > The reason I said Chrys is because....1. I'm half expecting Chrys to leap in here and go you want me to do what? But the bigger reason is, well, look at DragonFM, it shows that you can have a console file manager with desktop like shortcuts that does all the functionality of something like Caja or Nautlius, but in a terminal, with standard keyboard shortcuts.
-> > 
-> > Now if that browser got made, and I could ditch FF, I probably would. No...Brow.sh isn't a suitable replacement, not by a long shot. I can rig up startx to do Orca+Firefox, sure, but....
-> > 
-> >> On Wed, Apr 13, 2022 at 04:30:18PM +0000, Linux for blind general discussion wrote:
-> >> I think the most important things to remember here are that:
-> >> 
-> >> 1. People are different and that's okay.
-> >> 
-> >> 2. Blind people are just as diverse as people in general.
-> >> 
-> >> At the end of the day, debating Mutt versus Thunderbird has about as
-> >> much impact as debating Coke versus Pepsi. Hardcore fans of either
-> >> aren't likely to change their mind for any reason, there's no way of
-> >> doing an objective comparison, and just as how which cola is better
-> >> comes down to the individual's tastebuds, which e-mail client is
-> >> easier to setup and use ultimately comes down to which software
-> >> idiosyncrasies the end user is more comfortable with.
-> >> 
-> >> Though, for what it's worth, just as I'm not a fan of colas and much
-> >> prefer Dr. Pepper when it comes to caramel colored fizzy drinks, I'm
-> >> not a fan of e-mail clients and prefer to just use my e-mail's web
-> >> interface... and the last time I checked my e-mail on a machine other
-> >> than my personal one, doing so was as simple as launching Firefox,
-> >> typing gmail.google.com into the address bar, entering my e-mail
-> >> address and password, and then once logged in, I just used what of
-> >> NVDA's navigational hotkeys matched Orca's to check level 3 headings
-> >> for how many unread messages were in my inbox and spam, and jump to
-> >> the checkbox on the first message in the message list... Granted, that
-> >> was years ago, so its entirely possible paranoid security on Google's
-> >> part would make logging in difficult, and they might try forcing me to
-> >> use their bogged down with JavaScript standard view instead of
-> >> respecting my preference for the HTML view.
-> >> 
-> >> Granted, the only time I've ever used an e-mail client was theGmail
-> >> app on android 2.2 back when I still had a working eyeball, so I
-> >> suspect I'd find both Mutt and Thunderbird perplexing if I ever gave
-> >> them a try, and the only things I know about SMTP, pop3, and imap is
-> >> the first stands for simple mail transfer protocol and they all have
-> >> something to do with the technical details of e-mail most people are
-> >> ignorant of... Though, I'd probably give Mutt or Alpine a try befor
-> >> Thunderbird or whatever Chromium's companion e-mail client is called
-> >> if only because my setup doesn't really let me run GUI applications
-> >> other than Firefox.
-> >> 
-> >> And while I agree the massive overlap in key bindings makes switching
-> >> between GUI applications easy, and its great that Micro exists for
-> >> those wanting to reduce their GUI dependence without having to learn
-> >> an editor with key bindings that predate standardization, I must
-> >> confess that I'm so used to nano's key bindings that I wish I could
-> >> make Firefox switch over to nano-like bindings when I focuse a
-> >> multi-line textbox and the only modern convention I miss when typing
-> >> in nano is the ability to select text by holding shift and using
-> >> arrow/navigation keys...
-> >> 
-> >> Honestly, the application I most want that doesn't seem to exist would
-> >> probably be a text-mode web browser that:
-> >> 
-> >> 1. Arrow and navigation keys move around the page like in an editor.
-> >> 
-> >> 2. Has Firefox-like keybindings for all the common web browser functions.
-> >> 
-> >> 3. Has Orca-like keybindings for page navigation.
-> >> 
-> >> 4. Has a browse/focus mode toggle equivalent to Orca+A.
-> >> 
-> >> 5. Forces pages with multi-column layouts into single column for
-> >> presentation(or at least as the option to)... This is to avoid
-> >> situations where a console screen reader tries to interleave text from
-> >> a list of links in the left column with the page's main content in the
-> >> center/right column.
-> >> 
-> >> 6. Supports the functional aspects of JavaScript, HTML5, etc. while
-> >> ignoring the eyecandy aspects.
-> >> 
-> >> 7. Disables rich web content by default, but has a keyboard shortcut
-> >> to activate it for the current page and a menu for fine tuning which
-> >> rich content is allowed, and whether the allowance is temporary or
-> >> permanent(essentially providing No-Script-like functionality).
-> >> 
-> >> 8. embeds nano(or the text-mode text editor of the user's choice)
-> >> within focused textboxes(so, if I wanted to post the contents of a
-> >> file on my hard drive via a web form, instead of opening a second tab,
-> >> navigating to the file on my system, and copy and pasting it into the
-> >> form, I could just go into thetext box, get an embedded nano window,
-> >> and use Nano's insert from another file command... and if there's
-> >> multiple files, I could just do that repeatedly... and unlike with
-> >> Firefox's address bar, I'd have tab completion for getting the path to
-> >> the file).
-> >> 
-> >> 9. The ability to import bookmarks, saved passwords, etc. from a
-> >> Firefox(and other popular browsers) profile would be a nice bonus,
-> >> especially if it was done via a supplementary package that could be
-> >> removed after migrating.
-> >> 
-> >> There are probably other features I'd want in my dream text-mode web
-> >> browser, but something that provides a remotely similar browsing
-> >> experience to Firefox+Orca would be amazing and would probably be
-> >> enough to make me ditch the GUI altogether... though I confess, a
-> >> simple means of launching arbitrary GUI applications in a kiosk-like
-> >> manner with Orca would be nice for those rare occasions I'm curious to
-> >> give a GUI application a try... sadly, maintaining a full desktop is
-> >> over kill with how much I live in the GUI, and the script I use to
-> >> launch Firefox with Orca suffers from crippling overspecialization and
-> >> its someone else's work that I don't begin to understand how to adapt
-> >> to applications beyond the handful it was designed for.
-> >> 
-> >> _______________________________________________
-> >> Blinux-list mailing list
-> >> Blinux-list@redhat.com
-> >> https://listman.redhat.com/mailman/listinfo/blinux-list
-> >> 
-> > 
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> > 
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
+> I mean I have Google Chrome set as my default browser right now. And I can
+> uninstall a lot. There's no Candy Crush Saga, and I just uninstalled Dizney
+> Plus.
+>
+> What? How did you do all that? I got help trying to get some of that crap gone, and it WILL, NOT, GO, not even on 10. OK I think 3 of us were able to wrestle Disney Plus off the thing, but getting rid of that Microsoft browser is a no-go, along with many other things that just didn't have the appropriate uninstall or remove type of buttons, only a link that took us to a help page about how to uninstall software. But the crap simply won't go, no matter how hard we tried to get it gone. Did they fix this in 11 with the default browser thing? There was much talk around the interwebs about the browser in 11 being stuck, and it taking hours to try to figure out how to change the default, and then once enough people figured out how to change it, Microsoft went and fixed them so they got the Microsoft browser back and couldn't change it anymore. This is what happens when you let a single company with a known history of bad business control every aspect of your computer. They can do what t
+ hey want with it, no matter how much of a power user you think you are.
+> Windows Terminal exists. They even have a Windows package manager. But if
+> you don't like that one, you use Scoop, or Chocolatey, which also have some
+> Linux apps and command line programs.
+> OK I'll give you that cmd is still a thing, and believe it or not, you will find many articles around the interwebs that tell you to open up cmd to do this or that. And I guess they've made it somewhat more useful again? Last time I used anything like that, they were taking things away from it to make it less useful, not adding choices to make it more usable. I pretty much lost it when they took move away for example.
 
--- 
-Rudy Vener
-Website: http://www.rudyvener.com
-Twitter: https://twitter.com/RudySalt
+
+> That's still true. But you'd just install Thunderbird wouldn't you? It
+> works even better on windows than Linux because the accessibility bus is
+> faster to load all those messages into its buffers.
+>
+>
+Um, no. If Google Chrome is any indication, it would be slower, as it's 
+loading all that stuff into buffers that are not needed and take time. 
+One banking website that I tested felt quite sluggish on a rather new 
+laptop. I can do my banking much much faster here on this 8-year-old 
+all-in-one computer than I was able to do on that laptop. I felt like I 
+was slogging through mud using that thing. I'm sure email in Thunderbird 
+would be just as bad. It used to feel sluggish here as well, but this 
+has been greatly improved now. I no longer notice any sluggishness here, 
+even on less resource packed machines, even in large folders, which I 
+will admit used to be a high pain point, not because of the 
+accessibility bus itself, but because of event floods that have been 
+largely fixed.
+
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
