@@ -1,58 +1,50 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id DC673500408
-	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 04:11:22 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7D9F8500435
+	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 04:31:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649902281;
+	s=mimecast20190719; t=1649903463;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=pRRxbmy6Ba08gIolCOKBQcetvVw2zB67IeeXSSHKC2Y=;
-	b=ehMDHqM64J9hlpk1XrgmsVvnYJXrC78UT5AKvIs4L/eekGFiFKocJFOHBP7IJ3rIZDZUc/
-	8W20D1wmVnRt18JlHwjj28E9N/JjLAV63sPbBv3hy/Q/xE8ayL/rCqbOr+/rUA/vGB2qYj
-	TqUD/buD5xo72HZkBz6Sz2e06Gzi4+M=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=Al+9nnMIsshtrYeIYBeiUO1XtFFDdj3L07G2gy5K0iM=;
+	b=JsQ4mO8+7JZK6alnx8CvadXwR2zmnL2gp7sBRCtFbiRyU9GvwLw3PaPhJGBbbxaeZiKz+A
+	PYyFUzgnxUxl2W9dwab752bsgFtfG0reZh+bEQ8hFAs8j1Q7ZA/xPMXmKE+DTRWs7bMhUf
+	cNml0qAIo5y/zjR2MHavydrzYrHheCw=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-653-GHb9UGDCOxWNB3UeMPtMcw-1; Wed, 13 Apr 2022 22:11:20 -0400
-X-MC-Unique: GHb9UGDCOxWNB3UeMPtMcw-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+ us-mta-564-cItaoJ5TPvyCJPkJQ130Ig-1; Wed, 13 Apr 2022 22:31:00 -0400
+X-MC-Unique: cItaoJ5TPvyCJPkJQ130Ig-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 344BD85A5BC;
-	Thu, 14 Apr 2022 02:11:19 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7749338008A4;
+	Thu, 14 Apr 2022 02:30:58 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 1154914582FE;
-	Thu, 14 Apr 2022 02:11:19 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 44F74200C0D0;
+	Thu, 14 Apr 2022 02:30:58 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id C10991940353;
-	Thu, 14 Apr 2022 02:11:18 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 5D20F1940353;
+	Thu, 14 Apr 2022 02:30:55 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 13 Apr 2022 22:10:56 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Subject: Re: FYI - Command Line Programs for the Blind
+Date: Wed, 13 Apr 2022 22:30:51 -0400 (EDT)
 To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <mailman.8235.1649845924.111201.blinux-list@redhat.com>
- <mailman.8235.1649853207.111206.blinux-list@redhat.com>
- <mailman.8153.1649856275.111209.blinux-list@redhat.com>
- <mailman.8268.1649857705.111206.blinux-list@redhat.com>
- <mailman.8242.1649858545.111203.blinux-list@redhat.com>
- <mailman.8365.1649876915.111204.blinux-list@redhat.com>
- <mailman.8363.1649886716.111208.blinux-list@redhat.com>
- <mailman.8415.1649894526.111202.blinux-list@redhat.com>
- <mailman.8323.1649896260.111207.blinux-list@redhat.com>
- <mailman.8220.1649898351.111205.blinux-list@redhat.com>
- <mailman.8227.1649901807.111205.blinux-list@redhat.com>
-In-Reply-To: <mailman.8227.1649901807.111205.blinux-list@redhat.com>
-Message-ID: <mailman.8228.1649902278.111205.blinux-list@redhat.com>
+Subject: Re: FYI - Command Line Programs for the Blind
+In-Reply-To: <mailman.8337.1649901204.111207.blinux-list@redhat.com>
+References: <mailman.8265.1649867972.111207.blinux-list@redhat.com>
+ <mailman.8540.1649878555.111210.blinux-list@redhat.com>
+ <mailman.8410.1649894371.111202.blinux-list@redhat.com>
+ <mailman.8573.1649897974.111210.blinux-list@redhat.com>
+ <mailman.8337.1649901204.111207.blinux-list@redhat.com>
+MIME-Version: 1.0
+Message-ID: <mailman.8586.1649903454.111210.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -68,27 +60,268 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Well, no, I didn't mean to replace one for-the-blind specialized Linux 
-distribution with another. Everything I said centered around the fact 
-that I use something that anyone can use, I work with anyone, and I am 
-human above all, not the blind. Slint is also a one-man show that is 
-just a specialized Slackware, albeit with some improvements, and even 
-Slackware as old as it is is also a one-man show. I am much more in 
-favor personally of using distributions with much better community 
-support and more than one person maintaining them. Yes, a team can get 
-too large for the good of its own project, but two heads are always 
-better than one, and three can usually be better than 2.
+Okay, answers in context below.
 
-~Kyle
+
+> Excellent. Here's three grant sites just to get started.
+Generally,  some of these resources require very specific  eligibility 
+factors, see below.
+
+>
+> https://www.ieeefoundation.org/Grants
+
+Two points n the above.  Due to Covid 19, the  Ieee foundation did not 
+even do a grant cycle for 2021, and there is no indication that one has 
+begun for 2022.
+The more important issue though is that you cannot apply for a grant at 
+all,
+  unless you are either an IEEE member, or associated with one, who must 
+direct the project.
+Anyone meet those qualifications?
+
+
+  >
+> https://www.ic.gc.ca/eic/site/118.nsf/eng/00002.html
+
+In this case the challenges are a couple as well.
+First, the funding cycle for this resource has passed, march 31 2022.
+Second, to apply you must be a legal Canadian entity, for profit, 
+nonprofit, or  research facility.
+
+Then there are the qualifying factors, there is a self test on the site 
+which helps you decide if you qualify.
+
+Depending on location,  and individuals involved, perhaps a possibility 
+for next year.
+
+
+>
+> https://www.supermoney.com/disability-loans-grants/
+The above is a secondary, almost third level resource, and not a correct 
+one.
+For example the statements about the foundation center, which actually no 
+longer  exists by that name, are incorrect.
+Candid libraries, formally foundation center libraries provide grant 
+research in person, and via their library staff...free of charge.
+Also, they provide their databases in libraries  around the country for 
+research as well.
+In short, more details must be outlined for some of these resources to 
+work, even when available, and the third is not accurate as presented.
+hope that helps,
+Karen
+
+
+
+> Rudy
+>
+> On Wed, Apr 13, 2022 at 08:59:25PM -0400, Linux for blind general discussion wrote:
+>> I have done them many times as a nonprofit sector consultant.
+>> Granted, I will need to go back and read more carefully.
+>> But there are many paths to funding here, depending on where those involved
+>> are located, how wide the scope etc.
+>> Funding for  tax exempt organizations  fair better, but cause related
+>> sponsorship, or  even social impact investing can be doors too.
+>> Regardless of the estimates  provided adding 10% on top is also wise.
+>> I am happy to help as well, if the browser opens doors across the board.
+>> Karen
+>>
+>>
+>>
+>> On Wed, 13 Apr 2022, Linux for blind general discussion wrote:
+>>
+>>> We should be able to get you a grant for this sort of project. I mean, this is exactly
+>>> the kind of project grants are meant for.
+>>> How much would you need overall?
+>>> Has anyone on this list ever written a grant application?
+>>> I've written exactly one, for a literary grant and was rejected.
+>>> But I'd be willing to do some research for where and how to apply unless someone knows  this off the cuff.
+>>>
+>>>
+>>> Rudy
+>>>
+>>> On Wed, Apr 13, 2022 at 09:35:40PM +0200, Linux for blind general discussion wrote:
+>>>> Howdy,
+>>>>
+>>>> Do i understand correctly, you wanna hire me to develop a command line browser?
+>>>>
+>>>> its a good amount of work but very doable utilizing a modern browser engine.
+>>>>
+>>>> Well i could definitely do this.
+>>>> If you are serious, you can contact me per mail if there is something concrete:
+>>>> chrys (at) linux-a11y.org
+>>>>
+>>>> I???m a kind of a daywalker. I???m not blind by my own. My girlfriend and a lot of friends are. So i know very well whats needed to make pseudo UIs for command line optimized for screenreader. I created my own screen reader (fenrir in just a couple of weeks and learned a lot while doing that. All That makes me really efficient working on accessibility related software and was also the reason why i was hired by F123 at its time.
+>>>>
+>>>> My December project was completely reworking OCRdesktop ( if you know that). In the last couple of months i continue working on orca for an plugin  driven architecture. I also added an OCR plugin for testing ;). Quite basic right now but fully functional. Currently i concentrate on rework orcas settings handling to be decentral for the plugin architecture. Thats really a chal  and takes a couple of month (a lot of work needed and i do it mostly in my spare time, so i have to pay my bills first ;), but once complete,we can remove a lot of smelling old code after that )
+>>>>
+>>>> Cheers chrys
+>>>>
+>>>>> Am 13.04.2022 um 18:39 schrieb Linux for blind general discussion <blinux-list@redhat.com>:
+>>>>>
+>>>>> ???I'm mostly sure Google's foisitng standard view on everyone nowadays, they are supposed to be nixing third party stuff in May or June however so...
+>>>>>
+>>>>> And yes. I too want that text mode browser. I think we need to figure out a way to pool resources and grab Chrys87 on Github and go here, can you make this, we've got X amount of resources, money, food, beer, coffeee, cats, etc, so how much do you need to make it? I mean. I want that text mode browser. There's bits and pieces in existing browsers, yes but nobody's ever packaged them all together.
+>>>>>
+>>>>> The reason I said Chrys is because....1. I'm half expecting Chrys to leap in here and go you want me to do what? But the bigger reason is, well, look at DragonFM, it shows that you can have a console file manager with desktop like shortcuts that does all the functionality of something like Caja or Nautlius, but in a terminal, with standard keyboard shortcuts.
+>>>>>
+>>>>> Now if that browser got made, and I could ditch FF, I probably would. No...Brow.sh isn't a suitable replacement, not by a long shot. I can rig up startx to do Orca+Firefox, sure, but....
+>>>>>
+>>>>>> On Wed, Apr 13, 2022 at 04:30:18PM +0000, Linux for blind general discussion wrote:
+>>>>>> I think the most important things to remember here are that:
+>>>>>>
+>>>>>> 1. People are different and that's okay.
+>>>>>>
+>>>>>> 2. Blind people are just as diverse as people in general.
+>>>>>>
+>>>>>> At the end of the day, debating Mutt versus Thunderbird has about as
+>>>>>> much impact as debating Coke versus Pepsi. Hardcore fans of either
+>>>>>> aren't likely to change their mind for any reason, there's no way of
+>>>>>> doing an objective comparison, and just as how which cola is better
+>>>>>> comes down to the individual's tastebuds, which e-mail client is
+>>>>>> easier to setup and use ultimately comes down to which software
+>>>>>> idiosyncrasies the end user is more comfortable with.
+>>>>>>
+>>>>>> Though, for what it's worth, just as I'm not a fan of colas and much
+>>>>>> prefer Dr. Pepper when it comes to caramel colored fizzy drinks, I'm
+>>>>>> not a fan of e-mail clients and prefer to just use my e-mail's web
+>>>>>> interface... and the last time I checked my e-mail on a machine other
+>>>>>> than my personal one, doing so was as simple as launching Firefox,
+>>>>>> typing gmail.google.com into the address bar, entering my e-mail
+>>>>>> address and password, and then once logged in, I just used what of
+>>>>>> NVDA's navigational hotkeys matched Orca's to check level 3 headings
+>>>>>> for how many unread messages were in my inbox and spam, and jump to
+>>>>>> the checkbox on the first message in the message list... Granted, that
+>>>>>> was years ago, so its entirely possible paranoid security on Google's
+>>>>>> part would make logging in difficult, and they might try forcing me to
+>>>>>> use their bogged down with JavaScript standard view instead of
+>>>>>> respecting my preference for the HTML view.
+>>>>>>
+>>>>>> Granted, the only time I've ever used an e-mail client was theGmail
+>>>>>> app on android 2.2 back when I still had a working eyeball, so I
+>>>>>> suspect I'd find both Mutt and Thunderbird perplexing if I ever gave
+>>>>>> them a try, and the only things I know about SMTP, pop3, and imap is
+>>>>>> the first stands for simple mail transfer protocol and they all have
+>>>>>> something to do with the technical details of e-mail most people are
+>>>>>> ignorant of... Though, I'd probably give Mutt or Alpine a try befor
+>>>>>> Thunderbird or whatever Chromium's companion e-mail client is called
+>>>>>> if only because my setup doesn't really let me run GUI applications
+>>>>>> other than Firefox.
+>>>>>>
+>>>>>> And while I agree the massive overlap in key bindings makes switching
+>>>>>> between GUI applications easy, and its great that Micro exists for
+>>>>>> those wanting to reduce their GUI dependence without having to learn
+>>>>>> an editor with key bindings that predate standardization, I must
+>>>>>> confess that I'm so used to nano's key bindings that I wish I could
+>>>>>> make Firefox switch over to nano-like bindings when I focuse a
+>>>>>> multi-line textbox and the only modern convention I miss when typing
+>>>>>> in nano is the ability to select text by holding shift and using
+>>>>>> arrow/navigation keys...
+>>>>>>
+>>>>>> Honestly, the application I most want that doesn't seem to exist would
+>>>>>> probably be a text-mode web browser that:
+>>>>>>
+>>>>>> 1. Arrow and navigation keys move around the page like in an editor.
+>>>>>>
+>>>>>> 2. Has Firefox-like keybindings for all the common web browser functions.
+>>>>>>
+>>>>>> 3. Has Orca-like keybindings for page navigation.
+>>>>>>
+>>>>>> 4. Has a browse/focus mode toggle equivalent to Orca+A.
+>>>>>>
+>>>>>> 5. Forces pages with multi-column layouts into single column for
+>>>>>> presentation(or at least as the option to)... This is to avoid
+>>>>>> situations where a console screen reader tries to interleave text from
+>>>>>> a list of links in the left column with the page's main content in the
+>>>>>> center/right column.
+>>>>>>
+>>>>>> 6. Supports the functional aspects of JavaScript, HTML5, etc. while
+>>>>>> ignoring the eyecandy aspects.
+>>>>>>
+>>>>>> 7. Disables rich web content by default, but has a keyboard shortcut
+>>>>>> to activate it for the current page and a menu for fine tuning which
+>>>>>> rich content is allowed, and whether the allowance is temporary or
+>>>>>> permanent(essentially providing No-Script-like functionality).
+>>>>>>
+>>>>>> 8. embeds nano(or the text-mode text editor of the user's choice)
+>>>>>> within focused textboxes(so, if I wanted to post the contents of a
+>>>>>> file on my hard drive via a web form, instead of opening a second tab,
+>>>>>> navigating to the file on my system, and copy and pasting it into the
+>>>>>> form, I could just go into thetext box, get an embedded nano window,
+>>>>>> and use Nano's insert from another file command... and if there's
+>>>>>> multiple files, I could just do that repeatedly... and unlike with
+>>>>>> Firefox's address bar, I'd have tab completion for getting the path to
+>>>>>> the file).
+>>>>>>
+>>>>>> 9. The ability to import bookmarks, saved passwords, etc. from a
+>>>>>> Firefox(and other popular browsers) profile would be a nice bonus,
+>>>>>> especially if it was done via a supplementary package that could be
+>>>>>> removed after migrating.
+>>>>>>
+>>>>>> There are probably other features I'd want in my dream text-mode web
+>>>>>> browser, but something that provides a remotely similar browsing
+>>>>>> experience to Firefox+Orca would be amazing and would probably be
+>>>>>> enough to make me ditch the GUI altogether... though I confess, a
+>>>>>> simple means of launching arbitrary GUI applications in a kiosk-like
+>>>>>> manner with Orca would be nice for those rare occasions I'm curious to
+>>>>>> give a GUI application a try... sadly, maintaining a full desktop is
+>>>>>> over kill with how much I live in the GUI, and the script I use to
+>>>>>> launch Firefox with Orca suffers from crippling overspecialization and
+>>>>>> its someone else's work that I don't begin to understand how to adapt
+>>>>>> to applications beyond the handful it was designed for.
+>>>>>>
+>>>>>> _______________________________________________
+>>>>>> Blinux-list mailing list
+>>>>>> Blinux-list@redhat.com
+>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>>>>
+>>>>>
+>>>>> _______________________________________________
+>>>>> Blinux-list mailing list
+>>>>> Blinux-list@redhat.com
+>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>>>
+>>>>
+>>>> _______________________________________________
+>>>> Blinux-list mailing list
+>>>> Blinux-list@redhat.com
+>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>
+>>> --
+>>> Rudy Vener
+>>> Website: http://www.rudyvener.com
+>>> Twitter: https://twitter.com/RudySalt
+>>>
+>>> _______________________________________________
+>>> Blinux-list mailing list
+>>> Blinux-list@redhat.com
+>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>
+>>>
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+> -- 
+> Rudy Vener
+> Website: http://www.rudyvener.com
+> Twitter: https://twitter.com/RudySalt
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
 
 _______________________________________________
 Blinux-list mailing list
