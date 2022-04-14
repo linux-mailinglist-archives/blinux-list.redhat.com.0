@@ -2,54 +2,56 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7D337501ADB
-	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 20:11:54 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3B4B9501C3F
+	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 21:57:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649959913;
+	s=mimecast20190719; t=1649966223;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=EyP5iTvSjksS7Cmg116Q0oRFqet/Bm9tDjc3+ktiDQo=;
-	b=SqN09iXRUaMiMb1syHtIkYEtVsE5jh92oxsaN/1cXoCQHj6XCGHgNVApD3Rk7r6YQ6eNYd
-	OjLYNcVYU8dCSNmLjrMCOQl83lEZVB47uyrXqvN0u+XBdaCt+0sbNLKCxJE1KA3wlrRcvU
-	DNZgsKPFD8yhQ8RdJ6xGfRG/wJ7Vog8=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=0xvfGp+367SNqqqkf/S61kXF5Pq2IX6xSnFpki7hH8M=;
+	b=R55e1lq2IySIkwVeVEfYUkCttdwoJPK7g1/8sZCoKzoRXuSwu07E0gbl357U3X3ux003Fn
+	FItOplcD6Ql+3sVSYzFaixH3I9cfdZCXZJrm67o5x3hnNWpRgZvyA+RCNAZPtJse6w7wKF
+	XnLD4BdNJI0gFNbqkKHsLa2JWQw1FuU=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-78-dQ7YOO9GNi2L1sH8woY87w-1; Thu, 14 Apr 2022 14:11:50 -0400
-X-MC-Unique: dQ7YOO9GNi2L1sH8woY87w-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+ us-mta-206-E3n7MqFNPwe_rK0T-CQWqA-1; Thu, 14 Apr 2022 15:56:59 -0400
+X-MC-Unique: E3n7MqFNPwe_rK0T-CQWqA-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 33DAD2A2AD4A;
-	Thu, 14 Apr 2022 18:11:48 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 11BF49706A0;
+	Thu, 14 Apr 2022 19:56:58 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id BA253404E4A7;
-	Thu, 14 Apr 2022 18:11:47 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 88A924229AA;
+	Thu, 14 Apr 2022 19:56:53 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id F17C5194034B;
-	Thu, 14 Apr 2022 18:11:44 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 17D38194034F;
+	Thu, 14 Apr 2022 19:56:53 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 14 Apr 2022 19:11:38 +0100
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: FYI - Command Line Programs for the Blind
+MIME-Version: 1.0
 References: <mailman.8235.1649853207.111206.blinux-list@redhat.com>
  <mailman.8153.1649856275.111209.blinux-list@redhat.com>
- <mailman.8209.1649858812.111208.blinux-list@redhat.com>
- <mailman.8162.1649859377.111209.blinux-list@redhat.com>
- <mailman.8191.1649860611.111209.blinux-list@redhat.com>
- <mailman.8286.1649861527.111202.blinux-list@redhat.com>
- <mailman.8346.1649867449.111204.blinux-list@redhat.com>
- <mailman.8350.1649881422.111208.blinux-list@redhat.com>
- <mailman.8344.1649892897.111209.blinux-list@redhat.com>
- <mailman.8516.1649959296.111209.blinux-list@redhat.com>
-MIME-Version: 1.0
-In-Reply-To: <mailman.8516.1649959296.111209.blinux-list@redhat.com>
-Message-ID: <mailman.8738.1649959904.111210.blinux-list@redhat.com>
+ <mailman.8268.1649857705.111206.blinux-list@redhat.com>
+ <mailman.8242.1649858545.111203.blinux-list@redhat.com>
+ <mailman.8365.1649876915.111204.blinux-list@redhat.com>
+ <mailman.8363.1649886716.111208.blinux-list@redhat.com>
+ <mailman.8343.1649887607.111209.blinux-list@redhat.com>
+ <mailman.8444.1649918366.111208.blinux-list@redhat.com>
+ <mailman.8643.1649948214.111206.blinux-list@redhat.com>
+ <mailman.8358.1649952886.111205.blinux-list@redhat.com>
+ <mailman.8367.1649955905.111205.blinux-list@redhat.com>
+In-Reply-To: <mailman.8367.1649955905.111205.blinux-list@redhat.com>
+Date: Thu, 14 Apr 2022 14:56:28 -0500
+Subject: Re: FYI - Command Line Programs for the Blind
+To: "blinux-list@redhat.com" <blinux-list@redhat.com>
+X-Content-Filtered-By: Mailman/MimeDel 2.1.29
+Message-ID: <mailman.8521.1649966212.111207.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -65,128 +67,89 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-Al, to be fair I'm not sure when you last tried Mutt, ut I've run across a =
-lot of sample configs that are just copy into a text file and plug your inf=
-o in and save as .muttrc in your home directory and it workks, a quick sear=
-ch of mutt gmail config or mutt hotmail config usually leads to several sam=
-ple ones to use. Thoughh I'm still unsure if anyone's made sensible modern =
-keybinds or emaccs/emacspeak however, I've no clue where to even begin with=
- that with the sheer amount of keys/keystrokes that'd need changing up
+Because Fedora was much less stable on *my* system, a brand new HP laptop
+with a new AMD chip. I mean I'm glad it works for y'all, but it doesn't now
+for me. I installed Fedora, twice, with the same results. Also Windows just
+works. Nothing just crashes out of nowhere, all that. Plus it has a
+subsystem for Android now so I can run Android apps like Pocketcast. Of
+course, if Linux worked for me I could just use GPodder. Ah well.
+Devin Prater
+r.d.t.prater@gmail.com
 
-On Thu, Apr 14, 2022 at 02:01:27PM -0400, Linux for blind general discussio=
-n wrote:
-> Kyle, I'm very glad to know that a Linux user with your level of knowledg=
-e
-> can still say that Emacs and Mutt have steeper learning curves than you f=
-ind
-> worth the trouble.=A0 (Correct me if I've oversimplified your view.) As i=
-t
-> happens, I've decided to try again with both Emacs and Emacspeak, and
-> possibly Mutt, but now I don't feel like such a dummy for having had trou=
-ble
-> with this software in my early and even later days with Linux.
->=20
->=20
-> Best!
->=20
-> Al
->=20
->=20
-> On 4/13/22 19:34, Linux for blind general discussion wrote:
-> > These debates can be both informative and useful for those new to linux
-> > > who haven't made their choices yet.
-> >=20
-> >=20
-> > Unfortunately I would say probably not. Usually in situations like this=
-,
-> > once someone trying to make a choice to come to Linux or to stay where
-> > they are sees all this get lost in a shell and hand-edit config file
-> > kind of stuff, they usually run away before they get stuck in the
-> > quicksand. Or worse, they end up tossing the virtual machine someone
-> > told them to try into the recycle bin because it is just too hard to
-> > use. Of course this also applies when new users are trying to find out
-> > what applications are available for this or that and they are told of
-> > EMACS, Mutt, Vim and the finer points of what people affectionately cal=
-l
-> > "links the chain" and "lynx the cat" vs w3m with all their quirks, or
-> > having to learn how to get startx to play nice so that they can run a
-> > more capable browser like the Firefox, Google Chrome or Brave that they
-> > are used to using, that is not only more comfortable, but is necessary
-> > on today's web, when all they had to do was to run a live iso of a
-> > ready-made distribution with a fairly modern desktop on it and they
-> > could be right at home in minutes. If someone asks me about this Linux
-> > thing they heard about, I like to tell them about what they can have up
-> > and running and feel fairly comfortable using in about 30 minutes or
-> > less, and if they like that, great. Then if they want to learn more
-> > about the power user stuff they can do, then and only then would I even
-> > mention a terminal, a shell or terminal applications. I probably still
-> > wouldn't say too much about EMACS or Mutt other than their availability
-> > though, since even though I've been using various Linux distros for
-> > almost 20 years, started of all things on Slackware, and even ran a hom=
-e
-> > web and email server fairly early on, even I gave up on both of those
-> > because of the steep learning curve involved in just getting past the
-> > initial setup process. Even now, even though I still have my own mail
-> > and web servers, I still tend to use things like ISPConfig for my serve=
-r
-> > administration, since although the web server is very easy to set up,
-> > deploying a mailbox on a virtual domain is still not for the faint of
-> > heart, unless it has an automated script like what comes in most
-> > web-based control panels that makes it much easier to set up. I mean if
-> > not for the craziness involved in setting up a mail server with 3 or 4
-> > mailboxes on 2 to 3 domains, I would just run caddyserver for my
-> > websites, which can do a lot really easily, and the caddyfile is very
-> > easy to understand and edit, although like most other web servers, it
-> > doesn't support .htaccess, which does lots of per site URL rewriting an=
-d
-> > custom error stuff that just isn't as easy to do on a per-site basis in
-> > other ways supported by non-htaccess servers. Still in any case, one
-> > point I really like to make is that although other operating systems
-> > tend to take features away from users, Linux tends to add features to
-> > desktop environments and applications, or just to add applications, all
-> > while taking care not to take things away from power users, and even
-> > adds things that make the power user experience better over time.
-> >=20
-> >=20
-> > Sure I know this list is a general one, aimed at users of all levels an=
-d
-> > skillsets. But being a more generalized list, it's probably better to
-> > keep things on a more general level that while not excluding power
-> > users, won't make new users turn tail and run for the window either.
-> > This is the beauty of the GNU/Linux landscape as a whole. It's not the
-> > wilderness, and it's not a barren wasteland either. It's a whole world
-> > with enough freedom and even comfort for everyone. I found long ago tha=
-t
-> > it is not the geeky OS that only a server admin or someone with a
-> > masters in computer science could love, and I do enjoy letting the worl=
-d
-> > know that I use it and they can too.
-> >=20
-> > ~Kyle
-> >=20
+
+
+
+On Thu, Apr 14, 2022 at 12:05 PM Linux for blind general discussion <
+blinux-list@redhat.com> wrote:
+
+> Kyle and I get good, stable Linux systems however though Devin. What
+> happened to you being the voice for oh just install Fedora, and use emacs.
+> Why the sudden shift to MS's side of things then?
+>
+> On Thu, Apr 14, 2022 at 11:14:29AM -0500, Linux for blind general
+> discussion wrote:
+> > Sir, you should clear the red from your vision. Such rhetoric is
+> improper.
+> > Lol and you thought the stuff coming from the Yggdrasil screen reader
+> page
+> > was confrontational. Anyways, I don't need to convence you. I wasn't
+> trying
+> > to convence you. You always think people are out to try and get you to
+> > change from whatever it is you're using. Like when I talked about Gemini
+> > and such. Also I don't *love* Microsoft. I get from them a good, stable
+> > system with community support by blind users and developers. And in
+> return,
+> > they get whatever data they can out of my computer use. Personally, if
+> they
+> > think I'm *that* interesting, I welcome the attention.
+> > Devin Prater
+> > r.d.t.prater@gmail.com
+> >
+> >
+> >
+> >
+> > On Thu, Apr 14, 2022 at 9:56 AM Linux for blind general discussion <
+> > blinux-list@redhat.com> wrote:
+> >
+> > > OK enough with the Microsoft commercials. We are past tired of them by
+> > > now. We see more than enough of them on TV. What happened to your
+> > > beloved EMACS? You will not convince anyone here that your new-found
+> > > love of Microsoft is any good for anyone. Go crawl back into your
+> > > microsoft hole and leave the Linux list alone. This is not the place
+> for
+> > > Microsoft spam.
+> > >
+> > > ~Kyle
+> > >
+> > > _______________________________________________
+> > > Blinux-list mailing list
+> > > Blinux-list@redhat.com
+> > > https://listman.redhat.com/mailman/listinfo/blinux-list
+> > >
+> > >
 > > _______________________________________________
 > > Blinux-list mailing list
 > > Blinux-list@redhat.com
 > > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >=20
->=20
+> >
+>
+> --
+> Jace's words are up there. Quoted and old messages below this point
+>
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://listman.redhat.com/mailman/listinfo/blinux-list
-
---=20
-Jace's words are up there. Quoted and old messages below this point
-
+>
+>
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
