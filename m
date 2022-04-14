@@ -2,56 +2,59 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3B4B9501C3F
-	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 21:57:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 58D04501C40
+	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 21:57:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649966223;
+	s=mimecast20190719; t=1649966252;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=0xvfGp+367SNqqqkf/S61kXF5Pq2IX6xSnFpki7hH8M=;
-	b=R55e1lq2IySIkwVeVEfYUkCttdwoJPK7g1/8sZCoKzoRXuSwu07E0gbl357U3X3ux003Fn
-	FItOplcD6Ql+3sVSYzFaixH3I9cfdZCXZJrm67o5x3hnNWpRgZvyA+RCNAZPtJse6w7wKF
-	XnLD4BdNJI0gFNbqkKHsLa2JWQw1FuU=
+	bh=5C1eIMyu+bT4xzsl6w2myFWORq8hFzYskn0TEs6Plv0=;
+	b=g2KMG7DICvTmqJc+nntaagHxEf8X/9cbyEcSe1Fk1hnS0ESwbBkdChXuO+Q+dQsya1q7Lo
+	Q2I4XLV1Dwow4oo8jXO6vvKy+rfTxXtNHGIxxMCatyct7KbLEhqM03YIIYsLy1aNn2Rgun
+	6CBfzoESZXlBzEni58c6K9Y3Md7WvBk=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-206-E3n7MqFNPwe_rK0T-CQWqA-1; Thu, 14 Apr 2022 15:56:59 -0400
-X-MC-Unique: E3n7MqFNPwe_rK0T-CQWqA-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-580-Se5jtnMcNPuY9l7GF5qAew-1; Thu, 14 Apr 2022 15:57:28 -0400
+X-MC-Unique: Se5jtnMcNPuY9l7GF5qAew-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 11BF49706A0;
-	Thu, 14 Apr 2022 19:56:58 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E463E811E81;
+	Thu, 14 Apr 2022 19:57:26 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 88A924229AA;
-	Thu, 14 Apr 2022 19:56:53 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id CF353416148;
+	Thu, 14 Apr 2022 19:57:26 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 17D38194034F;
-	Thu, 14 Apr 2022 19:56:53 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 96DB8194034F;
+	Thu, 14 Apr 2022 19:57:26 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
+Date: Thu, 14 Apr 2022 15:57:06 -0400
 MIME-Version: 1.0
-References: <mailman.8235.1649853207.111206.blinux-list@redhat.com>
- <mailman.8153.1649856275.111209.blinux-list@redhat.com>
- <mailman.8268.1649857705.111206.blinux-list@redhat.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+Subject: Re: FYI - Command Line Programs for the Blind
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <mailman.8268.1649857705.111206.blinux-list@redhat.com>
  <mailman.8242.1649858545.111203.blinux-list@redhat.com>
  <mailman.8365.1649876915.111204.blinux-list@redhat.com>
  <mailman.8363.1649886716.111208.blinux-list@redhat.com>
  <mailman.8343.1649887607.111209.blinux-list@redhat.com>
- <mailman.8444.1649918366.111208.blinux-list@redhat.com>
- <mailman.8643.1649948214.111206.blinux-list@redhat.com>
- <mailman.8358.1649952886.111205.blinux-list@redhat.com>
- <mailman.8367.1649955905.111205.blinux-list@redhat.com>
-In-Reply-To: <mailman.8367.1649955905.111205.blinux-list@redhat.com>
-Date: Thu, 14 Apr 2022 14:56:28 -0500
-Subject: Re: FYI - Command Line Programs for the Blind
-To: "blinux-list@redhat.com" <blinux-list@redhat.com>
-X-Content-Filtered-By: Mailman/MimeDel 2.1.29
-Message-ID: <mailman.8521.1649966212.111207.blinux-list@redhat.com>
+ <mailman.8428.1649888423.111203.blinux-list@redhat.com>
+ <mailman.8307.1649889026.111207.blinux-list@redhat.com>
+ <mailman.8412.1649893760.111204.blinux-list@redhat.com>
+ <mailman.8388.1649918679.111207.blinux-list@redhat.com>
+ <mailman.8563.1649948774.111202.blinux-list@redhat.com>
+ <mailman.8501.1649950048.111209.blinux-list@redhat.com>
+ <CAO2sX318Qpucujy-HdYb8jKLv51c4PYHwwv6h7Ko1_YmXC5yiA@mail.gmail.com>
+ <mailman.8733.1649957768.111210.blinux-list@redhat.com>
+In-Reply-To: <mailman.8733.1649957768.111210.blinux-list@redhat.com>
+Message-ID: <mailman.8524.1649966245.111207.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -67,89 +70,42 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Because Fedora was much less stable on *my* system, a brand new HP laptop
-with a new AMD chip. I mean I'm glad it works for y'all, but it doesn't now
-for me. I installed Fedora, twice, with the same results. Also Windows just
-works. Nothing just crashes out of nowhere, all that. Plus it has a
-subsystem for Android now so I can run Android apps like Pocketcast. Of
-course, if Linux worked for me I could just use GPodder. Ah well.
-Devin Prater
-r.d.t.prater@gmail.com
+it's annoying how many services insist on using a person's e-mail 
+address or phone number as a unique
+> identifier... its one thing if they have legitimate reason to contact you outside of their platform, but there's plenty that would function just fine knowing nothing about me beyond my username and password...
 
 
+The whole reason they want a phone number or email address has nothing 
+to do with unique identifiers and everything to do with marketing, 
+upselling and even selling that information to other companies and 
+advertising networks. It's the same reason why they collect too much 
+information when you actually want a newsletter and make it hard to opt 
+out when you don't want the newsletter anymore. And it doesn't matter 
+whether they are providing a free service or you're paying for it. 
+Either way, they want every part of you that makes you you, even to the 
+point of tracking things you do online, websites you visit, things you 
+buy, even all those things you talk about in your private residence. 
+It's all there for companies to listen to, and is all associated with a 
+name, email and phone. Just think about all of this the next time you 
+turn on a computer, start a mobile phone or even plug in that cute 
+little voice assistant device that looks happy to help. It's happy all 
+right. Happy to collect every word you say and either market you 
+something or market you to other too big to fail companies. Fortunately 
+my Linux computers and servers across the interwebs and my upgraded and 
+deGoogled Android phone are not collecting information about me or 
+anyone else in my house, at least not on the OS level.
 
+~Kyle
 
-On Thu, Apr 14, 2022 at 12:05 PM Linux for blind general discussion <
-blinux-list@redhat.com> wrote:
-
-> Kyle and I get good, stable Linux systems however though Devin. What
-> happened to you being the voice for oh just install Fedora, and use emacs.
-> Why the sudden shift to MS's side of things then?
->
-> On Thu, Apr 14, 2022 at 11:14:29AM -0500, Linux for blind general
-> discussion wrote:
-> > Sir, you should clear the red from your vision. Such rhetoric is
-> improper.
-> > Lol and you thought the stuff coming from the Yggdrasil screen reader
-> page
-> > was confrontational. Anyways, I don't need to convence you. I wasn't
-> trying
-> > to convence you. You always think people are out to try and get you to
-> > change from whatever it is you're using. Like when I talked about Gemini
-> > and such. Also I don't *love* Microsoft. I get from them a good, stable
-> > system with community support by blind users and developers. And in
-> return,
-> > they get whatever data they can out of my computer use. Personally, if
-> they
-> > think I'm *that* interesting, I welcome the attention.
-> > Devin Prater
-> > r.d.t.prater@gmail.com
-> >
-> >
-> >
-> >
-> > On Thu, Apr 14, 2022 at 9:56 AM Linux for blind general discussion <
-> > blinux-list@redhat.com> wrote:
-> >
-> > > OK enough with the Microsoft commercials. We are past tired of them by
-> > > now. We see more than enough of them on TV. What happened to your
-> > > beloved EMACS? You will not convince anyone here that your new-found
-> > > love of Microsoft is any good for anyone. Go crawl back into your
-> > > microsoft hole and leave the Linux list alone. This is not the place
-> for
-> > > Microsoft spam.
-> > >
-> > > ~Kyle
-> > >
-> > > _______________________________________________
-> > > Blinux-list mailing list
-> > > Blinux-list@redhat.com
-> > > https://listman.redhat.com/mailman/listinfo/blinux-list
-> > >
-> > >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
->
-> --
-> Jace's words are up there. Quoted and old messages below this point
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
