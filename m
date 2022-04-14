@@ -1,59 +1,55 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 257CE501AAF
-	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 20:01:45 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7DA2D501ACB
+	for <lists+blinux-list@lfdr.de>; Thu, 14 Apr 2022 20:08:55 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649959304;
+	s=mimecast20190719; t=1649959734;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=t4nG3409SE7E3Ql2/nKGpJDWjWjPNSjF0lGFjxTHPNQ=;
-	b=L5MLtQzqFZp0SPygXlRx0u42OqyhZBKecGbqTUlqkYPvLwl0NL0WFN0ssrU0gA+GetaXP7
-	g1cr8d4dHv9oisbF9PlBp4wsQpqMk3+teP/e6rM9StYXusaHMoNqADG1N/KUp8c9K6CqG1
-	eG+Gdm1lVKhsso4i42F5Yyt2f1Chco0=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=GUKH6fkm+xqQgXRivVx03so2qWXw2VVPrhG8etD5+Zw=;
+	b=Jp5w7M9LtKzV3dePIXu4M2eWe+IfmElGtBK2mFqm9Ryn7f2QgOMHbd40UU1N6DJ4NI6b1h
+	dCBpLIUhnUbYajwZmM7F8/UW2KLRdZZ05q4gcz9G6yKNB4KZQ/J4bjptLKG4wazVH+YqDT
+	LMOsgjk96lRPkUeI7c8xTJDN7mk67u4=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-622-0kkda6sSPViY48Z6qqGCAw-1; Thu, 14 Apr 2022 14:01:40 -0400
-X-MC-Unique: 0kkda6sSPViY48Z6qqGCAw-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+ us-mta-447-3OaKoIgyNvetxtX5dqObhg-1; Thu, 14 Apr 2022 14:08:53 -0400
+X-MC-Unique: 3OaKoIgyNvetxtX5dqObhg-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1C6203804061;
-	Thu, 14 Apr 2022 18:01:38 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 74205811E80;
+	Thu, 14 Apr 2022 18:08:51 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id D426E41637C;
-	Thu, 14 Apr 2022 18:01:37 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 2CE4F492CA7;
+	Thu, 14 Apr 2022 18:08:51 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 1C71F194034B;
-	Thu, 14 Apr 2022 18:01:37 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 9ECC1194034B;
+	Thu, 14 Apr 2022 18:08:50 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 14 Apr 2022 14:01:27 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: FYI - Command Line Programs for the Blind
+Date: Thu, 14 Apr 2022 19:08:40 +0100
 To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <mailman.7836.1649830111.111205.blinux-list@redhat.com>
- <mailman.8034.1649840185.111204.blinux-list@redhat.com>
- <mailman.8235.1649845924.111201.blinux-list@redhat.com>
- <mailman.8235.1649853207.111206.blinux-list@redhat.com>
- <mailman.8153.1649856275.111209.blinux-list@redhat.com>
- <mailman.8209.1649858812.111208.blinux-list@redhat.com>
- <mailman.8162.1649859377.111209.blinux-list@redhat.com>
- <mailman.8191.1649860611.111209.blinux-list@redhat.com>
- <mailman.8286.1649861527.111202.blinux-list@redhat.com>
- <mailman.8346.1649867449.111204.blinux-list@redhat.com>
- <mailman.8350.1649881422.111208.blinux-list@redhat.com>
- <mailman.8344.1649892897.111209.blinux-list@redhat.com>
-In-Reply-To: <mailman.8344.1649892897.111209.blinux-list@redhat.com>
-Message-ID: <mailman.8516.1649959296.111209.blinux-list@redhat.com>
+Subject: Re: FYI - Command Line Programs for the Blind
+References: <mailman.8363.1649886716.111208.blinux-list@redhat.com>
+ <mailman.8343.1649887607.111209.blinux-list@redhat.com>
+ <mailman.8428.1649888423.111203.blinux-list@redhat.com>
+ <mailman.8307.1649889026.111207.blinux-list@redhat.com>
+ <mailman.8412.1649893760.111204.blinux-list@redhat.com>
+ <mailman.8388.1649918679.111207.blinux-list@redhat.com>
+ <mailman.8563.1649948774.111202.blinux-list@redhat.com>
+ <mailman.8501.1649950048.111209.blinux-list@redhat.com>
+ <CAO2sX318Qpucujy-HdYb8jKLv51c4PYHwwv6h7Ko1_YmXC5yiA@mail.gmail.com>
+ <mailman.8733.1649957768.111210.blinux-list@redhat.com>
+MIME-Version: 1.0
+In-Reply-To: <mailman.8733.1649957768.111210.blinux-list@redhat.com>
+Message-ID: <mailman.8695.1649959729.111201.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -69,99 +65,44 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Disposition: inline
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-S3lsZSwgSSdtIHZlcnkgZ2xhZCB0byBrbm93IHRoYXQgYSBMaW51eCB1c2VyIHdpdGggeW91ciBs
-ZXZlbCBvZiAKa25vd2xlZGdlIGNhbiBzdGlsbCBzYXkgdGhhdCBFbWFjcyBhbmQgTXV0dCBoYXZl
-IHN0ZWVwZXIgbGVhcm5pbmcgY3VydmVzIAp0aGFuIHlvdSBmaW5kIHdvcnRoIHRoZSB0cm91Ymxl
-LsKgIChDb3JyZWN0IG1lIGlmIEkndmUgb3ZlcnNpbXBsaWZpZWQgCnlvdXIgdmlldy4pIEFzIGl0
-IGhhcHBlbnMsIEkndmUgZGVjaWRlZCB0byB0cnkgYWdhaW4gd2l0aCBib3RoIEVtYWNzIGFuZCAK
-RW1hY3NwZWFrLCBhbmQgcG9zc2libHkgTXV0dCwgYnV0IG5vdyBJIGRvbid0IGZlZWwgbGlrZSBz
-dWNoIGEgZHVtbXkgZm9yIApoYXZpbmcgaGFkIHRyb3VibGUgd2l0aCB0aGlzIHNvZnR3YXJlIGlu
-IG15IGVhcmx5IGFuZCBldmVuIGxhdGVyIGRheXMgCndpdGggTGludXguCgoKQmVzdCEKCkFsCgoK
-T24gNC8xMy8yMiAxOTozNCwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90
-ZToKPiBUaGVzZSBkZWJhdGVzIGNhbiBiZSBib3RoIGluZm9ybWF0aXZlIGFuZCB1c2VmdWwgZm9y
-IHRob3NlIG5ldyB0byBsaW51eAo+PiB3aG8gaGF2ZW4ndCBtYWRlIHRoZWlyIGNob2ljZXMgeWV0
-Lgo+Cj4KPiBVbmZvcnR1bmF0ZWx5IEkgd291bGQgc2F5IHByb2JhYmx5IG5vdC4gVXN1YWxseSBp
-biBzaXR1YXRpb25zIGxpa2UgCj4gdGhpcywgb25jZSBzb21lb25lIHRyeWluZyB0byBtYWtlIGEg
-Y2hvaWNlIHRvIGNvbWUgdG8gTGludXggb3IgdG8gc3RheSAKPiB3aGVyZSB0aGV5IGFyZSBzZWVz
-IGFsbCB0aGlzIGdldCBsb3N0IGluIGEgc2hlbGwgYW5kIGhhbmQtZWRpdCBjb25maWcgCj4gZmls
-ZSBraW5kIG9mIHN0dWZmLCB0aGV5IHVzdWFsbHkgcnVuIGF3YXkgYmVmb3JlIHRoZXkgZ2V0IHN0
-dWNrIGluIHRoZSAKPiBxdWlja3NhbmQuIE9yIHdvcnNlLCB0aGV5IGVuZCB1cCB0b3NzaW5nIHRo
-ZSB2aXJ0dWFsIG1hY2hpbmUgc29tZW9uZSAKPiB0b2xkIHRoZW0gdG8gdHJ5IGludG8gdGhlIHJl
-Y3ljbGUgYmluIGJlY2F1c2UgaXQgaXMganVzdCB0b28gaGFyZCB0byAKPiB1c2UuIE9mIGNvdXJz
-ZSB0aGlzIGFsc28gYXBwbGllcyB3aGVuIG5ldyB1c2VycyBhcmUgdHJ5aW5nIHRvIGZpbmQgb3V0
-IAo+IHdoYXQgYXBwbGljYXRpb25zIGFyZSBhdmFpbGFibGUgZm9yIHRoaXMgb3IgdGhhdCBhbmQg
-dGhleSBhcmUgdG9sZCBvZiAKPiBFTUFDUywgTXV0dCwgVmltIGFuZCB0aGUgZmluZXIgcG9pbnRz
-IG9mIHdoYXQgcGVvcGxlIGFmZmVjdGlvbmF0ZWx5IAo+IGNhbGwgImxpbmtzIHRoZSBjaGFpbiIg
-YW5kICJseW54IHRoZSBjYXQiIHZzIHczbSB3aXRoIGFsbCB0aGVpciAKPiBxdWlya3MsIG9yIGhh
-dmluZyB0byBsZWFybiBob3cgdG8gZ2V0IHN0YXJ0eCB0byBwbGF5IG5pY2Ugc28gdGhhdCB0aGV5
-IAo+IGNhbiBydW4gYSBtb3JlIGNhcGFibGUgYnJvd3NlciBsaWtlIHRoZSBGaXJlZm94LCBHb29n
-bGUgQ2hyb21lIG9yIAo+IEJyYXZlIHRoYXQgdGhleSBhcmUgdXNlZCB0byB1c2luZywgdGhhdCBp
-cyBub3Qgb25seSBtb3JlIGNvbWZvcnRhYmxlLCAKPiBidXQgaXMgbmVjZXNzYXJ5IG9uIHRvZGF5
-J3Mgd2ViLCB3aGVuIGFsbCB0aGV5IGhhZCB0byBkbyB3YXMgdG8gcnVuIGEgCj4gbGl2ZSBpc28g
-b2YgYSByZWFkeS1tYWRlIGRpc3RyaWJ1dGlvbiB3aXRoIGEgZmFpcmx5IG1vZGVybiBkZXNrdG9w
-IG9uIAo+IGl0IGFuZCB0aGV5IGNvdWxkIGJlIHJpZ2h0IGF0IGhvbWUgaW4gbWludXRlcy4gSWYg
-c29tZW9uZSBhc2tzIG1lIAo+IGFib3V0IHRoaXMgTGludXggdGhpbmcgdGhleSBoZWFyZCBhYm91
-dCwgSSBsaWtlIHRvIHRlbGwgdGhlbSBhYm91dCAKPiB3aGF0IHRoZXkgY2FuIGhhdmUgdXAgYW5k
-IHJ1bm5pbmcgYW5kIGZlZWwgZmFpcmx5IGNvbWZvcnRhYmxlIHVzaW5nIGluIAo+IGFib3V0IDMw
-IG1pbnV0ZXMgb3IgbGVzcywgYW5kIGlmIHRoZXkgbGlrZSB0aGF0LCBncmVhdC4gVGhlbiBpZiB0
-aGV5IAo+IHdhbnQgdG8gbGVhcm4gbW9yZSBhYm91dCB0aGUgcG93ZXIgdXNlciBzdHVmZiB0aGV5
-IGNhbiBkbywgdGhlbiBhbmQgCj4gb25seSB0aGVuIHdvdWxkIEkgZXZlbiBtZW50aW9uIGEgdGVy
-bWluYWwsIGEgc2hlbGwgb3IgdGVybWluYWwgCj4gYXBwbGljYXRpb25zLiBJIHByb2JhYmx5IHN0
-aWxsIHdvdWxkbid0IHNheSB0b28gbXVjaCBhYm91dCBFTUFDUyBvciAKPiBNdXR0IG90aGVyIHRo
-YW4gdGhlaXIgYXZhaWxhYmlsaXR5IHRob3VnaCwgc2luY2UgZXZlbiB0aG91Z2ggSSd2ZSBiZWVu
-IAo+IHVzaW5nIHZhcmlvdXMgTGludXggZGlzdHJvcyBmb3IgYWxtb3N0IDIwIHllYXJzLCBzdGFy
-dGVkIG9mIGFsbCB0aGluZ3MgCj4gb24gU2xhY2t3YXJlLCBhbmQgZXZlbiByYW4gYSBob21lIHdl
-YiBhbmQgZW1haWwgc2VydmVyIGZhaXJseSBlYXJseSAKPiBvbiwgZXZlbiBJIGdhdmUgdXAgb24g
-Ym90aCBvZiB0aG9zZSBiZWNhdXNlIG9mIHRoZSBzdGVlcCBsZWFybmluZyAKPiBjdXJ2ZSBpbnZv
-bHZlZCBpbiBqdXN0IGdldHRpbmcgcGFzdCB0aGUgaW5pdGlhbCBzZXR1cCBwcm9jZXNzLiBFdmVu
-IAo+IG5vdywgZXZlbiB0aG91Z2ggSSBzdGlsbCBoYXZlIG15IG93biBtYWlsIGFuZCB3ZWIgc2Vy
-dmVycywgSSBzdGlsbCAKPiB0ZW5kIHRvIHVzZSB0aGluZ3MgbGlrZSBJU1BDb25maWcgZm9yIG15
-IHNlcnZlciBhZG1pbmlzdHJhdGlvbiwgc2luY2UgCj4gYWx0aG91Z2ggdGhlIHdlYiBzZXJ2ZXIg
-aXMgdmVyeSBlYXN5IHRvIHNldCB1cCwgZGVwbG95aW5nIGEgbWFpbGJveCBvbiAKPiBhIHZpcnR1
-YWwgZG9tYWluIGlzIHN0aWxsIG5vdCBmb3IgdGhlIGZhaW50IG9mIGhlYXJ0LCB1bmxlc3MgaXQg
-aGFzIGFuIAo+IGF1dG9tYXRlZCBzY3JpcHQgbGlrZSB3aGF0IGNvbWVzIGluIG1vc3Qgd2ViLWJh
-c2VkIGNvbnRyb2wgcGFuZWxzIHRoYXQgCj4gbWFrZXMgaXQgbXVjaCBlYXNpZXIgdG8gc2V0IHVw
-LiBJIG1lYW4gaWYgbm90IGZvciB0aGUgY3JhemluZXNzIAo+IGludm9sdmVkIGluIHNldHRpbmcg
-dXAgYSBtYWlsIHNlcnZlciB3aXRoIDMgb3IgNCBtYWlsYm94ZXMgb24gMiB0byAzIAo+IGRvbWFp
-bnMsIEkgd291bGQganVzdCBydW4gY2FkZHlzZXJ2ZXIgZm9yIG15IHdlYnNpdGVzLCB3aGljaCBj
-YW4gZG8gYSAKPiBsb3QgcmVhbGx5IGVhc2lseSwgYW5kIHRoZSBjYWRkeWZpbGUgaXMgdmVyeSBl
-YXN5IHRvIHVuZGVyc3RhbmQgYW5kIAo+IGVkaXQsIGFsdGhvdWdoIGxpa2UgbW9zdCBvdGhlciB3
-ZWIgc2VydmVycywgaXQgZG9lc24ndCBzdXBwb3J0IAo+IC5odGFjY2Vzcywgd2hpY2ggZG9lcyBs
-b3RzIG9mIHBlciBzaXRlIFVSTCByZXdyaXRpbmcgYW5kIGN1c3RvbSBlcnJvciAKPiBzdHVmZiB0
-aGF0IGp1c3QgaXNuJ3QgYXMgZWFzeSB0byBkbyBvbiBhIHBlci1zaXRlIGJhc2lzIGluIG90aGVy
-IHdheXMgCj4gc3VwcG9ydGVkIGJ5IG5vbi1odGFjY2VzcyBzZXJ2ZXJzLiBTdGlsbCBpbiBhbnkg
-Y2FzZSwgb25lIHBvaW50IEkgCj4gcmVhbGx5IGxpa2UgdG8gbWFrZSBpcyB0aGF0IGFsdGhvdWdo
-IG90aGVyIG9wZXJhdGluZyBzeXN0ZW1zIHRlbmQgdG8gCj4gdGFrZSBmZWF0dXJlcyBhd2F5IGZy
-b20gdXNlcnMsIExpbnV4IHRlbmRzIHRvIGFkZCBmZWF0dXJlcyB0byBkZXNrdG9wIAo+IGVudmly
-b25tZW50cyBhbmQgYXBwbGljYXRpb25zLCBvciBqdXN0IHRvIGFkZCBhcHBsaWNhdGlvbnMsIGFs
-bCB3aGlsZSAKPiB0YWtpbmcgY2FyZSBub3QgdG8gdGFrZSB0aGluZ3MgYXdheSBmcm9tIHBvd2Vy
-IHVzZXJzLCBhbmQgZXZlbiBhZGRzIAo+IHRoaW5ncyB0aGF0IG1ha2UgdGhlIHBvd2VyIHVzZXIg
-ZXhwZXJpZW5jZSBiZXR0ZXIgb3ZlciB0aW1lLgo+Cj4KPiBTdXJlIEkga25vdyB0aGlzIGxpc3Qg
-aXMgYSBnZW5lcmFsIG9uZSwgYWltZWQgYXQgdXNlcnMgb2YgYWxsIGxldmVscyAKPiBhbmQgc2tp
-bGxzZXRzLiBCdXQgYmVpbmcgYSBtb3JlIGdlbmVyYWxpemVkIGxpc3QsIGl0J3MgcHJvYmFibHkg
-YmV0dGVyIAo+IHRvIGtlZXAgdGhpbmdzIG9uIGEgbW9yZSBnZW5lcmFsIGxldmVsIHRoYXQgd2hp
-bGUgbm90IGV4Y2x1ZGluZyBwb3dlciAKPiB1c2Vycywgd29uJ3QgbWFrZSBuZXcgdXNlcnMgdHVy
-biB0YWlsIGFuZCBydW4gZm9yIHRoZSB3aW5kb3cgZWl0aGVyLiAKPiBUaGlzIGlzIHRoZSBiZWF1
-dHkgb2YgdGhlIEdOVS9MaW51eCBsYW5kc2NhcGUgYXMgYSB3aG9sZS4gSXQncyBub3QgdGhlIAo+
-IHdpbGRlcm5lc3MsIGFuZCBpdCdzIG5vdCBhIGJhcnJlbiB3YXN0ZWxhbmQgZWl0aGVyLiBJdCdz
-IGEgd2hvbGUgd29ybGQgCj4gd2l0aCBlbm91Z2ggZnJlZWRvbSBhbmQgZXZlbiBjb21mb3J0IGZv
-ciBldmVyeW9uZS4gSSBmb3VuZCBsb25nIGFnbyAKPiB0aGF0IGl0IGlzIG5vdCB0aGUgZ2Vla3kg
-T1MgdGhhdCBvbmx5IGEgc2VydmVyIGFkbWluIG9yIHNvbWVvbmUgd2l0aCBhIAo+IG1hc3RlcnMg
-aW4gY29tcHV0ZXIgc2NpZW5jZSBjb3VsZCBsb3ZlLCBhbmQgSSBkbyBlbmpveSBsZXR0aW5nIHRo
-ZSAKPiB3b3JsZCBrbm93IHRoYXQgSSB1c2UgaXQgYW5kIHRoZXkgY2FuIHRvby4KPgo+IH5LeWxl
-Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJs
-aW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczov
-L2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4KCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1h
-aWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQu
-Y29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QK
+Yes. Yes it is.
+
+Then thoe same companies make it nigh impossible to opt out of their newsletters as well, which....yeah, whole other issue right there. Tell me why I should leap through a dozen hoops with a ball on my nose, doing a backflip in a tutu and wearing pom poms to even have a hope of finding the unsubscribe link to a newsletter, then have to do that all over again, while on hold with a customer support rep, change out my tutu for a Tinkerbell costume, flap the wings five times, dance the Macarena on one leg...and only then I /might/ get taken off the newsletter however.
+
+Yes. That's the levels of hoop leaping I had to go through on my last one. Not literally, but that's about the level of hassle I had to go through. And after all that. I still kept getting newsletters. So what was the point of going through all that hassle?
+
+On Thu, Apr 14, 2022 at 05:35:58PM +0000, Linux for blind general discussion wrote
+> Forgot to mention, but yeah, it's annoying how many services insist on
+> using a person's e-mail address or phone number as a unique
+> identifier... its one thing if they have legitimate reason to contact
+> you outside of their platform, but there's plenty that would function
+> just fine knowing nothing about me beyond my username and password...
+> and trying to force you to create an account just to use your computer
+> just sounds ridiculous... on the flip side, I find it annoying how
+> many e-mail newsletters ask for more than just my e-mail address when
+> signing up. Is it too much to ask that web forms be both properly
+> formatted and that they only collect essential information?
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
+
+-- 
+Jace's words are up there. Quoted and old messages below this point
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
