@@ -2,61 +2,55 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id B83BF501EED
-	for <lists+blinux-list@lfdr.de>; Fri, 15 Apr 2022 01:16:33 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 94D8C502005
+	for <lists+blinux-list@lfdr.de>; Fri, 15 Apr 2022 03:13:13 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1649978192;
+	s=mimecast20190719; t=1649985192;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=gXeFIh0RzisTkArg3H4Uv4f4m3l0ZEmxyszHK7vckE4=;
-	b=i2j5X9qJTUErJL97sq6iIUiZQL0nzYPgvNZzOvdy0HghqndzOsJiZtX3/ne+euaPxlDFvZ
-	zOQu6vBAer7YPvIrEDXObfvdWqSmdD85+ICV163pmWsm7zZf8bURTwTOr60aHparQ58G+k
-	xyXkR7IceAJUbCbPYQP/rp+YuWdYXlM=
+	bh=HNdRwUk5XL9EymE1BPpYVPWj9DgWHX1pTV8Ujr/I0mU=;
+	b=CBBOIfdfpfOeIPgcHT3r6yGoP/4gx6mMB+41hJsHLnTZ+rPR6+VMYuSSIT8fCDt9vkYGqK
+	CHK+uPecisJU3zwMCsedufaZV3FvQvAfDDeoLSFLLVX904BFWuLAWvbngV2E8Jv2ft2VAA
+	6ZS6b5ahScFznRJoOap07RnrILNfESs=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-660-dHMx56LTO6WuhShsAvN3cA-1; Thu, 14 Apr 2022 19:16:29 -0400
-X-MC-Unique: dHMx56LTO6WuhShsAvN3cA-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+ us-mta-308-BfzhXlMxOrqjOgVdMxNW9g-1; Thu, 14 Apr 2022 21:13:09 -0400
+X-MC-Unique: BfzhXlMxOrqjOgVdMxNW9g-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E35AE1014A63;
-	Thu, 14 Apr 2022 23:16:27 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B10ED811E78;
+	Fri, 15 Apr 2022 01:13:07 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id A655140D0179;
-	Thu, 14 Apr 2022 23:16:23 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id DFB06112132C;
+	Fri, 15 Apr 2022 01:13:02 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id F0A14194034E;
-	Thu, 14 Apr 2022 23:16:21 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 20C6A194034E;
+	Fri, 15 Apr 2022 01:13:00 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 14 Apr 2022 19:16:05 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Subject: Re: FYI - Command Line Programs for the Blind
+Date: Thu, 14 Apr 2022 21:12:55 -0400 (EDT)
 To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <mailman.8235.1649853207.111206.blinux-list@redhat.com>
- <mailman.8268.1649857705.111206.blinux-list@redhat.com>
- <mailman.8242.1649858545.111203.blinux-list@redhat.com>
- <mailman.8365.1649876915.111204.blinux-list@redhat.com>
- <mailman.8363.1649886716.111208.blinux-list@redhat.com>
- <mailman.8343.1649887607.111209.blinux-list@redhat.com>
- <mailman.8444.1649918366.111208.blinux-list@redhat.com>
- <mailman.8643.1649948214.111206.blinux-list@redhat.com>
- <mailman.8358.1649952886.111205.blinux-list@redhat.com>
- <mailman.8367.1649955905.111205.blinux-list@redhat.com>
- <mailman.8521.1649966212.111207.blinux-list@redhat.com>
- <mailman.8562.1649966917.111208.blinux-list@redhat.com>
- <mailman.8563.1649967054.111208.blinux-list@redhat.com>
- <mailman.8398.1649970951.111205.blinux-list@redhat.com>
- <mailman.8583.1649977856.111208.blinux-list@redhat.com>
-In-Reply-To: <mailman.8583.1649977856.111208.blinux-list@redhat.com>
-Message-ID: <mailman.8773.1649978181.111210.blinux-list@redhat.com>
+Subject: Re: FYI - Command Line Programs for the Blind
+In-Reply-To: <mailman.8345.1649945219.111205.blinux-list@redhat.com>
+References: <mailman.8363.1649886716.111208.blinux-list@redhat.com>
+ <mailman.8415.1649894526.111202.blinux-list@redhat.com>
+ <mailman.8348.1649895614.111209.blinux-list@redhat.com>
+ <mailman.8418.1649896178.111202.blinux-list@redhat.com>
+ <CAO2sX33Pf=GEvGggGYy25irP6hM72QvVvsk3fGtFBnc8CT09yQ@mail.gmail.com>
+ <mailman.8511.1649903521.111206.blinux-list@redhat.com>
+ <mailman.8597.1649918264.111201.blinux-list@redhat.com>
+ <mailman.8550.1649941474.111203.blinux-list@redhat.com>
+ <mailman.8518.1649942329.111202.blinux-list@redhat.com>
+ <mailman.8567.1649944446.111203.blinux-list@redhat.com>
+ <mailman.8345.1649945219.111205.blinux-list@redhat.com>
+MIME-Version: 1.0
+Message-ID: <mailman.8782.1649985179.111210.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -72,24 +66,49 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-LOL you knew what I was gonna say before I even read the message. Yeah I 
-guess all that stuff can be turned off, but even the slowest Linux with 
-as much stuff installed and running by default as is possible, probably 
-even tons of docker applications running on it, is much less sluggish 
-than what I had to deal with just a couple of weeks ago. As I said 
-earlier, just browsing a single website for testing purposes felt like I 
-was slogging through mud.
+In fact, the years were not that many,  three or four?
+But indeed, addresses were getting hit with spam.
+That being said, perhaps?  we might test drive the effort with  names in 
+the from field again.
+I will admit such has never happened to me personally on other lists 
+hosted  at different locations.
+Karen
 
-~Kyle
+
+
+On Thu, 14 Apr 2022, Linux for blind general discussion wrote:
+
+> That actually makes a lot of sense when it's put like that. See I don't think showing names or adresses would solve that issue, if anything it'd just rear its ugly head again. Plus the scraping of email addresses, too.i
+>
+> On Thu, Apr 14, 2022 at 06:53:59AM -0700, Linux for blind general discussion wrote:
+>> Many years ago, whenever myself-and-others would post here, almost
+>> immediately a graphic language reply from a spammer would get sent. So
+>> eventually hiding our mail addresses solved those issues.
+>> Chime
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>
+>
+> -- 
+> Jace's words are up there. Quoted and old messages below this point
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
 
 _______________________________________________
 Blinux-list mailing list
