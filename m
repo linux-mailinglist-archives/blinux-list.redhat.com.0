@@ -2,36 +2,36 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5C5E5503058
-	for <lists+blinux-list@lfdr.de>; Sat, 16 Apr 2022 00:48:52 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 17EDF50305C
+	for <lists+blinux-list@lfdr.de>; Sat, 16 Apr 2022 01:00:32 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1650062931;
+	s=mimecast20190719; t=1650063632;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=kPgCrtEiDIL/OoGZQLllVAZLLw4sJ6frbbHttFUBVxI=;
-	b=I59lFTHBx0kiEvGyzoSYU9AZUtL1LMGxCpzNKxQVF4c4l4e7ZTi/O9VmsEvkgvVO4YK+Gi
-	90u6hLy6Njlq3sjFH45vV6VNJpmF7pkFVm78gRaOtBov/jzAXMc+4h2155Wk24zlNazXJ4
-	nglx4I5x6gcZJmDkIgzQcuHIqLQFrow=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=rq30rDj95eSJw4Aw/XiCtEDzwHCfh9rtfFibu5S6S6E=;
+	b=UF8FbpCYZNnpjuIbBG7WHOrRLWbh6tkrdW3yVZnV/pzQbvA/s3/fbTay26rRrT2izswYUt
+	cyE5rhRt25fM8VBPf8hiqoNDYFH65QbQzIMbfW/+Nfghg4RmpyJky62L3vkXo5oqflRDq3
+	8KW95VCR3LZ+KZzb/6dd5xh1lK7swzU=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-173-XUis0nlsN2mfDjAw6zFV9Q-1; Fri, 15 Apr 2022 18:48:48 -0400
-X-MC-Unique: XUis0nlsN2mfDjAw6zFV9Q-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-625-7Qv9IOXzNbyLUkoaHruJGA-1; Fri, 15 Apr 2022 19:00:28 -0400
+X-MC-Unique: 7Qv9IOXzNbyLUkoaHruJGA-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A541B800B21;
-	Fri, 15 Apr 2022 22:48:46 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 055843806659;
+	Fri, 15 Apr 2022 23:00:27 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 9EBD1C44B04;
-	Fri, 15 Apr 2022 22:48:42 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 787882167D68;
+	Fri, 15 Apr 2022 23:00:26 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 0884B1940352;
-	Fri, 15 Apr 2022 22:48:42 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 021291940352;
+	Fri, 15 Apr 2022 23:00:26 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
 To: Linux for blind general discussion <blinux-list@redhat.com>
@@ -49,9 +49,9 @@ References: <mailman.8801.1650034419.111206.blinux-list@redhat.com>
  <mailman.8981.1650058457.111210.blinux-list@redhat.com>
 User-Agent: Notmuch/0.35 (https://notmuchmail.org) Emacs/28.1
  (x86_64-pc-linux-gnu)
-Date: Sat, 16 Apr 2022 00:46:46 +0200
+Date: Sat, 16 Apr 2022 00:58:29 +0200
 MIME-Version: 1.0
-Message-ID: <mailman.8946.1650062921.111206.blinux-list@redhat.com>
+Message-ID: <mailman.8919.1650063625.111204.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -67,7 +67,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -75,37 +75,48 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hi,
 
-Sorry it's now late this side of the world so I  will be knocking off
-this machine for today. But I also noticed that Emacspeak has got a
-number of these inconsistencies. It is difficult to find out the issue.
-Some settings for example, are under TTS, and you may need to go there
-and set them. My own rate with Espeak is at 450, and that way I can say
-it is normal.
+Ah, forgot something before sending the last message:
 
-But, before I knock off, I think you may need to join the Emacspeak list
-where Dr Tahman himself will respond to some of your queries, along with
-some people who are knowledgeable than myself. I often just concentrate
-on Emacs functionality itself without digging into the bowels of
-Emacspeak. For instance, I disagree with some of the philosophies such
-as continuous reading without movement of the cursor, default
-punctuations set to all, announcement of cap letters, sounds, and of
-course the voice-lock something. So I disabled most of these long ago, I
-forgot how I did it.
+You said: 
+Linux for blind general discussion <blinux-list@redhat.com> writes:
 
-But here is the address for the emacspeak list, where I believe you can
-get better help: I think you can send a message to with the subject
-"subscribe". emacspeak@emacspeak.org.
+> That's od. I don't have emacspeak git only the regular emacspeak with
+> the AUr?
 
+Sure, I once ran the AUR version until I realised that I could not run
+the Voxin voices. So I ended up cloning from github. You can do the same
+if you like.
+
+You run:
+
+git clone https://github.com/tvraman/emacspeak
+
+then you cd into the emacspeak directory. with "cd emacspeak".
+
+Then here, just run "make"
+
+and the scripts will be compiled to bytecode by your installed version
+of Emacs.
+
+Afterwards, you can then cd into servers/native-espeak and run make
+again.
+
+If you bought Voxin voices, you can cd into linux-outloud and run make
+as well.
+
+The last thing is to run make install to install this copy of emacspeak
+onto your machine. As for me, I just run it from my Downloads directory
+so I just copy the last line in the installation log that tells you
+where the emacspeak was compiled. That line starts with (load-file
+"/home/youname/Downloads/emacspeak/lisp/setup.el")
+
+
+
+Cheers,
 
 Ishe
 
-
-
-Linux for blind general discussion <blinux-list@redhat.com> writes:
-
-> That's od. I don't have emacspeak git only the regular emacspeak with the AUr?
 >
 > Not sure if that's down to the AUR being odd or something but a Paru -Ss emacspeak to search only gives me the regular emacspeak and shows it as installed, nothing about git?
 >
@@ -376,7 +387,6 @@ Linux for blind general discussion <blinux-list@redhat.com> writes:
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://listman.redhat.com/mailman/listinfo/blinux-list
->
 
 _______________________________________________
 Blinux-list mailing list
