@@ -1,37 +1,37 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7D3A5502FEE
-	for <lists+blinux-list@lfdr.de>; Fri, 15 Apr 2022 23:11:21 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5E507502FF7
+	for <lists+blinux-list@lfdr.de>; Fri, 15 Apr 2022 23:17:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1650057080;
+	s=mimecast20190719; t=1650057431;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=BkrSLV3cq4r9TdNCBeyZQiQc29I1buCebRb5YzN8EIU=;
-	b=gVJ1glH8HYpZ5X7MWDYJcjInv9J+A0Z6DFW4AI237OePwJKT/39Km3beNLqvK1R1rp3N18
-	lWKSHXTWEzs+ASGqGcDtNy480JYVKTw5efUwpxEeZFqkEtWicHgX6E2voqYcBcCmcjA8OV
-	flBV/aF9rEZu7fyjFYZL8WhElW9DT5A=
+	bh=vPWnAe4tevDlEZFJrCFx9GKBcKnOzayKhLxFYwgtAnc=;
+	b=e/ifIrKciIaxgDRtdNYThef2FTwoxUO1olg/kf6MvDsIq0ePQwITO48vPwe9zKTzYvk5wq
+	n52ufHg2oHelg8liWMZeWJGNleprArNizqPh3D7iG/lgovo2WxQOJrZ0vjTormbNjVYJa/
+	n2EGoYQfqh97UEuppUmKYo+WpgjRo5Q=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-540-Y0Qbbz41N7-Ay0GqWyVAag-1; Fri, 15 Apr 2022 17:11:16 -0400
-X-MC-Unique: Y0Qbbz41N7-Ay0GqWyVAag-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-557-MVwyZhALP7CZwBXVuHzd0Q-1; Fri, 15 Apr 2022 17:17:08 -0400
+X-MC-Unique: MVwyZhALP7CZwBXVuHzd0Q-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A3F0A8047D6;
-	Fri, 15 Apr 2022 21:11:14 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DBD32185A794;
+	Fri, 15 Apr 2022 21:17:06 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 06A1745B8C7;
-	Fri, 15 Apr 2022 21:11:14 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id A0118111D3C8;
+	Fri, 15 Apr 2022 21:17:06 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 462E91940352;
-	Fri, 15 Apr 2022 21:11:13 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id D916B1940352;
+	Fri, 15 Apr 2022 21:17:04 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
 To: Linux for blind general discussion <blinux-list@redhat.com>
@@ -47,9 +47,9 @@ References: <mailman.8801.1650034419.111206.blinux-list@redhat.com>
  <mailman.8741.1650054763.111208.blinux-list@redhat.com>
 User-Agent: Notmuch/0.35 (https://notmuchmail.org) Emacs/28.1
  (x86_64-pc-linux-gnu)
-Date: Fri, 15 Apr 2022 23:09:24 +0200
+Date: Fri, 15 Apr 2022 23:15:16 +0200
 MIME-Version: 1.0
-Message-ID: <mailman.8745.1650057072.111207.blinux-list@redhat.com>
+Message-ID: <mailman.8910.1650057423.111204.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -65,7 +65,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -73,15 +73,11 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-
-Hi,
-
-I am also on Arch. There is no problem with your Emacs. Also like you,
-the latest version I am running is 28.1. 
-
-Another way to get to your Emacspeak settings is to simply press C-e C,
-that is pressing Contrl-e followed by uppercase C. This will bring up
-Emacspeak customisations.
+By the way, did you install Emacspeak itself from AUR, or git? I
+discovered that the Git version is better than the AUR one. Since you
+said you are using Paru, I believe it works almost the same like yay. I
+use yay here. Still the bottom line is that you can just pull emacspeak
+from its repo and then run it that way.
 
 Ishe
 
