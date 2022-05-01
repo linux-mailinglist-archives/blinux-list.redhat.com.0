@@ -1,46 +1,45 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 96528511BF6
-	for <lists+blinux-list@lfdr.de>; Wed, 27 Apr 2022 17:39:14 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 303575164D6
+	for <lists+blinux-list@lfdr.de>; Sun,  1 May 2022 16:58:55 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1651073953;
+	s=mimecast20190719; t=1651417134;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ZEsoDGvTDCR/0kj3v7BcRe4vQxefb4siFPftKSVCRME=;
-	b=e85iFQYx1URDOH4msdE4OBdXqGRTBItvMCX/ahOFMMeFxscL8AG+e+mRZv9GqumgFuEd8h
-	voZ9ToUePax1nGP2EPUu8SwYMqpZO6x/K6ONA3YMKXLAedBiEffum0YiqCNb1OZNsUwWlQ
-	IHmLp2kUfRkY1z+c/h+r1U91fWbT98w=
+	bh=VBZd8S6+W8Pm9Y+R8DL/tBZPm1iNQ6LmPUtPD1YJ1pc=;
+	b=blN6Jketccc0k1hjsXRiJcFs6mkuV2j8EgNPihrcyWkKi+tx5mT/xwF0VeYaqWOv+6mhhx
+	vMkk5hnddG6mvt9trLDMBg8yQcysn4JZGEZLKRdJGb1vMOhC/PHgyU54f02e9e/VVX/ENp
+	YH12c+3KEWL7N4UK4QBqtrsZNrPEkfs=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-394-krYV7snVPhusMleMnemG3A-1; Wed, 27 Apr 2022 11:39:10 -0400
-X-MC-Unique: krYV7snVPhusMleMnemG3A-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+ us-mta-663-mS5mAvdDPuOM2HGvCPEtCQ-1; Sun, 01 May 2022 10:58:51 -0400
+X-MC-Unique: mS5mAvdDPuOM2HGvCPEtCQ-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 83B2D85A5A8;
-	Wed, 27 Apr 2022 15:39:08 +0000 (UTC)
-Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id A5ECC40679B;
-	Wed, 27 Apr 2022 15:39:03 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BC5B8811E76;
+	Sun,  1 May 2022 14:58:49 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id B5E80C52C85;
+	Sun,  1 May 2022 14:58:40 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 03FF51947048;
-	Wed, 27 Apr 2022 15:39:03 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id B207E1947063;
+	Sun,  1 May 2022 14:58:39 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 27 Apr 2022 10:38:19 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: R. Dean Wilbur Passed Away This Month
-References: <mailman.10923.1650906741.111204.blinux-list@redhat.com>
+To: blinux-list@redhat.com
+Subject: Re: FYI - Command Line Programs for the Blind
+Date: Sun, 1 May 2022 11:58:30 -0300
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.1
 MIME-Version: 1.0
-In-Reply-To: <mailman.10923.1650906741.111204.blinux-list@redhat.com>
-Message-ID: <mailman.11758.1651073942.111204.blinux-list@redhat.com>
+Message-ID: <mailman.12460.1651417118.111202.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -56,105 +55,39 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
-X-Mimecast-Spam-Score: 0
+X-Mimecast-Spam-Score: 1
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: pt-BR
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hello,
+Hi all, I use to leave mailing lists at vacation mode and visit their 
+archives once a month, so I'm late to this subject.
 
-This is Johnn Boyer.  I worked with Dean for several years at Meedcolmp. We had many conversaations. 
-I'm sorry to hear of his passing, but he certainly lived a good life.
+Specifically, I just wanted to comment about a viable full featured 
+command line web browser, including all of bells and whistles like 
+Javascript, possibly web apps, convenient keystrokes, not depending on a 
+desktop environment being set up, etc.
 
-John
+As far as I recall, some blind Linux users including me have been 
+wanting such a browser for more than ten years, yet such software has 
+never been developed, which in turn demonstrates one thing I've read in 
+an article last year: that web browsers are arguably the most complex 
+type of software in the world. Not by chance, there are so few actively 
+developed engines, despite all being open source.
 
-On Mon, Apr 25, 2022 at 01:12:04PM -0400, Linux for blind general discussion wrote:
-> My father passed away this month. As he was an early member of the
-> technology community and a member of the Linux community, I thought I
-> should share it on this mailing list. It's likely that some of you knew him.
-> 
-> >From his obituary:
-> ----
-> Richard Dean Wilbur, beloved father and devoted business man, passed away,
-> at
-> the age of 80, on Tuesday, April 12th, 2022 in Cincinnati, Ohio. Dean was
-> born
-> March 29, 1942 in Ogden, Utah to the late Lindsay and Margie (nee Richards)
-> Wilbur.
-> 
-> Dean was a pioneer in the fight for equality and assistant services for
-> members
-> of the visually impared community on both the local and national level. He
-> was a
-> founding member of the American Council of the Blind Greater Cincinnati
-> Chapter
-> and the Blind Information Technology Specialists.
-> 
-> In 1966, Dean moved to Cincinnati to attend the University of Cincinnati
-> specifically for the department of Medical Computing Services' program for
-> teaching visually impaired and blind persons computer programming; the
-> first of
-> its kind in the US. Through this training, he was on the cutting edge of
-> medical
-> technology and part of a program that revolutionized Medical Computation
-> and
-> Statistical Analysis, in addition to teaching valuable career skills to
-> individuals with physical disabilities who would have otherwise been
-> overlooked
-> and shut out. Dean loved his work so much that he eventually took over
-> MedComp
-> Research, the company created by the founders of this program to carry out
-> this
-> groundbreaking work, and continued to educate young visually impared
-> individuals
-> in methods of computer programming and providing valuable medical
-> computations
-> to the Cincinnati Hospital Council and Hamilton County for nearly 40
-> years.
-> 
-> In addition to his parents, Dean is preceded in death by his sister
-> Carrolyn
-> Remey and his brother Lawerence E. Pilcher; Dean is survived by siblings:
-> Lynda
-> Perry and Lynette Pilcher; Dean's loving children: JD Kunz, Heather D.
-> Wilbur,
-> David L. (Monica) Wilbur, Karl J. (Justine) Wilbur, Sharon S. (Michael)
-> Jancha,
-> and Sarah K. (John) Pierce. Dean also leaves 18 grandchildren, several
-> great
-> grandchildren, and many nieces and nephews, as well as dear friends.
-> Gilligan
-> Funeral Home is honored to serve the family. In lieu of flowers, memorial
-> contributions in Dean's honor may be made to The Cincinnati Arts
-> Association.
-> 
-> Memorial Service will be held at 7:00 pm on Friday April 29, 2022 at
-> Philippi
-> Baptist Church located at 5996 Werk Rd., Cincinnati, Ohio 45248.
-> 
-> --
-> Karl Wilbur
-> 513-322-2481
-> karl@karlwilbur.net
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-> 
+In any case, I would support a command line web browser by donations, 
+albeit I could probably donate much. In fact, AFAIC the main problem 
+wouldn't be developing the browser, but building a relatively long term 
+sustainable plan to maintain it, especially considering the importance 
+of browsers to the comtemporary life, which requires us to have 
+confidence to trust it enough. Am I right?
 
--- 
-John J. Boyer
-Email: john.boyer@abilitiessoft.org
-website: http://www.abilitiessoft.org
-Status: Company dissolved but website and email addresses  live.
-Location: Madison, Wisconsin, USA
-Mission: developing assistive technology software and providing STEM services 
-        that are available at no cost
-
+Best,
+Cleverson
 
 _______________________________________________
 Blinux-list mailing list
