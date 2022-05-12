@@ -2,44 +2,46 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 09B9B524A8A
-	for <lists+blinux-list@lfdr.de>; Thu, 12 May 2022 12:45:31 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 856C2524C6E
+	for <lists+blinux-list@lfdr.de>; Thu, 12 May 2022 14:09:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1652352331;
+	s=mimecast20190719; t=1652357354;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=0vMq1EWX6ndorSNItzRp55Vy5G8hrniu8MSFGqgS4P4=;
-	b=KfsLjxxww0PHaIUiG6cmqRS8L9zsipphWNXejy7z8fgWmEzSoOIe2xsXYbxvBOJd340mio
-	zToWAo8AIvyvYFOsqpq1HKuqVTVUi9ngY655nXkjz4PIXVtGEMxGjaRkoDHAxNJH+hAOUC
-	nJyFiFrdhQ1V+cfuG5t/iBC4+IIWmxc=
+	bh=5IAKfc0mfFuGBTWhOpTAWVAWnyi2oSXzN0XV/BjrZl8=;
+	b=RaolIYmJIgwe28QwsYE6T1ksnmFBRTjicP0Jfa+EfLxNz8C9xMEkYl0UyQjFAfuaLDPj3b
+	rJn36SeQyh6NEOtVdcoF52nrb+hh6oq4sgWAylh57o1ok/XmNxgjeSQ2W1jqTO2VLwtsrX
+	mJVvyMAWUr4N2gfrjL3w2p4SAjuPuOk=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-554-tXxTgQ7HNpG-SO0tfF_wRg-1; Thu, 12 May 2022 06:45:29 -0400
-X-MC-Unique: tXxTgQ7HNpG-SO0tfF_wRg-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-646-ZgfHULX7Pxes-uvIPEnkYA-1; Thu, 12 May 2022 08:09:11 -0400
+X-MC-Unique: ZgfHULX7Pxes-uvIPEnkYA-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D6AA3802A5B;
-	Thu, 12 May 2022 10:45:27 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4D5EC811E83;
+	Thu, 12 May 2022 12:09:09 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 38B7C56F8B6;
-	Thu, 12 May 2022 10:45:24 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 584BD7AEB;
+	Thu, 12 May 2022 12:09:07 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 8F68A1932211;
-	Thu, 12 May 2022 10:45:23 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 9FE631932210;
+	Thu, 12 May 2022 12:09:06 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-To: blinux-list@redhat.com
-Subject: use of comm and sort tools
-Date: Thu, 12 May 2022 05:46:51 -0500
+Date: Thu, 12 May 2022 14:08:54 +0200 (SAST)
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: use of comm and sort tools
+In-Reply-To: <mailman.14985.1652352322.111208.blinux-list@redhat.com>
+References: <mailman.14985.1652352322.111208.blinux-list@redhat.com>
+User-Agent: Alpine 2.21.1 (DEB 211 2017-05-04)
 MIME-Version: 1.0
-User-Agent: POP Peeper Pro (5.2.2.0)
-X-Spam-Flag: NO
-Message-ID: <mailman.14985.1652352322.111208.blinux-list@redhat.com>
+Message-ID: <mailman.15148.1652357346.111209.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -55,18 +57,41 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I wrote previously about ffmpeg and audio variable bitrate. After conversion, there are some files that did not convert. I would like to compare two listings and discover which ones are missing. So, we have these commands:
-find . -type f -name \*.m4a | sed -e 's@.*/@@' -e 's/\.4a$//' > m4a.txt
-find raw2 -type f -name \*.mp3 | sed -e 's@.*/@@' -e 's/\.mp3$//' > mp3.txt
-Now I want to run comm and have it dump to another file which lines in m4a.txt do not exist in mp3.txt. How would I go about doing that? Or is there a better way?
+Strip off the extentions using basename, then use diff.
+for i in $(cat m4a.txt);do
+basename $i .m4a >> first.txt
+done
+
+for i in $(cat mp3.txt);do
+basename $i .mp3 >> second.txt
+done
+  diff first.txt second.txt
+If your filenames contain spaces, the for loops above will not work.
+Use the detox program to fix that first.
+Regards, Willem
+
+
+On Thu, 12 May 2022, Linux for blind general discussion wrote:
+
+> I wrote previously about ffmpeg and audio variable bitrate. After conversion, there are some files that did not convert. I would like to compare two listings and discover which ones are missing. So, we have these commands:
+> find . -type f -name \*.m4a | sed -e 's@.*/@@' -e 's/\.4a$//' > m4a.txt
+> find raw2 -type f -name \*.mp3 | sed -e 's@.*/@@' -e 's/\.mp3$//' > mp3.txt
+> Now I want to run comm and have it dump to another file which lines in m4a.txt do not exist in mp3.txt. How would I go about doing that? Or is there a better way?
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
 
 _______________________________________________
 Blinux-list mailing list
