@@ -1,42 +1,45 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 237EB53465F
-	for <lists+blinux-list@lfdr.de>; Thu, 26 May 2022 00:22:26 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 67E23534745
+	for <lists+blinux-list@lfdr.de>; Thu, 26 May 2022 02:03:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1653517345;
+	s=mimecast20190719; t=1653523428;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=nSqtb8t1PPcbW02G6v/XYUTiqXe6sD8fenj3bSPFSGM=;
-	b=IvR8U7mMKvE0BlqgIPArQQ3iNUUf1PbSCZmWeTlpvDTgM8QYzH2K9U3DV9zwIt3DOmUTwR
-	2n6GCv2u+RQpGxb+eJeANwxOfuDNrpQLMQ0k8/vazCAarPdv7zVYJfQQQkhzrxDD85NyiK
-	pHBAgq0zvnXFn13JCwDHN+lxv6VRHEk=
+	bh=FhHMiqgHRov6JlAD3y21OGH5Zbc1tgWwWRpoqYcXzoY=;
+	b=TwVNcxkrnNp7NeArkd5QyKt7P9o7Oq3/kgNPx5L5at0vQwaPZNnPzLkp+YGIDBgq+KVV5l
+	6cs89O42sfbHYKLHfqj1eng74mdN3XKECZKO/elopVpaxzB2xU9B5FiFDjn4Y/AcIihnT9
+	Y7T2mXS6fbrf7z8IEnRPCEQA9gN9X3c=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-650-jgccK7RlPlOittX_WEL25A-1; Wed, 25 May 2022 18:22:23 -0400
-X-MC-Unique: jgccK7RlPlOittX_WEL25A-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
+ us-mta-411-CJAseoSxM_avo58OCv2rmw-1; Wed, 25 May 2022 20:03:44 -0400
+X-MC-Unique: CJAseoSxM_avo58OCv2rmw-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 51F3638349B2;
-	Wed, 25 May 2022 22:22:22 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5165C29AB3FB;
+	Thu, 26 May 2022 00:03:43 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id C3A06112131E;
-	Wed, 25 May 2022 22:22:21 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 9DE731730C;
+	Thu, 26 May 2022 00:03:40 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 3E211193212C;
-	Wed, 25 May 2022 22:22:21 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id D7A0F193212E;
+	Thu, 26 May 2022 00:03:39 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-to: blinux-list@redhat.com
-Subject: Google gmail cutting off alpine
-Date: Wed, 25 May 2022 23:22:15 +0100
-Message-ID: <mailman.18712.1653517340.111206.blinux-list@redhat.com>
+To: blinux-list@redhat.com
+Subject: redirect application for recording
+Date: Wed, 25 May 2022 19:05:09 -0500
+MIME-Version: 1.0
+User-Agent: POP Peeper Pro (5.2.2.0)
+X-Spam-Flag: NO
+Message-ID: <mailman.18066.1653523418.111207.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -50,10 +53,9 @@ List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
  <mailto:blinux-list-request@redhat.com?subject=subscribe>
 Reply-To: blinux-list@redhat.com
-MIME-Version: 1.0
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -61,39 +63,13 @@ X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-hi
-yes google are removing all  user/password authenticaion apps.
-that  wil include mutt fetchmail et al.
+I wish to record something from firefox without recording all the system audio, such as orca. I found this thread,
 
-they ar egoing oauth only.
-i seem to recollect that at the moment there are app passwords still allowed after may 30th.
+https://askubuntu.com/questions/60837/record-a-programs-output-with-pulseaudio
 
-so if u use 2fa u can get an app password foe mutt fetchmail and so on.
-there isa branch of fetchmail that wil do the oath thing, dunno about mutt.
+But this looks like it redirects the entire system audio output to the sink.
 
-unsure if thunderbird can do it via oauth also.
- 
-in short anyting that goes via username/password to access smtp for outgoing mail or imap /pop for incomming mail wont be allowed.
-
-what u can do for incomming mail only is doa pop3 forward to a mail provider that does allow username/password, and access that via mutt.
-other than that u got to figure out a way to do it via oauth.
-
-yes its pita but google are google!
-
-ta
-neil foster
-
-
->
->
->Has	 there been any notification for mutt users also; that at the end of may it too can not access gmail accounts?
->
->_______________________________________________
->Blinux-list mailing list
->Blinux-list@redhat.com
->https://listman.redhat.com/mailman/listinfo/blinux-list
->
->.
+Any help in trying to record with sox or something from firefox would be appreciated.
 
 _______________________________________________
 Blinux-list mailing list
