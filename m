@@ -1,48 +1,49 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id C5BA6557E65
-	for <lists+blinux-list@lfdr.de>; Thu, 23 Jun 2022 17:01:52 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1CD07557E6D
+	for <lists+blinux-list@lfdr.de>; Thu, 23 Jun 2022 17:04:53 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1655996511;
+	s=mimecast20190719; t=1655996692;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=8jS4Jfi16qRJrFF1I+QllmQ+il2ZPrg9ZmxS7nsTEac=;
-	b=V2kL9wCRidEnuvQZIS0Q8Z3TXgapBjBrvF9fcJxQRm9xuBREyKYqEZ+InvrOxwuN0ANw7I
-	6Wcf/tVS/KA0HrLfvp0k0qMlmQsh6DkrsRRwq2WR4Mhgnck291nUCRt4nRLBjczuPxE/hu
-	esgHlJxjSQuMJ08kEePxuqsrgKtMeQQ=
+	bh=MAJsgYB/EXvSd/ehDfmbAjaAqA+e90tLM5tOvVbA0h0=;
+	b=gBHEjTJ9mPfi97JyR1yTknCwI3MbeAddj9MEBADNZ1wlu07/+1YaW3Wi7njA+ZB90Xs0sc
+	OxGxG2ZU34gUnZUnyvX5J6WACo8eFDhyIVN+aBRMiQbm+5uhQgmj7+r4bsjRDTN2reJRNW
+	QTNrZnZL5GsTpkm4ykjYbDyY/OSmvQo=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-404-8070wTCHOl6DFBR1XZMvvg-1; Thu, 23 Jun 2022 11:01:47 -0400
-X-MC-Unique: 8070wTCHOl6DFBR1XZMvvg-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-523-qcnnOnWhN3ej2Cbbbu3-Yw-1; Thu, 23 Jun 2022 11:04:50 -0400
+X-MC-Unique: qcnnOnWhN3ej2Cbbbu3-Yw-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 63528805B8A;
-	Thu, 23 Jun 2022 15:01:46 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 05D4D1035A5C;
+	Thu, 23 Jun 2022 15:04:48 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 4A916492CA5;
-	Thu, 23 Jun 2022 15:01:41 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id E0B20C08087;
+	Thu, 23 Jun 2022 15:04:47 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 82099194B956;
-	Thu, 23 Jun 2022 15:01:40 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 40C9C194B958;
+	Thu, 23 Jun 2022 15:04:47 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 23 Jun 2022 16:57:33 +0200
+Date: Thu, 23 Jun 2022 17:04:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.10.0
 Subject: Re: Thoughts on KDE Plasma as of right now
 To: blinux-list@redhat.com
 References: <mailman.28324.1655979483.111202.blinux-list@redhat.com>
-In-Reply-To: <mailman.28324.1655979483.111202.blinux-list@redhat.com>
-Message-ID: <mailman.28197.1655996500.111203.blinux-list@redhat.com>
+ <mailman.28082.1655981624.111205.blinux-list@redhat.com>
+In-Reply-To: <mailman.28082.1655981624.111205.blinux-list@redhat.com>
+Message-ID: <mailman.28517.1655996686.111209.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,59 +59,58 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Howdy,
-
-glad to hear that you like the work.
-> That being said, I still cannot change system settings or default apps 
-> like I can on, say, Mate but, and here's the thing I like about KDE 
-> Plasma as of writing this... 
-this is active worked on. so hopefully this should be fixed soon :).
-> Now, if I can just work on adding a shortcut that doesn't require me 
-> to go and fight with a window that won't read, that'd be good
-what does this mean? you talk about the settings dialog for shortcuts? 
-or anything else?
-
-cheers chrys
-
-Am 23.06.22 um 12:17 schrieb Linux for blind general discussion:
-> So given the news about KDE accessibility getting worked on, I figured 
-> I'd give KDE a shot. I wasn't that impressed last time.
->
-> However. It's improved a lot, I can do basic things, which is a big 
-> step up, and I get talking app launchers, and can do email, web 
-> browsing and text editing which is a big, big plus.
->
->
-> That being said, I still cannot change system settings or default apps 
-> like I can on, say, Mate but, and here's the thing I like about KDE 
-> Plasma as of writing this...
->
->
-> It is fast, it, on my Arch box, so YMMV on other OSes, but I'm running 
-> this on my Arch box, the thing I like about it is the keyboard 
-> commands make sense.
->
-> Now, if I can just work on adding a shortcut that doesn't require me 
-> to go and fight with a window that won't read, that'd be good. Plasma 
-> is pleasently surprising and worth checking in on.
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SG93ZHkgRGV2aW4sCgp0aGFua3MgZm9yIHN1cHBvcnRpbmcgdXMhIHNvcnJ5IGJlaW5nIGluYWN0
+aXZlIGZvciBhIGxvbmcgdGltZS4gaXQgd2FzIApmb3Igam9iIHJlYXNvbnMuIEkgd2FzIHZlcnkg
+YnVzeSBpbiBhbiBodWdlIEVSUCBwcm9qZWN0ICg1IHllYXJzIApkZXZlbG9wbWVudCwgfjMgTWls
+bGlvbiBkb2xsYXIgYnVkZ2V0cywgYSBhcm15IG9mIGRldmVsb3BlcnMganVzdCB0byAKbmFtZSBz
+b21lIG51bWJlcnMgaW4gc2l6ZSA6RCkgLSBhbmQgdGhpcyBwYXlzIG15IGJpbGxzLCBzbyBpIGhh
+dmUgdG8gCnNldHRsZSBwcmlvcml0eSdzLsKgIEJ1dCB0aGUgcHJvamVjdCBhbG1vc3QgY29tcGxl
+dGVkIGFuZCBpIGhhdmUgbW9yZSBhbmQgCm1vcmUgc3BhcmUgdGltZSB0byB3b3JrIG9uIGFjY2Vz
+c2liaWxpdHkgYWdhaW4gKGFzIHlvdSBtaWdodCBhbHJlYWR5IApub3RlZCA6KSwganVzdCBzYXkg
+T0NSZGVza3RvcCA0LjAsIGRyYWdvbkZNIDEuMCAsIGNvbnRpbnVlIGVmZm9ydHMgZm9yIApwbHVn
+aW4gZHJpdmVuIG9yY2EgYW5kIHRoZSBsYXRlc3QgS0RFIGFjY2Vzc2liaWxpdHkgd29yay4KSSBk
+byBteSBiZXN0IHRvIGtlZXAgb24gOikuIEFuZCBpbXByb3ZlIHRoZSBzaXR1YXRpb24uIHN1cHBv
+cnQgYWx3YXlzIAptb3RpdmF0ZXMuIHRoaXMgaXMgYSBzaWduIHRoYXQgc29tZWJvZHkgbGlrZSBt
+eSB3b3JrLgoKY2hlZXJzIGNocnlzCgpBbSAyMy4wNi4yMiB1bSAxMjo1MyBzY2hyaWViIExpbnV4
+IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb246Cj4gWWVhaCwgSSd2ZSBub3QgdHJpZWQgaXQg
+aW4gbGlrZSBoYWxmIGEgeWVhciwgYnV0IHRoaXMgaGFzIHByb21wdGVkIG1lIHRvCj4gYmVnaW4g
+YXMgYSBQYXRyb24gdG8gbGludXgtYWNjZXNzaWJpbGl0eSBhZ2Fpbi4gSnVzdCAkMTkgcGVyIG1v
+bnRoLCBidXQgSQo+IGhvcGUgaXQgaGVscHMgZW50aHVzaWFzbSBhbmQgdG8ga2VlcCB1cCB0aGlz
+IHJlYWxseSBncmVhdCB3b3JrIQo+IERldmluIFByYXRlcgo+IHIuZC50LnByYXRlckBnbWFpbC5j
+b20KPgo+Cj4KPgo+IE9uIFRodSwgSnVuIDIzLCAyMDIyIGF0IDU6MTggQU0gTGludXggZm9yIGJs
+aW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8Cj4gYmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gd3JvdGU6
+Cj4KPj4gU28gZ2l2ZW4gdGhlIG5ld3MgYWJvdXQgS0RFIGFjY2Vzc2liaWxpdHkgZ2V0dGluZyB3
+b3JrZWQgb24sIEkgZmlndXJlZAo+PiBJJ2QgZ2l2ZSBLREUgYSBzaG90LiBJIHdhc24ndCB0aGF0
+IGltcHJlc3NlZCBsYXN0IHRpbWUuCj4+Cj4+IEhvd2V2ZXIuIEl0J3MgaW1wcm92ZWQgYSBsb3Qs
+IEkgY2FuIGRvIGJhc2ljIHRoaW5ncywgd2hpY2ggaXMgYSBiaWcgc3RlcAo+PiB1cCwgYW5kIEkg
+Z2V0IHRhbGtpbmcgYXBwIGxhdW5jaGVycywgYW5kIGNhbiBkbyBlbWFpbCwgd2ViIGJyb3dzaW5n
+IGFuZAo+PiB0ZXh0IGVkaXRpbmcgd2hpY2ggaXMgYSBiaWcsIGJpZyBwbHVzLgo+Pgo+Pgo+PiBU
+aGF0IGJlaW5nIHNhaWQsIEkgc3RpbGwgY2Fubm90IGNoYW5nZSBzeXN0ZW0gc2V0dGluZ3Mgb3Ig
+ZGVmYXVsdCBhcHBzCj4+IGxpa2UgSSBjYW4gb24sIHNheSwgTWF0ZSBidXQsIGFuZCBoZXJlJ3Mg
+dGhlIHRoaW5nIEkgbGlrZSBhYm91dCBLREUKPj4gUGxhc21hIGFzIG9mIHdyaXRpbmcgdGhpcy4u
+Lgo+Pgo+Pgo+PiBJdCBpcyBmYXN0LCBpdCwgb24gbXkgQXJjaCBib3gsIHNvIFlNTVYgb24gb3Ro
+ZXIgT1NlcywgYnV0IEknbSBydW5uaW5nCj4+IHRoaXMgb24gbXkgQXJjaCBib3gsIHRoZSB0aGlu
+ZyBJIGxpa2UgYWJvdXQgaXQgaXMgdGhlIGtleWJvYXJkIGNvbW1hbmRzCj4+IG1ha2Ugc2Vuc2Uu
+Cj4+Cj4+IE5vdywgaWYgSSBjYW4ganVzdCB3b3JrIG9uIGFkZGluZyBhIHNob3J0Y3V0IHRoYXQg
+ZG9lc24ndCByZXF1aXJlIG1lIHRvCj4+IGdvIGFuZCBmaWdodCB3aXRoIGEgd2luZG93IHRoYXQg
+d29uJ3QgcmVhZCwgdGhhdCdkIGJlIGdvb2QuIFBsYXNtYSBpcwo+PiBwbGVhc2VudGx5IHN1cnBy
+aXNpbmcgYW5kIHdvcnRoIGNoZWNraW5nIGluIG9uLgo+Pgo+PiBfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QK
+Pj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9t
+YWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+Cj4+Cj4gX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBC
+bGludXgtbGlzdEByZWRoYXQuY29tCj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1h
+bi9saXN0aW5mby9ibGludXgtbGlzdAo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVk
+aGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51
+eC1saXN0Cg==
 
