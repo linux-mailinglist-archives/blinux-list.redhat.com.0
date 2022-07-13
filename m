@@ -2,47 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 555A1573A54
-	for <lists+blinux-list@lfdr.de>; Wed, 13 Jul 2022 17:39:39 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 186CD573ABF
+	for <lists+blinux-list@lfdr.de>; Wed, 13 Jul 2022 18:02:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1657726778;
+	s=mimecast20190719; t=1657728136;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=zBbSXOvGfyOZss0sYsZ8kH9nhKpEP9ET8ud0GbTuDIM=;
-	b=GjxqoxtaqPEQ9i5umCZpUhn1CeozR0A/+IbKdLLtOt+iZxmY19OPpK7Hj+xqZePKBgV3/W
-	j9bEJI7LVjNn51xjo0n1lPRyiILXcI0dfn3xuL4876hyOUdjRO8gbdUeCjqSscDnXU1aSJ
-	DN+18X/Wf4qEj8z54Xo8+kAbIYKa9ts=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=atDGJBjGUGoQYyMvCpnIZe3s5AktFAvtJh5WUeRGhxg=;
+	b=Kocbvq+FbjsY+jZGB7x4gX9lhZIQTc5ns9ArQ4OI+SyZVw28B2qofAAEMw50+zh3H3wnlP
+	SzcPusvslaW/fmx1lo2lttLiZ65nwRu2u+kpfbm2tFl4V/79DP41LaXW7nN5M1xFJDkB1f
+	fIXH9C8faOApZZ7J2KhjJ2S+rp29Oh4=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-461-RVsoXc0VP7uDJa3JLR97SA-1; Wed, 13 Jul 2022 11:39:34 -0400
-X-MC-Unique: RVsoXc0VP7uDJa3JLR97SA-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+ us-mta-5-4YOlovl0N42gMQtS3eJZJA-1; Wed, 13 Jul 2022 12:02:14 -0400
+X-MC-Unique: 4YOlovl0N42gMQtS3eJZJA-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 238C7185A7B2;
-	Wed, 13 Jul 2022 15:39:33 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D22AB38217E5;
+	Wed, 13 Jul 2022 16:02:12 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 9FB9940E80E2;
-	Wed, 13 Jul 2022 15:39:30 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 6D67F400DFD4;
+	Wed, 13 Jul 2022 16:02:12 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 08DC0194706A;
-	Wed, 13 Jul 2022 15:39:30 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 0260F1947074;
+	Wed, 13 Jul 2022 16:02:12 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 13 Jul 2022 17:26:10 +0200
+Date: Wed, 13 Jul 2022 12:01:52 -0400
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
 Subject: Re: wich is better mailing list or usenet newsgroup
 To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <mailman.33231.1657706289.111209.blinux-list@redhat.com>
 In-Reply-To: <mailman.33231.1657706289.111209.blinux-list@redhat.com>
-Message-ID: <mailman.32826.1657726769.111207.blinux-list@redhat.com>
+Message-ID: <mailman.33408.1657728131.111204.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,7 +58,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -67,26 +67,26 @@ Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hello,
+I can't speak to the whole newsgroup thing myself, as I never figured 
+out how exactly it was supposed to work. I do understand email and the 
+web however, so these are my go-to resources when looking for 
+information of any kind. The email list is probably the best option, as 
+I just subscribe to the lists I want, and I see everything posted to the 
+list. If I don't want to read a thread, i.e. if it's not a topic of 
+interest to me, my email program allows me to delete the whole thread 
+from my mailbox at the press of a single key, leaving everyone else's 
+copies untouched. Those lists that store archives are especially good, 
+since just like a web forum, I have the option of searching through 
+previous postings, even those I have deleted, in case something came up 
+that I need to find again. Usually a simple Searx will give me the 
+answer from the archive, so I don't even have to try to find the archive 
+website for each list. As I understand it, newsgroups are not archived 
+on the web, and from what I could understand of their functionality, 
+seem to be pretty much walled off from the rest of the internet, making 
+usenet rather useless to me personally, unless I'm totally wrong about 
+how it works.
 
-I think that's the option, because for example I have login to 
-Audiogames.net but I didn't read it a long time But emails goes 
-automatically, so I don't know. On the other  hand web forum is better 
-because mailbox isn't full.
-
-Vojta.
-
-Dne 13. 07. 22 v 11:58 Linux for blind general discussion napsal(a):
-> Was wondering what do you think is better? A mailing list where every 
-> message is sent to everyone on the list or a usenet newsgroup where 
-> everything is stored on the server then sent or read by anyone who is 
-> subscribed to that newsgroup?
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-> 
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
