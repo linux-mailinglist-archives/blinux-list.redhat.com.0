@@ -1,48 +1,44 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 719B4573CD6
-	for <lists+blinux-list@lfdr.de>; Wed, 13 Jul 2022 20:58:49 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 94CF75774A9
+	for <lists+blinux-list@lfdr.de>; Sun, 17 Jul 2022 07:29:53 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1657738728;
+	s=mimecast20190719; t=1658035792;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=k5TMsT31UMDKVF4q346EuqhZCYcPBaC2zgb8x0XWvwI=;
-	b=Q/QzbaNY74iHkBRGtQw+2xANejXJ3QithFPIl17Ad+mLEwoU07rNQNXq9rrbJ4Uvys6ejY
-	JAbGmAicBD5SgAP8TTInrl2JKmIO4IskD0syf5MIWUmxVB9gVuhQpKDowKBxf53oeJptXV
-	sAkgzLb+VtNFDliRs8AWLs78Oxu0qzM=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=aGfFvR8ubnw/1tzwEX7SxJ8aqEBSdM8UtIfTiE7GpLs=;
+	b=NU98D3Aa8zTWQHIES9NgYam45HdG35b8dpGMDhEfzzhqHsb3tBVJp+EFqWqfuIr/X15O3l
+	mY87iQ7jdiMH6/liOmt5Q4EErkA5bFAhCH2Eosaw2XO19VWoJkT0qikbwCOkB7bLiy6+/u
+	6fpEw7r/chuzOLzrkvLs5F8TywDY6Mg=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-477-0AHpwwPSNRyVSXH-Z6pyjg-1; Wed, 13 Jul 2022 14:58:44 -0400
-X-MC-Unique: 0AHpwwPSNRyVSXH-Z6pyjg-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+ us-mta-396-JH2ZvHWmN_iiqbHCjmspgA-1; Sun, 17 Jul 2022 01:29:48 -0400
+X-MC-Unique: JH2ZvHWmN_iiqbHCjmspgA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8BA62101A586;
-	Wed, 13 Jul 2022 18:58:42 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1533F28084F6;
+	Sun, 17 Jul 2022 05:29:47 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 9CB3340E80E0;
-	Wed, 13 Jul 2022 18:58:39 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id F0E472026D64;
+	Sun, 17 Jul 2022 05:29:38 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id EE4221947071;
-	Wed, 13 Jul 2022 18:58:38 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 3EAEB1947059;
+	Sun, 17 Jul 2022 05:29:38 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 13 Jul 2022 14:58:33 -0400 (EDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: wich is better mailing list or usenet newsgroup
-In-Reply-To: <mailman.33376.1657729554.111203.blinux-list@redhat.com>
-References: <mailman.33231.1657706289.111209.blinux-list@redhat.com>
- <mailman.33408.1657728131.111204.blinux-list@redhat.com>
- <mailman.33376.1657729554.111203.blinux-list@redhat.com>
+Feedback-ID: ia9b947fb:Fastmail
+Date: Sat, 16 Jul 2022 22:29:26 -0700 (PDT)
+To: Blinux Discussion List <blinux-list@redhat.com>
+Subject: An Escape Issue From Readline?
 MIME-Version: 1.0
-Message-ID: <mailman.33459.1657738718.111204.blinux-list@redhat.com>
+Message-ID: <mailman.5688.1658035777.3475251.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,7 +54,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
 Authentication-Results: relay.mimecast.com;
 	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=blinux-list-bounces@redhat.com
 X-Mimecast-Spam-Score: 0
@@ -66,33 +62,17 @@ X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-As a contrast, I have not personally used a newsgroup more than perhaps a 
-couple  of times in... hmm almost 34 years of computer use.
-Mailing lists?  I draw upon them daily, several times a day in fact.
-Part of my hinting at a major it depends, rather than there being an 
-either / or, if that makes sense.
-Kare
-
-
-
-On Wed, 13 Jul 2022, Linux for blind general discussion wrote:
-
-> Well, Kyle-and-All, I think both avenues have their purposes. Usenet goes 
-> over nntp instead of smtp for mail. If you have a good usenet provider, you 
-> can examin text discussions back in 2003. This is great if you know a subject 
-> of interest. In a case of a mailing list, I suppose your search would need to 
-> be much more specific-and-it would be helpful to know a list you want to look 
-> at or join. Typing a search in a usenet news-reader is quite good. I still 
-> use trn for reading-and-saving  binaries, but Alpine for posting.
-> Chime
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
->
+Hi All: Several days ago I tried installing hopefully some commandline Shazam 
+clients for my Debian SID machine. They were songrec and instantmusic. So far 
+couldn't get them working, but now, even after un-installing instantmusic 
+through pip, I have this nasty issue in some programs such as youtube-viewer. 
+Now I cannot type a "d" to download results. Instantmusic had this same issue. 
+In running searches, mentions about an escape r. It was suggested to hit escape 
+1 or more times. Well, here in bash, if I hit escape 4 times, it asks if I want 
+to display all files on my system 
+If I hit escape twice in tcsh, it seems to act as an "ls" So, can some1 please 
+suggest how to fix this. Thanks so much in advance
+Chime
 
 _______________________________________________
 Blinux-list mailing list
