@@ -2,44 +2,44 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id B44D458D1A8
-	for <lists+blinux-list@lfdr.de>; Tue,  9 Aug 2022 03:14:49 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1A05658EF9B
+	for <lists+blinux-list@lfdr.de>; Wed, 10 Aug 2022 17:51:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1660007688;
+	s=mimecast20190719; t=1660146665;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=q64zW1LHg6Skq1NXpzjIaQa2jZBFvrBAaxQMtzPaBQ0=;
-	b=fkMuFMGAIfPbH7jQkOnYAanGo4l0PRMf3FADl6CVUG1wj0tM1PKr64MGAzvGog/z4Eq2T9
-	9hqh+TBkvjrc48R+N/d2lqpb1Whbr5Ws+fmI+RDAqKwzQoj75TNOeWJ6Nmr9shgRArjDID
-	byBWrLz+fBGevxmCSepqZQEqUYcMzFo=
+	bh=OixciGrs+BycFEGTgnbr+Gi8iBViPqFn4MMGSdn5WsM=;
+	b=geaTTllBTEaQiZQHGBQiNbuzDLulqDTDM89p128xKGvyajlGBky0NQfxoxc79V9vhyRTy0
+	KvFvUHWOBqadfknVGagomdwiX512MRxMyRBqhtqBh0TDj+hKN4mB79+Nn2xdhsSCgKaO0s
+	0t535uxpAxFQ3LzxbgRby4q1H4ulZvo=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-564-4PTxHITQOe-dezqDYG4KEg-1; Mon, 08 Aug 2022 21:14:45 -0400
-X-MC-Unique: 4PTxHITQOe-dezqDYG4KEg-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+ us-mta-44-zsrtnNeSOpWmytf2tstELg-1; Wed, 10 Aug 2022 11:51:04 -0400
+X-MC-Unique: zsrtnNeSOpWmytf2tstELg-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0BDC4802D1C;
-	Tue,  9 Aug 2022 01:14:44 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9C8D9858290;
+	Wed, 10 Aug 2022 15:51:02 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 2D84918ECC;
-	Tue,  9 Aug 2022 01:14:37 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 353B5C15BA1;
+	Wed, 10 Aug 2022 15:50:57 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id E8BC91946A66;
-	Tue,  9 Aug 2022 01:14:36 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 9E8E71946A5D;
+	Wed, 10 Aug 2022 15:50:56 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Tue, 09 Aug 2022 01:14:18 +0000
-To: orca-list <orca-list@gnome.org>,
- Linux for blind general discussion <blinux-list@redhat.com>
-Subject: umai: Automate Ubuntu Mate accessibility tweaks
-Feedback-ID: 26663242:user:proton
+Date: Wed, 10 Aug 2022 17:38:24 +0200
 MIME-Version: 1.0
-Message-ID: <mailman.40716.1660007675.111201.blinux-list@redhat.com>
+User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Linux strange behavior
+Message-ID: <mailman.41439.1660146656.111201.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -55,55 +55,31 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Hello everyone,
-
-when upgrading my Ubuntu Mate to the latest 22.04, I found out
-accessibility installation can be quite a drag. I mostly knew what to
-do, except few things I had to search up like activation of Orca on the
-login screen, but still, getting all information together, doing all the
-necessary steps, not forgetting anything, turned out to be quite exhausting.
-
-
-I created a simple script, that should help automate this process:
-
-https://github.com/RastislavKish/umai
-
-
-If you know any other tweaks you think should be included, please let me
-know, these are the accessibility related things I usually do (or want
-to do) when setting up a new system.
-
-
-I wanted to setup a shortcut for OCRDesktop in the script as well, but I
-didn't find yet, where does Ubuntu Mate save information about custom
-keyboard shortcuts. If anyone has an idea, please let me know as well.
-
-
-I also can't recall the enable accessibility services option in the
-settings, or more specifically, its gsettings path. It's not like it was
-a problem, I still don't have a slightest idea about the purpose of the
-setting, but perhaps it should be turned on, so I'll give it a look
-during my next gsettings raid.
-
-
-Save time, and have fun.
-
-
-Best regards
-
-
-Rastislav
-
-
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+R29vZCBBZnRlcm5vb24sCgp3ZSBoYXZlIHByb2JsZW1zIHdpdGggbGludXggZm9yIHR3byB3ZWVr
+cy4gR25vbWUtZGlza3MgYXJlIHNsb3csIApzb21ldGltZXMgaXQgZG9lc24ndCBsYXVuY2ggd2l0
+aCB0aGlzIGJ1ZyBpbiBUZXJtaW5hbDoKCihnbm9tZS1kaXNrczo2Mjk4KTogR05PTUUtRGlza3Mt
+RVJST1IgKio6IDExOjU2OjE3LjQxMDogRXJyb3IgZ2V0dGluZyAKdWRpc2tzIGNsaQplbnQ6IMSM
+YXNvdsO9IGxpbWl0IHZ5cHLFoWVsClRyYXNvdmFjw60vbGFkw61jw60gcGFzdCAoU0lHVFJBUCkg
+KGNvcmUgZHVtcGVkIFtvYnJheiBwYW3Em3RpIHVsb8W+ZW5dKQoKU29tZXRpbWVzIEkgaGF2ZSBw
+cm9ibGVtcyB3aXRoIGVqZWN0aW5nIGRpc2tzIG9yIGxhdW5jaGluZyB0aGVtLCBpdCAKdGhyb3dz
+IG1lIGJhY2sgdG8gdGhlIENvbXB1dGVyIHRvIGRpc2sgbGlzdC4gTXkgZnJpZW50IHRoaW5rcyB0
+aGF0J3MgCkdUSzQgYnVnLiBCdXQgSSBhbSBhZnJhaWQgaWYgSSBoYXZlbid0IHNvbWUgdmlydXMs
+IGJlY2F1c2UgdHdvIHdlZWtzIGFnbyAKSSd2ZSBpbnN0YWxsZWQgV2luZG93cyAxMCB0byBteSBk
+ZXNrdG9wLiBCdXQgYW55IGZsYXNoIGRpc2ssIGNlbGwgcGhvbmUgCm9yIGRpY3RhcGhvbmUgSSBk
+aWRuJ3Qgam9pbiB0byB0aGUgV2luZG93cy4gTXkgUmFzcGJlcnJ5IHdhc24ndCAKY29ubmVjdGVk
+IHRvIFdpbmRvd3MgdG9vLiBJdCdzIG9ubHkgb24gdGhlIHNhbWUgaW50ZXJuZXQgd2lhIGV0aGVy
+bmV0LiAKUGxlYXNlIHdoZXJlIGNhbiBiZSBhIHByb2JsZW0/IE15IGZyaWVuZCBpbiB0aGUgc2Ft
+ZSBuZXR3b3JrIGhhcyB0aGVzZSAKcHJvYmxlbXMgdG9vLiBXZSBoYXZlIGJvdGggVWJ1bnR1IE1h
+dGUgMjIuMDQgdXBkYXRlZCBmcm9tIDIwLjA0LCAKUmFzcGJlcnJ5IFBpIDRCIDQgR0IgUkFNLgoK
+VGhhbmtzIGEgbG90LgoKQmVzdCByZWdhcmRzCgpWb2p0YS4KCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGlu
+dXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlz
+dGluZm8vYmxpbnV4LWxpc3QK
 
