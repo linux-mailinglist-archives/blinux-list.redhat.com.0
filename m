@@ -1,48 +1,49 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 95EA2591C54
-	for <lists+blinux-list@lfdr.de>; Sat, 13 Aug 2022 20:47:55 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 08F13591C68
+	for <lists+blinux-list@lfdr.de>; Sat, 13 Aug 2022 21:27:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1660416474;
+	s=mimecast20190719; t=1660418863;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Q1yzkchXsmMl77T+dqbx/6gvYNqvZizTiLxgYnVP8xk=;
-	b=Nps8XsGgxBqIC8g0JvhRUer2f3wuPy857X4HHXM9qmecDFSCpzR4uKoLdUZRW9EwCvcnl8
-	V3gG04EbS4/iq6j7/cDtz2BsS9WTyjD92DHKyXQ949U9uFDsC/j2hpEi5Rjrs++tB7nOfN
-	9CFxpZQHV74zHOMsBOwWtlgOgh7Zx7Y=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=8FzI3dUd+RBURrwwgNHEB1DqS2ZLI1sux4wTD2rko8I=;
+	b=at3pmVij3shTm69JPwnP0932LBaLuMVwO0QSXIe4hNl5Kc70wl2C7m3q6GUrIMNZLBEgEu
+	MLUdmiFnKqA5AMdX9CaaWr+ZuAW02sKh3lHEEf5PuuBu8XtaFK9xt+Gt4QdPobfx0Jw22N
+	eJoPw4A47KHGr9n1hxxrznOvlUBeZbs=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-644-jlhRBeycMsiPvEjWVJScIQ-1; Sat, 13 Aug 2022 14:47:51 -0400
-X-MC-Unique: jlhRBeycMsiPvEjWVJScIQ-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+ us-mta-505-bQqcU87vNwO4WL1wojMFLA-1; Sat, 13 Aug 2022 15:27:40 -0400
+X-MC-Unique: bQqcU87vNwO4WL1wojMFLA-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D616229AA3B7;
-	Sat, 13 Aug 2022 18:47:49 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 94739101A54E;
+	Sat, 13 Aug 2022 19:27:38 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 12EB340D282E;
-	Sat, 13 Aug 2022 18:47:49 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id AA626400DFD7;
+	Sat, 13 Aug 2022 19:27:34 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 9EFEA1946A52;
-	Sat, 13 Aug 2022 18:47:48 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id F233D1946A52;
+	Sat, 13 Aug 2022 19:27:33 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sat, 13 Aug 2022 14:47:43 -0400 (EDT)
-To: K0LNY_Glenn <glenn@ervin.email>
+Date: Sat, 13 Aug 2022 15:27:30 -0400
+To: K0LNY_Glenn <glenn@ervin.email>, Karen Lewellen <klewellen@shellworld.net>
 Subject: Re: "Accessibility in Fedora Workstation" (fwd)
-In-Reply-To: <02e001d8af3c$0d4cdfb0$80ffa8c0@Win7VM>
+In-Reply-To: <02fe01d8af46$46cde5e0$80ffa8c0@Win7VM>
 References: <Pine.LNX.4.64.2208112229350.1215855@server2.shellworld.net><1e623296-a020-b22d-52cc-77e3a01c2f61@pobox.com><Pine.LNX.4.64.2208121226001.1229118@server2.shellworld.net>
  <871qtkrs03.fsf@zamazal.org> <02e001d8af3c$0d4cdfb0$80ffa8c0@Win7VM>
+ <Pine.LNX.4.64.2208131437260.1254020@server2.shellworld.net>
+ <02fe01d8af46$46cde5e0$80ffa8c0@Win7VM>
 MIME-Version: 1.0
-X-Content-Filtered-By: Mailman/MimeDel 2.1.29
-Message-ID: <mailman.443.1660416467.10506.blinux-list@redhat.com>
+Message-ID: <mailman.419.1660418853.10499.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -60,72 +61,117 @@ Cc: Milan Zamazal <pdm@zamazal.org>, Blinux-list@redhat.com,
  speakup@linux-speakup.org
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-V2VsbCB0ZWNobmljYWxseSBmcmVlZG9tIHNjaWVudGlmaWMgZG9lcyBub3QgZXhpc3QgYW55IGxv
-bmdlciwgYmVpbmcgYm91Z2h0IApieSBhbm90aGVyIGNvbXBhbnkuClN0aWxsLCBJIGNhbiByZXNw
-ZWN0IHdoeSB0aGV5LCBvciBudmRhIGhhdmUgbm90IGNyZWF0ZWQgdGhlaXIgdG9vbHMgZm9yIApM
-aW51eC4KVGhhdCBpcyBiZWNhdXNlIGFzIEkgdW5kZXJzdGFuZCBpdCwgTGludXggaXMgIHF1aXRl
-IGxpa2UgY2xheS4gWW91IGNhbiAKbW9sZCBhIGRpc3RyaWJ1dGlvbiBpbnRvIGFsbW9zdCBhbnl0
-aGluZy4gdGhlcmUgYXJlIHZhcmlvdXMgCnBlcnNvbmlmaWNhdGlvbnMgb2YgdGhlIHN5c3RlbSwg
-YWxsIHNvcnRzIG9mIHdheXMgYW5kIGNoYW5nZXMgYW5kIG9wdGlvbnMgCmZvciBjcmVhdGl2aXR5
-Lgpob3dldmVyIGFkYXB0aXZlIHRvb2xzIGFyZSBvZnRlbiBleHRlbnNpb25zIG9mIHBoeXNpY2Fs
-IGNoYXJhY3RlcmlzdGljcywgCmhhbmRzLCBleWVzLCBlYXJzLCBicmFpbnMsIGNvbWJpbmF0aW9u
-cyBvZiB0aGVzZS4KVG8gYnVpbGQgc29saWQgYXNzaXN0aXZlIHRvb2xzIG9uZSBtdXN0IGhhdmUg
-YSBzb2xpZCAgZm91bmRhdGlvbiBhcyBpdCAKd2VyZS4gIHRoYXQgaXMgcGFydCBvZiB3aHkgdGhl
-cmUgaGF2ZSBuZWVkZWQgdG8gYmUgc28gZmV3IEFwcGxlICBlZmZvcnRzIGF0IAppbmNsdXNpb24s
-IHRoZXkgIGNyZWF0ZWQgIHdpdGgsIGFuZCB0aGVuIGNyZWF0ZWQgaW4taG91c2UgYWRhcHRpdmUg
-dG9vbHMgCmZvciB2YXJpb3VzICBwb3B1bGF0aW9ucyB0aGF0IHdlcmUgYnVpbHQgaW50byB0aGUg
-c3lzdGVtLgpBbHRob3VnaCBNaWNyb3NvZnQgZGlkIG5vdCBib3RoZXIgdW50aWwgbXVjaCBsYXRl
-ciwgaW4gdGhlb3J5IGF0IGxlYXN0LCB0aGUgCmNvbnNpc3RlbmN5IG9mIHdpbmRvd3MgaXMgd2hh
-dCBtYWtlcyBpdCBwb3NzaWJsZSBmb3IgZnJlZWRvbSBvciB0aGUgZm9ybWVyIApndyAgbWljcm8g
-b3IgbnZkYSB0byBjcmVhdGUgc29tZXRoaW5nIHRoYXQgY2FuIGluIHRoZW9yeSAgd29yay4KRmxv
-b3IgZm9yIHRoZSBmdXJuaXR1cmUgaXMgc29tZXdoYXQgc29saWQuCkp1c3QgbXkgdGhvdWdodHMs
-CgoKCk9uIFNhdCwgMTMgQXVnIDIwMjIsIEswTE5ZX0dsZW5uIHdyb3RlOgoKPiBJIHdvdWxkIGxp
-a2UgdG8gc2VlIEZyZWVkb20gU2NpZW50aWZpYyBtYWtlIGEgSmF3cyBGb3IgTGludXguCj4gSkZM
-Cj4gSSdkIGNlcnRhaW5seSBwYXkgdGhlIHllYXJseSByZW50YWwgZmVlIGZvciBpdCwgYW5kIGl0
-IHdvdWxkIGJyaW5nIG1hbnkgbW9yZQo+IHVzZXJzIGludG8gTGludXguCj4gRlMgY291bGQsIHdp
-dGggaXRzIHJlc291cmNlcywgcG9zc2libHkgbWFrZSBpdCBtb3JlIHJvYnVzdCB0aGFuIE9yY2Eu
-Cj4KPiBHbGVubgo+IC0tLS0tIE9yaWdpbmFsIE1lc3NhZ2UgLS0tLS0KPiBGcm9tOiAiTWlsYW4g
-WmFtYXphbCIgPHBkbUB6YW1hemFsLm9yZz4KPiBUbzogPHNwZWFrdXBAbGludXgtc3BlYWt1cC5v
-cmc+Cj4gQ2M6IDxCbGludXgtbGlzdEByZWRoYXQuY29tPgo+IFNlbnQ6IFNhdHVyZGF5LCBBdWd1
-c3QgMTMsIDIwMjIgMTI6MDggUE0KPiBTdWJqZWN0OiBSZTogIkFjY2Vzc2liaWxpdHkgaW4gRmVk
-b3JhIFdvcmtzdGF0aW9uIiAoZndkKQo+Cj4KPj4+Pj4+ICJLTCIgPT0gS2FyZW4gTGV3ZWxsZW4g
-PGtsZXdlbGxlbkBzaGVsbHdvcmxkLm5ldD4gd3JpdGVzOgo+Cj4gICAgS0w+IFdoYXQgYm90aGVy
-cyBtZSBtb3N0IGFyZSBoaXMgbGFjayBvZiBhY3R1YWwgcXVhbGlmaWNhdGlvbnMsIGFuZAo+ICAg
-IEtMPiBhYnNvbHV0ZSBkaXNtaXNzYWwgb2Ygd2hhdCBoZSBoYXMgbm90IGV4cGVyaWVuY2VkLi5h
-cyBpZiBoZQo+ICAgIEtMPiBkZWZpbmVzIExpbnV4IHVzYWdlIGZvciBldmVyeW9uZS4gIFRoYXQg
-YXR0aXR1ZGUgaXMgZGFuZ2Vyb3VzLAo+ICAgIEtMPiBiZWNhdXNlIGhlIGlzIGVkdWNhdGluZyB0
-aG9zZSBvdXRzaWRlIG9mIHRoZSBhY2Nlc3NpYmlsaXR5Cj4gICAgS0w+IGV4cGVyaWVuY2VzLCB3
-aG8gd2lsbCBiZWxpZXZlIGhpcyBpZ25vcmFuY2UgaXMgZmFjdHVhbC4gIGhlIGhhcwo+ICAgIEtM
-PiB0byBiZSBleHBlcnQsIGl0IGlzIGhpcyBqb2IuCj4KPiBIaSBLYXJlbiwKPgo+IEkga25vdyBM
-dWthcyBwZXJzb25hbGx5IGFuZCBJIGFkbWlyZSBoaXMgc2tpbGxzIGFuZCBxdWFsaWZpY2F0aW9u
-cy4gIEkKPiBhbHNvIGtub3cgZmlyc3QgaGFuZCB0aGF0IGhlIGlzIG9wZW4gdG8gY29uc3RydWN0
-aXZlIGZlZWRiYWNrIGFuZCBJCj4gYmVsaWV2ZSBoZeKAmWQgYmUgaGFwcHkgdG8gYmUgY29ycmVj
-dGVkIGFib3V0IHBvc3NpYmxlIHRlY2huaWNhbAo+IGluYWNjdXJhY2llcyBpbiB0aGUgaW50ZXJ2
-aWV3LiAgSXQgbWF5IGJlIGFsc28gYSBnb29kIG9wcG9ydHVuaXR5IHRvCj4gZmluZCBvdXQgd2hh
-dOKAmXMgcG9zc2libHkgbWlzc2luZyBpbiBtYWtpbmcgYW55Ym9keSBiZXR0ZXIgaW5mb3JtZWQu
-Cj4KPiBBcyBmb3Ig4oCcYWJzb2x1dGUgZGlzbWlzc2FsIG9mIHdoYXQgaGUgaGFzIG5vdCBleHBl
-cmllbmNlZOKAnSwgd2hhdAo+IHJlYXNvbmFibGUgZnJlZSBzb2Z0d2FyZSBhbHRlcm5hdGl2ZXMg
-dG8gYSBsZXNzIG9yIG1vcmUgc3RhbmRhcmQgZGVza3RvcAo+IHdpdGggT3JjYSBhbmQgYSBzb2Z0
-d2FyZSBzeW50aGVzaXplciBjYW4geW91IHNlZSBmb3IgYSBjb21tb24gYmxpbmQgdXNlcgo+IHdo
-byBuZWVkcyB0byB1c2UgYSBmdWxseSB3b3JraW5nIHdlYiBicm93c2VyLCB0byByZWFkIGFuZCBw
-cm9jZXNzIHRleHQKPiBkb2N1bWVudHMsIHRvIGJlIGNvbXBhdGlibGUgd2l0aCBvdGhlciBjb21w
-dXRlciB1c2VycywgZXRjLj8KPgo+IEFuZCBsZXTigJlzIGJlIHJlYWxpc3RpYy4gIFdlIGNlbGVi
-cmF0ZSBldmVyeSBzaW5nbGUgZGV2ZWxvcGVyIGhpcmVkIHRvCj4gaW1wcm92ZSBhY2Nlc3NpYmls
-aXR5LiAgVGhpcyB0ZWxscyBzb21ldGhpbmcgYWJvdXQgdGhlIHN0YXRlIG9mIHRoZQo+IG1hdHRl
-cnMuICBXZSBjYW5ub3QgZXhwZWN0IHRoYXQgYSBzaW5nbGUgcGVyc29uIHdpbGwgZml4IGFsbCB0
-aGUga2luZHMKPiBvZiBhY2Nlc3NpYmlsaXR5IHByb2JsZW1zIGluIGFsbCB0aGUgZW52aXJvbm1l
-bnRzLiAgTHVrYXMgd29ya3MgYXQgaGlzCj4gam9iIGZvY3VzaW5nIG9uIGNlcnRhaW4gYXJlYXMg
-Y3VycmVudGx5IHNlZW4gdGhlcmUgYXMgdXJnZW50IG9uZXMgYW5kIEkKPiBhcHByZWNpYXRlIHRo
-aXMgb3Bwb3J0dW5pdHkuICBBbnlib2R5IGVsc2Ugc2VlaW5nIGEgbmVlZCB0byB3b3JrIG9uCj4g
-b3RoZXIgYXJlYXMgaXMgd2VsY29tZSB0byBjb250cmlidXRlIHRvIHdoYXRldmVyIHNlZXMgZml0
-LCBhcyBJIGRvLgo+Cj4gUmVnYXJkcywKPiBNaWxhbgo+Cj4KPgo+Cl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApC
-bGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4v
-bGlzdGluZm8vYmxpbnV4LWxpc3QK
+Jude DaShiell here, the Wufrug Group I think from Kuwait bought out FS.
+By now, Wufrug Group may have sold FS to another corporation for all I
+know.
+
+
+On Sat, 13 Aug 2022, K0LNY_Glenn wrote:
+
+> Well since Orca seems to work on so many distros, I don't know why FS would
+> not be able to do the same.
+> If Jaws users could switch into Linux, it would be a real game changer, and
+> I think with lots more Blind Linux users, we would start seeing
+> accessibility in Linux not being a second thought.
+> Glenn
+> ----- Original Message -----
+> From: "Karen Lewellen" <klewellen@shellworld.net>
+> To: "K0LNY_Glenn" <glenn@ervin.email>
+> Cc: <speakup@linux-speakup.org>; "Milan Zamazal" <pdm@zamazal.org>;
+> <Blinux-list@redhat.com>
+> Sent: Saturday, August 13, 2022 1:47 PM
+> Subject: Re: "Accessibility in Fedora Workstation" (fwd)
+>
+>
+> Well technically freedom scientific does not exist any longer, being bought
+> by another company.
+> Still, I can respect why they, or nvda have not created their tools for
+> Linux.
+> That is because as I understand it, Linux is  quite like clay. You can
+> mold a distribution into almost anything. there are various
+> personifications of the system, all sorts of ways and changes and options
+> for creativity.
+> however adaptive tools are often extensions of physical characteristics,
+> hands, eyes, ears, brains, combinations of these.
+> To build solid assistive tools one must have a solid  foundation as it
+> were.  that is part of why there have needed to be so few Apple  efforts at
+> inclusion, they  created  with, and then created in-house adaptive tools
+> for various  populations that were built into the system.
+> Although Microsoft did not bother until much later, in theory at least, the
+> consistency of windows is what makes it possible for freedom or the former
+> gw  micro or nvda to create something that can in theory  work.
+> Floor for the furniture is somewhat solid.
+> Just my thoughts,
+>
+>
+>
+> On Sat, 13 Aug 2022, K0LNY_Glenn wrote:
+>
+> > I would like to see Freedom Scientific make a Jaws For Linux.
+> > JFL
+> > I'd certainly pay the yearly rental fee for it, and it would bring many
+> > more
+> > users into Linux.
+> > FS could, with its resources, possibly make it more robust than Orca.
+> >
+> > Glenn
+> > ----- Original Message -----
+> > From: "Milan Zamazal" <pdm@zamazal.org>
+> > To: <speakup@linux-speakup.org>
+> > Cc: <Blinux-list@redhat.com>
+> > Sent: Saturday, August 13, 2022 12:08 PM
+> > Subject: Re: "Accessibility in Fedora Workstation" (fwd)
+> >
+> >
+> >>>>>> "KL" == Karen Lewellen <klewellen@shellworld.net> writes:
+> >
+> >    KL> What bothers me most are his lack of actual qualifications, and
+> >    KL> absolute dismissal of what he has not experienced..as if he
+> >    KL> defines Linux usage for everyone.  That attitude is dangerous,
+> >    KL> because he is educating those outside of the accessibility
+> >    KL> experiences, who will believe his ignorance is factual.  he has
+> >    KL> to be expert, it is his job.
+> >
+> > Hi Karen,
+> >
+> > I know Lukas personally and I admire his skills and qualifications.  I
+> > also know first hand that he is open to constructive feedback and I
+> > believe he?d be happy to be corrected about possible technical
+> > inaccuracies in the interview.  It may be also a good opportunity to
+> > find out what?s possibly missing in making anybody better informed.
+> >
+> > As for ?absolute dismissal of what he has not experienced?, what
+> > reasonable free software alternatives to a less or more standard desktop
+> > with Orca and a software synthesizer can you see for a common blind user
+> > who needs to use a fully working web browser, to read and process text
+> > documents, to be compatible with other computer users, etc.?
+> >
+> > And let?s be realistic.  We celebrate every single developer hired to
+> > improve accessibility.  This tells something about the state of the
+> > matters.  We cannot expect that a single person will fix all the kinds
+> > of accessibility problems in all the environments.  Lukas works at his
+> > job focusing on certain areas currently seen there as urgent ones and I
+> > appreciate this opportunity.  Anybody else seeing a need to work on
+> > other areas is welcome to contribute to whatever sees fit, as I do.
+> >
+> > Regards,
+> > Milan
+> >
+> >
+> >
+> >
+>
+>
+>
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
