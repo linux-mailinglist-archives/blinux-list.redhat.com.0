@@ -1,52 +1,52 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id D28BF591C92
-	for <lists+blinux-list@lfdr.de>; Sat, 13 Aug 2022 22:26:30 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id B297F591CAC
+	for <lists+blinux-list@lfdr.de>; Sat, 13 Aug 2022 23:12:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1660422389;
+	s=mimecast20190719; t=1660425177;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=ONX/UI+iuU8CMe9YM6SXdmUldNzonNqcsQkJEydlux0=;
-	b=GbYlCubjOJsceu/B+Q/ldB1I7fohbsvObRsN0dBINrzGRdgRk0mBWohfSFPR3FuxUEJPgw
-	YyIOXWEAVIw9lPIVRGy96Ynrlb34YeDA7RyiIxw9rj0HKAnYBzCM0hPz0+BbYI2ZZNCVW/
-	WKmLzbT8L/7ze+jYksGHyHwIb3j1QJU=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=7Vw+bztIoJOCEFqlGmL/9Eek5lEYxsfsAeW5P5jHEDM=;
+	b=LTs3S6ZESSr8Rva+HcOw5G5dGLNuBZHCDFoGH/KGlxDn1K+MWO2tUhoP8iQYTk8sL7H1oW
+	0peQbntTzaDngzqJdSl0BSAIh4vZtStw7TJ+49ZUEmTltju61i94JRsmnQcIoBU1p71zyX
+	swd0gT/uzEMSPRVOXc30bZGNs7EAH9Y=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-315-EPZn71UXMhm9JmxehXZ7Ew-1; Sat, 13 Aug 2022 16:26:28 -0400
-X-MC-Unique: EPZn71UXMhm9JmxehXZ7Ew-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+ us-mta-484-KhoZRu94PxqA66hHRXOXxQ-1; Sat, 13 Aug 2022 17:12:54 -0400
+X-MC-Unique: KhoZRu94PxqA66hHRXOXxQ-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 194A929AA3BA;
-	Sat, 13 Aug 2022 20:26:26 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 168808037AA;
+	Sat, 13 Aug 2022 21:12:53 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id EB5811415125;
-	Sat, 13 Aug 2022 20:26:25 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 1CEB81121319;
+	Sat, 13 Aug 2022 21:12:46 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id DE2F41946A4B;
-	Sat, 13 Aug 2022 20:26:24 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 4FA981946A4B;
+	Sat, 13 Aug 2022 21:12:45 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sat, 13 Aug 2022 16:26:21 -0400 (EDT)
-To: K0LNY_Glenn <glenn@ervin.email>
+Date: Sat, 13 Aug 2022 17:12:41 -0400
+To: Karen Lewellen <klewellen@shellworld.net>, K0LNY_Glenn <glenn@ervin.email>
 Subject: Re: "Accessibility in Fedora Workstation" (fwd)
-In-Reply-To: <031101d8af50$8f3d3fb0$80ffa8c0@Win7VM>
+In-Reply-To: <Pine.LNX.4.64.2208131618030.1255408@server2.shellworld.net>
 References: <Pine.LNX.4.64.2208112229350.1215855@server2.shellworld.net><1e623296-a020-b22d-52cc-77e3a01c2f61@pobox.com><Pine.LNX.4.64.2208121226001.1229118@server2.shellworld.net>
  <871qtkrs03.fsf@zamazal.org> <02e001d8af3c$0d4cdfb0$80ffa8c0@Win7VM>
  <Pine.LNX.4.64.2208131437260.1254020@server2.shellworld.net>
  <02fe01d8af46$46cde5e0$80ffa8c0@Win7VM>
  <Pine.LNX.4.64.2208131554070.1255408@server2.shellworld.net>
  <031101d8af50$8f3d3fb0$80ffa8c0@Win7VM>
+ <Pine.LNX.4.64.2208131618030.1255408@server2.shellworld.net>
 MIME-Version: 1.0
-X-Content-Filtered-By: Mailman/MimeDel 2.1.29
-Message-ID: <mailman.440.1660422384.10504.blinux-list@redhat.com>
+Message-ID: <mailman.473.1660425164.10498.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -64,129 +64,180 @@ Cc: Milan Zamazal <pdm@zamazal.org>, Blinux-list@redhat.com,
  speakup@linux-speakup.org
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-QW5kIGhvdyBvZnRlbiBkbyBjbGllbnRzIGdldCBhIGNob2ljZSBhYm91dCB0aGVpciB0b29scz8K
-U3VwcG9ydCB0aGlzIHdpdGggb2JqZWN0aXZlIGRvY3VtZW50YXRpb24sIGFzIHRoaXMgaXMgeW91
-ciBwcm9mZXNzaW9uYWwgCmluZHVzdHJ5LCBpZiBtZW1vcnkgc2VydmVzLgpJIHJlY2FsbCBvbiBt
-b3JlIHRoYW4gb25lIG9jY2FzaW9uIGJlaW5nIHByb3ZpZGVkIHdpdGggZG9jdW1lbnRhdGlvbiB3
-aGVyZSAKamF3cyB3YXMgdGhlIG9ubHkgc2NyZWVuIHJlYWRlciBjaG9pY2UgYSBjbGllbnQgd2Fz
-IGdpdmVuLgpLbm93IG9mIGF0IGxlYXN0IG9uZSBwcm9mZXNzaW9uYWwgd2hvIHR1cm5lZCB0byBM
-aW51eCBiZWNhdXNlIHRoZXkgbmV2ZXIgCndhbnRlZCB0byB1c2UgSmF3cyBvciB3aW5kb3dzIGFn
-YWluLgpzaW5jZSByZWhhYiBob2xkcyB0aGUgbW9uZXkgc3RyaW5ncyBmb3IgZnMsIGl0IGlzIHVw
-IHRvIHRoZSBjb3Vuc2Vsb3JzIHRvIApwcm92ZSwgd2l0aCBudW1iZXJzLCB0aGF0IGl0IGlzIHdv
-cnRoICB0aGUgZmluYW5jaWFsIGludmVzdG1lbnQgIGZvciAKZnJlZWRvbSBzY2llbnRpZmljLgpN
-eSB1bmRlcnN0YW5kaW5nIGlzIHRoYXQgbnZkYSBjYW1lIGludG8gYmVpbmcgYmVjYXVzZSBjbGll
-bnRzIHdhbnRlZCBtb3JlIApjaG9pY2VzICB0aGFuIEphd3MsIGFuZCBjb3Vuc2Vsb3JzIHdlcmUg
-cmVzaXN0YW50LgoKCgpPbiBTYXQsIDEzIEF1ZyAyMDIyLCBLMExOWV9HbGVubiB3cm90ZToKCj4g
-VHJ1ZSBlbm91Z2gsIGJ1dCBsYXJnZWx5LCByZWhhYiBwZW9wbGUgdHlwaWNhbGx5IHVzZSBXaW5k
-b3dzIGF0IHdvcmssIGFuZAo+IHByb2JhYmx5IGF0IGhvbWUsIGJ1dCB0aGV5IG5lZWQgdG8gY2F0
-ZXIgdG8gdGhlIG5lZWRzIG9mIHRoZSBjbGllbnQuCj4gSWYgYSBjbGllbnQgdXNlZCBMaW51eCwg
-SSBkb3VidCB0aGF0IGFueSByZWhhYiBjb3Vuc2Vsb3Igd291bGQgYWR2b2NhdGUgdGhhdAo+IHRo
-ZSBjbGllbnQgc3dpdGNoIHRvIFdpbmRvd3MsIHVubGVzcyB0aGF0IHdhcyBuZWVkZWQgZm9yIGEg
-c3BlY2lmaWMgam9iLgo+IEluIE5lYnJhc2thLCB3ZSBwdXJjaGFzZWQgSmF3cyBtdWNoIG1vcmUg
-Zm9yIHBlcnNvbmFsIHVzZSB0aGFuIHdlIGRpZCBmb3IKPiB3b3JrIHJlbGF0ZWQgc2l0dWF0aW9u
-cy4KPiBTbyBpZiBGUyBtYWRlIGEgSkZMLCBhbmQgcGVvcGxlIHdlcmUgdXNpbmcgTGludXgsIHJl
-aGFiIHdvdWxkIGluZGVlZAo+IHB1cmNoYXNlIGEgSkZMIHByb2R1Y3QuCj4gR2xlbm4KPiAtLS0t
-LSBPcmlnaW5hbCBNZXNzYWdlIC0tLS0tCj4gRnJvbTogIkthcmVuIExld2VsbGVuIiA8a2xld2Vs
-bGVuQHNoZWxsd29ybGQubmV0Pgo+IFRvOiAiSzBMTllfR2xlbm4iIDxnbGVubkBlcnZpbi5lbWFp
-bD4KPiBDYzogPHNwZWFrdXBAbGludXgtc3BlYWt1cC5vcmc+OyAiTWlsYW4gWmFtYXphbCIgPHBk
-bUB6YW1hemFsLm9yZz47Cj4gPEJsaW51eC1saXN0QHJlZGhhdC5jb20+Cj4gU2VudDogU2F0dXJk
-YXksIEF1Z3VzdCAxMywgMjAyMiAzOjAxIFBNCj4gU3ViamVjdDogUmU6ICJBY2Nlc3NpYmlsaXR5
-IGluIEZlZG9yYSBXb3Jrc3RhdGlvbiIgKGZ3ZCkKPgo+Cj4gdGhlcmUgd2FzIGFuIGludGVyZXN0
-aW5nIGRpc2N1c3Npb24gYSBtb250aCBvciBzbyBiYWNrIG9uIHRoZSBibGludXggbGlzdAo+IGFi
-b3V0IGhvdyBsb25nIGl0IHRvb2sgY29tcGxldGluZyB0YXNrcyBpbiB0aGUgZ3VpIGFzIGFwcG9z
-ZWQgdG8gc2F5Cj4gY29tbWFuZCBsaW5lLCAgdGhlIGNvbW1lbnRzIHdlcmUgcXVpdGUgaW5mb3Jt
-YXRpdmUuCj4gU3RpbGwsIGZzIGhhcyBuZXZlciBtYXJrZXRlZCBsYXJnZWx5IHRvIHRoZSBlbmQg
-dXNlci4gSW5zdGVhZCB0aGV5IG1hcmtldAo+IHRvIHRoZSBBbWVyaWNhbiByZWhhYiBjb21tdW5p
-dHkuCj4gaG93IG11Y2ggbWFya2V0IHJlc2VhcmNoIGhhcyAgdGhlIHJlaGFiIGNvbW11bml0eSBk
-b25lIHRvIHN1cHBvcnQgdGhlIG5lZWQKPiBmb3IgY2hvaWNlcz8KPiBIb3cgbWFueSByZWhhYiBj
-b3Vuc2Vsb3JzIHN1cHBvcnQgIHRyYWluaW5nIGluIExpbnV4Pwo+IG9uZSBjb21tZW50IG1hZGUg
-YnkgdGhlIHN1YmplY3Qgb2YgdGhpcyB0aHJlYWQgYWJvdXQgcG9vciBxdWFsaXR5IHNwZWVjaAo+
-IGlzIGEgZmluZSBvbmUuLi5vdXQgb2YgdGhlIGJveCBMaW51eCBoYXMgZmV3IHNwZWVjaCBjaG9p
-Y2VzLiAgZXZlcnlvbmUKPiBicmluZ3MgdGhlaXIgbmVlZHMgdG8gdGhlIHRhYmxlIHRoZXJlLgo+
-Cj4gaWYgeW91IHdhbnQgdG8gZ2V0IGZzIHRvIGNhcmUgYWJvdXQgTGludXgsIHlvdSAgbmVlZCB0
-byBwcm92ZSB0aGVyZSBpcwo+IG1vbmV5IGZvciAgdGhlbSB0aGVyZSwgZnJvbSB0aGVpciBtYWlu
-IHNvdXJjZSBvZiBpbmNvbWUuCj4KPgo+Cj4gT24gU2F0LCAxMyBBdWcgMjAyMiwgSzBMTllfR2xl
-bm4gd3JvdGU6Cj4KPj4gV2VsbCBzaW5jZSBPcmNhIHNlZW1zIHRvIHdvcmsgb24gc28gbWFueSBk
-aXN0cm9zLCBJIGRvbid0IGtub3cgd2h5IEZTCj4+IHdvdWxkCj4+IG5vdCBiZSBhYmxlIHRvIGRv
-IHRoZSBzYW1lLgo+PiBJZiBKYXdzIHVzZXJzIGNvdWxkIHN3aXRjaCBpbnRvIExpbnV4LCBpdCB3
-b3VsZCBiZSBhIHJlYWwgZ2FtZSBjaGFuZ2VyLAo+PiBhbmQKPj4gSSB0aGluayB3aXRoIGxvdHMg
-bW9yZSBCbGluZCBMaW51eCB1c2Vycywgd2Ugd291bGQgc3RhcnQgc2VlaW5nCj4+IGFjY2Vzc2li
-aWxpdHkgaW4gTGludXggbm90IGJlaW5nIGEgc2Vjb25kIHRob3VnaHQuCj4+IEdsZW5uCj4+IC0t
-LS0tIE9yaWdpbmFsIE1lc3NhZ2UgLS0tLS0KPj4gRnJvbTogIkthcmVuIExld2VsbGVuIiA8a2xl
-d2VsbGVuQHNoZWxsd29ybGQubmV0Pgo+PiBUbzogIkswTE5ZX0dsZW5uIiA8Z2xlbm5AZXJ2aW4u
-ZW1haWw+Cj4+IENjOiA8c3BlYWt1cEBsaW51eC1zcGVha3VwLm9yZz47ICJNaWxhbiBaYW1hemFs
-IiA8cGRtQHphbWF6YWwub3JnPjsKPj4gPEJsaW51eC1saXN0QHJlZGhhdC5jb20+Cj4+IFNlbnQ6
-IFNhdHVyZGF5LCBBdWd1c3QgMTMsIDIwMjIgMTo0NyBQTQo+PiBTdWJqZWN0OiBSZTogIkFjY2Vz
-c2liaWxpdHkgaW4gRmVkb3JhIFdvcmtzdGF0aW9uIiAoZndkKQo+Pgo+Pgo+PiBXZWxsIHRlY2hu
-aWNhbGx5IGZyZWVkb20gc2NpZW50aWZpYyBkb2VzIG5vdCBleGlzdCBhbnkgbG9uZ2VyLCBiZWlu
-Zwo+PiBib3VnaHQKPj4gYnkgYW5vdGhlciBjb21wYW55Lgo+PiBTdGlsbCwgSSBjYW4gcmVzcGVj
-dCB3aHkgdGhleSwgb3IgbnZkYSBoYXZlIG5vdCBjcmVhdGVkIHRoZWlyIHRvb2xzIGZvcgo+PiBM
-aW51eC4KPj4gVGhhdCBpcyBiZWNhdXNlIGFzIEkgdW5kZXJzdGFuZCBpdCwgTGludXggaXMgIHF1
-aXRlIGxpa2UgY2xheS4gWW91IGNhbgo+PiBtb2xkIGEgZGlzdHJpYnV0aW9uIGludG8gYWxtb3N0
-IGFueXRoaW5nLiB0aGVyZSBhcmUgdmFyaW91cwo+PiBwZXJzb25pZmljYXRpb25zIG9mIHRoZSBz
-eXN0ZW0sIGFsbCBzb3J0cyBvZiB3YXlzIGFuZCBjaGFuZ2VzIGFuZCBvcHRpb25zCj4+IGZvciBj
-cmVhdGl2aXR5Lgo+PiBob3dldmVyIGFkYXB0aXZlIHRvb2xzIGFyZSBvZnRlbiBleHRlbnNpb25z
-IG9mIHBoeXNpY2FsIGNoYXJhY3RlcmlzdGljcywKPj4gaGFuZHMsIGV5ZXMsIGVhcnMsIGJyYWlu
-cywgY29tYmluYXRpb25zIG9mIHRoZXNlLgo+PiBUbyBidWlsZCBzb2xpZCBhc3Npc3RpdmUgdG9v
-bHMgb25lIG11c3QgaGF2ZSBhIHNvbGlkICBmb3VuZGF0aW9uIGFzIGl0Cj4+IHdlcmUuICB0aGF0
-IGlzIHBhcnQgb2Ygd2h5IHRoZXJlIGhhdmUgbmVlZGVkIHRvIGJlIHNvIGZldyBBcHBsZSAgZWZm
-b3J0cwo+PiBhdAo+PiBpbmNsdXNpb24sIHRoZXkgIGNyZWF0ZWQgIHdpdGgsIGFuZCB0aGVuIGNy
-ZWF0ZWQgaW4taG91c2UgYWRhcHRpdmUgdG9vbHMKPj4gZm9yIHZhcmlvdXMgIHBvcHVsYXRpb25z
-IHRoYXQgd2VyZSBidWlsdCBpbnRvIHRoZSBzeXN0ZW0uCj4+IEFsdGhvdWdoIE1pY3Jvc29mdCBk
-aWQgbm90IGJvdGhlciB1bnRpbCBtdWNoIGxhdGVyLCBpbiB0aGVvcnkgYXQgbGVhc3QsCj4+IHRo
-ZQo+PiBjb25zaXN0ZW5jeSBvZiB3aW5kb3dzIGlzIHdoYXQgbWFrZXMgaXQgcG9zc2libGUgZm9y
-IGZyZWVkb20gb3IgdGhlIGZvcm1lcgo+PiBndyAgbWljcm8gb3IgbnZkYSB0byBjcmVhdGUgc29t
-ZXRoaW5nIHRoYXQgY2FuIGluIHRoZW9yeSAgd29yay4KPj4gRmxvb3IgZm9yIHRoZSBmdXJuaXR1
-cmUgaXMgc29tZXdoYXQgc29saWQuCj4+IEp1c3QgbXkgdGhvdWdodHMsCj4+Cj4+Cj4+Cj4+IE9u
-IFNhdCwgMTMgQXVnIDIwMjIsIEswTE5ZX0dsZW5uIHdyb3RlOgo+Pgo+Pj4gSSB3b3VsZCBsaWtl
-IHRvIHNlZSBGcmVlZG9tIFNjaWVudGlmaWMgbWFrZSBhIEphd3MgRm9yIExpbnV4Lgo+Pj4gSkZM
-Cj4+PiBJJ2QgY2VydGFpbmx5IHBheSB0aGUgeWVhcmx5IHJlbnRhbCBmZWUgZm9yIGl0LCBhbmQg
-aXQgd291bGQgYnJpbmcgbWFueQo+Pj4gbW9yZQo+Pj4gdXNlcnMgaW50byBMaW51eC4KPj4+IEZT
-IGNvdWxkLCB3aXRoIGl0cyByZXNvdXJjZXMsIHBvc3NpYmx5IG1ha2UgaXQgbW9yZSByb2J1c3Qg
-dGhhbiBPcmNhLgo+Pj4KPj4+IEdsZW5uCj4+PiAtLS0tLSBPcmlnaW5hbCBNZXNzYWdlIC0tLS0t
-Cj4+PiBGcm9tOiAiTWlsYW4gWmFtYXphbCIgPHBkbUB6YW1hemFsLm9yZz4KPj4+IFRvOiA8c3Bl
-YWt1cEBsaW51eC1zcGVha3VwLm9yZz4KPj4+IENjOiA8QmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4K
-Pj4+IFNlbnQ6IFNhdHVyZGF5LCBBdWd1c3QgMTMsIDIwMjIgMTI6MDggUE0KPj4+IFN1YmplY3Q6
-IFJlOiAiQWNjZXNzaWJpbGl0eSBpbiBGZWRvcmEgV29ya3N0YXRpb24iIChmd2QpCj4+Pgo+Pj4K
-Pj4+Pj4+Pj4gIktMIiA9PSBLYXJlbiBMZXdlbGxlbiA8a2xld2VsbGVuQHNoZWxsd29ybGQubmV0
-PiB3cml0ZXM6Cj4+Pgo+Pj4gICAgS0w+IFdoYXQgYm90aGVycyBtZSBtb3N0IGFyZSBoaXMgbGFj
-ayBvZiBhY3R1YWwgcXVhbGlmaWNhdGlvbnMsIGFuZAo+Pj4gICAgS0w+IGFic29sdXRlIGRpc21p
-c3NhbCBvZiB3aGF0IGhlIGhhcyBub3QgZXhwZXJpZW5jZWQuLmFzIGlmIGhlCj4+PiAgICBLTD4g
-ZGVmaW5lcyBMaW51eCB1c2FnZSBmb3IgZXZlcnlvbmUuICBUaGF0IGF0dGl0dWRlIGlzIGRhbmdl
-cm91cywKPj4+ICAgIEtMPiBiZWNhdXNlIGhlIGlzIGVkdWNhdGluZyB0aG9zZSBvdXRzaWRlIG9m
-IHRoZSBhY2Nlc3NpYmlsaXR5Cj4+PiAgICBLTD4gZXhwZXJpZW5jZXMsIHdobyB3aWxsIGJlbGll
-dmUgaGlzIGlnbm9yYW5jZSBpcyBmYWN0dWFsLiAgaGUgaGFzCj4+PiAgICBLTD4gdG8gYmUgZXhw
-ZXJ0LCBpdCBpcyBoaXMgam9iLgo+Pj4KPj4+IEhpIEthcmVuLAo+Pj4KPj4+IEkga25vdyBMdWth
-cyBwZXJzb25hbGx5IGFuZCBJIGFkbWlyZSBoaXMgc2tpbGxzIGFuZCBxdWFsaWZpY2F0aW9ucy4g
-IEkKPj4+IGFsc28ga25vdyBmaXJzdCBoYW5kIHRoYXQgaGUgaXMgb3BlbiB0byBjb25zdHJ1Y3Rp
-dmUgZmVlZGJhY2sgYW5kIEkKPj4+IGJlbGlldmUgaGXigJlkIGJlIGhhcHB5IHRvIGJlIGNvcnJl
-Y3RlZCBhYm91dCBwb3NzaWJsZSB0ZWNobmljYWwKPj4+IGluYWNjdXJhY2llcyBpbiB0aGUgaW50
-ZXJ2aWV3LiAgSXQgbWF5IGJlIGFsc28gYSBnb29kIG9wcG9ydHVuaXR5IHRvCj4+PiBmaW5kIG91
-dCB3aGF04oCZcyBwb3NzaWJseSBtaXNzaW5nIGluIG1ha2luZyBhbnlib2R5IGJldHRlciBpbmZv
-cm1lZC4KPj4+Cj4+PiBBcyBmb3Ig4oCcYWJzb2x1dGUgZGlzbWlzc2FsIG9mIHdoYXQgaGUgaGFz
-IG5vdCBleHBlcmllbmNlZOKAnSwgd2hhdAo+Pj4gcmVhc29uYWJsZSBmcmVlIHNvZnR3YXJlIGFs
-dGVybmF0aXZlcyB0byBhIGxlc3Mgb3IgbW9yZSBzdGFuZGFyZCBkZXNrdG9wCj4+PiB3aXRoIE9y
-Y2EgYW5kIGEgc29mdHdhcmUgc3ludGhlc2l6ZXIgY2FuIHlvdSBzZWUgZm9yIGEgY29tbW9uIGJs
-aW5kIHVzZXIKPj4+IHdobyBuZWVkcyB0byB1c2UgYSBmdWxseSB3b3JraW5nIHdlYiBicm93c2Vy
-LCB0byByZWFkIGFuZCBwcm9jZXNzIHRleHQKPj4+IGRvY3VtZW50cywgdG8gYmUgY29tcGF0aWJs
-ZSB3aXRoIG90aGVyIGNvbXB1dGVyIHVzZXJzLCBldGMuPwo+Pj4KPj4+IEFuZCBsZXTigJlzIGJl
-IHJlYWxpc3RpYy4gIFdlIGNlbGVicmF0ZSBldmVyeSBzaW5nbGUgZGV2ZWxvcGVyIGhpcmVkIHRv
-Cj4+PiBpbXByb3ZlIGFjY2Vzc2liaWxpdHkuICBUaGlzIHRlbGxzIHNvbWV0aGluZyBhYm91dCB0
-aGUgc3RhdGUgb2YgdGhlCj4+PiBtYXR0ZXJzLiAgV2UgY2Fubm90IGV4cGVjdCB0aGF0IGEgc2lu
-Z2xlIHBlcnNvbiB3aWxsIGZpeCBhbGwgdGhlIGtpbmRzCj4+PiBvZiBhY2Nlc3NpYmlsaXR5IHBy
-b2JsZW1zIGluIGFsbCB0aGUgZW52aXJvbm1lbnRzLiAgTHVrYXMgd29ya3MgYXQgaGlzCj4+PiBq
-b2IgZm9jdXNpbmcgb24gY2VydGFpbiBhcmVhcyBjdXJyZW50bHkgc2VlbiB0aGVyZSBhcyB1cmdl
-bnQgb25lcyBhbmQgSQo+Pj4gYXBwcmVjaWF0ZSB0aGlzIG9wcG9ydHVuaXR5LiAgQW55Ym9keSBl
-bHNlIHNlZWluZyBhIG5lZWQgdG8gd29yayBvbgo+Pj4gb3RoZXIgYXJlYXMgaXMgd2VsY29tZSB0
-byBjb250cmlidXRlIHRvIHdoYXRldmVyIHNlZXMgZml0LCBhcyBJIGRvLgo+Pj4KPj4+IFJlZ2Fy
-ZHMsCj4+PiBNaWxhbgo+Pj4KPj4+Cj4+Pgo+Pj4KPj4KPj4KPgo+Cj4KX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0
-CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1h
-bi9saXN0aW5mby9ibGludXgtbGlzdAo=
+nvda came into existence due to the nosebleed pricing of jaws.  Apparently
+people who worked in an office with jaws couldn't install it on their home
+computers in many cases and nvda made it possible for those home computers
+to start talking better than narrator would allow in the 2000's.
+
+
+On Sat, 13 Aug 2022, Karen Lewellen wrote:
+
+> And how often do clients get a choice about their tools?
+> Support this with objective documentation, as this is your professional
+> industry, if memory serves.
+> I recall on more than one occasion being provided with documentation where
+> jaws was the only screen reader choice a client was given.
+> Know of at least one professional who turned to Linux because they never
+> wanted to use Jaws or windows again.
+> since rehab holds the money strings for fs, it is up to the counselors to
+> prove, with numbers, that it is worth  the financial investment  for freedom
+> scientific.
+> My understanding is that nvda came into being because clients wanted more
+> choices  than Jaws, and counselors were resistant.
+>
+>
+>
+> On Sat, 13 Aug 2022, K0LNY_Glenn wrote:
+>
+> > True enough, but largely, rehab people typically use Windows at work, and
+> > probably at home, but they need to cater to the needs of the client.
+> > If a client used Linux, I doubt that any rehab counselor would advocate that
+> > the client switch to Windows, unless that was needed for a specific job.
+> > In Nebraska, we purchased Jaws much more for personal use than we did for
+> > work related situations.
+> > So if FS made a JFL, and people were using Linux, rehab would indeed
+> > purchase a JFL product.
+> > Glenn
+> > ----- Original Message -----
+> > From: "Karen Lewellen" <klewellen@shellworld.net>
+> > To: "K0LNY_Glenn" <glenn@ervin.email>
+> > Cc: <speakup@linux-speakup.org>; "Milan Zamazal" <pdm@zamazal.org>;
+> > <Blinux-list@redhat.com>
+> > Sent: Saturday, August 13, 2022 3:01 PM
+> > Subject: Re: "Accessibility in Fedora Workstation" (fwd)
+> >
+> >
+> > there was an interesting discussion a month or so back on the blinux list
+> > about how long it took completing tasks in the gui as apposed to say
+> > command line,  the comments were quite informative.
+> > Still, fs has never marketed largely to the end user. Instead they market
+> > to the American rehab community.
+> > how much market research has  the rehab community done to support the need
+> > for choices?
+> > How many rehab counselors support  training in Linux?
+> > one comment made by the subject of this thread about poor quality speech
+> > is a fine one...out of the box Linux has few speech choices.  everyone
+> > brings their needs to the table there.
+> >
+> > if you want to get fs to care about Linux, you  need to prove there is
+> > money for  them there, from their main source of income.
+> >
+> >
+> >
+> > On Sat, 13 Aug 2022, K0LNY_Glenn wrote:
+> >
+> >> Well since Orca seems to work on so many distros, I don't know why FS
+> >> would
+> >> not be able to do the same.
+> >> If Jaws users could switch into Linux, it would be a real game changer,
+> >> and
+> >> I think with lots more Blind Linux users, we would start seeing
+> >> accessibility in Linux not being a second thought.
+> >> Glenn
+> >> ----- Original Message -----
+> >> From: "Karen Lewellen" <klewellen@shellworld.net>
+> >> To: "K0LNY_Glenn" <glenn@ervin.email>
+> >> Cc: <speakup@linux-speakup.org>; "Milan Zamazal" <pdm@zamazal.org>;
+> >> <Blinux-list@redhat.com>
+> >> Sent: Saturday, August 13, 2022 1:47 PM
+> >> Subject: Re: "Accessibility in Fedora Workstation" (fwd)
+> >>
+> >>
+> >> Well technically freedom scientific does not exist any longer, being
+> >> bought
+> >> by another company.
+> >> Still, I can respect why they, or nvda have not created their tools for
+> >> Linux.
+> >> That is because as I understand it, Linux is  quite like clay. You can
+> >> mold a distribution into almost anything. there are various
+> >> personifications of the system, all sorts of ways and changes and options
+> >> for creativity.
+> >> however adaptive tools are often extensions of physical characteristics,
+> >> hands, eyes, ears, brains, combinations of these.
+> >> To build solid assistive tools one must have a solid  foundation as it
+> >> were.  that is part of why there have needed to be so few Apple  efforts
+> >> at
+> >> inclusion, they  created  with, and then created in-house adaptive tools
+> >> for various  populations that were built into the system.
+> >> Although Microsoft did not bother until much later, in theory at least,
+> >> the
+> >> consistency of windows is what makes it possible for freedom or the former
+> >> gw  micro or nvda to create something that can in theory  work.
+> >> Floor for the furniture is somewhat solid.
+> >> Just my thoughts,
+> >>
+> >>
+> >>
+> >> On Sat, 13 Aug 2022, K0LNY_Glenn wrote:
+> >>
+> >>> I would like to see Freedom Scientific make a Jaws For Linux.
+> >>> JFL
+> >>> I'd certainly pay the yearly rental fee for it, and it would bring many
+> >>> more
+> >>> users into Linux.
+> >>> FS could, with its resources, possibly make it more robust than Orca.
+> >>>
+> >>> Glenn
+> >>> ----- Original Message -----
+> >>> From: "Milan Zamazal" <pdm@zamazal.org>
+> >>> To: <speakup@linux-speakup.org>
+> >>> Cc: <Blinux-list@redhat.com>
+> >>> Sent: Saturday, August 13, 2022 12:08 PM
+> >>> Subject: Re: "Accessibility in Fedora Workstation" (fwd)
+> >>>
+> >>>
+> >>>>>>>> "KL" == Karen Lewellen <klewellen@shellworld.net> writes:
+> >>>
+> >>>    KL> What bothers me most are his lack of actual qualifications, and
+> >>>    KL> absolute dismissal of what he has not experienced..as if he
+> >>>    KL> defines Linux usage for everyone.  That attitude is dangerous,
+> >>>    KL> because he is educating those outside of the accessibility
+> >>>    KL> experiences, who will believe his ignorance is factual.  he has
+> >>>    KL> to be expert, it is his job.
+> >>>
+> >>> Hi Karen,
+> >>>
+> >>> I know Lukas personally and I admire his skills and qualifications.  I
+> >>> also know first hand that he is open to constructive feedback and I
+> >>> believe he?d be happy to be corrected about possible technical
+> >>> inaccuracies in the interview.  It may be also a good opportunity to
+> >>> find out what?s possibly missing in making anybody better informed.
+> >>>
+> >>> As for ?absolute dismissal of what he has not experienced?, what
+> >>> reasonable free software alternatives to a less or more standard desktop
+> >>> with Orca and a software synthesizer can you see for a common blind user
+> >>> who needs to use a fully working web browser, to read and process text
+> >>> documents, to be compatible with other computer users, etc.?
+> >>>
+> >>> And let?s be realistic.  We celebrate every single developer hired to
+> >>> improve accessibility.  This tells something about the state of the
+> >>> matters.  We cannot expect that a single person will fix all the kinds
+> >>> of accessibility problems in all the environments.  Lukas works at his
+> >>> job focusing on certain areas currently seen there as urgent ones and I
+> >>> appreciate this opportunity.  Anybody else seeing a need to work on
+> >>> other areas is welcome to contribute to whatever sees fit, as I do.
+> >>>
+> >>> Regards,
+> >>> Milan
+> >>>
+> >>>
+> >>>
+> >>>
+> >>
+> >>
+> >
+> >
+> >
+>
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
