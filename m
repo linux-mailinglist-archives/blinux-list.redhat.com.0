@@ -1,43 +1,45 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6CD205926F8
-	for <lists+blinux-list@lfdr.de>; Mon, 15 Aug 2022 01:51:02 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 397A9592700
+	for <lists+blinux-list@lfdr.de>; Mon, 15 Aug 2022 01:56:32 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1660521061;
+	s=mimecast20190719; t=1660521391;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=DjZuDzk25s/cfeomt/q1fy+kMN3hsMXkKrVxyIY66f0=;
-	b=e80GbJOvLFxt+z9IGcnZmOvVHAwNRUn+lxvXMJjG57ueXJm5gZyOrGJasIoli6FmHTNAg3
-	x/YQDJWJ5srCI+S9zKA7WSh+K7pQhE3O1pELM9XuEUrJbpx3YPI2+7sXCd6O7OOe8N89qf
-	FiE+KhrQkQsw8IiffjpTEP1+7KQymEM=
+	bh=lq7G9ggggzAHt6GX0EnqEFD0xlvbdhqQ1DqKMouRaXI=;
+	b=MGq8QIr6EX9Ta7LbcnLJOC1pQNfCO13W+PJoiN0JSXAjsG2p8YBDUJNdMIr80p7Avr4ouO
+	Ne025Q0p0gE0jGKBSAsEPlnB2A/3kJ1OkN08M/FXQJXLNXaxOk/TmJfMbcwfGJVzloXxVL
+	b/HqKhYUaMWsSC25yZ+JMAXgDO88P74=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-378-YH_-vDEvP-GrbRCIhYd5hA-1; Sun, 14 Aug 2022 19:50:58 -0400
-X-MC-Unique: YH_-vDEvP-GrbRCIhYd5hA-1
+ us-mta-303-FoysZEZiMXiwbrvBCEJ7uA-1; Sun, 14 Aug 2022 19:56:27 -0400
+X-MC-Unique: FoysZEZiMXiwbrvBCEJ7uA-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A2C05801231;
-	Sun, 14 Aug 2022 23:50:56 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 93BF48037B7;
+	Sun, 14 Aug 2022 23:56:25 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id CF1702166B26;
-	Sun, 14 Aug 2022 23:50:51 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 6500B2166B26;
+	Sun, 14 Aug 2022 23:56:25 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 661491946A49;
-	Sun, 14 Aug 2022 23:50:51 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id E7A231946A4A;
+	Sun, 14 Aug 2022 23:56:24 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sun, 14 Aug 2022 19:50:46 -0400 (EDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
+Date: Sun, 14 Aug 2022 19:56:15 -0400
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.1.2
 Subject: Re: "Accessibility in Fedora Workstation" (fwd)
-In-Reply-To: <mailman.598.1660519584.10500.blinux-list@redhat.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <Pine.LNX.4.64.2208112229350.1215855@server2.shellworld.net>
  <YvhV4TWzuP2O1JAZ@novena-choice-citizen>
  <Pine.LNX.4.64.2208132205110.1261053@server2.shellworld.net>
@@ -45,8 +47,8 @@ References: <Pine.LNX.4.64.2208112229350.1215855@server2.shellworld.net>
  <87k07ak5a8.fsf@the-brannons.com>
  <mailman.610.1660519271.10502.blinux-list@redhat.com>
  <mailman.598.1660519584.10500.blinux-list@redhat.com>
-MIME-Version: 1.0
-Message-ID: <mailman.593.1660521051.10501.blinux-list@redhat.com>
+In-Reply-To: <mailman.598.1660519584.10500.blinux-list@redhat.com>
+Message-ID: <mailman.588.1660521384.10503.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -65,123 +67,86 @@ Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
 X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Language: en-US
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-....and the average cost of a braille display?
-and if the material cannot be accessed in Linux?
-I could do this all day long.
-its wonderful you have that solution for you...but everyone deserves their 
-solution as well, especially if they are in the majority.
-The red lobster where I live  provides braille menus.
-Almost always when I visit, the server brings me one.
-Without fail, i tell that server how glad I am they provide this menu for 
-the comparatively few who need it, because they deserve the experience of 
-ordering as they personally define independence.
-It is unfortunate though, that for some, my not being blind as they define 
-it, means I  cannot be expected to define independence as my body 
-requires.
-
-
-
-On Sun, 14 Aug 2022, Linux for blind general discussion wrote:
-
-> I mean, we don't have to have volumes of Braille anymore, just a Braille
-> Display, which work great with BRLTTY.
-> Devin Prater
-> r.d.t.prater@gmail.com
->
->
->
->
-> On Sun, Aug 14, 2022 at 6:21 PM Linux for blind general discussion <
-> blinux-list@redhat.com> wrote:
->
->> I echo this attitude concern, but for a different reason.
->> who gets to decide what bodies  deserve a place at the table?
->> because of a vascular accident in an eye surgery, I experience a brain
->> anomaly where certain frequencies stimulate the dizzy centres of my brain.
->> allot of those frequencies happen in poorly designed software  speech
->> configurations for Linux.
->> Meaning, because little effort has been made to give choices for Linux
->> speech in the gui, if I wanted to use this, I would have to choose between
->> a Linux computer and hospitalization.
->> compare this with apple hardware.
->> I recently aquired a  mid 2012 macbook pro which, because of how the
->> voiceover   sound is produced is perfectly safe for my use..and I can
->> still run  only one  Mac os off  from the last pre m.1 systems.
->> i have an associate in my office running their business on a 2011 macbook
->> pro.
->> Indeed climate change, landfill issues, available resources in terms of
->> training and access all over the world.
->> And, for many how their body works mandates choices.
->> There was a time when one of the great things about Linux was that it
->> could be used to breathe  new life into older hardware.  especially
->> helpful in  non-western countries where getting the fastest car on the
->> road was costly.
->> If your attitude was the rule though, those folks regardless of abilities
->> might never get computers at all.
->>   take your attitude and say substitute braille.
->>   Statistically less than 10% of the blindness community are braille
->> users,
->> meaning the majority do not  use it, or even learn it if newly blinded.
->> so, its unfortunate some blind people are still stuck needing volumes and
->> volumes of braille, but  to expect the world to confirm to such a limited
->> use language etc.
->> Speaking personally, especially given how flexible Linux is  supposed to
->> be?
->> deciding some have no place at your gui table is little different than
->> deciding those who are visible minorities, no matter the location, have no
->> place at the table either.
->>   Karen
->>
->>
->>
->> On Sun, 14 Aug 2022, Chris Brannon wrote:
->>
->>> Matt Campbell <mattcampbell@pobox.com> writes:
->>>
->>>> I took this position in 2000, but for the last decade or more, access
->> to a
->>>> GUI has been widely available to blind people at no extra cost. (If
->> there
->>>> are blind people today who are truly stuck on old hardware with no
->>>> accessible GUI, that's unfortunate, but I think this is one case where
->> the
->>>> best solution is charity, not expecting the rest of the world to
->> accommodate
->>>> this situation forever. That's no different than for sighted people
->> stuck on
->>>> very old hardware.)
->>>
->>> I'm sorry, but this is a very irresponsible attitude, given the impact
->>> of climate change.  And now on top of that, the world is coping with
->>> supply chain issues.  "Chuck it in a landfill because it won't run the
->>> latest Electron app" is deeply unacceptable.
->>>
->>> I do agree with you about the importance of GUI accessibility, even
->>> though I only use one when circumstances force me to it.  I'm somewhat
->>> optimistic about the recent news.
->>>
->>> -- Chris
->>>
->>>
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->>
->>
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+QWN0dWFsbHksIHRoYXQgd2lsbCBiZSB0cnVlIG9ubHkgd2hlbiBzaWdodGVkIHBlb3BsZSBkb24n
+dCB1c2UgcGFwZXIgCnByaW50LsKgIEknbSB2ZXJ5IGdsYWQgSSBoYXZlIEJyYWlsbGUgZGV2aWNl
+cyBJIGNhbiB1c2UgdG8gcmVhZCBhIGdyZWF0IApkZWFsIG9mIG1hdGVyaWFsIHRoYXQgaGFzbid0
+IGJlZW4gcHV0IGludG8gaGFyZGNvcHksIGJ1dCBpdCBpcyBvZnRlbiAKbXVjaCBiZXR0ZXIgZm9y
+IG1lIHRvIHJlYWQgdGhvc2UgZmluZSBCcmFpbGxlIHZvbHVtZXMuwqAgUGx1cywgdGhlaXIgCmJh
+dHRlcmllcyBkb24ndCBkaWUuwqAgWWVzLCBCcmFpbGxlIHBhcGVyIGFnZXMgYW5kIGRpZXMsIHRv
+bywgYnV0IG5vdCAKdXN1YWxseSBpbiB0aGUgd2F5IGVsZWN0cm9uaWMgQnJhaWxsZSBkZXZpY2Vz
+IGNhbiBkbyBpdC4KCgpBbAoKCk9uIDgvMTQvMjIgMTk6MjYsIExpbnV4IGZvciBibGluZCBnZW5l
+cmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gSSBtZWFuLCB3ZSBkb24ndCBoYXZlIHRvIGhhdmUgdm9s
+dW1lcyBvZiBCcmFpbGxlIGFueW1vcmUsIGp1c3QgYSBCcmFpbGxlCj4gRGlzcGxheSwgd2hpY2gg
+d29yayBncmVhdCB3aXRoIEJSTFRUWS4KPiBEZXZpbiBQcmF0ZXIKPiByLmQudC5wcmF0ZXJAZ21h
+aWwuY29tCj4KPgo+Cj4KPiBPbiBTdW4sIEF1ZyAxNCwgMjAyMiBhdCA2OjIxIFBNIExpbnV4IGZv
+ciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gPAo+IGJsaW51eC1saXN0QHJlZGhhdC5jb20+IHdy
+b3RlOgo+Cj4+IEkgZWNobyB0aGlzIGF0dGl0dWRlIGNvbmNlcm4sIGJ1dCBmb3IgYSBkaWZmZXJl
+bnQgcmVhc29uLgo+PiB3aG8gZ2V0cyB0byBkZWNpZGUgd2hhdCBib2RpZXMgIGRlc2VydmUgYSBw
+bGFjZSBhdCB0aGUgdGFibGU/Cj4+IGJlY2F1c2Ugb2YgYSB2YXNjdWxhciBhY2NpZGVudCBpbiBh
+biBleWUgc3VyZ2VyeSwgSSBleHBlcmllbmNlIGEgYnJhaW4KPj4gYW5vbWFseSB3aGVyZSBjZXJ0
+YWluIGZyZXF1ZW5jaWVzIHN0aW11bGF0ZSB0aGUgZGl6enkgY2VudHJlcyBvZiBteSBicmFpbi4K
+Pj4gYWxsb3Qgb2YgdGhvc2UgZnJlcXVlbmNpZXMgaGFwcGVuIGluIHBvb3JseSBkZXNpZ25lZCBz
+b2Z0d2FyZSAgc3BlZWNoCj4+IGNvbmZpZ3VyYXRpb25zIGZvciBMaW51eC4KPj4gTWVhbmluZywg
+YmVjYXVzZSBsaXR0bGUgZWZmb3J0IGhhcyBiZWVuIG1hZGUgdG8gZ2l2ZSBjaG9pY2VzIGZvciBM
+aW51eAo+PiBzcGVlY2ggaW4gdGhlIGd1aSwgaWYgSSB3YW50ZWQgdG8gdXNlIHRoaXMsIEkgd291
+bGQgaGF2ZSB0byBjaG9vc2UgYmV0d2Vlbgo+PiBhIExpbnV4IGNvbXB1dGVyIGFuZCBob3NwaXRh
+bGl6YXRpb24uCj4+IGNvbXBhcmUgdGhpcyB3aXRoIGFwcGxlIGhhcmR3YXJlLgo+PiBJIHJlY2Vu
+dGx5IGFxdWlyZWQgYSAgbWlkIDIwMTIgbWFjYm9vayBwcm8gd2hpY2gsIGJlY2F1c2Ugb2YgaG93
+IHRoZQo+PiB2b2ljZW92ZXIgICBzb3VuZCBpcyBwcm9kdWNlZCBpcyBwZXJmZWN0bHkgc2FmZSBm
+b3IgbXkgdXNlLi5hbmQgSSBjYW4KPj4gc3RpbGwgcnVuICBvbmx5IG9uZSAgTWFjIG9zIG9mZiAg
+ZnJvbSB0aGUgbGFzdCBwcmUgbS4xIHN5c3RlbXMuCj4+IGkgaGF2ZSBhbiBhc3NvY2lhdGUgaW4g
+bXkgb2ZmaWNlIHJ1bm5pbmcgdGhlaXIgYnVzaW5lc3Mgb24gYSAyMDExIG1hY2Jvb2sKPj4gcHJv
+Lgo+PiBJbmRlZWQgY2xpbWF0ZSBjaGFuZ2UsIGxhbmRmaWxsIGlzc3VlcywgYXZhaWxhYmxlIHJl
+c291cmNlcyBpbiB0ZXJtcyBvZgo+PiB0cmFpbmluZyBhbmQgYWNjZXNzIGFsbCBvdmVyIHRoZSB3
+b3JsZC4KPj4gQW5kLCBmb3IgbWFueSBob3cgdGhlaXIgYm9keSB3b3JrcyBtYW5kYXRlcyBjaG9p
+Y2VzLgo+PiBUaGVyZSB3YXMgYSB0aW1lIHdoZW4gb25lIG9mIHRoZSBncmVhdCB0aGluZ3MgYWJv
+dXQgTGludXggd2FzIHRoYXQgaXQKPj4gY291bGQgYmUgdXNlZCB0byBicmVhdGhlICBuZXcgbGlm
+ZSBpbnRvIG9sZGVyIGhhcmR3YXJlLiAgZXNwZWNpYWxseQo+PiBoZWxwZnVsIGluICBub24td2Vz
+dGVybiBjb3VudHJpZXMgd2hlcmUgZ2V0dGluZyB0aGUgZmFzdGVzdCBjYXIgb24gdGhlCj4+IHJv
+YWQgd2FzIGNvc3RseS4KPj4gSWYgeW91ciBhdHRpdHVkZSB3YXMgdGhlIHJ1bGUgdGhvdWdoLCB0
+aG9zZSBmb2xrcyByZWdhcmRsZXNzIG9mIGFiaWxpdGllcwo+PiBtaWdodCBuZXZlciBnZXQgY29t
+cHV0ZXJzIGF0IGFsbC4KPj4gICAgdGFrZSB5b3VyIGF0dGl0dWRlIGFuZCBzYXkgc3Vic3RpdHV0
+ZSBicmFpbGxlLgo+PiAgICBTdGF0aXN0aWNhbGx5IGxlc3MgdGhhbiAxMCUgb2YgdGhlIGJsaW5k
+bmVzcyBjb21tdW5pdHkgYXJlIGJyYWlsbGUKPj4gdXNlcnMsCj4+IG1lYW5pbmcgdGhlIG1ham9y
+aXR5IGRvIG5vdCAgdXNlIGl0LCBvciBldmVuIGxlYXJuIGl0IGlmIG5ld2x5IGJsaW5kZWQuCj4+
+IHNvLCBpdHMgdW5mb3J0dW5hdGUgc29tZSBibGluZCBwZW9wbGUgYXJlIHN0aWxsIHN0dWNrIG5l
+ZWRpbmcgdm9sdW1lcyBhbmQKPj4gdm9sdW1lcyBvZiBicmFpbGxlLCBidXQgIHRvIGV4cGVjdCB0
+aGUgd29ybGQgdG8gY29uZmlybSB0byBzdWNoIGEgbGltaXRlZAo+PiB1c2UgbGFuZ3VhZ2UgZXRj
+Lgo+PiBTcGVha2luZyBwZXJzb25hbGx5LCBlc3BlY2lhbGx5IGdpdmVuIGhvdyBmbGV4aWJsZSBM
+aW51eCBpcyAgc3VwcG9zZWQgdG8KPj4gYmU/Cj4+IGRlY2lkaW5nIHNvbWUgaGF2ZSBubyBwbGFj
+ZSBhdCB5b3VyIGd1aSB0YWJsZSBpcyBsaXR0bGUgZGlmZmVyZW50IHRoYW4KPj4gZGVjaWRpbmcg
+dGhvc2Ugd2hvIGFyZSB2aXNpYmxlIG1pbm9yaXRpZXMsIG5vIG1hdHRlciB0aGUgbG9jYXRpb24s
+IGhhdmUgbm8KPj4gcGxhY2UgYXQgdGhlIHRhYmxlIGVpdGhlci4KPj4gICAgS2FyZW4KPj4KPj4K
+Pj4KPj4gT24gU3VuLCAxNCBBdWcgMjAyMiwgQ2hyaXMgQnJhbm5vbiB3cm90ZToKPj4KPj4+IE1h
+dHQgQ2FtcGJlbGwgPG1hdHRjYW1wYmVsbEBwb2JveC5jb20+IHdyaXRlczoKPj4+Cj4+Pj4gSSB0
+b29rIHRoaXMgcG9zaXRpb24gaW4gMjAwMCwgYnV0IGZvciB0aGUgbGFzdCBkZWNhZGUgb3IgbW9y
+ZSwgYWNjZXNzCj4+IHRvIGEKPj4+PiBHVUkgaGFzIGJlZW4gd2lkZWx5IGF2YWlsYWJsZSB0byBi
+bGluZCBwZW9wbGUgYXQgbm8gZXh0cmEgY29zdC4gKElmCj4+IHRoZXJlCj4+Pj4gYXJlIGJsaW5k
+IHBlb3BsZSB0b2RheSB3aG8gYXJlIHRydWx5IHN0dWNrIG9uIG9sZCBoYXJkd2FyZSB3aXRoIG5v
+Cj4+Pj4gYWNjZXNzaWJsZSBHVUksIHRoYXQncyB1bmZvcnR1bmF0ZSwgYnV0IEkgdGhpbmsgdGhp
+cyBpcyBvbmUgY2FzZSB3aGVyZQo+PiB0aGUKPj4+PiBiZXN0IHNvbHV0aW9uIGlzIGNoYXJpdHks
+IG5vdCBleHBlY3RpbmcgdGhlIHJlc3Qgb2YgdGhlIHdvcmxkIHRvCj4+IGFjY29tbW9kYXRlCj4+
+Pj4gdGhpcyBzaXR1YXRpb24gZm9yZXZlci4gVGhhdCdzIG5vIGRpZmZlcmVudCB0aGFuIGZvciBz
+aWdodGVkIHBlb3BsZQo+PiBzdHVjayBvbgo+Pj4+IHZlcnkgb2xkIGhhcmR3YXJlLikKPj4+IEkn
+bSBzb3JyeSwgYnV0IHRoaXMgaXMgYSB2ZXJ5IGlycmVzcG9uc2libGUgYXR0aXR1ZGUsIGdpdmVu
+IHRoZSBpbXBhY3QKPj4+IG9mIGNsaW1hdGUgY2hhbmdlLiAgQW5kIG5vdyBvbiB0b3Agb2YgdGhh
+dCwgdGhlIHdvcmxkIGlzIGNvcGluZyB3aXRoCj4+PiBzdXBwbHkgY2hhaW4gaXNzdWVzLiAgIkNo
+dWNrIGl0IGluIGEgbGFuZGZpbGwgYmVjYXVzZSBpdCB3b24ndCBydW4gdGhlCj4+PiBsYXRlc3Qg
+RWxlY3Ryb24gYXBwIiBpcyBkZWVwbHkgdW5hY2NlcHRhYmxlLgo+Pj4KPj4+IEkgZG8gYWdyZWUg
+d2l0aCB5b3UgYWJvdXQgdGhlIGltcG9ydGFuY2Ugb2YgR1VJIGFjY2Vzc2liaWxpdHksIGV2ZW4K
+Pj4+IHRob3VnaCBJIG9ubHkgdXNlIG9uZSB3aGVuIGNpcmN1bXN0YW5jZXMgZm9yY2UgbWUgdG8g
+aXQuICBJJ20gc29tZXdoYXQKPj4+IG9wdGltaXN0aWMgYWJvdXQgdGhlIHJlY2VudCBuZXdzLgo+
+Pj4KPj4+IC0tIENocmlzCj4+Pgo+Pj4KPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KPj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+IEJsaW51eC1s
+aXN0QHJlZGhhdC5jb20KPj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0
+aW5mby9ibGludXgtbGlzdAo+Pgo+Pgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RA
+cmVkaGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8v
+YmxpbnV4LWxpc3QKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0
+cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo=
 
