@@ -2,53 +2,52 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 397A9592700
-	for <lists+blinux-list@lfdr.de>; Mon, 15 Aug 2022 01:56:32 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 364405927FB
+	for <lists+blinux-list@lfdr.de>; Mon, 15 Aug 2022 05:09:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1660521391;
+	s=mimecast20190719; t=1660532995;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=lq7G9ggggzAHt6GX0EnqEFD0xlvbdhqQ1DqKMouRaXI=;
-	b=MGq8QIr6EX9Ta7LbcnLJOC1pQNfCO13W+PJoiN0JSXAjsG2p8YBDUJNdMIr80p7Avr4ouO
-	Ne025Q0p0gE0jGKBSAsEPlnB2A/3kJ1OkN08M/FXQJXLNXaxOk/TmJfMbcwfGJVzloXxVL
-	b/HqKhYUaMWsSC25yZ+JMAXgDO88P74=
+	bh=NHLCxPaQ8cZt6/M0Agpb+LdL5lYkcyiVQw5RWh+/epQ=;
+	b=doxkSUJJFDyzfwLtvrsH7u8ETbLOnlOWAapPE/9SEAIoyByCCcE3ewexc5lycIknGdYLWD
+	aV8kkBIwuApneNTotYp5T4Fzwna5lAln/gSNztz5GNKFN55uRtrdMQvZ5Lw2Odc07/HPbj
+	R+I1EW7In5AGF8BlO/IX44P/lYEadgM=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-303-FoysZEZiMXiwbrvBCEJ7uA-1; Sun, 14 Aug 2022 19:56:27 -0400
-X-MC-Unique: FoysZEZiMXiwbrvBCEJ7uA-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
+ us-mta-563-SRLgZ6I_Nii6EdLbW33eog-1; Sun, 14 Aug 2022 23:09:51 -0400
+X-MC-Unique: SRLgZ6I_Nii6EdLbW33eog-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 93BF48037B7;
-	Sun, 14 Aug 2022 23:56:25 +0000 (UTC)
-Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 6500B2166B26;
-	Sun, 14 Aug 2022 23:56:25 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D19EA8037AA;
+	Mon, 15 Aug 2022 03:09:49 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 39BA640CF916;
+	Mon, 15 Aug 2022 03:09:41 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id E7A231946A4A;
-	Sun, 14 Aug 2022 23:56:24 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 356671946A49;
+	Mon, 15 Aug 2022 03:09:40 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sun, 14 Aug 2022 19:56:15 -0400
+Date: Sun, 14 Aug 2022 23:09:26 -0400
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.1.2
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.12.0
 Subject: Re: "Accessibility in Fedora Workstation" (fwd)
 To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <Pine.LNX.4.64.2208112229350.1215855@server2.shellworld.net>
  <YvhV4TWzuP2O1JAZ@novena-choice-citizen>
  <Pine.LNX.4.64.2208132205110.1261053@server2.shellworld.net>
- <8d72d3ff-01d5-9f5e-c2b1-fb10a024e047@pobox.com>
- <87k07ak5a8.fsf@the-brannons.com>
- <mailman.610.1660519271.10502.blinux-list@redhat.com>
- <mailman.598.1660519584.10500.blinux-list@redhat.com>
-In-Reply-To: <mailman.598.1660519584.10500.blinux-list@redhat.com>
-Message-ID: <mailman.588.1660521384.10503.blinux-list@redhat.com>
+ <mailman.526.1660482367.10505.blinux-list@redhat.com>
+ <mailman.570.1660487404.10502.blinux-list@redhat.com>
+ <mailman.564.1660515996.10499.blinux-list@redhat.com>
+In-Reply-To: <mailman.564.1660515996.10499.blinux-list@redhat.com>
+Message-ID: <mailman.613.1660532979.10500.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -64,89 +63,37 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-QWN0dWFsbHksIHRoYXQgd2lsbCBiZSB0cnVlIG9ubHkgd2hlbiBzaWdodGVkIHBlb3BsZSBkb24n
-dCB1c2UgcGFwZXIgCnByaW50LsKgIEknbSB2ZXJ5IGdsYWQgSSBoYXZlIEJyYWlsbGUgZGV2aWNl
-cyBJIGNhbiB1c2UgdG8gcmVhZCBhIGdyZWF0IApkZWFsIG9mIG1hdGVyaWFsIHRoYXQgaGFzbid0
-IGJlZW4gcHV0IGludG8gaGFyZGNvcHksIGJ1dCBpdCBpcyBvZnRlbiAKbXVjaCBiZXR0ZXIgZm9y
-IG1lIHRvIHJlYWQgdGhvc2UgZmluZSBCcmFpbGxlIHZvbHVtZXMuwqAgUGx1cywgdGhlaXIgCmJh
-dHRlcmllcyBkb24ndCBkaWUuwqAgWWVzLCBCcmFpbGxlIHBhcGVyIGFnZXMgYW5kIGRpZXMsIHRv
-bywgYnV0IG5vdCAKdXN1YWxseSBpbiB0aGUgd2F5IGVsZWN0cm9uaWMgQnJhaWxsZSBkZXZpY2Vz
-IGNhbiBkbyBpdC4KCgpBbAoKCk9uIDgvMTQvMjIgMTk6MjYsIExpbnV4IGZvciBibGluZCBnZW5l
-cmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gSSBtZWFuLCB3ZSBkb24ndCBoYXZlIHRvIGhhdmUgdm9s
-dW1lcyBvZiBCcmFpbGxlIGFueW1vcmUsIGp1c3QgYSBCcmFpbGxlCj4gRGlzcGxheSwgd2hpY2gg
-d29yayBncmVhdCB3aXRoIEJSTFRUWS4KPiBEZXZpbiBQcmF0ZXIKPiByLmQudC5wcmF0ZXJAZ21h
-aWwuY29tCj4KPgo+Cj4KPiBPbiBTdW4sIEF1ZyAxNCwgMjAyMiBhdCA2OjIxIFBNIExpbnV4IGZv
-ciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gPAo+IGJsaW51eC1saXN0QHJlZGhhdC5jb20+IHdy
-b3RlOgo+Cj4+IEkgZWNobyB0aGlzIGF0dGl0dWRlIGNvbmNlcm4sIGJ1dCBmb3IgYSBkaWZmZXJl
-bnQgcmVhc29uLgo+PiB3aG8gZ2V0cyB0byBkZWNpZGUgd2hhdCBib2RpZXMgIGRlc2VydmUgYSBw
-bGFjZSBhdCB0aGUgdGFibGU/Cj4+IGJlY2F1c2Ugb2YgYSB2YXNjdWxhciBhY2NpZGVudCBpbiBh
-biBleWUgc3VyZ2VyeSwgSSBleHBlcmllbmNlIGEgYnJhaW4KPj4gYW5vbWFseSB3aGVyZSBjZXJ0
-YWluIGZyZXF1ZW5jaWVzIHN0aW11bGF0ZSB0aGUgZGl6enkgY2VudHJlcyBvZiBteSBicmFpbi4K
-Pj4gYWxsb3Qgb2YgdGhvc2UgZnJlcXVlbmNpZXMgaGFwcGVuIGluIHBvb3JseSBkZXNpZ25lZCBz
-b2Z0d2FyZSAgc3BlZWNoCj4+IGNvbmZpZ3VyYXRpb25zIGZvciBMaW51eC4KPj4gTWVhbmluZywg
-YmVjYXVzZSBsaXR0bGUgZWZmb3J0IGhhcyBiZWVuIG1hZGUgdG8gZ2l2ZSBjaG9pY2VzIGZvciBM
-aW51eAo+PiBzcGVlY2ggaW4gdGhlIGd1aSwgaWYgSSB3YW50ZWQgdG8gdXNlIHRoaXMsIEkgd291
-bGQgaGF2ZSB0byBjaG9vc2UgYmV0d2Vlbgo+PiBhIExpbnV4IGNvbXB1dGVyIGFuZCBob3NwaXRh
-bGl6YXRpb24uCj4+IGNvbXBhcmUgdGhpcyB3aXRoIGFwcGxlIGhhcmR3YXJlLgo+PiBJIHJlY2Vu
-dGx5IGFxdWlyZWQgYSAgbWlkIDIwMTIgbWFjYm9vayBwcm8gd2hpY2gsIGJlY2F1c2Ugb2YgaG93
-IHRoZQo+PiB2b2ljZW92ZXIgICBzb3VuZCBpcyBwcm9kdWNlZCBpcyBwZXJmZWN0bHkgc2FmZSBm
-b3IgbXkgdXNlLi5hbmQgSSBjYW4KPj4gc3RpbGwgcnVuICBvbmx5IG9uZSAgTWFjIG9zIG9mZiAg
-ZnJvbSB0aGUgbGFzdCBwcmUgbS4xIHN5c3RlbXMuCj4+IGkgaGF2ZSBhbiBhc3NvY2lhdGUgaW4g
-bXkgb2ZmaWNlIHJ1bm5pbmcgdGhlaXIgYnVzaW5lc3Mgb24gYSAyMDExIG1hY2Jvb2sKPj4gcHJv
-Lgo+PiBJbmRlZWQgY2xpbWF0ZSBjaGFuZ2UsIGxhbmRmaWxsIGlzc3VlcywgYXZhaWxhYmxlIHJl
-c291cmNlcyBpbiB0ZXJtcyBvZgo+PiB0cmFpbmluZyBhbmQgYWNjZXNzIGFsbCBvdmVyIHRoZSB3
-b3JsZC4KPj4gQW5kLCBmb3IgbWFueSBob3cgdGhlaXIgYm9keSB3b3JrcyBtYW5kYXRlcyBjaG9p
-Y2VzLgo+PiBUaGVyZSB3YXMgYSB0aW1lIHdoZW4gb25lIG9mIHRoZSBncmVhdCB0aGluZ3MgYWJv
-dXQgTGludXggd2FzIHRoYXQgaXQKPj4gY291bGQgYmUgdXNlZCB0byBicmVhdGhlICBuZXcgbGlm
-ZSBpbnRvIG9sZGVyIGhhcmR3YXJlLiAgZXNwZWNpYWxseQo+PiBoZWxwZnVsIGluICBub24td2Vz
-dGVybiBjb3VudHJpZXMgd2hlcmUgZ2V0dGluZyB0aGUgZmFzdGVzdCBjYXIgb24gdGhlCj4+IHJv
-YWQgd2FzIGNvc3RseS4KPj4gSWYgeW91ciBhdHRpdHVkZSB3YXMgdGhlIHJ1bGUgdGhvdWdoLCB0
-aG9zZSBmb2xrcyByZWdhcmRsZXNzIG9mIGFiaWxpdGllcwo+PiBtaWdodCBuZXZlciBnZXQgY29t
-cHV0ZXJzIGF0IGFsbC4KPj4gICAgdGFrZSB5b3VyIGF0dGl0dWRlIGFuZCBzYXkgc3Vic3RpdHV0
-ZSBicmFpbGxlLgo+PiAgICBTdGF0aXN0aWNhbGx5IGxlc3MgdGhhbiAxMCUgb2YgdGhlIGJsaW5k
-bmVzcyBjb21tdW5pdHkgYXJlIGJyYWlsbGUKPj4gdXNlcnMsCj4+IG1lYW5pbmcgdGhlIG1ham9y
-aXR5IGRvIG5vdCAgdXNlIGl0LCBvciBldmVuIGxlYXJuIGl0IGlmIG5ld2x5IGJsaW5kZWQuCj4+
-IHNvLCBpdHMgdW5mb3J0dW5hdGUgc29tZSBibGluZCBwZW9wbGUgYXJlIHN0aWxsIHN0dWNrIG5l
-ZWRpbmcgdm9sdW1lcyBhbmQKPj4gdm9sdW1lcyBvZiBicmFpbGxlLCBidXQgIHRvIGV4cGVjdCB0
-aGUgd29ybGQgdG8gY29uZmlybSB0byBzdWNoIGEgbGltaXRlZAo+PiB1c2UgbGFuZ3VhZ2UgZXRj
-Lgo+PiBTcGVha2luZyBwZXJzb25hbGx5LCBlc3BlY2lhbGx5IGdpdmVuIGhvdyBmbGV4aWJsZSBM
-aW51eCBpcyAgc3VwcG9zZWQgdG8KPj4gYmU/Cj4+IGRlY2lkaW5nIHNvbWUgaGF2ZSBubyBwbGFj
-ZSBhdCB5b3VyIGd1aSB0YWJsZSBpcyBsaXR0bGUgZGlmZmVyZW50IHRoYW4KPj4gZGVjaWRpbmcg
-dGhvc2Ugd2hvIGFyZSB2aXNpYmxlIG1pbm9yaXRpZXMsIG5vIG1hdHRlciB0aGUgbG9jYXRpb24s
-IGhhdmUgbm8KPj4gcGxhY2UgYXQgdGhlIHRhYmxlIGVpdGhlci4KPj4gICAgS2FyZW4KPj4KPj4K
-Pj4KPj4gT24gU3VuLCAxNCBBdWcgMjAyMiwgQ2hyaXMgQnJhbm5vbiB3cm90ZToKPj4KPj4+IE1h
-dHQgQ2FtcGJlbGwgPG1hdHRjYW1wYmVsbEBwb2JveC5jb20+IHdyaXRlczoKPj4+Cj4+Pj4gSSB0
-b29rIHRoaXMgcG9zaXRpb24gaW4gMjAwMCwgYnV0IGZvciB0aGUgbGFzdCBkZWNhZGUgb3IgbW9y
-ZSwgYWNjZXNzCj4+IHRvIGEKPj4+PiBHVUkgaGFzIGJlZW4gd2lkZWx5IGF2YWlsYWJsZSB0byBi
-bGluZCBwZW9wbGUgYXQgbm8gZXh0cmEgY29zdC4gKElmCj4+IHRoZXJlCj4+Pj4gYXJlIGJsaW5k
-IHBlb3BsZSB0b2RheSB3aG8gYXJlIHRydWx5IHN0dWNrIG9uIG9sZCBoYXJkd2FyZSB3aXRoIG5v
-Cj4+Pj4gYWNjZXNzaWJsZSBHVUksIHRoYXQncyB1bmZvcnR1bmF0ZSwgYnV0IEkgdGhpbmsgdGhp
-cyBpcyBvbmUgY2FzZSB3aGVyZQo+PiB0aGUKPj4+PiBiZXN0IHNvbHV0aW9uIGlzIGNoYXJpdHks
-IG5vdCBleHBlY3RpbmcgdGhlIHJlc3Qgb2YgdGhlIHdvcmxkIHRvCj4+IGFjY29tbW9kYXRlCj4+
-Pj4gdGhpcyBzaXR1YXRpb24gZm9yZXZlci4gVGhhdCdzIG5vIGRpZmZlcmVudCB0aGFuIGZvciBz
-aWdodGVkIHBlb3BsZQo+PiBzdHVjayBvbgo+Pj4+IHZlcnkgb2xkIGhhcmR3YXJlLikKPj4+IEkn
-bSBzb3JyeSwgYnV0IHRoaXMgaXMgYSB2ZXJ5IGlycmVzcG9uc2libGUgYXR0aXR1ZGUsIGdpdmVu
-IHRoZSBpbXBhY3QKPj4+IG9mIGNsaW1hdGUgY2hhbmdlLiAgQW5kIG5vdyBvbiB0b3Agb2YgdGhh
-dCwgdGhlIHdvcmxkIGlzIGNvcGluZyB3aXRoCj4+PiBzdXBwbHkgY2hhaW4gaXNzdWVzLiAgIkNo
-dWNrIGl0IGluIGEgbGFuZGZpbGwgYmVjYXVzZSBpdCB3b24ndCBydW4gdGhlCj4+PiBsYXRlc3Qg
-RWxlY3Ryb24gYXBwIiBpcyBkZWVwbHkgdW5hY2NlcHRhYmxlLgo+Pj4KPj4+IEkgZG8gYWdyZWUg
-d2l0aCB5b3UgYWJvdXQgdGhlIGltcG9ydGFuY2Ugb2YgR1VJIGFjY2Vzc2liaWxpdHksIGV2ZW4K
-Pj4+IHRob3VnaCBJIG9ubHkgdXNlIG9uZSB3aGVuIGNpcmN1bXN0YW5jZXMgZm9yY2UgbWUgdG8g
-aXQuICBJJ20gc29tZXdoYXQKPj4+IG9wdGltaXN0aWMgYWJvdXQgdGhlIHJlY2VudCBuZXdzLgo+
-Pj4KPj4+IC0tIENocmlzCj4+Pgo+Pj4KPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KPj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+IEJsaW51eC1s
-aXN0QHJlZGhhdC5jb20KPj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0
-aW5mby9ibGludXgtbGlzdAo+Pgo+Pgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RA
-cmVkaGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8v
-YmxpbnV4LWxpc3QKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0
-cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo=
+Folks might also remember Matt for trplayer, which was a Linux console
+> player for RealAudio streams.
+
+
+Wow it has been a long time indeed, but I actually do remember trplayer. 
+I didn't use zipslack or zipspeak, but I did start with Slackware 
+running the speakup.i kernel. I very quickly switched to Red Hat 9 
+because it had more available packages,, but I did have to use the 
+telnet install at that time with a second computer that had Speakup 
+already installed, because there was no precompiled speakup kernel at 
+that time, but I braved kernel compilation to get Red Hat working and 
+speaking, especially after I figured out just how easy it was to build 
+rpm packages at that time. Actually, it's still fairly easy to build rpm 
+packages these days, even though the system is a bit more complex than 
+it once was. Fortunately we have really good package management now that 
+we didn't have back in those days. Still, even with the evolution of 
+Linux over the years, it is still by far the easiest to use, especially 
+since I'm a bit too old now to learn the latest Microsoft crap that I 
+abandoned so many years ago.
+
+~Kyle
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
