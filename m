@@ -1,49 +1,51 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2D9C6593EC0
-	for <lists+blinux-list@lfdr.de>; Mon, 15 Aug 2022 23:40:41 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4C3215942C0
+	for <lists+blinux-list@lfdr.de>; Tue, 16 Aug 2022 00:05:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1660599640;
+	s=mimecast20190719; t=1660601103;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=v0k8mvKbZAO1GtDQuYmNRQJBxjG/i78MSjnLKyE5xIA=;
-	b=grD4f1DfwF/R/eb7PAgdxU+JPYmmc7gDtxWyITD4asVAzE+IDakPzBC//CwYJ07kwe2j31
-	YvQXltwjJiQRj26V9umCrD9NrRfIUrdUwMt86O9ucGdA/Lo8pbBSeIdPWWrC0pypdsoeej
-	roADSM8LDCB767OuRMwxAMR20RrveEc=
+	bh=aUuv25OGJxOfyGnV2YkqpYqcNussnxyjM/9D7aND/OE=;
+	b=DyWvkdu3+Nl4lm09P/1oRV4obf+Mkvb8hR3qpkRxvzQklhxrfbHxUQIUwL5DzUnSEgJNpW
+	Ih5CRRBl2ivHH216bz09y3HlGGRBcJZpsGik9LZVShu/H8VUXO5huFkCAb1PnRLqdueBCR
+	P+QTreJjco4v8yK9vQNfu+IBd/Ubr9Q=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-225-YvNCHlqhPq2M-DMF1lHyag-1; Mon, 15 Aug 2022 17:40:36 -0400
-X-MC-Unique: YvNCHlqhPq2M-DMF1lHyag-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+ us-mta-578-yUv1EgjjOKigUiRKoOuqmg-1; Mon, 15 Aug 2022 18:04:59 -0400
+X-MC-Unique: yUv1EgjjOKigUiRKoOuqmg-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D1E4729AB455;
-	Mon, 15 Aug 2022 21:40:34 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 91F603C01D8E;
+	Mon, 15 Aug 2022 22:04:58 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 4F08840CFD0B;
-	Mon, 15 Aug 2022 21:40:34 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 77A77140EBE3;
+	Mon, 15 Aug 2022 22:04:55 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id A08AA1940353;
-	Mon, 15 Aug 2022 21:40:33 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 8C0E61940353;
+	Mon, 15 Aug 2022 22:04:54 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Feedback-ID: ia9b947fb:Fastmail
-Date: Mon, 15 Aug 2022 14:40:28 -0700 (PDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>
+Date: Tue, 16 Aug 2022 00:04:49 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.12.0
 Subject: Re: Need help with a Youtube terminal app
-In-Reply-To: <mailman.724.1660597476.10502.blinux-list@redhat.com>
+To: blinux-list@redhat.com
 References: <mailman.693.1660588007.10505.blinux-list@redhat.com>
  <mailman.714.1660588859.10499.blinux-list@redhat.com>
  <mailman.724.1660597476.10502.blinux-list@redhat.com>
-MIME-Version: 1.0
-Message-ID: <mailman.788.1660599633.10498.blinux-list@redhat.com>
+ <mailman.788.1660599633.10498.blinux-list@redhat.com>
+In-Reply-To: <mailman.788.1660599633.10498.blinux-list@redhat.com>
+Message-ID: <mailman.767.1660601093.10501.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -59,19 +61,27 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Language: en-US
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Well, Rob, these days youtube-viewer can use yt-dlp which doesn't require a 
-key, also in many cases download speeds are nicely increased. Another similar 
-program of his is straw-viewer.
-Chime
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+c3RyYXctdmlld2VyIGlzIGRlcHJlY2F0ZWQgIGhhcyBiZWVuIHN1cGVyc2VkZWQgYnkgcGlwZS12
+aWV3ZXIsIGFjY29yZGluZyB0bwp0cml6ZW4sIGF1dGhvciBvZiBib3RoIGFuZCBhbHNvIG9mIHlv
+dXR1YmUtdmlld2VyLiBBbmQgeWVzIGFzbyBpbnN0YWxsIHB1dAp5dC1kbHAgaWYgbm90IGFscmVh
+ZHkgZG9uZS4KClVSTHM6Cmh0dHBzOi8vZ2l0aHViLmNvbS90cml6ZW4vcGlwZS12aWV3ZXIKaHR0
+cHM6Ly9naXRodWIuY29tL3RyaXplbi95b3V0dWJlLXZpZXdlcgpodHRwczovL2dpdGh1Yi5jb20v
+eXQtZGxwL3l0LWRscAoKQ2hlZXJzLApEaWRpZXIKCkxlIDE1LzA4LzIwMjIgw6AgMjM6NDAsIExp
+bnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gYSDDqWNyaXTCoDoKPiBXZWxsLCBSb2Is
+IHRoZXNlIGRheXMgeW91dHViZS12aWV3ZXIgY2FuIHVzZSB5dC1kbHAgd2hpY2ggZG9lc24ndCBy
+ZXF1aXJlIGEga2V5LAo+IGFsc28gaW4gbWFueSBjYXNlcyBkb3dubG9hZCBzcGVlZHMgYXJlIG5p
+Y2VseSBpbmNyZWFzZWQuIEFub3RoZXIgc2ltaWxhciBwcm9ncmFtCj4gb2YgaGlzIGlzIHN0cmF3
+LXZpZXdlci4KPiBDaGltZQo+IAo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVk
+aGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxp
+bnV4LWxpc3QKPiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBz
+Oi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QK
 
