@@ -1,47 +1,48 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 997405942D1
-	for <lists+blinux-list@lfdr.de>; Tue, 16 Aug 2022 00:39:51 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2E73B5942D6
+	for <lists+blinux-list@lfdr.de>; Tue, 16 Aug 2022 00:52:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1660603190;
+	s=mimecast20190719; t=1660603961;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=BCTHelM69UnMMxsJUUSJlgZnWnIiZoYnZl2rJj1T7FU=;
-	b=KHjQPtSVaqK0nGkNGGaMS6PDTDYs4VJ2FeFplPSj0g2OCWjiNw/s/+1pQE7tdpbdQHyxAr
-	fpxiL4ts7yI9ajQi6z6N9/WjkexZObBTS4AQQbNmv5Ts6yZVjPq4qXrsBSZyP2uqhcKgsx
-	hz1vM/d+4QiB19N042reHWRAHHssMrw=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=AxdXI8EaEW1V383aw8+EVtisl/q8L/WHU8S58lOCdII=;
+	b=GoqpaN0efJWWIJuGWA79azNvNttmDm3gmOnUWzCSsZLZkKvUzdsaPZCYL42C1XeonCUukD
+	Qp0sME9QY28a4U/o3xAI/CWg4WaM8bmXXnByxyByn2uQ/54QC2vNQds27rudfEfFTlnrZq
+	KVRSB0C602loqGInWjqDzzpYn92mSeg=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-74-fKXkOxTCOgiO4lku28s0nw-1; Mon, 15 Aug 2022 18:39:45 -0400
-X-MC-Unique: fKXkOxTCOgiO4lku28s0nw-1
+ us-mta-505-2J68gEmqPWuGLaXX39lqnw-1; Mon, 15 Aug 2022 18:52:37 -0400
+X-MC-Unique: 2J68gEmqPWuGLaXX39lqnw-1
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AC775101A586;
-	Mon, 15 Aug 2022 22:39:43 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 130A43804060;
+	Mon, 15 Aug 2022 22:52:36 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id F3EF814152E0;
-	Mon, 15 Aug 2022 22:39:42 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 8F321140EBE3;
+	Mon, 15 Aug 2022 22:52:35 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 2933A1940353;
-	Mon, 15 Aug 2022 22:39:42 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id BF8DD1940353;
+	Mon, 15 Aug 2022 22:52:34 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Mon, 15 Aug 2022 12:35:11 -1000
-To: blinux-list@redhat.com
-Subject: Re: Impossible to know sender info
+MIME-Version: 1.0
+In-Reply-To: <mailman.770.1660603181.10501.blinux-list@redhat.com>
 References: <mailman.708.1660592109.10505.blinux-list@redhat.com>
  <mailman.703.1660592414.10507.blinux-list@redhat.com>
-MIME-Version: 1.0
-In-Reply-To: <mailman.703.1660592414.10507.blinux-list@redhat.com>
-Message-ID: <mailman.770.1660603181.10501.blinux-list@redhat.com>
+ <mailman.770.1660603181.10501.blinux-list@redhat.com>
+Date: Tue, 16 Aug 2022 00:52:30 +0200
+Subject: Re: Impossible to know sender info
+To: blinux-list@redhat.com
+Message-ID: <mailman.731.1660603954.10502.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -60,33 +61,32 @@ Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
 X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Samuel wrote:
-> John wrote:
-> > I would like to see if there is not an alternative/possibility
-> > to bring back name and e-mail from senders while maintaining the
-> > viability of this list?
-> 
-> Not getting the e-mail would be not too much a problem, but not having
-> the name is really problematic for following discussions, indeed.
- 
-I agree. If we're already hacking the From: field, how about
-including the original name e.g
-JustSomeGuy via Blinux <blinux-list@redhat.com> ?
-
-If the MTA is postfix, it could be just the matter
-of writing a regex to do this. (Raises hand to volunteer)
-
-Joel
-
--- 
-Joel Roth
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGVsbG8sCgphbmQgZnJvbSBhbiBhY2Nlc3NpYmlsaXR5IHBlcnNwZWN0aXZlIChmcm9tIG15IHBv
+aW50IG9mIHZpZXcpIGl0IHdvdWxkCmJlIG5pY2UsIGlmIGluIHRoZSBzdWJqZWN0IGZpZWxkIGNv
+dWxkIGJlIHdyaXR0ZW4gYmxpbmRsaW51eCBvcgpzb21ldGhpbmcgbGlrZSB0aGF0LCBzbyBhbiBh
+dmVyYWdlIGJsaW5kIHVzZXIgY291bGQgcXVpY2tseSBkZXRlcm1pbmUsCndoYXQgaXMgYW5kIGZy
+b20gd2hlcmUgaXMgYSBtYWlsLCBzaW11bGFyIGxpa2UgbWFqb3JpdHkgb2Ygb3RoZXIKbWFpbGlu
+ZyBsaXN0cyBoYXZlIGJlZW4gc2V0LgoKaG9wZSwgdGhhdCBJIHdhcyBjbGVhciwgdGhhbmtzLgoK
+YmVzdCByZWdhcmRzLApKb8W+ZWYKCjIwMjItMDgtMTYgMDozNSBHTVQrMDIuMDAsIExpbnV4IGZv
+ciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24KPGJsaW51eC1saXN0QHJlZGhhdC5jb20+Ogo+IFNh
+bXVlbCB3cm90ZToKPj4gSm9obiB3cm90ZToKPj4gPiBJIHdvdWxkIGxpa2UgdG8gc2VlIGlmIHRo
+ZXJlIGlzIG5vdCBhbiBhbHRlcm5hdGl2ZS9wb3NzaWJpbGl0eQo+PiA+IHRvIGJyaW5nIGJhY2sg
+bmFtZSBhbmQgZS1tYWlsIGZyb20gc2VuZGVycyB3aGlsZSBtYWludGFpbmluZyB0aGUKPj4gPiB2
+aWFiaWxpdHkgb2YgdGhpcyBsaXN0Pwo+Pgo+PiBOb3QgZ2V0dGluZyB0aGUgZS1tYWlsIHdvdWxk
+IGJlIG5vdCB0b28gbXVjaCBhIHByb2JsZW0sIGJ1dCBub3QgaGF2aW5nCj4+IHRoZSBuYW1lIGlz
+IHJlYWxseSBwcm9ibGVtYXRpYyBmb3IgZm9sbG93aW5nIGRpc2N1c3Npb25zLCBpbmRlZWQuCj4K
+PiBJIGFncmVlLiBJZiB3ZSdyZSBhbHJlYWR5IGhhY2tpbmcgdGhlIEZyb206IGZpZWxkLCBob3cg
+YWJvdXQKPiBpbmNsdWRpbmcgdGhlIG9yaWdpbmFsIG5hbWUgZS5nCj4gSnVzdFNvbWVHdXkgdmlh
+IEJsaW51eCA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gPwo+Cj4gSWYgdGhlIE1UQSBpcyBwb3N0
+Zml4LCBpdCBjb3VsZCBiZSBqdXN0IHRoZSBtYXR0ZXIKPiBvZiB3cml0aW5nIGEgcmVnZXggdG8g
+ZG8gdGhpcy4gKFJhaXNlcyBoYW5kIHRvIHZvbHVudGVlcikKPgo+IEpvZWwKPgo+IC0tCj4gSm9l
+bCBSb3RoCj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+Xwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBo
+dHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4K
+PgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4
+LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFu
+LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo=
 
