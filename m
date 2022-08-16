@@ -1,54 +1,53 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 43B86596290
-	for <lists+blinux-list@lfdr.de>; Tue, 16 Aug 2022 20:37:30 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 73D7F59629C
+	for <lists+blinux-list@lfdr.de>; Tue, 16 Aug 2022 20:44:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1660675049;
+	s=mimecast20190719; t=1660675451;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=wQvlzZULU4IPX9lKLOxOaQ/9L5evdx4nzhUt1XBkA1w=;
-	b=DjQAZ7MgL+UbUWVpeolafcufW7NFCDpFHU14F3UBuE52q8cBXxGiViOgHqYWVFFkrMELK3
-	7GlpDYBNUUi8u1DezVFC0Li9+EIATuG/TBFOA+QZzHUBYjJuGSEEU3TkDWzTlI9ODxriCl
-	277EY/Ploctx6o+k+IlOTnxwmzGqB4U=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=yX4b9ylsM4bDdfMeeMvhpYWmqD1vtvp62jTRMhiIYdA=;
+	b=bsZOycpIWZrIAKC0bDVKZsa2zIeBbsf+4eiQeIQRr3PqDtAZpUEbol93PFYKcQgssH3KIV
+	9+pEh/aR81tAh/+KJn+mVa5Nvm1fp+QD1nkbnWToPVg+MsliAPgNQw1aaw54dQYxsNUShU
+	vNIVqOHXMWAi0Uw0k05OuLuaca4oIw8=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-583-RGx0yTSYNeur1u3i-uVyjQ-1; Tue, 16 Aug 2022 14:37:26 -0400
-X-MC-Unique: RGx0yTSYNeur1u3i-uVyjQ-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
+ us-mta-206-qm_97aFyNyG3bt7ZBwVwmA-1; Tue, 16 Aug 2022 14:44:08 -0400
+X-MC-Unique: qm_97aFyNyG3bt7ZBwVwmA-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 39A293C10227;
-	Tue, 16 Aug 2022 18:37:24 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CE83E824070;
+	Tue, 16 Aug 2022 18:44:01 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id ED8AD1121315;
-	Tue, 16 Aug 2022 18:37:23 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id A25D240D282E;
+	Tue, 16 Aug 2022 18:44:01 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 53CCB193F6EA;
-	Tue, 16 Aug 2022 18:37:23 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 053FD193F6EA;
+	Tue, 16 Aug 2022 18:43:56 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-X-Spam-Report: AuthenticatedSender=yes, SenderIP=[104.47.73.41]
-X-Spam-PmxInfo: Server=avs-3, Version=6.4.9.2830568,
- Antispam-Engine: 2.7.2.2107409, Antispam-Data: 2022.8.16.182718,
- AntiVirus-Engine: 5.92.0, AntiVirus-Data: 2022.7.21.5920001,
- SenderIP=[104.47.73.41]
-Date: Tue, 16 Aug 2022 13:37:11 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.10.0
+Date: Tue, 16 Aug 2022 14:43:45 -0400 (EDT)
+To: "John G. Heim" <jheim@wisc.edu>
 Subject: Re: "Accessibility in Fedora Workstation" (fwd)
-To: Brian Buhrow <buhrow@nfbcal.org>, K0LNY_Glenn <glenn@ervin.email>,
- Karen Lewellen <klewellen@shellworld.net>
-References: <202208161814.27GIEKUm029606@nfbcal.org>
-In-reply-to: <202208161814.27GIEKUm029606@nfbcal.org>
-MIME-version: 1.0
-Message-ID: <mailman.1253.1660675042.10500.blinux-list@redhat.com>
+In-Reply-To: <69e2d652-3f37-d6b0-1b86-69749b96616b@wisc.edu>
+References: <Pine.LNX.4.64.2208112229350.1215855@server2.shellworld.net>
+ <YvhV4TWzuP2O1JAZ@novena-choice-citizen>
+ <Pine.LNX.4.64.2208132205110.1261053@server2.shellworld.net>
+ <8d72d3ff-01d5-9f5e-c2b1-fb10a024e047@pobox.com>
+ <87k07ak5a8.fsf@the-brannons.com>
+ <Pine.LNX.4.64.2208141900180.1291685@server2.shellworld.net>
+ <69e2d652-3f37-d6b0-1b86-69749b96616b@wisc.edu>
+MIME-Version: 1.0
+X-Content-Filtered-By: Mailman/MimeDel 2.1.29
+Message-ID: <mailman.1200.1660675430.10498.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -62,72 +61,130 @@ List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
  <mailto:blinux-list-request@redhat.com?subject=subscribe>
 Reply-To: blinux-list@redhat.com
-Cc: Milan Zamazal <pdm@zamazal.org>, "John G. Heim" <jheim@wisc.edu>,
- speakup@linux-speakup.org, Butch Bussen <butchb@shellworld.net>,
- Blinux-list@redhat.com
+Cc: blinux-list@redhat.com, discuss@blvuug.org,
+ Matt Campbell <mattcampbell@pobox.com>, speakup@linux-speakup.org
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.3
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-language: en-US
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-Brian, you're not actually still defending the NFB's reasoning, are you? 
-It could hardly have been more clearly wrong.
-
-You are posting this to an email list for a free, open source screen 
-reader. I made my living as the manager of high performance computing at 
-the University Of Wisconsin with Speakup and Orca. And Jaws still 
-exists. The price has dropped to $99 though.
-
-Look, the NFB made a mistake. A *HUGE* mistake. That's about as obvious 
-as it could possibly be.
-
-
-On 8/16/22 13:14, Brian Buhrow wrote:
-> 	hello.  Having participated in the debate with Microsoft about narrator, let me see if I
-> can provide a bit of context.  When Microsoft began putting a real effort into Narrator, there
-> wer  those of us who were concerned that it would put Freedom scientific out of business and,
-> thus, potentially, remove accessibility choices for blind users, especially for folks who were
-> currently employed using JAWS or, at the time, GW Micro.  Exhibit A was, and is, Apple with
-> VoiceOver.  If you want to use Apple products with access technology your choice is, well,
-> VoiceOver.  If it doesn't work for you, well then, tough on you.  That's also true of Android
-> with Talkback and Brailleback.  Yes, Brltty works on Android, but it relies on the access
-> provided by Talkback and Brailleback to get its data, so if Talkback and Brailleback can't see
-> it, it isn't visible nonvisually.
-> 	It takes a lot of effort to make a good screen reader and it takes even more effort to
-> keep it running well.  The argument ran like this: if Microsoft put a huge amount of effort
-> into getting Narrator working well, would they continue to provide the hooks and data Freedom
-> Scientific and NVDA needed to make their products work?  And, what if Narrator was deemed good
-> enough by Microsoft, but didn't work for folks who were trying to hold down jobs, but JAWS and,
-> at the time GW Micro, couldn't  continue making their products function because they weren't
-> getting what they needed from Microsoft?  what we said was we didn't want Microsoft to work on
-> Narrator at the expense of continuing to develop and share their access API's with third party
-> screen reader providers.
-> 	While it's true the accessibility scene hasn't played out exactly as we described it in
-> terms of the time frame we laid out, it is true that, over time, accessibility options for
-> Windows users are dwindling.  Case and point, if you purchase the tablet version of Windows, or
-> the stock home edition of Windows, by default, you cannot use any screen reader other than
-> Narrator on that installation unless you flip a magic switch in that installation to enable the
-> full Windows experience.  In addition to allowing third party screen readers, that switch also
-> allows the installation of unsigned software outside of the Microsoft store.  Microsoft claims
-> they will never disable the ability to flip that switch, but the fact that we are one switch
-> away from not being able to use the screen reader of our choice on Windows, is, in my view, an
-> erosion of access.  Remember, there was a time when Microsoft said it would never release a
-> Windows version 11.
->
-> 	So, while it may be that our message was mis-interpreted, and we may have not stated it as
-> well as we should have, the goal of the message was, in fact, to expand accessibility choices,
-> not to diminish them.
->
-> -Brian
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+Sm9obiwKCgoKT24gTW9uLCAxNSBBdWcgMjAyMiwgSm9obiBHLiBIZWltIHdyb3RlOgoKPiBMaW51
+eCBpcyBmcmVlLCBvcGVuIHNvdXJjZSBzb2Z0d2FyZS4gTXVjaCBvZiBpdCBpcyB3cml0dGVuIGJ5
+IHZvbHVudGVlcnMuIFRoZSAKPiBMaW51eCBjb21tdW5pdHkgc2ltcGx5IGlzbid0IGNvbXBlcmFi
+bGUgdG8gQXBwbGUgb3IgTWljcm9zb2Z0LiBBcHBsZSBhbmQgCj4gTWljcm9zb2Z0IGhhdmUgZXRo
+aWNhbCBvYmxpZ2F0aW9ucyB0aGF0IGRvIG5vdCBhcHBseSB0byB0aGUgTGludXggY29tbXVuaXR5
+LiAKSSBhbSBzb3JyeSwgYnV0IHRoaXMgaXMgc2ltcGx5IG5vdCBjb3JyZWN0LgoKTGludXMgYmVn
+YW4gZGV2ZWxvcGluZyBMaW51eCwgbWFya2V0ZWQgYXMgYSBmcmVlIGVkaXRpb24gb2YKVU5JWCBp
+biAxOTkxLgpTaW5jZSB0aGVuIHRoZSBzeXN0ZW0gaXMgZnJhbmtseSB1c2VkIGluIGNvdW50bGVz
+cyB3YXlzLAppbmNsdWRpbmcgcHJvZHVjdHMgdGhhdCBjYXJyeSBsZWdhbCBvYmxpZ2F0aW9ucyB0
+byBiZSBpbmNsdXNpdmUuCgpIZXJlIGlzIGFuIGFydGljbGUgbGlzdGluZyBidXQgYSBmZXcuICAg
+U2VhcmNoaW5nIHVzZXMgZm9yIExpbnV4PwpJbiB5b3VyIHByZWZlcnJlZCB0b29sIHdpbGwgbGVh
+ZCB0byBtYW55IG1vcmUgc3VjaCBhcnRpY2xlcy4KCgogICAgRnJvbSB5b3VyIGtpdGNoZW4gdG8g
+dGhlIHJlYWNoZXMgb2Ygb3V0ZXIgc3BhY2UsIExpbnV4IGdldHMKICAgIGV2ZXJ5d2hlcmUuLi4K
+CjI1IEF3ZXNvbWUgVGhpbmdzIFBvd2VyZWQgQnkgTGludXgKQnkgSm9leSBTbmVkZG9uIO+/vSBV
+cGRhdGVkIDUgSmFudWFyeSAyMDIxCgpodHRwczovL3d3dy5vbWd1YnVudHUuY28udWsvMjAxNi8w
+OC8yNS1hd2Vzb21lLXVuZXhwZWN0ZWQtdGhpbmdzLXBvd2VyZWQtbGludXgKCkEgZmV3IGZyb20g
+dGhpcyBsaXN0IGFsb25lLgoKMS4gU3VwZXIgQ29tcHV0ZXJzCiAgICBZZXAsIGV2ZXJ5IHNpbmds
+ZSBvbmUgb2YgdGhlIHdvcmxkJ3MgdG9wIDUwMCBzdXBlcmNvbXB1dGVycwp1c2UgTGludXguCgoy
+LiBOQVNBCiAgICBGcm9tIHN0b3JpbmcgZGF0YSBzZW50IGRvd24gZnJvbSBzYXRlbGxpdGVzIGFu
+ZCB0ZWxlc2NvcGVzLCB0bwogICAgY3J1bmNoaW5nIHRoYXQgZGF0YSBmb3IgcmVzZWFyY2ggaW5z
+dGl0dXRpb25zIGFuZCB0aGUgZ3JlYXRlcgpwdWJsaWMgdG8gdXNlLCBOQVNBIHJlbGllcyBoZWF2
+aWx5IG9uIExpbnV4LgoKNi4gUm9rdQogICAgQWxsIFJva3UgaGFyZHdhcmUgcnVucyBhIGN1c3Rv
+bSwgaGVhdmlseSBtb2RpZmllZCB2ZXJzaW9uIG9mCkxpbnV4IGNhbGxlZCBgUm9rdSBPUycuCgo4
+LiBTbWFydCBUVnMKICAgIExpbnV4IGRvZXNuJ3QganVzdCBwb3dlciBhIHBsZXRob3JhIG9mIHNl
+dC10b3AgYm94ZXMuIEEgbnVtYmVyCm9mIGxlYWRpbmcgVFYgbWFudWZhY3R1cmVycyBvZmZlciBh
+IGJ1aWx0LWluIGBzbWFydCBUVicKZXhwZXJpZW5jZSBVc2luZyBMaW51eC4KICAgIEZyb20gTEcg
+KHdobyB1c2UgV2ViT1MpIHRvIFNhbXN1bmcgKHdobyB1c2UgVGl6ZW4pIHRvIFNoYXJwLApIaVNl
+bnNlLCBQaGlsaXBzIGFuZCBQYW5hc29uaWMuLi4gVGhlIGxpc3Qgb2YgZ29nZ2xlYm94IGdpYW50
+cwptYWtpbmcgdXNlIG9mIExpbnV4IGdvZXMgb24hCgoxMC4gVGhlIEFtYXpvbiBLaW5kbGUKICAg
+IFRoZSBLaW5kbGUgaXMgYWxtb3N0IGEgYnl3b3JkIGZvciBkaWdpdGFsIGUtcmVhZGVycywgYnV0
+IGZldwpnaXZlIG11Y2ggdGhvdWdodCB0byB0aGUgZW1iZWRkZWQgb3BlcmF0aW5nIHN5c3RlbSBp
+dCBydW5zLCBidXQKaXQgaXMgTGludXguIFNvbWUgaGFja2VycyBldmVuIG1hbmFnZWQgdG8gaW5z
+dGFsbCBVYnVudHUgb24gdGhlCmVhcmx5LWdlbiBLaW5kbGVzLgogICAgVGhlIHZlcnkgZmlyc3Qg
+dmVyc2lvbiBvZiB0aGUgS2luZGxlIE9TIHVzZWQgTGludXgga2VybmVsCnYyLjYuMjYsCiAgICB3
+aGlsZSB0aGUgbW9zdCByZWNlbnQsIHRoZSBLaW5kbGUgT2FzaXMsIHVzZXMgdjMuMC4zNS4KCjE1
+LiBTZWxmIERyaXZpbmcgQ2FycwoKICAgIEdvb2dsZSdzIGF1dG9ub21vdXMgY2FyIGNvbXB1dGVy
+cyBydW4gTGludXgsIGFzIGRvIHByb3RvdHlwZQogICAgc2VsZi1kcml2aW5nIHZlaGljbGVzIGZy
+b20gR2VuZXJhbCBNb3RvcnMgKEdNKSBhbmQgVm9sa3N3YWdlbi4KCjE5LiBBZHZhbmNlZCBBaXIg
+VHJhZmZpYyBDb250cm9sCgogICAgVGhlIEZlZGVyYWwgQXZpYXRpb24gQWRtaW5pc3RyYXRpb24g
+b2YgdGhlIFVuaXRlZCBTdGF0ZXMKc3dpdGNoZWQgdG8gTGludXggYmFjayBpbiAyMDA2LiBJdCBy
+dW5zIGN1c3RvbS1idWlsdCBzb2Z0d2FyZSB0bwptYW5hZ2UgYW5kIGRpc3BsYXkgYWlyIHRyYWZm
+aWMgZmxvdyAtIHNvZnR3YXJlIHRoYXQgcnVucyBvbgpMaW51eC4KCjIwLiBDaHJvbWVib29rcwog
+ICAgWW91J2QgYmUgc3VycHJpc2VkIGhvdyBtYW55IHBlb3BsZSB0aGluayBDaHJvbWVib29rcyBy
+dW4KQW5kcm9pZCAtLSB0aGV5IGRvbid0LiBDaHJvbWVib29rcyBydW4gQ2hyb21lIE9TLCBhIExp
+bnV4CmRpc3RyaWJ1dGlvbiBiYXNlZCBvbiBidXQgaGVhdmlseSBtb2RpZmllZCBmcm9tKSBHZW50
+b28uCgoyMy4gVS5TLiBEZXBhcnRtZW50IG9mIERlZmVuc2UKCiAgICBUaGUgVW5pdGVkIFN0YXRl
+cyBEZXBhcnRtZW50IG9mIERlZmVuc2UgaXMgdGhlIHNpbmdsZSBiaWdnZXN0CmN1c3RvbWVyIG9m
+IFJlZCBIYXQgTGludXguCgpIb25lc3RseSBJIGhhdmUgbm8gaWRlYSB3aGVyZSB5b3UgZ2V0IHRo
+ZSBzZW5zZSB0aGF0IExpbnV4IGlzIHJ1bgpieSB2b2x1bnRlZXJzLiAgV2hlbiBJQk0gYm91Z2h0
+IFJlZCBIYXQsIHRoZSBjb21wYW55IGJlaGluZApGZWRvcmEgaW4gMjAxOSwgdGhleSBwYWlkIDM0
+IGJpbGxpb24gZG9sbGFycyBmb3IgdGhlIGNvbXBhbnkuIApNZWFuaW5nIHRoaXMgaW5kaXZpZHVh
+bCBpcyBsaWtlbHkgZHJhd2luZyBhbiBhbWF6aW5nIHdhZ2UgdG8KZGVmaW5lIEFjY2Vzc2liaWxp
+dHkgaW4gTGludXggYnkgIHRoZWlyIHZlcnkgc21hbGwgYW5kIGxpbWl0ZWQKZGljdGlvbmFyeS4K
+CgpLYXJlbgoKCgoKPiBPbiA4LzE0LzIyIDE4OjIxLCBLYXJlbiBMZXdlbGxlbiB3cm90ZToKPj4g
+IEkgZWNobyB0aGlzIGF0dGl0dWRlIGNvbmNlcm4sIGJ1dCBmb3IgYSBkaWZmZXJlbnQgcmVhc29u
+Lgo+PiAgd2hvIGdldHMgdG8gZGVjaWRlIHdoYXQgYm9kaWVzwqAgZGVzZXJ2ZSBhIHBsYWNlIGF0
+IHRoZSB0YWJsZT8KPj4gIGJlY2F1c2Ugb2YgYSB2YXNjdWxhciBhY2NpZGVudCBpbiBhbiBleWUg
+c3VyZ2VyeSwgSSBleHBlcmllbmNlIGEgYnJhaW4KPj4gIGFub21hbHkgd2hlcmUgY2VydGFpbiBm
+cmVxdWVuY2llcyBzdGltdWxhdGUgdGhlIGRpenp5IGNlbnRyZXMgb2YgbXkgYnJhaW4uCj4+ICBh
+bGxvdCBvZiB0aG9zZSBmcmVxdWVuY2llcyBoYXBwZW4gaW4gcG9vcmx5IGRlc2lnbmVkIHNvZnR3
+YXJlIHNwZWVjaAo+PiAgY29uZmlndXJhdGlvbnMgZm9yIExpbnV4Lgo+PiAgTWVhbmluZywgYmVj
+YXVzZSBsaXR0bGUgZWZmb3J0IGhhcyBiZWVuIG1hZGUgdG8gZ2l2ZSBjaG9pY2VzIGZvciBMaW51
+eAo+PiAgc3BlZWNoIGluIHRoZSBndWksIGlmIEkgd2FudGVkIHRvIHVzZSB0aGlzLCBJIHdvdWxk
+IGhhdmUgdG8gY2hvb3NlIGJldHdlZW4KPj4gIGEgTGludXggY29tcHV0ZXIgYW5kIGhvc3BpdGFs
+aXphdGlvbi4KPj4gIGNvbXBhcmUgdGhpcyB3aXRoIGFwcGxlIGhhcmR3YXJlLgo+PiAgSSByZWNl
+bnRseSBhcXVpcmVkIGHCoCBtaWQgMjAxMiBtYWNib29rIHBybyB3aGljaCwgYmVjYXVzZSBvZiBo
+b3cgdGhlCj4+ICB2b2ljZW92ZXLCoMKgIHNvdW5kIGlzIHByb2R1Y2VkIGlzIHBlcmZlY3RseSBz
+YWZlIGZvciBteSB1c2UuLmFuZCBJIGNhbgo+PiAgc3RpbGwgcnVuwqAgb25seSBvbmXCoCBNYWMg
+b3Mgb2ZmwqAgZnJvbSB0aGUgbGFzdCBwcmUgbS4xIHN5c3RlbXMuCj4+ICBpIGhhdmUgYW4gYXNz
+b2NpYXRlIGluIG15IG9mZmljZSBydW5uaW5nIHRoZWlyIGJ1c2luZXNzIG9uIGEgMjAxMSBtYWNi
+b29rCj4+ICBwcm8uCj4+ICBJbmRlZWQgY2xpbWF0ZSBjaGFuZ2UsIGxhbmRmaWxsIGlzc3Vlcywg
+YXZhaWxhYmxlIHJlc291cmNlcyBpbiB0ZXJtcyBvZgo+PiAgdHJhaW5pbmcgYW5kIGFjY2VzcyBh
+bGwgb3ZlciB0aGUgd29ybGQuCj4+ICBBbmQsIGZvciBtYW55IGhvdyB0aGVpciBib2R5IHdvcmtz
+IG1hbmRhdGVzIGNob2ljZXMuCj4+ICBUaGVyZSB3YXMgYSB0aW1lIHdoZW4gb25lIG9mIHRoZSBn
+cmVhdCB0aGluZ3MgYWJvdXQgTGludXggd2FzIHRoYXQgaXQKPj4gIGNvdWxkIGJlIHVzZWQgdG8g
+YnJlYXRoZcKgIG5ldyBsaWZlIGludG8gb2xkZXIgaGFyZHdhcmUuIGVzcGVjaWFsbHkKPj4gIGhl
+bHBmdWwgaW7CoCBub24td2VzdGVybiBjb3VudHJpZXMgd2hlcmUgZ2V0dGluZyB0aGUgZmFzdGVz
+dCBjYXIgb24gdGhlCj4+ICByb2FkIHdhcyBjb3N0bHkuCj4+ICBJZiB5b3VyIGF0dGl0dWRlIHdh
+cyB0aGUgcnVsZSB0aG91Z2gsIHRob3NlIGZvbGtzIHJlZ2FyZGxlc3Mgb2YgYWJpbGl0aWVzCj4+
+ICBtaWdodCBuZXZlciBnZXQgY29tcHV0ZXJzIGF0IGFsbC4KPj4gIMKgdGFrZSB5b3VyIGF0dGl0
+dWRlIGFuZCBzYXkgc3Vic3RpdHV0ZSBicmFpbGxlLgo+PiAgwqBTdGF0aXN0aWNhbGx5IGxlc3Mg
+dGhhbiAxMCUgb2YgdGhlIGJsaW5kbmVzcyBjb21tdW5pdHkgYXJlIGJyYWlsbGUKPj4gIHVzZXJz
+LCBtZWFuaW5nIHRoZSBtYWpvcml0eSBkbyBub3TCoCB1c2UgaXQsIG9yIGV2ZW4gbGVhcm4gaXQg
+aWYgbmV3bHkKPj4gIGJsaW5kZWQuCj4+ICBzbywgaXRzIHVuZm9ydHVuYXRlIHNvbWUgYmxpbmQg
+cGVvcGxlIGFyZSBzdGlsbCBzdHVjayBuZWVkaW5nIHZvbHVtZXMgYW5kCj4+ICB2b2x1bWVzIG9m
+IGJyYWlsbGUsIGJ1dMKgIHRvIGV4cGVjdCB0aGUgd29ybGQgdG8gY29uZmlybSB0byBzdWNoIGEg
+bGltaXRlZAo+PiAgdXNlIGxhbmd1YWdlIGV0Yy4KPj4gIFNwZWFraW5nIHBlcnNvbmFsbHksIGVz
+cGVjaWFsbHkgZ2l2ZW4gaG93IGZsZXhpYmxlIExpbnV4IGlzIHN1cHBvc2VkIHRvCj4+ICBiZT8K
+Pj4gIGRlY2lkaW5nIHNvbWUgaGF2ZSBubyBwbGFjZSBhdCB5b3VyIGd1aSB0YWJsZSBpcyBsaXR0
+bGUgZGlmZmVyZW50IHRoYW4KPj4gIGRlY2lkaW5nIHRob3NlIHdobyBhcmUgdmlzaWJsZSBtaW5v
+cml0aWVzLCBubyBtYXR0ZXIgdGhlIGxvY2F0aW9uLCBoYXZlIG5vCj4+ICBwbGFjZSBhdCB0aGUg
+dGFibGUgZWl0aGVyLgo+PiAgwqBLYXJlbgo+PiAKPj4gCj4+Cj4+ICBPbiBTdW4sIDE0IEF1ZyAy
+MDIyLCBDaHJpcyBCcmFubm9uIHdyb3RlOgo+PiAKPj4gPiAgTWF0dCBDYW1wYmVsbCA8bWF0dGNh
+bXBiZWxsQHBvYm94LmNvbT4gd3JpdGVzOgo+PiA+IAo+PiA+ID4gIEkgdG9vayB0aGlzIHBvc2l0
+aW9uIGluIDIwMDAsIGJ1dCBmb3IgdGhlIGxhc3QgZGVjYWRlIG9yIG1vcmUsIGFjY2VzcyAKPj4g
+PiA+ICB0byBhCj4+ID4gPiAgR1VJIGhhcyBiZWVuIHdpZGVseSBhdmFpbGFibGUgdG8gYmxpbmQg
+cGVvcGxlIGF0IG5vIGV4dHJhIGNvc3QuIChJZiAKPj4gPiA+ICB0aGVyZQo+PiA+ID4gIGFyZSBi
+bGluZCBwZW9wbGUgdG9kYXkgd2hvIGFyZSB0cnVseSBzdHVjayBvbiBvbGQgaGFyZHdhcmUgd2l0
+aCBubwo+PiA+ID4gIGFjY2Vzc2libGUgR1VJLCB0aGF0J3MgdW5mb3J0dW5hdGUsIGJ1dCBJIHRo
+aW5rIHRoaXMgaXMgb25lIGNhc2Ugd2hlcmUgCj4+ID4gPiAgdGhlCj4+ID4gPiAgYmVzdCBzb2x1
+dGlvbiBpcyBjaGFyaXR5LCBub3QgZXhwZWN0aW5nIHRoZSByZXN0IG9mIHRoZSB3b3JsZCB0byAK
+Pj4gPiA+ICBhY2NvbW1vZGF0ZQo+PiA+ID4gIHRoaXMgc2l0dWF0aW9uIGZvcmV2ZXIuIFRoYXQn
+cyBubyBkaWZmZXJlbnQgdGhhbiBmb3Igc2lnaHRlZCBwZW9wbGUgCj4+ID4gPiAgc3R1Y2sgb24K
+Pj4gPiA+ICB2ZXJ5IG9sZCBoYXJkd2FyZS4pCj4+ID4gCj4+ID4gIEknbSBzb3JyeSwgYnV0IHRo
+aXMgaXMgYSB2ZXJ5IGlycmVzcG9uc2libGUgYXR0aXR1ZGUsIGdpdmVuIHRoZSBpbXBhY3QKPj4g
+PiAgb2YgY2xpbWF0ZSBjaGFuZ2UuwqAgQW5kIG5vdyBvbiB0b3Agb2YgdGhhdCwgdGhlIHdvcmxk
+IGlzIGNvcGluZyB3aXRoCj4+ID4gIHN1cHBseSBjaGFpbiBpc3N1ZXMuwqAgIkNodWNrIGl0IGlu
+IGEgbGFuZGZpbGwgYmVjYXVzZSBpdCB3b24ndCBydW4gdGhlCj4+ID4gIGxhdGVzdCBFbGVjdHJv
+biBhcHAiIGlzIGRlZXBseSB1bmFjY2VwdGFibGUuCj4+ID4gCj4+ID4gIEkgZG8gYWdyZWUgd2l0
+aCB5b3UgYWJvdXQgdGhlIGltcG9ydGFuY2Ugb2YgR1VJIGFjY2Vzc2liaWxpdHksIGV2ZW4KPj4g
+PiAgdGhvdWdoIEkgb25seSB1c2Ugb25lIHdoZW4gY2lyY3Vtc3RhbmNlcyBmb3JjZSBtZSB0byBp
+dC7CoCBJJ20gc29tZXdoYXQKPj4gPiAgb3B0aW1pc3RpYyBhYm91dCB0aGUgcmVjZW50IG5ld3Mu
+Cj4+ID4gCj4+ID4gIC0tIENocmlzCj4+ID4gCj4+ID4gCj4+IAo+Cj4KX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0
+CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1h
+bi9saXN0aW5mby9ibGludXgtbGlzdAo=
 
