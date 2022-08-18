@@ -1,44 +1,42 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id DE019597BBD
-	for <lists+blinux-list@lfdr.de>; Thu, 18 Aug 2022 04:58:36 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 95331597C6A
+	for <lists+blinux-list@lfdr.de>; Thu, 18 Aug 2022 05:52:16 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1660791515;
+	s=mimecast20190719; t=1660794735;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=iWO1BUl6nNTknQWq4kE9KR4fQwbyEx35w2q0Emkc0NM=;
-	b=YC/6OQ92R+/+hPbtDor+8xRUzjFD0dVMCs7pfnpgG0hdWIzGNXgS0DQIJM6lCfIPn0h+Po
-	Lr+1tFX+gk9GzRBaUnO5mqotwaeMT9K8xPbainqM+r0shgsz8afXKsVXllKoZvM4dKfqYw
-	5gXC59Jrvc74Jhm7+7audNTE2qX7yRg=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=li5mqlLdUyia33Bmmfgnc64M7gPV6JLWMLx55iTmc2Y=;
+	b=JdDvLsPZOPD2cSBYwtU4GM2RmFkeUuSBGjc+KuKPy5NlWsMO1OASoCi+xnn8nP20EBilVP
+	wyiqxbTiHzHENi2qi///vwqVz2MdnYDic1HG2YLz37FfN29kIKCnQzItbjR1L096y0MBKG
+	3BYIbWBedD2HAPctCxg8e/RgEuV5qOs=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-582-QZuZJCM0ME-MAhfLFeNVsQ-1; Wed, 17 Aug 2022 22:58:32 -0400
-X-MC-Unique: QZuZJCM0ME-MAhfLFeNVsQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-163-cntBk1z9NWmx7Ga7T2vUsg-1; Wed, 17 Aug 2022 23:52:12 -0400
+X-MC-Unique: cntBk1z9NWmx7Ga7T2vUsg-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 35A9038041CF;
-	Thu, 18 Aug 2022 02:58:31 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 822A2185A79C;
+	Thu, 18 Aug 2022 03:52:10 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id D7E98C15BB3;
-	Thu, 18 Aug 2022 02:58:30 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 823C0404C6EB;
+	Thu, 18 Aug 2022 03:52:05 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 8D0AB194E00F;
-	Thu, 18 Aug 2022 02:58:30 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 0B5DF194E015;
+	Thu, 18 Aug 2022 03:52:05 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 17 Aug 2022 22:58:25 -0400 (EDT)
-To: K0LNY_Glenn <glenn@ervin.email>
-Subject: Re: "Accessibility in Fedora Workstation" (fwd)
-In-Reply-To: <004a01d8b2a6$e6f1ef40$80ffa8c0@Win7VM>
-References: <Pine.LNX.4.64.2208112229350.1215855@server2.shellworld.net>  
+MIME-Version: 1.0
+In-Reply-To: <mailman.1848.1660791510.10507.blinux-list@redhat.com>
+References: <Pine.LNX.4.64.2208112229350.1215855@server2.shellworld.net>
  <033301d8af87$4227f3f0$80ffa8c0@Win7VM>
  <Pine.LNX.4.64.2208160617250.1327201@server2.shellworld.net>
  <049901d8b17d$8869e7e0$80ffa8c0@Win7VM>
@@ -50,15 +48,15 @@ References: <Pine.LNX.4.64.2208112229350.1215855@server2.shellworld.net>
  <003c01d8b258$0bc5acc0$80ffa8c0@Win7VM>
  <Pine.LNX.4.64.2208171501270.1356841@server2.shellworld.net>
  <002201d8b278$f82e4070$80ffa8c0@Win7VM>
- <Pine.LNX.4.64.2208171638110.1359061@server2.she
- llworld.net> <002f01d8b27f$0b75a640$80ffa8c0@Win7VM>
- <Pine.LNX.4.64.2208171721080.1359800@server2.sh ellworld.net >
+ <002f01d8b27f$0b75a640$80ffa8c0@Win7VM>
  <003a01d8b280$1a0da710$80ffa8c0@Win7VM>
  <Pine.LNX.4.64.2208171742060.1360378@server2.shellworld.net>
  <004a01d8b2a6$e6f1ef40$80ffa8c0@Win7VM>
-MIME-Version: 1.0
-X-Content-Filtered-By: Mailman/MimeDel 2.1.29
-Message-ID: <mailman.1848.1660791510.10507.blinux-list@redhat.com>
+ <mailman.1848.1660791510.10507.blinux-list@redhat.com>
+Date: Wed, 17 Aug 2022 20:51:59 -0700
+Subject: Re: "Accessibility in Fedora Workstation" (fwd)
+To: blinux-list@redhat.com
+Message-ID: <mailman.1847.1660794724.10504.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -72,735 +70,481 @@ List-Help: <mailto:blinux-list-request@redhat.com?subject=help>
 List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
  <mailto:blinux-list-request@redhat.com?subject=subscribe>
 Reply-To: blinux-list@redhat.com
-Cc: Milan Zamazal <pdm@zamazal.org>, "John G. Heim" <jheim@wisc.edu>,
- speakup@linux-speakup.org, Butch Bussen <butchb@shellworld.net>,
- Blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Glen,
-I have no reason to  follow up on anything.  The role of a commission, and=
-=20
-the duty of a rehab system employee are  two different things.
-that you state you work for a  nfb philosophy rehab office speaks volumes=
-=20
-for your integrity.
-clearly your staff simply tell this commission what they want to hear, or=
-=20
-they exist in name only.
-nothing changes your description of your state.
-
-
-
-On Wed, 17 Aug 2022, K0LNY_Glenn wrote:
-
-> I knew you wouldn't follow up on it, they would just laugh at you.
-> Glenn
-> ----- Original Message -----
-> From: "Karen Lewellen" <klewellen@shellworld.net>
-> To: "K0LNY_Glenn" <glenn@ervin.email>
-> Cc: "Butch Bussen" <butchb@shellworld.net>; "John G. Heim" <jheim@wisc.ed=
-u>;
-> <speakup@linux-speakup.org>; "Milan Zamazal" <pdm@zamazal.org>;
-> <Blinux-list@redhat.com>
-> Sent: Wednesday, August 17, 2022 4:48 PM
-> Subject: Re: "Accessibility in Fedora Workstation" (fwd)
->
->
-> Glen,
-> why would I bother?
-> your own words as a seasoned employee speak for themselves.
-> Nebraska is an NFB philosophy state.
-> Were you  here in Ontario, that  could be a human rights violation, since
-> here the code establishes that claiming everyone sharing a label
-> accommodates the same is a violation of the individual's human rights.
-> No wonder the state of new York supported my professional move, if rehab
-> systems like yours are Nfb puppets.
-> The commission is not the individual rehab staffer, who  states he makes
-> decisions using a NFB dictionary.
->
->
->
-> On Wed, 17 Aug 2022, K0LNY_Glenn wrote:
->
->> Karen,
->> Start out at the web site for
->> Nebraska Commission for the Blind.
->> There are links to communicate with all the board members, who are
->> appointed
->> by the governor.
->> Glenn
->> ----- Original Message -----
->> From: "Karen Lewellen" <klewellen@shellworld.net>
->> To: "K0LNY_Glenn" <glenn@ervin.email>
->> Cc: "Butch Bussen" <butchb@shellworld.net>; "John G. Heim"
->> <jheim@wisc.edu>;
->> <speakup@linux-speakup.org>; "Milan Zamazal" <pdm@zamazal.org>;
->> <Blinux-list@redhat.com>
->> Sent: Wednesday, August 17, 2022 4:24 PM
->> Subject: Re: "Accessibility in Fedora Workstation" (fwd)
->>
->>
->> Do what?
->> where I am it is actually a violation of vendor contract to tell someone
->> they must use a certain tool.
->> give them the chance in an office to try several things yes.
->> Force jaws down their throat like rehab does no.
->> I said I wished I knew someone in Nebraska media not that I did...althou=
-gh
->> perhaps.
->>
->>
->>
->> On Wed, 17 Aug 2022, K0LNY_Glenn wrote:
->>
->>> Please do.
->>>
->>> ----- Original Message -----
->>> From: "Karen Lewellen" <klewellen@shellworld.net>
->>> To: "K0LNY_Glenn" <glenn@ervin.email>
->>> Cc: "Butch Bussen" <butchb@shellworld.net>; "John G. Heim"
->>> <jheim@wisc.edu>;
->>> <speakup@linux-speakup.org>; "Milan Zamazal" <pdm@zamazal.org>;
->>> <Blinux-list@redhat.com>
->>> Sent: Wednesday, August 17, 2022 3:46 PM
->>> Subject: Re: "Accessibility in Fedora Workstation" (fwd)
->>>
->>>
->>> Glen,
->>> you are missing the point.
->>> A commission board, at least if constructed  with integrity serves as a
->>> watchdog for your organization's activities.
->>> Making sure that you act, objectively, and above influence with
->>> government
->>> funding.
->>> That role differs from a public servant, like yourself.
->>> In fact that the commission  has members from both organizations is
->>> exactly why you should not be a member.
->>> if, as you said, the state has an Nfb philosophy, I wonder  just how
->>> above
->>> influence  that commission actually is, lip service attendance does not
->>> translate  to the statement you freely made.
->>> Honestly, i wish I knew someone with Nebraska public radio.  there is a
->>> investigative, data journalism piece right here, exploring how objectiv=
-e
->>> your  office is in fact.
->>>
->>>
->>>
->>> On Wed, 17 Aug 2022, K0LNY_Glenn wrote:
->>>
->>>> Karen,
->>>> In Nebraska, the commission board attends both consumer groups' state
->>>> conventions.
->>>> So there is total transparency within the consumer groups.
->>>> The agency sends clients to both conventions for educational purposes.
->>>> Some can go to either national convention on the state.
->>>> Glenn
->>>> ----- Original Message -----
->>>> From: "Karen Lewellen" <klewellen@shellworld.net>
->>>> To: "K0LNY_Glenn" <glenn@ervin.email>
->>>> Cc: "Butch Bussen" <butchb@shellworld.net>; "John G. Heim"
->>>> <jheim@wisc.edu>;
->>>> <speakup@linux-speakup.org>; "Milan Zamazal" <pdm@zamazal.org>;
->>>> <Blinux-list@redhat.com>
->>>> Sent: Wednesday, August 17, 2022 2:06 PM
->>>> Subject: Re: "Accessibility in Fedora Workstation" (fwd)
->>>>
->>>>
->>>> wrong.
->>>> Your first duty is to those clients  You serve.  as illustrated here t=
-he
->>>> Nfb
->>>> used their ability to reach insiders to influence policy to the
->>>> detriment
->>>> of the broader community...same can clearly be said for freedom
->>>> scientific.
->>>> That you stated clearly that your  rehab system runs on an nfb
->>>> philosophy
->>>> illustrates my point perfectly.
->>>> There are countless legal terms for  such conflicts of interest, I dar=
-e
->>>> say if you were serving any other clientele your government watchdog
->>>> would
->>>> put  a stop  to the practice.
->>>> allows the organization to have undue almost antitrust influence on
->>>> people's lives.
->>>>
->>>>
->>>>
->>>> On Wed, 17 Aug 2022, K0LNY_Glenn wrote:
->>>>
->>>>> I don't think so, we are people first, and being a government employe=
-e
->>>>> should not preclude personal rights.
->>>>> Besides, I attended the conventions for CEU credits, but I never join=
-ed
->>>>> with
->>>>> dues.
->>>>> Glenn
->>>>> ----- Original Message -----
->>>>> From: "Karen Lewellen" <klewellen@shellworld.net>
->>>>> To: "K0LNY_Glenn" <glenn@ervin.email>
->>>>> Cc: "Butch Bussen" <butchb@shellworld.net>; "John G. Heim"
->>>>> <jheim@wisc.edu>;
->>>>> <speakup@linux-speakup.org>; "Milan Zamazal" <pdm@zamazal.org>;
->>>>> <Blinux-list@redhat.com>
->>>>> Sent: Wednesday, August 17, 2022 11:36 AM
->>>>> Subject: Re: "Accessibility in Fedora Workstation" (fwd)
->>>>>
->>>>>
->>>>> speaking personally?
->>>>> No government employee should be a member of the NfB.   ethical
->>>>> conflict
->>>>> of interest personified.
->>>>>
->>>>> Karen
->>>>>
->>>>>
->>>>> On Wed, 17 Aug 2022, K0LNY_Glenn wrote:
->>>>>
->>>>>> Yeah, I had been to a state NFBN convention that year and did the PA=
-C
->>>>>> thing.
->>>>>> Then when the NFB did that, I called up the state treasurer for the
->>>>>> NFBN
->>>>>> and
->>>>>> cancelled my PAC plan.
->>>>>> I told them that they don't care if I can read my money, then they
->>>>>> don't
->>>>>> need any from me.
->>>>>> Glenn
->>>>>> ----- Original Message -----
->>>>>> From: "Karen Lewellen" <klewellen@shellworld.net>
->>>>>> To: "Butch Bussen" <butchb@shellworld.net>
->>>>>> Cc: "John G. Heim" <jheim@wisc.edu>; "K0LNY_Glenn"
->>>>>> <glenn@ervin.email>;
->>>>>> <speakup@linux-speakup.org>; "Milan Zamazal" <pdm@zamazal.org>;
->>>>>> <Blinux-list@redhat.com>
->>>>>> Sent: Wednesday, August 17, 2022 11:18 AM
->>>>>> Subject: Re: "Accessibility in Fedora Workstation" (fwd)
->>>>>>
->>>>>>
->>>>>> My personal favorite is the rejection of money that could be
->>>>>> identified
->>>>>> by touch.  never mind that for honestly thousands of years the
->>>>>> practice
->>>>>> has
->>>>>> been common so those with limited education could still engage in
->>>>>> commerce.
->>>>>>
->>>>>>
->>>>>>
->>>>>> On Wed, 17 Aug 2022, Butch Bussen wrote:
->>>>>>
->>>>>>> Yes, I remember that.  And what about their oposition to descriptiv=
-e
->>>>>>> video,
->>>>>>> even filed a law sute to get the law thrown out, which it was at th=
-at
->>>>>>> time.
->>>>>>> 73
->>>>>>> Butch
->>>>>>> WA0VJR
->>>>>>> Node 3148
->>>>>>> Wallace, ks.
->>>>>>>
->>>>>>>
->>>>>>> On Tue, 16 Aug 2022, John G. Heim wrote:
->>>>>>>
->>>>>>>>  Holy cow! Are you aware that the NFB once asked Microsoft to *NOT=
-*
->>>>>>>> improve
->>>>>>>>  Narrator to the point where it would compete with Jaws? If you
->>>>>>>> think
->>>>>>>> the
->>>>>>>>  NFB is incapable of forcing choices on people, you are very sadly
->>>>>>>>  mistaken.
->>>>>>>>
->>>>>>>>
->>>>>>>>
->>>>>>>>  On 8/16/22 09:36, K0LNY_Glenn wrote:
->>>>>>>>>   This sort of thing would never happen in Nebraska, or any state
->>>>>>>>> where
->>>>>>>>>   the
->>>>>>>>>   agency staff is of the NFB philosophy.
->>>>>>>>>   Say what you want about the NFB, no organization is without its
->>>>>>>>>   problems,
->>>>>>>>>   but it is the core philosophy that formed the NFB that knows th=
-at
->>>>>>>>>   society
->>>>>>>>>   has low expectations of the Blind, and this is why the NFB
->>>>>>>>> believes
->>>>>>>>> in
->>>>>>>>>   skills and high expectations.
->>>>>>>>>   And with that, comes giving respect to the Blind, like the
->>>>>>>>> respect
->>>>>>>>> of
->>>>>>>>>   choice.
->>>>>>>>>   Yeah I know about the information of recent about NFB abuse, bu=
-t
->>>>>>>>> this
->>>>>>>>>   is
->>>>>>>>>   organizational issues, unrelated to the philosophy.  In fact, t=
-he
->>>>>>>>> fact
->>>>>>>>>   that
->>>>>>>>>   it has come up demonstrates that the NFB is no different than a=
-ny
->>>>>>>>> other
->>>>>>>>>   organization in interpersonal staff issues.
->>>>>>>>>   And choice does not mean training center choices.
->>>>>>>>>   Choice isn't always an option, just like if you took a vocation=
-al
->>>>>>>>>   course
->>>>>>>>>   in
->>>>>>>>>   college, there are things you have to take, so to me, the lack =
-of
->>>>>>>>>   choice
->>>>>>>>>   in
->>>>>>>>>   this regard is different than computer software, where all the
->>>>>>>>> choices
->>>>>>>>>   will
->>>>>>>>>   reach the same end result.
->>>>>>>>>   In states where the NFB philosophy is embraced, if a client sai=
-d
->>>>>>>>> I
->>>>>>>>> want
->>>>>>>>>   to
->>>>>>>>>   use a Mac, or I want Window Eyes, then that is what they would
->>>>>>>>> get,
->>>>>>>>> no
->>>>>>>>>   questions asked.
->>>>>>>>>   They would not have to fight to get it.
->>>>>>>>>   I simply cannot imagine a counselor saying that someone has to
->>>>>>>>> use
->>>>>>>>> the
->>>>>>>>>   software that the counselor wants them to have.
->>>>>>>>>   When I hear that stuff, I almost cannot believe it, but I know
->>>>>>>>> Butch
->>>>>>>>>   well
->>>>>>>>>   enough to know he wouldn't make that up.
->>>>>>>>>
->>>>>>>>>   Glenn
->>>>>>>>>   ----- Original Message -----
->>>>>>>>>   From: "Butch Bussen" <butchb@shellworld.net>
->>>>>>>>>   To: "Karen Lewellen" <klewellen@shellworld.net>
->>>>>>>>>   Cc: "K0LNY_Glenn" <glenn@ervin.email>;
->>>>>>>>> <speakup@linux-speakup.org>;
->>>>>>>>>   "Milan
->>>>>>>>>   Zamazal" <pdm@zamazal.org>; <Blinux-list@redhat.com>
->>>>>>>>>   Sent: Tuesday, August 16, 2022 8:18 AM
->>>>>>>>>   Subject: Re: "Accessibility in Fedora Workstation" (fwd)
->>>>>>>>>
->>>>>>>>>
->>>>>>>>>   You are right.  In Nevada, freedom pushed jaws to the rehab
->>>>>>>>> people
->>>>>>>>> and
->>>>>>>>>   took them out for steak diners and so forth.  I fought like hel=
-l
->>>>>>>>> to
->>>>>>>>> get
->>>>>>>>>   them to buy window-eyes.
->>>>>>>>>   73
->>>>>>>>>   Butch
->>>>>>>>>   WA0VJR
->>>>>>>>>   Node 3148
->>>>>>>>>   Wallace, ks.
->>>>>>>>>
->>>>>>>>>
->>>>>>>>>   On Sun, 14 Aug 2022, Karen Lewellen wrote:
->>>>>>>>>
->>>>>>>>>>   And where do these employers learn about jaws?
->>>>>>>>>>   In fact, provide if you do not mind an example of how  this
->>>>>>>>>> works
->>>>>>>>>>   exactly.
->>>>>>>>>>   after all, unless I am incorrect, these employers are not
->>>>>>>>>> personal
->>>>>>>>>>   Jaws
->>>>>>>>>>   users, meaning someone they trust continues to sell them on an
->>>>>>>>>>   expensive
->>>>>>>>>>   program instead of a largely free one.
->>>>>>>>>>
->>>>>>>>>>
->>>>>>>>>>
->>>>>>>>>>   On Sat, 13 Aug 2022, K0LNY_Glenn wrote:
->>>>>>>>>>
->>>>>>>>>>>     Karen,
->>>>>>>>>>>     Most employers don't want NVDA, and will only allow Jaws.
->>>>>>>>>>>     In Nebraska, if an employer said put on whatever works, the
->>>>>>>>>>>     counselors
->>>>>>>>>>>     will
->>>>>>>>>>>     use NVDA, because of the cost of Jaws.
->>>>>>>>>>>     If some of the clients in a call center already use Jaws, b=
-ut
->>>>>>>>>>>     don't know
->>>>>>>>>>>     NVDA, the counselor will use Jaws, because the other client=
-s
->>>>>>>>>>> will
->>>>>>>>>>>     need
->>>>>>>>>>>   to
->>>>>>>>>>>     learn one of the two.
->>>>>>>>>>>     So it's all choice, but in the workplace, it depends on wha=
-t
->>>>>>>>>>> the
->>>>>>>>>>>   employer
->>>>>>>>>>>     will allow.
->>>>>>>>>>>     Also, sometimes scripts need to be made, and there are more
->>>>>>>>>>> Jaws
->>>>>>>>>>>   scripters
->>>>>>>>>>>     available than there are NVDA add-on writers.
->>>>>>>>>>>     So this perception that Jaws is forced by rehab, from my 31
->>>>>>>>>>> years
->>>>>>>>>>>     in the
->>>>>>>>>>>     business I can say is rubbish.
->>>>>>>>>>>     Now, if a counselor did not know how to use NVDA, and eithe=
-r
->>>>>>>>>>> may
->>>>>>>>>>>     be
->>>>>>>>>>>     chosen,
->>>>>>>>>>>     the rehab counselor is able to select the one that the
->>>>>>>>>>> counselor
->>>>>>>>>>>     feels
->>>>>>>>>>>   is
->>>>>>>>>>>     best for the student and for the counselor's teaching.
->>>>>>>>>>>     When it comes to part B moneys, which is used for
->>>>>>>>>>> non-vocational
->>>>>>>>>>>     purchases,
->>>>>>>>>>>     where a lot of Jaws purchases come from, it is in the
->>>>>>>>>>> agency's
->>>>>>>>>>>     best
->>>>>>>>>>>     interest
->>>>>>>>>>>     to spend as little as possible, because that doesn't come
->>>>>>>>>>> back
->>>>>>>>>>>     like VR
->>>>>>>>>>>     expenditures do.
->>>>>>>>>>>     Glenn
->>>>>>>>>>>
->>>>>>>>>>>     ----- Original Message -----
->>>>>>>>>>>     From: "Karen Lewellen" <klewellen@shellworld.net>
->>>>>>>>>>>     To: "K0LNY_Glenn" <glenn@ervin.email>
->>>>>>>>>>>     Cc: <speakup@linux-speakup.org>; "Milan Zamazal"
->>>>>>>>>>>     <pdm@zamazal.org>;
->>>>>>>>>>>     <Blinux-list@redhat.com>
->>>>>>>>>>>     Sent: Saturday, August 13, 2022 6:15 PM
->>>>>>>>>>>     Subject: Re: "Accessibility in Fedora Workstation" (fwd)
->>>>>>>>>>>
->>>>>>>>>>>
->>>>>>>>>>>     The challenge with that example is that, as one often gets
->>>>>>>>>>>   reminded,
->>>>>>>>>>>   the
->>>>>>>>>>>     rehab systems track record for facilitating  employment for
->>>>>>>>>>> their
->>>>>>>>>>>   clients
->>>>>>>>>>>     is quite poor.
->>>>>>>>>>>     With a high percentage of unemployment among our clients.
->>>>>>>>>>>     Making,
->>>>>>>>>>>     speaking personally, your buying Jaws for personal use not
->>>>>>>>>>> really
->>>>>>>>>>>     reflecting how the system would respond to an alternative
->>>>>>>>>>>     request.
->>>>>>>>>>>     Now if someone from organized rehab said, okay freedom
->>>>>>>>>>>     scientific, we
->>>>>>>>>>>   are
->>>>>>>>>>>     creating an employment program where our clients will train
->>>>>>>>>>> in
->>>>>>>>>>>     Linux,
->>>>>>>>>>>     needing a solid screen reader solution for the system.  We
->>>>>>>>>>> will
->>>>>>>>>>>     give you
->>>>>>>>>>>     an
->>>>>>>>>>>     exclusive development contract for s millions to create the
->>>>>>>>>>> tool.
->>>>>>>>>>>     Fs would likely say where do we sign?
->>>>>>>>>>>
->>>>>>>>>>>
->>>>>>>>>>>
->>>>>>>>>>>     On Sat, 13 Aug 2022, K0LNY_Glenn wrote:
->>>>>>>>>>>
->>>>>>>>>>>>     True enough, but largely, rehab people typically use Windo=
-ws
->>>>>>>>>>>> at
->>>>>>>>>>>>     work,
->>>>>>>>>>>>     and
->>>>>>>>>>>>     probably at home, but they need to cater to the needs of t=
-he
->>>>>>>>>>>>     client.
->>>>>>>>>>>>     If a client used Linux, I doubt that any rehab counselor
->>>>>>>>>>>> would
->>>>>>>>>>>>   advocate
->>>>>>>>>>>>     that
->>>>>>>>>>>>     the client switch to Windows, unless that was needed for a
->>>>>>>>>>>>     specific
->>>>>>>>>>>>   job.
->>>>>>>>>>>>     In Nebraska, we purchased Jaws much more for personal use
->>>>>>>>>>>> than
->>>>>>>>>>>>     we did
->>>>>>>>>>>>     for
->>>>>>>>>>>>     work related situations.
->>>>>>>>>>>>     So if FS made a JFL, and people were using Linux, rehab
->>>>>>>>>>>> would
->>>>>>>>>>>>     indeed
->>>>>>>>>>>>     purchase a JFL product.
->>>>>>>>>>>>     Glenn
->>>>>>>>>>>>     ----- Original Message -----
->>>>>>>>>>>>     From: "Karen Lewellen" <klewellen@shellworld.net>
->>>>>>>>>>>>     To: "K0LNY_Glenn" <glenn@ervin.email>
->>>>>>>>>>>>     Cc: <speakup@linux-speakup.org>; "Milan Zamazal"
->>>>>>>>>>>>     <pdm@zamazal.org>;
->>>>>>>>>>>>     <Blinux-list@redhat.com>
->>>>>>>>>>>>     Sent: Saturday, August 13, 2022 3:01 PM
->>>>>>>>>>>>     Subject: Re: "Accessibility in Fedora Workstation" (fwd)
->>>>>>>>>>>>
->>>>>>>>>>>>
->>>>>>>>>>>>     there was an interesting discussion a month or so back on
->>>>>>>>>>>> the
->>>>>>>>>>>>     blinux
->>>>>>>>>>>>     list
->>>>>>>>>>>>     about how long it took completing tasks in the gui as
->>>>>>>>>>>> apposed
->>>>>>>>>>>>     to say
->>>>>>>>>>>>     command line,  the comments were quite informative.
->>>>>>>>>>>>     Still, fs has never marketed largely to the end user.
->>>>>>>>>>>> Instead
->>>>>>>>>>>>     they
->>>>>>>>>>>>     market
->>>>>>>>>>>>     to the American rehab community.
->>>>>>>>>>>>     how much market research has  the rehab community done to
->>>>>>>>>>>>     support the
->>>>>>>>>>>>     need
->>>>>>>>>>>>     for choices?
->>>>>>>>>>>>     How many rehab counselors support  training in Linux?
->>>>>>>>>>>>     one comment made by the subject of this thread about poor
->>>>>>>>>>>>     quality
->>>>>>>>>>>>   speech
->>>>>>>>>>>>     is a fine one...out of the box Linux has few speech choice=
-s.
->>>>>>>>>>>>     everyone
->>>>>>>>>>>>     brings their needs to the table there.
->>>>>>>>>>>>
->>>>>>>>>>>>     if you want to get fs to care about Linux, you  need to
->>>>>>>>>>>> prove
->>>>>>>>>>>>     there is
->>>>>>>>>>>>     money for  them there, from their main source of income.
->>>>>>>>>>>>
->>>>>>>>>>>>
->>>>>>>>>>>>
->>>>>>>>>>>>     On Sat, 13 Aug 2022, K0LNY_Glenn wrote:
->>>>>>>>>>>>
->>>>>>>>>>>>>     Well since Orca seems to work on so many distros, I don't
->>>>>>>>>>>>>   know why
->>>>>>>>>>>>>   FS
->>>>>>>>>>>>>     would
->>>>>>>>>>>>>     not be able to do the same.
->>>>>>>>>>>>>     If Jaws users could switch into Linux, it would be a real
->>>>>>>>>>>>>     game
->>>>>>>>>>>>>     changer,
->>>>>>>>>>>>>     and
->>>>>>>>>>>>>     I think with lots more Blind Linux users, we would start
->>>>>>>>>>>>>     seeing
->>>>>>>>>>>>>     accessibility in Linux not being a second thought.
->>>>>>>>>>>>>     Glenn
->>>>>>>>>>>>>     ----- Original Message -----
->>>>>>>>>>>>>     From: "Karen Lewellen" <klewellen@shellworld.net>
->>>>>>>>>>>>>     To: "K0LNY_Glenn" <glenn@ervin.email>
->>>>>>>>>>>>>     Cc: <speakup@linux-speakup.org>; "Milan Zamazal"
->>>>>>>>>>>>>     <pdm@zamazal.org>;
->>>>>>>>>>>>>     <Blinux-list@redhat.com>
->>>>>>>>>>>>>     Sent: Saturday, August 13, 2022 1:47 PM
->>>>>>>>>>>>>     Subject: Re: "Accessibility in Fedora Workstation" (fwd)
->>>>>>>>>>>>>
->>>>>>>>>>>>>
->>>>>>>>>>>>>     Well technically freedom scientific does not exist any
->>>>>>>>>>>>>     longer, being
->>>>>>>>>>>>>     bought
->>>>>>>>>>>>>     by another company.
->>>>>>>>>>>>>     Still, I can respect why they, or nvda have not created
->>>>>>>>>>>>> their
->>>>>>>>>>>>>     tools
->>>>>>>>>>>>>     for
->>>>>>>>>>>>>     Linux.
->>>>>>>>>>>>>     That is because as I understand it, Linux is  quite like
->>>>>>>>>>>>>     clay. You
->>>>>>>>>>>>>   can
->>>>>>>>>>>>>     mold a distribution into almost anything. there are vario=
-us
->>>>>>>>>>>>>     personifications of the system, all sorts of ways and
->>>>>>>>>>>>> changes
->>>>>>>>>>>>>     and
->>>>>>>>>>>>>     options
->>>>>>>>>>>>>     for creativity.
->>>>>>>>>>>>>     however adaptive tools are often extensions of physical
->>>>>>>>>>>>>     characteristics,
->>>>>>>>>>>>>     hands, eyes, ears, brains, combinations of these.
->>>>>>>>>>>>>     To build solid assistive tools one must have a solid
->>>>>>>>>>>>>     foundation as
->>>>>>>>>>>>>   it
->>>>>>>>>>>>>     were.  that is part of why there have needed to be so few
->>>>>>>>>>>>>     Apple
->>>>>>>>>>>>>     efforts
->>>>>>>>>>>>>     at
->>>>>>>>>>>>>     inclusion, they  created  with, and then created in-house
->>>>>>>>>>>>>     adaptive
->>>>>>>>>>>>>     tools
->>>>>>>>>>>>>     for various  populations that were built into the system.
->>>>>>>>>>>>>     Although Microsoft did not bother until much later, in
->>>>>>>>>>>>> theory
->>>>>>>>>>>>>     at
->>>>>>>>>>>>>     least,
->>>>>>>>>>>>>     the
->>>>>>>>>>>>>     consistency of windows is what makes it possible for
->>>>>>>>>>>>> freedom
->>>>>>>>>>>>>     or the
->>>>>>>>>>>>>     former
->>>>>>>>>>>>>     gw  micro or nvda to create something that can in theory
->>>>>>>>>>>>>     work.
->>>>>>>>>>>>>     Floor for the furniture is somewhat solid.
->>>>>>>>>>>>>     Just my thoughts,
->>>>>>>>>>>>>
->>>>>>>>>>>>>
->>>>>>>>>>>>>
->>>>>>>>>>>>>     On Sat, 13 Aug 2022, K0LNY_Glenn wrote:
->>>>>>>>>>>>>
->>>>>>>>>>>>>>     I would like to see Freedom Scientific make a Jaws For
->>>>>>>>>>>>>>     Linux.
->>>>>>>>>>>>>>     JFL
->>>>>>>>>>>>>>     I'd certainly pay the yearly rental fee for it, and it
->>>>>>>>>>>>>>     would bring
->>>>>>>>>>>>>>     many
->>>>>>>>>>>>>>     more
->>>>>>>>>>>>>>     users into Linux.
->>>>>>>>>>>>>>     FS could, with its resources, possibly make it more
->>>>>>>>>>>>>> robust
->>>>>>>>>>>>>>     than
->>>>>>>>>>>>>>     Orca.
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>     Glenn
->>>>>>>>>>>>>>     ----- Original Message -----
->>>>>>>>>>>>>>     From: "Milan Zamazal" <pdm@zamazal.org>
->>>>>>>>>>>>>>     To: <speakup@linux-speakup.org>
->>>>>>>>>>>>>>     Cc: <Blinux-list@redhat.com>
->>>>>>>>>>>>>>     Sent: Saturday, August 13, 2022 12:08 PM
->>>>>>>>>>>>>>     Subject: Re: "Accessibility in Fedora Workstation" (fwd)
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>>>>>>     "KL" =3D=3D Karen Lewellen
->>>>>>>>>>>>>>>>>>> <klewellen@shellworld.net>
->>>>>>>>>>>>>>>>>>>   writes:
->>>>>>>>>>>>>>   KL>  What bothers me most are his lack of actual
->>>>>>>>>>>>>>   qualifications,
->>>>>>>>>>>>>>   and
->>>>>>>>>>>>>> KL>    absolute dismissal of what he has not experienced..as
->>>>>>>>>>>>>> if
->>>>>>>>>>>>>> KL>    he
->>>>>>>>>>>>>> KL>    defines Linux usage for everyone.  That attitude is
->>>>>>>>>>>>>> KL>    dangerous,
->>>>>>>>>>>>>> KL>    because he is educating those outside of the
->>>>>>>>>>>>>> KL>    accessibility
->>>>>>>>>>>>>> KL>    experiences, who will believe his ignorance is
->>>>>>>>>>>>>> factual.
->>>>>>>>>>>>>> KL>    he
->>>>>>>>>>>>>>   has
->>>>>>>>>>>>>>   KL>  to be expert, it is his job.
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>     Hi Karen,
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>     I know Lukas personally and I admire his skills and
->>>>>>>>>>>>>>   qualifications.
->>>>>>>>>>>>>>     I
->>>>>>>>>>>>>>     also know first hand that he is open to constructive
->>>>>>>>>>>>>>     feedback and
->>>>>>>>>>>>>>   I
->>>>>>>>>>>>>>     believe he=C3=A2?Td be happy to be corrected about possi=
-ble
->>>>>>>>>>>>>>     technical
->>>>>>>>>>>>>>     inaccuracies in the interview.  It may be also a good
->>>>>>>>>>>>>>     opportunity
->>>>>>>>>>>>>>   to
->>>>>>>>>>>>>>     find out what=C3=A2?Ts possibly missing in making anybod=
-y
->>>>>>>>>>>>>>     better
->>>>>>>>>>>>>>     informed.
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>     As for =C3=A2?oabsolute dismissal of what he has not
->>>>>>>>>>>>>>   experienced=C3=A2?=C2?,
->>>>>>>>>>>>>>   what
->>>>>>>>>>>>>>     reasonable free software alternatives to a less or more
->>>>>>>>>>>>>>     standard
->>>>>>>>>>>>>>     desktop
->>>>>>>>>>>>>>     with Orca and a software synthesizer can you see for a
->>>>>>>>>>>>>>     common
->>>>>>>>>>>>>>   blind
->>>>>>>>>>>>>>     user
->>>>>>>>>>>>>>     who needs to use a fully working web browser, to read an=
-d
->>>>>>>>>>>>>>     process
->>>>>>>>>>>>>>     text
->>>>>>>>>>>>>>     documents, to be compatible with other computer users,
->>>>>>>>>>>>>>     etc.?
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>     And let=C3=A2?Ts be realistic.  We celebrate every singl=
-e
->>>>>>>>>>>>>>   developer
->>>>>>>>>>>>>>   hired
->>>>>>>>>>>>>>     to
->>>>>>>>>>>>>>     improve accessibility.  This tells something about the
->>>>>>>>>>>>>>     state of
->>>>>>>>>>>>>>   the
->>>>>>>>>>>>>>     matters.  We cannot expect that a single person will fix
->>>>>>>>>>>>>>     all the
->>>>>>>>>>>>>>     kinds
->>>>>>>>>>>>>>     of accessibility problems in all the environments.  Luka=
-s
->>>>>>>>>>>>>>     works at
->>>>>>>>>>>>>>     his
->>>>>>>>>>>>>>     job focusing on certain areas currently seen there as
->>>>>>>>>>>>>>     urgent ones
->>>>>>>>>>>>>>     and I
->>>>>>>>>>>>>>     appreciate this opportunity.  Anybody else seeing a need
->>>>>>>>>>>>>> to
->>>>>>>>>>>>>>     work
->>>>>>>>>>>>>>   on
->>>>>>>>>>>>>>     other areas is welcome to contribute to whatever sees
->>>>>>>>>>>>>> fit,
->>>>>>>>>>>>>>   as I
->>>>>>>>>>>>>>   do.
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>     Regards,
->>>>>>>>>>>>>>     Milan
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>
->>>>>>>>>>>>>>
->>>>>>>>>>>>>
->>>>>>>>>>>>
->>>>>>>>>>>
->>>>>>>>>
->>>>>>>>
->>>>>>>>
->>>>>>>>
->>>>>>>
->>>>>>
->>>>>>
->>>>>
->>>>>
->>>>>
->>>>
->>>>
->>>
->>>
->>
->>
->>
->
->
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+TWlnaHQgSSBhc2sgd2hhdCB0aGUgZmlyZXRydWNrIHRoaXMgaGFzIHRvIGRvIHcvTGludXggYWNj
+ZXNzaWJpbGl0eSwgJgp3aHkgdGhpcyBicmFuY2ggb2YgdGhlIGRpc2N1c3Npb24gaXMgYWxsb3dl
+ZCB0byBwZXJzaXN0LCBleGNlcHQsIG9mCmNvdXJzZSwgZm9yIHRoZSBmYWN0IHRoZXJlJ3Mgbm8g
+bW9kZXJhdG9yLgoKQ29tZSBvbiwgeWFsbC0tdGhpcyBpcyBub3JtYWxseSBhIHByb2R1Y3RpdmUg
+bGlzdC0taXQncyBub3cgbm90aGluZwptb3JlIHRoYW4gYSBkdW1wc3RlciBmaXJlLiBDYW4geWFs
+bCAqcGxlYXNlKiBRVUlUIQoKT24gOC8xNy8yMiwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlz
+Y3Vzc2lvbiA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gd3JvdGU6Cj4gR2xlbiwKPiBJIGhhdmUg
+bm8gcmVhc29uIHRvICBmb2xsb3cgdXAgb24gYW55dGhpbmcuICBUaGUgcm9sZSBvZiBhIGNvbW1p
+c3Npb24sIGFuZAo+IHRoZSBkdXR5IG9mIGEgcmVoYWIgc3lzdGVtIGVtcGxveWVlIGFyZSAgdHdv
+IGRpZmZlcmVudCB0aGluZ3MuCj4gdGhhdCB5b3Ugc3RhdGUgeW91IHdvcmsgZm9yIGEgIG5mYiBw
+aGlsb3NvcGh5IHJlaGFiIG9mZmljZSBzcGVha3Mgdm9sdW1lcwo+IGZvciB5b3VyIGludGVncml0
+eS4KPiBjbGVhcmx5IHlvdXIgc3RhZmYgc2ltcGx5IHRlbGwgdGhpcyBjb21taXNzaW9uIHdoYXQg
+dGhleSB3YW50IHRvIGhlYXIsIG9yCj4gdGhleSBleGlzdCBpbiBuYW1lIG9ubHkuCj4gbm90aGlu
+ZyBjaGFuZ2VzIHlvdXIgZGVzY3JpcHRpb24gb2YgeW91ciBzdGF0ZS4KPgo+Cj4KPiBPbiBXZWQs
+IDE3IEF1ZyAyMDIyLCBLMExOWV9HbGVubiB3cm90ZToKPgo+PiBJIGtuZXcgeW91IHdvdWxkbid0
+IGZvbGxvdyB1cCBvbiBpdCwgdGhleSB3b3VsZCBqdXN0IGxhdWdoIGF0IHlvdS4KPj4gR2xlbm4K
+Pj4gLS0tLS0gT3JpZ2luYWwgTWVzc2FnZSAtLS0tLQo+PiBGcm9tOiAiS2FyZW4gTGV3ZWxsZW4i
+IDxrbGV3ZWxsZW5Ac2hlbGx3b3JsZC5uZXQ+Cj4+IFRvOiAiSzBMTllfR2xlbm4iIDxnbGVubkBl
+cnZpbi5lbWFpbD4KPj4gQ2M6ICJCdXRjaCBCdXNzZW4iIDxidXRjaGJAc2hlbGx3b3JsZC5uZXQ+
+OyAiSm9obiBHLiBIZWltIgo+PiA8amhlaW1Ad2lzYy5lZHU+Owo+PiA8c3BlYWt1cEBsaW51eC1z
+cGVha3VwLm9yZz47ICJNaWxhbiBaYW1hemFsIiA8cGRtQHphbWF6YWwub3JnPjsKPj4gPEJsaW51
+eC1saXN0QHJlZGhhdC5jb20+Cj4+IFNlbnQ6IFdlZG5lc2RheSwgQXVndXN0IDE3LCAyMDIyIDQ6
+NDggUE0KPj4gU3ViamVjdDogUmU6ICJBY2Nlc3NpYmlsaXR5IGluIEZlZG9yYSBXb3Jrc3RhdGlv
+biIgKGZ3ZCkKPj4KPj4KPj4gR2xlbiwKPj4gd2h5IHdvdWxkIEkgYm90aGVyPwo+PiB5b3VyIG93
+biB3b3JkcyBhcyBhIHNlYXNvbmVkIGVtcGxveWVlIHNwZWFrIGZvciB0aGVtc2VsdmVzLgo+PiBO
+ZWJyYXNrYSBpcyBhbiBORkIgcGhpbG9zb3BoeSBzdGF0ZS4KPj4gV2VyZSB5b3UgIGhlcmUgaW4g
+T250YXJpbywgdGhhdCAgY291bGQgYmUgYSBodW1hbiByaWdodHMgdmlvbGF0aW9uLCBzaW5jZQo+
+PiBoZXJlIHRoZSBjb2RlIGVzdGFibGlzaGVzIHRoYXQgY2xhaW1pbmcgZXZlcnlvbmUgc2hhcmlu
+ZyBhIGxhYmVsCj4+IGFjY29tbW9kYXRlcyB0aGUgc2FtZSBpcyBhIHZpb2xhdGlvbiBvZiB0aGUg
+aW5kaXZpZHVhbCdzIGh1bWFuIHJpZ2h0cy4KPj4gTm8gd29uZGVyIHRoZSBzdGF0ZSBvZiBuZXcg
+WW9yayBzdXBwb3J0ZWQgbXkgcHJvZmVzc2lvbmFsIG1vdmUsIGlmIHJlaGFiCj4+IHN5c3RlbXMg
+bGlrZSB5b3VycyBhcmUgTmZiIHB1cHBldHMuCj4+IFRoZSBjb21taXNzaW9uIGlzIG5vdCB0aGUg
+aW5kaXZpZHVhbCByZWhhYiBzdGFmZmVyLCB3aG8gIHN0YXRlcyBoZSBtYWtlcwo+PiBkZWNpc2lv
+bnMgdXNpbmcgYSBORkIgZGljdGlvbmFyeS4KPj4KPj4KPj4KPj4gT24gV2VkLCAxNyBBdWcgMjAy
+MiwgSzBMTllfR2xlbm4gd3JvdGU6Cj4+Cj4+PiBLYXJlbiwKPj4+IFN0YXJ0IG91dCBhdCB0aGUg
+d2ViIHNpdGUgZm9yCj4+PiBOZWJyYXNrYSBDb21taXNzaW9uIGZvciB0aGUgQmxpbmQuCj4+PiBU
+aGVyZSBhcmUgbGlua3MgdG8gY29tbXVuaWNhdGUgd2l0aCBhbGwgdGhlIGJvYXJkIG1lbWJlcnMs
+IHdobyBhcmUKPj4+IGFwcG9pbnRlZAo+Pj4gYnkgdGhlIGdvdmVybm9yLgo+Pj4gR2xlbm4KPj4+
+IC0tLS0tIE9yaWdpbmFsIE1lc3NhZ2UgLS0tLS0KPj4+IEZyb206ICJLYXJlbiBMZXdlbGxlbiIg
+PGtsZXdlbGxlbkBzaGVsbHdvcmxkLm5ldD4KPj4+IFRvOiAiSzBMTllfR2xlbm4iIDxnbGVubkBl
+cnZpbi5lbWFpbD4KPj4+IENjOiAiQnV0Y2ggQnVzc2VuIiA8YnV0Y2hiQHNoZWxsd29ybGQubmV0
+PjsgIkpvaG4gRy4gSGVpbSIKPj4+IDxqaGVpbUB3aXNjLmVkdT47Cj4+PiA8c3BlYWt1cEBsaW51
+eC1zcGVha3VwLm9yZz47ICJNaWxhbiBaYW1hemFsIiA8cGRtQHphbWF6YWwub3JnPjsKPj4+IDxC
+bGludXgtbGlzdEByZWRoYXQuY29tPgo+Pj4gU2VudDogV2VkbmVzZGF5LCBBdWd1c3QgMTcsIDIw
+MjIgNDoyNCBQTQo+Pj4gU3ViamVjdDogUmU6ICJBY2Nlc3NpYmlsaXR5IGluIEZlZG9yYSBXb3Jr
+c3RhdGlvbiIgKGZ3ZCkKPj4+Cj4+Pgo+Pj4gRG8gd2hhdD8KPj4+IHdoZXJlIEkgYW0gaXQgaXMg
+YWN0dWFsbHkgYSB2aW9sYXRpb24gb2YgdmVuZG9yIGNvbnRyYWN0IHRvIHRlbGwgc29tZW9uZQo+
+Pj4gdGhleSBtdXN0IHVzZSBhIGNlcnRhaW4gdG9vbC4KPj4+IGdpdmUgdGhlbSB0aGUgY2hhbmNl
+IGluIGFuIG9mZmljZSB0byB0cnkgc2V2ZXJhbCB0aGluZ3MgeWVzLgo+Pj4gRm9yY2UgamF3cyBk
+b3duIHRoZWlyIHRocm9hdCBsaWtlIHJlaGFiIGRvZXMgbm8uCj4+PiBJIHNhaWQgSSB3aXNoZWQg
+SSBrbmV3IHNvbWVvbmUgaW4gTmVicmFza2EgbWVkaWEgbm90IHRoYXQgSQo+Pj4gZGlkLi4uYWx0
+aG91Z2gKPj4+IHBlcmhhcHMuCj4+Pgo+Pj4KPj4+Cj4+PiBPbiBXZWQsIDE3IEF1ZyAyMDIyLCBL
+MExOWV9HbGVubiB3cm90ZToKPj4+Cj4+Pj4gUGxlYXNlIGRvLgo+Pj4+Cj4+Pj4gLS0tLS0gT3Jp
+Z2luYWwgTWVzc2FnZSAtLS0tLQo+Pj4+IEZyb206ICJLYXJlbiBMZXdlbGxlbiIgPGtsZXdlbGxl
+bkBzaGVsbHdvcmxkLm5ldD4KPj4+PiBUbzogIkswTE5ZX0dsZW5uIiA8Z2xlbm5AZXJ2aW4uZW1h
+aWw+Cj4+Pj4gQ2M6ICJCdXRjaCBCdXNzZW4iIDxidXRjaGJAc2hlbGx3b3JsZC5uZXQ+OyAiSm9o
+biBHLiBIZWltIgo+Pj4+IDxqaGVpbUB3aXNjLmVkdT47Cj4+Pj4gPHNwZWFrdXBAbGludXgtc3Bl
+YWt1cC5vcmc+OyAiTWlsYW4gWmFtYXphbCIgPHBkbUB6YW1hemFsLm9yZz47Cj4+Pj4gPEJsaW51
+eC1saXN0QHJlZGhhdC5jb20+Cj4+Pj4gU2VudDogV2VkbmVzZGF5LCBBdWd1c3QgMTcsIDIwMjIg
+Mzo0NiBQTQo+Pj4+IFN1YmplY3Q6IFJlOiAiQWNjZXNzaWJpbGl0eSBpbiBGZWRvcmEgV29ya3N0
+YXRpb24iIChmd2QpCj4+Pj4KPj4+Pgo+Pj4+IEdsZW4sCj4+Pj4geW91IGFyZSBtaXNzaW5nIHRo
+ZSBwb2ludC4KPj4+PiBBIGNvbW1pc3Npb24gYm9hcmQsIGF0IGxlYXN0IGlmIGNvbnN0cnVjdGVk
+ICB3aXRoIGludGVncml0eSBzZXJ2ZXMgYXMgYQo+Pj4+IHdhdGNoZG9nIGZvciB5b3VyIG9yZ2Fu
+aXphdGlvbidzIGFjdGl2aXRpZXMuCj4+Pj4gTWFraW5nIHN1cmUgdGhhdCB5b3UgYWN0LCBvYmpl
+Y3RpdmVseSwgYW5kIGFib3ZlIGluZmx1ZW5jZSB3aXRoCj4+Pj4gZ292ZXJubWVudAo+Pj4+IGZ1
+bmRpbmcuCj4+Pj4gVGhhdCByb2xlIGRpZmZlcnMgZnJvbSBhIHB1YmxpYyBzZXJ2YW50LCBsaWtl
+IHlvdXJzZWxmLgo+Pj4+IEluIGZhY3QgdGhhdCB0aGUgY29tbWlzc2lvbiAgaGFzIG1lbWJlcnMg
+ZnJvbSBib3RoIG9yZ2FuaXphdGlvbnMgaXMKPj4+PiBleGFjdGx5IHdoeSB5b3Ugc2hvdWxkIG5v
+dCBiZSBhIG1lbWJlci4KPj4+PiBpZiwgYXMgeW91IHNhaWQsIHRoZSBzdGF0ZSBoYXMgYW4gTmZi
+IHBoaWxvc29waHksIEkgd29uZGVyICBqdXN0IGhvdwo+Pj4+IGFib3ZlCj4+Pj4gaW5mbHVlbmNl
+ICB0aGF0IGNvbW1pc3Npb24gYWN0dWFsbHkgaXMsIGxpcCBzZXJ2aWNlIGF0dGVuZGFuY2UgZG9l
+cyBub3QKPj4+PiB0cmFuc2xhdGUgIHRvIHRoZSBzdGF0ZW1lbnQgeW91IGZyZWVseSBtYWRlLgo+
+Pj4+IEhvbmVzdGx5LCBpIHdpc2ggSSBrbmV3IHNvbWVvbmUgd2l0aCBOZWJyYXNrYSBwdWJsaWMg
+cmFkaW8uICB0aGVyZSBpcyBhCj4+Pj4gaW52ZXN0aWdhdGl2ZSwgZGF0YSBqb3VybmFsaXNtIHBp
+ZWNlIHJpZ2h0IGhlcmUsIGV4cGxvcmluZyBob3cKPj4+PiBvYmplY3RpdmUKPj4+PiB5b3VyICBv
+ZmZpY2UgaXMgaW4gZmFjdC4KPj4+Pgo+Pj4+Cj4+Pj4KPj4+PiBPbiBXZWQsIDE3IEF1ZyAyMDIy
+LCBLMExOWV9HbGVubiB3cm90ZToKPj4+Pgo+Pj4+PiBLYXJlbiwKPj4+Pj4gSW4gTmVicmFza2Es
+IHRoZSBjb21taXNzaW9uIGJvYXJkIGF0dGVuZHMgYm90aCBjb25zdW1lciBncm91cHMnIHN0YXRl
+Cj4+Pj4+IGNvbnZlbnRpb25zLgo+Pj4+PiBTbyB0aGVyZSBpcyB0b3RhbCB0cmFuc3BhcmVuY3kg
+d2l0aGluIHRoZSBjb25zdW1lciBncm91cHMuCj4+Pj4+IFRoZSBhZ2VuY3kgc2VuZHMgY2xpZW50
+cyB0byBib3RoIGNvbnZlbnRpb25zIGZvciBlZHVjYXRpb25hbCBwdXJwb3Nlcy4KPj4+Pj4gU29t
+ZSBjYW4gZ28gdG8gZWl0aGVyIG5hdGlvbmFsIGNvbnZlbnRpb24gb24gdGhlIHN0YXRlLgo+Pj4+
+PiBHbGVubgo+Pj4+PiAtLS0tLSBPcmlnaW5hbCBNZXNzYWdlIC0tLS0tCj4+Pj4+IEZyb206ICJL
+YXJlbiBMZXdlbGxlbiIgPGtsZXdlbGxlbkBzaGVsbHdvcmxkLm5ldD4KPj4+Pj4gVG86ICJLMExO
+WV9HbGVubiIgPGdsZW5uQGVydmluLmVtYWlsPgo+Pj4+PiBDYzogIkJ1dGNoIEJ1c3NlbiIgPGJ1
+dGNoYkBzaGVsbHdvcmxkLm5ldD47ICJKb2huIEcuIEhlaW0iCj4+Pj4+IDxqaGVpbUB3aXNjLmVk
+dT47Cj4+Pj4+IDxzcGVha3VwQGxpbnV4LXNwZWFrdXAub3JnPjsgIk1pbGFuIFphbWF6YWwiIDxw
+ZG1AemFtYXphbC5vcmc+Owo+Pj4+PiA8QmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4KPj4+Pj4gU2Vu
+dDogV2VkbmVzZGF5LCBBdWd1c3QgMTcsIDIwMjIgMjowNiBQTQo+Pj4+PiBTdWJqZWN0OiBSZTog
+IkFjY2Vzc2liaWxpdHkgaW4gRmVkb3JhIFdvcmtzdGF0aW9uIiAoZndkKQo+Pj4+Pgo+Pj4+Pgo+
+Pj4+PiB3cm9uZy4KPj4+Pj4gWW91ciBmaXJzdCBkdXR5IGlzIHRvIHRob3NlIGNsaWVudHMgIFlv
+dSBzZXJ2ZS4gIGFzIGlsbHVzdHJhdGVkIGhlcmUKPj4+Pj4gdGhlCj4+Pj4+IE5mYgo+Pj4+PiB1
+c2VkIHRoZWlyIGFiaWxpdHkgdG8gcmVhY2ggaW5zaWRlcnMgdG8gaW5mbHVlbmNlIHBvbGljeSB0
+byB0aGUKPj4+Pj4gZGV0cmltZW50Cj4+Pj4+IG9mIHRoZSBicm9hZGVyIGNvbW11bml0eS4uLnNh
+bWUgY2FuIGNsZWFybHkgYmUgc2FpZCBmb3IgZnJlZWRvbQo+Pj4+PiBzY2llbnRpZmljLgo+Pj4+
+PiBUaGF0IHlvdSBzdGF0ZWQgY2xlYXJseSB0aGF0IHlvdXIgIHJlaGFiIHN5c3RlbSBydW5zIG9u
+IGFuIG5mYgo+Pj4+PiBwaGlsb3NvcGh5Cj4+Pj4+IGlsbHVzdHJhdGVzIG15IHBvaW50IHBlcmZl
+Y3RseS4KPj4+Pj4gVGhlcmUgYXJlIGNvdW50bGVzcyBsZWdhbCB0ZXJtcyBmb3IgIHN1Y2ggY29u
+ZmxpY3RzIG9mIGludGVyZXN0LCBJCj4+Pj4+IGRhcmUKPj4+Pj4gc2F5IGlmIHlvdSB3ZXJlIHNl
+cnZpbmcgYW55IG90aGVyIGNsaWVudGVsZSB5b3VyIGdvdmVybm1lbnQgd2F0Y2hkb2cKPj4+Pj4g
+d291bGQKPj4+Pj4gcHV0ICBhIHN0b3AgIHRvIHRoZSBwcmFjdGljZS4KPj4+Pj4gYWxsb3dzIHRo
+ZSBvcmdhbml6YXRpb24gdG8gaGF2ZSB1bmR1ZSBhbG1vc3QgYW50aXRydXN0IGluZmx1ZW5jZSBv
+bgo+Pj4+PiBwZW9wbGUncyBsaXZlcy4KPj4+Pj4KPj4+Pj4KPj4+Pj4KPj4+Pj4gT24gV2VkLCAx
+NyBBdWcgMjAyMiwgSzBMTllfR2xlbm4gd3JvdGU6Cj4+Pj4+Cj4+Pj4+PiBJIGRvbid0IHRoaW5r
+IHNvLCB3ZSBhcmUgcGVvcGxlIGZpcnN0LCBhbmQgYmVpbmcgYSBnb3Zlcm5tZW50Cj4+Pj4+PiBl
+bXBsb3llZQo+Pj4+Pj4gc2hvdWxkIG5vdCBwcmVjbHVkZSBwZXJzb25hbCByaWdodHMuCj4+Pj4+
+PiBCZXNpZGVzLCBJIGF0dGVuZGVkIHRoZSBjb252ZW50aW9ucyBmb3IgQ0VVIGNyZWRpdHMsIGJ1
+dCBJIG5ldmVyCj4+Pj4+PiBqb2luZWQKPj4+Pj4+IHdpdGgKPj4+Pj4+IGR1ZXMuCj4+Pj4+PiBH
+bGVubgo+Pj4+Pj4gLS0tLS0gT3JpZ2luYWwgTWVzc2FnZSAtLS0tLQo+Pj4+Pj4gRnJvbTogIkth
+cmVuIExld2VsbGVuIiA8a2xld2VsbGVuQHNoZWxsd29ybGQubmV0Pgo+Pj4+Pj4gVG86ICJLMExO
+WV9HbGVubiIgPGdsZW5uQGVydmluLmVtYWlsPgo+Pj4+Pj4gQ2M6ICJCdXRjaCBCdXNzZW4iIDxi
+dXRjaGJAc2hlbGx3b3JsZC5uZXQ+OyAiSm9obiBHLiBIZWltIgo+Pj4+Pj4gPGpoZWltQHdpc2Mu
+ZWR1PjsKPj4+Pj4+IDxzcGVha3VwQGxpbnV4LXNwZWFrdXAub3JnPjsgIk1pbGFuIFphbWF6YWwi
+IDxwZG1AemFtYXphbC5vcmc+Owo+Pj4+Pj4gPEJsaW51eC1saXN0QHJlZGhhdC5jb20+Cj4+Pj4+
+PiBTZW50OiBXZWRuZXNkYXksIEF1Z3VzdCAxNywgMjAyMiAxMTozNiBBTQo+Pj4+Pj4gU3ViamVj
+dDogUmU6ICJBY2Nlc3NpYmlsaXR5IGluIEZlZG9yYSBXb3Jrc3RhdGlvbiIgKGZ3ZCkKPj4+Pj4+
+Cj4+Pj4+Pgo+Pj4+Pj4gc3BlYWtpbmcgcGVyc29uYWxseT8KPj4+Pj4+IE5vIGdvdmVybm1lbnQg
+ZW1wbG95ZWUgc2hvdWxkIGJlIGEgbWVtYmVyIG9mIHRoZSBOZkIuICAgZXRoaWNhbAo+Pj4+Pj4g
+Y29uZmxpY3QKPj4+Pj4+IG9mIGludGVyZXN0IHBlcnNvbmlmaWVkLgo+Pj4+Pj4KPj4+Pj4+IEth
+cmVuCj4+Pj4+Pgo+Pj4+Pj4KPj4+Pj4+IE9uIFdlZCwgMTcgQXVnIDIwMjIsIEswTE5ZX0dsZW5u
+IHdyb3RlOgo+Pj4+Pj4KPj4+Pj4+PiBZZWFoLCBJIGhhZCBiZWVuIHRvIGEgc3RhdGUgTkZCTiBj
+b252ZW50aW9uIHRoYXQgeWVhciBhbmQgZGlkIHRoZQo+Pj4+Pj4+IFBBQwo+Pj4+Pj4+IHRoaW5n
+Lgo+Pj4+Pj4+IFRoZW4gd2hlbiB0aGUgTkZCIGRpZCB0aGF0LCBJIGNhbGxlZCB1cCB0aGUgc3Rh
+dGUgdHJlYXN1cmVyIGZvciB0aGUKPj4+Pj4+PiBORkJOCj4+Pj4+Pj4gYW5kCj4+Pj4+Pj4gY2Fu
+Y2VsbGVkIG15IFBBQyBwbGFuLgo+Pj4+Pj4+IEkgdG9sZCB0aGVtIHRoYXQgdGhleSBkb24ndCBj
+YXJlIGlmIEkgY2FuIHJlYWQgbXkgbW9uZXksIHRoZW4gdGhleQo+Pj4+Pj4+IGRvbid0Cj4+Pj4+
+Pj4gbmVlZCBhbnkgZnJvbSBtZS4KPj4+Pj4+PiBHbGVubgo+Pj4+Pj4+IC0tLS0tIE9yaWdpbmFs
+IE1lc3NhZ2UgLS0tLS0KPj4+Pj4+PiBGcm9tOiAiS2FyZW4gTGV3ZWxsZW4iIDxrbGV3ZWxsZW5A
+c2hlbGx3b3JsZC5uZXQ+Cj4+Pj4+Pj4gVG86ICJCdXRjaCBCdXNzZW4iIDxidXRjaGJAc2hlbGx3
+b3JsZC5uZXQ+Cj4+Pj4+Pj4gQ2M6ICJKb2huIEcuIEhlaW0iIDxqaGVpbUB3aXNjLmVkdT47ICJL
+MExOWV9HbGVubiIKPj4+Pj4+PiA8Z2xlbm5AZXJ2aW4uZW1haWw+Owo+Pj4+Pj4+IDxzcGVha3Vw
+QGxpbnV4LXNwZWFrdXAub3JnPjsgIk1pbGFuIFphbWF6YWwiIDxwZG1AemFtYXphbC5vcmc+Owo+
+Pj4+Pj4+IDxCbGludXgtbGlzdEByZWRoYXQuY29tPgo+Pj4+Pj4+IFNlbnQ6IFdlZG5lc2RheSwg
+QXVndXN0IDE3LCAyMDIyIDExOjE4IEFNCj4+Pj4+Pj4gU3ViamVjdDogUmU6ICJBY2Nlc3NpYmls
+aXR5IGluIEZlZG9yYSBXb3Jrc3RhdGlvbiIgKGZ3ZCkKPj4+Pj4+Pgo+Pj4+Pj4+Cj4+Pj4+Pj4g
+TXkgcGVyc29uYWwgZmF2b3JpdGUgaXMgdGhlIHJlamVjdGlvbiBvZiBtb25leSB0aGF0IGNvdWxk
+IGJlCj4+Pj4+Pj4gaWRlbnRpZmllZAo+Pj4+Pj4+IGJ5IHRvdWNoLiAgbmV2ZXIgbWluZCB0aGF0
+IGZvciBob25lc3RseSB0aG91c2FuZHMgb2YgeWVhcnMgdGhlCj4+Pj4+Pj4gcHJhY3RpY2UKPj4+
+Pj4+PiBoYXMKPj4+Pj4+PiBiZWVuIGNvbW1vbiBzbyB0aG9zZSB3aXRoIGxpbWl0ZWQgZWR1Y2F0
+aW9uIGNvdWxkIHN0aWxsIGVuZ2FnZSBpbgo+Pj4+Pj4+IGNvbW1lcmNlLgo+Pj4+Pj4+Cj4+Pj4+
+Pj4KPj4+Pj4+Pgo+Pj4+Pj4+IE9uIFdlZCwgMTcgQXVnIDIwMjIsIEJ1dGNoIEJ1c3NlbiB3cm90
+ZToKPj4+Pj4+Pgo+Pj4+Pj4+PiBZZXMsIEkgcmVtZW1iZXIgdGhhdC4gIEFuZCB3aGF0IGFib3V0
+IHRoZWlyIG9wb3NpdGlvbiB0bwo+Pj4+Pj4+PiBkZXNjcmlwdGl2ZQo+Pj4+Pj4+PiB2aWRlbywK
+Pj4+Pj4+Pj4gZXZlbiBmaWxlZCBhIGxhdyBzdXRlIHRvIGdldCB0aGUgbGF3IHRocm93biBvdXQs
+IHdoaWNoIGl0IHdhcyBhdAo+Pj4+Pj4+PiB0aGF0Cj4+Pj4+Pj4+IHRpbWUuCj4+Pj4+Pj4+IDcz
+Cj4+Pj4+Pj4+IEJ1dGNoCj4+Pj4+Pj4+IFdBMFZKUgo+Pj4+Pj4+PiBOb2RlIDMxNDgKPj4+Pj4+
+Pj4gV2FsbGFjZSwga3MuCj4+Pj4+Pj4+Cj4+Pj4+Pj4+Cj4+Pj4+Pj4+IE9uIFR1ZSwgMTYgQXVn
+IDIwMjIsIEpvaG4gRy4gSGVpbSB3cm90ZToKPj4+Pj4+Pj4KPj4+Pj4+Pj4+ICBIb2x5IGNvdyEg
+QXJlIHlvdSBhd2FyZSB0aGF0IHRoZSBORkIgb25jZSBhc2tlZCBNaWNyb3NvZnQgdG8KPj4+Pj4+
+Pj4+ICpOT1QqCj4+Pj4+Pj4+PiBpbXByb3ZlCj4+Pj4+Pj4+PiAgTmFycmF0b3IgdG8gdGhlIHBv
+aW50IHdoZXJlIGl0IHdvdWxkIGNvbXBldGUgd2l0aCBKYXdzPyBJZiB5b3UKPj4+Pj4+Pj4+IHRo
+aW5rCj4+Pj4+Pj4+PiB0aGUKPj4+Pj4+Pj4+ICBORkIgaXMgaW5jYXBhYmxlIG9mIGZvcmNpbmcg
+Y2hvaWNlcyBvbiBwZW9wbGUsIHlvdSBhcmUgdmVyeSBzYWRseQo+Pj4+Pj4+Pj4gIG1pc3Rha2Vu
+Lgo+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Cj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4gIE9uIDgvMTYvMjIgMDk6
+MzYsIEswTE5ZX0dsZW5uIHdyb3RlOgo+Pj4+Pj4+Pj4+ICAgVGhpcyBzb3J0IG9mIHRoaW5nIHdv
+dWxkIG5ldmVyIGhhcHBlbiBpbiBOZWJyYXNrYSwgb3IgYW55IHN0YXRlCj4+Pj4+Pj4+Pj4gd2hl
+cmUKPj4+Pj4+Pj4+PiAgIHRoZQo+Pj4+Pj4+Pj4+ICAgYWdlbmN5IHN0YWZmIGlzIG9mIHRoZSBO
+RkIgcGhpbG9zb3BoeS4KPj4+Pj4+Pj4+PiAgIFNheSB3aGF0IHlvdSB3YW50IGFib3V0IHRoZSBO
+RkIsIG5vIG9yZ2FuaXphdGlvbiBpcyB3aXRob3V0IGl0cwo+Pj4+Pj4+Pj4+ICAgcHJvYmxlbXMs
+Cj4+Pj4+Pj4+Pj4gICBidXQgaXQgaXMgdGhlIGNvcmUgcGhpbG9zb3BoeSB0aGF0IGZvcm1lZCB0
+aGUgTkZCIHRoYXQga25vd3MKPj4+Pj4+Pj4+PiB0aGF0Cj4+Pj4+Pj4+Pj4gICBzb2NpZXR5Cj4+
+Pj4+Pj4+Pj4gICBoYXMgbG93IGV4cGVjdGF0aW9ucyBvZiB0aGUgQmxpbmQsIGFuZCB0aGlzIGlz
+IHdoeSB0aGUgTkZCCj4+Pj4+Pj4+Pj4gYmVsaWV2ZXMKPj4+Pj4+Pj4+PiBpbgo+Pj4+Pj4+Pj4+
+ICAgc2tpbGxzIGFuZCBoaWdoIGV4cGVjdGF0aW9ucy4KPj4+Pj4+Pj4+PiAgIEFuZCB3aXRoIHRo
+YXQsIGNvbWVzIGdpdmluZyByZXNwZWN0IHRvIHRoZSBCbGluZCwgbGlrZSB0aGUKPj4+Pj4+Pj4+
+PiByZXNwZWN0Cj4+Pj4+Pj4+Pj4gb2YKPj4+Pj4+Pj4+PiAgIGNob2ljZS4KPj4+Pj4+Pj4+PiAg
+IFllYWggSSBrbm93IGFib3V0IHRoZSBpbmZvcm1hdGlvbiBvZiByZWNlbnQgYWJvdXQgTkZCIGFi
+dXNlLAo+Pj4+Pj4+Pj4+IGJ1dAo+Pj4+Pj4+Pj4+IHRoaXMKPj4+Pj4+Pj4+PiAgIGlzCj4+Pj4+
+Pj4+Pj4gICBvcmdhbml6YXRpb25hbCBpc3N1ZXMsIHVucmVsYXRlZCB0byB0aGUgcGhpbG9zb3Bo
+eS4gIEluIGZhY3QsCj4+Pj4+Pj4+Pj4gdGhlCj4+Pj4+Pj4+Pj4gZmFjdAo+Pj4+Pj4+Pj4+ICAg
+dGhhdAo+Pj4+Pj4+Pj4+ICAgaXQgaGFzIGNvbWUgdXAgZGVtb25zdHJhdGVzIHRoYXQgdGhlIE5G
+QiBpcyBubyBkaWZmZXJlbnQgdGhhbgo+Pj4+Pj4+Pj4+IGFueQo+Pj4+Pj4+Pj4+IG90aGVyCj4+
+Pj4+Pj4+Pj4gICBvcmdhbml6YXRpb24gaW4gaW50ZXJwZXJzb25hbCBzdGFmZiBpc3N1ZXMuCj4+
+Pj4+Pj4+Pj4gICBBbmQgY2hvaWNlIGRvZXMgbm90IG1lYW4gdHJhaW5pbmcgY2VudGVyIGNob2lj
+ZXMuCj4+Pj4+Pj4+Pj4gICBDaG9pY2UgaXNuJ3QgYWx3YXlzIGFuIG9wdGlvbiwganVzdCBsaWtl
+IGlmIHlvdSB0b29rIGEKPj4+Pj4+Pj4+PiB2b2NhdGlvbmFsCj4+Pj4+Pj4+Pj4gICBjb3Vyc2UK
+Pj4+Pj4+Pj4+PiAgIGluCj4+Pj4+Pj4+Pj4gICBjb2xsZWdlLCB0aGVyZSBhcmUgdGhpbmdzIHlv
+dSBoYXZlIHRvIHRha2UsIHNvIHRvIG1lLCB0aGUgbGFjawo+Pj4+Pj4+Pj4+IG9mCj4+Pj4+Pj4+
+Pj4gICBjaG9pY2UKPj4+Pj4+Pj4+PiAgIGluCj4+Pj4+Pj4+Pj4gICB0aGlzIHJlZ2FyZCBpcyBk
+aWZmZXJlbnQgdGhhbiBjb21wdXRlciBzb2Z0d2FyZSwgd2hlcmUgYWxsIHRoZQo+Pj4+Pj4+Pj4+
+IGNob2ljZXMKPj4+Pj4+Pj4+PiAgIHdpbGwKPj4+Pj4+Pj4+PiAgIHJlYWNoIHRoZSBzYW1lIGVu
+ZCByZXN1bHQuCj4+Pj4+Pj4+Pj4gICBJbiBzdGF0ZXMgd2hlcmUgdGhlIE5GQiBwaGlsb3NvcGh5
+IGlzIGVtYnJhY2VkLCBpZiBhIGNsaWVudAo+Pj4+Pj4+Pj4+IHNhaWQKPj4+Pj4+Pj4+PiBJCj4+
+Pj4+Pj4+Pj4gd2FudAo+Pj4+Pj4+Pj4+ICAgdG8KPj4+Pj4+Pj4+PiAgIHVzZSBhIE1hYywgb3Ig
+SSB3YW50IFdpbmRvdyBFeWVzLCB0aGVuIHRoYXQgaXMgd2hhdCB0aGV5IHdvdWxkCj4+Pj4+Pj4+
+Pj4gZ2V0LAo+Pj4+Pj4+Pj4+IG5vCj4+Pj4+Pj4+Pj4gICBxdWVzdGlvbnMgYXNrZWQuCj4+Pj4+
+Pj4+Pj4gICBUaGV5IHdvdWxkIG5vdCBoYXZlIHRvIGZpZ2h0IHRvIGdldCBpdC4KPj4+Pj4+Pj4+
+PiAgIEkgc2ltcGx5IGNhbm5vdCBpbWFnaW5lIGEgY291bnNlbG9yIHNheWluZyB0aGF0IHNvbWVv
+bmUgaGFzIHRvCj4+Pj4+Pj4+Pj4gdXNlCj4+Pj4+Pj4+Pj4gdGhlCj4+Pj4+Pj4+Pj4gICBzb2Z0
+d2FyZSB0aGF0IHRoZSBjb3Vuc2Vsb3Igd2FudHMgdGhlbSB0byBoYXZlLgo+Pj4+Pj4+Pj4+ICAg
+V2hlbiBJIGhlYXIgdGhhdCBzdHVmZiwgSSBhbG1vc3QgY2Fubm90IGJlbGlldmUgaXQsIGJ1dCBJ
+IGtub3cKPj4+Pj4+Pj4+PiBCdXRjaAo+Pj4+Pj4+Pj4+ICAgd2VsbAo+Pj4+Pj4+Pj4+ICAgZW5v
+dWdoIHRvIGtub3cgaGUgd291bGRuJ3QgbWFrZSB0aGF0IHVwLgo+Pj4+Pj4+Pj4+Cj4+Pj4+Pj4+
+Pj4gICBHbGVubgo+Pj4+Pj4+Pj4+ICAgLS0tLS0gT3JpZ2luYWwgTWVzc2FnZSAtLS0tLQo+Pj4+
+Pj4+Pj4+ICAgRnJvbTogIkJ1dGNoIEJ1c3NlbiIgPGJ1dGNoYkBzaGVsbHdvcmxkLm5ldD4KPj4+
+Pj4+Pj4+PiAgIFRvOiAiS2FyZW4gTGV3ZWxsZW4iIDxrbGV3ZWxsZW5Ac2hlbGx3b3JsZC5uZXQ+
+Cj4+Pj4+Pj4+Pj4gICBDYzogIkswTE5ZX0dsZW5uIiA8Z2xlbm5AZXJ2aW4uZW1haWw+Owo+Pj4+
+Pj4+Pj4+IDxzcGVha3VwQGxpbnV4LXNwZWFrdXAub3JnPjsKPj4+Pj4+Pj4+PiAgICJNaWxhbgo+
+Pj4+Pj4+Pj4+ICAgWmFtYXphbCIgPHBkbUB6YW1hemFsLm9yZz47IDxCbGludXgtbGlzdEByZWRo
+YXQuY29tPgo+Pj4+Pj4+Pj4+ICAgU2VudDogVHVlc2RheSwgQXVndXN0IDE2LCAyMDIyIDg6MTgg
+QU0KPj4+Pj4+Pj4+PiAgIFN1YmplY3Q6IFJlOiAiQWNjZXNzaWJpbGl0eSBpbiBGZWRvcmEgV29y
+a3N0YXRpb24iIChmd2QpCj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+ICAgWW91IGFy
+ZSByaWdodC4gIEluIE5ldmFkYSwgZnJlZWRvbSBwdXNoZWQgamF3cyB0byB0aGUgcmVoYWIKPj4+
+Pj4+Pj4+PiBwZW9wbGUKPj4+Pj4+Pj4+PiBhbmQKPj4+Pj4+Pj4+PiAgIHRvb2sgdGhlbSBvdXQg
+Zm9yIHN0ZWFrIGRpbmVycyBhbmQgc28gZm9ydGguICBJIGZvdWdodCBsaWtlCj4+Pj4+Pj4+Pj4g
+aGVsbAo+Pj4+Pj4+Pj4+IHRvCj4+Pj4+Pj4+Pj4gZ2V0Cj4+Pj4+Pj4+Pj4gICB0aGVtIHRvIGJ1
+eSB3aW5kb3ctZXllcy4KPj4+Pj4+Pj4+PiAgIDczCj4+Pj4+Pj4+Pj4gICBCdXRjaAo+Pj4+Pj4+
+Pj4+ICAgV0EwVkpSCj4+Pj4+Pj4+Pj4gICBOb2RlIDMxNDgKPj4+Pj4+Pj4+PiAgIFdhbGxhY2Us
+IGtzLgo+Pj4+Pj4+Pj4+Cj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+PiAgIE9uIFN1biwgMTQgQXVnIDIw
+MjIsIEthcmVuIExld2VsbGVuIHdyb3RlOgo+Pj4+Pj4+Pj4+Cj4+Pj4+Pj4+Pj4+ICAgQW5kIHdo
+ZXJlIGRvIHRoZXNlIGVtcGxveWVycyBsZWFybiBhYm91dCBqYXdzPwo+Pj4+Pj4+Pj4+PiAgIElu
+IGZhY3QsIHByb3ZpZGUgaWYgeW91IGRvIG5vdCBtaW5kIGFuIGV4YW1wbGUgb2YgaG93ICB0aGlz
+Cj4+Pj4+Pj4+Pj4+IHdvcmtzCj4+Pj4+Pj4+Pj4+ICAgZXhhY3RseS4KPj4+Pj4+Pj4+Pj4gICBh
+ZnRlciBhbGwsIHVubGVzcyBJIGFtIGluY29ycmVjdCwgdGhlc2UgZW1wbG95ZXJzIGFyZSBub3QK
+Pj4+Pj4+Pj4+Pj4gcGVyc29uYWwKPj4+Pj4+Pj4+Pj4gICBKYXdzCj4+Pj4+Pj4+Pj4+ICAgdXNl
+cnMsIG1lYW5pbmcgc29tZW9uZSB0aGV5IHRydXN0IGNvbnRpbnVlcyB0byBzZWxsIHRoZW0gb24g
+YW4KPj4+Pj4+Pj4+Pj4gICBleHBlbnNpdmUKPj4+Pj4+Pj4+Pj4gICBwcm9ncmFtIGluc3RlYWQg
+b2YgYSBsYXJnZWx5IGZyZWUgb25lLgo+Pj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+
+Pgo+Pj4+Pj4+Pj4+PiAgIE9uIFNhdCwgMTMgQXVnIDIwMjIsIEswTE5ZX0dsZW5uIHdyb3RlOgo+
+Pj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+Pj4gICAgIEthcmVuLAo+Pj4+Pj4+Pj4+Pj4gICAgIE1vc3Qg
+ZW1wbG95ZXJzIGRvbid0IHdhbnQgTlZEQSwgYW5kIHdpbGwgb25seSBhbGxvdyBKYXdzLgo+Pj4+
+Pj4+Pj4+Pj4gICAgIEluIE5lYnJhc2thLCBpZiBhbiBlbXBsb3llciBzYWlkIHB1dCBvbiB3aGF0
+ZXZlciB3b3JrcywgdGhlCj4+Pj4+Pj4+Pj4+PiAgICAgY291bnNlbG9ycwo+Pj4+Pj4+Pj4+Pj4g
+ICAgIHdpbGwKPj4+Pj4+Pj4+Pj4+ICAgICB1c2UgTlZEQSwgYmVjYXVzZSBvZiB0aGUgY29zdCBv
+ZiBKYXdzLgo+Pj4+Pj4+Pj4+Pj4gICAgIElmIHNvbWUgb2YgdGhlIGNsaWVudHMgaW4gYSBjYWxs
+IGNlbnRlciBhbHJlYWR5IHVzZSBKYXdzLAo+Pj4+Pj4+Pj4+Pj4gYnV0Cj4+Pj4+Pj4+Pj4+PiAg
+ICAgZG9uJ3Qga25vdwo+Pj4+Pj4+Pj4+Pj4gICAgIE5WREEsIHRoZSBjb3Vuc2Vsb3Igd2lsbCB1
+c2UgSmF3cywgYmVjYXVzZSB0aGUgb3RoZXIKPj4+Pj4+Pj4+Pj4+IGNsaWVudHMKPj4+Pj4+Pj4+
+Pj4+IHdpbGwKPj4+Pj4+Pj4+Pj4+ICAgICBuZWVkCj4+Pj4+Pj4+Pj4+PiAgIHRvCj4+Pj4+Pj4+
+Pj4+PiAgICAgbGVhcm4gb25lIG9mIHRoZSB0d28uCj4+Pj4+Pj4+Pj4+PiAgICAgU28gaXQncyBh
+bGwgY2hvaWNlLCBidXQgaW4gdGhlIHdvcmtwbGFjZSwgaXQgZGVwZW5kcyBvbgo+Pj4+Pj4+Pj4+
+Pj4gd2hhdAo+Pj4+Pj4+Pj4+Pj4gdGhlCj4+Pj4+Pj4+Pj4+PiAgIGVtcGxveWVyCj4+Pj4+Pj4+
+Pj4+PiAgICAgd2lsbCBhbGxvdy4KPj4+Pj4+Pj4+Pj4+ICAgICBBbHNvLCBzb21ldGltZXMgc2Ny
+aXB0cyBuZWVkIHRvIGJlIG1hZGUsIGFuZCB0aGVyZSBhcmUgbW9yZQo+Pj4+Pj4+Pj4+Pj4gSmF3
+cwo+Pj4+Pj4+Pj4+Pj4gICBzY3JpcHRlcnMKPj4+Pj4+Pj4+Pj4+ICAgICBhdmFpbGFibGUgdGhh
+biB0aGVyZSBhcmUgTlZEQSBhZGQtb24gd3JpdGVycy4KPj4+Pj4+Pj4+Pj4+ICAgICBTbyB0aGlz
+IHBlcmNlcHRpb24gdGhhdCBKYXdzIGlzIGZvcmNlZCBieSByZWhhYiwgZnJvbSBteSAzMQo+Pj4+
+Pj4+Pj4+Pj4geWVhcnMKPj4+Pj4+Pj4+Pj4+ICAgICBpbiB0aGUKPj4+Pj4+Pj4+Pj4+ICAgICBi
+dXNpbmVzcyBJIGNhbiBzYXkgaXMgcnViYmlzaC4KPj4+Pj4+Pj4+Pj4+ICAgICBOb3csIGlmIGEg
+Y291bnNlbG9yIGRpZCBub3Qga25vdyBob3cgdG8gdXNlIE5WREEsIGFuZAo+Pj4+Pj4+Pj4+Pj4g
+ZWl0aGVyCj4+Pj4+Pj4+Pj4+PiBtYXkKPj4+Pj4+Pj4+Pj4+ICAgICBiZQo+Pj4+Pj4+Pj4+Pj4g
+ICAgIGNob3NlbiwKPj4+Pj4+Pj4+Pj4+ICAgICB0aGUgcmVoYWIgY291bnNlbG9yIGlzIGFibGUg
+dG8gc2VsZWN0IHRoZSBvbmUgdGhhdCB0aGUKPj4+Pj4+Pj4+Pj4+IGNvdW5zZWxvcgo+Pj4+Pj4+
+Pj4+Pj4gICAgIGZlZWxzCj4+Pj4+Pj4+Pj4+PiAgIGlzCj4+Pj4+Pj4+Pj4+PiAgICAgYmVzdCBm
+b3IgdGhlIHN0dWRlbnQgYW5kIGZvciB0aGUgY291bnNlbG9yJ3MgdGVhY2hpbmcuCj4+Pj4+Pj4+
+Pj4+PiAgICAgV2hlbiBpdCBjb21lcyB0byBwYXJ0IEIgbW9uZXlzLCB3aGljaCBpcyB1c2VkIGZv
+cgo+Pj4+Pj4+Pj4+Pj4gbm9uLXZvY2F0aW9uYWwKPj4+Pj4+Pj4+Pj4+ICAgICBwdXJjaGFzZXMs
+Cj4+Pj4+Pj4+Pj4+PiAgICAgd2hlcmUgYSBsb3Qgb2YgSmF3cyBwdXJjaGFzZXMgY29tZSBmcm9t
+LCBpdCBpcyBpbiB0aGUKPj4+Pj4+Pj4+Pj4+IGFnZW5jeSdzCj4+Pj4+Pj4+Pj4+PiAgICAgYmVz
+dAo+Pj4+Pj4+Pj4+Pj4gICAgIGludGVyZXN0Cj4+Pj4+Pj4+Pj4+PiAgICAgdG8gc3BlbmQgYXMg
+bGl0dGxlIGFzIHBvc3NpYmxlLCBiZWNhdXNlIHRoYXQgZG9lc24ndCBjb21lCj4+Pj4+Pj4+Pj4+
+PiBiYWNrCj4+Pj4+Pj4+Pj4+PiAgICAgbGlrZSBWUgo+Pj4+Pj4+Pj4+Pj4gICAgIGV4cGVuZGl0
+dXJlcyBkby4KPj4+Pj4+Pj4+Pj4+ICAgICBHbGVubgo+Pj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+
+ICAgICAtLS0tLSBPcmlnaW5hbCBNZXNzYWdlIC0tLS0tCj4+Pj4+Pj4+Pj4+PiAgICAgRnJvbTog
+IkthcmVuIExld2VsbGVuIiA8a2xld2VsbGVuQHNoZWxsd29ybGQubmV0Pgo+Pj4+Pj4+Pj4+Pj4g
+ICAgIFRvOiAiSzBMTllfR2xlbm4iIDxnbGVubkBlcnZpbi5lbWFpbD4KPj4+Pj4+Pj4+Pj4+ICAg
+ICBDYzogPHNwZWFrdXBAbGludXgtc3BlYWt1cC5vcmc+OyAiTWlsYW4gWmFtYXphbCIKPj4+Pj4+
+Pj4+Pj4+ICAgICA8cGRtQHphbWF6YWwub3JnPjsKPj4+Pj4+Pj4+Pj4+ICAgICA8QmxpbnV4LWxp
+c3RAcmVkaGF0LmNvbT4KPj4+Pj4+Pj4+Pj4+ICAgICBTZW50OiBTYXR1cmRheSwgQXVndXN0IDEz
+LCAyMDIyIDY6MTUgUE0KPj4+Pj4+Pj4+Pj4+ICAgICBTdWJqZWN0OiBSZTogIkFjY2Vzc2liaWxp
+dHkgaW4gRmVkb3JhIFdvcmtzdGF0aW9uIiAoZndkKQo+Pj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+
+Cj4+Pj4+Pj4+Pj4+PiAgICAgVGhlIGNoYWxsZW5nZSB3aXRoIHRoYXQgZXhhbXBsZSBpcyB0aGF0
+LCBhcyBvbmUgb2Z0ZW4gZ2V0cwo+Pj4+Pj4+Pj4+Pj4gICByZW1pbmRlZCwKPj4+Pj4+Pj4+Pj4+
+ICAgdGhlCj4+Pj4+Pj4+Pj4+PiAgICAgcmVoYWIgc3lzdGVtcyB0cmFjayByZWNvcmQgZm9yIGZh
+Y2lsaXRhdGluZyAgZW1wbG95bWVudCBmb3IKPj4+Pj4+Pj4+Pj4+IHRoZWlyCj4+Pj4+Pj4+Pj4+
+PiAgIGNsaWVudHMKPj4+Pj4+Pj4+Pj4+ICAgICBpcyBxdWl0ZSBwb29yLgo+Pj4+Pj4+Pj4+Pj4g
+ICAgIFdpdGggYSBoaWdoIHBlcmNlbnRhZ2Ugb2YgdW5lbXBsb3ltZW50IGFtb25nIG91ciBjbGll
+bnRzLgo+Pj4+Pj4+Pj4+Pj4gICAgIE1ha2luZywKPj4+Pj4+Pj4+Pj4+ICAgICBzcGVha2luZyBw
+ZXJzb25hbGx5LCB5b3VyIGJ1eWluZyBKYXdzIGZvciBwZXJzb25hbCB1c2Ugbm90Cj4+Pj4+Pj4+
+Pj4+PiByZWFsbHkKPj4+Pj4+Pj4+Pj4+ICAgICByZWZsZWN0aW5nIGhvdyB0aGUgc3lzdGVtIHdv
+dWxkIHJlc3BvbmQgdG8gYW4gYWx0ZXJuYXRpdmUKPj4+Pj4+Pj4+Pj4+ICAgICByZXF1ZXN0Lgo+
+Pj4+Pj4+Pj4+Pj4gICAgIE5vdyBpZiBzb21lb25lIGZyb20gb3JnYW5pemVkIHJlaGFiIHNhaWQs
+IG9rYXkgZnJlZWRvbQo+Pj4+Pj4+Pj4+Pj4gICAgIHNjaWVudGlmaWMsIHdlCj4+Pj4+Pj4+Pj4+
+PiAgIGFyZQo+Pj4+Pj4+Pj4+Pj4gICAgIGNyZWF0aW5nIGFuIGVtcGxveW1lbnQgcHJvZ3JhbSB3
+aGVyZSBvdXIgY2xpZW50cyB3aWxsIHRyYWluCj4+Pj4+Pj4+Pj4+PiBpbgo+Pj4+Pj4+Pj4+Pj4g
+ICAgIExpbnV4LAo+Pj4+Pj4+Pj4+Pj4gICAgIG5lZWRpbmcgYSBzb2xpZCBzY3JlZW4gcmVhZGVy
+IHNvbHV0aW9uIGZvciB0aGUgc3lzdGVtLiAgV2UKPj4+Pj4+Pj4+Pj4+IHdpbGwKPj4+Pj4+Pj4+
+Pj4+ICAgICBnaXZlIHlvdQo+Pj4+Pj4+Pj4+Pj4gICAgIGFuCj4+Pj4+Pj4+Pj4+PiAgICAgZXhj
+bHVzaXZlIGRldmVsb3BtZW50IGNvbnRyYWN0IGZvciBzIG1pbGxpb25zIHRvIGNyZWF0ZSB0aGUK
+Pj4+Pj4+Pj4+Pj4+IHRvb2wuCj4+Pj4+Pj4+Pj4+PiAgICAgRnMgd291bGQgbGlrZWx5IHNheSB3
+aGVyZSBkbyB3ZSBzaWduPwo+Pj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+Cj4+Pj4+Pj4+Pj4+Pgo+
+Pj4+Pj4+Pj4+Pj4gICAgIE9uIFNhdCwgMTMgQXVnIDIwMjIsIEswTE5ZX0dsZW5uIHdyb3RlOgo+
+Pj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+PiAgICAgVHJ1ZSBlbm91Z2gsIGJ1dCBsYXJnZWx5LCBy
+ZWhhYiBwZW9wbGUgdHlwaWNhbGx5IHVzZQo+Pj4+Pj4+Pj4+Pj4+IFdpbmRvd3MKPj4+Pj4+Pj4+
+Pj4+PiBhdAo+Pj4+Pj4+Pj4+Pj4+ICAgICB3b3JrLAo+Pj4+Pj4+Pj4+Pj4+ICAgICBhbmQKPj4+
+Pj4+Pj4+Pj4+PiAgICAgcHJvYmFibHkgYXQgaG9tZSwgYnV0IHRoZXkgbmVlZCB0byBjYXRlciB0
+byB0aGUgbmVlZHMgb2YKPj4+Pj4+Pj4+Pj4+PiB0aGUKPj4+Pj4+Pj4+Pj4+PiAgICAgY2xpZW50
+Lgo+Pj4+Pj4+Pj4+Pj4+ICAgICBJZiBhIGNsaWVudCB1c2VkIExpbnV4LCBJIGRvdWJ0IHRoYXQg
+YW55IHJlaGFiIGNvdW5zZWxvcgo+Pj4+Pj4+Pj4+Pj4+IHdvdWxkCj4+Pj4+Pj4+Pj4+Pj4gICBh
+ZHZvY2F0ZQo+Pj4+Pj4+Pj4+Pj4+ICAgICB0aGF0Cj4+Pj4+Pj4+Pj4+Pj4gICAgIHRoZSBjbGll
+bnQgc3dpdGNoIHRvIFdpbmRvd3MsIHVubGVzcyB0aGF0IHdhcyBuZWVkZWQgZm9yIGEKPj4+Pj4+
+Pj4+Pj4+PiAgICAgc3BlY2lmaWMKPj4+Pj4+Pj4+Pj4+PiAgIGpvYi4KPj4+Pj4+Pj4+Pj4+PiAg
+ICAgSW4gTmVicmFza2EsIHdlIHB1cmNoYXNlZCBKYXdzIG11Y2ggbW9yZSBmb3IgcGVyc29uYWwg
+dXNlCj4+Pj4+Pj4+Pj4+Pj4gdGhhbgo+Pj4+Pj4+Pj4+Pj4+ICAgICB3ZSBkaWQKPj4+Pj4+Pj4+
+Pj4+PiAgICAgZm9yCj4+Pj4+Pj4+Pj4+Pj4gICAgIHdvcmsgcmVsYXRlZCBzaXR1YXRpb25zLgo+
+Pj4+Pj4+Pj4+Pj4+ICAgICBTbyBpZiBGUyBtYWRlIGEgSkZMLCBhbmQgcGVvcGxlIHdlcmUgdXNp
+bmcgTGludXgsIHJlaGFiCj4+Pj4+Pj4+Pj4+Pj4gd291bGQKPj4+Pj4+Pj4+Pj4+PiAgICAgaW5k
+ZWVkCj4+Pj4+Pj4+Pj4+Pj4gICAgIHB1cmNoYXNlIGEgSkZMIHByb2R1Y3QuCj4+Pj4+Pj4+Pj4+
+Pj4gICAgIEdsZW5uCj4+Pj4+Pj4+Pj4+Pj4gICAgIC0tLS0tIE9yaWdpbmFsIE1lc3NhZ2UgLS0t
+LS0KPj4+Pj4+Pj4+Pj4+PiAgICAgRnJvbTogIkthcmVuIExld2VsbGVuIiA8a2xld2VsbGVuQHNo
+ZWxsd29ybGQubmV0Pgo+Pj4+Pj4+Pj4+Pj4+ICAgICBUbzogIkswTE5ZX0dsZW5uIiA8Z2xlbm5A
+ZXJ2aW4uZW1haWw+Cj4+Pj4+Pj4+Pj4+Pj4gICAgIENjOiA8c3BlYWt1cEBsaW51eC1zcGVha3Vw
+Lm9yZz47ICJNaWxhbiBaYW1hemFsIgo+Pj4+Pj4+Pj4+Pj4+ICAgICA8cGRtQHphbWF6YWwub3Jn
+PjsKPj4+Pj4+Pj4+Pj4+PiAgICAgPEJsaW51eC1saXN0QHJlZGhhdC5jb20+Cj4+Pj4+Pj4+Pj4+
+Pj4gICAgIFNlbnQ6IFNhdHVyZGF5LCBBdWd1c3QgMTMsIDIwMjIgMzowMSBQTQo+Pj4+Pj4+Pj4+
+Pj4+ICAgICBTdWJqZWN0OiBSZTogIkFjY2Vzc2liaWxpdHkgaW4gRmVkb3JhIFdvcmtzdGF0aW9u
+IiAoZndkKQo+Pj4+Pj4+Pj4+Pj4+Cj4+Pj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+PiAgICAgdGhl
+cmUgd2FzIGFuIGludGVyZXN0aW5nIGRpc2N1c3Npb24gYSBtb250aCBvciBzbyBiYWNrIG9uCj4+
+Pj4+Pj4+Pj4+Pj4gdGhlCj4+Pj4+Pj4+Pj4+Pj4gICAgIGJsaW51eAo+Pj4+Pj4+Pj4+Pj4+ICAg
+ICBsaXN0Cj4+Pj4+Pj4+Pj4+Pj4gICAgIGFib3V0IGhvdyBsb25nIGl0IHRvb2sgY29tcGxldGlu
+ZyB0YXNrcyBpbiB0aGUgZ3VpIGFzCj4+Pj4+Pj4+Pj4+Pj4gYXBwb3NlZAo+Pj4+Pj4+Pj4+Pj4+
+ICAgICB0byBzYXkKPj4+Pj4+Pj4+Pj4+PiAgICAgY29tbWFuZCBsaW5lLCAgdGhlIGNvbW1lbnRz
+IHdlcmUgcXVpdGUgaW5mb3JtYXRpdmUuCj4+Pj4+Pj4+Pj4+Pj4gICAgIFN0aWxsLCBmcyBoYXMg
+bmV2ZXIgbWFya2V0ZWQgbGFyZ2VseSB0byB0aGUgZW5kIHVzZXIuCj4+Pj4+Pj4+Pj4+Pj4gSW5z
+dGVhZAo+Pj4+Pj4+Pj4+Pj4+ICAgICB0aGV5Cj4+Pj4+Pj4+Pj4+Pj4gICAgIG1hcmtldAo+Pj4+
+Pj4+Pj4+Pj4+ICAgICB0byB0aGUgQW1lcmljYW4gcmVoYWIgY29tbXVuaXR5Lgo+Pj4+Pj4+Pj4+
+Pj4+ICAgICBob3cgbXVjaCBtYXJrZXQgcmVzZWFyY2ggaGFzICB0aGUgcmVoYWIgY29tbXVuaXR5
+IGRvbmUgdG8KPj4+Pj4+Pj4+Pj4+PiAgICAgc3VwcG9ydCB0aGUKPj4+Pj4+Pj4+Pj4+PiAgICAg
+bmVlZAo+Pj4+Pj4+Pj4+Pj4+ICAgICBmb3IgY2hvaWNlcz8KPj4+Pj4+Pj4+Pj4+PiAgICAgSG93
+IG1hbnkgcmVoYWIgY291bnNlbG9ycyBzdXBwb3J0ICB0cmFpbmluZyBpbiBMaW51eD8KPj4+Pj4+
+Pj4+Pj4+PiAgICAgb25lIGNvbW1lbnQgbWFkZSBieSB0aGUgc3ViamVjdCBvZiB0aGlzIHRocmVh
+ZCBhYm91dCBwb29yCj4+Pj4+Pj4+Pj4+Pj4gICAgIHF1YWxpdHkKPj4+Pj4+Pj4+Pj4+PiAgIHNw
+ZWVjaAo+Pj4+Pj4+Pj4+Pj4+ICAgICBpcyBhIGZpbmUgb25lLi4ub3V0IG9mIHRoZSBib3ggTGlu
+dXggaGFzIGZldyBzcGVlY2gKPj4+Pj4+Pj4+Pj4+PiBjaG9pY2VzLgo+Pj4+Pj4+Pj4+Pj4+ICAg
+ICBldmVyeW9uZQo+Pj4+Pj4+Pj4+Pj4+ICAgICBicmluZ3MgdGhlaXIgbmVlZHMgdG8gdGhlIHRh
+YmxlIHRoZXJlLgo+Pj4+Pj4+Pj4+Pj4+Cj4+Pj4+Pj4+Pj4+Pj4gICAgIGlmIHlvdSB3YW50IHRv
+IGdldCBmcyB0byBjYXJlIGFib3V0IExpbnV4LCB5b3UgIG5lZWQgdG8KPj4+Pj4+Pj4+Pj4+PiBw
+cm92ZQo+Pj4+Pj4+Pj4+Pj4+ICAgICB0aGVyZSBpcwo+Pj4+Pj4+Pj4+Pj4+ICAgICBtb25leSBm
+b3IgIHRoZW0gdGhlcmUsIGZyb20gdGhlaXIgbWFpbiBzb3VyY2Ugb2YgaW5jb21lLgo+Pj4+Pj4+
+Pj4+Pj4+Cj4+Pj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+Pj4+ICAgICBPbiBT
+YXQsIDEzIEF1ZyAyMDIyLCBLMExOWV9HbGVubiB3cm90ZToKPj4+Pj4+Pj4+Pj4+Pgo+Pj4+Pj4+
+Pj4+Pj4+PiAgICAgV2VsbCBzaW5jZSBPcmNhIHNlZW1zIHRvIHdvcmsgb24gc28gbWFueSBkaXN0
+cm9zLCBJIGRvbid0Cj4+Pj4+Pj4+Pj4+Pj4+ICAga25vdyB3aHkKPj4+Pj4+Pj4+Pj4+Pj4gICBG
+Uwo+Pj4+Pj4+Pj4+Pj4+PiAgICAgd291bGQKPj4+Pj4+Pj4+Pj4+Pj4gICAgIG5vdCBiZSBhYmxl
+IHRvIGRvIHRoZSBzYW1lLgo+Pj4+Pj4+Pj4+Pj4+PiAgICAgSWYgSmF3cyB1c2VycyBjb3VsZCBz
+d2l0Y2ggaW50byBMaW51eCwgaXQgd291bGQgYmUgYSByZWFsCj4+Pj4+Pj4+Pj4+Pj4+ICAgICBn
+YW1lCj4+Pj4+Pj4+Pj4+Pj4+ICAgICBjaGFuZ2VyLAo+Pj4+Pj4+Pj4+Pj4+PiAgICAgYW5kCj4+
+Pj4+Pj4+Pj4+Pj4+ICAgICBJIHRoaW5rIHdpdGggbG90cyBtb3JlIEJsaW5kIExpbnV4IHVzZXJz
+LCB3ZSB3b3VsZCBzdGFydAo+Pj4+Pj4+Pj4+Pj4+PiAgICAgc2VlaW5nCj4+Pj4+Pj4+Pj4+Pj4+
+ICAgICBhY2Nlc3NpYmlsaXR5IGluIExpbnV4IG5vdCBiZWluZyBhIHNlY29uZCB0aG91Z2h0Lgo+
+Pj4+Pj4+Pj4+Pj4+PiAgICAgR2xlbm4KPj4+Pj4+Pj4+Pj4+Pj4gICAgIC0tLS0tIE9yaWdpbmFs
+IE1lc3NhZ2UgLS0tLS0KPj4+Pj4+Pj4+Pj4+Pj4gICAgIEZyb206ICJLYXJlbiBMZXdlbGxlbiIg
+PGtsZXdlbGxlbkBzaGVsbHdvcmxkLm5ldD4KPj4+Pj4+Pj4+Pj4+Pj4gICAgIFRvOiAiSzBMTllf
+R2xlbm4iIDxnbGVubkBlcnZpbi5lbWFpbD4KPj4+Pj4+Pj4+Pj4+Pj4gICAgIENjOiA8c3BlYWt1
+cEBsaW51eC1zcGVha3VwLm9yZz47ICJNaWxhbiBaYW1hemFsIgo+Pj4+Pj4+Pj4+Pj4+PiAgICAg
+PHBkbUB6YW1hemFsLm9yZz47Cj4+Pj4+Pj4+Pj4+Pj4+ICAgICA8QmxpbnV4LWxpc3RAcmVkaGF0
+LmNvbT4KPj4+Pj4+Pj4+Pj4+Pj4gICAgIFNlbnQ6IFNhdHVyZGF5LCBBdWd1c3QgMTMsIDIwMjIg
+MTo0NyBQTQo+Pj4+Pj4+Pj4+Pj4+PiAgICAgU3ViamVjdDogUmU6ICJBY2Nlc3NpYmlsaXR5IGlu
+IEZlZG9yYSBXb3Jrc3RhdGlvbiIgKGZ3ZCkKPj4+Pj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+Pj4K
+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIFdlbGwgdGVjaG5pY2FsbHkgZnJlZWRvbSBzY2llbnRpZmljIGRv
+ZXMgbm90IGV4aXN0IGFueQo+Pj4+Pj4+Pj4+Pj4+PiAgICAgbG9uZ2VyLCBiZWluZwo+Pj4+Pj4+
+Pj4+Pj4+PiAgICAgYm91Z2h0Cj4+Pj4+Pj4+Pj4+Pj4+ICAgICBieSBhbm90aGVyIGNvbXBhbnku
+Cj4+Pj4+Pj4+Pj4+Pj4+ICAgICBTdGlsbCwgSSBjYW4gcmVzcGVjdCB3aHkgdGhleSwgb3IgbnZk
+YSBoYXZlIG5vdCBjcmVhdGVkCj4+Pj4+Pj4+Pj4+Pj4+IHRoZWlyCj4+Pj4+Pj4+Pj4+Pj4+ICAg
+ICB0b29scwo+Pj4+Pj4+Pj4+Pj4+PiAgICAgZm9yCj4+Pj4+Pj4+Pj4+Pj4+ICAgICBMaW51eC4K
+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIFRoYXQgaXMgYmVjYXVzZSBhcyBJIHVuZGVyc3RhbmQgaXQsIExp
+bnV4IGlzICBxdWl0ZSBsaWtlCj4+Pj4+Pj4+Pj4+Pj4+ICAgICBjbGF5LiBZb3UKPj4+Pj4+Pj4+
+Pj4+Pj4gICBjYW4KPj4+Pj4+Pj4+Pj4+Pj4gICAgIG1vbGQgYSBkaXN0cmlidXRpb24gaW50byBh
+bG1vc3QgYW55dGhpbmcuIHRoZXJlIGFyZQo+Pj4+Pj4+Pj4+Pj4+PiB2YXJpb3VzCj4+Pj4+Pj4+
+Pj4+Pj4+ICAgICBwZXJzb25pZmljYXRpb25zIG9mIHRoZSBzeXN0ZW0sIGFsbCBzb3J0cyBvZiB3
+YXlzIGFuZAo+Pj4+Pj4+Pj4+Pj4+PiBjaGFuZ2VzCj4+Pj4+Pj4+Pj4+Pj4+ICAgICBhbmQKPj4+
+Pj4+Pj4+Pj4+Pj4gICAgIG9wdGlvbnMKPj4+Pj4+Pj4+Pj4+Pj4gICAgIGZvciBjcmVhdGl2aXR5
+Lgo+Pj4+Pj4+Pj4+Pj4+PiAgICAgaG93ZXZlciBhZGFwdGl2ZSB0b29scyBhcmUgb2Z0ZW4gZXh0
+ZW5zaW9ucyBvZiBwaHlzaWNhbAo+Pj4+Pj4+Pj4+Pj4+PiAgICAgY2hhcmFjdGVyaXN0aWNzLAo+
+Pj4+Pj4+Pj4+Pj4+PiAgICAgaGFuZHMsIGV5ZXMsIGVhcnMsIGJyYWlucywgY29tYmluYXRpb25z
+IG9mIHRoZXNlLgo+Pj4+Pj4+Pj4+Pj4+PiAgICAgVG8gYnVpbGQgc29saWQgYXNzaXN0aXZlIHRv
+b2xzIG9uZSBtdXN0IGhhdmUgYSBzb2xpZAo+Pj4+Pj4+Pj4+Pj4+PiAgICAgZm91bmRhdGlvbiBh
+cwo+Pj4+Pj4+Pj4+Pj4+PiAgIGl0Cj4+Pj4+Pj4+Pj4+Pj4+ICAgICB3ZXJlLiAgdGhhdCBpcyBw
+YXJ0IG9mIHdoeSB0aGVyZSBoYXZlIG5lZWRlZCB0byBiZSBzbyBmZXcKPj4+Pj4+Pj4+Pj4+Pj4g
+ICAgIEFwcGxlCj4+Pj4+Pj4+Pj4+Pj4+ICAgICBlZmZvcnRzCj4+Pj4+Pj4+Pj4+Pj4+ICAgICBh
+dAo+Pj4+Pj4+Pj4+Pj4+PiAgICAgaW5jbHVzaW9uLCB0aGV5ICBjcmVhdGVkICB3aXRoLCBhbmQg
+dGhlbiBjcmVhdGVkIGluLWhvdXNlCj4+Pj4+Pj4+Pj4+Pj4+ICAgICBhZGFwdGl2ZQo+Pj4+Pj4+
+Pj4+Pj4+PiAgICAgdG9vbHMKPj4+Pj4+Pj4+Pj4+Pj4gICAgIGZvciB2YXJpb3VzICBwb3B1bGF0
+aW9ucyB0aGF0IHdlcmUgYnVpbHQgaW50byB0aGUgc3lzdGVtLgo+Pj4+Pj4+Pj4+Pj4+PiAgICAg
+QWx0aG91Z2ggTWljcm9zb2Z0IGRpZCBub3QgYm90aGVyIHVudGlsIG11Y2ggbGF0ZXIsIGluCj4+
+Pj4+Pj4+Pj4+Pj4+IHRoZW9yeQo+Pj4+Pj4+Pj4+Pj4+PiAgICAgYXQKPj4+Pj4+Pj4+Pj4+Pj4g
+ICAgIGxlYXN0LAo+Pj4+Pj4+Pj4+Pj4+PiAgICAgdGhlCj4+Pj4+Pj4+Pj4+Pj4+ICAgICBjb25z
+aXN0ZW5jeSBvZiB3aW5kb3dzIGlzIHdoYXQgbWFrZXMgaXQgcG9zc2libGUgZm9yCj4+Pj4+Pj4+
+Pj4+Pj4+IGZyZWVkb20KPj4+Pj4+Pj4+Pj4+Pj4gICAgIG9yIHRoZQo+Pj4+Pj4+Pj4+Pj4+PiAg
+ICAgZm9ybWVyCj4+Pj4+Pj4+Pj4+Pj4+ICAgICBndyAgbWljcm8gb3IgbnZkYSB0byBjcmVhdGUg
+c29tZXRoaW5nIHRoYXQgY2FuIGluIHRoZW9yeQo+Pj4+Pj4+Pj4+Pj4+PiAgICAgd29yay4KPj4+
+Pj4+Pj4+Pj4+Pj4gICAgIEZsb29yIGZvciB0aGUgZnVybml0dXJlIGlzIHNvbWV3aGF0IHNvbGlk
+Lgo+Pj4+Pj4+Pj4+Pj4+PiAgICAgSnVzdCBteSB0aG91Z2h0cywKPj4+Pj4+Pj4+Pj4+Pj4KPj4+
+Pj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+Pj4gICAgIE9uIFNhdCwgMTMg
+QXVnIDIwMjIsIEswTE5ZX0dsZW5uIHdyb3RlOgo+Pj4+Pj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+Pj4+
+Pj4gICAgIEkgd291bGQgbGlrZSB0byBzZWUgRnJlZWRvbSBTY2llbnRpZmljIG1ha2UgYSBKYXdz
+IEZvcgo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIExpbnV4Lgo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIEpGTAo+
+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIEknZCBjZXJ0YWlubHkgcGF5IHRoZSB5ZWFybHkgcmVudGFsIGZl
+ZSBmb3IgaXQsIGFuZCBpdAo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIHdvdWxkIGJyaW5nCj4+Pj4+Pj4+
+Pj4+Pj4+PiAgICAgbWFueQo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIG1vcmUKPj4+Pj4+Pj4+Pj4+Pj4+
+ICAgICB1c2VycyBpbnRvIExpbnV4Lgo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIEZTIGNvdWxkLCB3aXRo
+IGl0cyByZXNvdXJjZXMsIHBvc3NpYmx5IG1ha2UgaXQgbW9yZQo+Pj4+Pj4+Pj4+Pj4+Pj4gcm9i
+dXN0Cj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgdGhhbgo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIE9yY2EuCj4+
+Pj4+Pj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIEdsZW5uCj4+Pj4+Pj4+Pj4+Pj4+PiAg
+ICAgLS0tLS0gT3JpZ2luYWwgTWVzc2FnZSAtLS0tLQo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIEZyb206
+ICJNaWxhbiBaYW1hemFsIiA8cGRtQHphbWF6YWwub3JnPgo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIFRv
+OiA8c3BlYWt1cEBsaW51eC1zcGVha3VwLm9yZz4KPj4+Pj4+Pj4+Pj4+Pj4+ICAgICBDYzogPEJs
+aW51eC1saXN0QHJlZGhhdC5jb20+Cj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgU2VudDogU2F0dXJkYXks
+IEF1Z3VzdCAxMywgMjAyMiAxMjowOCBQTQo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIFN1YmplY3Q6IFJl
+OiAiQWNjZXNzaWJpbGl0eSBpbiBGZWRvcmEgV29ya3N0YXRpb24iIChmd2QpCj4+Pj4+Pj4+Pj4+
+Pj4+Pgo+Pj4+Pj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4gICAgICJLTCIgPT0gS2Fy
+ZW4gTGV3ZWxsZW4KPj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4gPGtsZXdlbGxlbkBzaGVsbHdvcmxkLm5l
+dD4KPj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4gICB3cml0ZXM6Cj4+Pj4+Pj4+Pj4+Pj4+PiAgIEtMPiAg
+V2hhdCBib3RoZXJzIG1lIG1vc3QgYXJlIGhpcyBsYWNrIG9mIGFjdHVhbAo+Pj4+Pj4+Pj4+Pj4+
+Pj4gICBxdWFsaWZpY2F0aW9ucywKPj4+Pj4+Pj4+Pj4+Pj4+ICAgYW5kCj4+Pj4+Pj4+Pj4+Pj4+
+PiBLTD4gICAgYWJzb2x1dGUgZGlzbWlzc2FsIG9mIHdoYXQgaGUgaGFzIG5vdCBleHBlcmllbmNl
+ZC4uYXMKPj4+Pj4+Pj4+Pj4+Pj4+IGlmCj4+Pj4+Pj4+Pj4+Pj4+PiBLTD4gICAgaGUKPj4+Pj4+
+Pj4+Pj4+Pj4+IEtMPiAgICBkZWZpbmVzIExpbnV4IHVzYWdlIGZvciBldmVyeW9uZS4gIFRoYXQg
+YXR0aXR1ZGUgaXMKPj4+Pj4+Pj4+Pj4+Pj4+IEtMPiAgICBkYW5nZXJvdXMsCj4+Pj4+Pj4+Pj4+
+Pj4+PiBLTD4gICAgYmVjYXVzZSBoZSBpcyBlZHVjYXRpbmcgdGhvc2Ugb3V0c2lkZSBvZiB0aGUK
+Pj4+Pj4+Pj4+Pj4+Pj4+IEtMPiAgICBhY2Nlc3NpYmlsaXR5Cj4+Pj4+Pj4+Pj4+Pj4+PiBLTD4g
+ICAgZXhwZXJpZW5jZXMsIHdobyB3aWxsIGJlbGlldmUgaGlzIGlnbm9yYW5jZSBpcwo+Pj4+Pj4+
+Pj4+Pj4+Pj4gZmFjdHVhbC4KPj4+Pj4+Pj4+Pj4+Pj4+IEtMPiAgICBoZQo+Pj4+Pj4+Pj4+Pj4+
+Pj4gICBoYXMKPj4+Pj4+Pj4+Pj4+Pj4+ICAgS0w+ICB0byBiZSBleHBlcnQsIGl0IGlzIGhpcyBq
+b2IuCj4+Pj4+Pj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIEhpIEthcmVuLAo+Pj4+Pj4+
+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+Pj4+ICAgICBJIGtub3cgTHVrYXMgcGVyc29uYWxseSBhbmQg
+SSBhZG1pcmUgaGlzIHNraWxscyBhbmQKPj4+Pj4+Pj4+Pj4+Pj4+ICAgcXVhbGlmaWNhdGlvbnMu
+Cj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgSQo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIGFsc28ga25vdyBmaXJz
+dCBoYW5kIHRoYXQgaGUgaXMgb3BlbiB0byBjb25zdHJ1Y3RpdmUKPj4+Pj4+Pj4+Pj4+Pj4+ICAg
+ICBmZWVkYmFjayBhbmQKPj4+Pj4+Pj4+Pj4+Pj4+ICAgSQo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIGJl
+bGlldmUgaGXDg8KiP1RkIGJlIGhhcHB5IHRvIGJlIGNvcnJlY3RlZCBhYm91dCBwb3NzaWJsZQo+
+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIHRlY2huaWNhbAo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIGluYWNjdXJh
+Y2llcyBpbiB0aGUgaW50ZXJ2aWV3LiAgSXQgbWF5IGJlIGFsc28gYSBnb29kCj4+Pj4+Pj4+Pj4+
+Pj4+PiAgICAgb3Bwb3J0dW5pdHkKPj4+Pj4+Pj4+Pj4+Pj4+ICAgdG8KPj4+Pj4+Pj4+Pj4+Pj4+
+ICAgICBmaW5kIG91dCB3aGF0w4PCoj9UcyBwb3NzaWJseSBtaXNzaW5nIGluIG1ha2luZyBhbnli
+b2R5Cj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgYmV0dGVyCj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgaW5mb3Jt
+ZWQuCj4+Pj4+Pj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIEFzIGZvciDDg8KiP29hYnNv
+bHV0ZSBkaXNtaXNzYWwgb2Ygd2hhdCBoZSBoYXMgbm90Cj4+Pj4+Pj4+Pj4+Pj4+PiAgIGV4cGVy
+aWVuY2Vkw4PCoj/Dgj8sCj4+Pj4+Pj4+Pj4+Pj4+PiAgIHdoYXQKPj4+Pj4+Pj4+Pj4+Pj4+ICAg
+ICByZWFzb25hYmxlIGZyZWUgc29mdHdhcmUgYWx0ZXJuYXRpdmVzIHRvIGEgbGVzcyBvciBtb3Jl
+Cj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgc3RhbmRhcmQKPj4+Pj4+Pj4+Pj4+Pj4+ICAgICBkZXNrdG9w
+Cj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgd2l0aCBPcmNhIGFuZCBhIHNvZnR3YXJlIHN5bnRoZXNpemVy
+IGNhbiB5b3Ugc2VlIGZvciBhCj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgY29tbW9uCj4+Pj4+Pj4+Pj4+
+Pj4+PiAgIGJsaW5kCj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgdXNlcgo+Pj4+Pj4+Pj4+Pj4+Pj4gICAg
+IHdobyBuZWVkcyB0byB1c2UgYSBmdWxseSB3b3JraW5nIHdlYiBicm93c2VyLCB0byByZWFkCj4+
+Pj4+Pj4+Pj4+Pj4+PiBhbmQKPj4+Pj4+Pj4+Pj4+Pj4+ICAgICBwcm9jZXNzCj4+Pj4+Pj4+Pj4+
+Pj4+PiAgICAgdGV4dAo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIGRvY3VtZW50cywgdG8gYmUgY29tcGF0
+aWJsZSB3aXRoIG90aGVyIGNvbXB1dGVyIHVzZXJzLAo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIGV0Yy4/
+Cj4+Pj4+Pj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIEFuZCBsZXTDg8KiP1RzIGJlIHJl
+YWxpc3RpYy4gIFdlIGNlbGVicmF0ZSBldmVyeSBzaW5nbGUKPj4+Pj4+Pj4+Pj4+Pj4+ICAgZGV2
+ZWxvcGVyCj4+Pj4+Pj4+Pj4+Pj4+PiAgIGhpcmVkCj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgdG8KPj4+
+Pj4+Pj4+Pj4+Pj4+ICAgICBpbXByb3ZlIGFjY2Vzc2liaWxpdHkuICBUaGlzIHRlbGxzIHNvbWV0
+aGluZyBhYm91dCB0aGUKPj4+Pj4+Pj4+Pj4+Pj4+ICAgICBzdGF0ZSBvZgo+Pj4+Pj4+Pj4+Pj4+
+Pj4gICB0aGUKPj4+Pj4+Pj4+Pj4+Pj4+ICAgICBtYXR0ZXJzLiAgV2UgY2Fubm90IGV4cGVjdCB0
+aGF0IGEgc2luZ2xlIHBlcnNvbiB3aWxsIGZpeAo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIGFsbCB0aGUK
+Pj4+Pj4+Pj4+Pj4+Pj4+ICAgICBraW5kcwo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIG9mIGFjY2Vzc2li
+aWxpdHkgcHJvYmxlbXMgaW4gYWxsIHRoZSBlbnZpcm9ubWVudHMuCj4+Pj4+Pj4+Pj4+Pj4+PiBM
+dWthcwo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIHdvcmtzIGF0Cj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgaGlz
+Cj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgam9iIGZvY3VzaW5nIG9uIGNlcnRhaW4gYXJlYXMgY3VycmVu
+dGx5IHNlZW4gdGhlcmUgYXMKPj4+Pj4+Pj4+Pj4+Pj4+ICAgICB1cmdlbnQgb25lcwo+Pj4+Pj4+
+Pj4+Pj4+Pj4gICAgIGFuZCBJCj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgYXBwcmVjaWF0ZSB0aGlzIG9w
+cG9ydHVuaXR5LiAgQW55Ym9keSBlbHNlIHNlZWluZyBhIG5lZWQKPj4+Pj4+Pj4+Pj4+Pj4+IHRv
+Cj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgd29yawo+Pj4+Pj4+Pj4+Pj4+Pj4gICBvbgo+Pj4+Pj4+Pj4+
+Pj4+Pj4gICAgIG90aGVyIGFyZWFzIGlzIHdlbGNvbWUgdG8gY29udHJpYnV0ZSB0byB3aGF0ZXZl
+ciBzZWVzCj4+Pj4+Pj4+Pj4+Pj4+PiBmaXQsCj4+Pj4+Pj4+Pj4+Pj4+PiAgIGFzIEkKPj4+Pj4+
+Pj4+Pj4+Pj4+ICAgZG8uCj4+Pj4+Pj4+Pj4+Pj4+Pgo+Pj4+Pj4+Pj4+Pj4+Pj4gICAgIFJlZ2Fy
+ZHMsCj4+Pj4+Pj4+Pj4+Pj4+PiAgICAgTWlsYW4KPj4+Pj4+Pj4+Pj4+Pj4+Cj4+Pj4+Pj4+Pj4+
+Pj4+Pgo+Pj4+Pj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+Pj4+Cj4+Pj4+Pj4+Pj4+Pj4+Cj4+Pj4+
+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Pj4+Cj4+Pj4+Pj4+Pj4KPj4+Pj4+Pj4+Cj4+Pj4+Pj4+Pgo+Pj4+
+Pj4+Pj4KPj4+Pj4+Pj4KPj4+Pj4+Pgo+Pj4+Pj4+Cj4+Pj4+Pgo+Pj4+Pj4KPj4+Pj4+Cj4+Pj4+
+Cj4+Pj4+Cj4+Pj4KPj4+Pgo+Pj4KPj4+Cj4+Pgo+Pgo+Pgo+IF9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4g
+QmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxt
+YW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPgo+CgoKLS0gClNjYW0gdmljdGltPyBUZWxsIHlvdXIg
+c3RvcnkgYXQgd3d3LnNjYW05MTEub3JnL3N1cnZpdmluZy10aGUtc2NhbQpBbHNvIGNoZWNrIG91
+dCBicmlnaHRzdGFyc3dlYi5jb20gYW5kIG15c2l0ZXNiZWVuaGFja2VkLmNvbQpKYWNraWUgTWNC
+cmlkZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxp
+bnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0
+bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo=
 
