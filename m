@@ -2,46 +2,42 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 500DE5E551C
-	for <lists+blinux-list@lfdr.de>; Wed, 21 Sep 2022 23:22:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9712B5E6CF2
+	for <lists+blinux-list@lfdr.de>; Thu, 22 Sep 2022 22:21:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1663795337;
+	s=mimecast20190719; t=1663878096;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=JyOJIOxWOBbbzoXrKWd+Fs9pN0Ckc8I1BUnOgrCkzus=;
-	b=WXv6ZknV+6fSRxMNC3oH57/wCCz7OHCO8wSaH4xaJ6xkoL9A5/COTmGqzvmh+npNF6OIr1
-	YxAy2Rb1dB8r34bRtVLjtON3aPM6qD5P+cQ1oQn+4jHLOEiGr9kYZK2ixL5te9QmtM/X4U
-	l+xiEqPvABXN6izWpUszkEAdpskUj3w=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=ypY5w9vMPQCSW9fB7HcLklHYQEU6qo3RoVL/CdpdD9o=;
+	b=XUJOQwrKkBZNeEJaMhTf3LinA/34P4MHq8ktor2bHnrq3gb3MA39U7KzD8nLsx6IhzNEi/
+	lYAMkwZPjZlHqZZy0B/aOwXQjairdhrqfBvkqLicsurcDLPOU4qTizKV/yszoRoh9uLBP1
+	dxeVG05FQ1my4xi8BD15bvwHiDZW3+4=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-402-OddGQS-uNi6HUbAUdYNx7w-1; Wed, 21 Sep 2022 17:22:14 -0400
-X-MC-Unique: OddGQS-uNi6HUbAUdYNx7w-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-292-4WUJkerQMPirUCBiIq4nkA-1; Thu, 22 Sep 2022 16:21:31 -0400
+X-MC-Unique: 4WUJkerQMPirUCBiIq4nkA-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 10DD483B9DF;
-	Wed, 21 Sep 2022 21:22:12 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 75BCD29AB3FB;
+	Thu, 22 Sep 2022 20:21:29 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id D5D63C15BA5;
-	Wed, 21 Sep 2022 21:22:07 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 8156840C2064;
+	Thu, 22 Sep 2022 20:21:23 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 7CBD219465B9;
-	Wed, 21 Sep 2022 21:22:07 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id E6DE11946A42;
+	Thu, 22 Sep 2022 20:21:22 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 21 Sep 2022 21:12:52 +0000
-To: blinux-list@redhat.com
-Subject: Re: F 105 crashing, anyone else?
-In-Reply-To: <mailman.1902.1663760173.6083.blinux-list@redhat.com>
-References: <mailman.1902.1663760173.6083.blinux-list@redhat.com>
-Feedback-ID: 26663242:user:proton
+Date: Thu, 22 Sep 2022 13:21:17 -0700 (PDT)
+To: Blinux list <blinux-list@redhat.com>
+Subject: Firefox in ubuntu 22.04
 MIME-Version: 1.0
-Message-ID: <mailman.2208.1663795326.6077.blinux-list@redhat.com>
+Message-ID: <mailman.2509.1663878082.6075.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -57,29 +53,27 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-WWVzLCBVYnVudHUgTWF0ZSAyMi4wNCA2NC1iaXQsIEZpcmVmb3ggMTA1IGZyb20gTW96aWxsYSBw
-cGEuCgpJIHVzZWQgMTA0IGJlZm9yZSBhbmQgZG9uJ3QgcmVtZW1iZXIgaXQgY3Jhc2hpbmcgb24g
-bXkgc3lzdGVtLCBidXQgMTA1CmNyYXNoZXMgcXVpdGUgZnJlcXVlbnRseS4KCgpFaXRoZXIgYWZ0
-ZXIgYWN0aXZhdGluZyBhIGxpbmssIHdoZW4gdGhlIG5ldyBwYWdlIGlzIGxvYWRlZCwgb3IgZXZl
-bgpvbi1wYWdlIG5hdmlnYXRpb24gY2FuIGNhdXNlIGNyYXNoZXMgaGVyZSBhbmQgdGhlcmUuCgoK
-QmVzdCByZWdhcmRzCgoKUmFzdGlzbGF2CgoKRMWIYSAyMS4gOS4gMjAyMiBvIDEzOjM1IExpbnV4
-IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gbmFww61zYWwoYSk6Cj4gSXMgaXQganVzdCBt
-ZSwgb3IgaXMgRkYgMTA1LjAgY3Jhc2hpbmcgbW9yZSB0aGFuIDEwNC5YIHVzZWQgdG8/Cj4KPgo+
-IE9wZW4gYSBwcml2YXRlIHdpbmRvdyBhbmQgdHlwZSBpbiBhIFVSTCwgY3Jhc2gKPgo+Cj4gVHJ5
-IGdvaW5nIHRvIGEgVVJMIGluIHRoZSBtYWluIHdpbmRvdz8gQ3Jhc2gKPgo+Cj4gQ3VycmVudGx5
-IGNvbXBpbGluZyBGRiBFU1IgdG8gc2VlIGlmIHRoaXMgZml4ZXMgaXQuIFRoZSBvbmx5IHRoaW5n
-cyBpbgo+IHRoZSBjcmFzaCBsb2cgYXJlIHNpZ3NlZyBhbmQgc2lnIGZhdWx0cyB3aGljaCBhcmUg
-bm90IGhlbHBmdWwsIHRoZQo+IGNvbnNvbGUgb25seSBnaXZlcyBtZSBhIGNoYW5uZWwgZXJyb3Ig
-dG8gd29yayB3aXRoCj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5j
-b20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1s
-aXN0Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJs
-aW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlz
-dG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QK
+I am running ubuntu 22.04 with the mate desktop (using a startx file as I 
+don't normatlly use a gui desktop so only want it up when I need it).  If 
+I try to run firefox from the menu I get no response and no firefox.  If I 
+try to run it from a terminal I get the following error:
+/user.slice/user-1000.slice/session-22.scope is not a snap cgroup
+
+The session number may vary.
+
+Any one know how to get firefox working in this setup?
+
+Thnks
+Tom
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
