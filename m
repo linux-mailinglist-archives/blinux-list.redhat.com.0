@@ -2,53 +2,45 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id E711A5F6B45
-	for <lists+blinux-list@lfdr.de>; Thu,  6 Oct 2022 18:12:44 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id F25FD5F6B50
+	for <lists+blinux-list@lfdr.de>; Thu,  6 Oct 2022 18:15:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1665072763;
+	s=mimecast20190719; t=1665072942;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=4oQ2dM1YDicS8bVChYLiFegoV+oO5+OjsR7YwrMxwJo=;
-	b=haadHEiX3rFmgE+bWI0NGpLfv6aXCXSpGyIsUVgqtxxfm/ZnilHiI+TKBov+AT9hyK0TMM
-	n5C06BaVmi46EAwjNg1qGS6lOpWk5kOaZgImn5CFchbP60GHlLY3evDzZrNtOAOqLDaJpn
-	9i66tDlFIuRLpR7l6+Io/Nbk/FM0it4=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=lc9vQ8UDDWvRbL3BNerBS0Z/rnAIEQHJzHoB02qwCRk=;
+	b=VkZJ6l+PVB2u4j8x2ZVi/9BxMcgBLn9QxmAE00362/8lUlhm4jb2DS0DYtndRaYnFk5EyU
+	AhD8EaazZJtcWjFM+fEk9RjUomFYvro8Gh/n7SfqbMhgd7gb/HS67WsFqjPXfjfg6nypPb
+	pVHrx5+YcmcDzNwmqfQp3khyoMaWJys=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-628-gLp3UPHTNSiKw7-7QrYKZA-1; Thu, 06 Oct 2022 12:12:41 -0400
-X-MC-Unique: gLp3UPHTNSiKw7-7QrYKZA-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+ us-mta-592-fz81DQ8RNMCyqq970SETlw-1; Thu, 06 Oct 2022 12:15:40 -0400
+X-MC-Unique: fz81DQ8RNMCyqq970SETlw-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 49D8F855306;
-	Thu,  6 Oct 2022 16:12:40 +0000 (UTC)
-Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 4EF96145888E;
-	Thu,  6 Oct 2022 16:12:32 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 33BDA3C1104F;
+	Thu,  6 Oct 2022 16:15:39 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 115A5111F3B0;
+	Thu,  6 Oct 2022 16:15:39 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id B18841946A42;
-	Thu,  6 Oct 2022 16:12:31 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id E8B531946A40;
+	Thu,  6 Oct 2022 16:15:38 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.1\))
+Mime-Version: 1.0 (1.0)
 Subject: Re: tdsr
-Date: Thu, 6 Oct 2022 11:12:25 -0500
-References: <mailman.5306.1664889720.6075.blinux-list@redhat.com>
- <mailman.5193.1664891202.6080.blinux-list@redhat.com>
- <mailman.5272.1664915489.6083.blinux-list@redhat.com>
- <mailman.5680.1664947080.6075.blinux-list@redhat.com>
- <mailman.5502.1664977583.6083.blinux-list@redhat.com>
- <mailman.5759.1665005512.6083.blinux-list@redhat.com>
- <mailman.6024.1665064244.6079.blinux-list@redhat.com>
- <mailman.5978.1665064443.6078.blinux-list@redhat.com>
- <mailman.6012.1665071325.6078.blinux-list@redhat.com>
-To: Linux for blind general discussion <blinux-list@redhat.com>
-In-Reply-To: <mailman.6012.1665071325.6078.blinux-list@redhat.com>
-Message-ID: <mailman.6206.1665072750.6080.blinux-list@redhat.com>
+Date: Thu, 6 Oct 2022 12:15:24 -0400
+References: <mailman.6206.1665072750.6080.blinux-list@redhat.com>
+In-Reply-To: <mailman.6206.1665072750.6080.blinux-list@redhat.com>
+To: blinux-list@redhat.com
+Message-ID: <mailman.6231.1665072938.6080.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -64,156 +56,127 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.3
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Since tdsr is started by using
-./tdsr
-from within
-/tdsr, how is this done using
-~/tdsr/tdsr
-
-> On Oct 6, 2022, at 10:48, Linux for blind general discussion <blinux-list@redhat.com> wrote:
-> 
-> You can try it the way you show, or just specify the path to the 'tdsr' executable like '~/tdsr/tdsr' or '/home/xxxxx/tdsr/tdsr' instead of 'cd' to the directory.  Once you create the file, log out and back in to test if the TDSR starts automatically.
-> 
-> 
-> On 10/6/2022 9:53 AM, Linux for blind general discussion wrote:
->> And do that using
->> nano .bash_login
->> and write
->> cd tdsr
->> ./tdsr
->> cd ..
->> Is that it?
->> 
->>> On Oct 6, 2022, at 08:48, Linux for blind general discussion <blinux-list@redhat.com> wrote:
->>> 
->>> Just create the file.
->>> 
->>> On 10/5/2022 5:31 PM, Linux for blind general discussion wrote:
->>>> Using ls .bash_login
->>>> and sudo ls .bash_login
->>>> I am not finding that file.
->>>> I am in the home directory.
->>>> Am I doing something wrong?
->>>> 
->>>>> On Oct 5, 2022, at 08:37, Linux for blind general discussion <blinux-list@redhat.com> wrote:
->>>>> 
->>>>> If 'bash' is your login shell, try adding the TDSR startup command to .bash_login in your home directory.  That should avoid the problems Tim indicated when a subshell is invoked.
->>>>> 
->>>>> You may have to create that file if it doesn't exist.  It is documented in the 'bash' manual page.
->>>>> 
->>>>> 
->>>>> On 10/5/2022 1:17 AM, Linux for blind general discussion wrote:
->>>>>> Or might it be easier to install espeakup, or install Fenrir?
->>>>>> I welcome anyone's ideas.
->>>>>> 
->>>>>>> On Oct 4, 2022, at 15:31, Linux for blind general discussion <blinux-list@redhat.com> wrote:
->>>>>>> 
->>>>>>> Maybe better to keep logging in, go to cd tdsr,
->>>>>>> then type
->>>>>>> ./tdsr
->>>>>>> cd ..
->>>>>>> as I already do.
->>>>>>> What you had written is far too advanced for me, but thank you.
->>>>>>> 
->>>>>>>> On Oct 4, 2022, at 08:46, Linux for blind general discussion <blinux-list@redhat.com> wrote:
->>>>>>>> 
->>>>>>>> Tim here.  It's a little tricky because, without additional
->>>>>>>> precautions, you open a shell which launches tdsr, which opens a
->>>>>>>> shell inside of it, which launches tdsr, which opens a shell
->>>>>>>> which...you get the idea.
->>>>>>>> 
->>>>>>>> So there needs to be a way for a shell to determine if it's already
->>>>>>>> inside a running session of tdsr.  This sort of thing is usually
->>>>>>>> done through setting an environment variable.  For example, I've
->>>>>>>> done similarly with "tmux", so I have a check in my startup file
->>>>>>>> (e.g. my ~/.bashrc) that tests
->>>>>>>> 
->>>>>>>> [ -z "$TMUX" ] && tmux
->>>>>>>> 
->>>>>>>> So first you'd want to see if tdsr sets an environment variable.
->>>>>>>> The documentation might detail this, but if not, you can dump the
->>>>>>>> environment to a file before running tdsr, then run tdsr, then dump
->>>>>>>> the environment to another file and compare them, like
->>>>>>>> 
->>>>>>>> $ env | sort > a
->>>>>>>> $ tdsr
->>>>>>>> (tdsr)$ env | sort > b
->>>>>>>> (tdsr)$ comm -13 a b
->>>>>>>> 
->>>>>>>> Hopefully this will show a setting something like a "$TDSR" variable
->>>>>>>> that you can check.  Then your ~/.bashrc (or whatever your startup
->>>>>>>> file is) can end with something like
->>>>>>>> 
->>>>>>>> [ -z "$TDSR" ] && tdsr
->>>>>>>> 
->>>>>>>> Because this can go unfortunately sideways, I recommend having one
->>>>>>>> window/console open, editing your ~/.bashrc and then open a *new*
->>>>>>>> window (or log in at another console) to test it.  If all goes
->>>>>>>> right, yay.  If things go sideways, you can quickly flip back to
->>>>>>>> the first window/console, remove that line from your ~/.bashrc, and
->>>>>>>> (re)save it.  This saves you a LOT of hassle if you accidentally
->>>>>>>> create a loop like described at the top of this email.
->>>>>>>> 
->>>>>>>> -Tim
->>>>>>>> 
->>>>>>>> On 2022-10-04 08:21, Linux for blind general discussion wrote:
->>>>>>>>> I have fedora 35, and while in the shell I use tdsr for screen-reader.
->>>>>>>>> To start it, one must use dot slash tdsr.
->>>>>>>>> Is there a way to have this program start whenever logging in at shell?
->>>>>>>>> 
->>>>>>>>> _______________________________________________
->>>>>>>>> Blinux-list mailing list
->>>>>>>>> Blinux-list@redhat.com
->>>>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>>>>> 
->>>>>>>> _______________________________________________
->>>>>>>> Blinux-list mailing list
->>>>>>>> Blinux-list@redhat.com
->>>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>>>> 
->>>>>>> _______________________________________________
->>>>>>> Blinux-list mailing list
->>>>>>> Blinux-list@redhat.com
->>>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>>> 
->>>>>> _______________________________________________
->>>>>> Blinux-list mailing list
->>>>>> Blinux-list@redhat.com
->>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>>>> 
->>>>> _______________________________________________
->>>>> Blinux-list mailing list
->>>>> Blinux-list@redhat.com
->>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>> _______________________________________________
->>>> Blinux-list mailing list
->>>> Blinux-list@redhat.com
->>>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>>> 
->>> _______________________________________________
->>> Blinux-list mailing list
->>> Blinux-list@redhat.com
->>> https://listman.redhat.com/mailman/listinfo/blinux-list
->>> 
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->> 
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+VHlwaW5nIH4vdGRzci90ZHNyIGdpdmVzIHRoZSBkaXJlY3QgcGF0aCB0byB0aGUgZmlsZS4gIFRo
+YXQgd2F5IHRoZSBzeXN0ZW0ga25vd3Mgd2hlcmUgdGRzciBpcyB3aXRob3V0IHlvdSBuZWVkaW5n
+IHRvIGNkIHRvIHRoZSBkaXJlY3RvcnkuCgoKUnlhbiBNYW5uCkNlcnRpZmllZCBBc3Npc3RpdmUg
+VGVjaG5vbG9neSBJbnN0cnVjdGlvbmFsIFNwZWNpYWxpc3QKcm1hbm4wNTgxQGdtYWlsLmNvbQoz
+ODYtMzgzLTUxNzUKCgo+IE9uIE9jdCA2LCAyMDIyLCBhdCAxMjoxMiBQTSwgTGludXggZm9yIGJs
+aW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gd3JvdGU6Cj4g
+Cj4g77u/U2luY2UgdGRzciBpcyBzdGFydGVkIGJ5IHVzaW5nCj4gLi90ZHNyCj4gZnJvbSB3aXRo
+aW4KPiAvdGRzciwgaG93IGlzIHRoaXMgZG9uZSB1c2luZwo+IH4vdGRzci90ZHNyCj4gCj4+IE9u
+IE9jdCA2LCAyMDIyLCBhdCAxMDo0OCwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lv
+biA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gd3JvdGU6Cj4+IAo+PiBZb3UgY2FuIHRyeSBpdCB0
+aGUgd2F5IHlvdSBzaG93LCBvciBqdXN0IHNwZWNpZnkgdGhlIHBhdGggdG8gdGhlICd0ZHNyJyBl
+eGVjdXRhYmxlIGxpa2UgJ34vdGRzci90ZHNyJyBvciAnL2hvbWUveHh4eHgvdGRzci90ZHNyJyBp
+bnN0ZWFkIG9mICdjZCcgdG8gdGhlIGRpcmVjdG9yeS4gIE9uY2UgeW91IGNyZWF0ZSB0aGUgZmls
+ZSwgbG9nIG91dCBhbmQgYmFjayBpbiB0byB0ZXN0IGlmIHRoZSBURFNSIHN0YXJ0cyBhdXRvbWF0
+aWNhbGx5Lgo+PiAKPj4gCj4+PiBPbiAxMC82LzIwMjIgOTo1MyBBTSwgTGludXggZm9yIGJsaW5k
+IGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90ZToKPj4+IEFuZCBkbyB0aGF0IHVzaW5nCj4+PiBuYW5v
+IC5iYXNoX2xvZ2luCj4+PiBhbmQgd3JpdGUKPj4+IGNkIHRkc3IKPj4+IC4vdGRzcgo+Pj4gY2Qg
+Li4KPj4+IElzIHRoYXQgaXQ/Cj4+PiAKPj4+PiBPbiBPY3QgNiwgMjAyMiwgYXQgMDg6NDgsIExp
+bnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gPGJsaW51eC1saXN0QHJlZGhhdC5jb20+
+IHdyb3RlOgo+Pj4+IAo+Pj4+IEp1c3QgY3JlYXRlIHRoZSBmaWxlLgo+Pj4+IAo+Pj4+IE9uIDEw
+LzUvMjAyMiA1OjMxIFBNLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3Rl
+Ogo+Pj4+PiBVc2luZyBscyAuYmFzaF9sb2dpbgo+Pj4+PiBhbmQgc3VkbyBscyAuYmFzaF9sb2dp
+bgo+Pj4+PiBJIGFtIG5vdCBmaW5kaW5nIHRoYXQgZmlsZS4KPj4+Pj4gSSBhbSBpbiB0aGUgaG9t
+ZSBkaXJlY3RvcnkuCj4+Pj4+IEFtIEkgZG9pbmcgc29tZXRoaW5nIHdyb25nPwo+Pj4+PiAKPj4+
+Pj4+IE9uIE9jdCA1LCAyMDIyLCBhdCAwODozNywgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlz
+Y3Vzc2lvbiA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gd3JvdGU6Cj4+Pj4+PiAKPj4+Pj4+IElm
+ICdiYXNoJyBpcyB5b3VyIGxvZ2luIHNoZWxsLCB0cnkgYWRkaW5nIHRoZSBURFNSIHN0YXJ0dXAg
+Y29tbWFuZCB0byAuYmFzaF9sb2dpbiBpbiB5b3VyIGhvbWUgZGlyZWN0b3J5LiAgVGhhdCBzaG91
+bGQgYXZvaWQgdGhlIHByb2JsZW1zIFRpbSBpbmRpY2F0ZWQgd2hlbiBhIHN1YnNoZWxsIGlzIGlu
+dm9rZWQuCj4+Pj4+PiAKPj4+Pj4+IFlvdSBtYXkgaGF2ZSB0byBjcmVhdGUgdGhhdCBmaWxlIGlm
+IGl0IGRvZXNuJ3QgZXhpc3QuICBJdCBpcyBkb2N1bWVudGVkIGluIHRoZSAnYmFzaCcgbWFudWFs
+IHBhZ2UuCj4+Pj4+PiAKPj4+Pj4+IAo+Pj4+Pj4gT24gMTAvNS8yMDIyIDE6MTcgQU0sIExpbnV4
+IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4+Pj4+Pj4gT3IgbWlnaHQgaXQg
+YmUgZWFzaWVyIHRvIGluc3RhbGwgZXNwZWFrdXAsIG9yIGluc3RhbGwgRmVucmlyPwo+Pj4+Pj4+
+IEkgd2VsY29tZSBhbnlvbmUncyBpZGVhcy4KPj4+Pj4+PiAKPj4+Pj4+Pj4gT24gT2N0IDQsIDIw
+MjIsIGF0IDE1OjMxLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIDxibGludXgt
+bGlzdEByZWRoYXQuY29tPiB3cm90ZToKPj4+Pj4+Pj4gCj4+Pj4+Pj4+IE1heWJlIGJldHRlciB0
+byBrZWVwIGxvZ2dpbmcgaW4sIGdvIHRvIGNkIHRkc3IsCj4+Pj4+Pj4+IHRoZW4gdHlwZQo+Pj4+
+Pj4+PiAuL3Rkc3IKPj4+Pj4+Pj4gY2QgLi4KPj4+Pj4+Pj4gYXMgSSBhbHJlYWR5IGRvLgo+Pj4+
+Pj4+PiBXaGF0IHlvdSBoYWQgd3JpdHRlbiBpcyBmYXIgdG9vIGFkdmFuY2VkIGZvciBtZSwgYnV0
+IHRoYW5rIHlvdS4KPj4+Pj4+Pj4gCj4+Pj4+Pj4+PiBPbiBPY3QgNCwgMjAyMiwgYXQgMDg6NDYs
+IExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gPGJsaW51eC1saXN0QHJlZGhhdC5j
+b20+IHdyb3RlOgo+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+PiBUaW0gaGVyZS4gIEl0J3MgYSBsaXR0bGUg
+dHJpY2t5IGJlY2F1c2UsIHdpdGhvdXQgYWRkaXRpb25hbAo+Pj4+Pj4+Pj4gcHJlY2F1dGlvbnMs
+IHlvdSBvcGVuIGEgc2hlbGwgd2hpY2ggbGF1bmNoZXMgdGRzciwgd2hpY2ggb3BlbnMgYQo+Pj4+
+Pj4+Pj4gc2hlbGwgaW5zaWRlIG9mIGl0LCB3aGljaCBsYXVuY2hlcyB0ZHNyLCB3aGljaCBvcGVu
+cyBhIHNoZWxsCj4+Pj4+Pj4+PiB3aGljaC4uLnlvdSBnZXQgdGhlIGlkZWEuCj4+Pj4+Pj4+PiAK
+Pj4+Pj4+Pj4+IFNvIHRoZXJlIG5lZWRzIHRvIGJlIGEgd2F5IGZvciBhIHNoZWxsIHRvIGRldGVy
+bWluZSBpZiBpdCdzIGFscmVhZHkKPj4+Pj4+Pj4+IGluc2lkZSBhIHJ1bm5pbmcgc2Vzc2lvbiBv
+ZiB0ZHNyLiAgVGhpcyBzb3J0IG9mIHRoaW5nIGlzIHVzdWFsbHkKPj4+Pj4+Pj4+IGRvbmUgdGhy
+b3VnaCBzZXR0aW5nIGFuIGVudmlyb25tZW50IHZhcmlhYmxlLiAgRm9yIGV4YW1wbGUsIEkndmUK
+Pj4+Pj4+Pj4+IGRvbmUgc2ltaWxhcmx5IHdpdGggInRtdXgiLCBzbyBJIGhhdmUgYSBjaGVjayBp
+biBteSBzdGFydHVwIGZpbGUKPj4+Pj4+Pj4+IChlLmcuIG15IH4vLmJhc2hyYykgdGhhdCB0ZXN0
+cwo+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+PiBbIC16ICIkVE1VWCIgXSAmJiB0bXV4Cj4+Pj4+Pj4+PiAK
+Pj4+Pj4+Pj4+IFNvIGZpcnN0IHlvdSdkIHdhbnQgdG8gc2VlIGlmIHRkc3Igc2V0cyBhbiBlbnZp
+cm9ubWVudCB2YXJpYWJsZS4KPj4+Pj4+Pj4+IFRoZSBkb2N1bWVudGF0aW9uIG1pZ2h0IGRldGFp
+bCB0aGlzLCBidXQgaWYgbm90LCB5b3UgY2FuIGR1bXAgdGhlCj4+Pj4+Pj4+PiBlbnZpcm9ubWVu
+dCB0byBhIGZpbGUgYmVmb3JlIHJ1bm5pbmcgdGRzciwgdGhlbiBydW4gdGRzciwgdGhlbiBkdW1w
+Cj4+Pj4+Pj4+PiB0aGUgZW52aXJvbm1lbnQgdG8gYW5vdGhlciBmaWxlIGFuZCBjb21wYXJlIHRo
+ZW0sIGxpa2UKPj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4gJCBlbnYgfCBzb3J0ID4gYQo+Pj4+Pj4+Pj4g
+JCB0ZHNyCj4+Pj4+Pj4+PiAodGRzcikkIGVudiB8IHNvcnQgPiBiCj4+Pj4+Pj4+PiAodGRzcikk
+IGNvbW0gLTEzIGEgYgo+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+PiBIb3BlZnVsbHkgdGhpcyB3aWxsIHNo
+b3cgYSBzZXR0aW5nIHNvbWV0aGluZyBsaWtlIGEgIiRURFNSIiB2YXJpYWJsZQo+Pj4+Pj4+Pj4g
+dGhhdCB5b3UgY2FuIGNoZWNrLiAgVGhlbiB5b3VyIH4vLmJhc2hyYyAob3Igd2hhdGV2ZXIgeW91
+ciBzdGFydHVwCj4+Pj4+Pj4+PiBmaWxlIGlzKSBjYW4gZW5kIHdpdGggc29tZXRoaW5nIGxpa2UK
+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4gWyAteiAiJFREU1IiIF0gJiYgdGRzcgo+Pj4+Pj4+Pj4gCj4+
+Pj4+Pj4+PiBCZWNhdXNlIHRoaXMgY2FuIGdvIHVuZm9ydHVuYXRlbHkgc2lkZXdheXMsIEkgcmVj
+b21tZW5kIGhhdmluZyBvbmUKPj4+Pj4+Pj4+IHdpbmRvdy9jb25zb2xlIG9wZW4sIGVkaXRpbmcg
+eW91ciB+Ly5iYXNocmMgYW5kIHRoZW4gb3BlbiBhICpuZXcqCj4+Pj4+Pj4+PiB3aW5kb3cgKG9y
+IGxvZyBpbiBhdCBhbm90aGVyIGNvbnNvbGUpIHRvIHRlc3QgaXQuICBJZiBhbGwgZ29lcwo+Pj4+
+Pj4+Pj4gcmlnaHQsIHlheS4gIElmIHRoaW5ncyBnbyBzaWRld2F5cywgeW91IGNhbiBxdWlja2x5
+IGZsaXAgYmFjayB0bwo+Pj4+Pj4+Pj4gdGhlIGZpcnN0IHdpbmRvdy9jb25zb2xlLCByZW1vdmUg
+dGhhdCBsaW5lIGZyb20geW91ciB+Ly5iYXNocmMsIGFuZAo+Pj4+Pj4+Pj4gKHJlKXNhdmUgaXQu
+ICBUaGlzIHNhdmVzIHlvdSBhIExPVCBvZiBoYXNzbGUgaWYgeW91IGFjY2lkZW50YWxseQo+Pj4+
+Pj4+Pj4gY3JlYXRlIGEgbG9vcCBsaWtlIGRlc2NyaWJlZCBhdCB0aGUgdG9wIG9mIHRoaXMgZW1h
+aWwuCj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+IC1UaW0KPj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4gT24gMjAy
+Mi0xMC0wNCAwODoyMSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90ZToK
+Pj4+Pj4+Pj4+PiBJIGhhdmUgZmVkb3JhIDM1LCBhbmQgd2hpbGUgaW4gdGhlIHNoZWxsIEkgdXNl
+IHRkc3IgZm9yIHNjcmVlbi1yZWFkZXIuCj4+Pj4+Pj4+Pj4gVG8gc3RhcnQgaXQsIG9uZSBtdXN0
+IHVzZSBkb3Qgc2xhc2ggdGRzci4KPj4+Pj4+Pj4+PiBJcyB0aGVyZSBhIHdheSB0byBoYXZlIHRo
+aXMgcHJvZ3JhbSBzdGFydCB3aGVuZXZlciBsb2dnaW5nIGluIGF0IHNoZWxsPwo+Pj4+Pj4+Pj4+
+IAo+Pj4+Pj4+Pj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCj4+Pj4+Pj4+Pj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+Pj4+Pj4+Pj4gQmxpbnV4
+LWxpc3RAcmVkaGF0LmNvbQo+Pj4+Pj4+Pj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21h
+aWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+IF9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+Pj4+Pj4+PiBCbGludXgt
+bGlzdCBtYWlsaW5nIGxpc3QKPj4+Pj4+Pj4+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+Pj4+
+Pj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxp
+c3QKPj4+Pj4+Pj4+IAo+Pj4+Pj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwo+Pj4+Pj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+Pj4+Pj4g
+QmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+Pj4+Pj4+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNv
+bS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+Pj4+Pj4+IAo+Pj4+Pj4+IF9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+Pj4+Pj4gQmxpbnV4LWxp
+c3QgbWFpbGluZyBsaXN0Cj4+Pj4+Pj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+Pj4+Pj4+IGh0
+dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4+
+Pj4+PiAKPj4+Pj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCj4+Pj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+Pj4+IEJsaW51eC1saXN0QHJl
+ZGhhdC5jb20KPj4+Pj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGlu
+Zm8vYmxpbnV4LWxpc3QKPj4+Pj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KPj4+Pj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+Pj4+IEJsaW51eC1s
+aXN0QHJlZGhhdC5jb20KPj4+Pj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9s
+aXN0aW5mby9ibGludXgtbGlzdAo+Pj4+PiAKPj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwo+Pj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+Pj4+
+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9t
+YWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+Pj4gCj4+PiBfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+Pj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0
+Cj4+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNv
+bS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+PiAKPj4gCj4+IF9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+IEJsaW51eC1saXN0IG1haWxpbmcg
+bGlzdAo+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQu
+Y29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPiAKPiBfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+
+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWls
+bWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4gCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RA
+cmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2Js
+aW51eC1saXN0Cg==
 
