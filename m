@@ -1,11 +1,11 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 996D85FA395
-	for <lists+blinux-list@lfdr.de>; Mon, 10 Oct 2022 20:47:33 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 095F95FA394
+	for <lists+blinux-list@lfdr.de>; Mon, 10 Oct 2022 20:47:31 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1665427652;
+	s=mimecast20190719; t=1665427651;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
@@ -13,25 +13,25 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
 	bh=bjfzgTlQ5jwG29naq0ec08DOSNoKiTVnjKppUSgYpBE=;
-	b=PUpmU08NVOzTlPG0quUXPECplfwWWCVAG+/vs+Hc2dUICJVlkpafv1o87dkuFrU4iwmeob
-	/YNP4CKitYp69XSCAU6CdE8NHOG1DM1DsJGDufy972lj7s8YAS9EsS+VxFj8Snepv7TvpK
-	5O0Zw+AdNKyLx/gjZYfa0rkG9KkUbB8=
+	b=dKLu8+Yjq33X9fyjTdaqWkci/yMucvc2D/T5FXgNzvapTv18S6xic7G3qv6R5FOVALTOIX
+	eU+imlagQgCWg/8YldjpIFyT/5irhaz9BF3sPJX5YdKqkQ2Fum3j7s/FX9FNsWE9gSGWU1
+	jWUabPBCMnGNYq5152ErFGe0jagInOc=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-638-TsXgM8HwMECo9yNr4SYEDA-1; Mon, 10 Oct 2022 14:47:28 -0400
-X-MC-Unique: TsXgM8HwMECo9yNr4SYEDA-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-127-4h0_K09YPSSA6h08jQbUAw-1; Mon, 10 Oct 2022 14:47:29 -0400
+X-MC-Unique: 4h0_K09YPSSA6h08jQbUAw-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4496C1C0758D;
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 44DC1382F1A6;
 	Mon, 10 Oct 2022 18:47:27 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 42DA2C68E43;
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 1213F2083A72;
 	Mon, 10 Oct 2022 18:47:25 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 0BF5F1946A47;
-	Mon, 10 Oct 2022 18:47:25 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 68DC71946A48;
+	Mon, 10 Oct 2022 18:47:24 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
 Date: Mon, 10 Oct 2022 20:47:18 +0200
@@ -47,7 +47,7 @@ References: <mailman.6579.1665417367.6077.blinux-list@redhat.com>
  <mailman.6853.1665423932.6082.blinux-list@redhat.com>
  <mailman.6257.1665425449.6074.blinux-list@redhat.com>
 In-Reply-To: <mailman.6257.1665425449.6074.blinux-list@redhat.com>
-Message-ID: <mailman.6398.1665427644.6083.blinux-list@redhat.com>
+Message-ID: <mailman.6895.1665427644.6075.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -63,7 +63,7 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
