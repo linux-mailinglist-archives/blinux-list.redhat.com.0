@@ -1,51 +1,46 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id E77565FA0DC
-	for <lists+blinux-list@lfdr.de>; Mon, 10 Oct 2022 17:04:58 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 74EF45FA13F
+	for <lists+blinux-list@lfdr.de>; Mon, 10 Oct 2022 17:40:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1665414297;
+	s=mimecast20190719; t=1665416443;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Vsg7yJa1HwEUfDX/xP0csCCHw/61B/43iamhdvnez/U=;
-	b=XS4qlS16qZ2U9k6oVmpgk6oqAIpIhuA6ml3Ad3uVshF1FfCnwuMJer827GfGVz57pIjyBD
-	9HGriYNSkMJSDQwe0oG9AJZ4b17hGk9z6IXhB+plqUvr7hgqcxfp1Stx++mf2XgFwk7eQF
-	VfQbamMMDKt5xW/TchSgA2yYbZ73NmU=
+	bh=G0j68uZprykPfw2NPsnzVMZHe6z248oUScoudiOFPXU=;
+	b=Mqu8YH4He/tMrnyAGRmjNkW7Ezt0mqk5Ywkt8dQc/foDGsAyibA/5fHpHRdxDYkrTorrJj
+	HDrAXlt75LEkWwWsTlbxbCwJkp0PoMPvN7396dxGtggPLgoFZlOftIDZSfbBSDlaN7Y7MB
+	4EDAzmevr1SmRO7n8YYQelem0Fwih70=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-312-Upsr-P2dP0-rN7K9Vqnm0g-1; Mon, 10 Oct 2022 11:04:54 -0400
-X-MC-Unique: Upsr-P2dP0-rN7K9Vqnm0g-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+ us-mta-255--nBMZeimPiehvHRoTn8jqw-1; Mon, 10 Oct 2022 11:40:39 -0400
+X-MC-Unique: -nBMZeimPiehvHRoTn8jqw-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4BDE1811E67;
-	Mon, 10 Oct 2022 15:04:53 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BBE2D101CC67;
+	Mon, 10 Oct 2022 15:40:37 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id BDEBC40E9921;
-	Mon, 10 Oct 2022 15:04:45 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id AB771404CD91;
+	Mon, 10 Oct 2022 15:40:36 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 0FEE11946A47;
-	Mon, 10 Oct 2022 15:04:45 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 435C61946A48;
+	Mon, 10 Oct 2022 15:40:36 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Mon, 10 Oct 2022 11:04:17 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.1
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.1\))
 Subject: Re: Is there a Fedora Espeakup Package?
-To: Linux for blind general discussion <blinux-list@redhat.com>
+Date: Mon, 10 Oct 2022 10:40:30 -0500
 References: <mailman.6271.1665338721.6083.blinux-list@redhat.com>
- <mailman.6427.1665341560.6078.blinux-list@redhat.com>
- <mailman.6772.1665385431.6082.blinux-list@redhat.com>
- <mailman.6702.1665390476.6080.blinux-list@redhat.com>
-In-Reply-To: <mailman.6702.1665390476.6080.blinux-list@redhat.com>
-Message-ID: <mailman.7167.1665414284.6076.blinux-list@redhat.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+In-Reply-To: <mailman.6271.1665338721.6083.blinux-list@redhat.com>
+Message-ID: <mailman.6377.1665416435.6083.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -61,34 +56,34 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.2
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-According to Didier
-> Caveat: I do not own a Braille device - and would not know how to use it, anyway...
+I am using tdsr with fedora 35.
+I cannot get it to work at login, but starting it is easy, and to use it all I had to do was to gitclone and a couple other things.
 
-
-That's OK. Brltty actually doesn't need a braille device. Some time back 
-it could double as a screen reader even though braille is still its 
-primary focus. As I recall, there is a dummy braille driver that can be 
-used in lieu of a braille display when using brltty for only speech output.
-
-
-I haven't tried the screen reader portion of it either, but I do recall 
-certain improvements over the years that made it useful in that 
-capacity. I'm certain it won't replace Orca on the desktop, but for text 
-use, it seems that now it may be useful. Since it can run as a system 
-service, instead of as a subshell, it can certainly replace things like 
-tdsr, since it doesn't require that a user be logged in to get it 
-speaking. Brltty is also reported to work on FreeBSD and such, so I 
-would be interested to know how well the screen reader portion works 
-there as well.
-
-~Kyle
+> On Oct 9, 2022, at 12:59, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> 
+> Hi there,
+> 
+> Just wondering how can one run Espeakup on Fedora? I am on Fedora 36, but can't find Espeakup in its repositories. So how do we run the Speakup while in the console? Tried a search with yum search and dnf search for both speakup and espeakup, but to no avail. I even tried compiling the Github espeakup, but the meson build fails with no espeak-ng dependency found (yet espeak-ng is installed).
+> 
+> 
+> Is there anyone using speakup on Fedora or any of the Red Hat derivatives?
+> 
+> 
+> Thanks.
+> 
+> 
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
