@@ -2,39 +2,39 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2A6E261186B
-	for <lists+blinux-list@lfdr.de>; Fri, 28 Oct 2022 18:57:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D47A26118DB
+	for <lists+blinux-list@lfdr.de>; Fri, 28 Oct 2022 19:07:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1666976261;
+	s=mimecast20190719; t=1666976826;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=4tmecYDU7yGthStyarS1Z1zem7jq10EXIVjcKZh0+0A=;
-	b=BxyJLkQv2sI3yH3IWJo+Dc5GVLMjJ+ZU98oMmeZ5OTGfSH/pdDw7XOyH/9yBqMCaFGEE3A
-	vZmFfCYO3EhUN213Uso3/xi2MWXM2d+AU9UuO1GbTy8/q99RZz75kUr2uUqigIvAj6CEqg
-	BK7C0mqTkRuzwyPb68rnUdWCJa8oh3E=
+	bh=PXTjgJJuvfPkpETDZEG4XL2SKEvrG/V6le/nCYqKr5U=;
+	b=eSiEOm7wNBbV2poATik1p7fPhnsn+GFv2FivMIjV4JKN12Q4nsR9uriRuNXWTqzYGWCd8n
+	k7zZ7IJFv+CD+2EmB4dVRATa4vo4I4ZvQKHu4txdWP/Rij30E49vMZAt+HbEkBLk+DRzGS
+	a8TfXDXDl5cRJCYq3q/SAC7YKofH7m8=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-296-5UnnSqfLN92Y5u9pAF5H4g-1; Fri, 28 Oct 2022 12:57:40 -0400
-X-MC-Unique: 5UnnSqfLN92Y5u9pAF5H4g-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+ us-mta-38-njSITYHgPzeKeC_6kBtOag-1; Fri, 28 Oct 2022 13:07:05 -0400
+X-MC-Unique: njSITYHgPzeKeC_6kBtOag-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 040E3800B23;
-	Fri, 28 Oct 2022 16:57:39 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6A7A8833AF9;
+	Fri, 28 Oct 2022 17:07:01 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 6F9FA1415102;
-	Fri, 28 Oct 2022 16:57:30 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 43D61C15BA8;
+	Fri, 28 Oct 2022 17:07:01 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 09F851946A7F;
-	Fri, 28 Oct 2022 16:57:30 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id DF1571946A7F;
+	Fri, 28 Oct 2022 17:07:00 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Fri, 28 Oct 2022 12:57:12 -0400
+Date: Fri, 28 Oct 2022 13:06:40 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.4.0
@@ -42,7 +42,7 @@ Subject: Re: better way to extract dvd audio with ffmpeg
 To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <mailman.3402.1666971107.3004.blinux-list@redhat.com>
 In-Reply-To: <mailman.3402.1666971107.3004.blinux-list@redhat.com>
-Message-ID: <mailman.3468.1666976249.3003.blinux-list@redhat.com>
+Message-ID: <mailman.3263.1666976820.3010.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,30 +58,24 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Have a look at vobcopy. The command
+I just noticed that you are trying to extract only the audio, or 
+possibly transcode it. I do believe vobcopy may still be able to help 
+you, since you should be able to pipe the output to standard output and 
+straight into ffmpeg, which can either copy the audio only or transcode 
+it to the format you want, thereby saving space on your hard drive. This 
+example worked for me to extract an mp3 version of the title I wanted 
+from a DVD. You can adjust it to fit your specific needs.
 
-vobcopy -l
+vobcopy -l -o - | ffmpeg -i - -vn -c:a libmp3lame -b:a 128K audio.mp3
 
-will get the title with the most chapters from your default dvd device 
-and pipe it out to one large .vob file in your current working 
-directory, giving it a filename that is the same as the title of the 
-DVD. This looks like exactly what you're trying to do using the cat 
-command you included, but without the repeated headers and bad data 
-caused by the concatenation that makes ffmpeg complain. The man page 
-lists a lot of other options that may also be useful, including 
-mirroring the entire DVD and copying out one title from an already 
-mirrored DVD or a specified mount point. You can also specify that 
-multiple files be created with a given size limit, default is 2GB 
-without the -l option. I did notice that my test copy made the filename 
-the title of the DVD plus a 1 at the end, but I think that can be 
-changed in options as well, especially if you want only one file.
+Hope this helps.
 
 ~Kyle
 
