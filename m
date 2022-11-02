@@ -1,46 +1,43 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id CE73F6169DE
-	for <lists+blinux-list@lfdr.de>; Wed,  2 Nov 2022 17:58:52 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id D79BE6170BD
+	for <lists+blinux-list@lfdr.de>; Wed,  2 Nov 2022 23:34:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1667408331;
+	s=mimecast20190719; t=1667428479;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=o5+XwuOOshDGx3hmLnXytQNwI8bqtAL6z9jMUTgZpkU=;
-	b=FQNjl6X051iE23LAtjnW9FaQTVo9+ntddrH6L7xXCnTkD1tb4CAJhddm2kIFr14TnVZWHa
-	dBjlv/mMTK7cyZFdwdt8oCrCqUCsg4fkNFF+Tp66Du4bSacDunZhPR/n+VlKr9SvHTNrLp
-	lPCInv/E1qwosS6LY85UaQfWoPQ5lFA=
+	bh=ddruL+U25jrFAbTS+TucZ1b5fn6jShPEluyOUpHCfhc=;
+	b=YVIxX5HFoDGdUHN/Mt732hRFR3V70Wf79nxYWgnVu8ITL1XoQRWYO5sbZooObWRaUcZ6IV
+	AIM2YCZVDXVd7sovQrC9j/5SSiqn/HOryIpvB2nlM3DDsWVh+tqxOB+H4bxm1pvHsH6apt
+	mH/smhmrn6SV+8fscyN4Dc0PvOzmChA=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-650-Xt4pVI1aPX2DK2OG339yfg-1; Wed, 02 Nov 2022 12:58:46 -0400
-X-MC-Unique: Xt4pVI1aPX2DK2OG339yfg-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-437-FkZuZO5SMSOmdMxKPWth6Q-1; Wed, 02 Nov 2022 18:34:38 -0400
+X-MC-Unique: FkZuZO5SMSOmdMxKPWth6Q-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C3C5E3806700;
-	Wed,  2 Nov 2022 16:58:44 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6316D1C14341;
+	Wed,  2 Nov 2022 22:34:36 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id F1224C15BA5;
-	Wed,  2 Nov 2022 16:58:40 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id A75324EA49;
+	Wed,  2 Nov 2022 22:34:27 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 802D11946A42;
-	Wed,  2 Nov 2022 16:58:40 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 5BA0D1946A66;
+	Wed,  2 Nov 2022 22:34:27 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 2 Nov 2022 17:57:20 +0100
+Date: Wed, 2 Nov 2022 18:34:23 -0400
+To: blinux-list@redhat.com
+Subject: this and previous version of Jenux
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:102.0) Gecko/20100101
- Thunderbird/102.2.2
-To: Linux for blind general discussion <blinux-list@redhat.com>,
- raspberry-vi@freelists.org, ubuntu-accessibility@lists.ubuntu.com
-Subject: Ubuntu 22.04 64 on Raspberry Pi
-Message-ID: <mailman.4191.1667408320.3005.blinux-list@redhat.com>
+Message-ID: <mailman.4428.1667428467.3003.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -56,29 +53,49 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.5
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hello,
+Both failed to boot on my computer.  I have a thinkpenguin.com penguin pro
+11 computer with an intel i7 core processor.
+I'm curious am I unique or are others having identical problems?
+If the installer cannot boot, it cannot install either.
+If I am not unique please write dnl.nash@gmail.com and send him
+appropriate failure reports with brand and model of computer used.
+This is not a problem for archlinux; slint, or debian bookworm.
+https://nashcentral.duckdns.org/projects/Jenux-2022.11.01-dual.iso
+https://nashcentral.duckdns.org/projects/Jenux-2022.11.01-dual.iso.sha512
+are the download urls for anyone interested in helping with testing and
+reporting.
+If you copied those two urls into a file called jenux then ran:
+wget -bci jenux
+And then ran every so often:
+wc -l wget-log&&grep -i saved wget-log
+eventually you'll get output back with two saved lines in it and both
+files will have been downloaded.
+To verisy:
+sha512sum -c Jenux-2022.10.01-dual.iso.sha512
+if you get ok back as a response after the file name, you got your image
+verified.
+I'm sharing this much with the list not so much for the sake of Jenux but
+in order to show users how to download multiple files and check on
+download progress.
+After all of that, rm wget-log otherwise wget-log.1 and so on will get
+created in the future.
+Remove that log after all download is finished, and you can reuse these
+commands as they stand.
 
-is some way to install Ubuntu Mate 22.04 64bit to Raspberry Pi without 
-seeing assistance? And what to write to config.txt to use it without 
-plugged screen? In 32bit Ubuntu version works this:
-disable_overscan=1
-dtoverlay=vc4-fkms-v3d
-hdmi_drive=2
-ttparam=audio=on
-hdmi_force_hotplug=1
 
-Thanks a lot.
 
-Best regards
+Jude <jdashiel at panix dot com>
+"There are four boxes to be used in defense of liberty:
+ soap, ballot, jury, and ammo. Please use in that order."
+-Ed Howdershelt (Author, 1940)
 
-Vojta.
+.
 
 _______________________________________________
 Blinux-list mailing list
