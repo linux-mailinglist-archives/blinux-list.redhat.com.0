@@ -2,42 +2,42 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4E9186209F8
-	for <lists+blinux-list@lfdr.de>; Tue,  8 Nov 2022 08:18:14 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id E0CC1626EC1
+	for <lists+blinux-list@lfdr.de>; Sun, 13 Nov 2022 10:38:20 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1667891893;
+	s=mimecast20190719; t=1668332299;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=3d+DVOUH8yQ0oq+hWUwIIrAbe1JJxYrjgl63jWuDGJ8=;
-	b=AbYtAmSqxylr5ZxvLfHV3goh++fcdAS9W2lCi09XHHK5AvATcFKXdIFQw8xT4fp4UjWmjd
-	unYTfg6M3VE/KXuk7WAvVnlTixvCglypbSaAqP4UykzAw1LJ7qdvZE0ff6a0sKiSwQpM0P
-	fqt9k57501O8FaaKABpSs6vKWV3MJP0=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=2pQVlHlcYOJswAKcgu/7x9Xt8+Mj6zaeXpGt0deW9OA=;
+	b=VZ2H3orlaiFG1a6bjkOd4K8MgPCd/zyuG+lXr5fYyWkH5ER7LA6C+keTzFzm6HWN/wadK/
+	xB053TVsN4rmZ1MjCT+WUjVN3vq99mhKpzNry5rcdzg7BXaBTs5tHmIQpROV9XEppz7FMT
+	Hoi5e1eXwbszqMkGsW48wMsTH8o1lCA=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-152-buzGeH3EPQaHauXllF2ANw-1; Tue, 08 Nov 2022 02:18:09 -0500
-X-MC-Unique: buzGeH3EPQaHauXllF2ANw-1
+ us-mta-136-Ox9SK8NnPyan0navQ7Z6KA-1; Sun, 13 Nov 2022 04:38:16 -0500
+X-MC-Unique: Ox9SK8NnPyan0navQ7Z6KA-1
 Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3F4EE1C05134;
-	Tue,  8 Nov 2022 07:18:08 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A06A4185A792;
+	Sun, 13 Nov 2022 09:38:14 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id AF77E401D49;
-	Tue,  8 Nov 2022 07:17:59 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 08CB449BB60;
+	Sun, 13 Nov 2022 09:38:04 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id DDB85194658F;
-	Tue,  8 Nov 2022 07:17:58 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 21E0B19465B2;
+	Sun, 13 Nov 2022 09:38:04 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Mime-Version: 1.0 (Mac OS X Mail 13.4 \(3608.120.23.2.7\))
-Date: Mon, 7 Nov 2022 23:17:50 -0800
-Subject: FYI: accessibility prospects for LiveView 0.18
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Message-ID: <mailman.5155.1667891878.3009.blinux-list@redhat.com>
+Date: Sun, 13 Nov 2022 17:37:56 +0800 (CST)
+To: blinux-list@redhat.com
+Subject: I couldn't start amuled
+MIME-Version: 1.0
+Message-ID: <mailman.7133.1668332283.3004.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -56,37 +56,37 @@ Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
 X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-"And the big thing I'm focusing on in LiveView 18 is Accessibility ..."
+Assertion failed: ./src/common/socketiohandler.cpp:Install_Callback:50:
+Assertion '"socket->m_fd != -1"' failed. shouldn't be called on invalid socket
+Backtrace follows:
+[3] wxOnAssert(char const*, int, char const*,char const*, char const*) in
+/usr/lib/libwx_baseu-3.2.so.0[0x7fa4b56a7e23] [4] ?? in
+/usr/lib/libwx_baseu_net-3.2.so.0[0x7fa4b59b0d7b]
+[5] ?? in /usr/lib/libwx_baseu_net-3.2.so.0[0x7fa4b59b0f83]
+[6] wxSocketBase::SetFlags(int) in
+/usr/lib/libwx_baseu_net-3.2.so.0[0x7fa4b599c810]
+[7] wxSocketBase::Peek(void*, unsigned int) in
+/usr/lib/libwx_baseu_net-3.2.so.0[0x7fa4b599d591]
+[8] wxProtocol::ReadLine(wxSocketBase*, wxString&) in
+/usr/lib/libwx_baseu_net-3.2.so.0[0x7fa4b599201f]
+[9] wxHTTP::ParseHeaders() in /usr/lib/libwx_baseu_net-3.2.so.0[0x7fa4b598b098]
+[10] wxHTTP::BuildRequest(wxString const&, wxString const&) in
+/usr/lib/libwx_baseu_net-3.2.so.0[0x7fa4b598f932]
+[11] wxHTTP::GetInputStream(wxString const&) in
+/usr/lib/libwx_baseu_net-3.2.so.0[0x7fa4b59902d5]
+[12] CHTTPDownloadThread::GetInputStream(wxHTTP*&, wxString const&, bool) in
+HTTPDownload.cpp:387
+[13] CHTTPDownloadThread::Entry() in HTTPDownload.cpp:224
+[14] wxThread::CallEntry() in /usr/lib/libwx_baseu-3.2.so.0[0x7fa4b57d35d2]
+[15] ?? in /usr/lib/libwx_baseu-3.2.so.0[0x7fa4b57d3bdc]
+[16] ?? in /lib64/libpthread.so.0[0x7fa4b6058e45]
+[17] clone in /lib64/libc.so.6[0x7fa4b512c4af]
+termiated
 
-Chris McCord, the prime mover behind the Phoenix web framework, says that a11y will be a major goal for the current version (0.18.x) of LiveView.  The intent is to make features such as focus handling Just Work, with little effort on the part of web developers.
- 
-# Some Background
-
-A typical Phoenix app runs almost entirely on the server, exchanging very minimal data with the client (JavaScript) code.  Phoenix, which is written in Elixir, runs on the Erlang VM. This gives it a performant, failsoft foundation, built-in support for concurrency and distribution, etc.  LiveView takes advantage of this, providing highly interactive sessions with almost no client-side code.
-
-# The Plan
-
-Having tried to write accessible web code in the past, Chris knows that it isn't easy to do, let alone get right.  So, he wants to build ally support into the framework, so that developers are more likely to incorporate it.  As part of the basis for this, he plans to use predefined components from the Tailwind CSS framework.
-
-Here are some useful links, for the curious:
-
-- Elixir - https://en.wikipedia.org/wiki/Elixir_(programming_language)
-- Erlang - https://en.wikipedia.org/wiki/Erlang_(programming_language)
-- LiveView - https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html
-- Phoenix - https://en.wikipedia.org/wiki/Phoenix_(web_framework)
-- Tailwind CSS - https://en.wikipedia.org/wiki/Tailwind_CSS
-
-Chris discussed his goals and approach in a recent talk.  The part concerning a11y starts at 27:05, but be warned that the talk includes a lot of Elixir code and visual material:
-
-ElixirConf 2022 - Chris McCord - Phoenix + LiveView Updates
-https://www.youtube.com/watch?v=9-rqBLjr5Eo
-
-However, I strongly suspect that Chris will be publishing blog posts on this topic as he proceeds.  I also expect a11y support to start showing up in various LiveView demo pages, etc.  So, interested parties should be able to follow along...
-
--r
+How to fix? Thank you!
 
 _______________________________________________
 Blinux-list mailing list
