@@ -2,48 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id AFCDD6396B3
-	for <lists+blinux-list@lfdr.de>; Sat, 26 Nov 2022 15:55:58 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2C0D46396B4
+	for <lists+blinux-list@lfdr.de>; Sat, 26 Nov 2022 15:58:33 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1669474557;
+	s=mimecast20190719; t=1669474712;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=DAEphgs4ZWZGzwVSZdUieVeL3/ykou0ZsPQNSd3HB3A=;
-	b=CVzNaLliTVVZkpZrYugMgCO4wEE0fDQjwpquX8ZHX04p/e/gqkyheXTI7W3cjRx1KCBc0r
-	VQm/gIhS9JTpjf2nj4miNtK7D7OjwirAWIATA1FVSLPeYQnafSi87OqR5LetHfxVP6sMWI
-	v4LP/qRMtX4i4fsmxq4Nfbmc7a4233E=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=NAAGuFOr25UP6QTBXnrIoS4X579uGfhMbL11rxXmoOc=;
+	b=RJPp/bzv0cOWw2pthFpt/0fxM8LuZY15uxnVlZD/B7PSMEegTgR9omVuYkBiRvXBdlJ7lP
+	Wiu+HSnpiNhiUNHI3SaKE4FPIfEJfEZ0rn1F2IqcHhxLI+Xi3Vntlt0CGyGBhCJBVT50uu
+	uq4oo9Q4eXR8roQeoG6+sc/NFrksaCg=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-606-fLP5BFUgNT6sZXTb6htHjA-1; Sat, 26 Nov 2022 09:55:53 -0500
-X-MC-Unique: fLP5BFUgNT6sZXTb6htHjA-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+ us-mta-28-AaAcd7YoOAquJL6f-sBMdQ-1; Sat, 26 Nov 2022 09:58:28 -0500
+X-MC-Unique: AaAcd7YoOAquJL6f-sBMdQ-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4174E800186;
-	Sat, 26 Nov 2022 14:55:52 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0DE6C3804527;
+	Sat, 26 Nov 2022 14:58:27 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id B5CAD492B08;
-	Sat, 26 Nov 2022 14:55:42 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id DA4F740C6EC3;
+	Sat, 26 Nov 2022 14:58:26 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 1D7B01946597;
-	Sat, 26 Nov 2022 14:55:42 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 6FA2C1946597;
+	Sat, 26 Nov 2022 14:58:26 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sat, 26 Nov 2022 09:55:37 -0500
+Date: Sat, 26 Nov 2022 09:58:22 -0500
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Accessible front ends for Pleroma?
-In-Reply-To: <mailman.1960.1669443853.6931.blinux-list@redhat.com>
+In-Reply-To: <mailman.1917.1669441933.6934.blinux-list@redhat.com>
 References: <mailman.1920.1669425887.6932.blinux-list@redhat.com>
  <mailman.1994.1669440416.6925.blinux-list@redhat.com>
  <mailman.1917.1669441933.6934.blinux-list@redhat.com>
- <mailman.1960.1669443853.6931.blinux-list@redhat.com>
 MIME-Version: 1.0
-Message-ID: <mailman.2025.1669474541.6925.blinux-list@redhat.com>
+Message-ID: <mailman.2026.1669474706.6925.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -59,21 +58,16 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.2
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-I first got pipenv installed using pip3.9 on slint then installed toot.
-To run toot, I do pipenv shell first then run toot.  I haven't joined
-mastodon yet I need to figure that out.  Nearest server to me appears to
-be cheeseburger.social but I have to research that server.  What I don't
-know and maybe it is possible is how to configure toot so it also gets
-access into pluroma as well.
-I used pipenv install toot to install toot.  I couldn't do it with spi on
-slint since it needed packages slint hasn't yet got and a version of
-beautifulsoup which is old on slint.
+it's possible to locate and join existing servers but those need
+researching so if you're not a maga character and accidentally join a
+maga-oriented or maga-only server you'll be disappointed.  Different
+servers have different content and different moderation in place.
 
 
 
@@ -84,24 +78,17 @@ defense of liberty:
 
 .
 
-On Sat, 26 Nov 2022, Linux for blind general discussion wrote:
+On Fri, 25 Nov 2022, Linux for blind general discussion wrote:
 
-> Oh it sounds like you want something like an app rather than a web front end
-> for a server. Sorry I misunderstood your question. Pleroma as I recall can use
-> anything that Mastodon can use as a client. That said, desktop clients for
-> these things tend to be harder to find. It appears to be easier to find phone
-> apps. On a desktop, your best bet may be the website of the server you join.
-> Most phone apps, at least on Android, appear to work with Talkback pretty
-> well, though it's worth noting that although I run my own Friendica server,
-> which does have Mastodon/Pleroma compatibility, I haven't tried a lot of the
-> Android apps just yet, as I find that the website serves my needs well enough
-> here, but of course your mileage may vary, especially if you're trying to join
-> a Pleroma server, which can have any number of front-end web services. I still
-> recommend trying the various clients you see, and look at the client list for
-> Mastodon as well, since the API's that clients use are said to be the same for
-> both.
+> Thanks for the info.  I'm not at all sure that I want to set up a server, but I'm interested in knowing about the most accessible clients.
 >
-> ~Kyle
+> -r (Rich Morin)
+>
+> > On Nov 25, 2022, at 21:26, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> >
+> > I was thinking about running something like this. I mean I already have Friendica, which is easy to get up and running, but then I heard Pleroma may be harder to get started, but may perform better. I'm not sure what front ends are or are not accessible, although I have heard that pleroma-fe I think it's called, which is the default front end that I believe ships with it, works pretty well with screen readers. If you do get the back end server up and running, it may be worth trying the various front end web services available for it to find the one you like the best. From what I understand, you can switch them out fairly easily. Welcome to the Fediverse.
+> >
+> > ~Kyle
 >
 > _______________________________________________
 > Blinux-list mailing list
