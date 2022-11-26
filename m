@@ -1,48 +1,43 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 40142637490
-	for <lists+blinux-list@lfdr.de>; Thu, 24 Nov 2022 09:56:08 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 95BBB639315
+	for <lists+blinux-list@lfdr.de>; Sat, 26 Nov 2022 02:25:05 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1669280167;
+	s=mimecast20190719; t=1669425903;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Ph7mW3WoCIaL+jjSy0GXS9nySiJNWn1ilCnoeVpr/XY=;
-	b=Kd7HoANTvloAbis3c5DxT69Pw1XwIy1QR0P6xPy47Cx+8T7W/IWjZQi8E+Gs1jhLkb/eGo
-	cPyy7RODtGn/VhjiIawO13HPIRKbynZy6BZCOQnIpvCo+sIhwL3DfdHsBkmJHxYpZD0ycQ
-	bWmmeiiNbWHdrEvmcRoZFBFESuB05kw=
+	bh=lAnnLMp9mItLloGGKVn/FDDy70RFZ8zsW0h4FQ9rOo8=;
+	b=YLNHJfUAtUBTco50jYKX1xJG6ewf4xdr0q5M9fwRnvrh9R6nMJQLM4U1uDHwMTX0hWdaHB
+	TUh+hGtpSi72W1Qm1bS38T6OBcvIx5kYnO/Y7DwKyHuwogfSflZbESxfjOA/tIMogx473q
+	ntJZzToEtoA3mc/aTQYMx3FeGpZ11OI=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-544-aww4YRlrPNGRbQC7kV9IvQ-1; Thu, 24 Nov 2022 03:56:03 -0500
-X-MC-Unique: aww4YRlrPNGRbQC7kV9IvQ-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+ us-mta-605-FuGVgpitM6axN4Wf5NuvmQ-1; Fri, 25 Nov 2022 20:24:59 -0500
+X-MC-Unique: FuGVgpitM6axN4Wf5NuvmQ-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E45F38027EC;
-	Thu, 24 Nov 2022 08:56:01 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A77CB101A528;
+	Sat, 26 Nov 2022 01:24:57 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id A2ADB4EA4E;
-	Thu, 24 Nov 2022 08:56:01 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id D66CA492B08;
+	Sat, 26 Nov 2022 01:24:48 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 455401946595;
-	Thu, 24 Nov 2022 08:56:00 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 4920B19465A3;
+	Sat, 26 Nov 2022 01:24:48 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 24 Nov 2022 16:55:43 +0800 (CST)
+Mime-Version: 1.0 (Mac OS X Mail 13.4 \(3608.120.23.2.7\))
+Date: Fri, 25 Nov 2022 17:24:39 -0800
+Subject: Accessible front ends for Pleroma?
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: How to hear sounds from line-in jack? (fwd)
-In-Reply-To: <mailman.1491.1669278837.6927.blinux-list@redhat.com>
-References: <mailman.1365.1669212143.6934.blinux-list@redhat.com>
- <mailman.1491.1669278837.6927.blinux-list@redhat.com>
-MIME-Version: 1.0
-X-Content-Filtered-By: Mailman/MimeDel 2.1.29
-Message-ID: <mailman.1668.1669280154.6926.blinux-list@redhat.com>
+Message-ID: <mailman.1920.1669425887.6932.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,36 +53,27 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.5
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-VGhhbmsgeW91IHZlcnkgbXVjaCEKCk9uIFdlZCwgMjMgTm92IDIwMjIsIExpbnV4IGZvciBibGlu
-ZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cgo+IERhdGU6IFdlZCwgMjMgTm92IDIwMjIgMjI6
-Mjk6MzkgLTEwMDAKPiBGcm9tOiBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIDxi
-bGludXgtbGlzdEByZWRoYXQuY29tPgo+IFRvOiBibGludXgtbGlzdEByZWRoYXQuY29tCj4gU3Vi
-amVjdDogUmU6IEhvdyB0byBoZWFyIHNvdW5kcyBmcm9tIGxpbmUtaW4gamFjaz8gKGZ3ZCkKPiAK
-Pj4gLS0tLS0tLS0tLSBGb3J3YXJkZWQgbWVzc2FnZSAtLS0tLS0tLS0tCj4+IERhdGU6IFdlZCwg
-MjMgTm92IDIwMjIgMjE6MzY6NTMgKzA4MDAgKENTVCkKPj4gRnJvbTog6auY55Sf5pe6IDxjb3Nj
-ZWxsQGdtYWlsLmNvbT4KPj4gVG86IHNsaW50QGZyZWVsaXN0cy5vcmcKPj4gU3ViamVjdDogSG93
-IHRvIGhlYXIgc291bmRzIGZyb20gbGluZS1pbiBqYWNrPwo+PiAKPj4gU291bmRzIGZyb20gbGlu
-ZS1pbiBjYW4gYmUgcmVjb3JlZCwgYnV0IGhvdyB0byBoZWFyIHRoZW0gaW4gdGltZT8KPj4gV2hp
-Y2ggY29uc29sZSBjb21tYW5kIGNhbiBiZSB1c2VkIGZvciB0aGlzIHB1cnBvc2U/Cj4KPiBIaSwg
-Cj4KPiBOb3QgYWxsIHNvdW5kIGNhcmRzIGFyZSBjYXBhYmxlIG9mIHNpbXVsdGFuZW91cwo+IGlu
-cHV0IGFuZCBvdXRwdXQgKGR1cGxleCBvcGVyYXRpb24uKQo+Cj4gQWxzbywgbW9zdCBkaXN0cmli
-dXRpb25zIGhhdmUgcHVsc2VhdWRpbyBpbnN0YWxsZWQKPiBhcyBhIGxheWVyIG9mIG92ZXIgQUxT
-QS4gCj4KPiBPbmUgc29sdXRpb24gdXNpbmcgQUxTQSAod2l0aCBQQSBkaXNhYmxlZCkgd291bGQg
-YmUKPiB1c2luZyBlY2Fzb3VuZC4KPgo+IGVjYXNvdW5kIC1pIGFsc2EsZGVmYXVsdCAtbyBhbHNh
-LGRlZmF1bHQKPgo+IFlvdSBjb3VsZCBhbHNvIHRyeSBhbHNhaHcsMCBpbnN0ZWFkIG9mCj4gYWxz
-YSxkZWZhdWx0LCBvciBhbHNhaHcsMSwgZXRjLiBkZXBlbmRpbmcKPiBvbiB0aGUgbnVtYmVyIG9m
-IHlvdXIgc291bmQgY2FyZC4gWW91Cj4gY2FuIGFsc28gdXNlIHRoZSBuYW1lLgo+Cj4gRm9yIGRl
-dGFpbHMgdXNlIGBjYXQgL3Byb2MvYXNvdW5kL2NhcmRzYC4KPgo+IEhhdmUgZnVuLAo+Cj4gSm9l
-bAo+Cj4KPiAtLSAKPiBKb2VsIFJvdGgKPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxp
-c3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGlu
-Zm8vYmxpbnV4LWxpc3QKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0
-cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo=
+UGxlcm9tYSBpcyBhbiBFbGl4aXItYmFzZWQgYmFjayBlbmQgc2VydmVyIGZvciB0aGUgQWN0aXZp
+dHlQdWIgcHJvdG9jb2wuICBSb3VnaGx5IHNwZWFraW5nLCBpdCdzIGFuIGVmZmljaWVudCwgcmVs
+aWFibGUsIGFuZCBzY2FsYWJsZSBzdWJzdGl0dXRlIGZvciB0aGUgTWFzdG9kb24gRmVkaXZlcnNl
+IHNlcnZlci4gIFBsZXJvbWEgaGFzIGEgdmFyaWV0eSBvZiBmcm9udCBlbmRzIChha2EgY2xpZW50
+cyk6CgpQbGVyb21hIENsaWVudHMgLSBQbGVyb21hIERvY3VtZW50YXRpb24gNApodHRwczovL2Rv
+Y3MtZGV2ZWxvcC5wbGVyb21hLnNvY2lhbC9iYWNrZW5kL2NsaWVudHMvCgpJ4oCZZCBsaWtlIHRv
+IGtub3cgd2hpY2ggb2YgdGhlc2UgYXJlIChhbmQgYXJlIG5vdCkgYWNjZXNzaWJsZSwgY29udmVu
+aWVudCwgZXRjLiAgRG9lcyBhbnlvbmUgaGF2ZSBhbnkgY2x1ZXMgdG8gb2ZmZXI/CgotcgoKUmVm
+ZXJlbmNlcwoKQWN0aXZpdHlQdWIgLSBodHRwczovL2VuLndpa2lwZWRpYS5vcmcvd2lraS9BY3Rp
+dml0eVB1YgoKRWxpeGlyIC0gaHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvRWxpeGlyXyhw
+cm9ncmFtbWluZ19sYW5ndWFnZSkKCkZlZGl2ZXJzZSAtIGh0dHBzOi8vZW4ud2lraXBlZGlhLm9y
+Zy93aWtpL0ZlZGl2ZXJzZQoKTWFzdG9kb24gLSBodHRwczovL2VuLndpa2lwZWRpYS5vcmcvd2lr
+aS9NYXN0b2Rvbl8oc29mdHdhcmUpCgpQbGVyb21hIC0gaHR0cHM6Ly9wbGVyb21hLnNvY2lhbC8s
+IGh0dHBzOi8vZG9jcy1kZXZlbG9wLnBsZXJvbWEuc29jaWFsLwoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJs
+aW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9s
+aXN0aW5mby9ibGludXgtbGlzdAo=
 
