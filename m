@@ -1,47 +1,48 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 20BAE655495
-	for <lists+blinux-list@lfdr.de>; Fri, 23 Dec 2022 21:50:03 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id B5F906561CE
+	for <lists+blinux-list@lfdr.de>; Mon, 26 Dec 2022 11:24:28 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1671828602;
+	s=mimecast20190719; t=1672050267;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=QV1lRKMXCvq8tVCxg1Xl3Z+/XY2rtvcjpFm52li4PY8=;
-	b=Xq0o95AB+fkh9vx1BWa+1M1l/xvb93x0QNpuYcuefVrnvsvf5IT7RF5HRiECeaOLcmUVmr
-	eM8DMNrGsAdMAEqJiCIKmBlF3rTSuMj/8UaF81hvPFHGsohOf+RRhZgzsmDkPG7SCvCyUW
-	+RSbVRCM6Qj0rRzAsxHz3Iw6iv7yO44=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=fn2qeEVExReNPokFfbVC8TzNSdYF22/tpVcgEQqMCs4=;
+	b=WBE4fHZz/5eT5ISCCYoVtmGYGfdtCh6/GVJxrnVviw59ry5D/i3Ma2D9VhRCoYFxxMTpoS
+	B7qmnjVdjdF4WMfcrP+rotE+BY2kr7nLvvLhlnyFGqog3hnDhAkQ5sWr5Eb9umJ8Tlb9XA
+	95Zv1JC6J6nFGBFpxA6IurE8rZkF4Ls=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-673-3hLCpbAIPk673lhTzHJayw-1; Fri, 23 Dec 2022 15:49:58 -0500
-X-MC-Unique: 3hLCpbAIPk673lhTzHJayw-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+ us-mta-232-MfE72CD4MX-eYdbOsxeE5Q-1; Mon, 26 Dec 2022 05:24:24 -0500
+X-MC-Unique: MfE72CD4MX-eYdbOsxeE5Q-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 059C938041DA;
-	Fri, 23 Dec 2022 20:49:56 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8062485C064;
+	Mon, 26 Dec 2022 10:24:22 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 90CB840C1073;
-	Fri, 23 Dec 2022 20:49:55 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 36AA7492C14;
+	Mon, 26 Dec 2022 10:24:11 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 137FA19465BA;
-	Fri, 23 Dec 2022 20:49:55 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 737C21946594;
+	Mon, 26 Dec 2022 10:24:10 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Fri, 23 Dec 2022 15:49:51 -0500 (EST)
+DMARC-Filter: OpenDMARC Filter v1.4.1 mail.rednote.net 1CE65FA237
+Date: Mon, 26 Dec 2022 05:16:05 -0500
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: anyone use dreamhost?
-In-Reply-To: <mailman.1058.1671828059.2515676.blinux-list@redhat.com>
-References: <mailman.1023.1671771575.2515665.blinux-list@redhat.com>
- <mailman.1058.1671828059.2515676.blinux-list@redhat.com>
+Subject: Re: Is there a Fedora Espeakup Package?
+References: <mailman.6271.1665338721.6083.blinux-list@redhat.com>
+ <mailman.6427.1665341560.6078.blinux-list@redhat.com>
 MIME-Version: 1.0
-Message-ID: <mailman.1117.1671828594.2515662.blinux-list@redhat.com>
+In-Reply-To: <mailman.6427.1665341560.6078.blinux-list@redhat.com>
+Message-ID: <mailman.1245.1672050249.2515676.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -57,67 +58,81 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.2
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Disposition: inline
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Joel,
-At least I know it is not just me, so thanks for that.
-my last exchange with dreamhost about the subject leading to my asking 
-here, was that no accessible alternatives are provided at all.
-Its frustrating for me personally, the  organization for whom I work have 
-a nonprofit  gifted account, meaning dreamhost takes a tax deduction for 
-those in the sector using their services.
-However little things like the control  panel, needful to manage services 
-are, it seems, a closed door.
-That the GUI  door is also challenging is quite concerning.
-Joyous holidays to you as Well,
-Karen
+Until his passing, Bill Acker would build kernels for Fedora releases
+modified to include Speakup. I considered taking that up, but decided
+the learning curve and time investment was greater than I cared to
+commit to the task. Instead, I switched to Arch on my personal machines,
+though my Linode hosted server still runs Fedora.
 
+To put it differently, Fedora has not supported cli screen readers for
+well over a decade. The last I recall Redhat including Speakup was the
+ill-considered inclusion of it in Redhat 8.0. Why ill considered?
+Because of unintended consequences for i18n.
 
 
-On Fri, 23 Dec 2022, Linux for blind general discussion wrote:
+If you must use Fedora in the cli you have to roll your own, or perhaps
+more achievably simply run Fenrir.
 
-> Hi Karen,
->
-> I use dreamhost. The GUI panel currently requires several
-> CAPTCHA photo challenges before you can log in.
->
-> I suggest you contact support@dreamhost.com and ask
-> what accessible alternatives they have to the GUI panel.
->
-> Good luck and happy holidays
->
-> Joel
->
->
-> On Thu, Dec 22, 2022 at 11:53:06PM -0500, Linux for blind general discussion wrote:
->> Hi folks,
->> If so, how are you logging into your control panel in command Line Linux?
->> Even elinks fails now.
->> Worse yet, their shell provides links the chain, and it does not work their
->> either.
->> Thanks,
->> Karen
->>
->>
->> _______________________________________________
->> Blinux-list mailing list
->> Blinux-list@redhat.com
->> https://listman.redhat.com/mailman/listinfo/blinux-list
->>
->
-> -- 
-> Joel Roth
->
+Best,
+
+Janina
+
+Linux for blind general discussion writes:
+> Hi,
+>=20
+> I had a look through the Fedora package search webpage:
+> https://packages.fedoraproject.org/
+> and found nothing.
+> Moreover, no console screen reader at all in Fedora.
+>=20
+> Didier
+> --=20
+> Didier Spaier
+>=20
+>=20
+> Le 09/10/2022 =E0 19:59, Linux for blind general discussion a =E9crit=A0:
+> > Hi there,
+> >=20
+> > Just wondering how can one run Espeakup on Fedora? I am on Fedora 36, b=
+ut can't
+> > find Espeakup in its repositories. So how do we run the Speakup while i=
+n the
+> > console? Tried a search with yum search and dnf search for both speakup=
+ and
+> > espeakup, but to no avail. I even tried compiling the Github espeakup, =
+but the
+> > meson build fails with no espeak-ng dependency found (yet espeak-ng is =
+installed).
+> >=20
+> >=20
+> > Is there anyone using speakup on Fedora or any of the Red Hat derivativ=
+es?
+> >=20
+> >=20
+> > Thanks.
+>=20
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
+
+--=20
+
+Janina Sajka (she/her/hers)
+Accessibility Consultant https://linkedin.com/in/jsajka
+
+The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
+Co-Chair, Accessible Platform Architectures=09http://www.w3.org/wai/apa
+
+Linux Foundation Fellow
+https://www.linuxfoundation.org/board-of-directors-2/
 
 _______________________________________________
 Blinux-list mailing list
