@@ -2,47 +2,42 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id B5F906561CE
-	for <lists+blinux-list@lfdr.de>; Mon, 26 Dec 2022 11:24:28 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B9593657186
+	for <lists+blinux-list@lfdr.de>; Wed, 28 Dec 2022 02:01:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1672050267;
+	s=mimecast20190719; t=1672189261;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=fn2qeEVExReNPokFfbVC8TzNSdYF22/tpVcgEQqMCs4=;
-	b=WBE4fHZz/5eT5ISCCYoVtmGYGfdtCh6/GVJxrnVviw59ry5D/i3Ma2D9VhRCoYFxxMTpoS
-	B7qmnjVdjdF4WMfcrP+rotE+BY2kr7nLvvLhlnyFGqog3hnDhAkQ5sWr5Eb9umJ8Tlb9XA
-	95Zv1JC6J6nFGBFpxA6IurE8rZkF4Ls=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=0ARiq+++mosici95mr9yEDFguKa7E1TPfiXSszMADAo=;
+	b=AxsMC7LCzN6iCAA9TbtLdTWSGyBQbu+YFnque+zwxLoqJBMHAeoOb8ZkHJgwhAuaUosp+N
+	CTTK9ZXYU54jOCCrNlLViW/ivXTtImM0Y/IeIirkg9xQD5fy3z0/YLjpFWZTPVtVXbgMoR
+	JNrMaT+rUOzt7VGZ+v/t7op/NvQEUv4=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-232-MfE72CD4MX-eYdbOsxeE5Q-1; Mon, 26 Dec 2022 05:24:24 -0500
-X-MC-Unique: MfE72CD4MX-eYdbOsxeE5Q-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-78-u9xxfK15OjyaFcDLSZGijw-1; Tue, 27 Dec 2022 20:00:57 -0500
+X-MC-Unique: u9xxfK15OjyaFcDLSZGijw-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8062485C064;
-	Mon, 26 Dec 2022 10:24:22 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 512CD3C02B6F;
+	Wed, 28 Dec 2022 01:00:56 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 36AA7492C14;
-	Mon, 26 Dec 2022 10:24:11 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 623D840C2004;
+	Wed, 28 Dec 2022 01:00:48 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 737C21946594;
-	Mon, 26 Dec 2022 10:24:10 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id CAFA71946594;
+	Wed, 28 Dec 2022 01:00:47 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-DMARC-Filter: OpenDMARC Filter v1.4.1 mail.rednote.net 1CE65FA237
-Date: Mon, 26 Dec 2022 05:16:05 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Is there a Fedora Espeakup Package?
-References: <mailman.6271.1665338721.6083.blinux-list@redhat.com>
- <mailman.6427.1665341560.6078.blinux-list@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <mailman.6427.1665341560.6078.blinux-list@redhat.com>
-Message-ID: <mailman.1245.1672050249.2515676.blinux-list@redhat.com>
+Date: Wed, 28 Dec 2022 01:00:40 +0000
+Subject: Reducing redundancy in a collection of text files.
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Message-ID: <mailman.1402.1672189247.2515662.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,81 +53,77 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-Until his passing, Bill Acker would build kernels for Fedora releases
-modified to include Speakup. I considered taking that up, but decided
-the learning curve and time investment was greater than I cared to
-commit to the task. Instead, I switched to Arch on my personal machines,
-though my Linode hosted server still runs Fedora.
+Okay, I have two related issues, one regarding comparing text files
+and one regarding the contents of a single text file, and in both
+cases, I'm mostly working with transcripts of conversations I had with
+an AI language model that I'm trying to clean up.
 
-To put it differently, Fedora has not supported cli screen readers for
-well over a decade. The last I recall Redhat including Speakup was the
-ill-considered inclusion of it in Redhat 8.0. Why ill considered?
-Because of unintended consequences for i18n.
+For the first issue, mostly caused by sometimes saving a transcript at
+a dozen points in the conversation, let's say we have two versions of
+a file A and B.
 
+Ideally, B contains everything contained in A plus some extra content
+not found in A. Since A has no unique content, it can be deleted
+safely.
 
-If you must use Fedora in the cli you have to roll your own, or perhaps
-more achievably simply run Fenrir.
+By extention, ideally, if I have a dozen versions of a given file, the
+above would hold for every link in the chain, and I could just do a wc
+on the files and delete all but the longest file.
 
-Best,
+Problem is, I can't be sure A doesn't have contents not found in B,
+and on top of that, the file names aren't always descriptive, so it
+isn't obvious when I should even try comparing the contents of two
+files.
 
-Janina
+I suspect diff has an option or set of options to detect when one or
+both of a pair of files have unique contents, but diff's lack of batch
+processing would make using such a bit of a pain even just running it
+on the file pairs I know to be similar.
 
-Linux for blind general discussion writes:
-> Hi,
->=20
-> I had a look through the Fedora package search webpage:
-> https://packages.fedoraproject.org/
-> and found nothing.
-> Moreover, no console screen reader at all in Fedora.
->=20
-> Didier
-> --=20
-> Didier Spaier
->=20
->=20
-> Le 09/10/2022 =E0 19:59, Linux for blind general discussion a =E9crit=A0:
-> > Hi there,
-> >=20
-> > Just wondering how can one run Espeakup on Fedora? I am on Fedora 36, b=
-ut can't
-> > find Espeakup in its repositories. So how do we run the Speakup while i=
-n the
-> > console? Tried a search with yum search and dnf search for both speakup=
- and
-> > espeakup, but to no avail. I even tried compiling the Github espeakup, =
-but the
-> > meson build fails with no espeak-ng dependency found (yet espeak-ng is =
-installed).
-> >=20
-> >=20
-> > Is there anyone using speakup on Fedora or any of the Red Hat derivativ=
-es?
-> >=20
-> >=20
-> > Thanks.
->=20
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
+Is there either a utility that will compare every pair of files in a
+directory looking for contents found in one but not the other,
+deleting files with no unique content or a way to have a bash script
+loop through a directory with diff to do something similar?
 
---=20
+Does something like
 
-Janina Sajka (she/her/hers)
-Accessibility Consultant https://linkedin.com/in/jsajka
+for file 1 in *.txt file2 in *.txt; do
+diff $file1 $file2
+done
 
-The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
-Co-Chair, Accessible Platform Architectures=09http://www.w3.org/wai/apa
+or nesting fore loops of this sort even work in bash? I honestly don't
+know as I don't think I've ever written a script that had to loop
+through a cartesian product of input files instead of a single set.
 
-Linux Foundation Fellow
-https://www.linuxfoundation.org/board-of-directors-2/
+The other issue is that the AI language model in question likes
+repeating itself... I might get a dozen responses that are half new
+and half quoting part of the previous response, leading to a deozen
+copies of some paragraphs.
+
+I know the uniq command can find and remove duplicate lines in a file,
+but it only works if the duplicates are adjacent, and sorting the file
+to make the duplicates adjacent would destroy any semblance of the
+files having an order... plus, I'm more interested in finding
+duplicates at the paragraph level, not the line level and while some
+of the files only have line breaks at the end of the paragraph, others
+have line breaks mid paragraph... Also, it would be nice if, instead
+of just deleting the duplicate paragraphs, the tool I use to automate
+tracking them down replaced the duplicates with a marker indicating
+the starting line number of the original and the first 40 or so
+characters of the paragraph to facilitate wanting to either move the
+duplicated paragraph to one of the later occurances or deciding to
+keep some of the duplicates for one reason or another.
+
+Anyone know of any tools for locating repeated content in a file
+without the limitations of uniq?
+
+And for either issue, I would prefer a command line solution.
 
 _______________________________________________
 Blinux-list mailing list
