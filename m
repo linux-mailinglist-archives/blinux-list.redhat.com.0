@@ -1,47 +1,49 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id D1B8A65B79B
-	for <lists+blinux-list@lfdr.de>; Mon,  2 Jan 2023 23:21:20 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 197D265B845
+	for <lists+blinux-list@lfdr.de>; Tue,  3 Jan 2023 00:43:49 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1672698079;
+	s=mimecast20190719; t=1672703027;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=9qHHNoPv9zxueHIEhRCFed6YowR9ujOJ5SBOe5bZEP4=;
-	b=hI1jed/M/Yqa8YhuQxiLJZ+GCHJSDISoKD49buU8wJN7wUUHrK5AWxkg81fnWRmDNcLDm7
-	3F9jQb6Pwvx/VRJwoMN0qsHHTrprf/cjmEleNkGQhLtIlfi8FHAX9O627e2LSQpDKTY3mp
-	IyCjA8rzT/1cOhLKZ3tFABxmb4aEZyw=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=hSMggEQp7ig8Zp7gwbvpDT7jImu1BCqMA74RjVxnl34=;
+	b=NElvdjRn2NJDuaZL9zvdUw2o7eHiRib3t13Lle7SVHMkR9wTDwLspPkRLesQU10bPQxvWI
+	244LfVq9n22VSN8WXXJ3y42fHW3rieYahGzd5LNnRH3Y/eXXepT1FxTLyyrB8m35z/nwbp
+	3HXuMxJKryRTs1EMxXPGarjwJLs0XOM=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-558-8410uUn-OISQE2sHrrCO3A-1; Mon, 02 Jan 2023 17:21:16 -0500
-X-MC-Unique: 8410uUn-OISQE2sHrrCO3A-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-307-EhirkYIFOWO-mkKJjd0HYA-1; Mon, 02 Jan 2023 18:43:46 -0500
+X-MC-Unique: EhirkYIFOWO-mkKJjd0HYA-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A4981101A55E;
-	Mon,  2 Jan 2023 22:21:14 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8FAB13804509;
+	Mon,  2 Jan 2023 23:43:44 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 10A07492B06;
-	Mon,  2 Jan 2023 22:21:11 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 488D3140EBF5;
+	Mon,  2 Jan 2023 23:43:41 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 90AC8194658F;
-	Mon,  2 Jan 2023 22:21:10 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id BA7A7194658F;
+	Mon,  2 Jan 2023 23:43:40 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Mon, 2 Jan 2023 17:21:04 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: any other jenux users here?
-In-Reply-To: <mailman.2316.1672675299.2515662.blinux-list@redhat.com>
+MIME-Version: 1.0
 References: <mailman.2166.1672659484.2515676.blinux-list@redhat.com>
  <mailman.2316.1672675299.2515662.blinux-list@redhat.com>
-MIME-Version: 1.0
-Message-ID: <mailman.2265.1672698069.2515665.blinux-list@redhat.com>
+ <mailman.2265.1672698069.2515665.blinux-list@redhat.com>
+In-Reply-To: <mailman.2265.1672698069.2515665.blinux-list@redhat.com>
+Date: Mon, 2 Jan 2023 17:43:23 -0600
+Subject: Re: any other jenux users here?
+To: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.29
+Message-ID: <mailman.2251.1672703020.2515669.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -57,46 +59,91 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SSBvbmx5IGhhdmUgYmFyZSBtZXRhbCBoZXJlIGFuZCB0aGF0J3Mgd2hlcmUgdGhlIGxhc3QgdGhy
-ZWUgaXNvcyBmYWlsZWQuCgoKCkp1ZGUgPGpkYXNoaWVsIGF0IHBhbml4IGRvdCBjb20+ICJUaGVy
-ZSBhcmUgZm91ciBib3hlcyB0byBiZSB1c2VkIGluCmRlZmVuc2Ugb2YgbGliZXJ0eToKIHNvYXAs
-IGJhbGxvdCwganVyeSwgYW5kIGFtbW8uIFBsZWFzZSB1c2UgaW4gdGhhdCBvcmRlci4iCi1FZCBI
-b3dkZXJzaGVsdCAoQXV0aG9yLCAxOTQwKQoKLgoKT24gTW9uLCAyIEphbiAyMDIzLCBMaW51eCBm
-b3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgoKPiBIaSwKPgo+Cj4gSSBoYXZlIGpl
-bnV4IHJ1bm5pbmcgaW4gYSB2bSwgYnV0IG5vdCBoYXZpbmcgYW55IHByb2JsZW1zIGF0IHRoZSBt
-b21lbnQuwqAgSQo+IGhhdmUgbm90IGJlZW4gYWJsZSBvdG8gZ2V0IGVpdGhlciBzbGludCBvciBq
-ZW51eCB0byBib290IG9uIGEgYmFyZWJvbmVzCj4gbWFjaGluZSwgYnV0IEkgdGhpcyBoYWQgdG8g
-ZG8gd2l0aCBzZWN1cmUgYm9vdCB3aGljaCBuZWl0aGVyIGFyY2ggb3Igc2xpbnQKPiBzdXBwb3J0
-IHdoaWNoIGlzIGEgc2hhbWUgc2luY2UgbW9zdCBpZiBub3QgYWxsIG1hY2hpbmVzIGhhdmUgYnkg
-ZGVmYXVsdCBhbmQgZG8KPiBub3QgaGF2ZSBzaXRlZCBoZWxwIHRvIGRpc2FibGUuCj4KPgo+IE1h
-dHRoZXcKPgo+Cj4KPiBPbiAxLzIvMjAyMyA2OjM4IEFNLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJh
-bCBkaXNjdXNzaW9uIHdyb3RlOgo+ID4gQXQgbGVhc3QgdGhlIGxhc3QgMyBpc29zIHdvdWxkbid0
-IGNvbWUgdXAgc3BlYWtpbmcgb24gYSB0aGlua3Blbmd1aW4uY29tCj4gPiBQZW5ndWluIHBybyAx
-MSBjb21wdXRlciBJIGhhdmUuICBUaGUgaXNvcyBjb250aW51YWxseSByZWJvb3RlZCBhbmQgSQo+
-ID4gdmVyaWZpZWQgdGhvc2UgaXNvcyB3ZXJlIGNvcnJlY3Qgb24gbXkgbWFjaGluZSBiZWZvcmUg
-YXR0ZW1wdGluZyB0byBydW4KPiA+IHRoZSBpbnN0YWxsZXIuICBUaGUgYXV0aG9yIG9mIGplbnV4
-IHRoaW5rcyBpdCdzIGEgdWVmaSBwcm9ibGVtIG9uIG15Cj4gPiBtYWNoaW5lIGJ1dCB0aGF0J3Mg
-bm90IGxpa2VseSBzaW5jZSB0aGUgbWFjaGluZSBub3cgcnVucyBzbGludCAxNS4wIGFuZAo+ID4g
-dGhhdCB1c2VzIHVlZmkgd2hlbiBpbnN0YWxsaW5nLgo+ID4gSSB0aGluayB1ZWZpIGluIG1hdGhl
-bWF0aWNzIHRlcm1zIGlzIHdoYXQncyBjYWxsZWQgZ3JlYXRlc3QgY29tbW9uCj4gPiBkZW5vbWlu
-YXRvciBhbmQgYmlvcyAgaXMgbG93ZXN0IGNvbW1vbiBkZW5vbWluYXRvci4KPiA+Cj4gPgo+ID4K
-PiA+IEp1ZGUgPGpkYXNoaWVsIGF0IHBhbml4IGRvdCBjb20+ICJUaGVyZSBhcmUgZm91ciBib3hl
-cyB0byBiZSB1c2VkIGluCj4gPiBkZWZlbnNlIG9mIGxpYmVydHk6Cj4gPiAgIHNvYXAsIGJhbGxv
-dCwganVyeSwgYW5kIGFtbW8uIFBsZWFzZSB1c2UgaW4gdGhhdCBvcmRlci4iCj4gPiAtRWQgSG93
-ZGVyc2hlbHQgKEF1dGhvciwgMTk0MCkKPiA+Cj4gPiAuCj4gPgo+ID4gX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiA+IEJsaW51eC1saXN0IG1haWxpbmcg
-bGlzdAo+ID4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+ID4gaHR0cHM6Ly9saXN0bWFuLnJlZGhh
-dC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+ID4KPgo+IF9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBs
-aXN0Cj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29t
-L21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1s
-aXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5m
-by9ibGludXgtbGlzdAo=
+That distro has always been problematic.
+Devin Prater
+r.d.t.prater@gmail.com
+
+
+
+
+On Mon, Jan 2, 2023 at 4:21 PM Linux for blind general discussion <
+blinux-list@redhat.com> wrote:
+
+> I only have bare metal here and that's where the last three isos failed.
+>
+>
+>
+> Jude <jdashiel at panix dot com> "There are four boxes to be used in
+> defense of liberty:
+>  soap, ballot, jury, and ammo. Please use in that order."
+> -Ed Howdershelt (Author, 1940)
+>
+> .
+>
+> On Mon, 2 Jan 2023, Linux for blind general discussion wrote:
+>
+> > Hi,
+> >
+> >
+> > I have jenux running in a vm, but not having any problems at the
+> moment.  I
+> > have not been able oto get either slint or jenux to boot on a barebones
+> > machine, but I this had to do with secure boot which neither arch or
+> slint
+> > support which is a shame since most if not all machines have by default
+> and do
+> > not have sited help to disable.
+> >
+> >
+> > Matthew
+> >
+> >
+> >
+> > On 1/2/2023 6:38 AM, Linux for blind general discussion wrote:
+> > > At least the last 3 isos wouldn't come up speaking on a
+> thinkpenguin.com
+> > > Penguin pro 11 computer I have.  The isos continually rebooted and I
+> > > verified those isos were correct on my machine before attempting to run
+> > > the installer.  The author of jenux thinks it's a uefi problem on my
+> > > machine but that's not likely since the machine now runs slint 15.0 and
+> > > that uses uefi when installing.
+> > > I think uefi in mathematics terms is what's called greatest common
+> > > denominator and bios  is lowest common denominator.
+> > >
+> > >
+> > >
+> > > Jude <jdashiel at panix dot com> "There are four boxes to be used in
+> > > defense of liberty:
+> > >   soap, ballot, jury, and ammo. Please use in that order."
+> > > -Ed Howdershelt (Author, 1940)
+> > >
+> > > .
+> > >
+> > > _______________________________________________
+> > > Blinux-list mailing list
+> > > Blinux-list@redhat.com
+> > > https://listman.redhat.com/mailman/listinfo/blinux-list
+> > >
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://listman.redhat.com/mailman/listinfo/blinux-list
+> >
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
