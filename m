@@ -1,43 +1,43 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id BDB52676A5F
-	for <lists+blinux-list@lfdr.de>; Sun, 22 Jan 2023 00:58:31 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8608A677106
+	for <lists+blinux-list@lfdr.de>; Sun, 22 Jan 2023 18:17:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1674345510;
+	s=mimecast20190719; t=1674407873;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=swHztSgPhylFF0xxtvM8B5EvNXqPcnSoP/NwgYzdIAY=;
-	b=JM/U19qjm6PwZBt0txTFt8VDF2XCi7I12uoVfqzb/IlEI7EMZWEtWZFSdjAvAcBgxS/naC
-	FSi09x2yfxXibGoheom74iQDlVGdiKoM7KJqdBXNFUDBk8+XPT3QZ7daVD655JDJBv28ZV
-	vUHZ/hSnHeCBSI5qDiVNPaxC7ZnsEV4=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=eflVu/AeZXumY2t4+AVZ4Junu5vDChwUa2aWIXnSXKU=;
+	b=gXbxL7wR362yQLauJMscdot6jw4XfFQvX7VaklH0rZjRtuabN2tkyj5V2fdoBgolTbT38c
+	sufB/m4TCK2wqQFRmREU7b6OwjiS/Lrdy4R2cew191VJf23XU6mzof8jbCsHg0whJsp0Lh
+	JjZz5svJVFYyZqkGstg51XMCWNhohhw=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-505-c47mXNl0OZeOBV3aJMb-Ag-1; Sat, 21 Jan 2023 18:58:26 -0500
-X-MC-Unique: c47mXNl0OZeOBV3aJMb-Ag-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+ us-mta-662-rmM4_pX6NNeVl396zzkDuw-1; Sun, 22 Jan 2023 12:17:50 -0500
+X-MC-Unique: rmM4_pX6NNeVl396zzkDuw-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9124A3806704;
-	Sat, 21 Jan 2023 23:58:24 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D2B8885C069;
+	Sun, 22 Jan 2023 17:17:48 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 71AD32026D68;
-	Sat, 21 Jan 2023 23:58:23 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id BEE5D40C2005;
+	Sun, 22 Jan 2023 17:17:42 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id E8EAD1946597;
-	Sat, 21 Jan 2023 23:58:22 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id C560C194658D;
+	Sun, 22 Jan 2023 17:17:36 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sun, 22 Jan 2023 00:58:14 +0100
+Date: Sun, 22 Jan 2023 18:15:41 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.0
+User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
 Subject: Re: new version of jenux
 To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <mailman.286.1674235413.8169.blinux-list@redhat.com>
@@ -45,10 +45,8 @@ References: <mailman.286.1674235413.8169.blinux-list@redhat.com>
  <mailman.397.1674314804.8168.blinux-list@redhat.com>
  <mailman.400.1674322782.8168.blinux-list@redhat.com>
  <mailman.410.1674327069.8170.blinux-list@redhat.com>
- <mailman.410.1674342816.8175.blinux-list@redhat.com>
- <mailman.416.1674343163.8176.blinux-list@redhat.com>
-In-Reply-To: <mailman.416.1674343163.8176.blinux-list@redhat.com>
-Message-ID: <mailman.410.1674345502.8171.blinux-list@redhat.com>
+In-Reply-To: <mailman.410.1674327069.8170.blinux-list@redhat.com>
+Message-ID: <mailman.504.1674407856.8170.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -64,127 +62,124 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-SSBkaWQgbm90IGZpbmQgcGljay1hLWNhcmQgaW4gdGhlIGluaXRyZC4gQW55d2F5IHRoZSBWTSBo
-YXMgb25seSBvbmUgY2FyZCAoc2VlbgppbiAvcHJvYy9hc291bmQvY2FyZHMgYXMgY2FyZDApIHNv
-IHRoZXJlIGlzIG5vIGNob2ljZSAgYW5kIHRoZSBpbnN0YWxsYXRpb24gd2FzCnN1Y2Nlc3NmdWwu
-CgpMZSAyMi8wMS8yMDIzIMOgIDAwOjE5LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNz
-aW9uIGEgw6ljcml0wqA6Cj4gQXBwYXJlbnRseSB0aGUgcGljay1hLWNhcmQgc2NyaXB0IGRpZG4n
-dCBydW4uICBXaGVuIGEgc3VjY2Vzc2Z1bCBpbnN0YWxsCj4gc3RhcnRzIHVwLCB5b3UgaGF2ZSBz
-cGVlY2ggYW5kIHlvdSBnZXQgYSBtZW51IHdpdGggc2V2ZXJhbCBjaG9pY2VzIG9uIGl0Cj4gYW5k
-cm9pZCBhbmQgamVudXggYXJlIHR3byBidXQgb3RoZXJzIGFsc28gZXhpc3QuICBPbmNlIHlvdSBt
-YWtlIGEgY2hvaWNlCj4gb3RoZXIgcXVlc3Rpb25zIGdldCBhc2tlZCB0aGVuIHRoZSBpbnN0YWxs
-YXRpb24gc3RhcnRzIGFuZCBmaW5pc2hlcyB1cC4KPiBBZnRlciB0aGUgaW5zdGFsbGF0aW9uIGhh
-cHBlbnMsIGFuZCB5b3UgcmVib290IHRoZSBzeXN0ZW0gc3BlZWNoIHNob3VsZAo+IGNvbWUgdXAg
-d2hlbiB5b3UgcmVib290LiAgSSBkb24ndCBkbyBhbnl0aGluZyB3aXRoIHZtLCBhbmQgb25seSB1
-c2UgYmFyZQo+IG1ldGFsIGhlcmUuICBNeSBndWVzcyBpcyBqZW51eCBpcyBpZ25vcmluZyB5b3Vy
-IHZtIHByb3Zpc2lvbmluZyBvbiBpdHMgd2F5Cj4gdG8gaW5zdGFsbGF0aW9uLgo+IAo+IAo+IAo+
-IEp1ZGUgPGpkYXNoaWVsIGF0IHBhbml4IGRvdCBjb20+ICJUaGVyZSBhcmUgZm91ciBib3hlcyB0
-byBiZSB1c2VkIGluCj4gZGVmZW5zZSBvZiBsaWJlcnR5Ogo+ICBzb2FwLCBiYWxsb3QsIGp1cnks
-IGFuZCBhbW1vLiBQbGVhc2UgdXNlIGluIHRoYXQgb3JkZXIuIgo+IC1FZCBIb3dkZXJzaGVsdCAo
-QXV0aG9yLCAxOTQwKQo+IAo+IC4KPiAKPiBPbiBTdW4sIDIyIEphbiAyMDIzLCBMaW51eCBmb3Ig
-YmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+IAo+PiBIaSwKPj4KPj4gVG9kYXkgSSBk
-b253bG9hZGVkIHRoZSBmaWxlIEplbnV4LTIwMjMuMDEuMTctZHVhbC5pc28gdXNpbmcgd2dldCBh
-bmQgaW5zdGFsbGVkCj4+IGl0IGluIGEgUWVtdSBWTS4gSSBoYWQgbm8gaXNzdWUgaW5zdGFsbGlu
-ZyBBcmNoIExpbnV4IChNQVRFKSBidXQgZ290IG5vIHNvdW5kLiBJCj4+IGRvIG5vdCBrbm93IHdo
-eS4gVG8gYmUgaG9uZXN0IEkgZGlkIHJlYWQgYW55IGRvY3VtZW50IGJlZm9yZSBpbnN0YWxsaW5n
-IHNvIGlmCj4+IHRoZXJlIGFyZSBzb21lIGluc3RydWN0aW9ucyB0byBnZXQgc3BlZWNoIGR1cmlu
-ZyBpbnN0YWxsYXRpb24gSSBtaXNzZWQgdGhlbS4KPj4gT25jZSBpbiBNQVRFIE9yY2EgaXMgc3Rh
-cnRlZCBidXQgbm8gc3BlZWNoLCBpZGVtIGZvciBmZW5yaXIuCj4+IFdoYXQgcHV6emxlcyBtZSBp
-cyBwYXZ1Y29udHJvbCBwcmVzZW50cyBvbmx5IExpbmUgb3V0IGFzIG91cHV0IGRldmljZSAoSSBo
-YXZlCj4+IHNldCBpbnRlbC1oZGEgaW4gdGhlIFZNIGFzIEkgdXN1YWx5IGRvKS4gTWF5YmUgdGhp
-cyBnaXZlcyBhIGNsdWU/IChJIHNlZSB0aGUKPj4gZGVmYXVsdCAicHVsc2UiIGFzIEF1ZGlvT3V0
-cHV0TWV0aG9kIGluIC9ldGMvc3BlZWNoLWRpc3BhdGNoZXIvc3BlZWNoZC5jb25mKS4KPj4gSG93
-ZXZlciBhbHNhbWl4ZXIgZG9lcyBzZWUgdGhlIHNvdW5kIGNhcmQuCj4+Cj4+IEBEYW5pZWw6IEkg
-YW0gbm90IGFjcXVhaW50ZWQgd2l0aCBBcmNoLCBidXQgaWYgdGhlcmUgaXMgYW55dGhpbmcgSSBj
-YW4gZG8gdG8KPj4gaGVscCBpbnZlc3RpZ2F0ZSwgcGxlYXNlIGxldCBtZSBub3csIEkgd2lsbCBr
-ZWVwIHRoZSBWTSBmb3Igbm93LiBNeQo+PiBlbWFpbCBhZGRyZXNzIGlzOiBkaWRpZXIgYXQgc2xp
-bnQgZG90IGZyLgo+Pgo+PiBBbHNvLCBqdXN0IGEgdGhvdWdodDogbWF5YmUgaXQgd291bGQgYmUg
-c2ltcGxlciBmb3IgcGVvcGxlIGp1c3Qgd2FudGluZyB0bwo+PiBpbnN0YWxsIExpbnV4IHRvIHBy
-b3ZpZGUgYW4gSVNPIHdpdGggb25seSB0aGlzIGZlYXR1cmU/Cj4+Cj4+IE90aGVyIHRoYW4gdGhh
-dCwgRGFuaWVsIGNvbmdyYXRzIGZvciBhbGwgeW91ciBwcm9qZWN0cyBhbmQgYWNoaWV2ZW1lbnRz
-LiBJIGFtCj4+IHRydWx5IGltcHJlc3NlZCEKPj4KPj4gQ2hlZXJzLAo+PiBEaWRpZXIKPj4gLS0K
-Pj4gRGlkaWVyIFNwYWllcgo+PiBTbGludCBtYWludGFpbmVyCj4+Cj4+Cj4+IExlIDIxLzAxLzIw
-MjMgPyAxOTo1MSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhID9jcml0wqA6
-Cj4+PiBEYW5pZWwgbmFzaCBoYXMgYmVlbiBhd2FyZSBvZiB0aGlzIHByb2JsZW0gZm9yIGFsbCBm
-b3VyIGZhaWxpbmcgaXNvcy4gIEhlCj4+PiBzdWdnZXN0ZWQgSSB0YWtlIGFjdGlvbnMgSSB0aG91
-Z2h0IHF1aXRlIHJpc2t5IHdpdGggcmVnYXJkIHRvIHVlZmkgb24gdGhlCj4+PiBzaW5nbGUgY29t
-cHV0ZXIgSSBoYXZlLiAgSSB0b29rIHNvbWUgb2YgdGhvc2UgYWN0aW9ucyBhbmQgdGhvc2UgYWN0
-aW9ucwo+Pj4gZmFpbGVkIHRvIHNvbHZlIHRoaXMgcHJvYmxlbS4gIE1pY3Jvc29mdCBpcyBidXJy
-aWVkIGRlZXAgaW4gdGhlIG1pZGRsZSBvZgo+Pj4gdGhpcyBtZXNzIGFzIG9yaWdpbmF0b3Igb2Yg
-dWVmaSBhbmQgRGFuaWVsIE5hc2ggZ290IHRoZSB1ZWZpIGNvZGUgZnJvbQo+Pj4gZmVkb3JhLiAg
-SGUgbWF5IGhhdmUgZG9uZSB0aGluZ3MgdG8gdGhlIGNvZGUgYXMgaXQgd2VudCBpbnRvIGplbnV4
-IHRoYXQKPj4+IGJyb2tlIHRoaW5ncyBidXQgSSBjYW4ndCBzYXkgZm9yIHN1cmUgc2luY2UgSSB3
-YXNuJ3QgbG9va2luZyBvdmVyIGhpcwo+Pj4gc2hvdWxkZXIuICBJZiBJIGNhbiBnZXQgYSBiZSBt
-eSBleWVzIHZvbHVudGVlciB0byB0ZWxsIG1lIGFueSBlcnJvcgo+Pj4gbWVzc2FnZXMgdGhhdCBj
-b21lIHVwIGFzIHRoaXMgZmFpbGVkIGlzbyBib290cyBJJ2xsIGdldCB0aG9zZSB0byBEYW5pZWwK
-Pj4+IE5hc2ggYW5kIHRoZW4gd2UgbWF5IGhhdmUgbG9jYXRlZCBvbmUgb2YgaGlzIHByb2JsZW1z
-Lgo+Pj4KPj4+Cj4+Pgo+Pj4gSnVkZSA8amRhc2hpZWwgYXQgcGFuaXggZG90IGNvbT4gIlRoZXJl
-IGFyZSBmb3VyIGJveGVzIHRvIGJlIHVzZWQgaW4KPj4+IGRlZmVuc2Ugb2YgbGliZXJ0eToKPj4+
-ICBzb2FwLCBiYWxsb3QsIGp1cnksIGFuZCBhbW1vLiBQbGVhc2UgdXNlIGluIHRoYXQgb3JkZXIu
-Igo+Pj4gLUVkIEhvd2RlcnNoZWx0IChBdXRob3IsIDE5NDApCj4+Pgo+Pj4gLgo+Pj4KPj4+IE9u
-IFNhdCwgMjEgSmFuIDIwMjMsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3Jv
-dGU6Cj4+Pgo+Pj4+IEhpIEp1ZGQuICBIYXZlIHlvdSByZXBvcnRlZCB0aGlzIHRvIERhbmllbCBO
-YXNoPyAgSSB0aGluayBoZSBpcyB0aGUgamV1eCBkZXZlbG9wZXIuICBZb3UgbWlnaHQgd2FudCB0
-byBsZXQgaGltIGtub3cgd2hhdCBpcyBnb2luZyBvbiBzbyBoZSBjYW4gdHJhY2sgaXQgZG93bi4g
-IFRoYW5rcy4KPj4+Pgo+Pj4+IE1hdHRoZXcKPj4+Pgo+Pj4+Cj4+Pj4KPj4+Pj4gT24gSmFuIDIx
-LCAyMDIzLCBhdCAxMDoyNiBBTSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8
-YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gd3JvdGU6Cj4+Pj4+Cj4+Pj4+IFlvdSBoYXZlIHRvIGlu
-c3RhbGwgdGhlIHZlcnNpb24gdG8gZmluZCBvdXQuICBPbiB0aGUgY3VycmVudCBlcXVpcG1lbnQK
-Pj4+Pj4gdGhhdCdzIG5vdCBwb3NzaWJsZS4gIFNvbWV0aW1lIHRoaXMgd2Vla2VuZCBJJ2xsIHNl
-ZSBpZiBiZSBteSBleWVzIGNhbgo+Pj4+PiBnaXZlIG1lIGluZm9ybWF0aW9uIGFib3V0IHdoYXQg
-Y29tZXMgdXAgb24gdGhlIHNjcmVlbiBiZWZvcmUgamVudXggZmFpbHMKPj4+Pj4gdG8gc3BlYWsg
-YW5kIHJlYm9vdHMuICBJJ20gY3VyaW91cyBpZiBhbnkgY29tcHV0ZXIgb3RoZXIgdGhhbiB0aGUg
-YXV0aG9yJ3MKPj4+Pj4gY2FuIGluc3RhbGwgdGhpcyBvciB0aGUgbGFzdCB0aHJlZSB2ZXJzaW9u
-cyBvZiBqZW51eCB3aGljaCBpcyBteSByZWFzb24KPj4+Pj4gZm9yIHBvc3RpbmcgaGVyZS4KPj4+
-Pj4KPj4+Pj4KPj4+Pj4KPj4+Pj4gSnVkZSA8amRhc2hpZWwgYXQgcGFuaXggZG90IGNvbT4gIlRo
-ZXJlIGFyZSBmb3VyIGJveGVzIHRvIGJlIHVzZWQgaW4KPj4+Pj4gZGVmZW5zZSBvZiBsaWJlcnR5
-Ogo+Pj4+PiBzb2FwLCBiYWxsb3QsIGp1cnksIGFuZCBhbW1vLiBQbGVhc2UgdXNlIGluIHRoYXQg
-b3JkZXIuIgo+Pj4+PiAtRWQgSG93ZGVyc2hlbHQgKEF1dGhvciwgMTk0MCkKPj4+Pj4KPj4+Pj4g
-Lgo+Pj4+Pgo+Pj4+PiBPbiBGcmksIDIwIEphbiAyMDIzLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJh
-bCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4+Pgo+Pj4+Pj4gd2hhdCBpcyBuZXcgaW4gdGhlIGxhdGVz
-dCB2ZXJzaW9uPwo+Pj4+Pj4KPj4+Pj4+IE9uIDEvMjAvMjAyMyA5OjIzIEFNLCBMaW51eCBmb3Ig
-YmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4+Pj4+IE5vdCByZWFkeSBmb3IgZG93
-bmxvYWQuICBUaGUgc2hhNTEyc3VtIGZpbGUgdXAgb24gdGhlIHdlYnNpdGUgdG8gY2hlY2sgdGhl
-Cj4+Pj4+Pj4gaXNvJ3MgaW50ZWdyaXR5IGRvZXNuJ3QgbWF0Y2guICBUaGlzIG9uZSBwcm9iYWJs
-eSB3b24ndCBoYXZlIGFueSBhYmlsaXR5Cj4+Pj4+Pj4gdG8gaW5zdGFsbCBvbiB0aGlua3Blbmd1
-aW4gY29tcHV0ZXJzIGVpdGhlciBzaW5jZSB0aGUgbGFzdCB0aHJlZSBpc29zIGFsc28KPj4+Pj4+
-PiBmYWlsZWQgYnV0IEknbGwgY2hlY2sgaXQgb3V0IGp1c3QgdG8gbWFrZSBzdXJlIHRoZSBsb29z
-aW5nIHN0cmVhayByZW1haW5zCj4+Pj4+Pj4gdW5icm9rZW4uCj4+Pj4+Pj4KPj4+Pj4+Pgo+Pj4+
-Pj4+IEp1ZGUgPGpkYXNoaWVsIGF0IHBhbml4IGRvdCBjb20+Cj4+Pj4+Pj4gIlRoZXJlIGFyZSBm
-b3VyIGJveGVzIHRvIGJlIHVzZWQgaW4gZGVmZW5zZSBvZiBsaWJlcnR5Ogo+Pj4+Pj4+ICBzb2Fw
-LCBiYWxsb3QsIGp1cnksIGFuZCBhbW1vLiBQbGVhc2UgdXNlIGluIHRoYXQgb3JkZXIuIgo+Pj4+
-Pj4+IC1FZCBIb3dkZXJzaGVsdCAoQXV0aG9yLCAxOTQwKQo+Pj4+Pj4+Cj4+Pj4+Pj4gLgo+Pj4+
-Pj4+Cj4+Pj4+Pj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KPj4+Pj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+Pj4+PiBCbGludXgtbGlzdEBy
-ZWRoYXQuY29tCj4+Pj4+Pj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0
-aW5mby9ibGludXgtbGlzdAo+Pj4+Pj4+Cj4+Pj4+Pgo+Pj4+Pj4gX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+Pj4+IEJsaW51eC1saXN0IG1haWxpbmcg
-bGlzdAo+Pj4+Pj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+Pj4+Pj4gaHR0cHM6Ly9saXN0bWFu
-LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+Pj4+Pj4KPj4+Pj4+Cj4+
-Pj4+Pgo+Pj4+Pgo+Pj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwo+Pj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+Pj4gQmxpbnV4LWxpc3RA
-cmVkaGF0LmNvbQo+Pj4+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3Rp
-bmZvL2JsaW51eC1saXN0Cj4+Pj4+Cj4+Pj4KPj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwo+Pj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+Pj4+
-IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9t
-YWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+Pj4KPj4+Pgo+Pj4KPj4+IF9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+PiBCbGludXgtbGlzdCBtYWls
-aW5nIGxpc3QKPj4+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+IGh0dHBzOi8vbGlzdG1hbi5y
-ZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4+Cj4+Cj4+IF9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+IEJsaW51eC1saXN0IG1h
-aWxpbmcgbGlzdAo+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+IGh0dHBzOi8vbGlzdG1hbi5y
-ZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPj4KPiAKPiBfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxp
-bmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0
-LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0CgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4
-LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3Rp
-bmZvL2JsaW51eC1saXN0Cg==
+Hello,
+
+is some way to run Jenux on Raspberry Pi 4B or 400?
+
+Thanks.
+
+Best regards
+
+Vojta.
+
+Dne 21. 01. 23 v 19:51 Linux for blind general discussion napsal(a):
+> Daniel nash has been aware of this problem for all four failing isos.  He
+> suggested I take actions I thought quite risky with regard to uefi on the
+> single computer I have.  I took some of those actions and those actions
+> failed to solve this problem.  Microsoft is burried deep in the middle of
+> this mess as originator of uefi and Daniel Nash got the uefi code from
+> fedora.  He may have done things to the code as it went into jenux that
+> broke things but I can't say for sure since I wasn't looking over his
+> shoulder.  If I can get a be my eyes volunteer to tell me any error
+> messages that come up as this failed iso boots I'll get those to Daniel
+> Nash and then we may have located one of his problems.
+> 
+> 
+> 
+> Jude <jdashiel at panix dot com> "There are four boxes to be used in
+> defense of liberty:
+>   soap, ballot, jury, and ammo. Please use in that order."
+> -Ed Howdershelt (Author, 1940)
+> 
+> .
+> 
+> On Sat, 21 Jan 2023, Linux for blind general discussion wrote:
+> 
+>> Hi Judd.  Have you reported this to Daniel Nash?  I think he is the jeux developer.  You might want to let him know what is going on so he can track it down.  Thanks.
+>>
+>> Matthew
+>>
+>>
+>>
+>>> On Jan 21, 2023, at 10:26 AM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+>>>
+>>> You have to install the version to find out.  On the current equipment
+>>> that's not possible.  Sometime this weekend I'll see if be my eyes can
+>>> give me information about what comes up on the screen before jenux fails
+>>> to speak and reboots.  I'm curious if any computer other than the author's
+>>> can install this or the last three versions of jenux which is my reason
+>>> for posting here.
+>>>
+>>>
+>>>
+>>> Jude <jdashiel at panix dot com> "There are four boxes to be used in
+>>> defense of liberty:
+>>> soap, ballot, jury, and ammo. Please use in that order."
+>>> -Ed Howdershelt (Author, 1940)
+>>>
+>>> .
+>>>
+>>> On Fri, 20 Jan 2023, Linux for blind general discussion wrote:
+>>>
+>>>> what is new in the latest version?
+>>>>
+>>>> On 1/20/2023 9:23 AM, Linux for blind general discussion wrote:
+>>>>> Not ready for download.  The sha512sum file up on the website to check the
+>>>>> iso's integrity doesn't match.  This one probably won't have any ability
+>>>>> to install on thinkpenguin computers either since the last three isos also
+>>>>> failed but I'll check it out just to make sure the loosing streak remains
+>>>>> unbroken.
+>>>>>
+>>>>>
+>>>>> Jude <jdashiel at panix dot com>
+>>>>> "There are four boxes to be used in defense of liberty:
+>>>>>   soap, ballot, jury, and ammo. Please use in that order."
+>>>>> -Ed Howdershelt (Author, 1940)
+>>>>>
+>>>>> .
+>>>>>
+>>>>> _______________________________________________
+>>>>> Blinux-list mailing list
+>>>>> Blinux-list@redhat.com
+>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>>>
+>>>>
+>>>> _______________________________________________
+>>>> Blinux-list mailing list
+>>>> Blinux-list@redhat.com
+>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>>
+>>>>
+>>>>
+>>>
+>>> _______________________________________________
+>>> Blinux-list mailing list
+>>> Blinux-list@redhat.com
+>>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>>
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>
+>>
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
