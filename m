@@ -1,40 +1,40 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 025EF677108
-	for <lists+blinux-list@lfdr.de>; Sun, 22 Jan 2023 18:21:56 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 55A2B67710B
+	for <lists+blinux-list@lfdr.de>; Sun, 22 Jan 2023 18:22:44 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1674408115;
+	s=mimecast20190719; t=1674408162;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=LlYNMBsxXLh+krHhTISY7X/9TdGLPDydzEplHVZcoss=;
-	b=VcdEIDsuL8YD2mOjBFlBdhj8RL3fk8LSBYcAggz7iFW3VsQmcxGHm9LkHXi2EdpPL2h/NM
-	YuKJZNq0QZaATdm9vp7mY1LWSwIPiZXWKJdXxWraGPC5VNPOhWsWLiFkkiatla4YXk6Sdx
-	e8XphvEZfga+O+ZJRrVERBc1MOGRCo0=
+	bh=g8MKuO5OEAi3qrEMDJSfGumb31dGGgkFA12JfSecsRQ=;
+	b=QX/YSCZ2KzZ/L8h85rw5FsTvJmXRwooJMNAf+wTziFuJmCPnVJyg5SPBN7ZX0F+PhTDfzU
+	WqbJAgxBNm8etkByMFaT4X0ec6UQYd/Un2ULQDvXYSX2N9YEPxEi7lwAFWOwfA71IgCjin
+	Zo/ge3Uw9ySTZNerbxCdadvDG59F+I8=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-564-bpxDa5HcOQuX0QIrnxahGA-1; Sun, 22 Jan 2023 12:21:52 -0500
-X-MC-Unique: bpxDa5HcOQuX0QIrnxahGA-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+ us-mta-171-ElNANNKgNKCGq85qvQOyoA-1; Sun, 22 Jan 2023 12:22:37 -0500
+X-MC-Unique: ElNANNKgNKCGq85qvQOyoA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 26B77858F0E;
-	Sun, 22 Jan 2023 17:21:51 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 94BE8802BF5;
+	Sun, 22 Jan 2023 17:22:35 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id F21EB40C2004;
-	Sun, 22 Jan 2023 17:21:50 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 8345C2026D68;
+	Sun, 22 Jan 2023 17:22:35 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 511BE194658D;
-	Sun, 22 Jan 2023 17:21:50 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 32409194658D;
+	Sun, 22 Jan 2023 17:22:35 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sun, 22 Jan 2023 12:21:46 -0500
+Date: Sun, 22 Jan 2023 12:22:32 -0500
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: new version of jenux
 In-Reply-To: <mailman.504.1674407856.8170.blinux-list@redhat.com>
@@ -45,7 +45,7 @@ References: <mailman.286.1674235413.8169.blinux-list@redhat.com>
  <mailman.410.1674327069.8170.blinux-list@redhat.com>
  <mailman.504.1674407856.8170.blinux-list@redhat.com>
 MIME-Version: 1.0
-Message-ID: <mailman.498.1674408109.8168.blinux-list@redhat.com>
+Message-ID: <mailman.484.1674408154.8175.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -61,17 +61,14 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-I have never had one of those pi systems.  If one were to put Jenux on a
-usb stick then boot the pi from the stick you could find out if it would
-work.  If I get a good pi system I'm going to need buying advice and
-WalMart isn't a good place for that.  If they have those at Best Buy or
-Staples that might work better.
+Another possibility for a pi is stormux and stormux just came out with a
+new set of images recently.
 
 
 
