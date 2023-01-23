@@ -2,42 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id AC03D678666
-	for <lists+blinux-list@lfdr.de>; Mon, 23 Jan 2023 20:33:19 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id DA17B6786D3
+	for <lists+blinux-list@lfdr.de>; Mon, 23 Jan 2023 20:50:27 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1674502398;
+	s=mimecast20190719; t=1674503426;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=B11CTrUG5GWlj7PKsIhDqJV0x0m0nA1/+gpnyAvDQKw=;
-	b=aBVeOv0HwK1+6eGC5ttjeJa0bhhstwpKUcte6RYzEv35PfL/3lbcDV/sM+vHy5wIelBYkg
-	xVsT2T/dR8SYnpM9mT/LmdAS0Jp8TP3cA0uIh5rGCD8g36XTYrnmO1xKr59mSyHylh3Vjl
-	7tol2YFLvo5Hd1IdZx8NTqlBcrJneqA=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=HnzQrupMZCfXQoSVbv37wALfTdNmzLo6mGOThS5Q2k0=;
+	b=ZuCZXzDnsFQIsSUSbKmxUnCkxxOQYjk9T3SyroYXyrVGHWGwC7zbcUe/i8hYMLx09ACrEP
+	cDsuzYBKzTvZK06qQCYdZ4mC7yojw/5BU38gELZzrAvZfINDOiPjNu0p3FQr9AxlOJptUr
+	R/XceKTfNkwKqkI5MY4gBDwcFtOj+kw=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-76-e_SPy4IJNBOunyunf0bIiA-1; Mon, 23 Jan 2023 14:33:16 -0500
-X-MC-Unique: e_SPy4IJNBOunyunf0bIiA-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+ us-mta-562-jiZwwc8ZNc6dMrXhADCDGQ-1; Mon, 23 Jan 2023 14:50:23 -0500
+X-MC-Unique: jiZwwc8ZNc6dMrXhADCDGQ-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 525E2877CA3;
-	Mon, 23 Jan 2023 19:33:15 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 386E82805589;
+	Mon, 23 Jan 2023 19:50:22 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id CC6BB2026D2A;
-	Mon, 23 Jan 2023 19:33:10 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 6DA0B42203;
+	Mon, 23 Jan 2023 19:50:21 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 50F801946597;
-	Mon, 23 Jan 2023 19:33:10 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 3337E1946597;
+	Mon, 23 Jan 2023 19:50:21 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.300.101.1.3\))
-Subject: mumble from old machine to new
-Date: Mon, 23 Jan 2023 13:32:54 -0600
+Date: Mon, 23 Jan 2023 20:50:15 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.0
+Subject: Re: mumble from old machine to new
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Message-ID: <mailman.706.1674502389.8171.blinux-list@redhat.com>
+References: <mailman.706.1674502389.8171.blinux-list@redhat.com>
+In-Reply-To: <mailman.706.1674502389.8171.blinux-list@redhat.com>
+Message-ID: <mailman.713.1674503420.8177.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -53,19 +58,23 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.5
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-I have two machines with fedora 37.
-Mumble is on the old machine, set up as I like it.
-I have just installed mumble on the new machine,, but have not yet put in anything.
-Is there a way to move mumble settings and all from the old machine to the new machine so I will not need to configure from scratch?
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+Q29weSBmcm9tIHRoZSBvbGQgdG8gdGhlIG5ldyBtYWNoaW5lIHRoZSBmaWxlOgp+Ly5sb2NhbC9z
+aGFyZS9NdW1ibGUvTXVtYmxlL211bWJsZS5zcWxpdGUKCkNoZWVycywKRGlkaWVyCi0tCkRpZGll
+ciBTcGFpZXIKU2xhaW4gbWFpbnRhaW5lcgoKTGUgMjMvMDEvMjAyMyDDoCAyMDozMiwgTGludXgg
+Zm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3JpdMKgOgo+IEkgaGF2ZSB0d28gbWFj
+aGluZXMgd2l0aCBmZWRvcmEgMzcuCj4gTXVtYmxlIGlzIG9uIHRoZSBvbGQgbWFjaGluZSwgc2V0
+IHVwIGFzIEkgbGlrZSBpdC4KPiBJIGhhdmUganVzdCBpbnN0YWxsZWQgbXVtYmxlIG9uIHRoZSBu
+ZXcgbWFjaGluZSwsIGJ1dCBoYXZlIG5vdCB5ZXQgcHV0IGluIGFueXRoaW5nLgo+IElzIHRoZXJl
+IGEgd2F5IHRvIG1vdmUgbXVtYmxlIHNldHRpbmdzIGFuZCBhbGwgZnJvbSB0aGUgb2xkIG1hY2hp
+bmUgdG8gdGhlIG5ldyBtYWNoaW5lIHNvIEkgd2lsbCBub3QgbmVlZCB0byBjb25maWd1cmUgZnJv
+bSBzY3JhdGNoPwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6
+Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo=
 
