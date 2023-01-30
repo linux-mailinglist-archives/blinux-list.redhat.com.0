@@ -2,56 +2,49 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id A11C868085E
-	for <lists+blinux-list@lfdr.de>; Mon, 30 Jan 2023 10:22:04 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 817F468140F
+	for <lists+blinux-list@lfdr.de>; Mon, 30 Jan 2023 16:06:34 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1675070523;
+	s=mimecast20190719; t=1675091193;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=29XxgrcfnLRTd95uhpiNSbR82cqZy7rr89IPMuFuicU=;
-	b=Obqz4z6RN7RQ6k8zwpoEp3Vh1XFqzUgLvtUX8i2VAbaMnmTGCJoXUOTPIBOs3UHQgZJc7B
-	7epdPnhxdazX6+PV0Isp8OSD5MfHUEcRyV3XSx5+koiISrMbjpdrFF8hVx29VquDOt8Ffs
-	+5tviloKBXecMBz+m8kg3KSh0+efZzw=
+	bh=4o7sqWkyOSQXMUnKCzOG0hfTmPygnZEWydI1Mffps9s=;
+	b=Qvmzeefos/tGuwPgDbOGDh/DucNOC/7bxdtTYxmBDD1/Y/262ANBmBM0jpeH75kdlUQOpu
+	GzlLa8Xj4hzvyy27Y/jJ1fZXH9pL0fTKwpiIUTmyiGW6mu6/EH7q6Jzxdz5ueGBL1RxJoT
+	U9eP+pABuCVnSwLS5TC6ylwZLr+jx4c=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-534--VHHKvSxNkyAnUVBFAEB2w-1; Mon, 30 Jan 2023 04:22:00 -0500
-X-MC-Unique: -VHHKvSxNkyAnUVBFAEB2w-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-638-2GyvcC2AN0uDHEbN2xoZNQ-1; Mon, 30 Jan 2023 10:06:29 -0500
+X-MC-Unique: 2GyvcC2AN0uDHEbN2xoZNQ-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CC14685A5A3;
-	Mon, 30 Jan 2023 09:21:58 +0000 (UTC)
-Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 09CF5C15BAD;
-	Mon, 30 Jan 2023 09:21:58 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 27745889047;
+	Mon, 30 Jan 2023 15:06:28 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 340DC2166B2A;
+	Mon, 30 Jan 2023 15:06:20 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 9783D1946597;
-	Mon, 30 Jan 2023 09:21:57 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id B79FB19465A3;
+	Mon, 30 Jan 2023 15:06:14 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Mon, 30 Jan 2023 10:21:51 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.0
-Subject: Re: Twitter alternatives for the blind community?
-To: blinux-list@redhat.com
 References: <mailman.2126.1674833824.8175.blinux-list@redhat.com>
  <mailman.2028.1674835913.8171.blinux-list@redhat.com>
  <mailman.2120.1674865746.8168.blinux-list@redhat.com>
- <mailman.2132.1675027863.8173.blinux-list@redhat.com>
- <mailman.2140.1675028856.8176.blinux-list@redhat.com>
- <mailman.2247.1675032356.8168.blinux-list@redhat.com>
- <mailman.2138.1675033908.8172.blinux-list@redhat.com>
- <mailman.2278.1675035614.8169.blinux-list@redhat.com>
- <mailman.2250.1675039431.8168.blinux-list@redhat.com>
- <mailman.2392.1675042288.8170.blinux-list@redhat.com>
-In-Reply-To: <mailman.2392.1675042288.8170.blinux-list@redhat.com>
-Message-ID: <mailman.2203.1675070517.8172.blinux-list@redhat.com>
+ <mailman.2005.1674869055.8173.blinux-list@redhat.com>
+In-Reply-To: <mailman.2005.1674869055.8173.blinux-list@redhat.com>
+Date: Mon, 30 Jan 2023 09:05:45 -0600
+Subject: Re: Twitter alternatives for the blind community?
+To: blinux-list@redhat.com
+X-Content-Filtered-By: Mailman/MimeDel 2.1.29
+Message-ID: <mailman.2264.1675091170.8172.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -67,43 +60,148 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-TGUgMzAvMDEvMjAyMyDDoCAwMjozMSwgS2FyZW4gYSB3cm90wqA6Cj4gSGksCj4gRmluZSBkZXNj
-cmlwdGlvbi4KPiBCdXQgbXkgc3BlZWNoIGlzIGhhcmR3YXJlIGVudGlyZWx5LCB3aXRoIG5vIGtu
-b3duIGRyaXZlcnMgd3JpdHRlbiB0byBzdXBwb3J0wqDCoAo+IHRoZSBzeW50aGVzaXplci4ub3Ig
-bm90IGZvciBMaW51eAo+IGdpdmVuwqAgdGhpcyB0b3BpYyBzdGFydGVkIHdpdGggT3JjYSBhcyB0
-aGUgc29sdXRpb24sIHN1Y2ggaXMgZXZlbiBsZXNzIGxpa2VseSB0bwo+IGV4aXN0Lgo+IEthcmVu
-CgpLYXJlbiwKCkluIGFub3RoZXIgbWVzc2FnZSB5b3Ugd3JvdGU6Cj4gSSBhbSBub3QgdXNpbmcg
-TGludXggYXQgYWxsLgoKVGhlbiBIb3cgZG8geW91IGtub3cgdGhhdCB0aGUgdm9pY2VzIHVzZWQg
-YnkgT3JjYSBodXJ0IHlvdSwgYXMgT3JjYSB3b3JrcyBvbmx5Cm9uIExpbnV4PyBNYXliZSBvdGhl
-ciB2b2ljZXMgdGhhbiB0aGUgb25lcyB5b3UgdHJpZWQgd291bGQgbm90IGh1cnQgeW91PyBUaGF0
-J3MKYSBzcGVjdWxhdGlvbiwgSSBhbSBub3QgdGVsbGluZyB5b3UgdG8gdXNlIGFub3RoZXIgc3lz
-dGVtIHRoYW4gdGhlIG9uZSB5b3UgYXJlCmNvbWZvcnRhYmxlIHdpdGguCgpBIGhhcmR3YXJlIHN5
-bnRoZXNpemVyIGNhbid0IGJlIHVzZWQgd2l0aCBPcmNhIHNvIGZhciwgaG93ZXZlciBtYXliZSB0
-aGlzIGNvdWxkCmNoYW5nZSBpbiB0aGUgZnV0dXJlIGFzIFNhbXVlbCBUaGliYXVsdCB3cm90ZSBy
-ZWNlbnRseSBvbiB0aGUgb3JjYSBtYWlsaW5nIGxpc3QgYnk6CgpMZSAxOC8wMS8yMDIzIMOgIDIz
-OjI2LCBTYW11ZWwgVGhpYmF1bHQgd3JvdGUgOgo+IEFsIFN0ZW4tQ2xhbnRvbiwgbGUgbWVyLiAx
-OCBqYW52LiAyMDIzIDE0OjQyOjU2IC0wNTAwLCBhIGVjcml0Ogo+PiBJcyB0aGVyZSBhIHdheSB0
-byB1c2UgT3JjYSB3aXRoIGVpdGhlciB0aGUgVHJpcGxlVGFsayBMVCBvciBEZWNUYWxrCj4+IEV4
-cHJlc3M/ICBJZiB0aGVyZSBpcywgaG93IHdvdWxkIEkgZG8gaXQgb3Igd2hhdCBkb2N1bWVudHMg
-c2hvdWxkIEkgbG9vayB0bwo+PiBmb3IgdGhhdCBpbmZvcm1hdGlvbj8KPgo+IEknbSBub3QgYXdh
-cmUgb2YgYSB3YXkgdG8gZG8gaXQgY3VycmVudGx5LCBJIGhhdmUgYWRkZWQgYW4gaXNzdWUgaW4K
-PiBzcGVlY2gtZGlzcGF0Y2hlcjoKPiBodHRwczovL2dpdGh1Yi5jb20vYnJhaWxjb20vc3BlZWNo
-ZC9pc3N1ZXMvODA3CgpBcyBhbiBhc2lkZSwgYXQgbGVhc3Qgc29tZSBoYXJkIHN5bnRoZXNpemVy
-cyBjYW4gYmUgdXNlZCBvbiBMaW51eCwgYnV0IG9ubHkgaW4KY29uc29sZSAobm90IGdyYXBoaWNh
-bCkgbW9kZSBzbyBmYXIuIEFsIHVzZXMgdGhlIG9uZXMgaGUgbWVudGlvbmVkIG9uIFNsaW50IGFu
-ZAptYXliZSBvdGhlciBMaW51eCBkaXN0cmlidXRpb25zLiBJZiB5b3UgaW5kaWNhdGUgdGhlIGJy
-YW5kIGFuZCBtb2RlbCBvZiB0aGUgaGFyZApzeW50aGVzaXplcihzKSB5b3UgdXNlLCB3ZSBjb3Vs
-ZCBjaGVjayBpZiB0aGV5IGNhbiBiZSBoYW5kbGVkIGJ5IGEgc3BlYWt1cApkcml2ZXIgb24gbGlu
-dXguIEJ1dCBvbmx5IGlmIHlvdSBhcmUgaW50ZXJlc3RlZCwgb2YgY291cnNlLgoKUFMgdG8gYWxs
-OiBzb3JyeSBmb3IgdGhlIG9mZi10b3BpYy4KCkNoZWVycywKRGlkaWVyCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxp
-c3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWls
-bWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cg==
+And if the blind community doesn't exist, then blind culture couldn't exist
+either.
+Devin Prater
+r.d.t.prater@gmail.com
+
+
+
+
+On Fri, Jan 27, 2023 at 7:24 PM Linux for blind general discussion <
+blinux-list@redhat.com> wrote:
+
+> If the blind community doesn't exist, no blindness industry can or could
+> exist either.  The marketing of products from that goes out all over and
+> interest from the community informs and drives Government purchasing
+> decisions on some very expensive technology.  This has been happening
+> since at least the 1960's and it is why TSI refused to sell to
+> corporations any longer since blind employees learned to use its equipment
+> went back to work and often had their employment terminated shortly after
+> having had use of the equipment on the job.  Of course, the corporations
+> held onto the equipment.
+> Some of us know a little history.
+>
+>
+>
+> Jude <jdashiel at panix dot com> "There are four boxes to be used in
+> defense of liberty:
+>  soap, ballot, jury, and ammo. Please use in that order."
+> -Ed Howdershelt (Author, 1940)
+>
+> .
+>
+> On Fri, 27 Jan 2023, Linux for blind general discussion wrote:
+>
+> > Well, first I would say that I am not in "the blind community."
+> Naturally, I
+> > belong to some communities that include or are specific to people who are
+> > blind or visually impaired, but "the blind community" taken as a whole
+> largely
+> > does not exist, nor would I be interested in joining or starting it.
+> Twitter
+> > itself is a very large community, but all users are not blind,
+> therefore, it
+> > is not a blind community either.
+> >
+> >
+> > On the other hand, there are most definitely alternatives to Twitter
+> that are
+> > usable by people who are blind or visually impaired, and are also good
+> for
+> > starting or joining various blind-friendly communities if that is your
+> thing.
+> > Most notably, I have been running [Friendica](https://friendi.ca/) on my
+> > server for about 3 years and find the web interface to be mostly
+> accessible to
+> > Orca using Firefox and Brave. [Pleroma](https://pleroma.social) is
+> another
+> > that is already usable with Orca, and is actively developed and is
+> > specifically working to improve the accessibility of its default web
+> > interface, though other web interfaces exist, along with API's that allow
+> > applications of all kinds to access accounts and public timelines. Both
+> > Pleroma and Friendica are largely Mastodon compatible, so many
+> third-party
+> > clients will work with either.
+> >
+> >
+> > I have noticed, probably because I used to see my tweets in the more
+> > accessible Friendica web interface, as Twitter's new owner didn't break
+> > accessibility, it already sucked hard eyeballs long before he bought it,
+> that
+> > Friendica's database on my server has grown completely out of control,
+> upwards
+> > of 10GB. I have heard that Pleroma, though maybe a bit less easy to set
+> up,
+> > can run on more hardware, and is much lighter on resource usage, so I
+> may be
+> > playing with it as well. There is another fairly new web application
+> called
+> > [Honk](https://humungus.tedunangst.com/r/honk) that is very easy to get
+> up and
+> > running on just about anything. I have played a bit with it, and I
+> believe it
+> > aims at Mastodon compatibility as well, but I have only played a little
+> with
+> > it at this point. The terminology is a bit laughable, but the ease of
+> setup is
+> > what got me started banging on it just a bit. As I recall, the web
+> interface
+> > works with Orca pretty well, and runs very fast, though I haven't yet
+> done
+> > enough with it to slow it down, nor did I have enough of a timeline on
+> it to
+> > really test it thoroughly up to now.
+> >
+> >
+> > If you're not looking to run your own server, even at home on a
+> Raspberry Pi,
+> > look for either a Friendica or Pleroma server that is already up and
+> running.
+> > These are both more compatible with ActivityPub, the primary protocol
+> used to
+> > allow Fediverse servers to talk to each other, than Mastodon is, and
+> neither
+> > suffers from the same heavy-handed moderation that will cause a Mastodon
+> > server to be blacklisted if one user said something that the Mastodon
+> admins
+> > disagree with and the server mods let it get by. Unless the operator(s)
+> have
+> > made extensive modifications that break things, both work very well with
+> Orca
+> > and both Firefox and Brave, and both are compatible with the growing
+> number of
+> > Mastodon clients that exist on various platforms and operating systems.
+> If it
+> > is kept updated, Pleroma is as I mentioned working specifically to
+> improve the
+> > screen reader accessibility of its web interface, so finding a Pleroma
+> server
+> > that is kept updated or starting one is probably the best option at this
+> > point.
+> >
+> > ~Kyle
+> >
+> > _______________________________________________
+> > Blinux-list mailing list
+> > Blinux-list@redhat.com
+> > https://listman.redhat.com/mailman/listinfo/blinux-list
+> >
+> >
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
