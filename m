@@ -2,46 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id AB28468342D
-	for <lists+blinux-list@lfdr.de>; Tue, 31 Jan 2023 18:45:06 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 58D5F683679
+	for <lists+blinux-list@lfdr.de>; Tue, 31 Jan 2023 20:25:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1675187105;
+	s=mimecast20190719; t=1675193141;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=f+uYNoQpwaLlT9mcPbvWsW5NStkvsUz7QM77BUkYUmc=;
-	b=LclAO714LhHWVMk1RS+5trntM6uKcqCBCj8QBNYrtVj3vgsFn+owJRl91a/1Phehe8S01Q
-	GkogkOAtY2J2owhVmmKsFMKszLOG/brnioxL+T7HgeFjk0tytXo6t5jqJ9brLF/1xc3V0S
-	Z9OCMWblR+4eEECwzZnbBLyvbhubDXA=
+	bh=sW2kxzlhcwslASl51eg8+jbT0lLXc/S01HkqN2gtGm4=;
+	b=ASwk16W1GrYY45ir7D5PJVyd2JMvfbcQQXvLy509pn4IoeJHbs6+fwQ/ylybiwC9qyUk+9
+	iBrFWpxR77kWcjUjsRi5MeMbJwbPSu3Io/XEmtsxXZMSIkzB0dtBGB04ldUHtVQCrKnqS5
+	OdVB9WFRkP3DG+EKAwdBvLCqdVzB5MM=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-271-YoBrleQlM6qnzYHbeC3LbA-1; Tue, 31 Jan 2023 12:45:03 -0500
-X-MC-Unique: YoBrleQlM6qnzYHbeC3LbA-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
+ us-mta-457-1oWZ0hOnOoalxqza9mo_1g-1; Tue, 31 Jan 2023 14:25:37 -0500
+X-MC-Unique: 1oWZ0hOnOoalxqza9mo_1g-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5A2F9877CA4;
-	Tue, 31 Jan 2023 17:45:01 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 822121008126;
+	Tue, 31 Jan 2023 19:25:35 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id B4C172166B33;
-	Tue, 31 Jan 2023 17:44:58 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 22063401531A;
+	Tue, 31 Jan 2023 19:25:33 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 07C7819465A0;
-	Tue, 31 Jan 2023 17:44:58 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id B8AF819465A0;
+	Tue, 31 Jan 2023 19:25:32 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Tue, 31 Jan 2023 12:44:42 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.300.101.1.3\))
 Subject: Re: fenrir installation
-In-Reply-To: <mailman.3015.1675186081.8175.blinux-list@redhat.com>
+Date: Tue, 31 Jan 2023 13:25:17 -0600
 References: <mailman.2734.1675183128.8173.blinux-list@redhat.com>
  <mailman.3015.1675186081.8175.blinux-list@redhat.com>
-MIME-Version: 1.0
-Message-ID: <mailman.3182.1675187097.8170.blinux-list@redhat.com>
+ <mailman.3182.1675187097.8170.blinux-list@redhat.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+In-Reply-To: <mailman.3182.1675187097.8170.blinux-list@redhat.com>
+Message-ID: <mailman.3187.1675193132.8177.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -57,32 +58,60 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.2
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-T24gZmVkb3JhLCBwaXAzIGluc3RhbGwgZmVucmlyIHdvdWxkIHN0YXJ0IGZlbnJpciBpbnN0YWxs
-IHByb2Nlc3MuClRoZW4gc3lzdGVtY3RsIGVuYWJsZSBmZW5yaXIgd291bGQgYmUgbmVlZGVkLiB0
-aGVuIHJlYm9vdC4KSSBoYXZlbid0IGRvbmUgdGhpcyBvbiBmZWRvcmEgc28gY2FuJ3Qgc2F5IGl0
-IHdpbGwgd29yay4KCgoKSnVkZSA8amRhc2hpZWwgYXQgcGFuaXggZG90IGNvbT4gIlRoZXJlIGFy
-ZSBmb3VyIGJveGVzIHRvIGJlIHVzZWQgaW4KZGVmZW5zZSBvZiBsaWJlcnR5Ogogc29hcCwgYmFs
-bG90LCBqdXJ5LCBhbmQgYW1tby4gUGxlYXNlIHVzZSBpbiB0aGF0IG9yZGVyLiIKLUVkIEhvd2Rl
-cnNoZWx0IChBdXRob3IsIDE5NDApCgouCgpPbiBUdWUsIDMxIEphbiAyMDIzLCBMaW51eCBmb3Ig
-YmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgoKPiBObyBwYWNrYWdlIGlzIHByb3ZpZGVk
-IGZvciBmZWRvcmEgYXQgdGltZSBvZiB3cml0aW5nLgo+Cj4gRm9yIFVidW50dSwganVzdCB0eXBl
-IGFzIHJvb3Qgb3IgdXNpbmcgc3VkbzoKPiBhcHQgaW5zdGFsbCBmZW5yaXIuCj4gVGhlbiBzb21l
-IGNvbmZpZ3VyYXRpb24gd2lsbCBiZSBuZWVkZWQuCj4KPiBDaGVlcnMsCj4gRGlkaWVyCj4gLS0K
-PiBEaWRpZXIgU3BhaWVyCj4gZGlkaWVyYXRzbGludGRvdGZyCj4KPiBMZSAzMS8wMS8yMDIzID8g
-MTY6NDksIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gYSA/Y3JpdMKgOgo+ID4g
-SSBoYXZlIGEgbWFjaGluZSB3aXRoIGZlZG9yYSwgYW5kIGFuIGV4dGVybmFsIGRyaXZlIHdpdGgg
-dWJ1bnR1Lgo+ID4gSSB3b3VsZCBsaWtlIHRvIGluc3RhbGwgZmVucmlyIHNjcmVlbi1yZWFkZXIg
-b24gYm90aCBzeXN0ZW1zLCBhbmQgd291bGQgd2VsY29tZSBhbnkgaW5mb3JtYXRpb24gb24gZG9p
-bmcgdGhhdC4KPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+
-IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QK
-PgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4
-LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFu
-LnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo=
+Should that be with sudo or not?
+
+> On Jan 31, 2023, at 11:44, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> 
+> On fedora, pip3 install fenrir would start fenrir install process.
+> Then systemctl enable fenrir would be needed. then reboot.
+> I haven't done this on fedora so can't say it will work.
+> 
+> 
+> 
+> Jude <jdashiel at panix dot com> "There are four boxes to be used in
+> defense of liberty:
+> soap, ballot, jury, and ammo. Please use in that order."
+> -Ed Howdershelt (Author, 1940)
+> 
+> .
+> 
+> On Tue, 31 Jan 2023, Linux for blind general discussion wrote:
+> 
+>> No package is provided for fedora at time of writing.
+>> 
+>> For Ubuntu, just type as root or using sudo:
+>> apt install fenrir.
+>> Then some configuration will be needed.
+>> 
+>> Cheers,
+>> Didier
+>> --
+>> Didier Spaier
+>> didieratslintdotfr
+>> 
+>> Le 31/01/2023 ? 16:49, Linux for blind general discussion a ?crit :
+>>> I have a machine with fedora, and an external drive with ubuntu.
+>>> I would like to install fenrir screen-reader on both systems, and would welcome any information on doing that.
+>> 
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>> 
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
