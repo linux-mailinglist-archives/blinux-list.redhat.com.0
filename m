@@ -1,48 +1,48 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 58D5F683679
-	for <lists+blinux-list@lfdr.de>; Tue, 31 Jan 2023 20:25:42 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9D9026836B0
+	for <lists+blinux-list@lfdr.de>; Tue, 31 Jan 2023 20:39:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1675193141;
+	s=mimecast20190719; t=1675193942;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=sW2kxzlhcwslASl51eg8+jbT0lLXc/S01HkqN2gtGm4=;
-	b=ASwk16W1GrYY45ir7D5PJVyd2JMvfbcQQXvLy509pn4IoeJHbs6+fwQ/ylybiwC9qyUk+9
-	iBrFWpxR77kWcjUjsRi5MeMbJwbPSu3Io/XEmtsxXZMSIkzB0dtBGB04ldUHtVQCrKnqS5
-	OdVB9WFRkP3DG+EKAwdBvLCqdVzB5MM=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=ldIpC2P0lekKFTzAbcrDz6wGuAsUR+5m0+kSjfhJt4w=;
+	b=hp7/CZ9VpD9GIb0NHdSx/njnAZ6dArx/JPhnkirmVXoBRIIEVrBy86cWQfmwmvdGZK20IM
+	T0w0Lrxg1mnVanT9K2OF7pfxPw6vHHATk/o483AqsGNi1Pmz48LA51JVIckuf/vxyhoBgC
+	m0NgHyNrA+h3DuyLGnwgE4Cl0GUWEAA=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-457-1oWZ0hOnOoalxqza9mo_1g-1; Tue, 31 Jan 2023 14:25:37 -0500
-X-MC-Unique: 1oWZ0hOnOoalxqza9mo_1g-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+ us-mta-60-6RiD1KmJMnms_Nx2D16w6Q-1; Tue, 31 Jan 2023 14:39:01 -0500
+X-MC-Unique: 6RiD1KmJMnms_Nx2D16w6Q-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 822121008126;
-	Tue, 31 Jan 2023 19:25:35 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8F3BC3848C2A;
+	Tue, 31 Jan 2023 19:38:59 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 22063401531A;
-	Tue, 31 Jan 2023 19:25:33 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id D95BCC15BAD;
+	Tue, 31 Jan 2023 19:38:58 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id B8AF819465A0;
-	Tue, 31 Jan 2023 19:25:32 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 67B7819465A0;
+	Tue, 31 Jan 2023 19:38:58 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
 Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.300.101.1.3\))
 Subject: Re: fenrir installation
-Date: Tue, 31 Jan 2023 13:25:17 -0600
+Date: Tue, 31 Jan 2023 13:30:46 -0600
 References: <mailman.2734.1675183128.8173.blinux-list@redhat.com>
  <mailman.3015.1675186081.8175.blinux-list@redhat.com>
  <mailman.3182.1675187097.8170.blinux-list@redhat.com>
-To: Linux for blind general discussion <blinux-list@redhat.com>
+To: blinux-list@redhat.com
 In-Reply-To: <mailman.3182.1675187097.8170.blinux-list@redhat.com>
-Message-ID: <mailman.3187.1675193132.8177.blinux-list@redhat.com>
+Message-ID: <mailman.3188.1675193938.8177.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,13 +58,14 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.2
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Should that be with sudo or not?
+Tried pip3 install fenrir
+and got error 'no matching distribution for fenrir'
 
 > On Jan 31, 2023, at 11:44, Linux for blind general discussion <blinux-list@redhat.com> wrote:
 > 
