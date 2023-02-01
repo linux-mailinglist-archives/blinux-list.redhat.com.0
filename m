@@ -2,45 +2,44 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 789FE686657
-	for <lists+blinux-list@lfdr.de>; Wed,  1 Feb 2023 14:02:47 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9CB136866A9
+	for <lists+blinux-list@lfdr.de>; Wed,  1 Feb 2023 14:20:07 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1675256566;
+	s=mimecast20190719; t=1675257606;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=FMaX9mIoDYBYhb1/EgDtnsFJwL2xTlmoi8mg4q3POJw=;
-	b=OiMYJeJqJ1hsWsHsSDQt1BB0x2hTSzYCUMNZd6qRCXVUiwiX93A2SmwMsF9uY21jhSVDSG
-	5DRGxBv0Plx60GIMl8y+FAC9CaTOsNxG7n9oj3g9Um5sB219Xp0n/YQ7sAWpQTZX5yHD8D
-	w4frcWBgR1DVDHlC+1xYoQpIFMhqeis=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=nlbpAC7ZUP9aUDeMyQuFjs9jYkkyQP610QiG1U3+9vw=;
+	b=XHVlfn4yNq/uC6zpFLzoUS+wW3wWpr/9Q349VCy3q9eM9nzyk//3Us2WyRoOD21Fp5aqe6
+	r+ChGylLILdnzqdgqwuYfeTSJT6rbCZlq/YGtmQ7N8JW0wVmAuKkB1Qf/EtjVq2Ivus+3i
+	IAR720gIDU3ElZzgtKX/B9CQ5dw68Qc=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-125-FjZGz0qPMCa7YVb2ZLKD9g-1; Wed, 01 Feb 2023 08:02:37 -0500
-X-MC-Unique: FjZGz0qPMCa7YVb2ZLKD9g-1
+ us-mta-499-Q55H_E6aPU6dILp92-c6YQ-1; Wed, 01 Feb 2023 08:20:03 -0500
+X-MC-Unique: Q55H_E6aPU6dILp92-c6YQ-1
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 874CE3C02550;
-	Wed,  1 Feb 2023 13:02:23 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E4110100DEA1;
+	Wed,  1 Feb 2023 13:20:00 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 7309240C2064;
-	Wed,  1 Feb 2023 13:02:14 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id D17F340C2064;
+	Wed,  1 Feb 2023 13:19:23 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 0273619465B2;
-	Wed,  1 Feb 2023 13:02:14 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 802E619465B7;
+	Wed,  1 Feb 2023 13:18:07 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 1 Feb 2023 13:01:49 +0000
+Date: Wed, 1 Feb 2023 13:17:59 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.7.0
 To: blinux-list@redhat.com
-Subject: Jenux repo unavailable
-X-Content-Filtered-By: Mailman/MimeDel 2.1.29
-Message-ID: <mailman.3810.1675256533.8169.blinux-list@redhat.com>
+Subject: Strange Arch linux arm issue with espeakup
+Message-ID: <mailman.3734.1675257487.8172.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -65,22 +64,54 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
 Hi,
 
-This is just a quick announcement for all those using/testing Jenux.
 
-Currently, it appears as though the repo is unavailable.
+I've been having a strange issue with Arch linux arm when installed 
+using Asahi on an m1 macbook air.
 
-A friend this mornign told me they were having issues updating their 
-machine running Jenux. Upon taking a look, I found that the issue was 
-caused by jenux.db failing to download when retrieved with pacman -Syu.
 
-I'm unsure where to contact the maintainer to inform them of this 
-problem however, so all I can do for the moment is remove the Jenux repo.
+When installed, I connect my Android phone to use as a personal hotspot, 
+because network configuration is not completed in the install. I then 
+install both alsa-utils and espeakup after doing a macman -Syu. They 
+seem to install fine, and then I set the Master volume to 100% with:
 
-This leaves a lot of packages newer than what are available in the 
-community repo, and even in some cases newer than in the AUR.
+amixer set Master 100
 
-At any rate, I hope this helps someone who might have been confused as 
-to why their system was not working correctly when performing an upgrade.
+This seems to work fine. Then I enable espeakup with:
+
+#systemctl enable espeakup.service
+
+After this, I reboot, and this is where the problem happens.
+
+Espeakup reads the first login prompt, including the kernel version and 
+host name. But then, beyond that point, reads nothing, no matter what I 
+do. Logging in correctly results in no speech, the same when entering an 
+incorrect username and password.
+
+
+Once logged in, doing:
+
+say test
+
+and:
+
+espeak test
+
+and also:
+
+espeak-ng test
+
+all result in the word "test" being read by espeak.
+
+
+This is about as much detail as I can provide, being unable to use the 
+system beyond that point. Any advice anyone has to solve this problem 
+would be very much appreciated.
+
+
+Thank you for reading,
+
+Aaron
+
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
