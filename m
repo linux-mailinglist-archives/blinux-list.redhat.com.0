@@ -1,49 +1,43 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8AF8468A9B0
-	for <lists+blinux-list@lfdr.de>; Sat,  4 Feb 2023 12:46:15 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0C61B68B187
+	for <lists+blinux-list@lfdr.de>; Sun,  5 Feb 2023 21:14:46 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1675511174;
+	s=mimecast20190719; t=1675628085;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=UJWCogFs0jWS+YNTOQpt0Ryc3842ic6bSsXQkGVBU1w=;
-	b=NIZHpWp5me090aeHeOsgpUsQaVEA0GL9Bzrs7HDdqPwkNvHzO6Gm8Ej2XfkoNuCcYel8iD
-	6BB8v9RayWm3i/Ys9OL800w0LeocWQzhuplVfuebYnHcTPxobmmgxEmT6ivV39tg5srpcC
-	wxNTnYlLxy8ngj+y7aztn+780V4f6DY=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=jd5+x/DxfaC1hllkgbhNXPoTkkcXx8UuMwxZkKnGU9E=;
+	b=YKpryj+t8jo5bT8rHT5rykkH8ANOtL9M3GZHzPnutTAe2ZVYih8uMdh+PvHckAQJVuTZ0u
+	z5yR3qRxE3hfE/3nWtOOX4sC9mEJzYk5rDzbYg5TOtlqHEhdO7KAeZuZ9Q48dkh1aSRSxX
+	HjZgGsIn6fWPKFeYTJPStdhHcuCGG58=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-614-Bd_KE28_MDODdpxmyTUKJw-1; Sat, 04 Feb 2023 06:46:10 -0500
-X-MC-Unique: Bd_KE28_MDODdpxmyTUKJw-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+ us-mta-567-lLltcVr0P9eFOF1e6i2K2g-1; Sun, 05 Feb 2023 15:14:43 -0500
+X-MC-Unique: lLltcVr0P9eFOF1e6i2K2g-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AEE3F3C025B2;
-	Sat,  4 Feb 2023 11:46:08 +0000 (UTC)
-Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 98635140EBF6;
-	Sat,  4 Feb 2023 11:45:58 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2DB9A80D180;
+	Sun,  5 Feb 2023 20:14:41 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id C88992166B26;
+	Sun,  5 Feb 2023 20:14:32 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 981FD19465A3;
-	Sat,  4 Feb 2023 11:45:55 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 455961946597;
+	Sun,  5 Feb 2023 20:14:32 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sat, 4 Feb 2023 03:45:49 -0800
+To: blinux-list@redhat.com
+Subject: Getting DavMail to Work in the Gnome Desktop
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: Attempting to boot Jenux in a vm.
-To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <mailman.3614.1675274580.8173.blinux-list@redhat.com>
- <mailman.3815.1675286644.8172.blinux-list@redhat.com>
-In-Reply-To: <mailman.3815.1675286644.8172.blinux-list@redhat.com>
-Message-ID: <mailman.4169.1675511154.8172.blinux-list@redhat.com>
+Date: Sun, 05 Feb 2023 14:12:42 -0600
+Message-ID: <mailman.3943.1675628072.8168.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -59,46 +53,79 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-ID: <10028.1675627962.1@wb5agz.lan>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SGVsbG8KCmFtIHNhdmluZyB0aGlzIG1lc3NhZ2UuCgp0aGFua3MgZm9yZSB0aGUgdGlwCgp5b3Vy
-IGF3ZXNvbWUKCkhhbmsKCgpPbiAyLzEvMjAyMyAxOjIzIFBNLCBMaW51eCBmb3IgYmxpbmQgZ2Vu
-ZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+IE1pa2UsCj4KPgo+IFdoYXQgdm0gc29mdHdhcmUgYXJl
-IHlvdSB1c2luZz/CoCBJZiB1c2luZyB2bXdhcmUsIHdoZW4gdGhlIG1lbnUgY29tZXMgCj4gdXAs
-IGRvd25hcnJvdyB0byBtYWtlIHN1cmUgeW91IGFyZSBpbiB0aGUgbWVudS7CoCBwcmVzcyBzIGZv
-ciBzaGVsbCBhbmQgCj4gcHJlc3MgZW50ZXIuwqAgVGhpcyB3aWxsIGRyb3AgeW91IGluIGEgc2hl
-bGwuwqAgTm93IHR5cGUgdGhlIGZvbGxvd2luZywgCj4gYWxzYW1peGVyLsKgIFRoaXMgd2lsbCBs
-b2FkIHRoZSBhbHNhIG1peGVyIHNldHRpbmdzLsKgIE5vdyBwcmVzcyB1cCAKPiBhcnJvdyB0byBy
-YXplIHRoZSB2YWx1bWUuwqAgWW91IG1heSB3YW50IHRvIHByZXNzIHJpZ2h0IGFycm93IHRvIHN3
-aXRjaCAKPiBiZXR3ZWVuIHRoZSBkaWZmZXJlbnQgYXVkaW8gc2V0dGluZ3MgdG8gbWFrZSBzdXJl
-IHRoYXQgeW91IGFyZSBzZXQgCj4gdGh3ZSB3YXkgeW91IHdhbnQuwqAgT25jZSB0aGlzIGlzIGRv
-bmUsIGp1c3QgcHJlc3MgZXhjYXBlIHRvIHJldHVybiB0byAKPiB0aGUgc2hlbGwgYW5kIHByZXNz
-IGN0cmwrRCBhbmQgeW91IHdpbGwgYmUgcmV0ZXJuZWQgdG8gdGhlIG1lbnUgYW5kIAo+IHNlbGVj
-dCBpbnN0YWxsIGplbnV4IG9uIHRoaXMgZGV2aWNlIGFuZCBmb2xsb3cgdGhlIHByb21wdHMuwqAg
-RkVucmVyIGlzIAo+IHVzZWQgYnkgZGVmYXVsdC4KPgo+Cj4gSFRILgo+Cj4gTWF0dGhldwo+Cj4K
-Pgo+IE9uIDIvMS8yMyAwMTowMiBQTSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lv
-biB3cm90ZToKPj4gSGV5IGFsbCwKPj4KPj4gSnVzdCBwdWxsZWQgZG93biB0aGUgbGF0ZXN0IEpl
-bnV4IHRvIGdpdmUgaXQgYSB0cnksIGJ1dCBmb3Igc29tZSAKPj4gcmVhc29uIEkgY2Fubm90IGdl
-dCBhbnkgc3BlZWNoIG91dCBvZiBpdC7CoCBJIGhlYXIgdGhlIGJlZXBzIHdoZW4gdGhlIAo+PiBW
-TSBib290cyB1cCwgSSBjYW4gb2NyIHdpdGggbnZkYSBhbmQgc2VlIHNlbGYtdGVzdCByZXF1ZXN0
-ZWQsIHBsZWFzZSAKPj4gd2FpdCwgYW5kIGFmdGVyIGEgd2hpbGUgdGhlIG1lbnUgY29tZXMgdXAu
-wqAgSSBjYW4gYWxzbyBzZWUgdGhhdCAKPj4gdGhyb3VnaCBvY3IsIGJ1dCBJIGdldCBubyBzcGVl
-Y2ggd2hlbiBpbnNpZGUgdGhlIHZtLiBJJ3ZlIGNoZWNrZWQgdG8gCj4+IG1ha2Ugc3VyZSB0aGUg
-c291bmQgY2FyZHMgYXJlIGNvcnJlY3QsIGFueW9uZSBoYXZlIGFueXRoaW5nIGVsc2UgSSAKPj4g
-Y2FuIHRyeT/CoCBJJ20gbm90IGZpbmRpbmcgYW55IGRvY3VtZW50YXRpb24gYW55d2hlcmUsIHdo
-aWNoIGlzIHdoeSAKPj4gSSdtIGFza2luZyBoZXJlLgo+Pgo+PiBNaWtlLgo+Pgo+PiBfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+PiBCbGludXgtbGlzdCBt
-YWlsaW5nIGxpc3QKPj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+PiBodHRwczovL2xpc3RtYW4u
-cmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4KPiBfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcg
-bGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNv
-bS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0CgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxp
-c3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZv
-L2JsaW51eC1saXN0Cg==
+After running across a unix application called DavMail or just
+davmail in lower case, this seemed like my wildest prayers had
+been answered.  The Microsoft365 mailbox in question is provided
+by my employer that I retired from in 2015 which means that if I
+can get it to work, I can use an email address that I used for
+25 years once again.
+
+	My current email is working fine right now but that
+provider doesn't even offer email to new cable subscribers and
+they have a record of making changes to their platform without
+any warnings so The prudent thing to do is to get another email
+provider while this one still works.
+
+	The davmail application connects to your MS365 mailbox and
+lets you read messages via IMAP, POP, etc using existing
+non proprietary mail transport agents such as mut, thunderbird and
+the like.
+
+	It can run either as a headless server on some system in
+your private network and then you make IMAP or POP connections to
+it with another computer on your net or you can use a mailer on
+the very system running the davmail app and do all your work
+using localhost.
+
+	The davmail app is written in java and the GUI interface
+is totally broken so I don't get the davmail tray so my first
+question is is there something I can install on the system that
+runs gnome which will make the java-based GUI work?
+
+	My last question is has anybody here gotten davmail to do
+anything but keep one occupied, poking at this and wondering
+about that but never getting anything good to happen?
+
+	If you run the app in server mode, it does respond to the
+ports it says it is listening on but immediately complains about
+a wrong openssl version.  I've tried davmail's buster version on
+an I86 box running Debian10, a raspberry Pi  running bullseye
+with no GUI and a 64-bit bullseye version running on a HP PC which
+is the gnome platform.
+
+	All malfunction in exactly the same way and even more
+aggravating, the logs don't say much at all.
+
+	The login credentials to the mailbox work since I can log
+in to the web mail gateway via Windows and edge but that's not
+what I want for the long run.
+
+	The only reason I want the GUI is in hopes it might cough
+up some tidbit of diagnostic since I am not sure it even gets as
+far as establishing contact with the MS365 servers.
+
+	The other possibilities for accessing the MS365 mailbox
+involve buying commercial software to use applications I don't
+really want to use.
+
+	For those who are curious, davmail does not store your
+login credentials but passes them on from whatever mail transport
+agent one is using.  The only really specific information it
+needs is the url to the MS365 address for your organization.
+
+Thanks in advance for any useful information one might have.
+
+Martin McCormick
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
