@@ -1,43 +1,46 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id D62C0691333
-	for <lists+blinux-list@lfdr.de>; Thu,  9 Feb 2023 23:22:12 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 75D236914EF
+	for <lists+blinux-list@lfdr.de>; Fri, 10 Feb 2023 00:54:06 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1675981331;
+	s=mimecast20190719; t=1675986845;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=EWboo/uZ2qKGVqmxj9UDDLJ/ZedqT7Ns1Wvt/u8jI30=;
-	b=JqhrKODe81v4O9wScpPd87quPWv1e8MrTYXDyX5BtZDaMCde30UPXu4n0YRW78OBZK03mJ
-	lfBZEZohE9cMypTpLU2JdpFNzuKcQIqw5UCfEJ/uVpOdOB/5CiefYyIXQqJgjTaAa/Dq+f
-	YIK86m5LSuimpOOo2pXMWje/1jhUZsw=
+	bh=kS8lRNXKXrwtvH3wACz4Jkh7otw4NSUhTurEt2MwwRE=;
+	b=U4SYd/wZvtqsfb9gOi8ZnF/z8pvUpkTfRaF19rgVad7BAnpi6OxBcKoRiVzkk2fNW1p1/n
+	VRUdGPLIcWGC3pzIUDdu6hez0AVkZD84GGcI6OZxqMvHwXXh6sGZXT9dwH41WfsiVQaZgt
+	jtRZmeZ7ps8/+MK1wD5t05xgKDlnWzI=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-463-FEJKnOzvMyml5e_x-VglBQ-1; Thu, 09 Feb 2023 17:22:04 -0500
-X-MC-Unique: FEJKnOzvMyml5e_x-VglBQ-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-76-wWJTcvZzMG6_yljslrPeEA-1; Thu, 09 Feb 2023 18:54:03 -0500
+X-MC-Unique: wWJTcvZzMG6_yljslrPeEA-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B3C94801779;
-	Thu,  9 Feb 2023 22:22:02 +0000 (UTC)
-Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id C3B60492B00;
-	Thu,  9 Feb 2023 22:21:59 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 56B07858F09;
+	Thu,  9 Feb 2023 23:54:02 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id BAF772166B29;
+	Thu,  9 Feb 2023 23:53:59 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 94DF719465A8;
-	Thu,  9 Feb 2023 22:21:59 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 4CF4E1946597;
+	Thu,  9 Feb 2023 23:53:59 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.400.51.1.1\))
-Subject: carbonyl: Chromium based browser built to run in a terminal
-Date: Thu, 9 Feb 2023 23:16:14 +0100
-To: blinux-list@redhat.com
-Message-ID: <mailman.5886.1675981319.8177.blinux-list@redhat.com>
+Date: Thu, 9 Feb 2023 18:53:55 -0500
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: carbonyl: Chromium based browser built to run in a terminal
+In-Reply-To: <mailman.5886.1675981319.8177.blinux-list@redhat.com>
+References: <mailman.5886.1675981319.8177.blinux-list@redhat.com>
+MIME-Version: 1.0
+Message-ID: <mailman.5469.1675986838.8174.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -53,17 +56,46 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SGksCgpoYXMgYW55b25lIHRyaWVkIGNhcmJvbnlsIGFscmVhZHkgd2l0aCBicmx0dHkgb3IgZXNw
-ZWFrPwoKaHR0cHM6Ly9naXRodWIuY29tL2ZhdGh5Yi9jYXJib255bAoKV291bGQgYmUgc28gZ3Jl
-YXQgdG8gaGF2ZSBhIG1vZGVybiB0ZXh0YmFzZWQgYnJvd3NlciBmb3IgdGhlIHRlcm1pbmFs4oCm
-CgpDaWFvLAoKICBTY2jDtnBwCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNv
-bQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0
-Cg==
+I've tried ddgr with espeak-ng and with a couple aliases it works rather
+well.
+
+
+
+Jude <jdashiel at panix dot com> "There are four boxes to be used in
+defense of liberty:
+ soap, ballot, jury, and ammo. Please use in that order."
+-Ed Howdershelt (Author, 1940)
+
+.
+
+On Thu, 9 Feb 2023, Linux for blind general discussion wrote:
+
+> Hi,
+>
+> has anyone tried carbonyl already with brltty or espeak?
+>
+> https://github.com/fathyb/carbonyl
+>
+> Would be so great to have a modern textbased browser for the terminal?
+>
+> Ciao,
+>
+>   Sch?pp
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
