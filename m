@@ -2,51 +2,49 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id B12B6693352
-	for <lists+blinux-list@lfdr.de>; Sat, 11 Feb 2023 20:33:28 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id D33916933D1
+	for <lists+blinux-list@lfdr.de>; Sat, 11 Feb 2023 21:52:46 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1676144007;
+	s=mimecast20190719; t=1676148765;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=rMgajV+iHaQFyIU7wqOm194oAQAJvFHHhPihjkcGOqw=;
-	b=TzKofVVeHCdwvgvXPqIV+XpMfYS2RSNpLexImtcXnPTgsOm5P/uBBEDX269CyXgNgt6HyV
-	ezL9mqbt2Q7mX0Z/6GljI8dZdkHdZDGyjCCV6l0QNaMhdbKad3Ti0pBorVPxuDv4AUjzQ1
-	mh4YMHUBH5im+WtFxb66HK+WSwaWUK0=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=WTB+9bk8ZnpHOIa1R2aE3uVsaDooz/yasQOsMkeTEgk=;
+	b=NiuQQhDPxltX5MY7nbUf87GrdG/33fTh+sjS7hdE08juMXBuLQN9l8osv2xMpGcws6wJQh
+	8AATJ6iuPcGwpHEhv9B5mM1sibR2JP/SxQMKhcqsa2vk+4tECQ8ZAOC3WrZrAWwwUWbIE3
+	eW93ix2t97cGgHi5d/fZHV3IpJYgKnM=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-440-KRVli5s1OJS2c8em4cn8Wg-1; Sat, 11 Feb 2023 14:33:23 -0500
-X-MC-Unique: KRVli5s1OJS2c8em4cn8Wg-1
+ us-mta-100-RI3nXtg6P--ypHKGM3lMuw-1; Sat, 11 Feb 2023 15:52:39 -0500
+X-MC-Unique: RI3nXtg6P--ypHKGM3lMuw-1
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5B2963C0219B;
-	Sat, 11 Feb 2023 19:33:22 +0000 (UTC)
-Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 9580C140EBF6;
-	Sat, 11 Feb 2023 19:33:13 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CB02B101157D;
+	Sat, 11 Feb 2023 20:52:37 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 4AD5714171B6;
+	Sat, 11 Feb 2023 20:52:32 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id BB6E21946597;
-	Sat, 11 Feb 2023 19:33:12 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 2816B1946597;
+	Sat, 11 Feb 2023 20:52:27 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-To: blinux-list@redhat.com
+Date: Sat, 11 Feb 2023 20:52:21 +0000
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Clipboard in gnome
-In-reply-to: <mailman.5717.1676057804.8176.blinux-list@redhat.com>
 References: <mailman.5776.1676049044.8169.blinux-list@redhat.com>
  <mailman.6032.1676051129.8177.blinux-list@redhat.com>
  <mailman.5817.1676055329.8175.blinux-list@redhat.com>
  <mailman.5717.1676057804.8176.blinux-list@redhat.com>
-Comments: In-reply-to Linux for blind general discussion
- <blinux-list@redhat.com>
- message dated "Fri, 10 Feb 2023 19:36:39 +0000."
+ <mailman.47.1676143991.1039597.blinux-list@redhat.com>
 MIME-Version: 1.0
-Date: Sat, 11 Feb 2023 13:33:03 -0600
-Message-ID: <mailman.47.1676143991.1039597.blinux-list@redhat.com>
+In-Reply-To: <mailman.47.1676143991.1039597.blinux-list@redhat.com>
+Message-ID: <mailman.37.1676148746.1039589.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -65,78 +63,118 @@ Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
 X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-ID: <6161.1676143982.1@wb5agz.lan>
+Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-This is been a learning exercise all right.  One thing that
-hasn't happened yet is being able to store more than one thing at
-a time on the clipboard with xclip.  Also, unless I have
-something set wrong, it is not possible to use xclip from a true
-command line.  If I press Super and select the letter t and get
-the terminal, it's a terminal in gnome so xclip <somefile works
-fine in capturing what's in the file to the clipboard.  If I log
-in to this system via ssh from a pure command line shell, I get
-the shell prompt and things are good but xclip <somefile or xclip
--o both cause xclip to complain about there being no  display as
-shown here:
+Tim here again, replying in-line.
 
-1m martin ~ $ xclip -o
-Error: Can't open display: (null)
+> being able to store more than one thing at a time on the clipboard
+> with xclip.
 
-	This certainly is better than nothing but you can't ssh
-in from another system and coax the clipboard along by feeding
-very-long-string-1 in, feeding that into a GUI app, then using
-the command line to stuff in very-long-string-2 so you can drop
-that in another box on your GUI app.
+xclip/xsel only interacts with the primary (selection buffer),
+secondary (also sort of a lesser-used selection buffer), and the
+clipboard buffer.  The ability to access more than one thing is
+what a clipboard manager like clipit is for.  It retains the history
+and lets you recall previous selections from history.
 
-	I've done that more than once using Windows or a Mac.
+For a poor-man's clipboard history, you can dump the output of
+xsel/xclip to a file and the recall it later:
 
-	There is a mail application for Linux called evolution
-which can interface with a Microsoft365 mailbox so one can get
-their mail from that mailbox and use it on a Linux system.
+ $ xsel -ob > youtube_url.txt
+ $ xsel -ib < my_file.txt
 
-	In one place, I put in a url that is 48 characters long
-in to a box and, of course, it has to be exactly right then a
-second 38-character string which is an ASCII representation of
-hexadecimal digits which make no sense at all so there's no way
-to make sure it is right other than copy and paste.  Anything
-else is fertile ground for human errors and if it's wrong, the
-job just breaks and you don't know what went wrong.  It may be
-that nothing went wrong but one took so much time fiddling with
-the copy process that some clock timed out somewhere because it
-thought that there was hacking or some other mischief.  The
-builders of some of this security framework have really strange
-ideas and I often say that the bad guys won a long time ago in
-that now the built-in security is the denial of service attack
-and they just sit back and laugh and say, "Our work is done."
+then paste that content of "my_file.txt", and then restore the
+clipboard contents to what they were before
 
-	After doing a small amount of research, I read that
-clipit is no longer being developed and diodon is what you get in
-Debian, anyway, when you download clipit.
+ $ xsel -ib < youtube_url.txt
 
-	If I could get multiple entries to store on the
-clipboard, I would be a happy camper right now since it would be
-possible to get both of those awkward strings to just slide right
-in where they belong.
+which allows you to even persist clipboard contents across reboots:
 
-	For anybody else new to setting things up, I also
-discovered that xclip works better if you set it up to start with
-X by going in to 
+ $ xsel -ob > youtube_url.txt
+ $ sudo reboot
+ ...
+ $ xsel -ib < youtube_url.txt
 
-.config/autostart and putting a startup script for xclip -silent.
-When your shell goes in to suspension or logs you off, xclip
-forgets whatever was in it.
+You might even create a subdirectory to contain them such as ~/clip
 
-	You know that is working if you boot up and then
+> If I press Super and select the letter t and get the terminal,
+> it's a terminal in gnome so xclip <somefile works fine in capturing
+> what's in the file to the clipboard.
 
-$ ps ax |grep xclip |grep -v grep
+Correct because the clipboard is local to the machine it's running
+on.  In this case, it's your local machine.
 
-You should see a process number and status information which you
-can read about in the man page for ps.  If you didn't get your
-startup script right, you won't see a process for xclip.
+> If I log in to this system via ssh from a pure command line shell,
+> I get the shell prompt and things are good but xclip <somefile
+> or xclip -o both cause xclip to complain about there being no
+> display
 
-Martin McCormick
+Correct, because if you're running xclip on the remote machine that
+you've SSH'ed into, there's no local copy of X running there (usually)
+for it to access.  If there is a logged-on session of X on that
+remote machine, you should have a ~/.Xauthority file on that machine,
+and you might be able to set your $DISPLAY to access the remote
+clipboard with xclip/xsel:
+
+  me@local$ ssh me@remote
+  me@remote$ export DISPLAY=:0.0
+  me@remote$ xsel
+  This is the content of the clipboard on the remote machine
+  where me@remote is logged in
+
+Note that xclip/xsel can work over pipes though, including SSH
+connections, allowing you to do things like
+
+  me@local$ xsel | ssh me@remote 'cat > local_clipboard_contents_on_remote_machine.txt'
+
+to dump your local clipboard to a file on the remote machine
+
+> This certainly is better than nothing but you can't ssh
+> in from another system and coax the clipboard along by feeding
+> very-long-string-1 in, feeding that into a GUI app, then using
+> the command line to stuff in very-long-string-2 so you can drop
+> that in another box on your GUI app.
+
+I think what you're describing here is similar, so you might do
+
+  me@local$ ssh me@remote ls | xsel -ib
+
+to get a listing of your home directory on the remote machine and
+put it on the local clipboard or
+
+  me@local$ ssh me@remote 'cat data.txt' | xsel -ib
+
+In both of those cases, xsel is running locally, but taking its
+data from a pipe that is populated from a remote machine.
+
+> clipit is no longer being developed and diodon is what you get in
+> Debian, anyway, when you download clipit.
+
+Interesting.  I had some recent issues with clipit on my FreeBSD
+daily driver (the edit-history window sometimes hangs) so it would
+be worth investingating diodon to see if that's fixed for me.  Thanks
+for doing the research for me.
+
+> If I could get multiple entries to store on the clipboard, I would
+> be a happy camper right now since it would be possible to get
+> both of those awkward strings to just slide right in where they
+> belong.
+
+Using temporary files to store clipboard contents should give you
+an intermediate stop-gap solution for multiple clipboard contents,
+and piping contents via ssh should let you communicate them across
+machines.  If you have trouble with either aspect, let me know which
+machine/OS is local, which machine/OS is remote, which machine
+(local or remote) is running Evolution, and which machine needs the
+information copied to/from it.
+
+Hoping this helps,
+
+-tim
+
+
+
 
 _______________________________________________
 Blinux-list mailing list
