@@ -1,45 +1,48 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 68D86696C97
-	for <lists+blinux-list@lfdr.de>; Tue, 14 Feb 2023 19:17:40 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 47470697CA6
+	for <lists+blinux-list@lfdr.de>; Wed, 15 Feb 2023 14:03:27 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1676398659;
+	s=mimecast20190719; t=1676466206;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=8CCBjIJ4/t4fh6LXMdPN3lYmNF8IfzfCd/HwQcUqS70=;
-	b=cwu0W1K5dndPTXSXqMwJFcxGbQI8PFAZrkO+B0dFeHLw3jnJZvlUfj+FE6OcqjxYPn7IiT
-	Z47X/cAH61Z/eCWnsZBjYNkw+M3NzOG0RW3fOMFHyflJspvi4CR8ypjc3tmqlYT0jJFrLN
-	91GqTVhVhVSEr6Zn7k8QtO4u2yWBYoM=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=sOODTFFTN0Mj4Zhn6/2v6GNICRxfOBE8bDonuq8cXSo=;
+	b=hoGuZ4CD1XzFqUHilEuJKcAqyQX5pFLyUo7utac8NDSslg9TEADPq/g+AjIxiSBIpiUSvp
+	b7LyB6zZGhSSWIqrvqBxnOtsH7aGDdWVqsTsjwQz/1bDBvPvz4vqXKBxYtvY21gn4Dt/4D
+	xCJ3I0PfRsw32BEMQTqe/9ct3pu3kGQ=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-549-hd000gglMGKK2ZDyqPoFcw-1; Tue, 14 Feb 2023 13:17:36 -0500
-X-MC-Unique: hd000gglMGKK2ZDyqPoFcw-1
+ us-mta-640-dVXbplUwOIyvy2bcuZIIZw-1; Wed, 15 Feb 2023 08:03:22 -0500
+X-MC-Unique: dVXbplUwOIyvy2bcuZIIZw-1
 Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id ACD3938173C6;
-	Tue, 14 Feb 2023 18:17:34 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 60FE5185A7A4;
+	Wed, 15 Feb 2023 13:03:20 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 35B37492B03;
-	Tue, 14 Feb 2023 18:17:24 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id A18CF492C3C;
+	Wed, 15 Feb 2023 13:03:12 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 703C019465A0;
-	Tue, 14 Feb 2023 18:17:23 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id D38731946595;
+	Wed, 15 Feb 2023 13:03:11 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Tue, 14 Feb 2023 13:17:18 -0500
+Date: Wed, 15 Feb 2023 07:58:31 -0500
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.2
-To: Blinux-list@redhat.com
-Subject: install desktop in wsl2
-Message-ID: <mailman.540.1676398642.1039595.blinux-list@redhat.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.0
+Subject: Re: Voxin
+To: blinux-list@redhat.com
+References: <mailman.50.1676151885.1039597.blinux-list@redhat.com>
+In-Reply-To: <mailman.50.1676151885.1039597.blinux-list@redhat.com>
+Message-ID: <mailman.1320.1676466191.1039588.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -62,12 +65,16 @@ Content-Language: en-US
 Content-Transfer-Encoding: base64
 Content-Type: text/plain; charset="utf-8"; Format="flowed"
 
-IMKgwqDCoCBoaSwgaSdtIHRyeWluZyB0byBpbnN0YWxsIGEgZGVza3RvcCBvbiB1YnVudHUgMjIw
-NCBpbiB3c2wyLiBJJ3ZlIAp0cmllZCBnbm9tZSBhbmQgbWF0ZSBhbmQgSSBrZWVwIGdldHRpbmcg
-YSBtZXNzYWdlIGFib3V0IGFjcGkgZW5kcG9pbnQgCm5vdCBiZWluZyBjb25uZWN0ZWQgdGhpcyBz
-bG93cyB0aGUgd3NsIGRvd24gYW5kIGl0IHRha2VzIGZvcmV2ZXIgdG8gZG8gCmFueXRoaW5nIHdp
-dGggc3Vkby4gZG9lcyBhbnlvbmUga25vdyBob3cgdG8gZml4IHRoaXMgcHJvYmxlbSB0aGFua3MK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1s
-aXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5y
-ZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QK
+V2FzIHdvbmRlcmluZyB3aHkgdm94aW4gaXMgY29uc2lkZXJlZCBicm9rZW4gb3Igd2h5IHRoZSBz
+cGVlY2ggYWx3YXlzIApyZXNldHMgaXRzIHJhdGUgc2V0dGluZyBpbiB0aGUgbmV3ZXIgdmVyc2lv
+bnMgYW5kIGhvdyB0aGlzIG1heSBiZSBmaXhlZC4KCk9uIDIvMTEvMjMgMTY6NDQsIExpbnV4IGZv
+ciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gSGkgSSB3YXMgd29uZGVyaW5nIGlm
+IGFueW9uZSBjb3VsZCBnaXZlIG1lIHNvbWUgc3RlcHMgdG8gaW5zdGFsbCB0aGlzIEnigJl2ZSB0
+cmllZCBpdCBhbmQgSSBjYW7igJl0IGZpZ3VyZSBpdCBvdXQgdGhhbmtzCj4KPiA3MywKPiBEYXJy
+ZW4gVG9tYmxpbiBLQzlKSkoKPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4LWxpc3RAcmVk
+aGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxp
+bnV4LWxpc3QKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8v
+bGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QK
 
