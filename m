@@ -1,43 +1,50 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4D42E69EA02
-	for <lists+blinux-list@lfdr.de>; Tue, 21 Feb 2023 23:22:51 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id E9D3569EB86
+	for <lists+blinux-list@lfdr.de>; Wed, 22 Feb 2023 00:55:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1677018170;
+	s=mimecast20190719; t=1677023702;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=BjWVnEm/0CpAWyO9YIYmvyfOLXMOSIOT3rkyR+NkuKM=;
-	b=hAw7Bg75pUnJJvFMvb2OVoJLkfJd/wlW6RlxH14pZSuV1jf5kd32l5gsqZqXpaPm0XzGjN
-	3U7Qy+lzglVOc/kqT/U4knK9q3G7gO1Of4WTFCAsEdwEn5c+Z8xzLp0eGrppfg53QWal/X
-	7uan9dlHkzejopMNrrBwxP3f2UtbIQc=
+	bh=uzZO98ij0bZKC1IzmsZudxeTLH4kS3Fn0LhiyTQktIk=;
+	b=WlEgS7ugsPeWalzoHxzUkulg3ueZS2KROfLDX4jT0Fu90v496tmPHHzlByBXg243piNNQf
+	TRLqrlbcDykebQsHiMAXzuZ1VO+rLaTB6d8Ru9U+2QEe7Su6M91gSTZ12+3uIO5tdYLuVu
+	hRbZZJgQm7qHywuA3+Y8dgG1Mg+0SAA=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-202-TK_VabqYNS2jwQe8Aw6fsA-1; Tue, 21 Feb 2023 17:22:46 -0500
-X-MC-Unique: TK_VabqYNS2jwQe8Aw6fsA-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-447-hfnaIwcvMvCsBIAx6sPn9w-1; Tue, 21 Feb 2023 18:55:01 -0500
+X-MC-Unique: hfnaIwcvMvCsBIAx6sPn9w-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2A64B1C0419A;
-	Tue, 21 Feb 2023 22:22:45 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 21E621C06900;
+	Tue, 21 Feb 2023 23:54:59 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 5E8A1C15BAD;
-	Tue, 21 Feb 2023 22:22:44 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 3E30C40BC781;
+	Tue, 21 Feb 2023 23:54:55 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id C0D4B1946597;
-	Tue, 21 Feb 2023 22:22:43 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id BB5421946597;
+	Tue, 21 Feb 2023 23:54:54 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Tue, 21 Feb 2023 17:22:40 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: why
+Date: Tue, 21 Feb 2023 18:54:46 -0500
 MIME-Version: 1.0
-Message-ID: <mailman.918.1677018162.686538.blinux-list@redhat.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: brave with fedora
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <mailman.73.1676547223.3517.blinux-list@redhat.com>
+ <mailman.111.1676561327.3517.blinux-list@redhat.com>
+ <mailman.877.1677014920.686539.blinux-list@redhat.com>
+In-Reply-To: <mailman.877.1677014920.686539.blinux-list@redhat.com>
+Message-ID: <mailman.935.1677023694.686538.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -53,28 +60,21 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.2
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
-Content-Type: text/plain; charset="us-ascii"
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
+You can put any file with .sh extension in /etc/profile.d and put
 
-Can  someone shed light on why links the chain can access
-http://www.realclearpolitics.com
-while lynx the cat only gives me  an error page  with admonitions
-to enable js and remove ad blockers?
+ACCESSIBILITY_ENABLED=1
 
-I thought links the chain didn't support js. Is that wrong?
+in that file on a line by itself. Then restart the computer or just log 
+out of your session and log back in and you should be good to go.
 
-Thanks.
-
--- 
-Rudy Vener
-Website: http://www.rudyvener.com
-Check out my latest story: The Last Mile https://www.scifishorts.co/authors/rudy-vener
-Get a Free month of Sci-Fi Shorts when you subscribe at https://www.scifishorts.co with coupon code "FREEMONTHAY88"
+~Kyle
 
 _______________________________________________
 Blinux-list mailing list
