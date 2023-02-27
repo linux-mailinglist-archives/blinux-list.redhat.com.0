@@ -1,52 +1,43 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9E8786A4A88
-	for <lists+blinux-list@lfdr.de>; Mon, 27 Feb 2023 20:03:12 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id C27FC6A4A8A
+	for <lists+blinux-list@lfdr.de>; Mon, 27 Feb 2023 20:04:25 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1677524591;
+	s=mimecast20190719; t=1677524664;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=zor2Vrlg9sLCfz5RF1U+5z1E10Sb2Tex9ZW15kcffxI=;
-	b=X4MTYZ2BlTCV34xCyJ6B4CVSrRbVGs/VUuWgFHHLlWcnvwLYHvJ228RyS3MROHGx0b3yaO
-	/LkeAAA7wdVwyNyrdlnYXsUlRENTIofMAuFppTw80AAbFETvurdKydagKYzCLaCq4bQnFL
-	N4SITGP1Q1Pc+0ed/OJ6N/PLiq2zcwQ=
+	bh=d4bRuRdO42nPwPH0MTIl08eKKMPXsm/jjD5/TSBGbJY=;
+	b=aXOfdChMS6lcJ8yZuOFUTS6nbaZhZvrA5bpQZvthPPwgQ1Jwf03ICabnA+fUfQ9ODwAtfT
+	/+NPpbQv3viXAPpEzkGkxQ5SZlo2mKmmPYR88P2xxNbZ3GgbbZEzSs2R1NgDTT7RZsG3Bo
+	ZIFqATFOzHgVbqcPHYZ/nNCqYgONqdg=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-356-GkMAyLEFMQ6JnIZEjnPykw-1; Mon, 27 Feb 2023 14:03:09 -0500
-X-MC-Unique: GkMAyLEFMQ6JnIZEjnPykw-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+ us-mta-365-HadgHiBCPJqHi7kRMZhNNw-1; Mon, 27 Feb 2023 14:04:22 -0500
+X-MC-Unique: HadgHiBCPJqHi7kRMZhNNw-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 59DA1857A99;
-	Mon, 27 Feb 2023 19:03:02 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AFFA285CBE2;
+	Mon, 27 Feb 2023 19:04:18 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 61D3C2026D68;
-	Mon, 27 Feb 2023 19:03:01 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 8A254492B12;
+	Mon, 27 Feb 2023 19:04:18 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id F3B21194658F;
-	Mon, 27 Feb 2023 19:03:00 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 40FB8194658F;
+	Mon, 27 Feb 2023 19:04:18 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Mon, 27 Feb 2023 14:02:41 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: speakup or fenrir on fedora
-In-Reply-To: <mailman.580.1677522491.3183648.blinux-list@redhat.com>
-References: <mailman.427.1677500614.3183649.blinux-list@redhat.com>
- <mailman.460.1677502348.3183651.blinux-list@redhat.com>
- <mailman.514.1677508283.3183643.blinux-list@redhat.com>
- <mailman.519.1677508781.3183643.blinux-list@redhat.com>
- <mailman.503.1677509636.3183644.blinux-list@redhat.com>
- <mailman.487.1677510419.3183651.blinux-list@redhat.com>
- <mailman.580.1677522491.3183648.blinux-list@redhat.com>
+Date: Mon, 27 Feb 2023 14:04:14 -0500
+To: blinux-list@redhat.com
+Subject: re: fedora speakup or fenrir
 MIME-Version: 1.0
-Message-ID: <mailman.578.1677524580.3183643.blinux-list@redhat.com>
+Message-ID: <mailman.529.1677524657.3183645.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -62,141 +53,23 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
-X-Mimecast-Spam-Score: 0
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
+X-Mimecast-Spam-Score: 1
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-pip3 install fenrir-screenreader works.
+you best do sudo pip3 install fenrir-screenreader since that will make
+fenrir available to the whole system.
 
 
 
-Jude <jdashiel at panix dot com>
-"There are four boxes to be used in defense of liberty:
+Jude <jdashiel at panix dot com> "There are four boxes to be used in
+defense of liberty:
  soap, ballot, jury, and ammo. Please use in that order."
 -Ed Howdershelt (Author, 1940)
 
 .
-
-On Mon, 27 Feb 2023, Linux for blind general discussion wrote:
-
-> With fedora, after typing
-> pip3 install fenrirscreenreader
-> the system said that package was not gettable.
-> Should a repository have been added?
->
-> > On Feb 27, 2023, at 09:06, Linux for blind general discussion <blinux-list@redhat.com> wrote:
-> >
-> > no, try which locate first.  No path and file name returns sudo dnf
-> > mlocate then updatedb then try locate fenrir*.service.  The locate command
-> > finds everything  on your system and is different from dnf.  The dnf
-> > utility downloads and upgrades your system from the internet so dnf is
-> > outward looking while locate is inward looking.
-> >
-> >
-> >
-> > Jude <jdashiel at panix dot com> "There are four boxes to be used in
-> > defense of liberty:
-> > soap, ballot, jury, and ammo. Please use in that order."
-> > -Ed Howdershelt (Author, 1940)
-> >
-> > .
-> >
-> > On Mon, 27 Feb 2023, Linux for blind general discussion wrote:
-> >
-> >> sudo dnf updated
-> >> like that?
-> >>
-> >>> On Feb 27, 2023, at 08:39, Linux for blind general discussion <blinux-list@redhat.com> wrote:
-> >>>
-> >>> I suggest you first do locate fenrir*.service and note the file name that
-> >>> returns.  That may be fenrir.service or fenrirscreenreader.service and
-> >>> locate will let you know which.  If you haven't run updatedb I suggest
-> >>> doing that before you run the locate command since updatedb updates its
-> >>> data base on any new software installed and removed.
-> >>>
-> >>>
-> >>>
-> >>> Jude <jdashiel at panix dot com> "There are four boxes to be used in
-> >>> defense of liberty:
-> >>> soap, ballot, jury, and ammo. Please use in that order."
-> >>> -Ed Howdershelt (Author, 1940)
-> >>>
-> >>> .
-> >>>
-> >>> On Mon, 27 Feb 2023, Linux for blind general discussion wrote:
-> >>>
-> >>>> Sorry, I wrote to you about the wrong thing.
-> >>>> As far as fenrir, would I enable fenrir with systemd with
-> >>>> sudo systemctl fenrirscreenreader
-> >>>> or any other step?
-> >>>>
-> >>>>> On Feb 27, 2023, at 06:52, Linux for blind general discussion <blinux-list@redhat.com> wrote:
-> >>>>>
-> >>>>> pip3 install fenrirscreenreader
-> >>>>>
-> >>>>>
-> >>>>>
-> >>>>> Jude <jdashiel at panix dot com>
-> >>>>> "There are four boxes to be used in defense of liberty:
-> >>>>> soap, ballot, jury, and ammo. Please use in that order."
-> >>>>> -Ed Howdershelt (Author, 1940)
-> >>>>>
-> >>>>> .
-> >>>>>
-> >>>>> On Mon, 27 Feb 2023, Linux for blind general discussion wrote:
-> >>>>>
-> >>>>>> My arch machine has fenrir.
-> >>>>>> Is there a way to put either fenrirscreenreader or speakup on to a fedora system?
-> >>>>>> The speakup page might need updating.
-> >>>>>> When I use the shell, for now I use t d s r.
-> >>>>>>
-> >>>>>> _______________________________________________
-> >>>>>> Blinux-list mailing list
-> >>>>>> Blinux-list@redhat.com
-> >>>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
-> >>>>>>
-> >>>>>>
-> >>>>>
-> >>>>> _______________________________________________
-> >>>>> Blinux-list mailing list
-> >>>>> Blinux-list@redhat.com
-> >>>>> https://listman.redhat.com/mailman/listinfo/blinux-list
-> >>>>>
-> >>>>
-> >>>> _______________________________________________
-> >>>> Blinux-list mailing list
-> >>>> Blinux-list@redhat.com
-> >>>> https://listman.redhat.com/mailman/listinfo/blinux-list
-> >>>>
-> >>>>
-> >>>
-> >>> _______________________________________________
-> >>> Blinux-list mailing list
-> >>> Blinux-list@redhat.com
-> >>> https://listman.redhat.com/mailman/listinfo/blinux-list
-> >>>
-> >>
-> >> _______________________________________________
-> >> Blinux-list mailing list
-> >> Blinux-list@redhat.com
-> >> https://listman.redhat.com/mailman/listinfo/blinux-list
-> >>
-> >>
-> >
-> > _______________________________________________
-> > Blinux-list mailing list
-> > Blinux-list@redhat.com
-> > https://listman.redhat.com/mailman/listinfo/blinux-list
-> >
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
->
 
 _______________________________________________
 Blinux-list mailing list
