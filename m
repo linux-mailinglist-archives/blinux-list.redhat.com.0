@@ -1,47 +1,47 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 734EA6A63DF
-	for <lists+blinux-list@lfdr.de>; Wed,  1 Mar 2023 00:46:14 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id BF4FD6A63E8
+	for <lists+blinux-list@lfdr.de>; Wed,  1 Mar 2023 00:53:21 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1677627973;
+	s=mimecast20190719; t=1677628400;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=egdvfE1kvwnitHpCOHPhtTCvlawTZaEMeFmJxaU4wJI=;
-	b=UNHpppxqaBK2mEASN2lzSPilDs5RXaUPfUc99nql2dmF+dODzSs46twScfRGsklE4WOLPO
-	0glKt47NUOTR5WGi8PK+XVR0tgXhgZis+BtidtyJ2XXE/E8MWCTdZKMHBoVtLW88xge55G
-	qhFwV8VhXJSgW2K9fNvohCqFDUszMUg=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=7PHDN/TY181Jmsg4Ab/JpnAu79CV0p47x6IKfBHB3zw=;
+	b=cKmVOJCR11ez+d/cRfNk82wB86IndwHVOrW1BrcPWv2tJMgV2ho3SOpZ5iCHg1ivI+M1i7
+	ZNCDrO6cr4rkxLoawXuhR6qkxeW66lzMvF0OpYMEmJIOLI5/mPwOtwOYkROZ0IzrZqy0wR
+	NCaDUdtmoqqOifnWw9GBolpEUCU4kCs=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-298-6lFBcRJIMpKi74nuN_FqVg-1; Tue, 28 Feb 2023 18:46:09 -0500
-X-MC-Unique: 6lFBcRJIMpKi74nuN_FqVg-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-613-TFUwSEI7N5uCyYnAxLMSHw-1; Tue, 28 Feb 2023 18:53:17 -0500
+X-MC-Unique: TFUwSEI7N5uCyYnAxLMSHw-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4CFE1101AA63;
-	Tue, 28 Feb 2023 23:46:08 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 22BFF3810785;
+	Tue, 28 Feb 2023 23:53:15 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 1F96D492B0E;
-	Tue, 28 Feb 2023 23:46:08 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id C948F1121314;
+	Tue, 28 Feb 2023 23:53:14 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id A6DC319465A8;
-	Tue, 28 Feb 2023 23:46:07 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 699D019465A8;
+	Tue, 28 Feb 2023 23:53:14 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Tue, 28 Feb 2023 18:46:03 -0500
+Date: Tue, 28 Feb 2023 18:53:10 -0500
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Looking for a podcast player
 In-Reply-To: <mailman.999.1677627794.3183649.blinux-list@redhat.com>
 References: <mailman.959.1677626979.3183645.blinux-list@redhat.com>
  <mailman.999.1677627794.3183649.blinux-list@redhat.com>
 MIME-Version: 1.0
-Message-ID: <mailman.1011.1677627967.3183643.blinux-list@redhat.com>
+Message-ID: <mailman.1040.1677628393.3183648.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -57,22 +57,26 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.3
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-podget can work in terminal or console but doesn't have much of a library
-of podcasts from which to select.
-Gpodder works in terminal and console but you run gpo to run the console
-version and it has a large library of podcasts from which to select.
-I hope this helps.
+The search for podcasts feature on podcast catchers is often handicapped
+since they search a small selection of locations for podcasts and the
+reason for this is many websites obscure the publicly available feeds for
+podcasts just as they do for many radio stations.  Podcast catchers need
+to be able to break this concealment so those that want to listen to
+podcasts can get a decent selection of them on their systems.  What would
+be even better for the podcast listening community to do is black list web
+sites that conceal publicly available podcast links and boycott the sites
+that do this practice.
 
 
 
-Jude <jdashiel at panix dot com>
-"There are four boxes to be used in defense of liberty:
+Jude <jdashiel at panix dot com> "There are four boxes to be used in
+defense of liberty:
  soap, ballot, jury, and ammo. Please use in that order."
 -Ed Howdershelt (Author, 1940)
 
