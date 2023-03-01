@@ -1,48 +1,50 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id D73996A6585
-	for <lists+blinux-list@lfdr.de>; Wed,  1 Mar 2023 03:31:33 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id D96216A65A2
+	for <lists+blinux-list@lfdr.de>; Wed,  1 Mar 2023 03:37:41 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1677637892;
+	s=mimecast20190719; t=1677638260;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=uXOF5QJelju+rvS9eimHu1Hjdc2ccZjValBWFOcFPW0=;
-	b=PPJRe9e4LLGaBBwt7/L5F1r9/oectIAEv6chZDKtfRgw+p5eIOGrmzxVI7reEGDGPnoRjl
-	5wsapFoCkOyf9HLXw4KUmuy4d1oU8Yvw6hqEVlXFaCr9g7/gyiTUwY2lyWn+NGkq/QCOi5
-	0scI4XTY5bHK6M7sY7JMK490fkmeNnU=
+	bh=Z0UDY2aucOaZDcCwxIYiA6stBd/SlRkAs5O0bsSaVCc=;
+	b=huUGeYyio2kkD5M9HQc69Cl/cFKukzTtIZ8n3MLUtIYx6d9RxVL1+Ql6Q1A9x2iWVNJO+q
+	3vK2stWr3TtIDphei1ZDVsQwE5HRnulzn0sGHW6Z3TNK2NWTb4yjxCKATVlJ/cMFeSMMYA
+	hey2qraev0xs0PlV390mSV0YHMBy9jo=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-168-wAvihrzcPnCyg5Sq5ZfHBQ-1; Tue, 28 Feb 2023 21:31:31 -0500
-X-MC-Unique: wAvihrzcPnCyg5Sq5ZfHBQ-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+ us-mta-379-FYb9OweXOWqdaPET520H2A-1; Tue, 28 Feb 2023 21:37:37 -0500
+X-MC-Unique: FYb9OweXOWqdaPET520H2A-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 02A1480D0F0;
-	Wed,  1 Mar 2023 02:31:28 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3FEA6864763;
+	Wed,  1 Mar 2023 02:37:35 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id C459218EC6;
-	Wed,  1 Mar 2023 02:31:27 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id E94AA2026D4B;
+	Wed,  1 Mar 2023 02:37:34 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 4488419465A8;
-	Wed,  1 Mar 2023 02:31:27 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 0072F19465A8;
+	Wed,  1 Mar 2023 02:37:30 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Tue, 28 Feb 2023 21:31:10 -0500
+Date: Tue, 28 Feb 2023 21:37:22 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.8.0
 Subject: Re: Looking for a podcast player
 To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <mailman.959.1677626979.3183645.blinux-list@redhat.com>
-In-Reply-To: <mailman.959.1677626979.3183645.blinux-list@redhat.com>
-Message-ID: <mailman.1038.1677637887.3183650.blinux-list@redhat.com>
+References: <mailman.999.1677627794.3183649.blinux-list@redhat.com>
+ <mailman.976.1677633132.3183645.blinux-list@redhat.com>
+ <mailman.1067.1677637392.3183648.blinux-list@redhat.com>
+In-Reply-To: <mailman.1067.1677637392.3183648.blinux-list@redhat.com>
+Message-ID: <mailman.981.1677638249.3183647.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,22 +60,28 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.5
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-I have a client who successfully uses GPodder on the MATE desktop with 
-Orca. This is a GTK application written in Python, and from what I've 
-seen of it, it seems to work well with keyboard and screen reader 
-access. You can do everything from GPodder from downloading your podcast 
-subscriptions to actually playing them, as it allows you to specify the 
-player to use to play them right from the app. You can specify different 
-players for different file extensions and for audio and video podcasts. 
-GPodder allows your subscriptions to sync on gpodder.net, but this is 
-completely optional.
+I like downloading, tell you why. As crazy as things are, someone could 
+have a podcast, and then be kicked off and be no more around.
+
+
+Very true. GPodder does download your podcasts, or rather it tells you 
+what episodes are available and gives you the option to download them.
+
+
+A quick search of my Fedora repository also shows me castget and kasts. 
+Castget indicates it is a command line podcast downloader, so it most 
+certainly should download your podcasts. I know nothing of kasts, but 
+I'm guessing that since it starts with a k, it's probably a KDE 
+application, and not all KDE applications work very well with the Orca 
+screen reader at this time, although much progress has been made in this 
+area, so it's worth a look.
 
 ~Kyle
 
