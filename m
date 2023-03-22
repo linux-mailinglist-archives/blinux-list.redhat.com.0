@@ -1,49 +1,44 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id EF5B46C382E
-	for <lists+blinux-list@lfdr.de>; Tue, 21 Mar 2023 18:31:05 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id C829E6C4F82
+	for <lists+blinux-list@lfdr.de>; Wed, 22 Mar 2023 16:33:56 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1679419864;
+	s=mimecast20190719; t=1679499235;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=dgtt/4lp/Mp2Bu0NVLgmyjWbtnk1J4v4SqCDdp9ZF08=;
-	b=MO2y7JMGwWu4D/DTudlFGxjghIT7CrR039PfKzqDoMQgJosPffQyCSroCCSEchuTN6Fs4A
-	PhrVRHfnl7hYz6ovcBVW6QZt/eyF0idXF2MD998ZDsjnUQOYzjUPBDhnka8SYNkcxSbH1Z
-	UwcT0ntBQe2gbnYSUAvUBaJw3DyZrf0=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=L8JlJb5Mm9CzejVJpvjtXhoA48aa9U6p4A5X76Tngww=;
+	b=IzqQziXJ489rN+bj0fewsIavO1eLes9PaEE5dXi2fxsLmgBlUAxRU/o9gANsSzHzL4i5ln
+	230aRl8vqKq/JNQKUEN+fQomDy2ry9tObIv2yj8IuAKgxJqm8oCZ4bkieEsZ/IwIOKTWlF
+	spIiekt5hiY+aN96L4GzfQr1Ak9L7eQ=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-459-lr7oaFiQO0eTINSeHUp58w-1; Tue, 21 Mar 2023 13:31:03 -0400
-X-MC-Unique: lr7oaFiQO0eTINSeHUp58w-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-628-KuHDfvlAPyW1nMR3GEzPBQ-1; Wed, 22 Mar 2023 11:33:52 -0400
+X-MC-Unique: KuHDfvlAPyW1nMR3GEzPBQ-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CE3F0185A7A4;
-	Tue, 21 Mar 2023 17:31:00 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D670A3813F44;
+	Wed, 22 Mar 2023 15:33:49 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id A8825492C14;
-	Tue, 21 Mar 2023 17:31:00 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id E67231121314;
+	Wed, 22 Mar 2023 15:33:40 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 41FF319465B6;
-	Tue, 21 Mar 2023 17:31:00 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 6F80019465BB;
+	Wed, 22 Mar 2023 15:33:40 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Tue, 21 Mar 2023 13:30:55 -0400
+Date: Wed, 22 Mar 2023 11:32:33 -0400
+To: blinux-list@redhat.com
+Subject: [orca] Odilia, the new Linux screenreader written in Rust, reaches
+ 0.1.0 (fwd)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.8.0
-Subject: Re: alpine linux
-To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <mailman.609.1679395599.636362.blinux-list@redhat.com>
- <mailman.518.1679398319.636361.blinux-list@redhat.com>
-In-Reply-To: <mailman.518.1679398319.636361.blinux-list@redhat.com>
-Message-ID: <mailman.649.1679419859.636365.blinux-list@redhat.com>
+Message-ID: <mailman.1101.1679499219.636362.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -59,37 +54,93 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.3
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-yeah it was not showing up in my router DHCP devices list.
 
-On 3/21/23 07:33, Linux for blind general discussion wrote:
-> On 3/21/23 11:46, Linux for blind general discussion wrote:
->> So I have been trying to work on ways of getting accessibility into
->> alpine linux. Maybe someone can answer this strange issue for me. When
->> loading the alpine iso on my laptop i had the idea to install alpine
->> over ssh. I have a connection to the internet because I can add packages
->> through apk witch is the package manager in alpine. When I tryed to put
->> dropbear on for ssh the laptop is not showing up on my network despite
->> being hardwired.
->>
->
-> If by "show up on the network", you mean "is not accessible through SSH"
-> it might be because the service might need to be started.
->
-> -- 
-> John Doe
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
+
+-- 
+Jude <jdashiel at panix dot com>
+"There are four boxes to be used in defense of liberty:
+soap, ballot, jury, and amo.
+Please use in that order."
+Ed Howdershelt 1940.
+
+---------- Forwarded message ----------
+Date: Wed, 22 Mar 2023 11:12:05
+From: Rastislav Kish <dmarc-noreply@freelists.org>
+Reply-To: orca@freelists.org
+To: orca@freelists.org
+Subject: [orca] Odilia, the new Linux screenreader written in Rust,
+    reaches 0.1.0
+
+Hello everyone,
+
+technically, this should perhaps be a little bit off-topic for this
+list, but given its importance, I consider it very actual.
+
+When I found out few months ago someone started building a screenreader
+in Rust for Linux, my first thought was this has to be an abandoned
+project. But I checked its history and GitHub activity, and to my big
+surprise, I found out the project is not just alive, but actually very
+serious about its goal!
+
+Since then, I've been watching their repos, and I was really impressed
+with the work being done!
+
+
+What is this all about? As you may have heard, Rust is a popular new
+middle-level programming language, which thanks to its innovative
+design, makes it easy to write very performant, fast and secure
+programs. Many pieces of software ranking from system components to
+applications have been recently rewritten to Rust and seen significant
+performance & safety improvements, Rust is now often the choice of
+developers for projects that would previously had been written in C/C++,
+but can now benefit from Rust's impressive safety and stability.
+
+Well, and now, accessibility developers want to bring the power of Rust
+to Linux accessibility, building a screenreader in Rust.
+
+
+After finishing with prototypes in the February of the previous year and
+starting the project from scratch, Odilia finally reaches 0.1.0:
+
+https://odilia.app/news/release_0-1-0/
+
+
+This release is not by any means meant to be on par with Orca in terms
+of features, just very elementary things are implemented right now.
+
+Building a screenreader from scratch is a herculean task, requiring
+colossal effort, knowledge and, time.
+
+Therefore, this release is aimed for early users, willing to try new
+things and provide constructive feedback. There is still a lot of work
+to do, until Odilia grows into a full-fledged Orca competent.
+
+
+Nevertheless, it's still a very impressive work, and I wish the project
+a lot of success. If I'm not mistaken, right now, Linux is the only
+system in the world that has a Rust screenreader!
+
+
+Best regards
+
+
+Rastislav
+
+
+
+_______________________________________________
+orca mailing list
+orca@freelists.org
+https://www.freelists.org/list/orca
+Orca wiki: https://wiki.gnome.org/Projects/Orca
+Orca documentation: https://help.gnome.org/users/orca/stable/
+GNOME Universal Access guide: https://help.gnome.org/users/gnome-help/stable/a11y.html
 
 _______________________________________________
 Blinux-list mailing list
