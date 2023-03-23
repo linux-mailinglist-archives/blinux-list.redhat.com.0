@@ -2,50 +2,65 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 96E576C72A1
-	for <lists+blinux-list@lfdr.de>; Thu, 23 Mar 2023 22:56:06 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8A5B06C72BB
+	for <lists+blinux-list@lfdr.de>; Thu, 23 Mar 2023 23:06:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1679608565;
+	s=mimecast20190719; t=1679609210;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
-	 list-unsubscribe:list-subscribe:list-post;
-	bh=PnaYittCJKaafAqhiJmo9Vcc/MOvHaT+qRSvQoq+Eig=;
-	b=fhCPLzkHrkCxTVbK0l73Eb3zT16/zYzi/HMMsz3uNxgbaSrRFAYO8F2Pbve2/oNfsKJfH/
-	ysH2q90Lf99jvnxeMoPnPy2d0W46MJO6/KT1sseUjYyVN5xAv6inQ2IYtJyn0ULXn6dx0m
-	XNh5oBIfSES1ELxIpyqr8zNGdoShH/0=
+	 content-type:content-type:in-reply-to:in-reply-to:
+	 references:references:list-id:list-help:list-unsubscribe:
+	 list-subscribe:list-post; bh=bIVOmLsZE9RK0aej2ZG7dWZXRpavsF1SybtcHkpeAig=;
+	b=R0CASrPzSp2irGrEx/kuhFuSEgFMeg5ASd/o9lOjC9q0chsYHtZY3rX9jUmpd9YXyUtlg1
+	6QHTTZ+iFQbWYMdJHoUbCb+v8rqgbbBEgfA3GNCDdZGuGBNBP45me7Z6wpFsyPgl8s3ptL
+	W7I6HgaCycknYh0dVx1RUGI04om8vsE=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-574-tzKjUkGnNSWmc5cGEO4u9Q-1; Thu, 23 Mar 2023 17:56:01 -0400
-X-MC-Unique: tzKjUkGnNSWmc5cGEO4u9Q-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-292-CyjPq4axMuOz4IgUCKuFVw-1; Thu, 23 Mar 2023 18:06:48 -0400
+X-MC-Unique: CyjPq4axMuOz4IgUCKuFVw-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id ECDD1802C1E;
-	Thu, 23 Mar 2023 21:55:59 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CFAAB85A588;
+	Thu, 23 Mar 2023 22:06:46 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 24381C15BA0;
-	Thu, 23 Mar 2023 21:55:59 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 00B7B44037;
+	Thu, 23 Mar 2023 22:06:46 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id B4E8D19466DF;
-	Thu, 23 Mar 2023 21:55:58 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id A1A2A19466DF;
+	Thu, 23 Mar 2023 22:06:45 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 23 Mar 2023 21:55:14 +0000
 To: blinux-list@redhat.com
 Subject: Re: [orca] Odilia, the new Linux screenreader written in Rust,
  reaches 0.1.0 (fwd)
-In-Reply-To: <mailman.1401.1679570769.636358.blinux-list@redhat.com>
+Date: Thu, 23 Mar 2023 17:01:54 -0500
+MIME-Version: 1.0
+In-Reply-To: <mailman.1539.1679608558.636362.blinux-list@redhat.com>
 References: <mailman.1101.1679499219.636362.blinux-list@redhat.com>
  <mailman.1130.1679509316.636367.blinux-list@redhat.com>
  <mailman.1311.1679555916.636358.blinux-list@redhat.com>
  <mailman.1401.1679570769.636358.blinux-list@redhat.com>
-Feedback-ID: 26663242:user:proton
-MIME-Version: 1.0
-Message-ID: <mailman.1539.1679608558.636362.blinux-list@redhat.com>
+ <mailman.1539.1679608558.636362.blinux-list@redhat.com>
+User-Agent: POP Peeper Pro (5.4.5.0)
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:UiiNS1fBxJ8=;calnu+3A5ZdkIQPTDnQ8/YEGJUT
+ ITWClKjSCOxz8KkSCTdvwYbVrDcptXvedcsIBliKhnUZKm5sFKxPa0KFANvL6IVh4CjjHENQI
+ BY/+9hCPEhrwWCHirRkgnEoFmE1hlmn7gD4oe+iCfwn79CbDW4VtWPxgvfSZiqqz5iZWJ1Xib
+ skz+SLboQ8AlNTe6oiDJttX21aIdoOdCnQDU1xjoRFN5nyP+ytNT16dqpyQmf2zDFZ3mF7NMI
+ EBpJ1Wv8CAyVMzN5f2AdGF6HpMzH96zy/6Wibp67RKfbGUk2Z7i4+pqufxAmtd9vbqCAyrNUS
+ 6/Sbp6Xtf9S5qR2jmZsptKdZKfMxXslY6uwOXzIvjGG/Bq3K3s6Dw50zb+0oVmYJ+xEg0YMAz
+ 4UYCHxX+cS+1/BiFFjeogTYvbEIg3+L764z53A0QAbxw8bwdVLPfJKxedlc8krDQze/dd305S
+ ZU1mSt6FIErrJ3xMDFZ1tF5ubTobt453iYirbin1glRg0FJTC6mRmXXKcflRpRwDctkVXPpRI
+ M9wPEzL3aMirhsejKm61DdTDkomb1MQMoIk9hAi6xngZxTVIXxDcobEWvQRhzgIzLOiE2G/pe
+ jQ9gibUZ6A02yPfNxLwn4DfsXX57GYsBtw1QjhtXp3GN0GmxhB/Fd6UAMWUV+2YjXWHUAed5k
+ kDhiGib7djOp1zPh9RDDQLrg0vMJA955/oEbAjSzt7Eoj3qZAdUUTl+7rIPEyMK1dhhp1+tQ2
+ da8+ekYFqujWtUuiNkP1dXW+Z/ceH5ZpY/ir8KlMhRSQhF0TQ4XuKntPo0B9HkUl/8sgfXEjX
+ C0fkP28y+ULsnUgUXoqd+dRdNYtVXSejWw1R+lxEvkwHtB4Wse0emUZhI8F11putkMooHbKil
+ 7gHcFna7SGSySbgaz1O/L3N9dX3BREb7wSX2NLzvm1gO4Owujvv0U4K/ZWDFVdAu+8Z4lmzMJ
+ 5Y74gA1jxm9eUdXCF7wjtENAoXc=
+Message-ID: <mailman.1710.1679609205.636363.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -61,59 +76,107 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.5
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============0872423035021399132=="
 
-T3JjYSBpcyBpbmRvdWJ0ZWJseSBhbiBhbWF6aW5nIHByb2plY3QsIHdpdGggYSBsb3Qgb2YgZ29v
-ZCB3b3JrIGJlaGluZCBpdC4KClRob3VnaCwgYXMgZ3JlYXQgYXMgdGhlIGZpbmFsIHByb2R1Y3Qg
-aXMsIHRoZXJlIGFyZSBjZXJ0YWluIGxpbWl0YXRpb25zLgoKVGhlIHNjcmVlbnJlYWRlciBpcyB3
-cml0dGVuIGluIGEgbGFuZ3VhZ2UgdGhhdCBjYW4gdGFrZSBldGVybml0eSBqdXN0IHRvCmZpbmlz
-aCBhIGxvb3AsIGFuZCBpcyBub3QgY2FwYWJsZSBvZiB0cnVlIGNvbmN1cnJlbmN5LiBJJ20gbm90
-CmNyaXRpY2l6aW5nIFB5dGhvbiBoZXJlLCBJIHVzZSBpdCBteXNlbGYgYW5kIGxvdmUgdGhlIGxh
-bmd1YWdlLCBJJ20ganVzdApzYXlpbmcgdXNpbmcgaXQgZm9yIHBlcmZvcm1hbmNlIGNyaXRpY2Fs
-IHRhc2tzIGhhcyBpdHMgY2F2ZWF0cy4KCgpSdXN0IGlzIGZyb20gZ3JvdW5kIHVwIGRlc2lnbmVk
-IGZvciBoaWdoIHBlcmZvcm1hbmNlIGFuZCBwYXJhbGxlbApjb21wdXRpbmcuIFRoYXQncyB3aHkg
-SSdtIHBlcnNvbmFsbHkgdmVyeSBleGNpdGVkIHRvIHNlZSB0aGVzZSBzdHJlbmd0aHMKdXNlZCBm
-b3IgYWNjZXNzaWJpbGl0eSwgdGhleSBjb3VsZCB5aWVsZCB2ZXJ5IGludGVyZXN0aW5nIHJlc3Vs
-dHMuCgoKT2RpbGlhIGFsc28gaGFuZGxlcyBpbnB1dCBkZXZpY2VzIGRpZmZlcmVudGx5LCBhbmQg
-YWltcyBmb3Igc3VwcG9ydGluZwp0b3VjaCBzY3JlZW5zIGluIHRoZSBmdXR1cmUuIFRoYXQncyBh
-bHNvIGEgdmVyeSBpbnRlcmVzdGluZyBmZWF0dXJlLAplc3BlY2lhbGx5IG5vdywgYXMgTGludXgg
-bW9iaWxlIHBob25lcyBhcmUgb24gYSByaXNlLgoKCldlJ2xsIHNlZSBob3cgdGhlIHByb2plY3Qg
-Z29lcywgYW5kIHdoYXQgcmVzdWx0cyB3ZSBnZXQuIEJ1dCBpdCdzCmNlcnRhaW5seSBhIHZlcnkg
-aW50ZXJlc3RpbmcgYW5kIGltcHJlc3NpdmUgd29yaywgdGhhdCBmdWxseSBkZXNlcnZlcwphdHRl
-bnRpb24uCgoKQmVzdCByZWdhcmRzCgoKUmFzdGlzbGF2CgoKRMWIYSAyMy4gMy4gMjAyMyBvIDEy
-OjI2IExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gbmFww61zYWwoYSk6Cj4gT24g
-MjMvMy8yMyAwMzoxOCwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90ZToK
-Pj4gSW50ZXJlc3RpbmcsIGNvdWxkIHlvdSBiZSBtb3JlIHNwZWNpZmljIG9uIHRoaXM/IEZyb20g
-dGhvc2UgSSBrbm93LCBOVkRBCj4+IGlzIFB5dGhvbiAmIEMvQysrLCBKYXdzIGlzIHdyaXR0ZW4g
-ZW50aXJlbHkgaW4gQysrIGlmIEkgcmVtZW1iZXIgY29ycmVjdGx5Lgo+Pgo+PiBWb2ljZU92ZXIs
-IGp1c3QgbGlrZSB0aGUgdHdvIGlzIG9sZGVyIHRoYW4gUnVzdCBpdHNlbGYsIHNvIEkgZ3Vlc3Mg
-aXQncwo+PiB3cml0dGVuIGluIHRoZSBBcHBsZSdzIG1pZGRsZS1sZXZlbCBsYW5ndWFnZXMuCj4+
-Cj4+IFdoaWxlIEFuZHJvaWQgaGFzIGEgSmF2YSBjZW50ZXJlZCBhY2Nlc3NpYmlsaXR5IHN5c3Rl
-bS4KPiBJbmRlZWQsIEkgdGhpbmsgdGhpcyBtaWdodCBiZSB0aGUgZmlyc3QgaW1wbGVtZW50YXRp
-b24gb2YgYSBzY3JlZW4KPiByZWFkZXIgaW4gUnVzdC4KPgo+IEknbSBub3QgaW1tZWRpYXRlbHkg
-cGVyc3VhZGVkIHRoYXQgd3JpdGluZyBhbm90aGVyIHNjcmVlbiByZWFkZXIgZm9yIHRoZQo+IExp
-bnV4IGRlc2t0b3AgaXMgYSBnb29kIGlkZWEgb3Zlci1hbGwuIEkgdGhpbmsgT3JjYSBpcyBleHBl
-cnRseQo+IG1haW50YWluZWQsIGFuZCB0aGF0IG1vc3Qgb2YgdGhlIHByb2JsZW1zIG9mIGdyYXBo
-aWNhbCB1c2VyIGludGVyZmFjZQo+IGFjY2Vzc2liaWxpdHkgdW5kZXIgTGludXggYXJpc2Ugb3V0
-c2lkZSBvZiBPcmNhIGl0c2VsZi4KPgo+IE9uIHRoZSBvdGhlciBzaWRlLCBpbXBsZW1lbnRpbmcg
-ZnJvbSB0aGUgZ3JvdW5kIHVwIHdpdGggbmV3IHRlY2hub2xvZ2llcwo+IG1pZ2h0IHlpZWxkIHBv
-c2l0aXZlIHJlc3VsdHMgaW4gdGhlIGVuZCwgaWYgdGhlIHByb2plY3QgaXMgc3VzdGFpbmFibGUs
-Cj4gYW5kIHBlb3BsZSBjYW4gb2YgY291cnNlIGNvbnRyaWJ1dGUgdG8gdGhlIGNvbW11bml0eSBo
-b3dldmVyIHRoZXkgd2lzaC4KPiBUaGF0IGluY2x1ZGVzIHdvcmtpbmcgb24gYSBuZXcgc2NyZWVu
-IHJlYWRlciBwcm9qZWN0IGlmIGl0J3Mgd2hhdCB0aGV5Cj4gd2FudCB0byBkby4KPgo+IFRoZSBs
-YXN0IHRpbWUgdGhlcmUgd2FzIGEgc2Vjb25kIHNjcmVlbiByZWFkZXIgZm9yIHRoZSBMaW51eCBk
-ZXNrdG9wIC0gSQo+IHRoaW5rIGl0IHdhcyBjYWxsZWQgTFNSIC0gaXQgd2FzIG1haW50YWluZWQg
-YnkgSUJNLiBUaGVuIElCTSBkZWNpZGVkIHRvCj4gZGlzY29udGludWUgdGhlaXIgd29yayBvbiB0
-aGUgcHJvamVjdCwgYW5kIG5vIG9uZSB0b29rIGl0IG92ZXIuIFNvIHdlJ3ZlCj4gYmVlbiBpbiB0
-aGUgIm11bHRpcGxlIHNjcmVlbiByZWFkZXIiIHNpdHVhdGlvbiBiZWZvcmUuCj4KPiBfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1h
-aWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVk
-aGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4KCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApC
-bGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4v
-bGlzdGluZm8vYmxpbnV4LWxpc3QK
+--===============0872423035021399132==
+Content-Type: text/plain
+Content-Transfer-Encoding: quoted-printable
+
+Let's hope it does not die on the vine like so many other projects.=20
+
+----- Original Message -----
+From: Linux for blind general discussion <blinux-list@redhat.com>
+To: blinux-list@redhat.com
+Date: Thu, 23 Mar 2023 21:55:14 +0000
+Subject: Re: [orca] Odilia, the new Linux screenreader written in Rust, rea=
+ches 0.1.0 (fwd)
+
+> Orca is indoubtebly an amazing project, with a lot of good work behind it=
+.
+
+Though, as great as the final product is, there are certain limitations.
+
+The screenreader is written in a language that can take eternity just to
+finish a loop, and is not capable of true concurrency. I'm not
+criticizing Python here, I use it myself and love the language, I'm just
+saying using it for performance critical tasks has its caveats.
+
+
+Rust is from ground up designed for high performance and parallel
+computing. That's why I'm personally very excited to see these strengths
+used for accessibility, they could yield very interesting results.
+
+
+Odilia also handles input devices differently, and aims for supporting
+touch screens in the future. That's also a very interesting feature,
+especially now, as Linux mobile phones are on a rise.
+
+
+We'll see how the project goes, and what results we get. But it's
+certainly a very interesting and impressive work, that fully deserves
+attention.
+
+
+Best regards
+
+
+Rastislav
+
+
+Dna 23. 3. 2023 o 12:26 Linux for blind general discussion nap=EDsal(a):
+> On 23/3/23 03:18, Linux for blind general discussion wrote:
+>> Interesting, could you be more specific on this? From those I know, NVDA
+>> is Python & C/C++, Jaws is written entirely in C++ if I remember correct=
+ly.
+>>
+>> VoiceOver, just like the two is older than Rust itself, so I guess it's
+>> written in the Apple's middle-level languages.
+>>
+>> While Android has a Java centered accessibility system.
+> Indeed, I think this might be the first implementation of a screen
+> reader in Rust.
+>
+> I'm not immediately persuaded that writing another screen reader for the
+> Linux desktop is a good idea over-all. I think Orca is expertly
+> maintained, and that most of the problems of graphical user interface
+> accessibility under Linux arise outside of Orca itself.
+>
+> On the other side, implementing from the ground up with new technologies
+> might yield positive results in the end, if the project is sustainable,
+> and people can of course contribute to the community however they wish.
+> That includes working on a new screen reader project if it's what they
+> want to do.
+>
+> The last time there was a second screen reader for the Linux desktop - I
+> think it was called LSR - it was maintained by IBM. Then IBM decided to
+> discontinue their work on the project, and no one took it over. So we've
+> been in the "multiple screen reader" situation before.
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
+
+
+--===============0872423035021399132==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
+
+--===============0872423035021399132==--
 
