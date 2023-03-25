@@ -1,52 +1,44 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 93D3C6C7F8E
-	for <lists+blinux-list@lfdr.de>; Fri, 24 Mar 2023 15:12:19 +0100 (CET)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id AEFD46C8D06
+	for <lists+blinux-list@lfdr.de>; Sat, 25 Mar 2023 11:07:58 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1679667138;
+	s=mimecast20190719; t=1679738877;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=BcqtFEWTXBwJQAT74TCTsjBGXP4n+5VTK3eDVWx9fLI=;
-	b=Va6s0HU368PIsLuInda++h7gHQ0vdqy4ELOe97XFxaMQSEl+/k1l7IOaVPVT5jH+0IgqMm
-	WTl6y3xsUoSleC43/u4wPIEZQ9fJfLKJuewdhvRoyIHF7Re1dJ+lJJRoFEQZo5sTQqHa77
-	b/kFkOrXkWV2M2Y625CxU/OQosixAUw=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=vY5N5RMUtXOyv4ENxe5YiTbQUWSpnd0APO+oQvN2etU=;
+	b=Vg9hi1jgQf1jmYUkyOPxxOjre48a49A4/NxeD9QPdlJ3FnkVW+zD+fnrJ/d4o84ZuzAUcm
+	zSdbYwEJfmX8Q0IuNz/Uk0Mpumqn0Ax0I5eYWiGisUC+ntxZHDvEvMAbc7DLwdrHxjABKi
+	P/oEJl+cZAlDQUbzySxavmyeh08L210=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-620-h471mnMiOB2HafY316f9yw-1; Fri, 24 Mar 2023 10:12:14 -0400
-X-MC-Unique: h471mnMiOB2HafY316f9yw-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+ us-mta-397-Vq-J36FXOpCOqDVu9WIZvw-1; Sat, 25 Mar 2023 06:07:55 -0400
+X-MC-Unique: Vq-J36FXOpCOqDVu9WIZvw-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 68E503C10154;
-	Fri, 24 Mar 2023 14:12:10 +0000 (UTC)
-Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 0F8A52027040;
-	Fri, 24 Mar 2023 14:12:08 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 17049185A78F;
+	Sat, 25 Mar 2023 10:07:54 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 8BE711415117;
+	Sat, 25 Mar 2023 10:07:48 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 864FE1946A69;
-	Fri, 24 Mar 2023 14:12:07 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id F34CA1946A6C;
+	Sat, 25 Mar 2023 10:07:47 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Fri, 24 Mar 2023 15:12:02 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
-Subject: Re: [orca] Odilia, the new Linux screenreader written in Rust,
- reaches 0.1.0 (fwd)
+Date: Sat, 25 Mar 2023 06:07:43 -0400
 To: blinux-list@redhat.com
-References: <mailman.1101.1679499219.636362.blinux-list@redhat.com>
- <mailman.1003.1679507434.636361.blinux-list@redhat.com>
- <mailman.1128.1679507738.636367.blinux-list@redhat.com>
- <mailman.1106.1679508893.636360.blinux-list@redhat.com>
-In-Reply-To: <mailman.1106.1679508893.636360.blinux-list@redhat.com>
-Message-ID: <mailman.1605.1679667127.636360.blinux-list@redhat.com>
+Subject: [stormux] CAVI courses for up coming semester (fwd)
+MIME-Version: 1.0
+X-Content-Filtered-By: Mailman/MimeDel 2.1.29
+Message-ID: <mailman.30.1679738867.2676483.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -62,28 +54,90 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-ID: <897b42cd-fb2-80f3-217-ba7aa334fe82@panix.com>
+Content-Disposition: inline
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-V2VsbCwgSSBoYXZlIHByZXBhcmVkIGEgcGFja2FnZSBmb3IgU2xpbnQsIGJ1dCB3aWxsIHdhaXQg
-YSBiaXQgdG8gdXBsb2FkIGl0IGFzCnRoZSBiZWhhdmlvciBpcyB0b28gZXJyYXRpYyBmb3Igbm93
-IGZvciB0ZXN0aW5nIGJ5IGVuZCB1c2VycyBpbiBteSBvcGluaW9uLgoKQ2hlcnMsCkRpZGlvZXIK
-CkxlIDIyLzAzLzIwMjMgw6AgMTk6MTQsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Np
-b24gYSDDqWNyaXTCoDoKPiBJdCdzIGFsbCB3cml0dGVuIGluIHRoZSBhbm5vdW5jZW1lbnQ6IGh0
-dHBzOi8vb2RpbGlhLmFwcC9uZXdzL3JlbGVhc2VfMC0xLTAvCj4gCj4gQXMgaXQgc2F5cyBhbW9u
-ZyB0aGUgY2FwYWJpbGl0aWVzOgo+IENvbmZpZ3VyYWJsZSB2b2ljZXMvcmF0ZSB2aWEgc3BlZWNo
-ZC5jb25mCj4gSSBhc3N1bWUgYSB0aGF0IGl0IGNhbiB1c2UgdGhlIHNhbWUgVFRTIGFuZCB2b2lj
-ZXMgYXMgT3JjYS4KPiAKPiBBbmQgaXQgaXMgb2J2aW91c2x5IG5vdCBhbiBPcmNhIGNsb25lLgo+
-IAo+IERpZGllcgo+IAo+IExlIDIyLzAzLzIwMjMgw6AgMTg6NTUsIExpbnV4IGZvciBibGluZCBn
-ZW5lcmFsIGRpc2N1c3Npb24gYSDDqWNyaXTCoDoKPj4gQWN0dWFsbHkgaXQgZGlkIHJlYWQgZmlu
-ZSwgYnV0IEkgd29uZGVyIGlzIHRoaXMgYW4gT1JDQSBjbG9uZSwgb3IgYSBicmFuZCBuZXcKPj4g
-c2NyZWVuLXJlYWRlcj8gQW5kIHdoYXQgc3BlZWNoIGVuZ2luZXMgd2lsbCBpdCBoYXZlPyBUaGFu
-a3MgaW4gYWR2YW5jZQo+PiBDaGltZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhh
-dC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgt
-bGlzdAo=
+
+
+-- 
+Jude <jdashiel at panix dot com>
+"There are four boxes to be used in defense of liberty:
+soap, ballot, jury, and amo.
+Please use in that order."
+Ed Howdershelt 1940.
+
+---------- Forwarded message ----------
+Date: Sat, 25 Mar 2023 01:33:03
+From: Storm Dragon <storm_dragon@linux-a11y.org>
+Reply-To: stormux@groups.io
+To: Stormux <stormux@groups.io>
+Subject: [stormux] CAVI courses for up coming semester
+
+Howdy All,
+
+Here is an excerpt from the post about the new CAVI semester.
+
+The below CAVI Course Offerings have been selected for this semester,
+semester 1 2023.  The newly structured course list for semester 1 2023
+will be inclusive of:
+- Linux Essentials
+- IT Essentials v7
+- Python Essentials
+The courses listed above are what we will be offering as of the 10th
+April 2023 these courses will have fee's attached and the cost to
+participate is $100.00 US per course offering, these fee's can be waived
+based on financial hardship and on a case-by-case basis. Further
+information about the above courses can be gained via the email address
+prescribed below.
+If you would like to participate, could you please send an email to
+neil.hines@curtin.edu.au, with the course you'd like to participate in,
+your first and last name plus your date of birth and country of origin.
+The deadline for registering your interest in any of these course
+offerings is the 3rd April 2023. We will be in contact during the week
+commencing the 3rd April or beforehand to confirm the course details and
+your enrolment into either offering plus payment for access, many thanks
+in advance...
+
+
+As you may or may not know, I am the instructor for the Python
+Essentials class.
+
+Thanks,
+Storm
+
+-- 
+??
+Accessible low cost computers for everyone! https://stormux.org
+Stormux Shop: https://stormux.org/shop/
+Get my public PGP key: gpg --recv-key 43DDC193
+The great thing about Object Oriented code is that it can make small, simple
+problems look like large, complex ones.
+
+Support Stormux: https://ko-fi.com/stormux
+
+
+-=-=-=-=-=-=-=-=-=-=-=-
+Groups.io Links: You receive all messages sent to this group.
+View/Reply Online (#1972): https://groups.io/g/stormux/message/1972
+Mute This Topic: https://groups.io/mt/97839087/11102
+-=-=-
+Donations: https://ko-fi.com/stormux
+Images: https://stormux.org/downloads
+Repository: https://gitlab.com/stormux/stormux
+Website: https://stormux.org
+-=-=-
+Group Owner: stormux+owner@groups.io
+Unsubscribe: https://groups.io/g/stormux/leave/9747028/11102/784292745/xyzzy
+[jdashiel@panix.com]
+-=-=-=-=-=-=-=-=-=-=-=-
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
