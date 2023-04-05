@@ -2,47 +2,52 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 514286D86ED
-	for <lists+blinux-list@lfdr.de>; Wed,  5 Apr 2023 21:35:30 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 96B0D6D8764
+	for <lists+blinux-list@lfdr.de>; Wed,  5 Apr 2023 21:52:40 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1680723329;
+	s=mimecast20190719; t=1680724359;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=3qNBQR2K0n1d68Bg1qMksIsgHc80685/uDF99XQPAnw=;
-	b=eqDxb1VsS+2L7kquTswLM789U5zVQdVpbVwPyBUjhOD+aAbLiWndX1zfQOCi7ngNTSd07y
-	WPOR/7yi0qvlpApqB6WhXUDqCD8QrnLOI70ZQ0/SgQmeFjeUrOZDkvd55aVZ2aJ4ZQsDHx
-	YfZqGNHiACkN9lGF4suJ56IIeKCOzH0=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=7nOFOJHzWmHelj1859pbZSmyJ0Tz/Xk0O49vcHQ6hlw=;
+	b=Rmuh5siJsx/vDMN5O3WVDgW20w2KxmgfpUZOmHpW2TtLULu665CPm77F0TluP04Zxui82b
+	shYjgiGkQepzOHIoA5oSKspF0KKKsWPRtQKnUScBoziP95lsdGZn/jV6Ls/NmYz+cShrfx
+	zueRmKEkAd5TI6uQGK7iwfDl+91EHzM=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-352-V55A2HUVN5S34HgaZnbGLg-1; Wed, 05 Apr 2023 15:35:27 -0400
-X-MC-Unique: V55A2HUVN5S34HgaZnbGLg-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-400-IuMEzaPdOweomf2GB_Apng-1; Wed, 05 Apr 2023 15:52:37 -0400
+X-MC-Unique: IuMEzaPdOweomf2GB_Apng-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 931783C0254C;
-	Wed,  5 Apr 2023 19:35:24 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B27CE85A5B1;
+	Wed,  5 Apr 2023 19:52:35 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id E4833492C14;
-	Wed,  5 Apr 2023 19:35:23 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id CC0AD2027144;
+	Wed,  5 Apr 2023 19:52:34 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 64B7919465A4;
-	Wed,  5 Apr 2023 19:35:23 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 3911A19465A4;
+	Wed,  5 Apr 2023 19:52:34 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 5 Apr 2023 21:35:18 +0200
+Date: Wed, 5 Apr 2023 21:52:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.1
-Subject: Re: Updating ATSPI on Ubuntu
+Subject: Re: Debian beginner questions/looking for a good rolling distro
 To: blinux-list@redhat.com
-References: <mailman.2260.1680722334.558766.blinux-list@redhat.com>
-In-Reply-To: <mailman.2260.1680722334.558766.blinux-list@redhat.com>
-Message-ID: <mailman.2194.1680723322.558775.blinux-list@redhat.com>
+References: <mailman.1235.1680685726.558769.blinux-list@redhat.com>
+ <mailman.1949.1680706766.558770.blinux-list@redhat.com>
+ <mailman.2039.1680707830.558774.blinux-list@redhat.com>
+ <mailman.2141.1680708565.558772.blinux-list@redhat.com>
+ <mailman.2157.1680711899.558772.blinux-list@redhat.com>
+ <mailman.2249.1680721115.558766.blinux-list@redhat.com>
+In-Reply-To: <mailman.2249.1680721115.558766.blinux-list@redhat.com>
+Message-ID: <mailman.2197.1680724354.558775.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,28 +63,34 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
 
-SGVsbG8sCgpUaGUgcGFja2FnZSB0byB1cGdyYWRlIGlzIGF0LXNwaTItY29yZSwgdG8gaXRzIGxh
-dGVzdCB2ZXJzaW9uIDIuNDguMC4KClVidW50dSBvbmx5IHByb3ZpZGVzIHRoaXMgdmVyc2lvbiBm
-b3IgTHVuYXIsIGV4cGVjdGVkIHRvIGJlIHJlbGVhc2VkIG9uICBBcHJpbAoyMCwgMjAyMyBhY2Nv
-cmRpbmcgdG8gdGhpcyBwYWdlOiBodHRwczovL3dpa2kudWJ1bnR1LmNvbS9SZWxlYXNlcwoKTWVh
-bndoaWxlIHlvdSB3b3VsZCBoYXZlIHRvIGJ1aWxkIGl0IHlvdXJzZWxmLiBCZWFyIGluIG1pbmQg
-dGhhdCBpdCBhbHNvCnN1cGVyc2VkZXMgdGhlIHBhY2thZ2VzIGF0ayBhbmQgYXQtc3BpMi1hdGss
-IHdob3NlIGNvbnRlbnRzIGFyZSBub3cgaW5jbHVkZWQgaW4KYXQtc3BpMi1jb3JlLgoKRGlkaWVy
-Ci0tCkRpZGllciBTcGFpZXIKZGlkaWVyYXRzbGludGRvdGZyCgpMZSAwNS8wNC8yMDIzIMOgIDIx
-OjE2LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIGEgw6ljcml0wqA6Cj4gSGVs
-bG8sCj4gCj4gaXMgc29tZSB3YXkgdG8gdXBkYXRlIEFUU1BJIG9uIFVidW50dSBNYXRlIDIyLjA0
-IG9uIFJhc3BiZXJyeSBQaT8gSSB3b3VsZCBsaWtlIHRvIHVzZSBuZXcgT3JjYSBNYXN0ZXIgNDUg
-UHJlYWxwaGEsIGJ1dCBJIGNhbid0IGJlY2F1c2Ugb2xkIHZlcnNpb24gQVRTUEkuIE9uIFVidW50
-dSBNYXRlIDIyLjA0IGlzIDIuMi40NCBhbmQgSSBuZWVkIDIuMi40OCBJIHRoaW5rLgo+IAo+IFRo
-YW5rcyBhIGxvdC4KPiAKPiBCZXN0IHJlZ2FyZHMKPiAKPiBWb2p0YS4KCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlz
-dApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxt
-YW4vbGlzdGluZm8vYmxpbnV4LWxpc3QK
+SGksCgphbnN3ZXIgaW4gbGluZS4KCkxlIDA1LzA0LzIwMjMgw6AgMjA6NTgsIExpbnV4IGZvciBi
+bGluZCBnZW5lcmFsIGRpc2N1c3Npb24gYSDDqWNyaXTCoDoKVGhlIG90aGVyIGlzc3VlIHdpdGgg
+YXJjaCBpcyB0aGF0IGl0IGRvZXMgbm90IHN1cHBvcnQgc2VjdXJlIGJvb3QgYWxsIHRob3VnaHQg
+dG8KYmUgZmFpciwgc2xpbnQgZG9lc27igJl0IGVpdGhlci4KClRoaXMgaXMgY29ycmVjdC4gQnV0
+IGlmIHVzaW5nIFdTTDIgaW4gV2luZG93cyB5b3UgY2FuIGRvd25sb2FkIGFuICh1bm9mZmljaWFs
+KQpBcmNoIFdTTCBmcm9tIHRoZSBNaWNyb3NvZnQgU3RvcmUuCkxpbmtzOgpodHRwczovL3d3dy5t
+aWNyb3NvZnQuY29tL2VuLXVzL3NlYXJjaC9zaG9wL2FwcHM/cT1saW51eApodHRwczovL2FwcHMu
+bWljcm9zb2Z0LmNvbS9zdG9yZS9kZXRhaWwvYXJjaC13c2wvOU1aTk1OS1NNNzNYP2hsPWVuLXVz
+JmdsPXVzCgpJIGRpZG4ndCB0cnksIG5vdCBoYXZpbmcgYSBXaW5kb3dzIGluc3RhbGxhdGlvbgpB
+IHdvcmthcm91bmQgaXMgdG8gcnVuIG9uZSBvZiB0aGUgc3lzdGVtIGluIGEgdmlydHVhbCBtYWNo
+aW5lLgoKQ2hlZXJzLApEaWRpZXIKZGlkaWVyYXRzbGludGRvdGZyCgo+IE1hdHRoZXcKPiAKPj4g
+T24gQXByIDUsIDIwMjMsIGF0IDEyOjI0IFBNLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNj
+dXNzaW9uIDxibGludXgtbGlzdEByZWRoYXQuY29tPiB3cm90ZToKPj4KPj4gTGUgMDUvMDQvMjAy
+MyDDoCAxNzoyOSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3JpdCA6
+Cj4+PiBBcyBmb3Igd2hhdCBJIHVzZSBvbiBhIGRhaWx5IGJhc2lzPwo+Pj4gaTMgZm9yIGEgd20K
+Pj4+IEZpcmVmb3ggZm9yIGEgYnJvd3Nlcgo+Pj4gUGlkZ2luIGZvciBJTS9JUkMgYW5kIHNvIG9u
+Cj4+PiBUZXh0IGVkaXRvcnMKPj4+IEtvZGkgZm9yIGEgbWVkaWEgY2VudGVyCj4+PiBtcHYgZm9y
+IHBsYXlpbmcgdGhpbmdzIGluIHRoZSB0ZXJtaW5hbC4KPj4KPj4gRm9yIHlvdXIgaW5mb3JtYXRp
+b24gYWxsIG9mIHRoZW0gYXJlIGluY2x1ZGVkIGluIFNsaW50IHdpdGggb25lIGV4Y2VwdGlvbjog
+a29kaQo+Pgo+PiBEaWRpZXIKPj4gZGlkaWVyYXRzbGludC5mcgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJs
+aW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9s
+aXN0aW5mby9ibGludXgtbGlzdAo=
 
