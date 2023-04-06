@@ -1,46 +1,44 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id E7C8A6D9940
-	for <lists+blinux-list@lfdr.de>; Thu,  6 Apr 2023 16:12:25 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3E73D6D9DF0
+	for <lists+blinux-list@lfdr.de>; Thu,  6 Apr 2023 18:51:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1680790344;
+	s=mimecast20190719; t=1680799874;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=EOLFiPuAY65iCzI2/DcjWs95j5918w+Sb7SFxISY70g=;
-	b=Qpe1pEtw1/Tvz0wwrzEd3jaBKRYDFAF0P9akdi8DpxlaM8XjGbPxlj0AJaEPEiHaazlrmI
-	CFms9rDPTGv/nIxu7Ae2mrzaGG/RMewDs5gQbhPbJk+odrRk+PglswgKFfgyyqBMonBS49
-	eq62cQbGrPf6uJVoEo5WxtvBftcPedE=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=FExJwB0SUWRkRKVMho8iQpx2nLUr+yB5d1+ieNtWEu4=;
+	b=AiBo7gh7ooD3bAgKZ3QMuLzd6SfoEscVaETcCAFIvrnhwVDVTCnXhXgTKhah3nH5xJnWEY
+	wURTvhj+lYHj3BUfokkk7Q2MfiTOJ1GMRNJTLdNZ7EapjhxIcqeKRKyjBlyi4pKivAHswx
+	u4zvituDnWnNXmk475d9tXFKXP4mfoE=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-653-sllfmwhxOEa76Humws7xHQ-1; Thu, 06 Apr 2023 10:12:22 -0400
-X-MC-Unique: sllfmwhxOEa76Humws7xHQ-1
+ us-mta-590-dDOLr6PsNbK27QTA6HKukw-1; Thu, 06 Apr 2023 12:51:10 -0400
+X-MC-Unique: dDOLr6PsNbK27QTA6HKukw-1
 Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8C18887B2BD;
-	Thu,  6 Apr 2023 14:12:20 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 590153C0CD59;
+	Thu,  6 Apr 2023 16:51:08 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 3EA5440C20FA;
-	Thu,  6 Apr 2023 14:12:19 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 3F99B40C20FA;
+	Thu,  6 Apr 2023 16:51:05 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id A1A8219465A2;
-	Thu,  6 Apr 2023 14:12:18 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id B01CD19465A2;
+	Thu,  6 Apr 2023 16:51:04 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Mime-Version: 1.0 (1.0)
-Subject: Re: Debian beginner questions/looking for a good rolling distro
-Date: Thu, 6 Apr 2023 10:12:03 -0400
-References: <mailman.2208.1680787612.558769.blinux-list@redhat.com>
-In-Reply-To: <mailman.2208.1680787612.558769.blinux-list@redhat.com>
-To: blinux-list@redhat.com
-Message-ID: <mailman.2312.1680790338.558767.blinux-list@redhat.com>
+MIME-Version: 1.0
+Date: Thu, 6 Apr 2023 12:50:59 -0400
+Subject: Still having issues with Orca not talking on fresh install of Debian.
+To: Linux for blind general discussion <blinux-list@redhat.com>,
+ orca@freelists.org
+Message-ID: <mailman.2347.1680799864.558768.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -59,70 +57,164 @@ Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
 X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SSBtYXkgbm90IHJlbWVtYmVyIHRoZSBleGFjdCBzdGVwcywgYnV0IEkgZG8gcmVtZW1iZXIgSSBk
-aWQgdGhlIGZvbGxvd2luZzoKSSBpbnN0YWxsZWQgV1NMIGZyb20gdGhlIG1pY3Jvc29mdCBhcHAg
-c3RvcmUuCkkgcmFuIGEgY29tbWFuZCBwcm9tcHQgYXMgYW4gYWRtaW5pc3RyYXRvci4KSSBpbnN0
-YWxsZWQgVWJ1bnR1IHdpdGggYSBjb21tYW5kIGxpa2Ugd3NsIGluc3RhbGwgdWJ1bnR1LgpBZnRl
-ciBVYnVudHUgd2FzIGluc3RhbGxlZCwgSSB3ZW50IGludG8gdGhlIFVidW50dSB2aXJ0dWFsIG1h
-Y2hpbmUgYW5kIHJhbiB0aGUgZm9sbG93aW5nIGNvbW1hbmRzOgpzdWRvIGFwdCB1cGRhdGUKc3Vk
-byBhcHQgaW5zdGFsbCBtYXRlLgpzdWRvIGFwdCBpbnN0YWxsIG9yY2EuCgpBZnRlciB0aG9zZSB3
-ZXJlIGluc3RhbGxlZCwgSSB3YXMgYWJsZSB0byB0eXBlIG9yY2EgYW5kIHByZXNzIEVudGVyIHRv
-LiBydW4gaXQuCgpSeWFuIE1hbm4KQ2VydGlmaWVkIEFzc2lzdGl2ZSBUZWNobm9sb2d5IEluc3Ry
-dWN0aW9uYWwgU3BlY2lhbGlzdApybWFubjA1ODFAZ21haWwuY29tCjM4Ni0zODMtNTE3NQoKCj4g
-T24gQXByIDYsIDIwMjMsIGF0IDk6MjYgQU0sIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1
-c3Npb24gPGJsaW51eC1saXN0QHJlZGhhdC5jb20+IHdyb3RlOgo+IAo+IO+7v0hlbGxvCj4gCj4g
-Y2FuIHlvdSBnaXZlIGluc3RydWN0aW9ucyBvbiBob3cgdG8gZ2V0IGl0IHdvcmtpbmc/Cj4gCj4g
-SSBjb3VsZCBuZXZlciBnZXQgaXQgdG8gd29yawo+IAo+IEkgYW0gcnVubmluZyB3aW5kb3dzMTEK
-PiAKPiB0aGFua3MKPiAKPiBIYW5rCj4gCj4gCj4+IE9uIDQvNi8yMDIzIDM6MTYgQU0sIExpbnV4
-IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4+IEkga25vdyB5b3UgY2FuIGlm
-IHlvdSBhcmUgcnVubmluZyBXaW5kb3dzIDExIHNpbmNlIEkgZGlkIGl0LiAgSeKAmW0gbm90IHN1
-cmUgYWJvdXQgV2luZG93cyAxMC4KPj4gCj4+IFJ5YW4gTWFubgo+PiBDZXJ0aWZpZWQgQXNzaXN0
-aXZlIFRlY2hub2xvZ3kgSW5zdHJ1Y3Rpb25hbCBTcGVjaWFsaXN0Cj4+IHJtYW5uMDU4MUBnbWFp
-bC5jb20KPj4gMzg2LTM4My01MTc1Cj4+IAo+PiAKPj4+PiBPbiBBcHIgNiwgMjAyMywgYXQgMjo1
-MyBBTSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8YmxpbnV4LWxpc3RAcmVk
-aGF0LmNvbT4gd3JvdGU6Cj4+PiAKPj4+IO+7v0hlbGxvIG5vdCBzdXJlIGlmIHlvdSBjYW4gdXNl
-IG9yY2Egb24gd3NsMgo+Pj4gCj4+PiBIYW5rCj4+PiAKPj4+IAo+Pj4+IE9uIDQvNS8yMDIzIDEy
-OjUyIFBNLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+Pj4+IEhp
-LAo+Pj4+IAo+Pj4+IGFuc3dlciBpbiBsaW5lLgo+Pj4+IAo+Pj4+IExlIDA1LzA0LzIwMjMgw6Ag
-MjA6NTgsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gYSDDqWNyaXQgOgo+Pj4+
-IFRoZSBvdGhlciBpc3N1ZSB3aXRoIGFyY2ggaXMgdGhhdCBpdCBkb2VzIG5vdCBzdXBwb3J0IHNl
-Y3VyZSBib290IGFsbCB0aG91Z2h0IHRvCj4+Pj4gYmUgZmFpciwgc2xpbnQgZG9lc27igJl0IGVp
-dGhlci4KPj4+PiAKPj4+PiBUaGlzIGlzIGNvcnJlY3QuIEJ1dCBpZiB1c2luZyBXU0wyIGluIFdp
-bmRvd3MgeW91IGNhbiBkb3dubG9hZCBhbiAodW5vZmZpY2lhbCkKPj4+PiBBcmNoIFdTTCBmcm9t
-IHRoZSBNaWNyb3NvZnQgU3RvcmUuCj4+Pj4gTGlua3M6Cj4+Pj4gaHR0cHM6Ly93d3cubWljcm9z
-b2Z0LmNvbS9lbi11cy9zZWFyY2gvc2hvcC9hcHBzP3E9bGludXgKPj4+PiBodHRwczovL2FwcHMu
-bWljcm9zb2Z0LmNvbS9zdG9yZS9kZXRhaWwvYXJjaC13c2wvOU1aTk1OS1NNNzNYP2hsPWVuLXVz
-JmdsPXVzCj4+Pj4gCj4+Pj4gSSBkaWRuJ3QgdHJ5LCBub3QgaGF2aW5nIGEgV2luZG93cyBpbnN0
-YWxsYXRpb24KPj4+PiBBIHdvcmthcm91bmQgaXMgdG8gcnVuIG9uZSBvZiB0aGUgc3lzdGVtIGlu
-IGEgdmlydHVhbCBtYWNoaW5lLgo+Pj4+IAo+Pj4+IENoZWVycywKPj4+PiBEaWRpZXIKPj4+PiBk
-aWRpZXJhdHNsaW50ZG90ZnIKPj4+PiAKPj4+Pj4gTWF0dGhldwo+Pj4+PiAKPj4+Pj4+IE9uIEFw
-ciA1LCAyMDIzLCBhdCAxMjoyNCBQTSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lv
-biA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gd3JvdGU6Cj4+Pj4+PiAKPj4+Pj4+IExlIDA1LzA0
-LzIwMjMgw6AgMTc6MjksIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gYSDDqWNy
-aXQgOgo+Pj4+Pj4+IEFzIGZvciB3aGF0IEkgdXNlIG9uIGEgZGFpbHkgYmFzaXM/Cj4+Pj4+Pj4g
-aTMgZm9yIGEgd20KPj4+Pj4+PiBGaXJlZm94IGZvciBhIGJyb3dzZXIKPj4+Pj4+PiBQaWRnaW4g
-Zm9yIElNL0lSQyBhbmQgc28gb24KPj4+Pj4+PiBUZXh0IGVkaXRvcnMKPj4+Pj4+PiBLb2RpIGZv
-ciBhIG1lZGlhIGNlbnRlcgo+Pj4+Pj4+IG1wdiBmb3IgcGxheWluZyB0aGluZ3MgaW4gdGhlIHRl
-cm1pbmFsLgo+Pj4+Pj4gRm9yIHlvdXIgaW5mb3JtYXRpb24gYWxsIG9mIHRoZW0gYXJlIGluY2x1
-ZGVkIGluIFNsaW50IHdpdGggb25lIGV4Y2VwdGlvbjoga29kaQo+Pj4+Pj4gCj4+Pj4+PiBEaWRp
-ZXIKPj4+Pj4+IGRpZGllcmF0c2xpbnQuZnIKPj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwo+Pj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+Pj4+
-IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPj4+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9t
-YWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4+PiAtLSAKPj4+IFRoaXMgZW1haWwgaGFzIGJl
-ZW4gY2hlY2tlZCBmb3IgdmlydXNlcyBieSBBVkcgYW50aXZpcnVzIHNvZnR3YXJlLgo+Pj4gd3d3
-LmF2Zy5jb20KPj4+IAo+Pj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KPj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+Pj4gQmxpbnV4LWxpc3RAcmVk
-aGF0LmNvbQo+Pj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9i
-bGludXgtbGlzdAo+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwo+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNv
-bQo+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1s
-aXN0Cj4gCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4gaHR0
-cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQmxpbnV4LWxpc3Qg
-bWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5jb20KaHR0cHM6Ly9saXN0bWFuLnJlZGhh
-dC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo=
+Okay, so a few days ago, I did a clean CLI-only install of Debian
+Bulls-eye, which I've since fully upgraded to Debian Testing. Everything
+is working well in the command-line, but I'm having issues with
+getting Orca to talk.
+
+I have no interest in running a full desktop and my goal is to, as
+needed, run a single GUI application(usually a web browser such as
+Firefox or Seamonkey) with Orca and a lightweight window manager(I've
+been using flwm).
+
+I've been using a script that was posted on the audio games forum by
+Storm Dragon, which worked flawlessly on the Knoppix install I
+replaced with Debian and via a Knoppix live DVD environment, but when
+I run the script on my Debian install, I get two problems:
+
+1. Orca refuses to talk.
+
+2. I lose the ability to use alt+Fx or ctrl+alt+Fx to switch to ttyx.
+
+Based on some trouble shooting advice I got from a previous thread on
+this issue, I think the issue might be with Speech Dispatcher. I've
+tested with both Firefox(latest ESR packaged from Debian) and
+Seamonkey(downloaded from the Seamonkey website and run from my home
+directory, and best I can tell, The web browser launches and closing it
+normally drops me back to the console that ran the script, Orca and
+At-spi are loading, and in fact, seem to stay in memory until I log out
+of the console that ran the script, but spd-say seems to hang whenever I
+try running it from my Debian install, though even on the Knoppix
+LiveDVD I'm using to web browse while I try to figure out what's up
+with the Debian install, spd-say doesn't actually produce sound, but
+it doesn't hang.
+
+I did try installing Pulseaudio as someone suggested as well as purging
+and reinstalling Orca and xserver-xorg and their dependencies, but that
+didn't fix things, and if installing Pulseaudio had worked, I'd be
+wondering how to cut it out as I've been getting by with just Alsa and
+libpulseaudio0 for years and don't see the point of installing a
+sizeable sound server if I don't need it.
+
+I'm not sure if its relevant to the problem, especially since it only
+shows up in the output some of the time, but here is some of what
+startx prints to stderr some of the time:
+
+TIMEOUT: something has hung. Aborting.
+
+  File "/usr/bin/orca", line 285, in <module>
+    sys.exit(main())
+  File "/usr/bin/orca", line 282, in main
+    return orca.main()
+  File "/usr/lib/python3/dist-packages/orca/orca.py", line 818, in main
+    init(pyatspi.Registry)
+  File "/usr/lib/python3/dist-packages/orca/orca.py", line 613, in init
+    loadUserSettings()
+  File "/usr/lib/python3/dist-packages/orca/orca.py", line 436, in
+loadUserSettings
+    speech.init()
+  File "/usr/lib/python3/dist-packages/orca/speech.py", line 90, in init
+    _initSpeechServer(moduleName,
+  File "/usr/lib/python3/dist-packages/orca/speech.py", line 71, in
+_initSpeechServer
+    _speechserver = factory.SpeechServer.getSpeechServer(speechServerInfo)
+  File "/usr/lib/python3/dist-packages/orca/speechdispatcherfactory.py",
+line 110, in getSpeechServer
+    return SpeechServer._getSpeechServer(thisId)
+  File "/usr/lib/python3/dist-packages/orca/speechdispatcherfactory.py",
+line 102, in _getSpeechServer
+    cls(serverId)
+  File "/usr/lib/python3/dist-packages/orca/speechdispatcherfactory.py",
+line 161, in __init__
+    self._init()
+  File "/usr/lib/python3/dist-packages/orca/speechdispatcherfactory.py",
+line 172, in _init
+    self._client = client = speechd.SSIPClient('Orca', component=self._id)
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 579, in __init__
+    self._initialize_connection(user, name, component)
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 602,
+in _initialize_connection
+    self._conn.send_command('SET', Scope.SELF, 'CLIENT_NAME', full_name)
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 327,
+in send_command
+    code, msg, data = self._recv_response()
+  File "/usr/lib/python3/dist-packages/speechd/client.py", line 295,
+in _recv_response
+    self._ssip_reply_semaphore.acquire()
+  File "/usr/lib/python3.11/threading.py", line 472, in acquire
+    self._cond.wait(timeout)
+  File "/usr/lib/python3.11/threading.py", line 320, in wait
+    waiter.acquire()
+  File "/usr/lib/python3/dist-packages/orca/orca.py", line 680, in timeout
+    debug.printStack(debug.LEVEL_SEVERE)
+  File "/usr/lib/python3/dist-packages/orca/debug.py", line 196, in printStack
+    traceback.print_stack(None, 100, debugFile)
+
+
+And here's the script I've been using:
+
+
+#!/usr/bin/env bash
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage $0 \"program name\" optional arguments."
+    exit 1
+fi
+
+# Get the number of the current terminal
+term=$(tty)
+term="${term##*tty}"
+
+if [[ "$term" =~ ^[1-9]+$ ]]; then
+    echo
+    # Uncomment to suspend Fenrir while the given application runs.
+    # echo -n "setting set screen#suspendingScreen=$term" | socat -
+UNIX-CLIENT:/tmp/fenrirscreenreader-deamon.sock
+fi
+
+programName="$1"
+shift
+
+# Accessibility variables
+export ACCESSIBILITY_ENABLED=1
+export GTK_MODULES=gail:atk-bridge
+export GNOME_ACCESSIBILITY=1
+export QT_ACCESSIBILITY=1
+export QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1
+export SAL_USE_VCLPLUGIN=gtk3
+
+# Uncomment to use xbindkeys
+# command xbindkeys &
+
+exec flwm &
+# Try orca, but use orca -replace if it doesn't work.
+pgrep orca || command orca &
+command "$programName" $@
+
+# Uncomment to resume Fenrir  after X closes.
+# echo -n "setting set screen#suspendingScreen=" | socat -
+UNIX-CLIENT:/tmp/fenrirscreenreader-deamon.sock
+
+exit 0|
+
+
+For what it's worth, I'm using espeakup as my console screen reader on
+Debian and espeak-ng as my synthesizer. On Knoppix, I'm still using
+espeak-ng, but the console screenreader is sbl on Knoppix.
+
+Hoping I can find a solution to this issue as I really don't want to
+return to using Knoppix as my daily driver as it limits me to a
+outdated, 32-bit kernel and while I haven't yet been able to test GUI
+performance because of this issue, I've already noticed huge performance
+improvements with some of the CLI tools I use, so I'm hoping that
+completing the transition will breath new life into this ancient
+desktop of mine.
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
