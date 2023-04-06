@@ -2,47 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5C21B6D9E4C
-	for <lists+blinux-list@lfdr.de>; Thu,  6 Apr 2023 19:15:55 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1A3E66D9EAE
+	for <lists+blinux-list@lfdr.de>; Thu,  6 Apr 2023 19:24:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1680801354;
+	s=mimecast20190719; t=1680801856;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=xpwmLep/mmOsvulQRCcXOBNj9COmKhEVU2XnnHpE6LE=;
-	b=it4+oV+/fW7PGoTlsGrwfmwpK0hClJIkQFkvw9mPeXei+BtTqd7smIjt8Uq4R3OB+9m53r
-	xJzaWyQpiFn9UoZXYlNksNRRAVWbfXUn8xUIgbaC3gyMGzTCkJmwsyqeO+co6AtzH+WnXb
-	8/roLGWmNIeakKHJ5WN7/d/Z0zAX8cU=
+	bh=2HP/QzN2XnCX7Dt4nlJF1eQqZAEZZ78axotuXna3mKg=;
+	b=GsM0csNuKJ2sJV7fMnmxQEOnVdLERU88TxGNiUiJ67BBnK83tXA3Y5A/9awP4IbluZVsJw
+	+xhbmqIxFVWQNfCbSzjKfJ8eZ+7QbBLbVwGs+dnQtXK+jjWf1BhNq4OvxqlXhacaNLlVwV
+	CsfozAh7JXfB9cSuWPxpV9XWA5sKyc8=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-653-GAvAqFkMP3Gb-mXZ8c3bOg-1; Thu, 06 Apr 2023 13:15:50 -0400
-X-MC-Unique: GAvAqFkMP3Gb-mXZ8c3bOg-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-287-jhkl3A-WMGWeItHG1NSQLQ-1; Thu, 06 Apr 2023 13:24:14 -0400
+X-MC-Unique: jhkl3A-WMGWeItHG1NSQLQ-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6E9B9185A7A2;
-	Thu,  6 Apr 2023 17:15:48 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3E220101A552;
+	Thu,  6 Apr 2023 17:24:13 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id D37BDC33189;
-	Thu,  6 Apr 2023 17:15:46 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id B513340C20FA;
+	Thu,  6 Apr 2023 17:24:12 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 1DBCA19465A2;
-	Thu,  6 Apr 2023 17:15:45 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 5DAD619465A2;
+	Thu,  6 Apr 2023 17:24:12 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 6 Apr 2023 13:15:40 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>, 
- orca@freelists.org
-Subject: Re: Still having issues with Orca not talking on fresh install of
- Debian.
-In-Reply-To: <mailman.2347.1680799864.558768.blinux-list@redhat.com>
-References: <mailman.2347.1680799864.558768.blinux-list@redhat.com>
+Date: Thu, 6 Apr 2023 13:24:06 -0400
+To: orca@freelists.org, 
+ Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: [orca] Still having issues with Orca not talking on fresh install
+ of Debian.
+In-Reply-To: <CAO2sX32LV1qh7FpmXtW-tA8XNOjYNNLxorFOGCHiTcqLYVSXcQ@mail.gmail.com>
+References: <CAO2sX32LV1qh7FpmXtW-tA8XNOjYNNLxorFOGCHiTcqLYVSXcQ@mail.gmail.com>
 MIME-Version: 1.0
-Message-ID: <mailman.2363.1680801344.558767.blinux-list@redhat.com>
+Message-ID: <mailman.2352.1680801851.558768.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,26 +58,23 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-If there's a startx script on that machine that'll start up flwm for you,
-have you used that and had orca come up talking yet?  If you have used
-that and haven't run alt-control-s that or alt-f2 orca --replace that may
-be your problem.  On slint at least I can after using the gui do
-control-alt-f1 and then type control-c to get back to console.  Debian
-didn't provide for us primarily command line users.
-Slint on the other hand did.
+I could do an install of debian with standard mate stuff on it.  Then
+login and sysctl stop lightdm once logged in and then sysctl disable
+lightdm.  I think it may be interesting to find if that has the desired
+effect.
 
 
 -- Jude <jdashiel at panix dot com> "There are four boxes to be used in
 defense of liberty: soap, ballot, jury, and ammo. Please use in that
 order." Ed Howdershelt 1940.
 
-On Thu, 6 Apr 2023, Linux for blind general discussion wrote:
+On Thu, 6 Apr 2023, Jeffery Mewtamer wrote:
 
 > Okay, so a few days ago, I did a clean CLI-only install of Debian
 > Bulls-eye, which I've since fully upgraded to Debian Testing. Everything
@@ -231,12 +228,13 @@ On Thu, 6 Apr 2023, Linux for blind general discussion wrote:
 > improvements with some of the CLI tools I use, so I'm hoping that
 > completing the transition will breath new life into this ancient
 > desktop of mine.
->
 > _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
+> orca mailing list
+> orca@freelists.org
+> https://www.freelists.org/list/orca
+> Orca wiki: https://wiki.gnome.org/Projects/Orca
+> Orca documentation: https://help.gnome.org/users/orca/stable/
+> GNOME Universal Access guide: https://help.gnome.org/users/gnome-help/stable/a11y.html
 >
 
 _______________________________________________
