@@ -2,43 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0165C6DBCE9
-	for <lists+blinux-list@lfdr.de>; Sat,  8 Apr 2023 22:30:36 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 35E356DBF23
+	for <lists+blinux-list@lfdr.de>; Sun,  9 Apr 2023 10:03:03 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1680985835;
+	s=mimecast20190719; t=1681027381;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
-	 content-type:content-type:list-id:list-help:list-unsubscribe:
-	 list-subscribe:list-post; bh=2Kjfjbf11AtKA5rATgcMsRCE+q/Wcb3rPPhjzQeGpXQ=;
-	b=XRvqPg65+z+nv3+izAQmnW4iW38Vzgsc3ptNK8/WzM+p6JMTVYErKwrYLuPTaalgLhoO3p
-	CGVVedWAV+soiXqrR8cGBGKQdgyxmPiWIXXEo/sN7vzIig0T9N6jFv/J6TiuRKbnzONvQB
-	RC2qzsW6/hZLsI/FBAPXgjbYhxKFw7A=
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 list-unsubscribe:list-subscribe:list-post;
+	bh=FWnBYW3JWGU9+vJL4frpz4mIbb+D8hCXWqbvaHFUjHc=;
+	b=XG0dw0+NQFmluKdKjtDlFf7qyj9aaQpDkqIm9hNpB1oOvIthMOBuv6hpPjYOw/fK1qPFMW
+	b9XxpXp0RB3rEwLIphOXbERrF/Uy+HoLkJtlKQmPIqA7rwFmtD/W/w3sivZHWlJiypP7mi
+	0oMizP+8bPavnnhUH+BB8vTL2dIxGHw=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-657-FEUL9CkNN0yD5TJTjRjQ0g-1; Sat, 08 Apr 2023 16:30:32 -0400
-X-MC-Unique: FEUL9CkNN0yD5TJTjRjQ0g-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
+ us-mta-503-h8Gx9bpLOLe9GrS5-F1cgg-1; Sun, 09 Apr 2023 04:03:00 -0400
+X-MC-Unique: h8Gx9bpLOLe9GrS5-F1cgg-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C4D758533B9;
-	Sat,  8 Apr 2023 20:30:30 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9F93E85A5A3;
+	Sun,  9 Apr 2023 08:02:58 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 3AB702166B31;
-	Sat,  8 Apr 2023 20:30:22 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 9CABD1121314;
+	Sun,  9 Apr 2023 08:02:54 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 7B45919465BB;
-	Sat,  8 Apr 2023 20:30:21 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id E70CA19465B5;
+	Sun,  9 Apr 2023 08:02:53 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sat, 8 Apr 2023 22:30:15 +0200
+Date: Sun, 9 Apr 2023 09:02:34 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
-To: orca-list <orca-list@gnome.org>,
- Linux for blind general discussion <blinux-list@redhat.com>
-Subject: script to toggle on/off a screen or monitor
-Message-ID: <mailman.122.1680985821.2632805.blinux-list@redhat.com>
+ Thunderbird/102.6.0
+Subject: Re: script to toggle on/off a screen or monitor
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <mailman.122.1680985821.2632805.blinux-list@redhat.com>
+In-Reply-To: <mailman.122.1680985821.2632805.blinux-list@redhat.com>
+Message-ID: <mailman.188.1681027373.2632802.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -54,51 +58,35 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.3
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: multipart/mixed; boundary="------------FMQvZO4Debuej9I0vhle6sqJ"
 Content-Language: en-US
-
-This is a multi-part message in MIME format.
---------------FMQvZO4Debuej9I0vhle6sqJ
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hello,
+Oh I'm using this then, this will come in handy on machines that don't 
+have a physical button to turn off monitors
 
-doing some house cleaning I came across the attached very small shell scripts
-aptly named monitor-toggle. It just alternatively switch on and off the display
-and say it using spd-say.
 
-I do not remember who wrote it, but it's not me.
-
-Didier
--- 
-Didier Spaier
-didieratslintdotfr
---------------FMQvZO4Debuej9I0vhle6sqJ
-Content-Type: text/plain; charset=UTF-8; name="monitor-toggle"
-Content-Disposition: attachment; filename="monitor-toggle"
-Content-Transfer-Encoding: base64
-
-IyEvYmluL3NoCm91dHB1dD0kKHhyYW5kciB8IGdyZXAgJyBjb25uZWN0ZWQgJyB8IGF3ayAne3By
-aW50ICQxfScgfCBoZWFkIC0xKQpzY3JlZW5TaXplPSQoeHJhbmRyIHwgYXdrICdCRUdJTiB7Zm91
-bmRPdXRwdXQ9MH0KICAgIC8gJyRvdXRwdXQnIC8ge2ZvdW5kT3V0cHV0PTF9CiAgICAvXCpcKy8g
-e3ByaW50ICQxfQogICAgL15bXiBdLyB7aWYoZm91bmRPdXRwdXQpIGV4aXQgMH0nKQppZiBbICIk
-c2NyZWVuU2l6ZSIgIT0gIiIgXTsgdGhlbgogICAgeHJhbmRyIC0tb3V0cHV0ICRvdXRwdXQgLS1m
-YiAkc2NyZWVuU2l6ZSAtLW9mZgoJc3BkLXNheSAnbW9uaXRvciBvZmYnCmVsc2UKICAgIHhyYW5k
-ciAtLW91dHB1dCAkb3V0cHV0IC0tYXV0bwogICAgc3BkLXNheSAnTW9uaXRvciBvbicKZmkK
---------------FMQvZO4Debuej9I0vhle6sqJ
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+On 4/8/23 21:30, Linux for blind general discussion wrote:
+> Hello,
+>
+> doing some house cleaning I came across the attached very small shell scripts
+> aptly named monitor-toggle. It just alternatively switch on and off the display
+> and say it using spd-say.
+>
+> I do not remember who wrote it, but it's not me.
+>
+> Didier
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
 
 _______________________________________________
 Blinux-list mailing list
 Blinux-list@redhat.com
 https://listman.redhat.com/mailman/listinfo/blinux-list
-
---------------FMQvZO4Debuej9I0vhle6sqJ--
 
