@@ -2,48 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id CF71D6E167F
-	for <lists+blinux-list@lfdr.de>; Thu, 13 Apr 2023 23:30:11 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 61DD46E172E
+	for <lists+blinux-list@lfdr.de>; Fri, 14 Apr 2023 00:09:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1681421410;
+	s=mimecast20190719; t=1681423757;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=1NGQGM5w0unJsfDsF2o4E424p1u2uAuIGxWFMY1BZQY=;
-	b=EQ2osRcRcX3Bg1MQbTAyFlW83ZQv++9nfuOlxIY29MjXozPxXZi7suW3QjM6p6DWtXnrkv
-	tqYXmvEEKrtul6X2B+lGj0Bk8aadhlI/YsAZ1JBAxpWmm49QP2hBsTPqTq6SWXiG88GuIP
-	/T8bKNydvOXJ9FPoAfSHWpx3GWWkhsk=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=G3V6ablXGjWLToHY53EqaHYFoMUUDCaCB/MPyTztJWg=;
+	b=hdtHLd4wSNyJQUpXu2Gehuh2pf7eAh8zP240DuOYGi63ww4f9v1r+mtfzvgaf90EyRPIch
+	RO88wLevQJ8VUZjCHdvps8FXpSfefzJNKxSE9cZ91QWFCSfIvSHvcaZgNP4yNXlgLgCbtd
+	fEnYLRrewjJSyM+Z/bUsjY2Z/WSy4D0=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-262-eMfUEUPQPBuULltR7IV6cg-1; Thu, 13 Apr 2023 17:30:09 -0400
-X-MC-Unique: eMfUEUPQPBuULltR7IV6cg-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-136-ZFgNKTlcNAWJ0jSfzLn3jw-1; Thu, 13 Apr 2023 18:09:15 -0400
+X-MC-Unique: ZFgNKTlcNAWJ0jSfzLn3jw-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C17B0380663C;
-	Thu, 13 Apr 2023 21:30:06 +0000 (UTC)
-Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 0A556C15E7F;
-	Thu, 13 Apr 2023 21:30:06 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4E18C185A792;
+	Thu, 13 Apr 2023 22:09:13 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 0D298492C13;
+	Thu, 13 Apr 2023 22:09:11 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id B3F351946A75;
-	Thu, 13 Apr 2023 21:30:05 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 53C3E1946A75;
+	Thu, 13 Apr 2023 22:09:10 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 13 Apr 2023 23:30:00 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.1
+In-Reply-To: <mailman.1964.1681420441.2632807.blinux-list@redhat.com>
+References: <mailman.1841.1681419307.2632801.blinux-list@redhat.com>
+ <mailman.2007.1681419804.2632806.blinux-list@redhat.com>
+ <mailman.1964.1681420441.2632807.blinux-list@redhat.com>
+Date: Thu, 13 Apr 2023 18:09:04 -0400
 Subject: Re: In the market for a new Desktop.
 To: blinux-list@redhat.com
-References: <mailman.1841.1681419307.2632801.blinux-list@redhat.com>
- <mailman.1842.1681420207.2632801.blinux-list@redhat.com>
-In-Reply-To: <mailman.1842.1681420207.2632801.blinux-list@redhat.com>
-Message-ID: <mailman.2180.1681421405.2632802.blinux-list@redhat.com>
+Message-ID: <mailman.2300.1681423749.2632804.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -59,122 +58,71 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-TGUgMTMvMDQvMjAyMyDDoCAyMzoxMCwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lv
-biBhIMOpY3JpdMKgOgo+IFRoYXQncyBhbGwgSSBjYW4gYnJpbmcgYXMgYW5zd2Vycy4KCldlbGws
-IG5vdCByZWFsbHkuIEFib3V0IFJBTTogaGVyZSAxNkcgLCBubyBzd2FwIHBhcnRpdGlvbiBidXQg
-YSByZWxhdGl2ZWx5IHNtYWxsCnN3YXAgZmlsZSBhbmQgYSBiaWcgKDMxRykgaW4genJhbSAoY3Vy
-cmVudGx5IHVudXNlZCkKCkxBTkc9QyBmcmVlIC10aAogICAgICAgICAgICAgICB0b3RhbCAgICAg
-ICAgdXNlZCAgICAgICAgZnJlZSAgICAgIHNoYXJlZCAgYnVmZi9jYWNoZSAgIGF2YWlsYWJsZQpN
-ZW06ICAgICAgICAgICAgMTVHaSAgICAgICAxLjVHaSAgICAgICA1LjhHaSAgICAgICA0ODdNaSAg
-ICAgICA4LjJHaSAgICAgICAgMTNHaQpTd2FwOiAgICAgICAgICAgMzJHaSAgICAgICAgICAwQiAg
-ICAgICAgMzJHaQpUb3RhbDogICAgICAgICAgNDdHaSAgICAgICAxLjVHaSAgICAgICAgMzdHaQoK
-enJhbWN0bApOQU1FICAgICAgIEFMR09SSVRITSBESVNLU0laRSBEQVRBIENPTVBSIFRPVEFMIFNU
-UkVBTVMgTU9VTlRQT0lOVAovZGV2L3pyYW0xIHpzdGQgICAgICAgICAgIDMxRyAgIDRLICAgNTlC
-ICAgIDRLICAgICAgIDggW1NXQVBdCgpzd2Fwb24KTkFNRSAgICAgICAgICAgVFlQRSAgICAgICBT
-SVpFIFVTRUQgIFBSSU8KL3N3YXAvc3dhcGZpbGUgZmlsZSAgICAgIDEwMjRNICAgMEIgICAgIDUK
-L2Rldi96cmFtMSAgICAgcGFydGl0aW9uICAgMzFHICAgMEIgMzI1NjcKClNvIHRoZSB1c2FibGUg
-UkFNIGlzIGF0IGxlYXN0IHR3aWNlIGFzIGJpZyBhcyB0aGUgcGh5c2ljYWwgb25lLgoKQ2hlZXJz
-LApEaWRpZXIKLS0KRGlkaWVyIFNwYWllcgpkaWRpZXJhdHNsaW50ZG90ZnIKPiAKPiAKPiBMZSAx
-My8wNC8yMDIzIMOgIDIyOjU1LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIGEg
-w6ljcml0wqA6Cj4+IE9rYXksIHNvLCBhZnRlciBlbGV2ZW4tYW5kLWEtaGFsZiB5ZWFycywgbXkg
-b2xkIEhQIERlc2t0b3AgcnVubmluZyBhbgo+PiBpNyAyNjAwIHdpdGggNEdCIG9mIFJBTSBmaW5h
-bGx5IGJpdCBpdCwgYW5kIHdoaWxlIEkgd2FzIGFibGUgdG8gZHVzdAo+PiBvZmYgYW4gb2xkIERl
-bGwsIGl0cyBydW5uaW5nIGEgOS15ZWFyLW9sZCBDZWxlcm9uIGFuZCBoYXNuJ3QgYSBzcGFyZQo+
-PiBiYXkgZm9yIGFueSBvZiB0aGUgZGF0YSBkcml2ZXMgaW4gbXkgb2xkIEhQLCBzbyBJJ3ZlIGRl
-Y2lkZWQgSSBjYW4gbm8KPj4gbG9uZ2VyIHB1dCBvZmYgYnV5aW5nIGEgbmV3IGNvbXB1dGVyLgo+
-Pgo+PiBJJ2QgbGlrZSB0byBzcGVuZCAkNzAwIG9yIGxlc3MsIGJ1dCBJJ3ZlIHNlY3VyZWQgZnVu
-ZGluZyB0aGF0IHdpbGwgbGV0Cj4+IG1lIGdvIGFzIGhpZ2ggYXMgJDEwMDAuCj4+Cj4+IEJhc2Vk
-IG9uIHBhc3QgZXhwZXJpZW5jZSwgSSdkIGxpa2UgdG8gZ2V0IGFub3RoZXIgSFAgRGVza3RvcCBz
-aW5jZQo+PiBldmVyeSBIUCBtZSBvciBteSBmYW1pbHkgaGFzIG93bmVkIGxhc3RlZCBvdmVyIGEg
-ZGVjYWRlIG9mIGRhaWx5IHVzZQo+PiBpbiBsZXNzIHRoYW4gaWRlYWwgb3BlcmF0aW5nIGVudmly
-b25tZW50cyB3aGlsZSBJIGRvbid0IHRoaW5rIHdlJ3ZlCj4+IGV2ZXIgaGFkIGFueSBub24tSFAg
-bGFzdCBoYWxmIHRoYXQuCj4+Cj4+IEknbSBub3QgcGFydGljdWxhcmx5IHBpY2t5IGFib3V0IHRo
-ZSBDUFUsIHRob3VnaCBJJ2QgbGlrZSBzb21ldGhpbmcKPj4gZnJvbSBhdCBsZWFzdCB0aGlzIGRl
-Y2FkZSB0aGF0IHdvdWxkIGJlIGFuIGFwcHJlY2lhYmxlIHVwZ3JhZGUgb3Zlcgo+PiB0aGUgaTcg
-MjYwMCwgYW5kIG15IHVuZGVyc3RhbmRpbmcgaXMgdGhhdCBBTUQncyBSaXpvbiBwcm9kdWN0IGxp
-bmUKPj4gcHJvdmlkZXMgYmV0dGVyIGJhbmcgZm9yIGJ1Y2sgdGhhbiBJbnRlbCdzIGkgbGluZS4K
-Pj4KPj4gSSdtIGV2ZW4gbGVzcyBwaWNreSBhYm91dCB0aGUgR1BVIHNpbmNlIEknbSBibGluZCBh
-bmQgd29uJ3QgYmUgaG9va2luZwo+PiB1cCBhIG1vbml0b3IsIHRob3VnaCBoYXZpbmcgdGhlIEdQ
-VSB0byBzcGFyZSB0byBydW4gYWNjZXNzaWJsZSBnYW1lcwo+PiB0aGF0IGluc2lzdCBvbiB3YXN0
-aW5nIEdQVSBjeWNsZXMgb24gcG9seWdvbnMgdGhhdCB3b24ndCBiZSBkaXNwbGF5ZWQKPj4gb3Ig
-dG8gcGxheSBhcm91bmQgd2l0aCBub24tZ3JhcGhpY3MgYXBwbGljYXRpb25zIHRoYXQgYmVuZWZp
-dCBmcm9tIEdQVQo+PiB3b3VsZCBiZSBuaWNlLgo+Pgo+PiBJIHdhbnQgdG8gdXBncmFkZSB0byBh
-dCBsZWFzdCA4IEdCIG9mIFJhbSBhbmQgd291bGQgcHJlZmVyIGF0IGxlYXN0IDE2Cj4+IEdCIG9m
-IFJBTS4KPj4KPj4gRm9yIEludGVybmFsIHN0b3JhZ2UsIEkgc3VzcGVjdCBqdXN0IGFib3V0IGFu
-eSBTREQgdGhhdCBjb21lcyB3aXRoIGEKPj4gcHJlLWJ1aWx0IHRvd2VyIGlzIGdvaW5nIHRvIGJl
-IG92ZXJraWxsIGZvciBteSBzeXN0ZW0gZHJpdmUsIGJ1dAo+PiBpbnN1ZmZpY2llbnQgYXMgbXkg
-cHJpbWFyeSBkYXRhIGRyaXZlKG15IHJvb3QgcGFydGl0aW9uIG9uIHRoaXMgZGVsbAo+PiBpcyAx
-NkdCIHdpdGggYW5vdGhlciAxNkdCIHN3YXAgcGFydGl0aW9uIGFuZCBtb3N0IG9mIHRoZSBkcml2
-ZSBmb3IgbXkKPj4gaG9tZSBwYXJ0aXRpb24pLCBhbmQgdGhlIG9sZCBIUCBoYXMgYSBwYWlyIG9m
-IDMuNSIgU0FUQSBIRERzKDEgNFRCLAo+PiB0aGUgb3RoZXIgMlRCKSBJJ2QgbGlrZSB0byB0cmFu
-c3BsYW50IHRvIHRoZSBuZXcgUEMsIHNvIGl0IHdvdWxkIGJlCj4+IGlkZWFsIGlmIGFsbCBJIG5l
-ZWRlZCB3YXMgdG8gc2xpZGUgdGhlIGRyaXZlcyBpbnRvIGJheXMgYW5kIHJ1biBuZXcKPj4gU0FU
-QSBjYWJsZXMuIEFuZCB3aGlsZSA0VEIgU1NEcyBhcmUgYSB0aGluZywgdGhlIGN1cnJlbnQgcHJp
-Y2UgaXMgc3VjaAo+PiBJJ2Qgc29vbmVyIGtlZXAgbXkgY3VycmVudCBwcmltYXJ5IGRhdGEgZHJp
-dmUgYW5kIHVwZ3JhZGUgdGhlCj4+IHNlY29uZGFyeSBhbmQgZXh0ZXJuYWwoYWxzbyAyVEIpIEhE
-RHMgdG8gaG9sZCBhIGNvbXBsZXRlIGJhY2sgdXAgZWFjaAo+PiBpbnN0ZWFkIG9mIGEgY29tcGxl
-dGUgYmFja3VwIGJldHdlZW4gdGhlbS4KPj4KPj4gSSBkb24ndCBjYXJlIHdoYXQgT1MgaXMgcHJl
-aW5zdGFsbGVkIGFzIEknbSBnb2luZyB0byBiZSBmb3JtYXR0aW5nIHRoZQo+PiBTU0QgYW5kIGlu
-c3RhbGxpbmcgRGViaWFuIExpbnV4IHJlZ2FyZGxlc3MuCj4+Cj4+IEZvciByZW1vdmFibGUgc3Rv
-cmFnZSwgSSB3b3VsZCBwcmVmZXIgdG8gYnV5IGEgdG93ZXIgd2l0aCBhIGJ1aWx0LWluCj4+IENE
-L0RWRC9CRCBjb21ibyBXcml0ZXIgb3IgZmFpbGluZyB0aGF0LCBzdWNoIGFuIG9wdGljYWwgZHJp
-dmUgdGhhdCBJCj4+IGNhbiBqdXN0IHNsaWRlIGluIGFuZCBydW4gYSBTQVRBIGNhYmxlLiBJIHdv
-dWxkIHByZWZlciB0byBub3QgZGVhbAo+PiB3aXRoIHRoZSBoYXNzbGUgb2YgaG9va2luZyB1cCBh
-biBleHRlcm5hbCBkcml2ZS4gSSB3b3VsZCBhbHNvIGxpa2UgYXQKPj4gbGVhc3Qgb25lIGFuZCBw
-cmVmZXJhYmx5IHR3byBmdWxsLXNpemVkIFNEIHNsb3RzLCBwcmVmZXJhYmx5IG9mIGEKPj4gc3R5
-bGUgdGhhdCBsZWF2ZXMgdGhlIFNEIGNhcmQgZmx1c2ggd2l0aCB0aGUgZmFjZSBvZiB0aGUgcmVh
-ZGVyLgo+Pgo+PiBGb3IgcG9ydHMgYW5kIGphY2tzLCBJIHN1c3BlY3QgYW55IFRvd2VyIEkgYnV5
-IGlzIGdvaW5nIHRvIGhhdmUgbW9yZQo+PiBVU0IgYW5kIHZpZGVvIHBvcnRzIHRoYW4gSSdsbCBl
-dmVyIHVzZSwgYnV0IEkgd291bGQgcHJlZmVyIHRvIGJ1eQo+PiBzb21ldGhpbmcgd2l0aCAzLjUg
-bW0gZWFycGhvbmUgYW5kIG1pY3JvcGhvbmUgamFja3MsIG9yIGZhaWxpbmcgdGhhdCwKPj4gYSBq
-dXN0IHdvcmtzIHdpdGggTGludXggc29sdXRpb24gZm9yIGFkYXB0aW5nIG15IDMuNW1tIHdpcmVk
-IGVhcnBob25lcwo+PiBmb3Igd2hhdGV2ZXIgcG9ydHMgaXQgaGFzLgo+Pgo+PiBUaGV5J3JlIHBy
-b2JhYmx5IHN0YW5kYXJkIG5vd2FkYXlzLCBhbmQgd291bGQgYmUgYSBuaWNlIHRvIGhhdmUsIGJ1
-dCBJCj4+IGNhbiBsaXZlIHdpdGhvdXQgV2ktRmkgYW5kIEJsdWV0b290aC4KPj4KPj4gQWxzbywg
-cHJvYmFibHkgYSBwaXBlZHJlYW0sIGJ1dCBzb21ldGhpbmcgSSBjYW4ganVzdCBwb3AgYSBEZWJp
-YW4KPj4gaW5zdGFsbCBkaXNjIGludG8gYW5kIHN0YXJ0IHRoZSBpbnN0YWxsYXRpb24gb24gZmly
-c3QgYm9vdCB3b3VsZCBiZQo+PiBuaWNlLCBidXQgSSBzdXNwZWN0IGp1c3QgYWJvdXQgYW55dGhp
-bmcgZnJvbSBhIG1haW5zdHJlYW0gdmVuZG9yIGlzCj4+IGdvaW5nIHRvIGNvbWUgd2l0aCBhIGJy
-b2tlbiBib290IG9yZGVyIGFuZCByZXF1aXJlIHNpZ2h0ZWQgaGVscCBmcm9tCj4+IG9uZSBvZiBt
-eSBob3VzZW1hdGVzIHRvIGZpeC4KPj4KPj4gQWxzbywgSSBoYXZlIG5vIGludGVyZXN0IGluIGJ1
-eWluZyBhIGxhcHRvcCwgYW5kIHdoaWxlIEknbSBjb21mb3J0YWJsZQo+PiBpbnN0YWxsaW5nIFNB
-VEEgZHJpdmVzLCBJIHdhbnQgc29tZXRoaW5nIHByZS1idWlsdC4KPj4KPj4gQXQgdGhlIG1vbWVu
-dCwgbXkgZnJvbnRsaW5lIHBpY2sgZm9yIG15IHBvdGVudGlhbCBuZXcgbWFjaGluZSBpcyB0aGUK
-Pj4gZm9sbG93aW5nIEhQIHN5c3RlbSBmcm9tIEFtYXpvbjoKPj4KPj4gaHR0cHM6Ly93d3cuYW1h
-em9uLmNvbS9IUC1CbHVldG9vdGgtQ29uIOKApiBhbXA7c3I9OC0zCj4+Cj4+IFdoaWNoIEkgdW5k
-ZXJzdGFuZCBpcyBydW5uaW5nIGEgMi15ZWFyLW9sZCB2ZXJzaW9uIG9mIEFNRCdzIGVxdWl2YWxl
-bnQKPj4gdG8gdGhlIEk3LCBoYXMgYW4gU0REIGxhcmdlIGVub3VnaCB0byBob2xkIGNvcGllcyBv
-ZiBteSBtb3N0IGFjY2Vzc2VkCj4+IGZpbGVzLCBoYXMgdGhlIHNwYWNlIHRvIGFkZCBteSBIRERz
-LCBoYXMgYSBTRCBzbG90KHRob3VnaCBvZiB0aGUga2luZAo+PiB3aGVyZSB0aGUgY2FyZCBwcm90
-cnVkZXMgYSBiaXQpLCBsYWNrcyBhIG9wdGljYWwgZHJpdmUgYnV0IGhhcyBhIGJheQo+PiBmb3Ig
-YWRkaW5nIG9uZS4uLiB0aGUgYmlnZ2VzdCBzdHVtYmxpbmcgYmxvY2sgaXMgdGhhdCBpdCBkb2Vz
-bid0IHNlZW0KPj4gdG8gaGF2ZSAzLjUgbW0gYXVkaW9qYWNrcyBhbmQgSSdtIG5vdCBzdXJlIGhv
-dyBsb25nIHRoZSBjdXJyZW50Cj4+IGRpc2NvdW50IGZyb20gTVNSUCB3aWxsIGxhc3QoSXQnbGwg
-bGlrZWx5IGJlIE1vbmRheSBiZWZvcmUgSSBoYXZlIHRoZQo+PiBmdW5kcyBuZWVkZWQgdG8gcHVy
-Y2hhc2UgaW4gaGFuZCwgYW5kIGl0IG1pZ2h0IGJlIFR1ZXNkYXkgYmVmb3JlCj4+IHRoZXknbGwg
-YmUgYXZhaWxhYmxlIHRvIG15IGRlYml0IGNhcmQpLiBBbHNvLCBJIHdhcyBwb2ludGVkIGF0IHRo
-ZQo+PiBmb2xsb3dpbmcgT3B0aWNhbCBkcml2ZToKPj4KPj4gaHR0cHM6Ly93d3cuYW1hem9uLmNv
-bS9MRy1TdXBlci1JbnRlcm5hIOKApiBkZWFlOGY5ODQwCj4+Cj4+IEFzIGEgcG9zc2libGUgb3B0
-aW9uIHRvIGluc3RhbGwgaW4gdGhlIEhQLCB0aG91Z2ggSSdtIHdvbmRlcmluZyBpZiBpdHMKPj4g
-YWN0dWFsbHkgY29tcGF0aWJsZSBhcyBvbmUgb2YgdGhlIHByZS1leGlzdGluZyBRJkEgb24gdGhl
-IEhQIG1lbnRpb25lZAo+PiB0aGUgZHJpdmUgYmF5IGJlaW5nIHByb3ByaWV0YXJ5IHRvIEhQIGlu
-c3RlYWQgb2Ygc3RhbmRhcmQgYW5kIHRoZQo+PiBkcml2ZSBpbiBxdWVzdGlvbiBiZWluZyBMRy4K
-Pj4KPj4gU28sIGFueW9uZSBoYXZlIGFueSBhZHZpY2UgZm9yIGEgYmxpbmQgbGludXggdXNlciBp
-biB0aGUgbWFya2V0IGZvciBhCj4+IG5ldywgcHJlLWJ1aWx0IGRlc2t0b3A/Cj4+Cj4+IF9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+IEJsaW51eC1saXN0
-IG1haWxpbmcgbGlzdAo+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+IGh0dHBzOi8vbGlzdG1h
-bi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPiAKPiBfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxp
-bmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0
-LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0CgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4
-LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3Rp
-bmZvL2JsaW51eC1saXN0Cg==
+Well, the system drive on the old Desktop is a 320 GB HDD I salvaged
+from an old netbook, so I at least want to upgrade to SSD for the OS
+even if I wait another cycle or two of capacities going up and prices
+coming down before investing in a 4TB SSD so all of my data is on
+flash instead of spinning platters.
+
+As for doing a custom build, had I a reliable daily runner and money
+to burn or access to someone knowledgeable enough to help troubleshoot
+issues in person, I might consider it as a side project, but I've
+never built a PC before, the most I'm comfortable with doing inside a
+tower is installing/removing SATA drives, I live in a small, middle of
+nowhere town that can't really support a computer repair shop and I'm
+the most tech savvy person I know in meatspace by a wide margin, and
+this old dell I'm using as a stop gap until I get a new PC is running
+worse on bare metal than the dead HP ran a LiveDVD(and I think the
+Dell also has a dead CMOS battery as its boot order seems to reset to
+HDD first everytime its unplugged, forcing sighted assistence every
+time I need to boot install media or a Live DVD to do rescue
+operations, so I'm afraid to even try customizing the Install of
+Debian I managed to put on it since I can't willy nilly boot into a
+Live environment to make/restore backups of my root partition.
+
+In short, I don't have the experience to build a custom rig and be
+certain everything will work first try, don't have anyone with said
+experience I can turn to, and my stopgap is too fragile to put up with
+delays if I don't get the custom build right on the first try. And I
+was dealing with software issues on the old HP for about a week before
+its death knell, so I'm pretty much at the end of my patience for
+dealing with tech issues.
+
+On 4/13/23, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> I thought about the custom build myself, but from what I see at the
+> moment, the CPU and motherboard bundles are running close to $500 now,
+> and that's not even taking into account the RAM. The good thing is that
+> you won't be saddled with an OS that you have to get rid of, because
+> there is no OS on a custom build other than the one you put on it or
+> hire a builder to put on it, and the boot firmware should just boot up
+> from the optical drive or USB you plug into it before you transplant the
+> hard drives. That said, you shouldn't even have to worry about
+> installing a new OS from scratch unless your SSD is damaged. This is
+> because Linux is very easy to transfer from one PC to the next just by
+> taking the OS drive out of one and putting it into the other. Since in
+> that case you wouldn't really need to worry about hard drives sucking up
+> your funds, your CPU, motherboard, RAM, case and optical drive should
+> most likely stay under $700, and definitely under the $1,000 high side
+> of your budget without making your life needlessly difficult or making
+> you get help just to boot it up for the first time.
+>
+> ~Kyle
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
