@@ -2,49 +2,45 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7365B6F0B24
-	for <lists+blinux-list@lfdr.de>; Thu, 27 Apr 2023 19:42:37 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 61EEA6F0C10
+	for <lists+blinux-list@lfdr.de>; Thu, 27 Apr 2023 20:39:14 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1682617356;
+	s=mimecast20190719; t=1682620753;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=tMHNBD+QmfCDXmCYd8tPldJhX71BrxHX+v9k+uLifAE=;
-	b=hFASffBQJyyLpvYAAJE7/H/3hBJ5eRGA0QsKyEzPzOVEHbyoN1kI4SKKY5OMcAfvPSCV8a
-	oD0nDIJyx1U5J51Xk2mbg09XnMxhOZG7cJIi4/Ddhz5ITZ2PnX9f1XnJWkRKN9E4p9f1PW
-	ysJdzdW00qh+cFaJVaOIWo+opc45/1A=
+	bh=pILSGNbtloffixl+jUIFa6pZYSW/LvpcpFXvvv1uduk=;
+	b=EHsK08nNCspyHrsPaT2RqujOI2onp3/Ar2NVNxg2buPT1fetcJ4v08R1fE+N26ZvqqzNfp
+	g54wAJiP5azgcklSr8XDeCU1rjx9g0bGRnxBTOGanZHgOh6fUMXuxDXxdqamPsHIK4pnx5
+	WBbJZ8+HfwN1nt1U3xVI70aZ+cKrqwE=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-486-IktQ5KT3PLOXtCw1ImGMPQ-1; Thu, 27 Apr 2023 13:42:34 -0400
-X-MC-Unique: IktQ5KT3PLOXtCw1ImGMPQ-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+ us-mta-390-it-z2acwOvqPlraE4BX0mg-1; Thu, 27 Apr 2023 14:39:09 -0400
+X-MC-Unique: it-z2acwOvqPlraE4BX0mg-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9EC3B85A5A3;
-	Thu, 27 Apr 2023 17:42:31 +0000 (UTC)
-Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 015352027043;
-	Thu, 27 Apr 2023 17:42:31 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3493610504A6;
+	Thu, 27 Apr 2023 18:39:07 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 3A8C614171B8;
+	Thu, 27 Apr 2023 18:39:04 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 94D591946A52;
-	Thu, 27 Apr 2023 17:42:30 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 8DD9E1946A52;
+	Thu, 27 Apr 2023 18:39:03 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 27 Apr 2023 13:42:25 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.1
-To: blinux-list@redhat.com
-References: <mailman.2214.1682605732.2351818.blinux-list@redhat.com>
- <mailman.2227.1682609071.2351818.blinux-list@redhat.com>
- <mailman.1971.1682616668.2351821.blinux-list@redhat.com>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.500.231\))
 Subject: Re: Two Arch beginner questions
-In-Reply-To: <mailman.1971.1682616668.2351821.blinux-list@redhat.com>
-Message-ID: <mailman.2049.1682617349.2351826.blinux-list@redhat.com>
+Date: Thu, 27 Apr 2023 14:38:46 -0400
+References: <mailman.1813.1682596723.2351819.blinux-list@redhat.com>
+To: Blind Linux <blinux-list@redhat.com>
+In-Reply-To: <mailman.1813.1682596723.2351819.blinux-list@redhat.com>
+Message-ID: <mailman.1966.1682620743.2351822.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -60,34 +56,38 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+
+Hi,
+
+Espeakup is in the arch repo and in fact is part of the arch repos.  Not sure if Fenrir is in the official repo, but you can get it from the AAUR.  Also, I reco
+Mend using GDM for a display manager if you plan on using one.  Otherwise you can just setup starts and launch a session that way if you want.
+
+Matthew
 
 
-On 27/4/23 13:31, Linux for blind general discussion wrote:
-> You don't have to do initial login in graphical mode and second is if
-> graphical mode develops a problem you can still login in console and get a
-> chance to fix the problem.  Graphical user login if a problem develops,
-> it's time to reinstall the system if the problem prevents login.
-
-Actually, you can reboot the system into rescue mode in that situation 
-and obtain a root shell prompt.
-
-I had to do this recently due to an error on my part that prevented all 
-login attempts (whether graphical, on the console, or via ssh).
-
-I also found out that there is an option to run a debug shell on a 
-virtual console, which is started during the boot process. To do this, 
-run "systemctl start debug-shell", and remember to remove it when it's 
-no longer needed, for security reasons.
-
-I've been using Linux since the late 1990s, and as far as I can recall, 
-I've never had to reinstall a system. I came close to that point once, 
-but I decided that I wanted to change distributions anyway.
+> mmOn Apr 27, 2023, at 7:58 AM, Linux for blind general discussion <blinux-list@redhat.com> wrote:
+> 
+> Hi,
+> 
+> today I installed Arch Linux for the first time. Now I have fully setup the console and now, it is time for graphical interface. I will use Mate desktop. I know how to install it, but I have a question related to display manager. Can you recommend me some display manager for Mate desktop, which is packaged for Arch and configured for a11Y (start Orca in the manager)
+> 
+> And my second question is related to console screen readers. Espeakup and Fenrir are included. Which of these is better for using console apps, such as email clients, web h browsers etc? Is espeakup developed or deprecated?
+> 
+> Thanks,
+> 
+> Pavel
+> 
+> 
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+> 
 
 _______________________________________________
 Blinux-list mailing list
