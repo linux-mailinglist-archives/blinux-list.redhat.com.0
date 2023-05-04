@@ -1,51 +1,51 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5EEE86F6EB7
-	for <lists+blinux-list@lfdr.de>; Thu,  4 May 2023 17:12:55 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 336176F738B
+	for <lists+blinux-list@lfdr.de>; Thu,  4 May 2023 21:44:03 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1683213173;
+	s=mimecast20190719; t=1683229442;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=CQ4aaV+c713vHtz0dE3u9WDEix6GbsDP9v7astwt1GE=;
-	b=W11cN8sxQ8BSON6HI1CczQW79PHEvj1R1wX8BDkta2GXE0dpknMdf112iHu36KLMHy+WiM
-	k0EXm3vS0yj7TxZLH8fKeMPgaehSmKCWtiUVQV3E3hPDTYSr6+XToeH6QbjN7nvDyyjHD1
-	DxKHLWlnrRCLpEKLm6AaURYPXHzc9sI=
+	bh=gaQd782IBXVn1/NUUkMc9J/gJL5pCol7ktAqaLQ66Hc=;
+	b=Bw1Ajkw52vUii4M3zfwSuqqnPE9Ju3o9+3+5xCkT4/f3ZCgUdDzb3wTF1yc+jvs9IKkm0p
+	q5IKabr6NPSRTQkvpwBMHGTVyaNGicywlY59YWiHOOTgRcueI/L6Xrqr5muFkDSGerYdmS
+	q/QhYMkZ3GJXS5ZpflnCPjIvOsTe6Ik=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-561-MkQkY_dmO9-SKcYFkmHzEw-1; Thu, 04 May 2023 11:10:32 -0400
-X-MC-Unique: MkQkY_dmO9-SKcYFkmHzEw-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+ us-mta-532-Q2TB1hTfMj-L6CuoBMGlkQ-1; Thu, 04 May 2023 15:43:58 -0400
+X-MC-Unique: Q2TB1hTfMj-L6CuoBMGlkQ-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F1F1E2999B33;
-	Thu,  4 May 2023 15:10:17 +0000 (UTC)
-Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 9E3C5492B00;
-	Thu,  4 May 2023 15:10:17 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CE4491C06EDA;
+	Thu,  4 May 2023 19:43:56 +0000 (UTC)
+Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id D1F992166B30;
+	Thu,  4 May 2023 19:43:52 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 570791946A49;
-	Thu,  4 May 2023 15:09:33 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id B12801946A49;
+	Thu,  4 May 2023 19:43:49 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Thu, 4 May 2023 17:09:13 +0200
+Date: Thu, 4 May 2023 15:43:30 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.1
+ Thunderbird/102.10.0
 Subject: Re: Problem installing fenrir using pip in fedora 38 workstation
-To: blinux-list@redhat.com
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <mailman.1649.1683139375.290942.blinux-list@redhat.com>
  <mailman.1628.1683140218.290941.blinux-list@redhat.com>
  <mailman.1717.1683182658.290935.blinux-list@redhat.com>
  <mailman.1846.1683185639.290938.blinux-list@redhat.com>
 In-Reply-To: <mailman.1846.1683185639.290938.blinux-list@redhat.com>
-Message-ID: <mailman.1820.1683212973.290937.blinux-list@redhat.com>
+Message-ID: <mailman.1877.1683229429.290937.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -61,42 +61,23 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: de-DE, en-US
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Howdy,
+Just tried it and was taken back to my prompt and got no output. Should 
+I get some kind of prmpt should I get.
 
-evdev should be activated by default on all linux kernels as it controls 
-the events of the input peripheries.
 
-what happens if you use the fedora package manager to install evdev 
-instead of pip?
-the package might be named:
-python-evdev
-python3-evdev
-or similar
+Matthew
 
-cheers chrys
 
-Am 04.05.23 um 09:33 schrieb Linux for blind general discussion:
-> evdev is part of the linux kernel so why this ought to have come up as an
-> issue puzzles me now I think of it.  If a package doesn't install perhaps
-> try modprobe evdev as sudo or root and see if that works.
->
->
-> -- Jude <jdashiel at panix dot com> "There are four boxes to be used in
-> defense of liberty: soap, ballot, jury, and ammo. Please use in that
-> order." Ed Howdershelt 1940.
->
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
->
+
+On 5/4/23 3:33 AM, Linux for blind general discussion wrote:
+> modprobe evdev
 
 _______________________________________________
 Blinux-list mailing list
