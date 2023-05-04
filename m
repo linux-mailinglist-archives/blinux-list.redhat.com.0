@@ -1,46 +1,60 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id D6A9C6F5EB1
-	for <lists+blinux-list@lfdr.de>; Wed,  3 May 2023 20:57:18 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4CE196F6453
+	for <lists+blinux-list@lfdr.de>; Thu,  4 May 2023 07:21:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1683140237;
+	s=mimecast20190719; t=1683177681;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=M3qNlbI/XR6PWown2lwFbm/GjzDP8OAlxk0cx4LRI4M=;
-	b=S4ISCSC5y47rf7UkJg8fx84xyDqcMFhFMFgHY9w5d/UT3kFBXWX1+tmxA6RVbG3loSqXxE
-	ZS2cAKsKGO78vJi11y5hNvppXqmVAuj/XdjR2zSYVohbI8Ov4/W87bpxHx80J2aMjfsaB2
-	1xez/ppsUgf4L6+FuPASgmYxRt9Hb64=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=0x+AxQ/7IzwUxSGXmhT7cpY3QSijeAk7Fw4y+bcBKOo=;
+	b=YeBhaa4TPRGo3ZOUZrgHekCZBzK+sDNyEIAyG8yOkCH+tZlGZ6RyLuRXz24v3m5ft1kDt4
+	CQ3D7oQSn1RW2OeHBqKTu7ZTANqrE1PDXEFgFLgS4k4G8CmniGKcjoXPM4ks9C8ydTGIwe
+	EJsmjXnk+UX4xb9MmplCuMziTxliSns=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-270-BzRtn7JfOQWtd20P61FdAw-1; Wed, 03 May 2023 14:57:15 -0400
-X-MC-Unique: BzRtn7JfOQWtd20P61FdAw-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+ us-mta-43-lcWy0JW1MrK-lX2BoARALg-1; Thu, 04 May 2023 01:21:17 -0400
+X-MC-Unique: lcWy0JW1MrK-lX2BoARALg-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BBB8585C6E1;
-	Wed,  3 May 2023 18:57:13 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BD64A1C04B40;
+	Thu,  4 May 2023 05:21:15 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 2A69F1410F2B;
-	Wed,  3 May 2023 18:57:01 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id A6DE4492C18;
+	Thu,  4 May 2023 05:21:11 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 9802D1946A43;
-	Wed,  3 May 2023 18:56:58 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id CB9B41946A42;
+	Thu,  4 May 2023 05:21:10 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 3 May 2023 14:56:55 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Problem installing fenrir using pip in fedora 38 workstation
-In-Reply-To: <mailman.1649.1683139375.290942.blinux-list@redhat.com>
-References: <mailman.1649.1683139375.290942.blinux-list@redhat.com>
+To: blinux-list@redhat.com
+Subject: audio device underrun detected
+Date: Thu, 04 May 2023 00:16:25 -0500
 MIME-Version: 1.0
-Message-ID: <mailman.1628.1683140218.290941.blinux-list@redhat.com>
+User-Agent: POP Peeper Pro (5.4.5.0)
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:ZaHURahYHLc=;n2ZeuC4Z7vHi+haF79CDvr/gD9o
+ ePNEYwCNE2cJEuWRS6sdVuajYARHgbFSPi4fTnQ3lv+rcaITtFrb188PDd6fFoxBCiL0nYD/f
+ xYTG2meVI+LfYp4unXu9nS9c5IfKm8zQFhOcjXv2LcRb0Vw71zJ92m+COhjj1rnXHHvIL+G41
+ CRoWNKOreNiVUdO7FnXIIhF7fKX0Bxfv4RUwh1uO3bWKPO+1Is0yMafeevoiIPnViUMv9nNrF
+ ob6xdDvc4zS+ilgIz9hQJMFguW0F2uGkp0z6bLgrQI8CX8SwEgFeSXOuYD+6Lv/PrK+FenquO
+ 5yDZT7p/gk7Zw524zqoluHr569OaqlBdld0w35pQQg7LuIXxifrVBHpjn0AoPRM3a7eyI+yDc
+ mwXvvkQbw/ijuiyFnpWPIxCV9AOqVX5n/5J360onLVl409DgPWuGGpHHs2l1iJ1cIEjT5ELqf
+ +zJM5WMy9+1qjBEBhsDZ81B08t/oo3fRjHFhabIWKvju1ZUzdAUJK/vtbPitwLQhw0grbWXdY
+ UAeOp/M4VVepNdyAoeytMbtk5ziudYUM70bFzfWkBvCNzBCi3PhRUXtclI+/aRyGxT/mpmpgu
+ IYOTjqonC7f9eT4DnArpJk0jzU5z/3SOAnmelZktdjhd52iMU12kZDJLmv/ozeUb7l8oUdOBA
+ BkaooXvwkARiL1bjf4sBW6F0iAw9iq8swTxf+fFkk/P0rBWX8giBKnAz9EONecKdbcSRdEP/q
+ LD2yKQ/qHcIcAovataPZSrQ4J+tYwJsBb0PuWfyxR5zz0ZME8O0nbj3XKpoIEN5qfUd6wT3nt
+ 3ZzOjm8vvCgL2AcyVaRSMQs0po5L+Mf6JTv1pLAGK2Qcs5Ao+ZkFsgOLMWhrR5RdNXjHs9tyD
+ ruhpbNrwmLf44k4QLdV5sz5kFtbCyC9MemU49RlcCEHX+8kbM1ZB65tTGEYgVM9d1W1zfnsBp
+ w+jxRtOPi1zM9fQsQ5mgLJc93dM=
+Message-ID: <mailman.1646.1683177670.290943.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -56,33 +70,26 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SSBmb3J3YXJkZWQgeW91ciBlbWFpbCB0byBmZW5yaXItc2NyZWVucmVhZGVyQGZyZWVsaXN0cy5v
-cmcuICBJdCdzIGEgbG93CnZvbHVtZSBmZW5yaXIgc3VwcG9ydCBsaXN0IHNvIHRoaXNvdWdodCB0
-byBiZSBzb2x2ZWQgc2hvcnRseS4KCgotLSBKdWRlIDxqZGFzaGllbCBhdCBwYW5peCBkb3QgY29t
-PiAiVGhlcmUgYXJlIGZvdXIgYm94ZXMgdG8gYmUgdXNlZCBpbgpkZWZlbnNlIG9mIGxpYmVydHk6
-IHNvYXAsIGJhbGxvdCwganVyeSwgYW5kIGFtbW8uIFBsZWFzZSB1c2UgaW4gdGhhdApvcmRlci4i
-IEVkIEhvd2RlcnNoZWx0IDE5NDAuCkFyZSB5b3UgZG9pbmcgdGhpcyBvbiBiYXJlIG1ldGFsIG9y
-IHZpcnR1YWwgZW52aXJvbm1lbnQgYW5kIGlmIGluIHZpcnR1YWwKZW52aXJvbm1lbnQgd2hpY2gg
-b25lPwoKT24gV2VkLCAzIE1heSAyMDIzLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNz
-aW9uIHdyb3RlOgoKPiBIaSBhbGwsCj4KPgo+IEkgYW0gdXNpbmcgZmVkb3JhIDM4IHdvcmtzdGF0
-aW9uIGlmIHRoaXMgbWF0dGVycyBhbmQgd2hlbiB0cnlpbmcgdG8gaW5zdGFsbAo+IGZlbnJpciBJ
-IGdldCBhIGVycm9yIGZyb20gZXZkZXYgb3Igc29tZXRpbmcgYWJvdXQgYSBubyBzdWNoIGZpbGUg
-b3IKPiBkaXJlY3RvcnkuwqAgSSBmaXJzdCBpbnN0YWxsZWQgcGlwIHRoZW4gcmFuIHBpcCBpbnN0
-YWxsIGFuZCBnb3QgdGhhdCBlcnJvci7CoAo+IEFueXdheSB1c2luZyBmZW5yaXIgaW4gZmVkb3Jh
-IGFuZCBob3cgZGlkIHlvdSBnZXQgaXQgd29ya2luZz/CoCBJcyB0aGVyZQo+IGFub3RoZXIgcGFj
-a2FnZSBJIG5lZWQgdG8gaW5zdGFsbCBzb21ld2FyZT/CoCBUaGFua3MgaWYgYW55b25lIGhhcyBh
-bnkgaWRlYXMgb24KPiB3aGF0IG1pZ2h0IGJlIGdvaW5nIG9uIEkgd291bGQgbGlrZSBzb21lIHBv
-aW50ZXJzIG9uIHRoaXMgb25lLgo+Cj4KPiBNYXR0aGV3Cj4KPgo+Cj4gX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBCbGludXgtbGlzdCBtYWlsaW5nIGxp
-c3QKPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20v
-bWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+Cj4KCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgt
-bGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGlu
-Zm8vYmxpbnV4LWxpc3QK
+I'm using mpv to play files.
+The default audio device looks like this in mpv.conf:
+
+audio-device=pulse/alsa_output.pci-0000_00_1b.0.analog-surround-51
+
+I set default sample rate to 44100 in /etc/pulse/daemonc.conf
+But every so often this message pops up
+
+Audio device underrun detected
+And the audio stops, and then five seconds or so later, resumes.
+What's causing this?
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
