@@ -1,46 +1,48 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2EC8F6F9101
-	for <lists+blinux-list@lfdr.de>; Sat,  6 May 2023 11:45:59 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 372456F9103
+	for <lists+blinux-list@lfdr.de>; Sat,  6 May 2023 11:48:13 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1683366357;
+	s=mimecast20190719; t=1683366492;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=9U3fHcdwusFmq+xTJ8SKuDGky1jqCUmjy62rwQDsnwc=;
-	b=UixxLAxXM1rColxcE38Cs8s78/HcPzsXmJQi+LI4tsU9yU+IZsgJWE92lktfPZeAxnhqgF
-	ZLtRHgQmi92vU2ft5N1uViZU0Phj9P4si3TuW2W6mlR1tnxsuz0hxDgklK+iZ3rmbMGLHB
-	0gDRUMTTqANJLGnAproLAYbfaCYWqLY=
+	bh=rFHURS/xTfHqxgrnYdUEzRlmvW1dGczC2L0sxcK9zkA=;
+	b=SdheKjj2arL9v+NAr3x1UGTVa4JwBkrsFR/ZKNCnxcOuqtIQ5Ru/fgy1gQYYxXofOOawOn
+	rVQQo46EtzfRi//D/VlQFTCdmxNe7gxbcBFm7UQ8dYbX4fmRdwYG8+/UuVVWdkwzqXkyr0
+	4UyL2EcAtctbw0UyKqQi6Z/5OtOxhPc=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-463-cj6B8UsuO-WYWKrL0TcUEg-1; Sat, 06 May 2023 05:45:56 -0400
-X-MC-Unique: cj6B8UsuO-WYWKrL0TcUEg-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+ us-mta-386-3tDPPTGxM2uQNXt6Ym8qDw-1; Sat, 06 May 2023 05:48:08 -0400
+X-MC-Unique: 3tDPPTGxM2uQNXt6Ym8qDw-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8FC3E884626;
-	Sat,  6 May 2023 09:45:54 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9915C185A79C;
+	Sat,  6 May 2023 09:48:06 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id AE02B35443;
-	Sat,  6 May 2023 09:45:49 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 85806492C13;
+	Sat,  6 May 2023 09:48:06 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id C39961946A40;
-	Sat,  6 May 2023 09:45:48 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 1479C1946A40;
+	Sat,  6 May 2023 09:48:06 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sat, 6 May 2023 05:39:52 -0400
+Date: Sat, 6 May 2023 05:48:02 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Two Arch beginner questions
-References: <mailman.1813.1682596723.2351819.blinux-list@redhat.com>
+References: <mailman.2214.1682605732.2351818.blinux-list@redhat.com>
+ <mailman.2227.1682609071.2351818.blinux-list@redhat.com>
+ <mailman.1971.1682616668.2351821.blinux-list@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <mailman.1813.1682596723.2351819.blinux-list@redhat.com>
-Message-ID: <mailman.62.1683366348.2822855.blinux-list@redhat.com>
+In-Reply-To: <mailman.1971.1682616668.2351821.blinux-list@redhat.com>
+Message-ID: <mailman.63.1683366485.2822855.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -56,79 +58,95 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.5
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Hi, Pavel:
-
-Quick note before I compare my experience with Speakup and Fenrir ...
-
-Espeak is not the screen reader. It's the driver interface between the
-espeak TTS engine and the Speakup screen reader.
-
-Next, it's possible to have both installed, though you probably don't
-want both speaking at the same time!
-
-Personally, I spent sometime in fenrir, but it's been over a year. I am
-highly sensitive to keyboard latency. I hate even miliseconds of delay
-in hearing my keystrokes echo'd. I found fenrir a bit too sluggish that
-way for my taste. This happened on two machines, one a about 10 years
-old, but the other quite new and fully loaded with latest CPU and max
-RAM at time of purchase in 2020.
-
-Fenrir is user space. Speakup is a module in the kernel. You can
-configure fenrir to work in Mate terminals as well as in console
-sessions. Speakup is only for console sessions, though it works with
-console terminal apps like screen and tmux.
-
-I have stayed with Speakup, personally.
-
-Best,
-
-Janina
-
-
-
-Linux for blind general discussion writes:
-> Hi,
-> 
-> today I installed Arch Linux for the first time. Now I have fully setup the
-> console and now, it is time for graphical interface. I will use Mate
-> desktop. I know how to install it, but I have a question related to display
-> manager. Can you recommend me some display manager for Mate desktop, which
-> is packaged for Arch and configured for a11Y (start Orca in the manager)
-> 
-> And my second question is related to console screen readers. Espeakup and
-> Fenrir are included. Which of these is better for using console apps, such
-> as email clients, web browsers etc? Is espeakup developed or deprecated?
-> 
-> Thanks,
-> 
-> Pavel
-> 
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-
--- 
-
-Janina Sajka (she/her/hers)
-Accessibility Consultant https://linkedin.com/in/jsajka
-
-The World Wide Web Consortium (W3C), Web Accessibility Initiative (WAI)
-Co-Chair, Accessible Platform Architectures	http://www.w3.org/wai/apa
-
-Linux Foundation Fellow
-https://www.linuxfoundation.org/board-of-directors-2/
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SSB3YW50IHRvIGVuZG9yc2UgdGhlIG5vdGlvbiBvZiBsb2dnaW5nIGluIG9uIGEgY29uc29sZSB0
+ZXJtaW5hbCBiZWZvcmUKbGF1bmNoaW5nIGFueXRoaW5nIGFuZCBldmVyeXRoaW5nIGVsc2UsIGlu
+Y2x1ZGluZyB0aGUgZ3JhcGhpY2FsCmVudmlyb25tZW50LgoKT25lIHN0cm9uZyBhZHZhbnRhZ2Ug
+aXMgbW9yZSBjb250cm9sIGlmIGFuZCB3aGVuIHRoaW5ncyBnbyB3cm9uZy0tdGhvdWdoCkkgaGF2
+ZW4ndCBoYWQgdG8gZGVhbCB3aXRoIHRoYXQgaW4gYSBsb25nIHRpbWUuCgpJIHBlcnNvbmFsbHkg
+dXNlIHN0YXJ0eCB0byBsYXVuY2ggbXkgZ3JhcGhpY2FsIGVudmlyb25tZW50LgoKQnV0LCBJIGFs
+c28gdXNlIGFuIG9wZW52dCBzY3JpcHQgdG8gbGF1bmNoIG15IGFkZGl0aW9uYWwgMjMgY29uc29s
+ZQplbnZpcm9ubWVudHMuIFllcywgSSBoYXZlIDI0IGNvbnNvbGVzLCB3aGljaCBhcmUgZWFzaWx5
+IGFjY2Vzc2VkIGJ5Cm5vdGluZyB0aGF0IHRoZSBvbGRlciBrZXltYXAgZmlsZSB0cmVhdGVkIHRo
+ZSBsZWZ0IGFsdCBrZXkgZGlmZmVyZW50bHkKZnJvbSB0aGUgcmlnaHQgYWx0IGtleS4gVGhhdCBo
+YXMgcmVjZW50bHkgY2hhbmdlZCBieSBkZWZhdWx0LCBzbyBvbmUKbmVlZHMgdG8gZml4IHRoYXQg
+aWYgb25lIHJlYWxseSB3YW50cyBtb3JlIHRoYW4gMTIgY29uc29sZXMgYnkgZGVmYXVsdC4KClBT
+OiBJbiBvcmRlciB0byBnZXQgdGhlIHVzZXIgSSB3YW50IGluIGVhY2ggY29uc29sZSBJJ3ZlIGZv
+dW5kIGl0Cm5lY2Vzc2FyeSB0byBrZWVwIHRoZSBvcGVudnQgc2NyaXB0IGluIG15IC9yb290IGZv
+bGRlciBidXQgdG8gbGF1bmNoIGl0CmFzIG15IG9yZGluYXJ5IHVzZXIgdXNpbmcgc3VkbywgZS5n
+LgoKc3VkbyAvcm9vdC88c2NyaXB0PgoKQmVuZWZpdDogTG9naW4gb25jZSwgdHdvIHF1aWNrIGNv
+bW1hbmRzIG9wZW4gYSBndWkgZW52aXJvbm1lbnQgYW5kIDIzCm1vcmUgY29uc29sZXMuIE5vdyBJ
+IGNhbiBwcmVkaWN0YWJseSBkbyBzcGVjaWZpYyB0YXNrcyBpbiB0aGUgc2FtZQpzcGVjaWZpYyBj
+b25zb2xlLgoKUFBTOiBJIGFsd2F5cyBzbWlsZSB3aGVuIEkgaGVhciBzb21lIEdVSSBkZXBlbmRl
+bnQgdXNlciBzYXksIGFzIEkgaGVhcgp0aGVtIHNheSBhdCBsZWFzdCBvbmNlIGEgd2VlayBvbiBz
+b21lIHRlbGVjb25mZXJlbmNlOiAiV2FpdCwgd2FpdCwgSQpsb3N0IG15IHdpbmRvdy4iIEkgbmV2
+ZXIgbG9zZSBteSBjb25zb2xlcy4KCkJlc3QsCgpKYW5pbmEKCkxpbnV4IGZvciBibGluZCBnZW5l
+cmFsIGRpc2N1c3Npb24gd3JpdGVzOgo+IFR3byBtb3JlIGFkdmFudGFnZXMgdG8gc3RhcnRpbmcg
+dXAgaW4gY29uc29sZSBtb2RlIHRoZW4gdXNpbmcgc3RhcnR4IHRvCj4gYWNjZXNzIHRoZSBncmFw
+aGljYWwgZW52aXJvbm1lbnQuCj4gWW91IGRvbid0IGhhdmUgdG8gZG8gaW5pdGlhbCBsb2dpbiBp
+biBncmFwaGljYWwgbW9kZSBhbmQgc2Vjb25kIGlzIGlmCj4gZ3JhcGhpY2FsIG1vZGUgZGV2ZWxv
+cHMgYSBwcm9ibGVtIHlvdSBjYW4gc3RpbGwgbG9naW4gaW4gY29uc29sZSBhbmQgZ2V0IGEKPiBj
+aGFuY2UgdG8gZml4IHRoZSBwcm9ibGVtLiAgR3JhcGhpY2FsIHVzZXIgbG9naW4gaWYgYSBwcm9i
+bGVtIGRldmVsb3BzLAo+IGl0J3MgdGltZSB0byByZWluc3RhbGwgdGhlIHN5c3RlbSBpZiB0aGUg
+cHJvYmxlbSBwcmV2ZW50cyBsb2dpbi4KPiAKPiAKPiAtLSBKdWRlIDxqZGFzaGllbCBhdCBwYW5p
+eCBkb3QgY29tPiAiVGhlcmUgYXJlIGZvdXIgYm94ZXMgdG8gYmUgdXNlZCBpbgo+IGRlZmVuc2Ug
+b2YgbGliZXJ0eTogc29hcCwgYmFsbG90LCBqdXJ5LCBhbmQgYW1tby4gUGxlYXNlIHVzZSBpbiB0
+aGF0Cj4gb3JkZXIuIiBFZCBIb3dkZXJzaGVsdCAxOTQwLgo+IAo+IE9uIFRodSwgMjcgQXByIDIw
+MjMsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gCj4gPiB0aGVy
+ZSBhcmUgcHJvYmFibHkgYWxzbyBzZXZlcmFsIG90aGVyIHNjcmVlbiByZWFkZXIsIG9wdGlvbnMg
+Zm9yIHRoZSBjb25zdWwvdGVybWluYWwuIFdoZW4gZGlkIEkgaGF2ZSBmb3VuZCBtb3N0IHVzZWZ1
+bCBpcyBCUkxUVFkuIEl04oCZcyBwcm9iYWJseSBvbmUgb2YgdGhlIG9sZGVzdCBvZiB0aGUgbG90
+IGFuZCBpdCBzdGlsbCB3b3Jrcy4gTm93LCBhcyBmb3IgdGhlIGdyYXBoaWNhbCB1c2VyIGludGVy
+ZmFjZSwgSeKAmXZlIGJlZW4gaW4gdGhlIGhhYml0IG9mIGFjdHVhbGx5IHN0YXJ0aW5nIHVwIGlu
+IENvbnNvbCBtb2RlIGZpcnN0IGFuZCB0aGVuIHJ1bm5pbmcgU1RBUlRYLiBJdOKAmXMgZWFzeSBp
+dOKAmXMgc2ltcGxlIGFuZCB5b3UgZG9u4oCZdCBoYXZlIHRvIHdvcnJ5IGFib3V0IGEgZGlzcGxh
+eSBtYW5hZ2VyLiBBIGFsc28sIHlvdSBkb27igJl0IGhhdmUgdG8gd29ycnkgYWJvdXQgYSBidW5j
+aCBvZiBhZGRpdGlvbmFsIGFwcHMgeW91IG1heSBuZXZlciB1c2Ugd2hlbiBydW5uaW5nIHRoZSBk
+aXNwbGF5IG1hbmFnZXIuIFNvIGNob29zZSB3aGljaGV2ZXIgZGVza3RvcCB5b3Ugd2FudCwgd2hp
+Y2ggZXZlciBhcHBzIHlvdSB3YW50LCBhbmQgaW5zdGFsbCB0aG9zZSBieSB3aGF0ZXZlciBtZXRo
+b2QgaXMgY2FsbGVkIGZvciBpbiB5b3VyIHZlcnNpb24gb2YgTGludXguCj4gPgo+ID4gRXJpYy4K
+PiA+Cj4gPgo+ID4gU2VudCBmcm9tIG15IGlQaG9uZQo+ID4KPiA+ID4gT24gQXByIDI3LCAyMDIz
+LCBhdCAwNzozOSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8YmxpbnV4LWxp
+c3RAcmVkaGF0LmNvbT4gd3JvdGU6Cj4gPiA+Cj4gPiA+IO+7v0kgZmluZCBsaWdodGRtIHdpdGgg
+bGlnaHRkbS1zbGljay1ncmVldGVyIHRvIGJlIGFib3V0IHRoZSBiZXN0IGRpc3BsYXkgbWFuYWdl
+ciBvcHRpb24uIFlvdSBzaG91bGQgYmUgYWJsZSB0byBzdGFydCBvcmNhIHVzaW5nIGFsdCtzdXBl
+citzIGZyb20gdGhlIGRpc3BsYXkgbWFuYWdlcidzIHdpbmRvdy4KPiA+ID4KPiA+ID4KPiA+ID4g
+RmVucmlyIGlzIHByb2JhYmx5IHRoZSBtb3N0IGNvbXByZWhlbnNpdmUgZnVsbHkgdXNlcnNwYWNl
+IHNjcmVlbiByZWFkZXIgZm9yIHRleHQgbW9kZSBUVFlzIGFuZCB0ZXJtaW5hbHMsIG1lYW5pbmcg
+dGhhdCBpdCBkb2Vzbid0IGxpdmUgaW4gdGhlIGtlcm5lbCwgYWx0aG91Z2ggT3JjYSB3b3JrcyBw
+cmV0dHkgd2VsbCBpbiBtYXRlLXRlcm1pbmFsLiBQZXJzb25hbGx5IHRob3VnaCwgSSBmaW5kIHRo
+YXQgZGVza3RvcCB3ZWIgYnJvd3NlcnMgYW5kIGVtYWlsIGFwcGxpY2F0aW9ucyB3b3JrIG11Y2gg
+YmV0dGVyIHRoYW4gdGhlaXIgdGVybWluYWwgY291bnRlcnBhcnRzLCBpbmNsdWRpbmcgYmVpbmcg
+ZWFzaWVyIHRvIHNldCB1cCwgZWFzaWVyIHRvIG5hdmlnYXRlIGJ5IHZhcmlvdXMgZWxlbWVudHMg
+c3VjaCBhcyBoZWFkZXJzIG9yIGxpbmtzLCBhbmQgZXNwZWNpYWxseSBmb3IgYnJvd3NlcnMsIHN1
+cHBvcnRpbmcgbWFueSBtb3JlIHdlYnNpdGVzIGluIGEgbW9yZSBhY2Nlc3NpYmxlIHdheS4gSnVz
+dCBhcyBhbiBleGFtcGxlIG9mIHRoaXMsIEkgaGF2ZSBiZWVuIGFibGUgdG8gYWNjZXNzIG9ubGlu
+ZSBiYW5raW5nIHRocm91Z2ggRmlyZWZveCBmb3IgY29taW5nIHVwIG9uIDIwIHllYXJzLCBidXQg
+bm9uZSBvZiB0aGUgdGVybWluYWwtYmFzZWQgYnJvd3NlcnMgaGF2ZSBldmVyIGFsbG93ZWQgbWUg
+dG8gbG9nIGludG8gYW55IGJhbmsncyB3ZWJzaXRlLCBhbmQgbWFueSB3b24ndCBldmVuIHNob3cg
+dGhlIGxvZ2luIHBhZ2UgY29ycmVjdGx5LCBub3QgZXZlbiBpbiAyMDIzLgo+ID4gPgo+ID4gPiB+
+S3lsZQo+ID4gPgo+ID4gPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwo+ID4gPiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPiA+ID4gQmxpbnV4LWxpc3RA
+cmVkaGF0LmNvbQo+ID4gPiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3Rp
+bmZvL2JsaW51eC1saXN0Cj4gPiA+Cj4gPgo+ID4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KPiA+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+ID4gQmxp
+bnV4LWxpc3RAcmVkaGF0LmNvbQo+ID4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1h
+bi9saXN0aW5mby9ibGludXgtbGlzdAo+ID4KPiAKPiBfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+IEJsaW51
+eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xp
+c3RpbmZvL2JsaW51eC1saXN0CgotLSAKCkphbmluYSBTYWprYSAoc2hlL2hlci9oZXJzKQpBY2Nl
+c3NpYmlsaXR5IENvbnN1bHRhbnQgaHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vanNhamthCgpUaGUg
+V29ybGQgV2lkZSBXZWIgQ29uc29ydGl1bSAoVzNDKSwgV2ViIEFjY2Vzc2liaWxpdHkgSW5pdGlh
+dGl2ZSAoV0FJKQpDby1DaGFpciwgQWNjZXNzaWJsZSBQbGF0Zm9ybSBBcmNoaXRlY3R1cmVzCWh0
+dHA6Ly93d3cudzMub3JnL3dhaS9hcGEKCkxpbnV4IEZvdW5kYXRpb24gRmVsbG93Cmh0dHBzOi8v
+d3d3LmxpbnV4Zm91bmRhdGlvbi5vcmcvYm9hcmQtb2YtZGlyZWN0b3JzLTIvCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5n
+IGxpc3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9t
+YWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cg==
 
