@@ -2,50 +2,59 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id ED4DB6F911D
-	for <lists+blinux-list@lfdr.de>; Sat,  6 May 2023 12:18:27 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EAAD06FB6C7
+	for <lists+blinux-list@lfdr.de>; Mon,  8 May 2023 21:38:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1683368306;
+	s=mimecast20190719; t=1683574686;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=Om8STL4KuR5Bg3LAjYx3Uiq28lPbkfvg4T2noPBvoS8=;
-	b=WZf7MNhumK/dWZSQZHGJ+bJ/UKtMuwK1LJQYNMZXllQwdBdN1zHn1fFSdNwjmvCaHLluNe
-	Od0DQDEiRUmaxvu3Gb32ETMsdszcrIcPrg6notP3+y6QrMFwrnjOvksI8e4wJBzlmXDnZN
-	hnUkEvjTfHXLmzwy73/KGF5SFjusoBk=
+	bh=be+F4OFYlytX9TaCAykPLw7GExmbKuhfw/k8uBqFgRk=;
+	b=QBNZpcbS4oXVKlRRuYioS6KxXx+rIuYWnizghXLcg8vTq3rv1WpdJuWBDjoEDIAhkyLl3P
+	13SQcHrklP0IjfqSNvFQzoydBpOcxUWl0jj3PtNKuxoPfR8ACS2riNK7QDiREbdF6pBZue
+	f6Yc0C+EmUb/YulfwpSJZbq7N9IfW6w=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-256-ry9AO5DNMJ6iHwr8D7_gHg-1; Sat, 06 May 2023 06:18:22 -0400
-X-MC-Unique: ry9AO5DNMJ6iHwr8D7_gHg-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+ us-mta-516-UzEJhzeCPfm4ksQapbfdEQ-1; Mon, 08 May 2023 15:38:05 -0400
+X-MC-Unique: UzEJhzeCPfm4ksQapbfdEQ-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5B08E857DD7;
-	Sat,  6 May 2023 10:18:20 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 09670185A790;
+	Mon,  8 May 2023 19:38:03 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id B2B8B40C2063;
-	Sat,  6 May 2023 10:18:18 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 410C11121315;
+	Mon,  8 May 2023 19:37:52 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 3CDA31946A40;
-	Sat,  6 May 2023 10:18:18 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id D4EB719465B1;
+	Mon,  8 May 2023 19:37:51 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sat, 6 May 2023 11:18:12 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.1
-Subject: Re: Two Arch beginner questions
 To: blinux-list@redhat.com
-References: <mailman.2214.1682605732.2351818.blinux-list@redhat.com>
- <mailman.2227.1682609071.2351818.blinux-list@redhat.com>
- <mailman.1971.1682616668.2351821.blinux-list@redhat.com>
- <mailman.63.1683366485.2822855.blinux-list@redhat.com>
-In-Reply-To: <mailman.63.1683366485.2822855.blinux-list@redhat.com>
-Message-ID: <mailman.44.1683368297.2822854.blinux-list@redhat.com>
+Subject: Getting 5.1 sound to work
+Date: Mon, 08 May 2023 14:38:03 -0500
+MIME-Version: 1.0
+User-Agent: POP Peeper Pro (5.4.5.0)
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:xQa49P/eFlo=;tVMC1pxnUtsidkiOBYyr1bIYLxM
+ fXrAdVPXe3DPQVKi9jR+IwTq7a88kc95iBSTPmb85dpyHbQHTRDRujyo9nlBAwwU/49GIiQYL
+ UQeZtKCw/2NO2M8h5wmLT/BBH74q+OmOIaSEvHutV7MRUF/jJPPkXJOTQrS9VmhwKqCV+zOur
+ I2q9bDFuWYnvnHfCqT5BX0ARBP02iTNNVQQqRJtab4HvXQHjmt1AD+2Hiq97GZjns9wmW3vJA
+ 9HcK8hFbHBmTqRrVzeJsXCXgxHM4Y4jQ9fI+uiloDsBSv7a57aD6WNnBMp44L1VuRqh4VgLdu
+ ASyQu+PrJ5LOBy57PsWoCzIrpRd4OCOR6vJKCNHo4QFDi1rVnRhBgnSCQvJQ70Dh+9X+1KITg
+ 3EfsY+1gJkka7uJULYn4DAyAeUJIfksq2oXritqaqmCxUAGZcH9SoOGBt626HHR2lpO3E6gid
+ RdE7/yPlKzO+Irfmahnm0xsLjBPKU3JgOv6H46VY+UaFU56FPPjjU77cn5Hvb/D89+wV7aemg
+ nJbw69h87gwH/9dOafXfTFIh5ufiwG5W4ze5h1mYlfW4F/KB2bHJHJ+ryBF7VuAzXLTxvEUdX
+ ec7H6GqxsR07owmqKCMZJDrI82uK0h/x9Ef4qj9avhpDHu8cjK6+ZA26TeacU1aof+kO+nbG5
+ z3J0TK1JOa9y1RJWQTyMrGnWcEoF+vxXuKb5x4MwKL8jedGLQMzUv1hdvGEgZKqyvAWBXeiZ2
+ ppzAdklNFhXRNw6jWd/bVD01GyUhJjCzRKLzdmztNATCUpF3iTFZRL11hr0tm8UjmB1kx9zjB
+ FS5FAVScMGRR+Csb2VSBuF34ZgvNbPE02dBATrAlooWr7XVcwgSKWBdOzcM1e+iT6gy1HL2ja
+ +PeJFhmgKaMJlULNXTyiqTCkU9FMrqQkF/MvEllteCyw1Po+8OkAvbP//28rSnTLFfR/oyE4F
+ emaQ42ICkdsq7x/q1JBAFhvUFsU=
+Message-ID: <mailman.482.1683574671.2822851.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -61,93 +70,22 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.3
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SSd2ZSBiZWVuIHVzaW5nIHRic20gaW5zdGVhZCBvZiBzdGFydHgsIHBlcnNvbmFsbHkuIEl0IGxl
-dHMgbWUgcGljIHdoYXQgCnNlc3Npb24gSSB3YW50IGZyb20gYSBjb25zb2xlIGxvZ2luCgoKT24g
-NS82LzIzIDEwOjQ4LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+
-IEkgd2FudCB0byBlbmRvcnNlIHRoZSBub3Rpb24gb2YgbG9nZ2luZyBpbiBvbiBhIGNvbnNvbGUg
-dGVybWluYWwgYmVmb3JlCj4gbGF1bmNoaW5nIGFueXRoaW5nIGFuZCBldmVyeXRoaW5nIGVsc2Us
-IGluY2x1ZGluZyB0aGUgZ3JhcGhpY2FsCj4gZW52aXJvbm1lbnQuCj4KPiBPbmUgc3Ryb25nIGFk
-dmFudGFnZSBpcyBtb3JlIGNvbnRyb2wgaWYgYW5kIHdoZW4gdGhpbmdzIGdvIHdyb25nLS10aG91
-Z2gKPiBJIGhhdmVuJ3QgaGFkIHRvIGRlYWwgd2l0aCB0aGF0IGluIGEgbG9uZyB0aW1lLgo+Cj4g
-SSBwZXJzb25hbGx5IHVzZSBzdGFydHggdG8gbGF1bmNoIG15IGdyYXBoaWNhbCBlbnZpcm9ubWVu
-dC4KPgo+IEJ1dCwgSSBhbHNvIHVzZSBhbiBvcGVudnQgc2NyaXB0IHRvIGxhdW5jaCBteSBhZGRp
-dGlvbmFsIDIzIGNvbnNvbGUKPiBlbnZpcm9ubWVudHMuIFllcywgSSBoYXZlIDI0IGNvbnNvbGVz
-LCB3aGljaCBhcmUgZWFzaWx5IGFjY2Vzc2VkIGJ5Cj4gbm90aW5nIHRoYXQgdGhlIG9sZGVyIGtl
-eW1hcCBmaWxlIHRyZWF0ZWQgdGhlIGxlZnQgYWx0IGtleSBkaWZmZXJlbnRseQo+IGZyb20gdGhl
-IHJpZ2h0IGFsdCBrZXkuIFRoYXQgaGFzIHJlY2VudGx5IGNoYW5nZWQgYnkgZGVmYXVsdCwgc28g
-b25lCj4gbmVlZHMgdG8gZml4IHRoYXQgaWYgb25lIHJlYWxseSB3YW50cyBtb3JlIHRoYW4gMTIg
-Y29uc29sZXMgYnkgZGVmYXVsdC4KPgo+IFBTOiBJbiBvcmRlciB0byBnZXQgdGhlIHVzZXIgSSB3
-YW50IGluIGVhY2ggY29uc29sZSBJJ3ZlIGZvdW5kIGl0Cj4gbmVjZXNzYXJ5IHRvIGtlZXAgdGhl
-IG9wZW52dCBzY3JpcHQgaW4gbXkgL3Jvb3QgZm9sZGVyIGJ1dCB0byBsYXVuY2ggaXQKPiBhcyBt
-eSBvcmRpbmFyeSB1c2VyIHVzaW5nIHN1ZG8sIGUuZy4KPgo+IHN1ZG8gL3Jvb3QvPHNjcmlwdD4K
-Pgo+IEJlbmVmaXQ6IExvZ2luIG9uY2UsIHR3byBxdWljayBjb21tYW5kcyBvcGVuIGEgZ3VpIGVu
-dmlyb25tZW50IGFuZCAyMwo+IG1vcmUgY29uc29sZXMuIE5vdyBJIGNhbiBwcmVkaWN0YWJseSBk
-byBzcGVjaWZpYyB0YXNrcyBpbiB0aGUgc2FtZQo+IHNwZWNpZmljIGNvbnNvbGUuCj4KPiBQUFM6
-IEkgYWx3YXlzIHNtaWxlIHdoZW4gSSBoZWFyIHNvbWUgR1VJIGRlcGVuZGVudCB1c2VyIHNheSwg
-YXMgSSBoZWFyCj4gdGhlbSBzYXkgYXQgbGVhc3Qgb25jZSBhIHdlZWsgb24gc29tZSB0ZWxlY29u
-ZmVyZW5jZTogIldhaXQsIHdhaXQsIEkKPiBsb3N0IG15IHdpbmRvdy4iIEkgbmV2ZXIgbG9zZSBt
-eSBjb25zb2xlcy4KPgo+IEJlc3QsCj4KPiBKYW5pbmEKPgo+IExpbnV4IGZvciBibGluZCBnZW5l
-cmFsIGRpc2N1c3Npb24gd3JpdGVzOgo+PiBUd28gbW9yZSBhZHZhbnRhZ2VzIHRvIHN0YXJ0aW5n
-IHVwIGluIGNvbnNvbGUgbW9kZSB0aGVuIHVzaW5nIHN0YXJ0eCB0bwo+PiBhY2Nlc3MgdGhlIGdy
-YXBoaWNhbCBlbnZpcm9ubWVudC4KPj4gWW91IGRvbid0IGhhdmUgdG8gZG8gaW5pdGlhbCBsb2dp
-biBpbiBncmFwaGljYWwgbW9kZSBhbmQgc2Vjb25kIGlzIGlmCj4+IGdyYXBoaWNhbCBtb2RlIGRl
-dmVsb3BzIGEgcHJvYmxlbSB5b3UgY2FuIHN0aWxsIGxvZ2luIGluIGNvbnNvbGUgYW5kIGdldCBh
-Cj4+IGNoYW5jZSB0byBmaXggdGhlIHByb2JsZW0uICBHcmFwaGljYWwgdXNlciBsb2dpbiBpZiBh
-IHByb2JsZW0gZGV2ZWxvcHMsCj4+IGl0J3MgdGltZSB0byByZWluc3RhbGwgdGhlIHN5c3RlbSBp
-ZiB0aGUgcHJvYmxlbSBwcmV2ZW50cyBsb2dpbi4KPj4KPj4KPj4gLS0gSnVkZSA8amRhc2hpZWwg
-YXQgcGFuaXggZG90IGNvbT4gIlRoZXJlIGFyZSBmb3VyIGJveGVzIHRvIGJlIHVzZWQgaW4KPj4g
-ZGVmZW5zZSBvZiBsaWJlcnR5OiBzb2FwLCBiYWxsb3QsIGp1cnksIGFuZCBhbW1vLiBQbGVhc2Ug
-dXNlIGluIHRoYXQKPj4gb3JkZXIuIiBFZCBIb3dkZXJzaGVsdCAxOTQwLgo+Pgo+PiBPbiBUaHUs
-IDI3IEFwciAyMDIzLCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+
-Pgo+Pj4gdGhlcmUgYXJlIHByb2JhYmx5IGFsc28gc2V2ZXJhbCBvdGhlciBzY3JlZW4gcmVhZGVy
-LCBvcHRpb25zIGZvciB0aGUgY29uc3VsL3Rlcm1pbmFsLiBXaGVuIGRpZCBJIGhhdmUgZm91bmQg
-bW9zdCB1c2VmdWwgaXMgQlJMVFRZLiBJdOKAmXMgcHJvYmFibHkgb25lIG9mIHRoZSBvbGRlc3Qg
-b2YgdGhlIGxvdCBhbmQgaXQgc3RpbGwgd29ya3MuIE5vdywgYXMgZm9yIHRoZSBncmFwaGljYWwg
-dXNlciBpbnRlcmZhY2UsIEnigJl2ZSBiZWVuIGluIHRoZSBoYWJpdCBvZiBhY3R1YWxseSBzdGFy
-dGluZyB1cCBpbiBDb25zb2wgbW9kZSBmaXJzdCBhbmQgdGhlbiBydW5uaW5nIFNUQVJUWC4gSXTi
-gJlzIGVhc3kgaXTigJlzIHNpbXBsZSBhbmQgeW91IGRvbuKAmXQgaGF2ZSB0byB3b3JyeSBhYm91
-dCBhIGRpc3BsYXkgbWFuYWdlci4gQSBhbHNvLCB5b3UgZG9u4oCZdCBoYXZlIHRvIHdvcnJ5IGFi
-b3V0IGEgYnVuY2ggb2YgYWRkaXRpb25hbCBhcHBzIHlvdSBtYXkgbmV2ZXIgdXNlIHdoZW4gcnVu
-bmluZyB0aGUgZGlzcGxheSBtYW5hZ2VyLiBTbyBjaG9vc2Ugd2hpY2hldmVyIGRlc2t0b3AgeW91
-IHdhbnQsIHdoaWNoIGV2ZXIgYXBwcyB5b3Ugd2FudCwgYW5kIGluc3RhbGwgdGhvc2UgYnkgd2hh
-dGV2ZXIgbWV0aG9kIGlzIGNhbGxlZCBmb3IgaW4geW91ciB2ZXJzaW9uIG9mIExpbnV4Lgo+Pj4K
-Pj4+IEVyaWMuCj4+Pgo+Pj4KPj4+IFNlbnQgZnJvbSBteSBpUGhvbmUKPj4+Cj4+Pj4gT24gQXBy
-IDI3LCAyMDIzLCBhdCAwNzozOSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8
-YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4gd3JvdGU6Cj4+Pj4KPj4+PiDvu79JIGZpbmQgbGlnaHRk
-bSB3aXRoIGxpZ2h0ZG0tc2xpY2stZ3JlZXRlciB0byBiZSBhYm91dCB0aGUgYmVzdCBkaXNwbGF5
-IG1hbmFnZXIgb3B0aW9uLiBZb3Ugc2hvdWxkIGJlIGFibGUgdG8gc3RhcnQgb3JjYSB1c2luZyBh
-bHQrc3VwZXIrcyBmcm9tIHRoZSBkaXNwbGF5IG1hbmFnZXIncyB3aW5kb3cuCj4+Pj4KPj4+Pgo+
-Pj4+IEZlbnJpciBpcyBwcm9iYWJseSB0aGUgbW9zdCBjb21wcmVoZW5zaXZlIGZ1bGx5IHVzZXJz
-cGFjZSBzY3JlZW4gcmVhZGVyIGZvciB0ZXh0IG1vZGUgVFRZcyBhbmQgdGVybWluYWxzLCBtZWFu
-aW5nIHRoYXQgaXQgZG9lc24ndCBsaXZlIGluIHRoZSBrZXJuZWwsIGFsdGhvdWdoIE9yY2Egd29y
-a3MgcHJldHR5IHdlbGwgaW4gbWF0ZS10ZXJtaW5hbC4gUGVyc29uYWxseSB0aG91Z2gsIEkgZmlu
-ZCB0aGF0IGRlc2t0b3Agd2ViIGJyb3dzZXJzIGFuZCBlbWFpbCBhcHBsaWNhdGlvbnMgd29yayBt
-dWNoIGJldHRlciB0aGFuIHRoZWlyIHRlcm1pbmFsIGNvdW50ZXJwYXJ0cywgaW5jbHVkaW5nIGJl
-aW5nIGVhc2llciB0byBzZXQgdXAsIGVhc2llciB0byBuYXZpZ2F0ZSBieSB2YXJpb3VzIGVsZW1l
-bnRzIHN1Y2ggYXMgaGVhZGVycyBvciBsaW5rcywgYW5kIGVzcGVjaWFsbHkgZm9yIGJyb3dzZXJz
-LCBzdXBwb3J0aW5nIG1hbnkgbW9yZSB3ZWJzaXRlcyBpbiBhIG1vcmUgYWNjZXNzaWJsZSB3YXku
-IEp1c3QgYXMgYW4gZXhhbXBsZSBvZiB0aGlzLCBJIGhhdmUgYmVlbiBhYmxlIHRvIGFjY2VzcyBv
-bmxpbmUgYmFua2luZyB0aHJvdWdoIEZpcmVmb3ggZm9yIGNvbWluZyB1cCBvbiAyMCB5ZWFycywg
-YnV0IG5vbmUgb2YgdGhlIHRlcm1pbmFsLWJhc2VkIGJyb3dzZXJzIGhhdmUgZXZlciBhbGxvd2Vk
-IG1lIHRvIGxvZyBpbnRvIGFueSBiYW5rJ3Mgd2Vic2l0ZSwgYW5kIG1hbnkgd29uJ3QgZXZlbiBz
-aG93IHRoZSBsb2dpbiBwYWdlIGNvcnJlY3RseSwgbm90IGV2ZW4gaW4gMjAyMy4KPj4+Pgo+Pj4+
-IH5LeWxlCj4+Pj4KPj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwo+Pj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+Pj4+IEJsaW51eC1saXN0QHJl
-ZGhhdC5jb20KPj4+PiBodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZv
-L2JsaW51eC1saXN0Cj4+Pj4KPj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCj4+PiBCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKPj4+IEJsaW51eC1saXN0
-QHJlZGhhdC5jb20KPj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGlu
-Zm8vYmxpbnV4LWxpc3QKPj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+PiBCbGludXgtbGlzdEBy
-ZWRoYXQuY29tCj4+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8v
-YmxpbnV4LWxpc3QKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBz
-Oi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QK
+I've been trying to get 5.1 sound working on my linux system. Arch, if it matters, pulseaudio 16.16, pulseaudio-alsa 1:1.2.7.1-2. If any other package version numbers are needed I'll dig them up. But anyway.
+
+When I play a movie in mpv encoded with 5.1 sound I can't hear dialog, which is on it's own channel I guess. I think all channels are turned up in amixer. And i'm pretty sure all the speakers are plugged in correctly. Sound comes out of all of them with regular 2.1 stereo sound. This is the default audio device in mpv.conf:
+
+audio-device=pulse/alsa\_output.pci-0000\_00\_1b.0.analog-surround-51
+
+Do I  maybe need to do some fiddling around in asound.conf or something to get surround working?
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
