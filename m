@@ -1,44 +1,44 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 726E87058E1
-	for <lists+blinux-list@lfdr.de>; Tue, 16 May 2023 22:30:56 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id E1964705B16
+	for <lists+blinux-list@lfdr.de>; Wed, 17 May 2023 01:16:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1684269055;
+	s=mimecast20190719; t=1684279016;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=9Dcm/nQKRtYGF/Rou4LcB+UsZGjprJXRMBPTgHnz+bk=;
-	b=Pd/SaP5VzvDjRQ2jcq3FEE0K+iOf/QDjW4kfX3JPJD0kC7SLyd2mK8yMAqMSPQ47FkOPD0
-	Sg3wpMQDEPHnS43JAk90kQIYTLOUsf+xJkrlw6zfKePNwYm3lXBOtaQP4H1/pBcAxlB4zR
-	h2ELw7p3DBYtcBmxiyz9k+vPY8xT63w=
+	bh=kvX7eYC7bCzvvlByE6RMPj7Aw5lbot7P+bpSy2iTynI=;
+	b=O/4dEwWK3D5/RC2KiPOyzyJQPXASBKhsMNuVRlHkXwT0PiL57fxlGGRR/TYZaOrah/6+a/
+	2WECPtFsUQrcqCC8te/eWhuj97/yn7Q4SGFdJW70R4i9NvpukWlG7aGI0Ulv6B9A0f/5Ri
+	560FqTlZH19JevrZ7mHmkEE1fJ51OIs=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-424-71QJT_dzP9CrkiuTziWbLA-1; Tue, 16 May 2023 16:30:51 -0400
-X-MC-Unique: 71QJT_dzP9CrkiuTziWbLA-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+ us-mta-663-xVEDZ1h-My-Wqh-qxno6zg-1; Tue, 16 May 2023 19:16:53 -0400
+X-MC-Unique: xVEDZ1h-My-Wqh-qxno6zg-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C509B101A54F;
-	Tue, 16 May 2023 20:30:49 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DD11C85A5B1;
+	Tue, 16 May 2023 23:16:51 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 0467D40B947;
-	Tue, 16 May 2023 20:30:43 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 3F8F84078908;
+	Tue, 16 May 2023 23:16:47 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 2A10D19465B3;
-	Tue, 16 May 2023 20:30:43 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 5F7AE19465B3;
+	Tue, 16 May 2023 23:16:46 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Tue, 16 May 2023 16:30:38 -0400 (EDT)
-To: Linux for blind general discussion <blinux-list@redhat.com>, 
- blind_linux_users <discuss@blvuug.org>
-Subject: Ot: quick site design rate question?
+Date: Tue, 16 May 2023 19:16:58 -0400
 MIME-Version: 1.0
-Message-ID: <mailman.700.1684269042.1505529.blinux-list@redhat.com>
+User-Agent: Mozilla Thunderbird
+To: blinux-list@redhat.com
+Subject: My try on making hexchat accessible
+Message-ID: <mailman.665.1684279005.1505526.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -54,21 +54,28 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.2
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi folks,
-Am applying for a fellowship, with funding set aside for insuring the 
-production materials are inclusive.
-  I have the rate for generating transcripts, but am interested in a per 
-hour rate for  progressive enhancement site design?
-as in that still works from the keyboard smiles.
-Thanks tons,
-Karen
+So I have been trying for months to make hexchat more accessible. This 
+is what I'm using.
 
+#!/usr/bin/env bash
+
+tail -fn 1 "hexchat.log" | tee >(spd-say -r +99 -y voxin -e) >(yad 
+--text-info --show-cursor --no-buttons)
+
+it speaks with spd-say and gives you a yad dialog for reading output. 
+Any ways I could improve the script? Also I read something on here about 
+nvda2speech do you think I could get it to work with nda and wine using 
+adiirc? The only thing about hexchat that is inaccessible is the output 
+window.
+
+Thanks for any help or suggestions.
 
 _______________________________________________
 Blinux-list mailing list
