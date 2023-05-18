@@ -1,49 +1,48 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 74771706EEB
-	for <lists+blinux-list@lfdr.de>; Wed, 17 May 2023 19:00:00 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 737E37082A7
+	for <lists+blinux-list@lfdr.de>; Thu, 18 May 2023 15:29:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1684342799;
+	s=mimecast20190719; t=1684416578;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=k246yGnQOLDi7M1hhWQXNBiVGc4Pnc+DDWb1RvB3lAY=;
-	b=UhVRZ3AbObusQeDQwoLLHJwx43mQiCLv2OtqxMOXEE/J6vvG+prrgPnbZ76mYS04EXCf/Y
-	Vle3+URB6eaQ6VkQ0kq1/UjD8kk1gOq68TxnktYhA6qdib9+sx3/oBaphypSPEiZpl81dy
-	4zjxtSBeQN7mxEMaN3pVGOXMtHi4sSk=
+	bh=BUQ6Q+XItXIZC8xkMKsAJ0ECZQYIciH7H/23sbe8d6M=;
+	b=YFWVBar3Lqly2DfIX4O3H3rRwPKRUbu0SBZe3vWKBeab1uSh0Ex1YS2/UYIj6wPe2BtAB2
+	dqY4mP7+A7+GKoRDMsDJCkH7g72jOtEln6mvziOqC7bSKaAfTCKQEhJP5/NkbNSrdO21Sw
+	K8Hv9oeKNjHmFOH+y3cBi9HTBhsgA7U=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-501-iEZzBtahMbyKFTRC2p8taA-1; Wed, 17 May 2023 12:59:54 -0400
-X-MC-Unique: iEZzBtahMbyKFTRC2p8taA-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+ us-mta-428-zJIMag0rN1KqjzuMu06-6A-1; Thu, 18 May 2023 09:29:34 -0400
+X-MC-Unique: zJIMag0rN1KqjzuMu06-6A-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CB2C2185A79C;
-	Wed, 17 May 2023 16:59:52 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 32F6E88D071;
+	Thu, 18 May 2023 13:29:12 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 36D2E63F5B;
-	Wed, 17 May 2023 16:59:52 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 764FF2166B32;
+	Thu, 18 May 2023 13:29:06 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 9E92719465B5;
-	Wed, 17 May 2023 16:59:51 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 9E92119465B5;
+	Thu, 18 May 2023 13:29:05 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 17 May 2023 18:59:45 +0200
+Date: Thu, 18 May 2023 09:28:57 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.11.0
-Subject: Re: gentle reminder on anonymous posts
 To: blinux-list@redhat.com
 References: <mailman.1073.1684339614.1505526.blinux-list@redhat.com>
- <mailman.1054.1684341910.1505522.blinux-list@redhat.com>
-In-Reply-To: <mailman.1054.1684341910.1505522.blinux-list@redhat.com>
-Message-ID: <mailman.993.1684342791.1505525.blinux-list@redhat.com>
+Subject: Re: gentle reminder on anonymous posts
+In-Reply-To: <mailman.1073.1684339614.1505526.blinux-list@redhat.com>
+Message-ID: <mailman.1486.1684416545.1505524.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -59,18 +58,30 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.5
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Correction:
-didieratslintdotfr
 
-> Didier Spaier
-> didiersatslintdotfr
+On 17/5/23 12:06, Linux for blind general discussion wrote:
+> To be sure, it doesn't really matter (to me, at least :-) who these 
+> folks are, but it would make it a lot easier to follow conversations 
+> if some identification were provided. 
+
+It must be an issue with the mailing list server.
+
+I know the messages are sent out with my full name and e-mail address in 
+the "From" field.
+
+Perhaps this is a side effect of the way in which the list is configured 
+to deal with DMARC compliance. I'm on other lists for which this is not 
+an issue, though. I do have a "reject" DMARC policy in my domain's DNS 
+record, and SPF and DKIM are configured appropriately.
+
+Jason.
 
 _______________________________________________
 Blinux-list mailing list
