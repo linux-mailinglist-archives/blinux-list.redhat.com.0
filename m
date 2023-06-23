@@ -2,43 +2,44 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 51338736FA5
-	for <lists+blinux-list@lfdr.de>; Tue, 20 Jun 2023 17:01:33 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4AAF373BE51
+	for <lists+blinux-list@lfdr.de>; Fri, 23 Jun 2023 20:13:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1687273292;
+	s=mimecast20190719; t=1687544005;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=WYGIYGMexVOUQ/wQgn82TZ+ghqy03DlEqVZ50EVtjkU=;
-	b=evlNUznDuP5yl3MRED9kYF/g7jEGwcXd3YhHrNg5gN3w3PPr3Dv2yAwR5mxiYcAv/OMCQw
-	2KaedXwaTTdZG+Ntvx8kvdzx4qG0bcdk/WRa9U9qXNhEu6WnLPrkD5/jNOAURxHP+OtVDi
-	B38C+tUakGreSaC17OBVkxpaqTpeMJ0=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=x45UHZ8YGeUVvTdwbgpPAB4zKvIbvWj4ZN3cKpucrsA=;
+	b=eip5AEBe8YqPkhTpC+dRgKTvg8cR+JhTkckvO8u7WkeBANBCM/8U5eLn9dqDpPnVhf9wSO
+	rWJevRuC/UxI0gmir1FWFctq+NtWNO8sJ31reunuTJKxvjFY8C1ItIqYW5Wki9i56WPZBa
+	87bh4iW4dO56jmmPdqYS0q0pEEs+7gg=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-500-rl1OVnuHMh2vc3ffvL2QaQ-1; Tue, 20 Jun 2023 11:00:21 -0400
-X-MC-Unique: rl1OVnuHMh2vc3ffvL2QaQ-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+ us-mta-398-b72BEsNOMFGqTLgqYMLGWg-1; Fri, 23 Jun 2023 14:13:20 -0400
+X-MC-Unique: b72BEsNOMFGqTLgqYMLGWg-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C8FFE8925F7;
-	Tue, 20 Jun 2023 14:57:38 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 912223C34662;
+	Fri, 23 Jun 2023 18:13:15 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id BBFD8200C0DA;
-	Tue, 20 Jun 2023 14:57:33 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id D1D0CC57961;
+	Fri, 23 Jun 2023 18:13:09 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 1F488194658F;
-	Tue, 20 Jun 2023 14:57:31 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 267841946594;
+	Fri, 23 Jun 2023 18:13:04 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Feedback-ID: ia9b947fb:Fastmail
-Date: Tue, 20 Jun 2023 07:45:47 -0700 (PDT)
-To: Blinux Discussion List <blinux-list@redhat.com>
-Subject: New Version, Confusing Choices?
+Date: Fri, 23 Jun 2023 18:12:42 +0000
+To: Linux for blind general discussion <blinux-list@redhat.com>,
+ orca@freelists.org
+Subject: mtg: A utility for toggling the monitor state on Linux
+Feedback-ID: 26663242:user:proton
 MIME-Version: 1.0
-Message-ID: <mailman.373.1687273050.653863.blinux-list@redhat.com>
+Message-ID: <mailman.1745.1687543983.653864.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -54,31 +55,49 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hi All: I guess in the last year or so Debian changed the dialogue of when a 
-maintainer ships a new config. They were letter choices. Now, they are numbers 
-in a completely lop sided order, but even worse, typing one of these numbers 
-doesn't seem to work here in Debian 12 SId. Here is what it said during an apt 
-full-upgrade
-Configuring openssh-server
---------------------------
+Hello everyone,
 
-A new version (/tmp/tmp.UbLHTXnWVK) of configuration file /etc/ssh/sshd_config 
-is available, but the version installed currently has been locally modified.
+I have written a utility in Rust for toggling the monitor on Linux. It's 
+inspired by the script recently discussed on the Orca mailing list.
 
-   1. install the package maintainer's version    3. show the differences 
-between the versions            5. show a 3-way difference between available 
-versions  7. start a new shell to examine the situation
-   2. keep the local version currently installed  4. show a side-by-side 
-difference between the versions  6. do a 3-way merge between available versions
-Back again live, in most cases I would want to keep a modified config, but with 
-this new confusing menu, its anybody's guess? Thanks so much in advance
-Chime
+I find the monitor control functionality very useful for blind people, 
+so I thought it deserves a decent, though still easy to use 
+implementation that would be easily available and findable to all Linux 
+users.
+
+
+See:
+
+https://github.com/RastislavKish/mtg
+
+
+For more details.
+
+Please note this is the v0.1 release, it apparently does work on my 
+computer, but I can't say much for other machines.
+
+Checking out the screen using a light detector or a sighted person is 
+always a good idea, regardless of the used technique.
+
+
+As usual, any constructive feedback is welcome.
+
+
+Have fun!
+
+
+Best regards
+
+
+Rastislav
+
+
 
 _______________________________________________
 Blinux-list mailing list
