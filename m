@@ -1,50 +1,46 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id A66A5741761
-	for <lists+blinux-list@lfdr.de>; Wed, 28 Jun 2023 19:42:53 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 479F47417DB
+	for <lists+blinux-list@lfdr.de>; Wed, 28 Jun 2023 20:17:27 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1687974172;
+	s=mimecast20190719; t=1687976245;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=LU5HCnJMbEBwLczlbID/Mpj5X2jWi/4za0BY17Zg63c=;
-	b=ZEW4+7kjoPCMBtLroxGZAW9DE178S/cESb0BHTQSoYjsmsbusSMAl2qhfNA0TRDvCldihS
-	NYCAJ8xc285nh04BvWDq/EAxrhcrbLbBF++NJOfrp6tB843E1n2gzRzPfowXvXBg2nbHex
-	8zKV64XXY1coCmzTYZ4PzOggokngE0A=
+	bh=WTqfLUbbTsgbirivI0wEReGL51WMQJ6DXFxV2JX80M4=;
+	b=PKzsJXbaqvukwwaeI3KM2OxB5WP4T0xzhdxxo/dE0B3KkEQqV/qDrk+Rf/a1eKhovJvDrR
+	hNKESjyTss0PVFXtiuoxPfWAeS4ySNy/+yjDSGIKUG2HKKDM/RZuECxv/C/kKnhHEHSHQF
+	UQFawGR0dY8v8olPrckjrGl0TY0sd/Q=
 Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
  [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-530-lF4-puUMMoSDryup_Nc_nw-1; Wed, 28 Jun 2023 13:42:49 -0400
-X-MC-Unique: lF4-puUMMoSDryup_Nc_nw-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-515-e2OmKxAcPHSOy7Tfzojsuw-1; Wed, 28 Jun 2023 14:17:23 -0400
+X-MC-Unique: e2OmKxAcPHSOy7Tfzojsuw-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 76A0A1C07553;
-	Wed, 28 Jun 2023 17:42:46 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9625E380670D;
+	Wed, 28 Jun 2023 18:17:20 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 1220AC09A07;
-	Wed, 28 Jun 2023 17:42:41 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id B02A0492B02;
+	Wed, 28 Jun 2023 18:17:19 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 9A12519465B6;
-	Wed, 28 Jun 2023 17:42:40 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 1126A19465B6;
+	Wed, 28 Jun 2023 18:17:19 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-To: blinux-list@redhat.com
+Mime-Version: 1.0 (1.0)
 Subject: Re: Can I run a .bat file from basica
-In-reply-to: <mailman.910.1687963739.3098365.blinux-list@redhat.com>
-References: <mailman.543.1687903612.3098365.blinux-list@redhat.com>
- <mailman.910.1687963739.3098365.blinux-list@redhat.com>
-Comments: In-reply-to Linux for blind general discussion
- <blinux-list@redhat.com>
- message dated "Wed, 28 Jun 2023 09:41:51 -0500."
-MIME-Version: 1.0
-Date: Wed, 28 Jun 2023 12:42:28 -0500
-Message-ID: <mailman.1068.1687974160.3098368.blinux-list@redhat.com>
+Date: Wed, 28 Jun 2023 13:59:55 -0400
+References: <mailman.1068.1687974160.3098368.blinux-list@redhat.com>
+In-Reply-To: <mailman.1068.1687974160.3098368.blinux-list@redhat.com>
+To: blinux-list@redhat.com
+Message-ID: <mailman.1101.1687976238.3098364.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -60,125 +56,118 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-ID: <25940.1687974148.1@wb5agz.lan>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-I appreciate the answers all of you have provided because I felt
-rotten after posting because it's kind of off-topic for
-the discussion list.  I run debian Linux on 3 Raspberry Pi's plus
-3 PC's.  Two of them are working relics, one of them having been
-made in 1998 or so and the other in 2004, judging by the BIOS
-dates on them.  The third one is a HP Pavillion which I bought a
-year ago last March.  The debian install for the new box was via
-an off-the-shelf image which is the AMD64 version of debian 11,
-better known as bullseye.  The installer talks if you press the
-lower case s as soon as you hear the beep so the only thing I
-needed sighted help with were some BIOS setups such as turning
-off secureboot.
-
-	In a nut shell, it seems to be working well with Orca but
-the sound isn't right.  The new HP had Windows10 on it and sound
-worked fine with that so it's not the hardware.
-
-	My fix for that is to use a hdmi-to-analog converter
-because sound is fine on the hdmi interface.
-
-	Now, back to the topic at hand, the DOS PC has been
-sitting in our attic for maybe ten years.  It had a 60-megabyte
-hard drive which is now junk because when you turn on the power,
-you hear the platter spin up like it's going to do something
-useful then the head un-parks and there's this little bzz extra
-noise and the controller shuts down the platter motor, waits a
-few seconds and tries again with similar results.  I have knocked
-the drive against a few things and shook it but it still makes
-bad noises so I think it is a goner.  Fortunately, there wasn't
-much on it and surprisingly, the floppies all still work but one
-of them makes questionable noises but still reads and writes.
-
-	Back in the day, I wrote my own DOS screen reader in
-assembler and even used it at work until speakup on debian boxes
-came along.  The dos screen reader sends the screen output to
-com2 on the PC and I can feed that in to microcom and or kermit.
-
-	Something, however, is wrong with my serial ports on the
-DOS system because while the mode command lets me set the baud
-rate, number of bytes, parity and so forth, the system locks up
-the instant I try to send stuff in DOS to com2.  Com 1 also lets
-you set it but it's even worse in that I haven't gotten one byte
-through it in maybe a decade so I'm not holding my breath.
-
-	The basic version I am using is actually called basica
-and I think it should fit perfectly with those .bas files but I
-can tell you that you are partly correct in that a lot of a .bas
-file is ASCII text since the unix utility called strings sees
-lots of words but since basic is an interpreted language, there
-is a lot of binary stuff mixed in so one wouldn't get too much
-that you could trust by just catting xyz.bas |strings.
-
-	This is not gwbasic or qbasic but the basic that
-Microsoft bundled with DOS until about 1983, I think.
-
-	The programs I will eventually recover are examples for
-programming a X10 CP290 interface.  X10 is an early home
-automation system that has been around since the late seventies.
-
-	The gcc unix program I wrote in the mid nineties that
-talks to this interface was based on listing the basic programs
-but back in 1995 when I first wrote the program, the program
-worked.
-
-	Now, I realized that I should have documented the source
-code better because there is a spot where one shifts a byte 4
-bits to the left and then combines thelower 4 bits with 4 more
-bits from another byte.  I must not have done it properly because
-it quit working relatively recently due to upgrades in gcc.
-
-	So, this isn't really worth a lot of effort on anybody
-else's part but I should be able to list those basic programs
-then transplant the logic over to the C program so that the CP290
-sees what it is supposed to again.
-
-	This also makes me doubly appreciate unix because so much
-stuff in unix just works whereas in DOS, it mostly worked but you
-had to fiddle around a lot more to connect systems together.
-
-	We all know that the designers of unix weren't thinking
-of people who are blind at all but unix-like operating systems
-are inherently easier to make accessible due to their basic
-structure and the concept of standard input and output.
-
-	I will keep poking at the museum hardware I have and
-probably figure enough out to list these programs.
-
-	It's kind of fun but it brings back some unpleasant
-memories, also.
-
-Martin McCormick
-Linux for blind general discussion <blinux-list@redhat.com> writes:
-> .bat files are executed by the command interpreter. There might be a way 
-> to
-> execute a system command from BASIC, but I don't remember now. Regardless,
-> your .bat file would need to invoke the BASIC interpreter again, so I 
-> don't
-> think that calling it from within basica (although I'm wondering if you
-> really mean gwbasic here) would help you. It sounds like you want the 
-> BASIC
-> interpreter to execute some commands automatically. You might be able to 
-> do
-> that by redirecting standard input, but I don't know for sure that that
-> will work. And it sounds like you have a limited number of .bas files to
-> convert, so trying to automate the task might be more trouble than it's
-> worth.
-> 
-> 
-> -Mike Gorse
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+CgpTZW50IGZyb20gbXkgaVBob25lCgo+IE9uIEp1biAyOCwgMjAyMywgYXQgMTo0MiBQTSwgTGlu
+dXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8YmxpbnV4LWxpc3RAcmVkaGF0LmNvbT4g
+d3JvdGU6Cj4gCj4g77u/SSBhcHByZWNpYXRlIHRoZSBhbnN3ZXJzIGFsbCBvZiB5b3UgaGF2ZSBw
+cm92aWRlZCBiZWNhdXNlIEkgZmVsdAo+IHJvdHRlbiBhZnRlciBwb3N0aW5nIGJlY2F1c2UgaXQn
+cyBraW5kIG9mIG9mZi10b3BpYyBmb3IKPiB0aGUgZGlzY3Vzc2lvbiBsaXN0LiAgSSBydW4gZGVi
+aWFuIExpbnV4IG9uIDMgUmFzcGJlcnJ5IFBpJ3MgcGx1cwo+IDMgUEMncy4gIFR3byBvZiB0aGVt
+IGFyZSB3b3JraW5nIHJlbGljcywgb25lIG9mIHRoZW0gaGF2aW5nIGJlZW4KPiBtYWRlIGluIDE5
+OTggb3Igc28gYW5kIHRoZSBvdGhlciBpbiAyMDA0LCBqdWRnaW5nIGJ5IHRoZSBCSU9TCj4gZGF0
+ZXMgb24gdGhlbS4gIFRoZSB0aGlyZCBvbmUgaXMgYSBIUCBQYXZpbGxpb24gd2hpY2ggSSBib3Vn
+aHQgYQo+IHllYXIgYWdvIGxhc3QgTWFyY2guICBUaGUgZGViaWFuIGluc3RhbGwgZm9yIHRoZSBu
+ZXcgYm94IHdhcyB2aWEKPiBhbiBvZmYtdGhlLXNoZWxmIGltYWdlIHdoaWNoIGlzIHRoZSBBTUQ2
+NCB2ZXJzaW9uIG9mIGRlYmlhbiAxMSwKPiBiZXR0ZXIga25vd24gYXMgYnVsbHNleWUuICBUaGUg
+aW5zdGFsbGVyIHRhbGtzIGlmIHlvdSBwcmVzcyB0aGUKPiBsb3dlciBjYXNlIHMgYXMgc29vbiBh
+cyB5b3UgaGVhciB0aGUgYmVlcCBzbyB0aGUgb25seSB0aGluZyBJCj4gbmVlZGVkIHNpZ2h0ZWQg
+aGVscCB3aXRoIHdlcmUgc29tZSBCSU9TIHNldHVwcyBzdWNoIGFzIHR1cm5pbmcKPiBvZmYgc2Vj
+dXJlYm9vdC4KPiAKPiAgICBJbiBhIG51dCBzaGVsbCwgaXQgc2VlbXMgdG8gYmUgd29ya2luZyB3
+ZWxsIHdpdGggT3JjYSBidXQKPiB0aGUgc291bmQgaXNuJ3QgcmlnaHQuICBUaGUgbmV3IEhQIGhh
+ZCBXaW5kb3dzMTAgb24gaXQgYW5kIHNvdW5kCj4gd29ya2VkIGZpbmUgd2l0aCB0aGF0IHNvIGl0
+J3Mgbm90IHRoZSBoYXJkd2FyZS4KPiAKPiAgICBNeSBmaXggZm9yIHRoYXQgaXMgdG8gdXNlIGEg
+aGRtaS10by1hbmFsb2cgY29udmVydGVyCj4gYmVjYXVzZSBzb3VuZCBpcyBmaW5lIG9uIHRoZSBo
+ZG1pIGludGVyZmFjZS4KPiAKPiAgICBOb3csIGJhY2sgdG8gdGhlIHRvcGljIGF0IGhhbmQsIHRo
+ZSBET1MgUEMgaGFzIGJlZW4KPiBzaXR0aW5nIGluIG91ciBhdHRpYyBmb3IgbWF5YmUgdGVuIHll
+YXJzLiAgSXQgaGFkIGEgNjAtbWVnYWJ5dGUKPiBoYXJkIGRyaXZlIHdoaWNoIGlzIG5vdyBqdW5r
+IGJlY2F1c2Ugd2hlbiB5b3UgdHVybiBvbiB0aGUgcG93ZXIsCj4geW91IGhlYXIgdGhlIHBsYXR0
+ZXIgc3BpbiB1cCBsaWtlIGl0J3MgZ29pbmcgdG8gZG8gc29tZXRoaW5nCj4gdXNlZnVsIHRoZW4g
+dGhlIGhlYWQgdW4tcGFya3MgYW5kIHRoZXJlJ3MgdGhpcyBsaXR0bGUgYnp6IGV4dHJhCj4gbm9p
+c2UgYW5kIHRoZSBjb250cm9sbGVyIHNodXRzIGRvd24gdGhlIHBsYXR0ZXIgbW90b3IsIHdhaXRz
+IGEKPiBmZXcgc2Vjb25kcyBhbmQgdHJpZXMgYWdhaW4gd2l0aCBzaW1pbGFyIHJlc3VsdHMuICBJ
+IGhhdmUga25vY2tlZAo+IHRoZSBkcml2ZSBhZ2FpbnN0IGEgZmV3IHRoaW5ncyBhbmQgc2hvb2sg
+aXQgYnV0IGl0IHN0aWxsIG1ha2VzCj4gYmFkIG5vaXNlcyBzbyBJIHRoaW5rIGl0IGlzIGEgZ29u
+ZXIuICBGb3J0dW5hdGVseSwgdGhlcmUgd2Fzbid0Cj4gbXVjaCBvbiBpdCBhbmQgc3VycHJpc2lu
+Z2x5LCB0aGUgZmxvcHBpZXMgYWxsIHN0aWxsIHdvcmsgYnV0IG9uZQo+IG9mIHRoZW0gbWFrZXMg
+cXVlc3Rpb25hYmxlIG5vaXNlcyBidXQgc3RpbGwgcmVhZHMgYW5kIHdyaXRlcy4KPiAKPiAgICBC
+YWNrIGluIHRoZSBkYXksIEkgd3JvdGUgbXkgb3duIERPUyBzY3JlZW4gcmVhZGVyIGluCj4gYXNz
+ZW1ibGVyIGFuZCBldmVuIHVzZWQgaXQgYXQgd29yayB1bnRpbCBzcGVha3VwIG9uIGRlYmlhbiBi
+b3hlcwo+IGNhbWUgYWxvbmcuICBUaGUgZG9zIHNjcmVlbiByZWFkZXIgc2VuZHMgdGhlIHNjcmVl
+biBvdXRwdXQgdG8KPiBjb20yIG9uIHRoZSBQQyBhbmQgSSBjYW4gZmVlZCB0aGF0IGluIHRvIG1p
+Y3JvY29tIGFuZCBvciBrZXJtaXQuCj4gCj4gICAgU29tZXRoaW5nLCBob3dldmVyLCBpcyB3cm9u
+ZyB3aXRoIG15IHNlcmlhbCBwb3J0cyBvbiB0aGUKPiBET1Mgc3lzdGVtIGJlY2F1c2Ugd2hpbGUg
+dGhlIG1vZGUgY29tbWFuZCBsZXRzIG1lIHNldCB0aGUgYmF1ZAo+IHJhdGUsIG51bWJlciBvZiBi
+eXRlcywgcGFyaXR5IGFuZCBzbyBmb3J0aCwgdGhlIHN5c3RlbSBsb2NrcyB1cAo+IHRoZSBpbnN0
+YW50IEkgdHJ5IHRvIHNlbmQgc3R1ZmYgaW4gRE9TIHRvIGNvbTIuICBDb20gMSBhbHNvIGxldHMK
+PiB5b3Ugc2V0IGl0IGJ1dCBpdCdzIGV2ZW4gd29yc2UgaW4gdGhhdCBJIGhhdmVuJ3QgZ290dGVu
+IG9uZSBieXRlCj4gdGhyb3VnaCBpdCBpbiBtYXliZSBhIGRlY2FkZSBzbyBJJ20gbm90IGhvbGRp
+bmcgbXkgYnJlYXRoLgo+IAo+ICAgIFRoZSBiYXNpYyB2ZXJzaW9uIEkgYW0gdXNpbmcgaXMgYWN0
+dWFsbHkgY2FsbGVkIGJhc2ljYQo+IGFuZCBJIHRoaW5rIGl0IHNob3VsZCBmaXQgcGVyZmVjdGx5
+IHdpdGggdGhvc2UgLmJhcyBmaWxlcyBidXQgSQo+IGNhbiB0ZWxsIHlvdSB0aGF0IHlvdSBhcmUg
+cGFydGx5IGNvcnJlY3QgaW4gdGhhdCBhIGxvdCBvZiBhIC5iYXMKPiBmaWxlIGlzIEFTQ0lJIHRl
+eHQgc2luY2UgdGhlIHVuaXggdXRpbGl0eSBjYWxsZWQgc3RyaW5ncyBzZWVzCj4gbG90cyBvZiB3
+b3JkcyBidXQgc2luY2UgYmFzaWMgaXMgYW4gaW50ZXJwcmV0ZWQgbGFuZ3VhZ2UsIHRoZXJlCj4g
+aXMgYSBsb3Qgb2YgYmluYXJ5IHN0dWZmIG1peGVkIGluIHNvIG9uZSB3b3VsZG4ndCBnZXQgdG9v
+IG11Y2gKPiB0aGF0IHlvdSBjb3VsZCB0cnVzdCBieSBqdXN0IGNhdHRpbmcgeHl6LmJhcyB8c3Ry
+aW5ncy4KPiAKPiAgICBUaGlzIGlzIG5vdCBnd2Jhc2ljIG9yIHFiYXNpYyBidXQgdGhlIGJhc2lj
+IHRoYXQKPiBNaWNyb3NvZnQgYnVuZGxlZCB3aXRoIERPUyB1bnRpbCBhYm91dCAxOTgzLCBJIHRo
+aW5rLgo+IAo+ICAgIFRoZSBwcm9ncmFtcyBJIHdpbGwgZXZlbnR1YWxseSByZWNvdmVyIGFyZSBl
+eGFtcGxlcyBmb3IKPiBwcm9ncmFtbWluZyBhIFgxMCBDUDI5MCBpbnRlcmZhY2UuICBYMTAgaXMg
+YW4gZWFybHkgaG9tZQo+IGF1dG9tYXRpb24gc3lzdGVtIHRoYXQgaGFzIGJlZW4gYXJvdW5kIHNp
+bmNlIHRoZSBsYXRlIHNldmVudGllcy4KPiAKPiAgICBUaGUgZ2NjIHVuaXggcHJvZ3JhbSBJIHdy
+b3RlIGluIHRoZSBtaWQgbmluZXRpZXMgdGhhdAo+IHRhbGtzIHRvIHRoaXMgaW50ZXJmYWNlIHdh
+cyBiYXNlZCBvbiBsaXN0aW5nIHRoZSBiYXNpYyBwcm9ncmFtcwo+IGJ1dCBiYWNrIGluIDE5OTUg
+d2hlbiBJIGZpcnN0IHdyb3RlIHRoZSBwcm9ncmFtLCB0aGUgcHJvZ3JhbQo+IHdvcmtlZC4KPiAK
+PiAgICBOb3csIEkgcmVhbGl6ZWQgdGhhdCBJIHNob3VsZCBoYXZlIGRvY3VtZW50ZWQgdGhlIHNv
+dXJjZQo+IGNvZGUgYmV0dGVyIGJlY2F1c2UgdGhlcmUgaXMgYSBzcG90IHdoZXJlIG9uZSBzaGlm
+dHMgYSBieXRlIDQKPiBiaXRzIHRvIHRoZSBsZWZ0IGFuZCB0aGVuIGNvbWJpbmVzIHRoZWxvd2Vy
+IDQgYml0cyB3aXRoIDQgbW9yZQo+IGJpdHMgZnJvbSBhbm90aGVyIGJ5dGUuICBJIG11c3Qgbm90
+IGhhdmUgZG9uZSBpdCBwcm9wZXJseSBiZWNhdXNlCj4gaXQgcXVpdCB3b3JraW5nIHJlbGF0aXZl
+bHkgcmVjZW50bHkgZHVlIHRvIHVwZ3JhZGVzIGluIGdjYy4KPiAKPiAgICBTbywgdGhpcyBpc24n
+dCByZWFsbHkgd29ydGggYSBsb3Qgb2YgZWZmb3J0IG9uIGFueWJvZHkKPiBlbHNlJ3MgcGFydCBi
+dXQgSSBzaG91bGQgYmUgYWJsZSB0byBsaXN0IHRob3NlIGJhc2ljIHByb2dyYW1zCj4gdGhlbiB0
+cmFuc3BsYW50IHRoZSBsb2dpYyBvdmVyIHRvIHRoZSBDIHByb2dyYW0gc28gdGhhdCB0aGUgQ1Ay
+OTAKPiBzZWVzIHdoYXQgaXQgaXMgc3VwcG9zZWQgdG8gYWdhaW4uCj4gCj4gICAgVGhpcyBhbHNv
+IG1ha2VzIG1lIGRvdWJseSBhcHByZWNpYXRlIHVuaXggYmVjYXVzZSBzbyBtdWNoCj4gc3R1ZmYg
+aW4gdW5peCBqdXN0IHdvcmtzIHdoZXJlYXMgaW4gRE9TLCBpdCBtb3N0bHkgd29ya2VkIGJ1dCB5
+b3UKPiBoYWQgdG8gZmlkZGxlIGFyb3VuZCBhIGxvdCBtb3JlIHRvIGNvbm5lY3Qgc3lzdGVtcyB0
+b2dldGhlci4KPiAKPiAgICBXZSBhbGwga25vdyB0aGF0IHRoZSBkZXNpZ25lcnMgb2YgdW5peCB3
+ZXJlbid0IHRoaW5raW5nCj4gb2YgcGVvcGxlIHdobyBhcmUgYmxpbmQgYXQgYWxsIGJ1dCB1bml4
+LWxpa2Ugb3BlcmF0aW5nIHN5c3RlbXMKPiBhcmUgaW5oZXJlbnRseSBlYXNpZXIgdG8gbWFrZSBh
+Y2Nlc3NpYmxlIGR1ZSB0byB0aGVpciBiYXNpYwo+IHN0cnVjdHVyZSBhbmQgdGhlIGNvbmNlcHQg
+b2Ygc3RhbmRhcmQgaW5wdXQgYW5kIG91dHB1dC4KPiAKPiAgICBJIHdpbGwga2VlcCBwb2tpbmcg
+YXQgdGhlIG11c2V1bSBoYXJkd2FyZSBJIGhhdmUgYW5kCj4gcHJvYmFibHkgZmlndXJlIGVub3Vn
+aCBvdXQgdG8gbGlzdCB0aGVzZSBwcm9ncmFtcy4KPiAKPiAgICBJdCdzIGtpbmQgb2YgZnVuIGJ1
+dCBpdCBicmluZ3MgYmFjayBzb21lIHVucGxlYXNhbnQKPiBtZW1vcmllcywgYWxzby4KPiAKPiBN
+YXJ0aW4gTWNDb3JtaWNrCj4gTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiA8Ymxp
+bnV4LWxpc3RAcmVkaGF0LmNvbT4gd3JpdGVzOgo+PiAuYmF0IGZpbGVzIGFyZSBleGVjdXRlZCBi
+eSB0aGUgY29tbWFuZCBpbnRlcnByZXRlci4gVGhlcmUgbWlnaHQgYmUgYSB3YXkgCj4+IHRvCj4+
+IGV4ZWN1dGUgYSBzeXN0ZW0gY29tbWFuZCBmcm9tIEJBU0lDLCBidXQgSSBkb24ndCByZW1lbWJl
+ciBub3cuIFJlZ2FyZGxlc3MsCj4+IHlvdXIgLmJhdCBmaWxlIHdvdWxkIG5lZWQgdG8gaW52b2tl
+IHRoZSBCQVNJQyBpbnRlcnByZXRlciBhZ2Fpbiwgc28gSSAKPj4gZG9uJ3QKPj4gdGhpbmsgdGhh
+dCBjYWxsaW5nIGl0IGZyb20gd2l0aGluIGJhc2ljYSAoYWx0aG91Z2ggSSdtIHdvbmRlcmluZyBp
+ZiB5b3UKPj4gcmVhbGx5IG1lYW4gZ3diYXNpYyBoZXJlKSB3b3VsZCBoZWxwIHlvdS4gSXQgc291
+bmRzIGxpa2UgeW91IHdhbnQgdGhlIAo+PiBCQVNJQwo+PiBpbnRlcnByZXRlciB0byBleGVjdXRl
+IHNvbWUgY29tbWFuZHMgYXV0b21hdGljYWxseS4gWW91IG1pZ2h0IGJlIGFibGUgdG8gCj4+IGRv
+Cj4+IHRoYXQgYnkgcmVkaXJlY3Rpbmcgc3RhbmRhcmQgaW5wdXQsIGJ1dCBJIGRvbid0IGtub3cg
+Zm9yIHN1cmUgdGhhdCB0aGF0Cj4+IHdpbGwgd29yay4gQW5kIGl0IHNvdW5kcyBsaWtlIHlvdSBo
+YXZlIGEgbGltaXRlZCBudW1iZXIgb2YgLmJhcyBmaWxlcyB0bwo+PiBjb252ZXJ0LCBzbyB0cnlp
+bmcgdG8gYXV0b21hdGUgdGhlIHRhc2sgbWlnaHQgYmUgbW9yZSB0cm91YmxlIHRoYW4gaXQncwo+
+PiB3b3J0aC4KPj4gCj4+IAo+PiAtTWlrZSBHb3JzZQo+IAo+IF9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4g
+QmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxt
+YW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPiBiYXNpY2EgaGFzIGEgc3lzdGVtIGZ1bmN0aW9uIHRv
+IHJ1biBjb21tYW5kcyBvdXRzaWRlIG9mIGl0c2VsZi4gIElmIG1lbW9yeSBzZXJ2ZXMsIHN5c3Rl
+bSjigJxjb21tYW5kLmJhdOKAnSkgc2hvdWxkIHdvcmsgd2l0aCBubyBjb21tYW5kIHBhcmFtZXRl
+cnMuICBXaXRoIGNvbW1hbmQgcGFyYW1ldGVycyBwdXQgdGhlbSBpbiB0aGUgc2FtZSB3YXkgeW91
+IHdvdWxkIGlmIGJhdCBmaWxlIHdhcyBiZWluZyBydW4gb3V0c2lkZSBvZiBiYXNpY2EganVzdCBi
+ZWZvcmUgdGhlIGNsb3NpbmcgcXVvdGUuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxpc3RAcmVk
+aGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51
+eC1saXN0Cg==
 
