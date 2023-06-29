@@ -1,51 +1,52 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id B3A6174270A
-	for <lists+blinux-list@lfdr.de>; Thu, 29 Jun 2023 15:11:47 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id D8182742B27
+	for <lists+blinux-list@lfdr.de>; Thu, 29 Jun 2023 19:25:51 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1688044306;
+	s=mimecast20190719; t=1688059550;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=qE1p6AVsCRp0/94SKnEFwxLLi3mR+p7V3dkb0I35pBw=;
-	b=enz1V4zKtRzg2dy4FHvyWoJFKZXLOJ9atxocHdFDL5m9RXzeytV+TOUP6DhN1b5lKibFWf
-	Jebpl7WL9cBxZKLlUUYV8f6w2vC30WlvvAgotMG8f3l0msGI2I48q9xymPchw2rsQDsDux
-	pWZgfR1is8XiP6X7Wpv2cDVvJYBKbM8=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=pdWItgv9OuTNENA9AyoG/GN+CfjVo0EGVeu8lDMSHho=;
+	b=IUlxyi9HEE4Xw6UlGdnHX9xMuVe2Oksi+t7R9o/bSR94nzB3VeS1SUTmBjXZjfw0Aa0u6g
+	JiHEMG49kQnnh4bS+YFXwA8EcABtWlWYdtbaTSP7hF/WftfoVsKmDm3GIsUQycZSeA2c9z
+	MLAirM0gD/sDLdASvR4y38PSlaLRItQ=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-359-UVcyyfaOO4WOqssautxPTA-1; Thu, 29 Jun 2023 09:11:43 -0400
-X-MC-Unique: UVcyyfaOO4WOqssautxPTA-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
+ us-mta-376-qKxhhfTCOSuUhjKNaFgN0w-1; Thu, 29 Jun 2023 13:25:46 -0400
+X-MC-Unique: qKxhhfTCOSuUhjKNaFgN0w-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 13BAE1C0A5A7;
-	Thu, 29 Jun 2023 13:11:37 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 76AD4800159;
+	Thu, 29 Jun 2023 17:25:43 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 8320E1121314;
-	Thu, 29 Jun 2023 13:11:32 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 4A6734CD0C2;
+	Thu, 29 Jun 2023 17:25:39 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 89A3A1946A66;
-	Thu, 29 Jun 2023 13:11:31 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 6BFA61946A66;
+	Thu, 29 Jun 2023 17:25:38 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
+Date: Thu, 29 Jun 2023 13:25:27 -0400
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.12.0
+Subject: Re: The Weirdness Just Keeps on Coming (was Can I run a .bat file
+ from basica
+To: blinux-list@redhat.com
 References: <mailman.1068.1687974160.3098368.blinux-list@redhat.com>
  <mailman.1101.1687976238.3098364.blinux-list@redhat.com>
  <mailman.964.1687976680.3098361.blinux-list@redhat.com>
  <mailman.962.1688008087.3098369.blinux-list@redhat.com>
- <mailman.1064.1688028412.3098363.blinux-list@redhat.com>
-In-Reply-To: <mailman.1064.1688028412.3098363.blinux-list@redhat.com>
-Date: Thu, 29 Jun 2023 06:11:14 -0700
-Subject: Re: The Weirdness Just Keeps on Coming (was Can I run a .bat file
- from basica
-To: blinux-list@redhat.com
-Message-ID: <mailman.1333.1688044290.3098370.blinux-list@redhat.com>
+In-Reply-To: <mailman.962.1688008087.3098369.blinux-list@redhat.com>
+Message-ID: <mailman.1171.1688059538.3098363.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -61,22 +62,35 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.3
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-T24gVGh1LCBKdW4gMjksIDIwMjMgYXQgMTo0N+KAr0FNIExpbnV4IGZvciBibGluZCBnZW5lcmFs
-IGRpc2N1c3Npb24KPGJsaW51eC1saXN0QHJlZGhhdC5jb20+IHdyb3RlOgo+Cj4gSGksCj4gYmFz
-aWNhIHdhcyBvbiB0aGUgaWJtIGFuZCBzYXQgbW9zdGx5IGluIHJvbS4KPiBJZiB5b3UgY2FuIGZp
-bmQgZ3diYXNpYy5leGUgc29tZXdoZXJlIGl0bWlnaHQgc29sdmUgeW91ciBwcm9ibGVtLgoKPGh0
-dHA6Ly9ndy1iYXNpYy5jb20vRG93bmxvYWQuaHRtbD4KLS0gCltOb3RpY2Ugbm90IGluY2x1ZGVk
-IGluIHRoZSBhYm92ZSBvcmlnaW5hbCBtZXNzYWdlOiAgVGhlIFUuUy4gTmF0aW9uYWwKU2VjdXJp
-dHkgQWdlbmN5IG5laXRoZXIgY29uZmlybXMgbm9yIGRlbmllcyB0aGF0IGl0IGludGVyY2VwdGVk
-IHRoaXMKbWVzc2FnZS5dCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIMKvXF8o44OEKV8vwq8KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQu
-Y29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxp
-c3QK
+I think I have just found a way to save you a ton of trouble.
+
+https://github.com/rwtodd/bascat
+
+This does say that it is written in powershell, but other branches are 
+mentioned that do the same thing in other languages. You may be 
+especially interested in the branch called rust-version. Although this 
+is listed as a stale branch, it most likely will still do what you need.
+
+
+You may also be able to use a gwbasic decoder to convert the program to 
+text, as gwbasic and basica I believe are similar. The original gwbasic 
+source code that Microsoft released in 2020 is the assembly code from 
+the 1983 version, and gwbasic and basica are said to be functionally 
+identical, so although your mileage may vary, it just may work. 
+Incidentally, gwbasic has already been built to run on FreeDOS, and 
+therefore should also run on dosemu as well.
+
+~Kyle
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
