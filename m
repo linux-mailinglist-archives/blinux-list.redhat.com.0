@@ -1,47 +1,47 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 246FB75876D
-	for <lists+blinux-list@lfdr.de>; Tue, 18 Jul 2023 23:45:57 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9EEF6758787
+	for <lists+blinux-list@lfdr.de>; Tue, 18 Jul 2023 23:57:34 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1689716756;
+	s=mimecast20190719; t=1689717453;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=mepU1gD5TW2ffhxOAm8ylCYSTE3JSmWm8dGJ1UsUlpI=;
-	b=IQD0ofg0tCpGTXTkmBAx/OVWkWJw+0Ek+L2Uk9kgz9HGgXAp3xTtk3Ek71bABx7/Ay3omK
-	SdSDUd3hng33oc1TCPSSZyxOe0Xyh9jjG+zUPFyPmmT4/L53XKX5iYV1+dK4mC3j60tHG+
-	Soee8nCv2MQOuYiQEN9h2C39yFWdO1E=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-623-aBcZrG-4PlW2t_XCmNQIDQ-1; Tue, 18 Jul 2023 17:45:54 -0400
-X-MC-Unique: aBcZrG-4PlW2t_XCmNQIDQ-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
+	bh=8A1adH6RbiJfwRpGUcfp5EjNk/tWHgyKugvUr38EXwU=;
+	b=YbEi+DQqyrB5zDmJ578MzbRZOOGpURcOWMCqojLjaD7uvAlgyjQRSc8g9DyJh301AbQETC
+	DvP10UWfGRnxu0geBW2Yw3NvlGw25shMtaUClsLsJ3u/8CODSVwj+jV8u1Az7t2cglT9qh
+	vZK02/QNKwwb6k8cc337akhwciMHkk4=
+Received: from mimecast-mx02.redhat.com (66.187.233.73 [66.187.233.73]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-552-tmF1S3GLNYSaiTJqczX3Ew-1; Tue, 18 Jul 2023 17:57:29 -0400
+X-MC-Unique: tmF1S3GLNYSaiTJqczX3Ew-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6B104800159;
-	Tue, 18 Jul 2023 21:45:52 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4D098381BDF4;
+	Tue, 18 Jul 2023 21:57:27 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id D7AEC2166B25;
-	Tue, 18 Jul 2023 21:45:51 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 5BF9BF66D6;
+	Tue, 18 Jul 2023 21:57:26 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 3B5BC19465A4;
-	Tue, 18 Jul 2023 21:45:51 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id C427B19465A3;
+	Tue, 18 Jul 2023 21:57:25 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Feedback-ID: ia9b947fb:Fastmail
-Date: Tue, 18 Jul 2023 14:45:42 -0700 (PDT)
+Date: Tue, 18 Jul 2023 17:57:08 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Console E-mail client for my need
-In-Reply-To: <mailman.489.1689716021.687810.blinux-list@redhat.com>
+In-Reply-To: <mailman.481.1689716750.687817.blinux-list@redhat.com>
 References: <mailman.489.1689716021.687810.blinux-list@redhat.com>
+ <mailman.481.1689716750.687817.blinux-list@redhat.com>
 MIME-Version: 1.0
-Message-ID: <mailman.481.1689716750.687817.blinux-list@redhat.com>
+Message-ID: <mailman.490.1689717444.687812.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -57,18 +57,37 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.5
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Well Cleversom, are their reasons you didn't consider Alpine? Alpine is quite 
-configurable-and-you can run an alternative editor such as NANO. Alpine works 
-really well with Speakup, but I wish I didn't have to hear an opeening 
-announcement of version number-and-initial keystroke. I have no idea what would 
-happen if you ran Alpie in a desktop setup.
-Chime
+galpine is available for the desktop but since I avoid reading email in
+graphical user environment in a terminal I can't comment on its
+accessibility or effectiveness.
+
+
+-- Jude <jdashiel at panix dot com> "There are four boxes to be used in
+defense of liberty: soap, ballot, jury, and ammo. Please use in that
+order." Ed Howdershelt 1940.
+
+On Tue, 18 Jul 2023, Linux for blind general discussion wrote:
+
+> Well Cleversom, are their reasons you didn't consider Alpine? Alpine is quite
+> configurable-and-you can run an alternative editor such as NANO. Alpine works
+> really well with Speakup, but I wish I didn't have to hear an opeening
+> announcement of version number-and-initial keystroke. I have no idea what
+> would happen if you ran Alpie in a desktop setup.
+> Chime
+>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+>
+>
 
 _______________________________________________
 Blinux-list mailing list
