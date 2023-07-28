@@ -1,52 +1,44 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B4A9767413
-	for <lists+blinux-list@lfdr.de>; Fri, 28 Jul 2023 19:58:10 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id AFEA7767414
+	for <lists+blinux-list@lfdr.de>; Fri, 28 Jul 2023 19:58:34 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1690567088;
+	s=mimecast20190719; t=1690567113;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=3B7xtNN1CvBoKX1r/IsP72nR2A7rOxABL//jQ5odRbg=;
-	b=XLiMGbCio4g/YCHnQQq01kIXGodGH0H/s/Z07qA9zTWOFKxYb22x9q8xkka1r3VdRBR//C
-	Cb2Nq5+uPWu0AlxaoFXnXkicR5sY1+8FFM8AvPzk9GBvEjeWUzxKbB/5fzUfuGBRMaXwO7
-	Y3gpicSsPIFuvmJF/7AXtbboCuFw07A=
+	bh=cNdZ7kCCqJKXakEeoQ+16R4pNEVOtXmFjSBjcATe5w0=;
+	b=PfcbQRhDLKFrjBoB2XqP5J8Tf6HClVDj/IvgVWlyGupBHz6ad9ZKtXCdUNxoQ6G2xvM/2B
+	6LhZZbgVESxknyljghFNkxcFsA0JONsElOXzs7NQ2XLpugA+PEV4bUQXF83RNVP214mBfk
+	7IdAWriFlpisN92tkH+GLHcHDYPgpDQ=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-480-HnqVk9D7ND-_x9syKJefjQ-1; Fri, 28 Jul 2023 13:58:05 -0400
-X-MC-Unique: HnqVk9D7ND-_x9syKJefjQ-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+ us-mta-441-k1x85c33Pe-J6cuSAlwJsg-1; Fri, 28 Jul 2023 13:58:31 -0400
+X-MC-Unique: k1x85c33Pe-J6cuSAlwJsg-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 248218A2D03;
-	Fri, 28 Jul 2023 17:58:04 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 144E1805951;
+	Fri, 28 Jul 2023 17:58:28 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (unknown [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 3242A492B03;
-	Fri, 28 Jul 2023 17:57:55 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id F40BD40D2839;
+	Fri, 28 Jul 2023 17:58:27 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 5DB1719452C7;
-	Fri, 28 Jul 2023 17:57:54 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 7D07219452C8;
+	Fri, 28 Jul 2023 17:58:27 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Fri, 28 Jul 2023 13:57:50 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Mint Installation?
-In-Reply-To: <mailman.1717.1690516879.3172873.blinux-list@redhat.com>
-References: <mailman.1180.1689778383.687817.blinux-list@redhat.com>
- <mailman.1762.1689875729.687819.blinux-list@redhat.com>
- <mailman.1705.1689884060.687816.blinux-list@redhat.com>
- <mailman.1831.1689948344.687816.blinux-list@redhat.com>
- <mailman.1852.1689953247.687816.blinux-list@redhat.com>
- <mailman.1531.1689959447.687813.blinux-list@redhat.com>
- <mailman.1717.1690516879.3172873.blinux-list@redhat.com>
+Date: Fri, 28 Jul 2023 13:58:24 -0400
+To: blinux-list@redhat.com
+Subject: [orca] Re: Orca's notification messages feature has been rewritten
+ (fwd)
 MIME-Version: 1.0
-Message-ID: <mailman.2199.1690567073.3172874.blinux-list@redhat.com>
+Message-ID: <mailman.2200.1690567106.3172874.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -62,99 +54,190 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.2
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-T3JjYSBpbiBtYXN0ZXIgaGFzIHJld3JpdHRlbiB0aGUgbm90aWZpY2F0aW9uIGNvZGUsIHNvIHlv
-dXIgcHJvYmxlbSBtYXkgYmUKd2l0aCBhbiBvbGRlciB2ZXJzaW9uIG9mIG9yY2EgYW5kIG5vdCBt
-aW50LgoKCi0tIEp1ZGUgPGpkYXNoaWVsIGF0IHBhbml4IGRvdCBjb20+ICJUaGVyZSBhcmUgZm91
-ciBib3hlcyB0byBiZSB1c2VkIGluCmRlZmVuc2Ugb2YgbGliZXJ0eTogc29hcCwgYmFsbG90LCBq
-dXJ5LCBhbmQgYW1tby4gUGxlYXNlIHVzZSBpbiB0aGF0Cm9yZGVyLiIgRWQgSG93ZGVyc2hlbHQg
-MTk0MC4KCk9uIEZyaSwgMjggSnVsIDIwMjMsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1
-c3Npb24gd3JvdGU6Cgo+IE1heWJlIGEgbGl0dGxlIG9mZiB0b3BpYywgYnV0IEkgYW0gaGF2aW5n
-IHNvbWUgcHJvYmxlbSB3aXRoIHRoZSBub3RpZmljYXRpb24KPiBhcmVhIGluIGxpbnV4IG1pbnQu
-IFdoZW4gSSB0cnkgdG8gbW92ZSBhcm91bmQgdGhlIGJvdHRvbSBwYW5lbCwgaXQgc2VlbXMgdG8g
-YmUKPiBjb21wbGV0ZWx5IGluYWNjZXNzaWJsZS4gVGhlIG9ubHkgdGhpbmcgSSBoZWFyIHdoaWxl
-IG1vdmluZyBpcyBwYW5lbCwgcGFuZWwsCj4gcGFuZWwuLi4uIENhbiB0aGlzIGJlIGZpeGVkIHNv
-bWVob3c/Cj4KPiBJIGN1cnJlbnRseSB1c2luZyBsYXRlc3QgdmVyc2lvbiBvZiBsaW51eCBtaW50
-IG1hdGUgZWRpdGlvbi4KPgo+Cj4gUHMuIFNvcnJ5IGZvciB0aGUgbGFuZ3VhZ2UgZXJyb3JzLCBi
-dXQgSSBzcGVhayBFbmdsaXNoIHF1aXRlIHBvb3JseSwgYW5kIHVzZSBhCj4gdHJhbnNsYXRvci4K
-PiBHcmVldGluZ3MuCj4gTWljaGHFgi4KPgo+Cj4gVyBkbml1IDIxLjA3LjIwMjMgb8KgMTk6MTAs
-IExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gcGlzemU6Cj4gPiBJIHNhaWQgTGln
-aHRkbSBieSBtaXN0YWtlLsKgIFVuZGVyIE1hdGUgdGhlIGRlZmF1bHQgd2luZG93IG1hbmFnZXIg
-c2VlbXMgdG8KPiA+IGJlIE1hcmNvLsKgIFlvdSBjYW4gY2hhbmdlIHRvIHRoZSBvbGRlciBvbmUg
-Y2FsbGVkIE1ldGFjaXR5Lgo+ID4KPiA+IE9uIERlYmlhbiB0aGlzIHByb2NlZHVyZSB3b3Jrcywg
-YW5kIHByb2JiYWJseSB3b3VsZCB3b3JrIG9uIE1pbnQuCj4gPgo+ID4gYXB0IGluc3RhbGwgbWV0
-YWNpdHkKPiA+Cj4gPiBGcm9tIHlvdXIgSUQgYXQgdGhlIGNvbW1hbmQgcHJvbXB0Lgo+ID4KPiA+
-IGdzZXR0aW5ncyBzZXQgb3JnLm1hdGUuc2Vzc2lvbi5yZXF1aXJlZC1jb21wb25lbnRzIHdpbmRv
-d21hbmFnZXIgbWV0YWNpdHkKPiA+Cj4gPiBUaGVuIHJlYm9vdC4KPiA+IFRvIGdvIGJhY2sgdG8g
-TWFyY28KPiA+IGdzZXR0aW5ncyBzZXQgb3JnLm1hdGUuc2Vzc2lvbi5yZXF1aXJlZC1jb21wb25l
-bnRzIHdpbmRvd21hbmFnZXIgbWFyY28KPiA+Cj4gPiBUaGVuIHJlYm9vdC4KPiA+Cj4gPiBZb3Ug
-Y291bGQgdHJ5IGl0IGlmIHlvdSBrZWVwIGdldHRpbmcgaHVuZyBhbmQgc2VlIGlmIGl0IG1ha2Vz
-IGEgZGlmZmVyZW5jZS7CoAo+ID4gTWF5YmUgeW91IGhhdmUgYSBkaWZmZXJlbnQgcHJvYmxlbS4K
-PiA+Cj4gPgo+ID4gT24gNy8yMS8yMyAxMToyNywgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlz
-Y3Vzc2lvbiB3cm90ZToKPiA+PiBHb29kIG1vcm5pbmcsCj4gPj4gSWYgSSBkbyBjaGFuZ2UgbXkg
-V2luZG93IG1hbmFnZXIsIHRoYXQgZG8geW91IHJlY29tbWVuZCBJIHN3aXRjaCB0bz8KPiA+PiBS
-aWdodCBub3csIEnigJltIGFjdHVhbGx5IGluIGEgc2l0dWF0aW9uIHdoZXJlIGEgdGV4dC1iYXNl
-ZCBsb2dpbiBwcm9tcHQKPiA+PiBjb21lcyB1cCwgcmF0aGVyIHRoYW4gdGhlIG9uZSB3aGljaCBp
-cyBhY2Nlc3NpYmxlIHdpdGggT3JjYS4KPiA+PiBUaGlzIGlzIGJlY2F1c2Ugd2UgaGFkIGEgaHVn
-ZSBzdG9ybSBjb21lIHRocm91Z2ggbGFzdCBuaWdodC4KPiA+PiBUaGFua2Z1bGx5IHRob3VnaCwg
-d2UgZGlkbuKAmXQgaGF2ZSBhbnkgc2lnbmlmaWNhbnQgZGFtYWdlIHRvIG91ciBwcm9wZXJ0eSwK
-PiA+PiBvdGhlciB0aGFuIGEgZmV3IHRyZWVzIHRpbHRlZC4KPiA+PiBJIGxlZnQgbXkgTGludXgg
-bWFjaGluZSBvbiBkdXJpbmcgdGhlIHN0b3JtICYgcHJvYmFibHkgc2hvdWxkbid0IGhhdmUuCj4g
-Pj4gSSBhbHNvIGRpZG7igJl0IGhhdmUgaXQgcGx1Z2dlZCBpbnRvIGEgVVBTLgo+ID4+IFRoYW5r
-cywKPiA+PiBKZXNzaWNhIERhaWwKPiA+Pgo+ID4+IC0tLS0tT3JpZ2luYWwgTWVzc2FnZS0tLS0t
-Cj4gPj4gRnJvbTogQmxpbnV4LWxpc3QgPGJsaW51eC1saXN0LWJvdW5jZXNAcmVkaGF0LmNvbT4g
-T24gQmVoYWxmIE9mIExpbnV4IGZvcgo+ID4+IGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbgo+ID4+
-IFNlbnQ6IEZyaWRheSwgSnVseSAyMSwgMjAyMyAxMDowNgo+ID4+IFRvOiBibGludXgtbGlzdEBy
-ZWRoYXQuY29tCj4gPj4gU3ViamVjdDogUmU6IE1pbnQgSW5zdGFsbGF0aW9uPwo+ID4+Cj4gPj4g
-wqAgwqDCoMKgIElmIHlvdSBhcmUgcnVubmluZyBNYXRlLCBzb21ldGltZXMgdGhlIE1hcmNvIHBy
-b2Nlc3MgYmVjb21lcyBodW5nLAo+ID4+IHdoaWNoIGNhdXNlcyBPUkNBIHRvIHNlZW0gaHVuZy7C
-oCBJZiB5b3UgcHJlc3MgT1JDQStzcGFjZSBvciB0cnkgbW92aW5nIHRoZQo+ID4+IG1vdXNlLCBp
-dCBtYXkgZ2V0IHlvdSBvdXQgb2YgdGhlIHNpdHVhdGlvbi7CoCBJJ20gbm90IHJ1bm5pbmcgTWlu
-dCwgYnV0IGl0Cj4gPj4gaGFwcGVucyBvbiBEZWJpYW4gYW5kIFVidW50dSwgYW5kIE1pbnQgaXMg
-ZGVyaXZlZCBmcm9tIFVidW50dS7CoCBBIG1vcmUKPiA+PiBwZXJtYW5lbnQgZml4IGlzIHRvIGNo
-YW5nZSB0byB0aGUgTGlnaHRkbSB3aW5kb3cgbWFuYWdlciwgYnV0IGl0IGlzbid0IGEKPiA+PiBn
-b29kIGxvbmctdGVybSBzb2x1dGlvbi4uCj4gPj4KPiA+Pgo+ID4+Cj4gPj4KPiA+Pgo+ID4+IE9u
-IDcvMjAvMjMgMTY6MTQsIExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6
-Cj4gPj4+IEhpLAo+ID4+PiBPY2Nhc2lvbmFsbHksIEnigJlsbCBleHBlcmllbmNlIE9yY2EgbG9j
-a2luZyB1cC4KPiA+Pj4gV2hlbiB0aGlzIGhhcHBlbnMsIHNvbWV0aW1lcywgaXQncyBvbmx5IGZv
-ciBhIGZldyBzZWNvbmRzICYgb3RoZXIgdGltZXMsIEkKPiA+Pj4gaGF2ZSB0byB3YWl0IGFzIGxv
-bmcgYXMgNSBvciAxMCBtaW51dGVzLgo+ID4+PiBUaGlzIGNhbiBoYXBwZW4gd2l0aCBhbnkgYXBw
-Lgo+ID4+PiBIb3cgY2FuIEkgcHJldmVudCB0aGlzPwo+ID4+PiBJ4oCZbSB3b3JraW5nIHdpdGgg
-YSBEZWxsIHByZWNpc2lvbiA0ODAwIHdoaWNoIGhhcyAxNkdCIG9mIHJhbSAmIGEgMVRCIFNTRC4K
-PiA+Pj4gU28sIGJhc2VkIG9uIHRoYXQsIHdoYXQgZG8geW91IHRoaW5rIHdvdWxkIGNhdXNlIHRo
-ZXNlIGlzc3Vlcz8KPiA+Pj4KPiA+Pj4KPiA+Pj4+IE9uIEp1bCAyMCwgMjAyMywgYXQgMTM6NTUs
-IExpbnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24KPiA+Pj4+IDxibGludXgtbGlzdEBy
-ZWRoYXQuY29tPiB3cm90ZToKPiA+Pj4+Cj4gPj4+PiBKZXNzaWNhLAo+ID4+Pj4KPiA+Pj4+IEkg
-anVzdCByZWNlbnRseSBpbnN0YWxsIG1pbnQgMjEuMiBvbiBhIGxhcHRvcCBhbmQgc28gZmFyIGkg
-bG92ZSBpdCBhcwo+ID4+Pj4gd2VsbC4KPiA+Pj4+Cj4gPj4+PiBSb2RuZXkKPiA+Pj4+Cj4gPj4+
-Pgo+ID4+Pj4gT24gNy8xOS8yMDIzIDA5OjQ4LCBMaW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNj
-dXNzaW9uIHdyb3RlOgo+ID4+Pj4+IEhlbGxvLAo+ID4+Pj4+IEkgYW0gYSBodWdlIGZhbiBvZiBw
-b2RjYXN0cyEKPiA+Pj4+PiBJJ2QgbG92ZSB0byBjaGVjayBvdXQgdGhpcyBwcm9ncmFtIGJ1dCBi
-ZWZvcmUgSSBwcm9jZWVkLCBJJ2QgbGlrZSB0bwo+ID4+Pj4+IGtub3cgaWYgaXQnbGwgd29yayBv
-biBMaW51eCBNaW4/Cj4gPj4+Pj4gSSBqdXN0IHVwZ3JhZGVkIHRvIE1pbnQgMjEuMiBsYXN0IG5p
-Z2h0ICYgYW0gbG92aW5nIGl0IHNvIGZhci4KPiA+Pj4+Pgo+ID4+Pj4+Cj4gPj4+Pj4gVGhhbmtz
-LAo+ID4+Pj4+IEplc3NpY2EgRGFpbAo+ID4+Pj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KPiA+Pj4+IEJsaW51eC1saXN0IG1haWxpbmcgbGlzdAo+ID4+
-Pj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+ID4+Pj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5j
-b20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+ID4+Pj4KPiA+Pj4gX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiA+Pj4gQmxpbnV4LWxpc3QgbWFp
-bGluZyBsaXN0Cj4gPj4+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiA+Pj4gaHR0cHM6Ly9saXN0
-bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+ID4+IF9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gPj4gQmxpbnV4LWxpc3Qg
-bWFpbGluZyBsaXN0Cj4gPj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+ID4+IGh0dHBzOi8vbGlz
-dG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPiA+PiBfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+ID4+IEJsaW51eC1saXN0
-IG1haWxpbmcgbGlzdAo+ID4+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiA+PiBodHRwczovL2xp
-c3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4gPgo+ID4gX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiA+IEJsaW51eC1s
-aXN0IG1haWxpbmcgbGlzdAo+ID4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+ID4gaHR0cHM6Ly9s
-aXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlzdAo+Cj4KCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1h
-aWxpbmcgbGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQu
-Y29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QK
+
+
+-- 
+Jude <jdashiel at panix dot com>
+"There are four boxes to be used in defense of liberty:
+soap, ballot, jury, and ammo.
+Please use in that order."
+Ed Howdershelt 1940.
+
+---------- Forwarded message ----------
+Date: Thu, 27 Jul 2023 23:53:42
+From: Joanmarie Diggs <jdiggs@igalia.com>
+Reply-To: orca@freelists.org
+To: orca@freelists.org
+Subject: [orca] Re: Orca's notification messages feature has been rewritten
+
+Orca should never freeze up, even in Wayland. If you can reliably
+reproduce a freeze, please file a bug and attach a full debug.out.
+Thanks!
+--joanie
+
+On Fri, 2023-07-28 at 00:45 +0100, Harley Richardson wrote:
+> Hello,
+>
+> I'd be interested if there was something in gsettings that allowed you
+> to do that, there's a lot of hidden stuff that gnome doesn't expose.
+> While a mouse movement could be done, there comes the issue of Wayland
+> and if you're doing mouse stuff on Wayland, you could get a situation
+> where it'll just completely freeze Orca up. That's what can happen if
+> you left click on Wayland still and the control doesn't have the actions
+> Orca looks for since the action menu isn't in master or gnome-45from
+> what I can see. Maybe it could do something keyboard related without
+> interrupting itself or causing user inconvenience.
+>
+> Harley
+>
+> On 27/07/2023 19:19, Joanmarie Diggs wrote:
+> > Hey Harley.
+> >
+> > Thanks for testing. I believe this is a gnome thing. And has nothing to
+> > do with accessibility. Here are my steps to reproduce the behavior
+> > without Orca running:
+> >
+> > 1. On another machine, ssh into the machine where the notifications
+> > should be displayed.
+> >
+> > 2. Send two messages quickly via notify-send.
+> >
+> > 3. Do not touch the keyboard or mouse on the machine where the
+> > notifications should be displayed.
+> >
+> > Results: The first message visually pops up and stays on screen. I
+> > walked away for five minutes or so. When I came back, that first message
+> > was still showing. Then I started replying to your message and the first
+> > message immediately disappeared and the second message finally appeared.
+> >
+> > My theory is that it is a "feature." Keeping the message on screen until
+> > the user is presumably viewing it means less likelihood of missing a
+> > message. That of course is inconvenient for those of us who want our
+> > notifications immediately. Haven't had time to figure out if this
+> > configurable in gnome or not.
+> >
+> > Maybe we can add an Orca feature to synthesize a slight mouse movement
+> > periodically when it's not speaking. This would trick gnome-shell (or
+> > whatever) into thinking we're ready to see another message. I am mostly
+> > -- but not entirely -- joking.
+> >
+> > --joanie
+> >
+> > On Thu, 2023-07-27 at 18:52 +0100, Harley Richardson wrote:
+> > > Hello,
+> > >
+> > > This works great so far, but there's one instance where it seems to fall
+> > > over. Not sure if this is a gnome thing or an Orca thing, but it's been
+> > > around for ages and I thought the rewrite would fix it. I get a decent
+> > > amount of messages from a few things. WhatsAppDesktop, telega, Discord
+> > > and other stuff, all of which are effected. After a while of
+> > > notifications puttering along, there will be times when they just don't
+> > > read. I'll hear a sound and nothing else. But if I press any key,
+> > > control, shift, you name it, after a few seconds I'll hear the
+> > > notification being read as usual. It doesn't matter what app I press the
+> > > key in either. I know that mpv basically stops orca from doing anything,
+> > > and it did the same thing even then. Is there something the gnome
+> > > notification daemon is doing that Orca should be looking out for? It
+> > > happens more often than not when I haven't been pressing keys for a bit
+> > > due to me listening to music, then when I press a key it's like
+> > > something triggers and the notification reads after a bit. It won't read
+> > > after it's gone away off the screen and I press a key though, so to me
+> > > it's suggestive of events not being fired.
+> > >
+> > > Harley
+> > >
+> > > On 26/07/2023 21:39, Joanmarie Diggs wrote:
+> > > > Hey all.
+> > > >
+> > > > Inspired by Arkadiusz's observation that arrowing in notifications
+> > > > doesn't work in master, thanks to the new key handling bugs, I basically
+> > > > completely rewrote Orca's notification messages feature. From the commit
+> > > > message:
+> > > >
+> > > > * Keep the last, previous, and list bindings as-is
+> > > > * Add a binding for next
+> > > > * When the show-list command is used, present them in a Gtk dialog
+> > > > * Add and present relative timestamps with each message
+> > > > * Add ability to clear all notifications with the dialog
+> > > > * Create dedicated keybinding group for the new notification presenter
+> > > >     (Yes, we should and will create more dedicated keybinding groups.)
+> > > > * Present notifications immediately rather than queueing their event
+> > > >     up. This will hopefully help solve the flaky bug where Orca doesn't
+> > > >     present the full (or any) text from the notification. That bug is
+> > > >     due to the notification popup being destroyed before we have its
+> > > >     content.
+> > > >
+> > > > This should solve the broken arrowing because arrowing is no longer a
+> > > > special Orca thing that should be a command because you're in a "mode."
+> > > > If you bind and use the command to show the list, an honest-to-goodness
+> > > > dialog with a real list whose navigation is provided by Gtk3 will
+> > > > appear. Problem solved. And yes, this arguably does fall under the
+> > > > heading of "well that escalated quickly." *grins* Jokes aside, the fewer
+> > > > off-screen special modes we have, the less likely we'll get bitten by
+> > > > key handling bugs. And the less likely sighted users unfamiliar with
+> > > > Orca will accidentally find themselves in a mode they cannot see and
+> > > > don't know what to do.
+> > > >
+> > > > I'm afraid this change will likely break any keybindings you had for
+> > > > this feature. On a happy note, the notification message commands have a
+> > > > dedicated group in the keybindings list. This means that you can arrow
+> > > > to the default group and collapse it, arrow to the unbound group and
+> > > > collapse it, etc. soon you'll find the notifications presenter group.
+> > > >
+> > > > As indicated above, I'll be doing more of these groups so we don't have
+> > > > "default" keybinding soup.
+> > > >
+> > > > Anyhoo, please give it a spin and let me know what you think.
+> > > >
+> > > > Thanks!
+> > > > --joanie
+> > > > _______________________________________________
+> > > > orca mailing list
+> > > > orca@freelists.org
+> > > > https://www.freelists.org/list/orca
+> > > > Orca wiki: https://wiki.gnome.org/Projects/Orca
+> > > > Orca documentation: https://help.gnome.org/users/orca/stable/
+> > > > GNOME Universal Access guide: https://help.gnome.org/users/gnome-help/stable/a11y.html
+> > > _______________________________________________
+> > > orca mailing list
+> > > orca@freelists.org
+> > > https://www.freelists.org/list/orca
+> > > Orca wiki: https://wiki.gnome.org/Projects/Orca
+> > > Orca documentation: https://help.gnome.org/users/orca/stable/
+> > > GNOME Universal Access guide: https://help.gnome.org/users/gnome-help/stable/a11y.html
+> > >
+> > _______________________________________________
+> > orca mailing list
+> > orca@freelists.org
+> > https://www.freelists.org/list/orca
+> > Orca wiki: https://wiki.gnome.org/Projects/Orca
+> > Orca documentation: https://help.gnome.org/users/orca/stable/
+> > GNOME Universal Access guide: https://help.gnome.org/users/gnome-help/stable/a11y.html
+> _______________________________________________
+> orca mailing list
+> orca@freelists.org
+> https://www.freelists.org/list/orca
+> Orca wiki: https://wiki.gnome.org/Projects/Orca
+> Orca documentation: https://help.gnome.org/users/orca/stable/
+> GNOME Universal Access guide: https://help.gnome.org/users/gnome-help/stable/a11y.html
+>
+
+_______________________________________________
+orca mailing list
+orca@freelists.org
+https://www.freelists.org/list/orca
+Orca wiki: https://wiki.gnome.org/Projects/Orca
+Orca documentation: https://help.gnome.org/users/orca/stable/
+GNOME Universal Access guide: https://help.gnome.org/users/gnome-help/stable/a11y.html
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
