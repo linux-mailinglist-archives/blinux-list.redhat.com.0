@@ -2,42 +2,42 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 69DDA78A6FD
-	for <lists+blinux-list@lfdr.de>; Mon, 28 Aug 2023 10:02:59 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6E6C778B2B6
+	for <lists+blinux-list@lfdr.de>; Mon, 28 Aug 2023 16:12:05 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1693209778;
+	s=mimecast20190719; t=1693231924;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=1G8nnqgyaUF/msaiRWShoz1UHMmePE0CUL4p52Jyag8=;
-	b=IiH48x+66nc2N4Q9tzgf2zslot4yitI6Iysm0DRPNWVIkeWq7BuSuVKVL6Kr1Wsi/yvY4M
-	/rmQSfR+IUKQChk7g4aLnxc3JD32luGRuWrFoYf0GGaqkI7ICzr7vcK5eBOnLpPrDGPAxL
-	sLGlF/DKQaDesa9GbU0hSGVuOZL6IpA=
-Received: from mimecast-mx02.redhat.com (66.187.233.73 [66.187.233.73]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-659-Ee-wcTVqMmeNRt-0UT1-Eg-1; Mon, 28 Aug 2023 04:02:55 -0400
-X-MC-Unique: Ee-wcTVqMmeNRt-0UT1-Eg-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+	bh=Oksf++6v9j0wpreGuS1ERmVEEZyeOIELCfUr3/KADBk=;
+	b=D+SkG4/SHYkcGEvNDZb83N+OZBD6kvrUJudSjP9Xe2S7xlfDe7qy5kXLWBtN3WSEECF0Uo
+	HBLg8jgaKBynrivKbL8TtrqF6fjdZ1btCvtjciV1HgS3KMXv5czfmKVZtsly3M5F581hbE
+	gvoLpgIbnPrfca4Y2QZTFN2UBej4e0U=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-61-AbCpbNTLOGqtViqlyYM6Yg-1; Mon, 28 Aug 2023 10:12:00 -0400
+X-MC-Unique: AbCpbNTLOGqtViqlyYM6Yg-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 808CC3815EEF;
-	Mon, 28 Aug 2023 08:02:53 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5A0AF85C710;
+	Mon, 28 Aug 2023 14:11:59 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 49C822026D4B;
-	Mon, 28 Aug 2023 08:02:47 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 1FF10140E962;
+	Mon, 28 Aug 2023 14:11:54 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id ADA2019465BA;
-	Mon, 28 Aug 2023 08:02:36 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 1225F19465B9;
+	Mon, 28 Aug 2023 14:11:53 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Mon, 28 Aug 2023 04:02:32 -0400
+Date: Mon, 28 Aug 2023 10:11:47 -0400
 To: blinux-list@redhat.com
-Subject: knoppix torrent status
+Subject: knoppix start?
 MIME-Version: 1.0
-Message-ID: <mailman.206.1693209756.1829980.blinux-list@redhat.com>
+Message-ID: <mailman.259.1693231912.1829978.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -53,15 +53,16 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-ctorrent does not work.  It had support last in 2006 which is probably why
-it doesn't work.  I had success with lftp and downloaded using the local
-torrent file.
+When booting with knoppix I get female message saying starting
+initialization and that's all that happens.
+Is this were you key in your cheatcodes or should the cheatcodes have been
+keyed in before that announcement?
 
 
 -- Jude <jdashiel at panix dot com> "There are four boxes to be used in
