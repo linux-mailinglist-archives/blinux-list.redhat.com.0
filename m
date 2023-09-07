@@ -1,48 +1,43 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 010A7794048
-	for <lists+blinux-list@lfdr.de>; Wed,  6 Sep 2023 17:24:10 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id C31C07971AB
+	for <lists+blinux-list@lfdr.de>; Thu,  7 Sep 2023 13:18:35 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1694013850;
+	s=mimecast20190719; t=1694085514;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=k77sxenHr2ixIZ/Xr0gWxtkpt+bYgdq+wduR8D7Pi6w=;
-	b=Vl+ewEwVZSmZsaXQFNXiBFrX83SHgDvJY7v/cRcgG0TYBKrsR7eCApuN6VeEzI2tBhWijU
-	jA+dJYYJX1LBMO9efdOSQ+BRjl6L8hqcrjZ8dexTu8rITECKe4gkMMZSBTNJ4G5K1xEJru
-	9i1VZ5t4TWMLdysIytuehrrEJV5Pbns=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-387-eSnf1E6zOm26aA6FSQwmTg-1; Wed, 06 Sep 2023 11:24:06 -0400
-X-MC-Unique: eSnf1E6zOm26aA6FSQwmTg-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	bh=AqcD7WNXWVYec5scZM8st5ZFoj/VWT0j4FEVj4m6uUI=;
+	b=Pr9W7thQGfO8ezEo9alHCEQPDy2/FC0oqbSmKde0se7Jr+ufpHNVt/zwMjiqno+sshkfC3
+	JIsHuBJaS2sxLy4+4XDJpC0C+eOlKnJRU9swT+ezwPJ6yLUAsSDX1v0hrF94AdoghI8GJh
+	dm0CmExXisVqNGtxOwIXPoCZ8PCTnoI=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-590-IEvcHkYHMkOMboc9IrkZ0A-1; Thu, 07 Sep 2023 07:18:31 -0400
+X-MC-Unique: IEvcHkYHMkOMboc9IrkZ0A-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4A74A3C1C984;
-	Wed,  6 Sep 2023 15:24:05 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 944B9101A529;
+	Thu,  7 Sep 2023 11:18:29 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 99C3840411F;
-	Wed,  6 Sep 2023 15:24:01 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 57D5F21EE56B;
+	Thu,  7 Sep 2023 11:18:23 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 99E8719465A2;
-	Wed,  6 Sep 2023 15:23:50 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 10CB819465A2;
+	Thu,  7 Sep 2023 11:18:23 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Wed, 6 Sep 2023 10:17:05 -0500
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: User/Developer feedback wanted: How do you write about your
- software on your website?
-Mail-Followup-To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <mailman.852.1694007846.353785.blinux-list@redhat.com>
+Date: Thu, 7 Sep 2023 07:18:18 -0400
+To: blinux-list@redhat.com
+Subject: gtorrent script
 MIME-Version: 1.0
-In-Reply-To: <mailman.852.1694007846.353785.blinux-list@redhat.com>
-Message-ID: <mailman.892.1694013829.353791.blinux-list@redhat.com>
+Message-ID: <mailman.1572.1694085502.353787.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,89 +53,54 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Tim here with a couple ideas from maintaining my own website.
+What follows is a rather reliable torrent download script.
+It uses aria2 to download torrents and runs on a command line.
+It also uses gtorrent.inp which you create with one torrent url on each
+line.
+I control the download torrent by commenting the urls I don't want
+downloaded.
+I haven't figured out how to have aria2 download one torrent then move
+onto the next torrent while continuing to seed the last url yet.
+That maybe is for later.
+The other file this script creates is gtorrent.log.  That file saves
+output of aria2 for users to read later.
+If you run gtorrent.sh, you can also read output of aria2 on the terminal
+as it starts up.
+I read long enough to find if the torrent I want to download actually
+starts downloading then hit control-z to put gtorrent.sh into the
+background.
+To check gtorrent.log, I use wc -l gtorrent.log a few times to see if the
+number of lines increases.  When it doesn't any longer, I use grep -i
+"download was complete" gtorrent.log
+To check and find if aria2 finished its download and has started seeding.
+Then grep -i seeders gtorrent.log gets me the number of seeders and number
+of leechers on the torrent.
+cut here.
 
-It sounds like all the content is fairly static (not dynamically
-accepting comments, or interactively rendering things based on
-user-input) so it sounds like a good use-case for any the zillion
-"Static Site Generators" ("SSG") out there.  I happen to use Nikola,
-but know a lot of folks like Hugo or Jekyll.  Most folks author
-content in Markdown (though I prefer to code in raw HTML as I've
-been using that since the mid 90s).  Then, the SSG can take all
-those input files, churn through them, and spit out a website with
-proper interlinking, indexes, RSS feeds, tags, timestamps, etc.
+#!/usr/bin/env bash
+# file: gtorrent.sh - get torrents with aria2c.
+# dependencies: aria2.
+GF=gtorrent.inp
+if test -f "$GF";  then
+   aria2c --check-integrity=true --log gtorrent.log -d /home/jude/Downloads --bt-stop-timeout=60 --bt-max-peers=0 --bt-min-crypto-level=arc4 --bt-force-encryption=true --seed-time=480 --seed-ratio=2 --continue=true --input-file=gtorrent.inp
+else
+    echo "useage: put download torrent urls one per line in file gtorrent.inp and try again."
+fi
 
-The other thing to consider is where you want your canonical
-page-content to reside:  in your Github repo(s) or in your blog.
-If you prefer to keep the canonical description in Github pages,
-you can create an index-page of links to those repos and their
-read-me files.  Alternatively, you can keep your blog as the canonical
-documentation source (whether one page for everything or one page
-per project), and then copy those documents into your Github repos
-as part of the deployment process.
+cut here.
 
-Both work for me.  For my own stuff, anything I publish to Github,
-I keep the documentation alongside it there, and just reference it
-with a link from my blog if needed.
-
--tim
-
-On 2023-09-06 13:43, Linux for blind general discussion wrote:
-> I would like my website to conveniently present my software work. I.E. 
-> The reader clicks on software, where they can see all my applications, 
-> filter them by platform and so on. However, I can't decide how to 
-> present the individual programs.
-> 
-> One approach is to simply use the readmes from GitHub. I'm usually 
-> pretty consistent when writing these, each important readme has to 
-> contain an introduction (what's the program about), build instructions, 
-> usage instructions, additional documentation (if necessary), 
-> acknowledgements and license information.
-> 
-> I guess that quite works for a website in terms of size, it also doesn't 
-> introduce any burden on writing and maintaining. However, when thinking 
-> about this solution, I can't get rid of feeling it's sort of cheap. Like 
-> yes, the user gets thorough information, but when they click the Github 
-> link, they will see exactly the same text and the first idea will be 
-> "Hey, this person didn't really put a lot of effort into the site". 
-> Plus, the usual scheme of readmes is something so much associated with 
-> GitHub I'm afraid it would be sort of weird to see it as a webpage.
-> 
-> Another approach is to simply write a new page for each program. This 
-> quite works for bigger things, where you need to explain the concepts, 
-> reasoning behind them, you may want to link other resources etc. But, 
-> what about the smaller-ones, like:
-> https://github.com/RastislavKish/mtg
-> 
-> As helpful as this little cute utility is, it takes like three sentences 
-> to describe, and what then? You end up with a blank page with one or two 
-> lines of text on the top. That doesn't sound particularly convincing, 
-> either.
-> 
-> as a user, how would you expect a website to present you a software 
-> collection? Or as a developer, if you have multiple bigger / smaller 
-> projects going on, how do you write about them under one roof?
-> 
-> 
-> Best regards
-> 
-> 
-> Rastislav
-> 
-> 
-> 
-> _______________________________________________
-> Blinux-list mailing list
-> Blinux-list@redhat.com
-> https://listman.redhat.com/mailman/listinfo/blinux-list
-> 
+-- 
+Jude <jdashiel at panix dot com>
+"There are four boxes to be used in defense of liberty:
+soap, ballot, jury, and ammo.
+Please use in that order."
+Ed Howdershelt 1940.
 
 _______________________________________________
 Blinux-list mailing list
