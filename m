@@ -1,37 +1,37 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id E5F837AD71A
-	for <lists+blinux-list@lfdr.de>; Mon, 25 Sep 2023 13:39:18 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 14E9C7AD850
+	for <lists+blinux-list@lfdr.de>; Mon, 25 Sep 2023 14:55:45 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1695641957;
+	s=mimecast20190719; t=1695646544;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=AWu9E3iajDZ5PzA/YcyyIPq9s2oY4bPx8+G+cN0qa4Q=;
-	b=f1JdPkMOLGOOG6uS/o24RAH4V0uALKAnMCunY9hkV6C9YwfMdxIxAkbvJvbUq6F2WtB2pc
-	6GbrcZzBQIq07jlz+3NosMN5W5mc6hWzTLHtfkibQOoVwxm1yFpKF4JavAAg03BJCZWT2L
-	kLy3dq1a9pAsmbFNLJ2u8ZjwKS80kvs=
+	bh=ie5DIb8I2LcqudSMxH66r0BHWla+p8J88wBlLan3ekY=;
+	b=TAmEeYmhfpyuiVQHkwPZnWDQlksC8Q2tjHzKwhP5GntefXOHQ3lbIZHKfO94Oe+Hx2VVQr
+	uCNfD7waD74GJ+8VItc950OdSG6Xrzi6KRXDM4GNEUWdfwq3ea5FBEfM+VDogIJOxtuykw
+	QSxzi+Azce6tTFy1Un1AytZosNhPP9w=
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-135-6H4j_gu1Ma-i6CcFVxUrLA-1; Mon, 25 Sep 2023 07:39:15 -0400
-X-MC-Unique: 6H4j_gu1Ma-i6CcFVxUrLA-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+ us-mta-352-smdCja6vMI2aKtGQbE_TlA-1; Mon, 25 Sep 2023 08:55:41 -0400
+X-MC-Unique: smdCja6vMI2aKtGQbE_TlA-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9E7F43822547;
-	Mon, 25 Sep 2023 11:39:13 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 186F03816C80;
+	Mon, 25 Sep 2023 12:55:39 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 976612026D4B;
-	Mon, 25 Sep 2023 11:39:04 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 3809851E3;
+	Mon, 25 Sep 2023 12:55:18 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id C79FC19465A8;
-	Mon, 25 Sep 2023 11:39:03 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 7578819465A8;
+	Mon, 25 Sep 2023 12:55:17 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
 To: blinux-list@redhat.com
@@ -43,8 +43,8 @@ Comments: In-reply-to Linux for blind general discussion
  <blinux-list@redhat.com>
  message dated "Sat, 23 Sep 2023 00:20:12 +0200."
 MIME-Version: 1.0
-Date: Mon, 25 Sep 2023 06:38:53 -0500
-Message-ID: <mailman.294.1695641943.4021072.blinux-list@redhat.com>
+Date: Mon, 25 Sep 2023 07:55:06 -0500
+Message-ID: <mailman.291.1695646516.4021078.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -60,82 +60,59 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.5
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-ID: <11190.1695641933.1@wb5agz.lan>
+Content-ID: <11577.1695646506.1@wb5agz.lan>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-I appreciate all this information because I got in a bit of a
-hurry and ended up at the wrong site and the web monster showed
-me a 3-GB image for slint which I downloaded.  The download went
-fine and the image flowed like good wine on to a 4-GB usb stick.
+I am not sure what is wrong but everything looks normal in the
+image-getting phase.  I lifted this right out of the handbook:
 
-slint-14.2.iso?viasf=1
+wget https://slackware.uk/slint/x86_64/slint-15.0/iso/slint64-15.iso
+wget https://slackware.uk/slint/x86_64/slint-15.0/iso/slint64-15.iso.sha256
 
-Whatever this is, it's not a bootable image but probably all the
-sources which is a nice thing to have but won't do the job at
-hand right now.  I should mount it and see what's there but it
-produced a thumb drive with 1 single partition of type hidden
-according to fdisk -l /dev/sdx.
+	The results are as follows:
 
-This whole project is going fairly nicely in that my wife helped
-me turn off secureboot and change the boot order to usb first
-then internal drive and, if the internal drive wasn't sick, I'd
-be up and running.
+--2023-09-25 07:18:15--  https://slackware.uk/slint/x86_64/slint-15.0/iso/slint6
+4-15.iso
+Resolving slackware.uk (slackware.uk)... 216.119.155.61, 2a02:2498:e004:2a::a861
+Connecting to slackware.uk (slackware.uk)|216.119.155.61|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2023-09-25 07:18:16 ERROR 404: Not Found.
 
-	Another debian-11 distro on a different thumb drive jups
-right in to the installation routine if you type s at the beeps
-and the system seems to just love it.
+--2023-09-25 07:18:16--  https://slackware.uk/slint/x86_64/slint-15.0/iso/slint6
+4-15.iso.sha256
+Resolving slackware.uk (slackware.uk)... 216.119.155.61, 2a02:2498:e004:2a::a861
+Connecting to slackware.uk (slackware.uk)|216.119.155.61|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2023-09-25 07:18:17 ERROR 404: Not Found.
 
-	Since the keyboard is a laptop keyboard, getting a
-secondary tty is a bit tricky.  I had good beginners' luck after
-getting to the partitioner but I haven't been able to duplicate
-that more than once.  I held alt+F1, I think and got the second
-console and was able to look around in /dev.  The mentally-ill
-internal drive, however, was nowhere to be found and the only
-/dev/sdx listing was my boot drive for Linux.
+	In the past, I have occasionally had urls fail and it was
+my fault because I had written some perl code to make reading
+email messages and the like read more smoothly by removing some
+8-bit charactors.  This did, in fact clean things up but it's
+like fire, a wonderful servant but a terrible master.  It made
+things look fine but sometimes altered punctuation marks and
+special symbols so that they were either missing or mangled and
+so I thought I had gotten rid of that helper code I had written
+for the output handler so I don't know if that bug has bitten
+again or what.
+urls are where this happens most often.
 
-	I killed everything and restarted but couldn't get the
-second console or any of the others to show but the partitioner,
-this time could see every drive in the system and their
-descriptions were spot on so I could have installed then had I
-wanted to do so.
+	I put a textual screen shot of how the wget went so
+whatever happened, it is sneaky.
 
-	I could see that the internal drive is a Kingston ssD
-with 2 terabytes and all the partitions including Microsoft's
-partition were listed.  I am sorely tempted to plug a real
-keyboard in to a usb converter which has a number pad like the
-good Lord meant keyboards to have, I mean a real number pad, not
-these fake ones that only give you numbers but have no numlock to
-cycle back and forth.
+	Anyway, thank you for your help.  I am sure that this
+should get working soon as I believe that system is probably okay
+except for the corrupted Windows drive and I may have to find a
+usb instance of Windows 11 for that issue but that's for another
+list about the care and feeding of Windows 11.  For here and now,
+the only problem is that the wget is coming up with 404's all
+round.
 
-	When I was going to the school for the blind, they
-started us in typing on QWERTY keyboards back in 1962 when I was
-in the Fifth grade so it's nice when stuff stays in the usual
-place.
-
-	That time when I could see all the drives on the system
-and could have installed Linux, I kept getting a really nice
-keyboard help instead of the secondary consoles so I don't know
-what changed but I couldn't call them up any more.
-
-	The keyboard help said F1 when I pressed the key to the
-right of Escape so alt + that should have switched to tty1 from
-tty0.
-
-	Anyway, I'll try your suggestion and see if I get slint
-when I put that image in.
-
-	When I get Windows 11 working again, I will have a laptop
-with windows  11 or a Linux laptop if I plug in the slint image,
-hopefully the correct one this time.
-
-	I do see that the CMOS clock is right in that if I do the
-date command from /dev/tty1, I see a utc date that is appropriate
-for my time zone.  Older Windows systems set the CMOS clock based
-on local time so this one is new enough to do it the right way.
+Martin
 
 Linux for blind general discussion <blinux-list@redhat.com> writes:
 > Hi Martin,
