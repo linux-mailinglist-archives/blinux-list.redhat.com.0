@@ -2,82 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0F05D7AD939
-	for <lists+blinux-list@lfdr.de>; Mon, 25 Sep 2023 15:34:08 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 676AC7AD969
+	for <lists+blinux-list@lfdr.de>; Mon, 25 Sep 2023 15:41:50 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1695648848;
+	s=mimecast20190719; t=1695649309;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
-	 list-unsubscribe:list-subscribe:list-post:autocrypt:autocrypt;
-	bh=aCSxRgH2bwqz7bLqk1+/tY5uhX4EAso2g1sHJO8ypLY=;
-	b=Ej74TmVg8SW/moZV6n8WPyYntC5iwzR8Ta1uYoWgsCojAa6qA0kWy0+HegLiYSYepokyEo
-	z4Xqt9l0Hhc2OrU7ezIjtl/ZORP42oAmQXTN/do3I9ZJiJhAJidVwokd3UA6xQ+H4n2RfO
-	P6iCfLO148wDs1qQ+BXzyqYV+MH3xZ8=
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-631-AwOBrv61PDyZ79cONgIzag-1; Mon, 25 Sep 2023 09:33:59 -0400
-X-MC-Unique: AwOBrv61PDyZ79cONgIzag-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+	 list-unsubscribe:list-subscribe:list-post;
+	bh=w45bBJYhApb3Qe0VtT412uxQO865STB93kslk2I/YHw=;
+	b=h762IxRPy1taeE5xwy2NSoVTeuvOMWLmnntyKkCX8vW3Okl4GkNOImj4yAQv7/0MJWkwf/
+	0pUINN4ewUGVSiJ5bSCaLNrSufAoID7Tp29NeABTNV+owSM8XDn11N+sjxACiDBsocs7mY
+	MP4ZgG8qC5bbIOhM2VaXUAXz50rm7nU=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-277-I72MdzrlNheZRe_-BjYK3w-1; Mon, 25 Sep 2023 09:41:44 -0400
+X-MC-Unique: I72MdzrlNheZRe_-BjYK3w-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2714F1C09A46;
-	Mon, 25 Sep 2023 13:33:58 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CEA9B800045;
+	Mon, 25 Sep 2023 13:41:41 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 43778711297;
-	Mon, 25 Sep 2023 13:33:36 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 8B3C040C2064;
+	Mon, 25 Sep 2023 13:40:41 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 5B7D319465A4;
-	Mon, 25 Sep 2023 13:33:34 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 2A33219465B1;
+	Mon, 25 Sep 2023 13:40:41 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Mon, 25 Sep 2023 09:33:26 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+Date: Mon, 25 Sep 2023 09:40:37 -0400
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Talking Images for 64-bit Laptop
-To: blinux-list@redhat.com
+In-Reply-To: <mailman.294.1695641943.4021072.blinux-list@redhat.com>
 References: <mailman.2112.1695416202.2242621.blinux-list@redhat.com>
  <mailman.2216.1695421961.2242620.blinux-list@redhat.com>
  <mailman.294.1695641943.4021072.blinux-list@redhat.com>
-Autocrypt: addr=jason@jasonjgw.net; keydata=
- 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
- Jlx6Ar305Q==
-In-Reply-To: <mailman.294.1695641943.4021072.blinux-list@redhat.com>
-Message-ID: <mailman.309.1695648813.4021072.blinux-list@redhat.com>
+MIME-Version: 1.0
+Message-ID: <mailman.258.1695649240.4021075.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -93,20 +58,25 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Note that if you're in a graphical environment, switching to a virtual 
-terminal is achieved with ctrl-altF1, ctrl-alt-F2, etc., and at least 
-one of those terminals will be taken up by your graphical session. These 
-days, tty1 is usually devoted to the graphical session; possibly tty2 as 
-well.
+Have you tried:
+https://slackware.uk/slint/x86_64/slint-15.0/iso/slint64-15.0-5.iso
 
-On 25/9/23 07:38, Linux for blind general discussion wrote:
+
+-- 
+Jude <jdashiel at panix dot com>
+"There are four boxes to be used in defense of liberty:
+soap, ballot, jury, and ammo.
+Please use in that order."
+Ed Howdershelt 1940.
+
+On Mon, 25 Sep 2023, Linux for blind general discussion wrote:
+
 > I appreciate all this information because I got in a bit of a
 > hurry and ended up at the wrong site and the web monster showed
 > me a 3-GB image for slint which I downloaded.  The download went
@@ -178,24 +148,26 @@ On 25/9/23 07:38, Linux for blind general discussion wrote:
 > on local time so this one is new enough to do it the right way.
 >
 > Linux for blind general discussion <blinux-list@redhat.com> writes:
->> Hi Martin,
->>
->> to clarify, I have provided an image of an installed system as you
->> requested:
->> https://slackware.uk/slint/x86_64/slint-14.2.1/minislint/README.minislint
->> but it was for a previous Slint version.
->>
->> You'd be better off installing the most recent version in an USB stick
->> (or a SD
->> card in an USB enclosure)  as indicated in:
->> https://slint.fr/en/HandBook.html#_install_slint
->>
->> Cheers,
->> Didier
+> > Hi Martin,
+> >
+> > to clarify, I have provided an image of an installed system as you
+> > requested:
+> > https://slackware.uk/slint/x86_64/slint-14.2.1/minislint/README.minislint
+> > but it was for a previous Slint version.
+> >
+> > You'd be better off installing the most recent version in an USB stick
+> > (or a SD
+> > card in an USB enclosure)  as indicated in:
+> > https://slint.fr/en/HandBook.html#_install_slint
+> >
+> > Cheers,
+> > Didier
+>
 > _______________________________________________
 > Blinux-list mailing list
 > Blinux-list@redhat.com
 > https://listman.redhat.com/mailman/listinfo/blinux-list
+>
 >
 
 _______________________________________________
