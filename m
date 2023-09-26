@@ -2,74 +2,51 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id DE7EB7ADC6E
-	for <lists+blinux-list@lfdr.de>; Mon, 25 Sep 2023 17:55:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0C5617AEE48
+	for <lists+blinux-list@lfdr.de>; Tue, 26 Sep 2023 15:59:45 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1695657344;
+	s=mimecast20190719; t=1695736784;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
-	 list-unsubscribe:list-subscribe:list-post:autocrypt:autocrypt;
-	bh=ep/Q4l/JopzJf1GEoA0FvZ4YtjzoMIiocHPGq9fyD8M=;
-	b=avw9yVnKJ2baCrE03Agdx5N1koVE94yZdWRwDbSfLaq9Y0kIbYxuVHwI37a5PVhWwIIO8l
-	AJeGOgXBLbJdwBvBY3mJT1bayaXdRE84RxVf5LTUVbPdbra4kJcsYBOcFyMathUs8juDtO
-	GDPJK7tQFNicSRaEhPUNscHnZlihYGM=
+	 list-unsubscribe:list-subscribe:list-post;
+	bh=jXHNEDirUXknCCfs8JPnPSHF0z6cNG06C7Av2/kQCFg=;
+	b=UcCnFtDEt1321hmg/QxGNKRFZp71yTKcCV3ZxzJvQhBwVbzlaHri8gHpOcHpNYXDEFZz5X
+	mTdxPXKITAajvszFAbTrqx+5h12KhASDUV+5OGTV7cGx9MY+HeXkElnBlFbxOU/0vrawBL
+	g8UX8Gb9s/itzsX9yexdPVe9+z3+ymU=
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-332-6yFWfDugNSePgquzQXVM6g-1; Mon, 25 Sep 2023 11:55:40 -0400
-X-MC-Unique: 6yFWfDugNSePgquzQXVM6g-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+ us-mta-492-QSlJldH_NjCc47ufTZtp2g-1; Tue, 26 Sep 2023 09:59:40 -0400
+X-MC-Unique: QSlJldH_NjCc47ufTZtp2g-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BDA7C29AB402;
-	Mon, 25 Sep 2023 15:55:36 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2541B3C11C6A;
+	Tue, 26 Sep 2023 13:59:38 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 6AF7540C2064;
-	Mon, 25 Sep 2023 15:55:36 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 837132026D4B;
+	Tue, 26 Sep 2023 13:59:10 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id D4B6419465B1;
-	Mon, 25 Sep 2023 15:55:25 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id E498219465B1;
+	Tue, 26 Sep 2023 13:58:53 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Mon, 25 Sep 2023 17:51:39 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Talking Images for 64-bit Laptop
 To: blinux-list@redhat.com
+Subject: Re: Talking Images for 64-bit Laptop
+In-reply-to: <mailman.367.1695657175.4021075.blinux-list@redhat.com>
 References: <mailman.2112.1695416202.2242621.blinux-list@redhat.com>
  <mailman.2216.1695421961.2242620.blinux-list@redhat.com>
- <mailman.294.1695641943.4021072.blinux-list@redhat.com>
- <mailman.258.1695649240.4021075.blinux-list@redhat.com>
- <mailman.328.1695651782.4021072.blinux-list@redhat.com>
- <mailman.329.1695652180.4021078.blinux-list@redhat.com>
-Autocrypt: addr=didier@slint.fr; keydata=
- xsBNBFY6fG8BCADH4Hf/OaE2MwXRFMrU/9oDd+YPqR/wkhmIv0veDio84fsWA5qMz1De7TEv
- dNuxIVYTznuVOd/9lpdfxQ1KV9rgD7yoBPLmjbQA1vVjB+1QylIQUV0B9AYFUsxZP32Ic2pg
- TS3US/WiZyx+/jS50ri4kvT9iDtIEu7WBWFr8YMOoq3oLkHI8Y7gBG0WsK9XYN09glhtI+bA
- jLPr/ezwEg5M3FDb4U7XFq7GcA6EEzanKMAOHdZl3lta7dv5gpgdj+38j5jPfV1cJW+J1fha
- 63X72xxXGs7V6J7NGpnW7SAKfTAMXsPXZwwGIuqMQs1Z89I+2ZPJPOoV8zMncTsWzHStABEB
- AAHNH0RpZGllciBTcGFpZXIgPGRpZGllckBzbGludC5mcj7CwHkEEwEKACMCGwMHCwkIBwMC
- AQYVCAIJCgsEFgIDAQIeAQIXgAUCYZVPGAAKCRDVAgLvYMA+6pOxCADB2pKmm/LgncWREzob
- Z6M+RsvgzvGS/48ik/E/TH2KyPO/hn+Fzbj4MmMwQdqz5YPfdBmkcM7WyDzkPaukzfS8QUvl
- VKyWQ92pqpbI/JUeShI+DLMKV7LZxiPinMBuKmpyLdpxuhk08g2+6F8X6ztbl8mbXQy5jcIZ
- zKQ442N0D4wnn8VXM0tb0uonmqc6ly7dcmkQ/GI7Q0tF/hkn4n3g1Lh6+K1jBqEIC9vn/c6X
- yf67ec+CwbE0GtgVM1FR1R0J1y/6vkYWr7gZHhnzgwKr6k1wzCGkVUyCSpFwB2oeANT9c0qP
- rgn4YjoYQIHS3vMWd630vRyOfqwetWXmVjPxzsBNBFY6fG8BCACqDQKHSw0ElDkwPPpNguL0
- ujOyygO30xlLyfW9pWOEycHSLhLzvDTlFkvr5IxvyCDBIFBdzpkeQqh1+ZxrFliwWyj+9/ro
- JlIjxeAyNs2xQZ7tQM6K5xtbUs8O5YtkCCO3OegAiLgmzzgxes79Qy+V3ciKbl+vrsNu7T9r
- o3zZhyinci1eOCcKEtXFPQW5P4woB+6+JheN9pIiDkjojmdC+xkvDadP7kJYKp19Itys/CbN
- vxEoOLsgeJhsZSmNU2QNhXkLfr7+AC99fb/c5ZDTNPRBqgLJCp+gTxn1QVJrAbq2OP3refmS
- RxdA3yUDMjxEeHwDNZJL9aEtTDlTzPk5ABEBAAHCwF8EGAEKAAkCGwwFAmGVT44ACgkQ1QIC
- 72DAPuqjhwgApl0pdNIrbU+8Hn0mr3CTEXxPaTbAU2bYFPDiBaEvXsBGoz8xJ6EZQnywbC7o
- l5wFtVT08LKDewLHaL78zS+Q8rv5sNmWwzMAaipFtZg67e/rU3V5tw4E12nUghyMzQpngUur
- lZPMFlB9IZN9681cXuv2sZzAZlR2+3PsSAftpPQxReoSC7hj3dfiCiAis19G3A184HClA5MB
- I5heGinSz7R/AXhkiej8HZZzz9ZPkS7aeL8HsZKqCwZvViutbGmpm+V70JnbRAHLFjYb+Se3
- rdUWWAXcca4Ry8HCLTo5iK9xCTQh5gEuJ7ROdOXeY4SvMiqWjYhlrsR0qhTv9q/gfg==
-In-Reply-To: <mailman.329.1695652180.4021078.blinux-list@redhat.com>
-Message-ID: <mailman.289.1695657325.4021074.blinux-list@redhat.com>
+ <mailman.291.1695646516.4021078.blinux-list@redhat.com>
+ <mailman.367.1695657175.4021075.blinux-list@redhat.com>
+Comments: In-reply-to Linux for blind general discussion
+ <blinux-list@redhat.com>
+ message dated "Mon, 25 Sep 2023 17:49:32 +0200."
+MIME-Version: 1.0
+Date: Tue, 26 Sep 2023 08:48:52 -0500
+Message-ID: <mailman.969.1695736728.4021070.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -85,34 +62,120 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.1
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-ID: <19014.1695736131.1@wb5agz.lan>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-c291cmNlZm9yZ2UtbmV0IG9ubHkgc3RvcmVzIGFuIG9sZCAzMi1iaXQgdmVyc2lvbi4KCkRpZGll
-cgoKTGUgMjUvMDkvMjAyMyDDoCAxNjoyOSwgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vz
-c2lvbiBhIMOpY3JpdMKgOgo+IFRoYXQncyBob3cgdGhhdCdzIGRvbmUgb24gc291cmNlZm9yZ2Uu
-bmV0LiAgVGhlIHdlYm1hc3RlciB3b3VsZCBoYXZlIHRvIGRvCj4gdGhhdCwgYW5kIG5vdyBzb3Vy
-Y2Vmb3JnZS5uZXQgaXMgb3V0IG9mIGRhdGUgb24gbGF0ZXN0IHZlcnNpb24gZm9yIHNvbWUKPiBy
-ZWFzb24uCj4gCj4gCj4gLS0gSnVkZSA8amRhc2hpZWwgYXQgcGFuaXggZG90IGNvbT4gIlRoZXJl
-IGFyZSBmb3VyIGJveGVzIHRvIGJlIHVzZWQgaW4KPiBkZWZlbnNlIG9mIGxpYmVydHk6IHNvYXAs
-IGJhbGxvdCwganVyeSwgYW5kIGFtbW8uIFBsZWFzZSB1c2UgaW4gdGhhdAo+IG9yZGVyLiIgRWQg
-SG93ZGVyc2hlbHQgMTk0MC4KPiAKPiBPbiBNb24sIDI1IFNlcCAyMDIzLCBMaW51eCBmb3IgYmxp
-bmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgo+IAo+PiBUaGF0IGRvd25sb2FkIGlzIGhhcHBl
-bmluZyBub3cuICBJdCdzIHRoZSBzYW1lIHVybCBleGNlcHQgdGhhdAo+PiB0aGUgdmVyc2lvbiBu
-dW1iZXIgbm93IGlzIDE1LjUgd2hpY2ggaXMgZmluZSBhbmQgZXhwbGFpbnMgd2hhdCBpcwo+PiBo
-YXBwZW5pbmcuICBXaGF0IEkgY29waWVkIGZyb20gdGhlIGhhbmRib29rIGlzIDE1LjAuICBJIHdp
-c2ggYWxsCj4+IHByb2JsZW1zIHdlcmUgdGhpcyBlYXN5IHRvIGZpZ3VyZSBvdXQuICBBIHN1Z2dl
-c3Rpb24gbWlnaHQgYmUgdG8KPj4gbWFrZSB0aGUgdXJsIHJlZmVyIHRvIHNvbWV0aGluZyBsaWtl
-IGxhdGVzdF92ZXJzaW9uIGFuZCB0aGF0IGRlc2lnbmF0aW9uCj4+IHdvdWxkIGFsd2F5cyBkZXNj
-cmliZSB3aGF0ZXZlciB2ZXJzaW9uIHdhcyBtb3N0IGN1cnJlbnQuCj4+Cj4+IE1hcnRpbgo+PiBM
-aW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIDxibGludXgtbGlzdEByZWRoYXQuY29t
-PiB3cml0ZXM6Cj4+PiBIYXZlIHlvdSB0cmllZDoKPj4+IGh0dHBzOi8vc2xhY2t3YXJlLnVrL3Ns
-aW50L3g4Nl82NC9zbGludC0xNS4wL2lzby9zbGludDY0LTE1LjAtNS5pc28KCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcg
-bGlzdApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21h
-aWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QK
+I am sorry, but I have bad news.  I downloaded the image, sent it
+to a 32-GB usb card and tried it.  The system immediately found
+the EFI partition and played the 3 notes in ascending order
+within 5 or 10 seconds after powering on.  I pressed Enter and
+waited and waited and waited, left the room for a few minutes,
+came back, waited some more but that was the last sound.
+
+	Later, it occurred to me that I might get it to talk if
+there was a usb sound card since those devices are in common use
+everywhere.
+
+	I now had this lap top with a 4-port extender containing
+a full-size keyboard and the 128-GB thumb drive that was the
+target of the Linux installation so why not also plug in a usb sound
+card.
+
+	I did and slint found that card.  This is a very good way
+to set this part of the installation since the person doing the
+install must respond.
+
+	I did make several later tries and confirmed that this
+lap top's native sound interface is like a lot of native sound
+interfaces in that it is too proprietary for it's own good.
+
+	One of my favorite items when doing this sort of thing is a
+portable AM radio to more or less get an electroencephalogram of
+whether the computer seems to still be alive.  One tunes to a
+blank spot near the low end of the AM band if there is no radio
+station there and listens to the static that the circuitry in the
+computer makes as it computes.
+
+	If something is wrong and the computer locks up, the
+crackle, pop, beep and squeak abruptly stop and there is nothing
+but the hiss of the radio.
+
+	The computer, in this case, doesn't lock up but slint
+never sees a viable native sound interface to probe.  I hear lots
+of zips, pops squeaks and beeps of all kinds indicating that the
+computer is still alive and well but not talking.  Adding the usb
+sound card gives slint something it can recognize as a sound
+interface.  It did start voicing the screen just like it should
+but it should have found the native interface automatically.
+
+	I have another Debian 11 distribution that uses the same
+concept of sending an English message to every sound card asking
+one to press enter if this is the correct card and it talks all
+the time through the installation process.
+
+	For now, I am using that installer since it is the same
+debian version I wanted anyway which is bullseye or debian 11.
+
+	That install image does find the HP lap top's native
+sound interface.  When the installation is complete, it has
+produced some unpleasant surprises on other systems I have used
+it on if their native sound cards were particularly complex.  One
+system, for instance, talked all the way through the installation
+but wouldn't reliably talk after booting to the installed system.
+Simply unplugging the speaker or plugging in a set of headphones
+would kill the audio.  It turned out to think that hdmi was
+supposed to be the correct output.
+
+	If this helps any, this lap top appears to have no
+trouble sending the musical notes at the boot time.  The oldest
+PC's had a system for making noises which you are probably very
+familiar with which used a timer-counter integrated circuit that
+was fed from a roughly 1-MHZ clock.  The 16-bit counter in the
+chip is fed with some constant depending upon what note or pitch
+one needs.  There is also a gate which connects pure DC to the
+speaker or nothing if we are on the low half of the cycle.  Tones
+are produced by stuffing this constant in to the counter and the
+counter counts down to 0 and then restarts after sending a pulse
+to the speaker.
+
+	You can get an amazing number of noises out of such a
+circuit from Morse Code to at least video-game quality music.
+
+	I am guessing this lap top has some modern version of
+that noise-maker timer-counter-switch in order for the music to
+come  through but obviously, we need to find the built-in sound
+card for speech to work.
+
+	I am certainly not complaining about slint.  As one who
+likes to tinker with computers, PIC microcontrollers and radios,
+I know how difficult it is to make just about anything work over
+the broad range of situations that public users produce so, if
+there is any information I can provide to help, I am glad to do
+so.
+
+Linux for blind general discussion <blinux-list@redhat.com> writes:
+> Hi Martin,
+> 
+> sorry for the mistake in the Handbook. Of course I should have written:
+> 
+> wget https://slackware.uk/slint/x86_64/slint-15.0/iso/slint64-15.0-5.iso
+> wget 
+> https://slackware.uk/slint/x86_64/slint-15.0/iso/slint64-15.0-5.iso.sha256
+> 
+> then:
+> sha256sum -c slint64-15.0-5.iso.sha256
+> 
+> I will fix that and/or make a link like slint64-15.0-latest.iso
+> 
+> Cheers,
+> Didier
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
