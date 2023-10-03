@@ -2,47 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id B8A1E7B4D3C
-	for <lists+blinux-list@lfdr.de>; Mon,  2 Oct 2023 10:20:51 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C8F557B691A
+	for <lists+blinux-list@lfdr.de>; Tue,  3 Oct 2023 14:35:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1696234850;
+	s=mimecast20190719; t=1696336553;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=EYxUqAd74L87pdN9P4qGxN6CNaGY8qRMPNQqXQmpkXM=;
-	b=ZuvAUMET/kQwDhgIKsfpNXagyDqGlPSw8ol7pwMcfLE4UO0E7HaahfovxKaMcOmfSMZqsX
-	N5xSAwH5zy8uv7U6E/5BBhgnsMxU3dMT+y5z5QQbWfnpYSipt0dzSB6Kedfv6zsuWSvffR
-	nIVEt1GFapCIkMfCZBxbwQ765dZKIeY=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-658-9RHObVa5MsGoSvqQpKKDPA-1; Mon, 02 Oct 2023 04:20:48 -0400
-X-MC-Unique: 9RHObVa5MsGoSvqQpKKDPA-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+	bh=y9pgvQS3HSEv4k10jGrG3YzxuSgXshtJ0ehS3BqRUbA=;
+	b=IUWHoctpEa2g8dvNIkpgWaehiwt7zK8e+TDG3ib/OksmhPusd+OPPfedEV0Wtmo52lJ0BS
+	iauyze2f06e9XDJ4tFVt/nWwaunsdm4S6tzgmP+3o3fU4cfamybfLwAJ0QvhZlmbGYwsdh
+	9lAVkKp67Jy+W0jCt61lUNGzassgVtk=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-434-6tmpp0AUPZe5xtNeUux1Og-1; Tue, 03 Oct 2023 08:35:39 -0400
+X-MC-Unique: 6tmpp0AUPZe5xtNeUux1Og-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 90BBC101A53B;
-	Mon,  2 Oct 2023 08:20:46 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E64AF3816C8E;
+	Tue,  3 Oct 2023 12:35:37 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id A1DD54026FC;
-	Mon,  2 Oct 2023 08:20:38 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 4C92451E3;
+	Tue,  3 Oct 2023 12:35:31 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 11A6019465B2;
-	Mon,  2 Oct 2023 08:20:38 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 8A9C019465A3;
+	Tue,  3 Oct 2023 12:35:30 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Mon, 2 Oct 2023 09:20:31 +0100
+Date: Tue, 3 Oct 2023 14:35:03 +0200
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
+User-Agent: Mozilla Thunderbird
 Subject: Re: arch-installer accessibility
 To: blinux-list@redhat.com
 References: <mailman.104.1696161029.2981442.blinux-list@redhat.com>
  <mailman.145.1696162429.2981444.blinux-list@redhat.com>
 In-Reply-To: <mailman.145.1696162429.2981444.blinux-list@redhat.com>
-Message-ID: <mailman.201.1696234837.2981442.blinux-list@redhat.com>
+Message-ID: <mailman.459.1696336529.2981444.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -58,66 +58,81 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.9
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.5
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-QXMgYW4gYWRpdGlvbiB0byB0aGlzLCBpZiB5b3UgYXJlIGF3YXkgZnJvbSB0aGUga2V5cyB3aGVu
-IGl0IGJvb3RzIG9yIAp5b3UgaGl0IGVudGVyIGluc3RhZCBvZiBkb3duIGFuZCBlbnRlciwgeW91
-IGNhbiBlbmFibGUgc3BlZWNoIGJ5IGRvaW5nIAp0aGUgZm9sbG93aW5nLCBvciBoZXJlJ3MgaG93
-IEkgZG8gaXQKCgoxLiBMZXQgaXQgdGltZSBvdXQsIG9yIGhpdCBlbnRlciwgb3IgaG93ZXZlciB5
-b3UgZ2V0IHRvIHRoZSBub3JtYWwgYm9vdAoKCjIuIGVzcGVhayBzb21ldGhpbmcKCgozLsKgIHN5
-c3RlbWN0bCBzdGFydCBlc3BlYWt1cAoKClRoYXQgYWNoaWV2ZXMgdGhlIHNhbWUgcmVzdWx0IGlm
-IHlvdSBnZXQgaW50byBhIG5vcm1hbCBib290LCBhbmQgZG9uJ3QgCndhbnQgdG8gcmVib290IGFu
-ZCBnbyB0aHJvdWdoIHRoZSBib290IGRpc2sgc2VsZWN0aW9uIGlmIGl0IGlzIGdpdmluZyAKeW91
-IHRyb3VibGUKCgoKT24gMTAvMS8yMyAxMzoxMywgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlz
-Y3Vzc2lvbiB3cm90ZToKPiBUaGF0J3MgaG93IEkgaW5zdGFsbGVkIGFyY2hsaW51eC4gIFRvIGdl
-dCBzcGVha3VwIGdvaW5nIG9uIGFyY2hsaW51eCB3aGVuCj4geW91IGJvb3QgYW5kIGhlYXIgdGhl
-IHRvbmVzLCBkb3duYXJyb3cgb25jZSB0aGVuIGhpdCBlbnRlciB0aGVuIHdhaXQuCj4gU3BlYWt1
-cCBzaG91bGQgY29tZSB1cC4gIFdoZW4gaXQgZG9lcyBhbmQgeW91J3JlIGF0IHRoZSByb290IHBy
-b21wdCB0aGVuCj4gZ2V0IGhpZ2hsaWdodCB0cmFja2luZyBvbiB3aXRoIHNwZWFrdXAuICBUaGVu
-IHJ1biBhcmNoaW5zdGFsbCBhbmQgeW91Cj4gc2hvdWxkIGZpbmQgaXQgbXVjaCBtb3JlIHZlcmJh
-bCBhbmQgd29ya2FibGUuCj4gSW4gYWRkaXRpb25hbCBwYWNrYWdlcyB0byBnZXQgZXNwZWFrLW5n
-IGluc3RhbGxlZCBhbmQgYWJsZSB0byB3b3JrIHdoZW4KPiB0aGF0IHByb21wdCBjb21lcyB1cCB5
-b3UgbmVlZCB0byBhZGQgZXNwZWFrdXAgZXNwZWFrLW5nIGFuZCBhbHNhLXV0aWxzLgo+IE9uY2Ug
-eW91IGdldCBhbGwgb3RoZXIgcXVlc3Rpb25zIGFuc3dlcmVkIHlvdSdsbCBiZSBvZmZlcmVkIHRo
-ZQo+IG9wcG9ydHVuaXR5IHRvIGNocm9vdCBpbnRvIHlvdXIgbmV3IHN5c3RlbSBhbmQgY3VzdG9t
-aXplIHRoaW5ncy4gIERvIHRoYXQKPiBhbmQgaW4gdGhlcmUgc3lzdGVtY3RsIGVuYWJsZSBlc3Bl
-YWt1cCBhbmQgYWxzbyBlbmFibGUgZGhjcGNkIHN5c3RlbWN0bAo+IGVuYWJsZSBkaGNwY2QuCj4g
-SWYgbm9uZSBvZiB0aGF0IHdvcmtzIHRoZW4geW91IGdvdCBhIGJhZCBjb3B5IG9mIGFyY2hsaW51
-eCBhbmQgbmVlZCB0bwo+IGNvbXBsYWluIHRvIHlvdXIgaW50ZXJuZXQgcHJvdmlkZXIgYW5kIGhh
-dmUgdGhlbSBmaXggeW91ciBpbnRlcm5ldCBzbyB0aGF0Cj4gZG9lc24ndCBoYXBwZW4gYWdhaW4g
-YW5kIGJ5IG5vbmUgb2YgdGhpcyBJIG1lYW4gb24gYm9vdCBkb3duYXJyb3cgdGhlbiBoaXQKPiBl
-bnRlciBhdCB0aGUgdG9uZXMgaWYgeW91IGRvbid0IGdldCBzcGVlY2ggb3IgdGhlIGluc3RhbGwg
-YnJlYWtzIHNvbWV3aGVyZQo+IGVsc2UgeW91IG1heSBoYXZlIG1hZGUgYSBiYWQgY2hvaWNlIGJ1
-dCBpZiBwYWNrYWdlcyBpbnN0YWxsIGZhaWxzIHRoYXQncwo+IGRlZmluaXRlbHkgYW4gaW50ZXJu
-ZXQgcHJvdmlkZXIgc2NyZXcgdXAuCj4KPgo+IC0tIEp1ZGUgPGpkYXNoaWVsIGF0IHBhbml4IGRv
-dCBjb20+ICJUaGVyZSBhcmUgZm91ciBib3hlcyB0byBiZSB1c2VkIGluCj4gZGVmZW5zZSBvZiBs
-aWJlcnR5OiBzb2FwLCBiYWxsb3QsIGp1cnksIGFuZCBhbW1vLiBQbGVhc2UgdXNlIGluIHRoYXQK
-PiBvcmRlci4iIEVkIEhvd2RlcnNoZWx0IDE5NDAuCj4KPiBPbiBTdW4sIDEgT2N0IDIwMjMsIExp
-bnV4IGZvciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4KPj4gSGksCj4+Cj4+IEJl
-Y2F1c2UgSSBhbSBhbiBhYnNvbHV0ZWxseSBVRUZJIGlkaW90IGFuZCBJIGRvbid0IHVuZGVyc3Rh
-bmQgaG93IHRvIGluc3RhbGwKPj4gaXQgd2l0aCBjb21tYW5kcywgSSB3YW50IHRvIGluc3RhbGwg
-QXJjaCBMaW51eCB0byBteSBBY2VyIGxhcHRvcCwgd2hpY2ggbm8KPj4gbW9yZSBzdXBwb3J0cyBs
-ZWdhY2kgdXNpbmcgYXJjaC1pbnN0YWxsIHNjcmlwdC4gQnV0IHRoZSBzY3JpcHQgaXMgbWVudSBi
-YXNlZAo+PiBhbmQgdGhlIG1lbnUgaXRlbXMgYXJlIGluIHNpbmdsZSBsaW5lLiBTbyBoYXMgc3Bl
-YWt1cCB0aGUgc2FtZSBtb2RlLCBJIHRoaW5rCj4+IGl0IGlzIGNhbGxlZCBhcyBsaWdodCBtb2Rl
-LCBvciBjYW4gSSBpbnN0YWxsIEZlbnJpciB0byBsaXZlIHVzYiBmbGFzaAo+PiBpbnN0YWxsZXI/
-IE9yIGNhbiBJIHVzZSBzb21lIG90aGVyIHRvb2wgdG8gaW5zdGFsbCBFRkk/IEkga25vdyBob3cg
-dG8gaW5zdGFsbAo+PiBtYnIsIGJ1dCBFZmkgaXNuJ3QgbXkgZnJpZW5kLiBTZWN1cmUgYm9vdCBp
-cyB0dXJuZWQgb2ZmLCB3aGVuIGl0IHdhcyB0dXJuZWQKPj4gb24sIGJvb3RpbmcgdG8gQXJjaCB3
-YXMgaW1wb3NzaWJsZSBhbmQgYWxzbyB1c2luZyB2bXdhcmUgd2FzIGlucG9zc2libGUuCj4+Cj4+
-IFRoYW5rcywKPj4KPj4gUGF2ZWwKPj4KPj4KPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KPj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4+IEJsaW51
-eC1saXN0QHJlZGhhdC5jb20KPj4gaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9s
-aXN0aW5mby9ibGludXgtbGlzdAo+Pgo+Pgo+Pgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCj4gQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0Cj4gQmxpbnV4
-LWxpc3RAcmVkaGF0LmNvbQo+IGh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlz
-dGluZm8vYmxpbnV4LWxpc3QKPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KQmxpbnV4LWxpc3QgbWFpbGluZyBsaXN0CkJsaW51eC1saXN0QHJlZGhhdC5j
-b20KaHR0cHM6Ly9saXN0bWFuLnJlZGhhdC5jb20vbWFpbG1hbi9saXN0aW5mby9ibGludXgtbGlz
-dAo=
+Hi,
+
+where can I get list of speakup hotkeys? I am unable to get light 
+tracking mode.
+
+Thanks a lot,
+
+Pavel
+
+
+
+Dne 01. 10. 23 v 14:13 Linux for blind general discussion napsal(a):
+> That's how I installed archlinux.  To get speakup going on archlinux when
+> you boot and hear the tones, downarrow once then hit enter then wait.
+> Speakup should come up.  When it does and you're at the root prompt then
+> get highlight tracking on with speakup.  Then run archinstall and you
+> should find it much more verbal and workable.
+> In additional packages to get espeak-ng installed and able to work when
+> that prompt comes up you need to add espeakup espeak-ng and alsa-utils.
+> Once you get all other questions answered you'll be offered the
+> opportunity to chroot into your new system and customize things.  Do that
+> and in there systemctl enable espeakup and also enable dhcpcd systemctl
+> enable dhcpcd.
+> If none of that works then you got a bad copy of archlinux and need to
+> complain to your internet provider and have them fix your internet so that
+> doesn't happen again and by none of this I mean on boot downarrow then hit
+> enter at the tones if you don't get speech or the install breaks somewhere
+> else you may have made a bad choice but if packages install fails that's
+> definitely an internet provider screw up.
+>
+>
+> -- Jude <jdashiel at panix dot com> "There are four boxes to be used in
+> defense of liberty: soap, ballot, jury, and ammo. Please use in that
+> order." Ed Howdershelt 1940.
+>
+> On Sun, 1 Oct 2023, Linux for blind general discussion wrote:
+>
+>> Hi,
+>>
+>> Because I am an absolutelly UEFI idiot and I don't understand how to install
+>> it with commands, I want to install Arch Linux to my Acer laptop, which no
+>> more supports legaci using arch-install script. But the script is menu based
+>> and the menu items are in single line. So has speakup the same mode, I think
+>> it is called as light mode, or can I install Fenrir to live usb flash
+>> installer? Or can I use some other tool to install EFI? I know how to install
+>> mbr, but Efi isn't my friend. Secure boot is turned off, when it was turned
+>> on, booting to Arch was impossible and also using vmware was inpossible.
+>>
+>> Thanks,
+>>
+>> Pavel
+>>
+>>
+>> _______________________________________________
+>> Blinux-list mailing list
+>> Blinux-list@redhat.com
+>> https://listman.redhat.com/mailman/listinfo/blinux-list
+>>
+>>
+>>
+> _______________________________________________
+> Blinux-list mailing list
+> Blinux-list@redhat.com
+> https://listman.redhat.com/mailman/listinfo/blinux-list
+>
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
