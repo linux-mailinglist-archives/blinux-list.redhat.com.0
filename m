@@ -2,48 +2,44 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 641BB7B6A65
-	for <lists+blinux-list@lfdr.de>; Tue,  3 Oct 2023 15:23:34 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DC4ED7B7E0C
+	for <lists+blinux-list@lfdr.de>; Wed,  4 Oct 2023 13:18:55 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1696339413;
+	s=mimecast20190719; t=1696418334;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:list-id:list-help:
+	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=/lvVB9+Q+9Ph6gR6O6Mg2HYiZcmbiCpCG4L9XI3B/WM=;
-	b=DBmbwjUyhgOfoQ1wrMR3zcgSQjBPdglJ5+5oxs/tcnqgKQgLE+66Q8mnmhdVC/Jw9x3k0h
-	37U4o4CwtrWH5f/KlRNUWrEDNQa+Wh8jmyiJWW638coD+SZob3FVkPoDf3nZo1vt8L1NOW
-	MNSq9ObAqdOEr9oYEwFsmpv2Yn+NKEE=
+	bh=ViDRP3i/WczhX7ogy/vLXZtcj7uI1UFfc8f2sy3aWt8=;
+	b=g0h3HEBPsyrunrKlAunEEVlb44hoEZl38myd8gvImHokFqxpyEPiwDqUdP5u9gl43mFyqf
+	HaYBjplxV3THqbRKoAc5Bb9TbZRA90l1Zc8TNVnGeppLi39KyJzwomjBJcqYG3yOPQ1oLL
+	oPs095Uewjaa5XdASCzuqSlt2PNVVWU=
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-604-rFC3HOmiMe2anJHC8arKoQ-1; Tue, 03 Oct 2023 09:23:28 -0400
-X-MC-Unique: rFC3HOmiMe2anJHC8arKoQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-586-OzqfEB_jOA2vebo_qHJwig-1; Wed, 04 Oct 2023 07:18:51 -0400
+X-MC-Unique: OzqfEB_jOA2vebo_qHJwig-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4FA622999B20;
-	Tue,  3 Oct 2023 13:23:22 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8AA6528237CD;
+	Wed,  4 Oct 2023 11:18:49 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 3DB94C15BB8;
-	Tue,  3 Oct 2023 13:23:22 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id DB20B493113;
+	Wed,  4 Oct 2023 11:18:43 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 8FF5E19465A3;
-	Tue,  3 Oct 2023 13:23:21 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 2BDFB19465A3;
+	Wed,  4 Oct 2023 11:18:42 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Tue, 3 Oct 2023 09:23:18 -0400
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: arch-installer accessibility
-In-Reply-To: <mailman.496.1696339277.2981446.blinux-list@redhat.com>
-References: <mailman.104.1696161029.2981442.blinux-list@redhat.com>
- <mailman.145.1696162429.2981444.blinux-list@redhat.com>
- <mailman.459.1696336529.2981444.blinux-list@redhat.com>
- <mailman.496.1696339277.2981446.blinux-list@redhat.com>
 MIME-Version: 1.0
-Message-ID: <mailman.621.1696339401.2981447.blinux-list@redhat.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Intro.
+Date: Wed, 4 Oct 2023 12:18:35 +0100
+Importance: normal
+X-Content-Filtered-By: Mailman/MimeDel 2.1.29
+Message-ID: <mailman.776.1696418321.2981445.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -59,33 +55,21 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-To get espeak help press capslock and f1.
-
-
--- 
-Jude <jdashiel at panix dot com>
-"There are four boxes to be used in defense of liberty:
-soap, ballot, jury, and ammo.
-Please use in that order."
-Ed Howdershelt 1940.
-
-On Tue, 3 Oct 2023, Linux for blind general discussion wrote:
-
-> On the keypad, press the star key.  On the top row far right press the key
-> and it will say parked press again and it says unparked.  One key to the
-> left of that key is where you turn on highlight tracking.  Default is
-> cursoring on so press once and you should get highlight tracking.
->
->
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+SGkgZ3V5cywgc28gZ2xhZCB0byBiZSBqb2luaW5nIHRoaXMgZ3JvdXAuIEkga25vdyBub3RoaW5n
+IGFib3V0IExpbnV4IHBsYXRmb3JtIGJ1dCB3b3VsZCBsaWtlIHRvIHRyeSBMaW51eCBmb3IgbXlz
+ZWxmLiBUaGUgcHJvYmxlbSBpcyBJIHdvdWxkbuKAmXQga25vdyB3aGljaCB2ZXJzaW9uIHRvIHRy
+eSBvdXQgZmlyc3QgYW5kIHRoYXQgaXMgb25lIHJlYXNvbiBmb3Igam9pbmluZyB0aGlzIGdyb3Vw
+LiBJIGFtIGEgYmxpbmQgcGVuc2lvbmVyIGxpdmluZyBpbiBTY290bGFuZCBVSy4gSUYgeW91IGNv
+dWxkIHByb3ZpZGUgbWUgd2l0aCBoZWxwL2FkdmljZSBvbiB3aGljaCB2ZXJzaW9uIG9mIExpbnV4
+IHdvdWxkIGJlIGJlc3QgZm9yIG1lIEkgd291bGQgYXBwcmVjaWF0ZSBpdCBpbmRlZWQsIEJpbGx5
+ICAKClNlbnQgZnJvbSBNYWlsIGZvciBXaW5kb3dzCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxpc3QKQmxpbnV4LWxp
+c3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZv
+L2JsaW51eC1saXN0Cg==
 
