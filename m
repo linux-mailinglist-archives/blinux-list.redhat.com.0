@@ -2,63 +2,47 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8C2987BB896
-	for <lists+blinux-list@lfdr.de>; Fri,  6 Oct 2023 15:07:47 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 92B967BBB5F
+	for <lists+blinux-list@lfdr.de>; Fri,  6 Oct 2023 17:10:53 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1696597666;
+	s=mimecast20190719; t=1696605052;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=X5U368YJaM7kLUT5SeMG9DKjhzY44BBJF4TRR2ZgS28=;
-	b=IxhUegST7SHVkWdb+HohGe/xBumKYO16P6wA+x0uOMq1ZGI6CRQ7BcAdmdt8M0nMg6ItUq
-	rIFc0jE8jJQPxV3Iy4Jt+GHMquULFzlMoQWW4/RPhBOzouiyCw5ESRD5T/Pv20DXj4nPFk
-	Bdu/e6J8AhcEOYnTx/tm64LaEWEJK/M=
+	bh=JkOQs3RsyKEAAjr28zytPgwhXlVUzT/qKpovDKHijFY=;
+	b=Dw63kqUaHfVptYn7dJEbERSN9t1p+zRFcmjtEawkokKXj56Rd5hDEOtJnQgK42nZTugJ5u
+	gO+RX465rmjSUq6dEkkrWdvOVSZ3Ci4sFHW4ay1IhV/Pqpdp/xF8MTu8xi2+HhHfZfUwQR
+	84L169JmIORHibtKld896A2foKu01Hw=
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-576-Em5-wDP-NJSBx9h7HGK5qQ-1; Fri, 06 Oct 2023 09:07:42 -0400
-X-MC-Unique: Em5-wDP-NJSBx9h7HGK5qQ-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+ us-mta-186-BWAWPh-vNcy4xcvln-ogrA-1; Fri, 06 Oct 2023 11:10:48 -0400
+X-MC-Unique: BWAWPh-vNcy4xcvln-ogrA-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 91D1B1C0BB40;
-	Fri,  6 Oct 2023 13:07:40 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 953781C1172B;
+	Fri,  6 Oct 2023 15:10:46 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id F2DD5140E950;
-	Fri,  6 Oct 2023 13:07:37 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 16694492B05;
+	Fri,  6 Oct 2023 15:10:43 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 1CAAF19465B7;
-	Fri,  6 Oct 2023 13:07:37 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 3F90419465B6;
+	Fri,  6 Oct 2023 15:10:42 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Fri, 6 Oct 2023 09:07:25 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: Very minimal graphical environment
+Date: Fri, 6 Oct 2023 11:10:37 -0400
 To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <mailman.1669.1696587735.2981449.blinux-list@redhat.com>
-In-Reply-To: <mailman.1669.1696587735.2981449.blinux-list@redhat.com>
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:4qaO0cZUXdI=;gcl3jH+Gh+mL8ddTYRbWZB1b7Ky
- j/bqJdr7NTfZz+kM5ZfpxmO1t9eu0AdXuJuSqIy/PM7FYkNd2FZtb+0MItrT91zcOuld5bzdP
- CQZwarb0lmuhvJWCc1rDnB8X+3XaDckBsJC7CoxR1QPE2mOwjYN/fklRVuDyoANc8BUqNu+kz
- 34jaqctfh77CujMzdkQObZiN/BurBIPPgkC/QZ1q9ukvM3gG41/rg5dPz9iRGOR28gk2gMGd2
- RCR0uuzYehsHgVAvSYU0okjfcxCPB8odgOQ56E1u4zJ3cWIv3d3eMlkeKeGX9Vp41WXFO9OtP
- 4r4Z+GP09khTfumMVDV70Nq4sQZiVzg+ylyxXiLeVrN7doKqvBZlbJfivuMuJJEI8SLG2ay0/
- MWSR66PIQy0IRBdkP8woOTdDOGlMNKHmI0m419i459xs8NrAMipCshhjdzZmbO7X2X1pFjTv9
- URlP1hOh4g51Vrb+QnQyYUxmAHkPSxZEG0Aci6VrUICt7stgSm0DmGITdWao/CR3DnEqlUs/k
- orrNXmPeeG5wXkit0vS0UWd3htA1qDIE9DxajK880Af8j2rxetwSGAvEpy7TqQgPGL99epQDN
- AHOMdcv6TOlLbCSA3R9DmVOr/yVJ5K223y8s2EvtgMUl17bzUKdo1uqPVpe6sdTeNyO0QopJC
- wzmpQuH3TkOrCVUt4yU4qA98r9SaX44XOXS+BegMbfPeGeSQ3TPeaU7UChLVQmt91D5MlSGg1
- s7yNk4VT4uQLDV2Zol2H7KgDZ9SDma45t14vtARM2QsA1rYJ1aA/AE2KkpgndawGdJI3Dm1lC
- G6bPYLXtPZBFiV3ycanoiDw1jpE1vkpSFCnabguCz9BlNLR+kO6i0xC3SwLUjA1yXZO85tOp+
- kjdv12BduCxO6cegaYA0sabuFp1K6aLZGzWo2k0k3fenZHL5bK9brSLfbWbHIftNEpwOZyxyt
- mrfy62FETj5ksJS8TjPqunRVy4o=
-Message-ID: <mailman.1641.1696597656.2981445.blinux-list@redhat.com>
+Subject: Re: Intro.
+In-Reply-To: <mailman.1681.1696589047.2981441.blinux-list@redhat.com>
+References: <mailman.776.1696418321.2981445.blinux-list@redhat.com>
+ <mailman.1756.1696585477.2981447.blinux-list@redhat.com>
+ <mailman.1681.1696589047.2981441.blinux-list@redhat.com>
+MIME-Version: 1.0
+Message-ID: <mailman.1801.1696605041.2981442.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -74,31 +58,81 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.7
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-I worked some years back on a menu system that had some scripts that
-would start a very small window manager and run Orca and the browser,
-email, whatever required a graphical environment. This system was
-designed to be self-contained and distro-agnostic, although as I recall
-it used jwm as the tiny window manager that started the graphical
-environment. Have a look at
-
-https://gitlab.com/f123/Kies
-
-I'm thinking some of the scripts you'll find there may help. If I
-remember correctly, they would even stop Fenrir trying to speak as the
-text console became a graphical one and start it back up once the
-program you wanted exited. Hope it helps.
-
-~Kyle
-
-_______________________________________________
-Blinux-list mailing list
-Blinux-list@redhat.com
-https://listman.redhat.com/mailman/listinfo/blinux-list
+U2xpbnQgY2FuIGJlIGluc3RhbGxlZCBvbmNlIGJvb3RlZCBieSB1c2Ugb2YgdGhlIHNldHVwIGNv
+bW1hbmQuICBPbmNlIGRvbmUKeW91IGFuc3dlciBxdWVzdGlvbnMgYWJvdXQgeW91ciBoYXJkd2Fy
+ZSBhbmQgcHJlZmVyZW5jZXMgYW5kIG9uY2UgZW5vdWdoCm9mIHRob3NlIGdldCBhbnN3ZXJlZCwg
+dGhlIGluc3RhbGxhdGlvbiBoYXBwZW5zLiAgQ2FuIHRha2UgMTAgdG8gMzAKbWludXRlcyB0byBo
+YXBwZW4gb25jZSBpdCBzdGFydHMuCgoKLS0gSnVkZSA8amRhc2hpZWwgYXQgcGFuaXggZG90IGNv
+bT4gIlRoZXJlIGFyZSBmb3VyIGJveGVzIHRvIGJlIHVzZWQgaW4KZGVmZW5zZSBvZiBsaWJlcnR5
+OiBzb2FwLCBiYWxsb3QsIGp1cnksIGFuZCBhbW1vLiBQbGVhc2UgdXNlIGluIHRoYXQKb3JkZXIu
+IiBFZCBIb3dkZXJzaGVsdCAxOTQwLgoKT24gRnJpLCA2IE9jdCAyMDIzLCBMaW51eCBmb3IgYmxp
+bmQgZ2VuZXJhbCBkaXNjdXNzaW9uIHdyb3RlOgoKPiBIaSwKPgo+IGFuc3dlciBpbiBsaW5lLgo+
+Cj4gRm9yZXdvcmQ6IEkgaGVzaXRhdGVkIHRvIGFuc3dlcjogYXMgSSBhbHJlYWR5IHdyb3RlIFNs
+aW50IGlzIG5vdCBhbiBvcHRpb24gZm9yCj4gQVJNIENQVXMuIEFueXdheSwgaGVyZSBnb2VzIGZv
+ciB4ODZfNjQgYWthIEFNRDY0IHVzZXJzLi4uCj4KPiBMZSAwNi8xMC8yMDIzIMOgIDExOjQ0LCBM
+aW51eCBmb3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIGEgw6ljcml0wqA6Cj4gPiBXaGVuIHlv
+dSBib290IGl0LCBpdCB3aWxsIHB1dCB5b3UgaW4gYSBkZXNrdG9wIG11Y2ggbGlrZSBXaW5kb3dz
+IG9yIE1hYyBzbyBpZgo+ID4geW91IGFyZSBjb21pbmcgZnJvbSB0aG9zZSBkZXZpY2VzIGl0IHdv
+bid0IGZlZWwgdG9vIG91dCBvZiBwbGFjZS4gU2xpbnQgaXMgbm90Cj4gPiBiZWdpbm5lciBmcmll
+bmRseSBkdWUgdG8gdGhlIHdheSB5b3UgaW5zdGFsbCBpdCwgd2hpY2ggaXMgYnkgaWYgeW91IHJl
+bWVtdmVyIHRoZQo+ID4gZGF5cyBvZiBET1MsIHR5cGluZyBpbiBjb21tYW5kcyBhbmQgaGF2aW5n
+IHRvIHJlbWVtYmVyIG9yIGhhdmUgYSBzZWNvbmQgZGV2aWNlCj4gPiBoYW5keSB0byBnbyB0aHJv
+dWdoIHRoZSBpbnN0YWxsIHN0ZXBzLgo+Cj4gVG8gYmUgcGlja3ksIHRoZSBTbGludCBpbnN0YWxs
+ZXIgZG9lc24ndCByZXF1ZXN0IHlvdSB0byB0eXBlIGNvbW1hbmRzLCBvbmx5IHRvCj4gYW5zd2Vy
+IHF1ZXN0aW9ucywgdHlwaW5nIHRoaW5ncyBsaWtlICJZIiBmb3IgeWVzIGFuZCAiTiIgZm9yIG5v
+IG9yIGEgbnVtYmVyIHRvCj4gc2VsZWN0IGFuIG9wdGlvbi4gQW5kIG9mdGVudGltZXMgaWYgeW91
+IGRvIG5vdCBrbm93IHdoYXQgdG8gYW5zd2VyIHR5cGluZyAiaCIKPiB3aWxsIGRpc3BsYXkgYSBz
+bWFsbCBjb250ZXh0dWFsaXplZCBoZWxwIHRleHQuIEZ1cnRoZXIsIGR1cmluZyBpbnN0YWxsYXRp
+b24geW91Cj4gY2FuIHlvdSBjYW4gYWxzbyB0eXBlICdkb2MnIGF0IHRoZSBwcm9tcHQgaW4gYSBj
+b25zb2xlIGFuZCByZWFkIGEgZG9jdW1lbnRhdGlvbiwKPiB0aGVuIGdvIGJhY2sgdG8gaW5zdGFs
+bGF0aW9uCj4KPiA+IExpbnV4IE1pbnQgYXZvaWRzIHRoaXMgYnkgaGF2aW5nIHRoZSBpbnN0YWxs
+ZXIgYmUgc2ltaWxhciB0byBXaW5kb3dzLCB3aGVyZSBpdAo+ID4gYXNrcyB5b3UgdG8gZmlsbCBp
+biB3aGF0IGl0IHdhbnRzIHRoZW4gY2xpY2sgbmV4dCwgYW5kIGl0IHdpbGwgd2FsayB5b3UgdGhy
+b3VnaAo+ID4gdGhlIHByb2Nlc3MsIHdpdGhvdXQgb3ZlcndoZWxtaW5nIHlvdSB3aXRoIHRleHQu
+IFRvIG1lIHRoaXMgaXMgYSBuaWNlLCBnZW50bGUKPiA+IHN0YXJ0IHRvIExpbnV4Lgo+ID4KPiA+
+IFRoZSBiZWF1dGlmdWwgdGhpbmcgYWJvdXQgTGludXggTWludCBpcyB5b3UgY2FuIGVhc2lseSBm
+aXJlIHVwIGEgd2ViIGJyb3dzZXIgYW5kCj4gPiBHb29nbGUgeW91ciBxdWVyaWVzIGFuZCB1c3Vh
+bGx5IGdldCBhIHBhZ2Ugb3IgdHdvIG9mIGhlbHBmdWwgcmVzdWx0cywgdmVyc3VzCj4gPiB3aXRo
+IFNsaW50LCByZWx5aW5nIG9uIGhhdmluZyB0byBtYW51YWxseSBjaGVjayBhIHNwZWNpZmljIGVt
+YWlsIGxpc3QuIEluIGEKPiA+IG51dHNoZWxsLCBNaW50IE1hdGUgaXMgYnVpbHQgdG8gYmUgZWFz
+eSB0byB1c2UgYW5kIHNpbXBsZSB0byBrZWVwIHVwIHRvIGRhdGUuCj4KPiBXaXRoIFNsaW50IHlv
+dSBjYW4gYWxzbyBnZXQgaW5mb3JtYXRpb24gYmVmb3JlIGluc3RhbGxpbmcganVzdCBmaXJpbmcg
+dXAgdGhpcwo+IHBhZ2UgaW4gYSB3ZWIgYnJvd3NlcjoKPiBodHRwczovL3NsaW50LmZyL2VuL0hh
+bmRCb29rLmh0bWwKPgo+ID4gSSdtIGhvcGluZyB0aGlzIGhlbHBzLCBJIGFic29sdXRlbHkgZ2V0
+IGhvdyBkYXVudGluZyBtb3ZpbmcgdG8gTGludXggY2FuIGJlLAo+ID4gZXNwZWNpYWxseSBpZiB5
+b3UgYXJlIG9sZGVyIGxpa2UgeW91IHNhaWQgeW91IGFyZS4KPgo+IEkgYW0gcHJvYmFibHkgb2xk
+ZXIgdGhhbiBCaWxseSAoNzQgYXQgdGltZSBvZiB3cml0aW5nKSBhbmQgdXNlIFNsaW50IGV2ZXJ5
+IGRheSA7KQo+Cj4gQWxsIHRoaXMgYmVpbmcgc2FpZCBpZiB0aGUgaW50ZW5kZWQgdXNhZ2UgaXMg
+anVzdCBicm93c2luZyB0aGUgSW50ZXJuZXQsCj4gY29tbXVuaWNhdGUgd2l0aCBmYW1pbHkgYW5k
+IGZyaWVuZHMgYW5kIHNvIG9uLCBhbnkgYWNjZXNzaWJsZSBkaXN0cmlidXRpb24gaXMKPiBnb29k
+IGVub3VnaC4gQnV0IHRoZW4gd2h5IHRyeSBhIExpbnV4IGRpc3RyaWJ1dGlvbiwgYnV0IGJlY2F1
+c2UgdGhlIGZhY3QgdGhhdCBpdAo+IGlzIGZyZWUgYXMgaW4gZnJlZSBiZWVyPwo+Cj4gRGlkaWVy
+Cj4KPiA+IEphY2UKPiA+Cj4gPgo+ID4KPiA+IE9uIDEwLzQvMjMgMTI6MTgsIExpbnV4IGZvciBi
+bGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4gPj4gSGkgZ3V5cywgc28gZ2xhZCB0byBi
+ZSBqb2luaW5nIHRoaXMgZ3JvdXAuIEkga25vdyBub3RoaW5nIGFib3V0IExpbnV4IHBsYXRmb3Jt
+Cj4gPj4gYnV0IHdvdWxkIGxpa2UgdG8gdHJ5IExpbnV4IGZvciBteXNlbGYuIFRoZSBwcm9ibGVt
+IGlzIEkgd291bGRu4oCZdCBrbm93IHdoaWNoCj4gPj4gdmVyc2lvbiB0byB0cnkgb3V0IGZpcnN0
+IGFuZCB0aGF0IGlzIG9uZSByZWFzb24gZm9yIGpvaW5pbmcgdGhpcyBncm91cC4gSSBhbSBhCj4g
+Pj4gYmxpbmQgcGVuc2lvbmVyIGxpdmluZyBpbiBTY290bGFuZCBVSy4gSUYgeW91IGNvdWxkIHBy
+b3ZpZGUgbWUgd2l0aAo+ID4+IGhlbHAvYWR2aWNlIG9uIHdoaWNoIHZlcnNpb24gb2YgTGludXgg
+d291bGQgYmUgYmVzdCBmb3IgbWUgSSB3b3VsZCBhcHByZWNpYXRlCj4gPj4gaXQgaW5kZWVkLCBC
+aWxseQo+ID4+Cj4gPj4gU2VudCBmcm9tIE1haWwgZm9yIFdpbmRvd3MKPiA+Pgo+ID4+IF9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gPj4gQmxpbnV4LWxp
+c3QgbWFpbGluZyBsaXN0Cj4gPj4gQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQo+ID4+IGh0dHBzOi8v
+bGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPiA+Cj4gPiBf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+ID4gQmxpbnV4
+LWxpc3QgbWFpbGluZyBsaXN0Cj4gPiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4gPiBodHRwczov
+L2xpc3RtYW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4KPiBfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1saXN0
+IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3RtYW4u
+cmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cj4KCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkJsaW51eC1saXN0IG1haWxpbmcgbGlz
+dApCbGludXgtbGlzdEByZWRoYXQuY29tCmh0dHBzOi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxt
+YW4vbGlzdGluZm8vYmxpbnV4LWxpc3QK
 
