@@ -2,72 +2,49 @@ Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 21C1F7BD4C1
-	for <lists+blinux-list@lfdr.de>; Mon,  9 Oct 2023 09:55:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5D3597BE338
+	for <lists+blinux-list@lfdr.de>; Mon,  9 Oct 2023 16:42:28 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1696838121;
+	s=mimecast20190719; t=1696862547;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:list-id:list-help:
-	 list-unsubscribe:list-subscribe:list-post:autocrypt:autocrypt;
-	bh=D4lKwMWEL65Xz0inetiublpJpq7a56NovZo0ucmFQzo=;
-	b=iaWS2AZVz0TS6q2SSoN+nitp+OXdDR+iX7jMJRuhP8QRiZRabbIBU7MfrnGP3Aeno/Zpo4
-	8kcxy6vYVMzbS2QizqXK+IP08SaH8NYSS4jlUay46Gep4C+45JW5IZxuiXi14mg0JQ6KyH
-	0DjHRzTQBzkqTHOmez97JrLJIEAnA9Q=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-117-VzEZ3RDGNdyiSDpFCyEyaA-1; Mon, 09 Oct 2023 03:55:17 -0400
-X-MC-Unique: VzEZ3RDGNdyiSDpFCyEyaA-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
+	 list-unsubscribe:list-subscribe:list-post;
+	bh=B2TkyqCXTSXZJuEy1rjQ1e3xuDqHGk/J+gEnqvgnbDQ=;
+	b=EVeNoqtQPdg3c7nQ2L5uD6F+oDNafkSOo0CAOVv2J5zFm7EmWJVyJbEKwnQ+tPFhavuTtp
+	tg0kaepHIxgDVEejU9mqpRhhM1MIhqsRYFb0HJ9buPFyoV3ybWX1mzNY7B3dsszOLExAC3
+	SUOhzY3IfiflduyNsoPO8lrjrSR2eZU=
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-663-XwI8CcXFPGCxhKGnKp15Kw-1; Mon, 09 Oct 2023 10:42:14 -0400
+X-MC-Unique: XwI8CcXFPGCxhKGnKp15Kw-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CB72918172C7;
-	Mon,  9 Oct 2023 07:55:15 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 05DD31C06E12;
+	Mon,  9 Oct 2023 14:42:13 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 1154A10F1BEA;
-	Mon,  9 Oct 2023 07:55:09 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 76315400F36;
+	Mon,  9 Oct 2023 14:42:07 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 46B6919465B7;
-	Mon,  9 Oct 2023 07:55:08 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 93CED19465B9;
+	Mon,  9 Oct 2023 14:42:06 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Mon, 9 Oct 2023 09:54:53 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Debian with Orca
-To: blinux-list@redhat.com
+In-Reply-To: <mailman.133.1696838107.2052524.blinux-list@redhat.com>
 References: <mailman.22.1696701251.2052526.blinux-list@redhat.com>
  <mailman.85.1696772374.2052530.blinux-list@redhat.com>
  <mailman.87.1696776767.2052524.blinux-list@redhat.com>
  <mailman.167.1696819038.2052531.blinux-list@redhat.com>
-Autocrypt: addr=didier@slint.fr; keydata=
- xsBNBFY6fG8BCADH4Hf/OaE2MwXRFMrU/9oDd+YPqR/wkhmIv0veDio84fsWA5qMz1De7TEv
- dNuxIVYTznuVOd/9lpdfxQ1KV9rgD7yoBPLmjbQA1vVjB+1QylIQUV0B9AYFUsxZP32Ic2pg
- TS3US/WiZyx+/jS50ri4kvT9iDtIEu7WBWFr8YMOoq3oLkHI8Y7gBG0WsK9XYN09glhtI+bA
- jLPr/ezwEg5M3FDb4U7XFq7GcA6EEzanKMAOHdZl3lta7dv5gpgdj+38j5jPfV1cJW+J1fha
- 63X72xxXGs7V6J7NGpnW7SAKfTAMXsPXZwwGIuqMQs1Z89I+2ZPJPOoV8zMncTsWzHStABEB
- AAHNH0RpZGllciBTcGFpZXIgPGRpZGllckBzbGludC5mcj7CwHkEEwEKACMCGwMHCwkIBwMC
- AQYVCAIJCgsEFgIDAQIeAQIXgAUCYZVPGAAKCRDVAgLvYMA+6pOxCADB2pKmm/LgncWREzob
- Z6M+RsvgzvGS/48ik/E/TH2KyPO/hn+Fzbj4MmMwQdqz5YPfdBmkcM7WyDzkPaukzfS8QUvl
- VKyWQ92pqpbI/JUeShI+DLMKV7LZxiPinMBuKmpyLdpxuhk08g2+6F8X6ztbl8mbXQy5jcIZ
- zKQ442N0D4wnn8VXM0tb0uonmqc6ly7dcmkQ/GI7Q0tF/hkn4n3g1Lh6+K1jBqEIC9vn/c6X
- yf67ec+CwbE0GtgVM1FR1R0J1y/6vkYWr7gZHhnzgwKr6k1wzCGkVUyCSpFwB2oeANT9c0qP
- rgn4YjoYQIHS3vMWd630vRyOfqwetWXmVjPxzsBNBFY6fG8BCACqDQKHSw0ElDkwPPpNguL0
- ujOyygO30xlLyfW9pWOEycHSLhLzvDTlFkvr5IxvyCDBIFBdzpkeQqh1+ZxrFliwWyj+9/ro
- JlIjxeAyNs2xQZ7tQM6K5xtbUs8O5YtkCCO3OegAiLgmzzgxes79Qy+V3ciKbl+vrsNu7T9r
- o3zZhyinci1eOCcKEtXFPQW5P4woB+6+JheN9pIiDkjojmdC+xkvDadP7kJYKp19Itys/CbN
- vxEoOLsgeJhsZSmNU2QNhXkLfr7+AC99fb/c5ZDTNPRBqgLJCp+gTxn1QVJrAbq2OP3refmS
- RxdA3yUDMjxEeHwDNZJL9aEtTDlTzPk5ABEBAAHCwF8EGAEKAAkCGwwFAmGVT44ACgkQ1QIC
- 72DAPuqjhwgApl0pdNIrbU+8Hn0mr3CTEXxPaTbAU2bYFPDiBaEvXsBGoz8xJ6EZQnywbC7o
- l5wFtVT08LKDewLHaL78zS+Q8rv5sNmWwzMAaipFtZg67e/rU3V5tw4E12nUghyMzQpngUur
- lZPMFlB9IZN9681cXuv2sZzAZlR2+3PsSAftpPQxReoSC7hj3dfiCiAis19G3A184HClA5MB
- I5heGinSz7R/AXhkiej8HZZzz9ZPkS7aeL8HsZKqCwZvViutbGmpm+V70JnbRAHLFjYb+Se3
- rdUWWAXcca4Ry8HCLTo5iK9xCTQh5gEuJ7ROdOXeY4SvMiqWjYhlrsR0qhTv9q/gfg==
-In-Reply-To: <mailman.167.1696819038.2052531.blinux-list@redhat.com>
-Message-ID: <mailman.133.1696838107.2052524.blinux-list@redhat.com>
+ <mailman.133.1696838107.2052524.blinux-list@redhat.com>
+Date: Mon, 9 Oct 2023 10:42:00 -0400
+Subject: Re: Debian with Orca
+To: blinux-list@redhat.com
+Message-ID: <mailman.248.1696862525.2052526.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -83,133 +60,24 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.1 on 10.11.54.3
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-SGksCgpUaGUgZGVmYXVsdCBzZXR0aW5nIGluIEJvb2t3b3JtIGlzIHRvIGhhdmUgaW4gL2V0Yy9z
-cGVlY2gtZGlzcGF0Y2hlci9zcGVlY2hkLmNvbmY6CkF1ZGlvT3V0cHV0TWV0aG9kICJwdWxzZSIK
-UGlwZXdpcmUgaXMgbm90IGxpc3RlZCBhbW9uZyB0aGUgcG9zc2liaWxpdGllcyBhbmQgYWZ0ZXIg
-aGF2aW5nIHN0YXJ0ZWQgb3JjYSwKInBzIC1lZiB8IGdyZXAgcGlwZXdpcmUiIGNvbWUgZW1wdHku
-IE9yY2EgLS12ZXJzaW9uIHNheXM6IDQzLjEKClNvIGlmIHBpcGV3aXJlIGNhbiBiZSB1c2VkIGlu
-IHRoaXMgY29udGV4dCAod2hpY2ggSSBkbyBub3Qga25vdyksIHRoaXMgaXMgbm90Cm91dCBvZiB0
-aGUgYm94LgoKQ2hlZXJzLApEaWRpZXIKCgpMZSAwOS8xMC8yMDIzIMOgIDA0OjM0LCBMaW51eCBm
-b3IgYmxpbmQgZ2VuZXJhbCBkaXNjdXNzaW9uIGEgw6ljcml0wqA6Cj4gZMKgwqDCoCBJIHRoaW5r
-IEJvb2t3b3JtIHVzZXMgUGlwZXdpcmUsIHNvIG9uIG15IHN5c3RlbSB0aGVyZSBpcyBhIHByb2Nl
-c3MgY2FsbGVkCj4gcGlwZXdpcmUtcHVsc2UuwqAgSSBkb24ndCB0aGluayB5b3UgaGF2ZSB0byBo
-YXZlIHB1bHNlIGF1ZGlvIHJ1bm5pbmcgYXQgYWxsLsKgIEkKPiBtYXkgaGF2ZSBkaXNhYmxlZCBp
-dCB1c2luZyAnc3lzdGVtY3RsJyBvciB1bmluc3RhbGxlZCBpdCwgYnV0IEkgY2FuJ3QgcmVtZW1i
-ZXIKPiBhdCB0aGUgbW9tZW50Lgo+IAo+IAo+IAo+IE9uIDEwLzgvMjMgMTA6NTIsIExpbnV4IGZv
-ciBibGluZCBnZW5lcmFsIGRpc2N1c3Npb24gd3JvdGU6Cj4+IEhpLAo+Pgo+PiBJIGhhcHBlbiB0
-byBoYXZlIERlYmlhbiAxMiBCb29rd29ybSBpbnN0YWxsZWQgaW4gYSBRZW11IHZpcnR1YWwgbWFj
-aGluZSwgc28KPj4gdHJpZWQsIHVzaW5nIGxpZ2h0ZG0gYXMgbG9naW4gbWFuYWdlciBhbmQgbWF0
-ZSBhcyBkZXNrdG9wLgo+Pgo+PiBPcmNhIHdhcyBhbHJlYWR5IGluc3RhbGxlZCwgYnV0IG5vdCBz
-dGFydGVkIGluIG1hdGUKPj4KPj4gwqBGcm9tIG1hdGUtdGVybWluYWwgSSBjb3VsZCBpbnN0YWxs
-IGVzcGVha3VwIHR5cGluZyBhcyByb290Ogo+PiBhcHQtZ2V0IGluc3RhbGwgZXNwZWFrdXAuCj4+
-Cj4+IFRoZW4gYXMgYWR2aXNlZCBlZGl0ZWQgL2V0Yy9tb2R1bGVzIHRvIGluY2x1ZGUgYSBsaW5l
-IHdpdGg6Cj4+IHNwZWFrdXBfc29mdAo+Pgo+PiBJIGRpZCBub3QgZWRpdCAvZXRjL2RlZmF1bHQv
-ZXNwZWFrdXAgYXMgaW4gdGhpcyBWTSB0aGVyZSBpcyBvbmx5IG9uZSB2aXJ0dWFsCj4+IHNvdW5k
-IGNhcmQgYW5kIGRpZCBub3QgY2FyZSBmb3Igd2hpY2ggdm9pY2UgdG8gdXNlLgo+Pgo+PiBUaGVu
-IHN3aXRjaGluZyB0byB0dHkyIHByZXNzaW5nIGN0cmwtYWx0LWYyIGRpZCBpbmRlZWQgbWFrZSBl
-c3BlYWt1cCB0YWxraW5nIGluCj4+IHRoaXMgY29uc29sZS4KPj4KPj4gQnV0IGlmIEkgc3RhcnQg
-T3JjYSBpbiBtYXRlLXRlcm1pbmFsIEkgY2FuJ3QgZ2V0IHNwZWVjaCBpbiB0aGUgdGV4dCBjb25z
-b2xlLgo+Pgo+PiBUaGlzIHJlbWluZHMgbWUgYSBkaXNjdXNzaW9uIEkgaGFkIHdpdGggU2FtdWVs
-IGxvbmcgYWdvOiBhcyBpcyBhIGRlZmF1bHQgc2V0dGluZwo+PiBpbiBTbGludCBJIHN1Z2dlc3Rl
-ZCB0byBhbHNvIGluY2x1ZGUgaW4gRGViaWFuIGEgbGluZSBsaWtlIHRoaXMgaW4KPj4gL2V0Yy9w
-dWxzZS9kZWZhdWx0LnBhIHRvIHJlZGlyZWN0IHRoZSBwdWxzZSdzIG91dHB1dCBzdHJlYW0gdG8g
-YWxzYSdzIG1peGVyLAo+PiB0aHVzIGF2b2lkaW5nIHRoYXQgYm90aCBwdWxzZSBhbmQgYWxzYSBj
-bGFpbSB0aGUgc2FtZSBjYXJkOgo+Pgo+PiBsb2FkLW1vZHVsZSBtb2R1bGUtYWxzYS1zaW5rIGRl
-dmljZT1kbWl4Cj4+Cj4+Cj4+IFRoaXMgd2FzIG5vdCBhY2NlcHRlZCBmb3Igc29tZSByZWFzb24g
-dGhhdCBJIGRvIG5vdCByZWNhbGwgZXhhY3RseS4KPj4KPj4gSG93ZXZlciB5b3UgY291bGQgaW5z
-dGVhZCB0cnkgdG8gdXNlIG9uZSBvZiB0aGUgb3RoZXIgc2NyZWVucmVhZGVycyBhcyBzdGF0ZWQg
-aW4KPj4gdGhlIERlYmlhbiB3aWtpLiBDYXZlYXQ6IEkgZGlkIG5vdCB0cnkgdGhlc2Ugb3RoZXIg
-bWV0aG9kcy4KPj4KPj4gQ2hlZXJzLAo+PiBEaWRpZXIKPj4KPj4gTGUgMDgvMTAvMjAyMyDDoCAx
-NTozNywgTGludXggZm9yIGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiBhIMOpY3JpdMKgOgo+Pj4g
-wqDCoMKgwqAgSW4gb3JkZXIgdG8gaGF2ZSBzcGVlY2ggaW4gdGhlIHRleHQgY29uc29sZXMsIHlv
-dSBuZWVkIHRvIG1ha2Ugc3VyZSBTcGVha3VwCj4+PiBvciBCUkxUVFkgb3IgYW5vdGhlciBzY3Jl
-ZW5yZWFkZXIgaXMgYWN0aXZlLsKgIEl0IHdvcmtzIGp1c3QgZmluZSB3aXRoIFNwZWFrdXAuCj4+
-PiBZb3UgbWF5IHdhbnQgdG8gcmVhZCB0aGUgRGViaWFuIGFjY2Vzc2liaWxpdHkgRkFRLgo+Pj4K
-Pj4+IFRoaXMgaXMgdGhlIHNlY3Rpb24gb24gU3BlZWNoIHN1cHBvcnQuCj4+Pgo+Pj4gaHR0cHM6
-Ly93aWtpLmRlYmlhbi5vcmcvYWNjZXNzaWJpbGl0eSNTcGVlY2hfU3VwcG9ydAo+Pj4KPj4+IE9S
-Q0Egd2lsbCBiZSBvbiBjb25zb2xlIDcgYnkgZGVmYXVsdCwgYW5kIHlvdSBjYW4gZWFzaWx5IHN3
-aXRjaCB0byBhIHRleHQKPj4+IGNvbnNvbGUgYW5kIGhhdmUgYm90aCB3b3JraW5nIGF0IHRoZSBz
-YW1lIHRpbWUuCj4+Pgo+Pj4KPj4+Cj4+PiBPbiAxMC83LzIwMjMgMTo1NCBQTSwgTGludXggZm9y
-IGJsaW5kIGdlbmVyYWwgZGlzY3Vzc2lvbiB3cm90ZToKPj4+PiBJbiBhIHNlZW1pbmdseSBlbmRs
-ZXNzIHRyZWsgdG8gZ2V0IGJvdGggV2luZG93cyAxMSBhbmQgZGViaWFuCj4+Pj4gTGludXggZnJv
-bSBhIDMteWVhci1vbGQgbGFwdG9wIEkgcmVjZW50bHkgYWNxdWlyZWQsIEkgaGFkIGJlZW4KPj4+
-PiB0cnlpbmcgdG8gaW5zdGFsbCBkZWJpYW4gTGludXggd2l0aCBvcmNhIG9uIHRvIGEgbGFyZ2Ut
-Y2FwYWNpdHkKPj4+PiB0aHVtYiBkcml2ZS7CoCBUaGUgZGViaWFuIGJ1bGxzZXllIGluc3RhbGxz
-IHdlcmUgdGFraW5nIGFzIGxvbmcgYXMKPj4+PiB0d2VsdmUgaG91cnMgb3Igc28gdG8gZG8gYW5k
-IHdoZW4gSSBmaW5hbGx5IGdvdCBvbmUgdG8gZmluaXNoLCBpdAo+Pj4+IHdhcyBhcyBzbG93IGFz
-IG1vbGFzc2VzIGluIEphbnVhcnkgb3IgdGhlIHNhbWUgdGhpbmcgaW4gSnVseSBpbgo+Pj4+IHRo
-ZSBTb3V0aGVybiBoZW1pc3BoZXJlIGFuZCB3YXMgY29tcGxldGVseSB1c2VsZXNzIGV4Y2VwdCBm
-b3Igc3NoCj4+Pj4gbG9naW5zIGZyb20gYW5vdGhlciBjb21wdXRlciB1c2luZyB0aGUgY29tbWFu
-ZC1saW5lIG9yIGNvbnNvbGUKPj4+PiBtb2RlLgo+Pj4+Cj4+Pj4gwqDCoMKgwqDCoE9yY2EgbmV2
-ZXIgZGlkIGFueXRoaW5nIGV4Y2VwdCBhbiBvY2Nhc2lvbmFsIGhhbHRpbmcKPj4+PiBlcnJvciBt
-ZXNzYWdlLgo+Pj4+Cj4+Pj4gwqDCoMKgwqDCoEZpbmFsbHksIEkgdG9vayBhIG9uZS10ZXJhYnl0
-ZSBDcnVjaWFsIChCcmFuZCBuYW1lKSB1c2IKPj4+PiBkcml2ZSBhbmQgZGVjaWRlZCB0byB0cnkg
-dGhhdC7CoCBUaGUgdHdlbHZlLWhvdXIgbWFyYXRob24gcmVkdWNlZAo+Pj4+IHRvIGxlc3MgdGhh
-biBhbiBob3VyIGFuZCB0aGUgb3JjYSBpbnN0YWxsYXRpb24gaXMgdGFsa2luZyBhcyB3ZWxsCj4+
-Pj4gYXMgaXQgZG9lcyBvbiBhIGRlc2t0b3Agc3lzdGVtLCBoZXJlLsKgIFRoZSByZWFsIHByb2Js
-ZW0gd2FzIHRoZQo+Pj4+IHNsb3duZXNzIG9mIGRhdGEgdHJhbnNmZXIgaW4gYW5kIG91dCBvZiB0
-aGUgdXNiIHRodW1iIGRyaXZlLsKgIFRoZQo+Pj4+IG9yY2Egc2NyZWVuIHJlYWRlciBhbmQgbWF0
-ZSB0ZXJtaW5hbCBhcmUgcmVzcG9uZGluZyBuaWNlbHkgYW5kIGZhc3QKPj4+PiBhbmQgYWxsIHNl
-ZW1zIHdlbGwgc28gZmFyLgo+Pj4+Cj4+Pj4gwqDCoMKgwqDCoE5vdyBmb3Igc29tZSBxdWVzdGlv
-bnM6Cj4+Pj4KPj4+PiDCoMKgwqDCoMKgSSBhbSBub3QgbmV3IHRvIG9yY2EgYnV0LCBpbiB0aGUg
-Y291cGxlIG9mIHllYXJzIEkgaGF2ZQo+Pj4+IGJlZW4gdHJ5aW5nIGl0IG9uIHRoZSBkZXNrdG9w
-IGFuZCBub3csIHRoZSBsYXB0b3AsIEkgcmVhbGx5IG1pc3MKPj4+PiBoYXZpbmcgYSBjb21tYW5k
-LWxpbmUgY29uc29sZSB3aGljaCBJIGNhbiBnZXQgd2l0aCBubyBwcm9ibGVtIGlmCj4+Pj4gSSBz
-c2ggaW4gdG8gZWl0aGVyIG9yY2Egc3lzdGVtIHdpdGggYSBjb21tYW5kLWxpbmUgTGludXggYm94
-Lgo+Pj4+Cj4+Pj4gwqDCoMKgwqDCoFRoaXMgaXMgdGhlIHN0YW5kYXJkIGRlYmlhbiBpbnN0YWxs
-IGluc3RhbGxhdGlvbiBpbWFnZQo+Pj4+IG9uZSBjYW4gZG93bmxvYWQgYW5kIGl0IGZvdW5kIHRo
-ZSBsYXB0b3Agc291bmQgaW50ZXJmYWNlIHdpdGhvdXQKPj4+PiBhbnkgc3BlY2lhbCBtZWFzdXJl
-cyBzdWNoIGFzIGluc3RhbGxpbmcgYSB1c2Igc291bmQgY2FyZCAuwqAgT24KPj4+PiBzb21lIHN5
-c3RlbXMsIHlvdSBkbyBnZXQgY29tbWFuZC1saW5lIGNvbnNvbGVzIGJ5IHByZXNzaW5nIENvbnRy
-b2wrQWx0K0YyCj4+Pj4gYW5kIHlvdSBjYW4gZ28gYmFjayB0byB0aGUgR1VJIGJ5IENvbnRyb2wr
-QWx0K2YxLsKgIEkgdGhpbmsgdGhlcmUgYXJlCj4+Pj4gbWF5YmUgNSBtb3JlIGNvbW1hbmQtbGlu
-ZSBjb25zb2xlcyBpbiB3aGljaCBzcGVha3VwIHRhbGtzLsKgIE9uCj4+Pj4gdGhpcyBpbnN0YWxs
-YXRpb24sIENvbnRyb2wrQWx0K2YyIHByb21wdHMgb25lIHRvIHR5cGUgYSBjb21tYW5kIG9yIEVT
-QyB0bwo+Pj4+IGV4aXQuwqAgT25lIG9mIHRoZSBvdGhlciBqdXN0IGtpbGxzIHNwZWVjaCBhbmQg
-bm90aGluZyBtdWNoIHNlZW1zCj4+Pj4gdG8gaGFwcGVuLsKgIExpa2UgdGhlIHNwb2lsZWQgcmlj
-aCBraWQgb24gQ2hyaXN0bWFzIG1vcm5pbmcsIEkKPj4+PiB3YW50IGl0IGFsbCBidXQgbm90IGlu
-IGEgbmFzdHkgd2F5IHNvIEkgYW0gbm90IGNvbXBsYWluaW5nLsKgIElmCj4+Pj4gbmVjZXNzYXJ5
-LCBJIGNvdWxkIGdldCBhbm90aGVyIGhvcGVmdWxseSBmYXN0IHVzYiBkcml2ZSBhbmQKPj4+PiBp
-bnN0YWxsIGRlYmlhbiB3aXRob3V0IHRoZSBHVUkgYW5kIGdldCB0aGUgY29uc29sZXMgYnV0IHNp
-bmNlIHRoaXMKPj4+PiBpcyBhIGxhcHRvcCwgZXZlcnkgZXh0cmEgcGllY2Ugb2YgZ2VhciBtYWtl
-cyBpdCBsZXNzIHBvcnRhYmxlLgo+Pj4+IEFsc28sIEV2ZXJ5IGluc3RhbmNlIG9mIExpbnV4IG9u
-ZSBtYWtlcyB3aWxsIGhhdmUgYSBkaWZmZXJlbnQgc3NoCj4+Pj4gaG9zdCBrZXkgdW5sZXNzIG9u
-ZSBjb3BpZXMgdGhlIHNhbWUga2V5IHRvIGFsbCBpbnN0YW5jZXMuCj4+Pj4gT3RoZXJ3aXNlIHRo
-ZSBzeXN0ZW1zIHlvdSBhcmUgdXNpbmcgc3NoIHRvIHRhbGsgdG8gdGhpbmsKPj4+PiBzb21ldGhp
-bmcncyB3cm9uZyB3aGVuIHRoZXkgc2VlIHRoZSBkaWZmZXJlbnQgaG9zdCBrZXlzLgo+Pj4+Cj4+
-Pj4gwqDCoMKgwqDCoEkgd291bGQgYWxzbyBsaWtlIHRvIHNheSBzb21lIGdvb2Qgd29yZHMgYWJv
-dXQgc2xpbnQuwqAgSQo+Pj4+IHdhcyBhYmxlIHRvIGdldCBhIGNvbW1hbmQtbGluZSBzZXQgb2Yg
-Y29uc29sZXMgYnV0IHRoZSBvbmx5IHdheSBJCj4+Pj4gY291bGQgZ2V0IGFueXRoaW5nIHRvIHRh
-bGsgd2FzIHRvIHBsdWcgaW4gYSB1c2Igc291bmQgY2FyZC7CoCBPbmUKPj4+PiBzdWNoIGNhcmQg
-d2FzIGEgQ3JlYXRpdmUgTGFicyBTb3VuZEJsYXN0ZXIgc2VyaWVzIHVzYiBzb3VuZCBjYXJkCj4+
-Pj4gd2hpY2ggd29ya2VkIHBlcmZlY3RseSBmb3IgdGhlIHNwZWFrdXAgdm9pY2UgcGx1cyBJIGFs
-c28gdHJpZWQKPj4+PiBhbm90aGVyIHZlcnkgaW5leHBlbnNpdmUgc291bmQgY2FyZCB3aGljaCBh
-bHNvIHdvcmtlZCB3aXRoIG5vCj4+Pj4gZGlmZmVyZW5jZSBiZXR3ZWVuIHRoZSBDcmVhdGl2ZSBM
-YWJzIGFuZCB0aGUgc291bmQgY2FyZCB3aG9zZQo+Pj4+IG5hbWUgZXNjYXBlcyBtZSwgYnV0IHNs
-aW50IGNvdWxkbid0IGF1dG9tYXRpY2FsbHkgZmluZCB0aGlzCj4+Pj4gbGFwdG9wJ3MgYnVpbHQt
-aW4gc291bmQgY2FyZC4KPj4+Pgo+Pj4+IMKgwqDCoMKgwqBFdmVyeXRoaW5nIGVsc2UgaW4gc2xp
-bnQgdGhhdCBJIHRyaWVkIGFwcGVhcnMgdG8gaGF2ZSBubwo+Pj4+IHByb2JsZW1zIC4KPj4+Pgo+
-Pj4+IMKgwqDCoMKgwqBTb3VuZCBzeXN0ZW0gaGFyZHdhcmUgaXMgc28gcHJvcHJpZXRhcnkgdGhh
-dCBhdWRpbyBpc3N1ZXMKPj4+PiBpbiBMaW51eCBhcmUgbGlrZSBncmFpbnMgb2Ygc2FuZCBvbiB0
-aGUgYmVhY2gsIGNvbW1vbiBhbmQgZ3JpdHR5Cj4+Pj4gd2hlbiB5b3UgaGF2ZSB0byBkZWFsIHdp
-dGggdGhlbS4KPj4+Pgo+Pj4+IMKgwqDCoMKgwqBTbywgbXkgcHJpbWFyeSBxdWVzdGlvbiBpcyBh
-bSBJIG1pc3Npbmcgc29tZXRoaW5nIGFib3V0Cj4+Pj4gdGhlIGNvbW1hbmQgY29uc29sZXM/wqAg
-VGhlIG1hdGUgdGVybWluYWwgc2VlbXMgdG8gYmUgd29ya2luZyBidXQKPj4+PiBpdCdzIG5vdCBx
-dWl0ZSB0aGUgc2FtZSBhcyBhIGNvbW1hbmQtbGluZSBjb25zb2xlLgo+Pj4+Cj4+Pj4gTWFydGlu
-Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4+IEJs
-aW51eC1saXN0IG1haWxpbmcgbGlzdAo+PiBCbGludXgtbGlzdEByZWRoYXQuY29tCj4+IGh0dHBz
-Oi8vbGlzdG1hbi5yZWRoYXQuY29tL21haWxtYW4vbGlzdGluZm8vYmxpbnV4LWxpc3QKPiAKPiBf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IEJsaW51eC1s
-aXN0IG1haWxpbmcgbGlzdAo+IEJsaW51eC1saXN0QHJlZGhhdC5jb20KPiBodHRwczovL2xpc3Rt
-YW4ucmVkaGF0LmNvbS9tYWlsbWFuL2xpc3RpbmZvL2JsaW51eC1saXN0CgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpCbGludXgtbGlzdCBtYWlsaW5nIGxp
-c3QKQmxpbnV4LWxpc3RAcmVkaGF0LmNvbQpodHRwczovL2xpc3RtYW4ucmVkaGF0LmNvbS9tYWls
-bWFuL2xpc3RpbmZvL2JsaW51eC1saXN0Cg==
+As I understand it, pipewire hit maturity early enough to be included
+in Debian 12 aka Bookworm, but too late to replace pulse as the
+default, and one has to manually install pipewire and configure Debian
+to use it instead of pulse(though I suppose its possible the Expert
+mode of the Debian Installer provides the option)... I vaguely
+remember reading somewhere(perhaps on this mailing list or in a thread
+on the Audio Games forum) that Debian plans to make pipewire the
+default for Debian 13 aka Trixie, but I have no idea if that's true or
+even how to go about confirming or denying it.
+
+_______________________________________________
+Blinux-list mailing list
+Blinux-list@redhat.com
+https://listman.redhat.com/mailman/listinfo/blinux-list
 
