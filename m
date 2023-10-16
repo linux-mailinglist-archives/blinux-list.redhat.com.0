@@ -1,44 +1,43 @@
 Return-Path: <blinux-list-bounces@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4963D7C9757
-	for <lists+blinux-list@lfdr.de>; Sun, 15 Oct 2023 02:07:48 +0200 (CEST)
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	by mail.lfdr.de (Postfix) with ESMTPS id 25F427CB2E4
+	for <lists+blinux-list@lfdr.de>; Mon, 16 Oct 2023 20:45:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1697328466;
+	s=mimecast20190719; t=1697481957;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:list-id:list-help:
 	 list-unsubscribe:list-subscribe:list-post;
-	bh=sJIUw/At+FrpBpNv2Gk8aHi16vxDySris713ZpuKXjc=;
-	b=SfVNuOPtNbv9eE6KIS2cWJIbeDiB+LpKt1HQO2XWM5fIgJntJz0czBFWxZB0g8D9eVBwFc
-	xFW6A/M/o86GjqI5cbKKNAnHl7NkxZTOZU3GGGd1Y3T0Uy8JH2j9iubyFcJSwA65Qb8wDs
-	QgpzjDpDXQU7T7Afap2fOQdAQ4Y4p9U=
+	bh=vFBU++NJ6TXZW+foSwKezEfSyrb4h0Fsdy/hSkq5Plk=;
+	b=Q4J+76/VwStVagiNxiPU8F7ptMFbOdP8WFnX4qz3AZGacTuNH6GmF6VrZMNtkUmK+p5hI0
+	5uJyEb8NAeLrFjEAtLDdzOu3NrOM54pk4dib3B4fXHU6DFjuidk0HwVKfBuvcdt6Rdz/Gu
+	gCC7tq3yod46T8uxEyv0K+yVHjcbGGQ=
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-539-7ibW5od3OhOvy7hl8Ol4ng-1; Sat, 14 Oct 2023 20:07:44 -0400
-X-MC-Unique: 7ibW5od3OhOvy7hl8Ol4ng-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+ us-mta-358-tW1Xv2oEM-eaK6q6fE_z6Q-1; Mon, 16 Oct 2023 14:45:49 -0400
+X-MC-Unique: tW1Xv2oEM-eaK6q6fE_z6Q-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 593941C05151;
-	Sun, 15 Oct 2023 00:07:42 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8597D2999B2D;
+	Mon, 16 Oct 2023 18:45:47 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com [10.30.29.100])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 00F4E25C0;
-	Sun, 15 Oct 2023 00:07:33 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 16F2CC15BB8;
+	Mon, 16 Oct 2023 18:45:39 +0000 (UTC)
 Received: from mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (localhost [IPv6:::1])
-	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 32F471946594;
-	Sun, 15 Oct 2023 00:07:33 +0000 (UTC)
+	by mm-prod-listman-01.mail-001.prod.us-east-1.aws.redhat.com (Postfix) with ESMTP id 3EE2619465BB;
+	Mon, 16 Oct 2023 18:45:37 +0000 (UTC)
 Delivered-To: blinux-list@listman.corp.redhat.com
 Delivered-To: blinux-list@redhat.com
-Date: Sun, 15 Oct 2023 00:06:43 +0000
+Date: Mon, 16 Oct 2023 14:45:30 -0400 (EDT)
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: UMAI v0.4.1: Welcome on Ubuntu Mate 23.10!
-Feedback-ID: 26663242:user:proton
+Subject: command line tool for this task?
 MIME-Version: 1.0
-Message-ID: <mailman.76.1697328452.843856.blinux-list@redhat.com>
+Message-ID: <mailman.428.1697481936.843860.blinux-list@redhat.com>
 From: Linux for blind general discussion <blinux-list@redhat.com>
 X-BeenThere: blinux-list@redhat.com
 X-Mailman-Version: 2.1.29
@@ -54,33 +53,25 @@ List-Subscribe: <https://listman.redhat.com/mailman/listinfo/blinux-list>,
 Reply-To: blinux-list@redhat.com
 Errors-To: blinux-list-bounces@redhat.com
 Sender: "Blinux-list" <blinux-list-bounces@redhat.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.8
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 
-Hello everyone,
-ubuntu Mate 23.10 is a fresh release of the popular Linux distribution, 
-shipping the latest and greatest the Linux accessibility infrastructure 
-can offer.
+Hi folks,
+Let me begin by stating that my access to Linux is a shell service, 
+specifically shellworld.net
 
-I'm happy to announce my umai script:
-https://github.com/RastislavKish/umai
-
-for auto-setting-up UM for accessibility, now supports also this new 
-release of Ubuntu.
-
-I apologize for a slight delay, I wanted to make sure everything works 
-as expected.
-My tests show very satisfying results, so I can't but say "Hey everyone, 
-welcome on Ubuntu Mate 23.10!"
-
-Happy Minotaur rides!
-
-Best regards
-
-Rastislav
+what I am seeking is a tool likely to be included that lets me create 
+a file I will then use as a gift acknowledgment letter sent via email.
+What I mean is this.
+I have the name and email of a contributor.  I create the body, but wish 
+to change slight details, their name, the amount their email etc.
+Is there a tool in command line Linux that will provide this sort of 
+solution?
+thanks,
+Karen
 
 
 _______________________________________________
