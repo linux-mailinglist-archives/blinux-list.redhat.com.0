@@ -1,141 +1,123 @@
-Return-Path: <blinux-list+bncBCA4T6NLSUIBBQGE3CUQMGQEMB2RGEI@redhat.com>
+Return-Path: <blinux-list+bncBDP7P6HU4IERB7HY3GUQMGQEA3746EA@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com [209.85.128.72])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB2D47D2B70
-	for <lists+blinux-list@lfdr.de>; Mon, 23 Oct 2023 09:35:29 +0200 (CEST)
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4067f186094sf16692855e9.1
-        for <lists+blinux-list@lfdr.de>; Mon, 23 Oct 2023 00:35:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1698046529; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=iXCG2izM8H8qwXBqxqCCV/hJatkEkLK8xoPviFDzKLda/AKlmc+2yBgESRZy2kG+rD
-         NE+hA/+dAwVFSzr+SJzwZ289nU6m1pevZFsqSfGubkw3u3CMaa5PXgAu5FFkzXvWjVNi
-         +5VHXAHeJ1rt2OWNNZRfAUx7RKPL/Zje7io+ZMd2oHBsMwC+ZB4SRdwUAPcZ8wbCkkEG
-         9EZClRt2VeR1P8ziyJ0KAHAreXT2avxYnU6oOXA+SBj0J2QHq6UJO9Ea98vOooeuUref
-         F8KIMmECddCH2/uXv3prWrcjZjkIBuYAH8DI5NA6Nu1l4wBGvivdySZnWhmIho5vMpEG
-         W4LQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :content-disposition:in-reply-to:mime-version:references:message-id
-         :subject:to:from:date:delivered-to;
-        bh=YDZAGNmIBAb+1bThZJJd2IP9YsQ/BZoQtjAX6KBmOOo=;
-        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
-        b=BHZkBJ3B5kMQbWLYxAzjwCtoMp/82nEsivvDjuNIIwqtKeTALWTreH02ywT/+ulcqK
-         +2ybktBhD9kMhxpEwTjQLA39YY02irTCk+jn2AL5wEbS7UuPtRVqVBl/hIWbPOm3zHk/
-         sVseWtHVEyyw4o8e0oSoCNgljRFEdhNVngfdCmP4LQPt0xRx1sL534e1mf4ZNnETuVSR
-         24+JZN1g7T8PVQjgj9QyuQZZKNwLQHfV+/pLC2JZ7JaizFUiS5WP1vBoBeJKMsXTDTEC
-         sCuxBOo5fN/roRpCZrGwgAi5pDbyobt24KQCChoTw5ABLmejhE27XnaTxHCOK3WBXeDF
-         QMXg==
-ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of chris@schoeppi.net designates 193.41.226.221 as permitted sender) smtp.mailfrom=chris@schoeppi.net
+Received: from mail-lj1-f197.google.com (mail-lj1-f197.google.com [209.85.208.197])
+	by mail.lfdr.de (Postfix) with ESMTPS id DBAED7D38B8
+	for <lists+blinux-list@lfdr.de>; Mon, 23 Oct 2023 16:00:29 +0200 (CEST)
+Received: by mail-lj1-f197.google.com with SMTP id 38308e7fff4ca-2c520e0a9a7sf33415601fa.3
+        for <lists+blinux-list@lfdr.de>; Mon, 23 Oct 2023 07:00:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698046529; x=1698651329;
+        d=1e100.net; s=20230601; t=1698069629; x=1698674429;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender
-         :content-transfer-encoding:content-disposition:in-reply-to
-         :mime-version:references:message-id:subject:to:from:date
-         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YDZAGNmIBAb+1bThZJJd2IP9YsQ/BZoQtjAX6KBmOOo=;
-        b=iTtkteCsX/ZzRWH7aUBGQOB+LMzHoYheSQJWf8hxPjO0U4h8OqE6OEyUXCq8RG61jI
-         J2gyvQUsnHnPSXv0tO+HoPKbV+2RAR8nakB99VbScQz9cz6mfDRNxc0mMyRLX1FluMj+
-         9CV89pstAZze8bwdTu10Ynm/Ny3J6IDkZMjSR4BwxIV/ko5eqXvQbyyoRQQxqqMauy8g
-         svTQYvocfgWSutCQv/7yVg8WE7yRKZESoHKjP7JU3A8H2UgGgtO746UVpK4Ed6BNScoW
-         1T8rFz/vKscaPbTyKkxYd4/d24QkWawbSrpn9ol4bIP27PCD7tT/5HULttf896UmbCXZ
-         u67w==
-X-Gm-Message-State: AOJu0Yy/bOlDL2xH0P46TxOQASK6kGjtLrSaLbM10Kx/IaBy+tY5sCcR
-	834XxJy16E3ski2SDzTitPw9wA==
-X-Google-Smtp-Source: AGHT+IG+m2kpVhRlJrAAK4d5gqf+2GU+H5SQXvvRJE6yv7UlrAangC//4T905soPbfEkoAx38eRtUA==
-X-Received: by 2002:a05:600c:5489:b0:402:bcac:5773 with SMTP id iv9-20020a05600c548900b00402bcac5773mr6777588wmb.38.1698046529161;
-        Mon, 23 Oct 2023 00:35:29 -0700 (PDT)
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:content-id
+         :message-id:date:mime-version:subject:to:from:delivered-to
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=khmLdPtwVFsqgzgYYUVxfcVZJViNX2/N2MwMdePLUSw=;
+        b=wu8PmVAcCzaow5lfu0L/Xxz25MgUfgjD+8rN96tL/q3xrm9Cf1j3a5XBHsO0f9XS5L
+         5aQ5eey9Xkw8/jO3XGCIuosvBPHbTPBu2KBe5uEhJBshEOrK1RjAUtXJjU/EzVS+vMwC
+         /u1VCQKZRVPUlXJgSfvYlSCiKvAYeRmq5LHJzuA6gr+gmiH9YiCMVPHn89y3S+wBSUWr
+         rI18XWOXzEmsKAWIguKZLYzDJe5rcip2KLiHf65W/Dx283sY49J4tuSC6AWaiDXIt5RQ
+         mkvO54SQ8VW1WrayFW+OLLr9GGLs6wOxM+eqcIRW1FrzGmGlTN/yelu4zWihDFOtYxAA
+         pknA==
+X-Gm-Message-State: AOJu0Yw0YfGv53LxpUS13kJWoKjzL+tcrkbYJ4UJnOj2IQmCzWlzUBvl
+	BH38ItefJgU0VOqSntvePmvpGg==
+X-Google-Smtp-Source: AGHT+IEn+zlYCM6E/Yd8UrczYILCPjnju9u2Vw1bLt5IZF/elRIMZ3QXF2BN52iowsyylnFziJw6Hg==
+X-Received: by 2002:a2e:a589:0:b0:2c5:21e3:f209 with SMTP id m9-20020a2ea589000000b002c521e3f209mr6206680ljp.23.1698069629004;
+        Mon, 23 Oct 2023 07:00:29 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:600c:4689:b0:406:538a:190a with SMTP id
- p9-20020a05600c468900b00406538a190als823071wmo.0.-pod-prod-06-eu; Mon, 23 Oct
- 2023 00:35:27 -0700 (PDT)
-X-Received: by 2002:adf:fd45:0:b0:32d:857c:d51d with SMTP id h5-20020adffd45000000b0032d857cd51dmr5838459wrs.60.1698046527418;
-        Mon, 23 Oct 2023 00:35:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1698046527; cv=none;
+Received: by 2002:a05:600c:1d07:b0:406:5e86:ad61 with SMTP id
+ l7-20020a05600c1d0700b004065e86ad61ls946592wms.0.-pod-prod-05-eu; Mon, 23 Oct
+ 2023 07:00:27 -0700 (PDT)
+X-Received: by 2002:a5d:4fc1:0:b0:31f:4173:2ac8 with SMTP id h1-20020a5d4fc1000000b0031f41732ac8mr6886200wrw.18.1698069627282;
+        Mon, 23 Oct 2023 07:00:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1698069627; cv=none;
         d=google.com; s=arc-20160816;
-        b=0h7I8BQlYFPJCbR/J+xqBS8eCvatd9mLZr+z+O+dPV3Br/HH/frFAZX2qtfL+o32nJ
-         y/kaQLqsAnKQXK/GtPgwfyiLAqwnwrPFS026hGS6SPSn1g/nTkcqeV33P3eJkwCMRcDY
-         ik8OB8N5wNV94Hb0VSl8BTNmZOhgLbfVP1uLm4z/kRBm0U3mHUsZtk6PQsGNaRDhdbPB
-         Qq39KhH5GdYHIpqyMl3Bft5+hA+yVkVnVj6EHdoUFMZyKQVAsPWLSSh7xsAq8vTvMF/u
-         llXzsaAyhGn++geyiWcPxANlp50DFlP9NxyQqUivGZMWS1Skn1KuLyRMSXlF5fCwGNJ2
-         9/yA==
+        b=HqHOcKMxJR4woEvZ8JVfkE+dOJ1fVFKfKJTlt6bS8hSs9cTQQo7Y9dPtK2TCmIkgml
+         2beh6Srsf+aoqiD4PNSZaDTkwtiyd9Q3sb35ttfL1lRVl4T41Y8z8M2dJgoO9w7kb5V3
+         q8+9Bzizho0GLDOoVFE5QniSoEVZHsVQ++9ulB2g5R97fDaTzryBDqtzkist0BUxn9k3
+         jqK0cEFVlcvctoJBfC3bu7qd5oikE85UeyUtXGJBb1S7ozWMLpr8MHkrj73nKF5IOxM4
+         jPDZMRiaBhf0h4iWSjZl86VBhAEOetI+SNGHrwhVMkRv4qq93IAZclioe14hWQrgtGba
+         /2Cw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-disposition:in-reply-to
-         :mime-version:references:message-id:subject:to:from:date
+        h=content-id:message-id:date:mime-version:subject:to:from
          :delivered-to;
-        bh=YDZAGNmIBAb+1bThZJJd2IP9YsQ/BZoQtjAX6KBmOOo=;
+        bh=khmLdPtwVFsqgzgYYUVxfcVZJViNX2/N2MwMdePLUSw=;
         fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
-        b=gtRYx6ZpoBNCCkkQ1bPW4sQWMp0vURiqkpCEmvt9FCNY/jXFNUrJPHD7r/5yC5ODtu
-         D8j3zYGab+N/0J5Jp/g0PiUgGXJNRVWoi9jsHwSJHiIlLdCDSmgAgJScL+7Rz0+QQgRX
-         v5w9WEaIjvbtiUSGwUhoh+71I+11SLaD5LNCJE1hxrrwTP8c26BB5d3W5RE44caPqiPv
-         qPL2GwFi6OevzzqZPZ2nyCVJzWax+7UbyMuf4nD5+P+CK8gWx2zsyKlaiSp5u63m1Ygz
-         CLH448z0Ni6ogOgKao81BeMzqC2f/uwznTOlPnzb4p1pI3LARhA7uYCejMS/BeZnooCG
-         t0jg==
+        b=Vzpy+FIK2RlcqBqyx1Nz6aBVCkh7BKb5DbLZoST64aTKCIcJXUHDVEMeuwUYm8Ina6
+         g2h/braT3OjCl4ymI0ddYKLzgQhLancfsME2ws0zARs4EVpRzSKpITuoNkISjWKoPqna
+         Md9VM6xlL/QoCYYmmhUD6Ev4/qIcwEfI3aQaOddLHWHSXul598uPhfOIBbYfgB7EBjVH
+         xsIrnyBjCD0WZfZl1lk0tKP40ssWA1dVFGGjOp5ZnKAY/58F8cokZvybdTEOeqp4FJGc
+         M6LeIXQ31JPuTk6ldM59xHURw518XNGgCmPcEAOuCVmKkoOWRp0wIh+WXQ1GD2MBY72Q
+         qawg==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of chris@schoeppi.net designates 193.41.226.221 as permitted sender) smtp.mailfrom=chris@schoeppi.net
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
-        by mx.google.com with ESMTPS id bt14-20020a056000080e00b0032179b36d38si4417813wrb.901.2023.10.23.00.35.26
+       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.32 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-1.mimecast.com. [205.139.110.61])
+        by mx.google.com with ESMTPS id o8-20020a056000010800b0032d5cfd78a2si4465209wrx.336.2023.10.23.07.00.26
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Oct 2023 00:35:27 -0700 (PDT)
-Received-SPF: pass (google.com: domain of chris@schoeppi.net designates 193.41.226.221 as permitted sender) client-ip=193.41.226.221;
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-350-CTVNeYvjMNWCW5tcnWnk3A-1; Mon, 23 Oct 2023 03:35:25 -0400
-X-MC-Unique: CTVNeYvjMNWCW5tcnWnk3A-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EC47E3821354
-	for <blinux-list@gapps.redhat.com>; Mon, 23 Oct 2023 07:35:24 +0000 (UTC)
-Received: by smtp.corp.redhat.com (Postfix)
-	id E8D66111D784; Mon, 23 Oct 2023 07:35:24 +0000 (UTC)
-Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E1B321121320
-	for <blinux-list@redhat.com>; Mon, 23 Oct 2023 07:35:24 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id ABE6E28EC106
-	for <blinux-list@redhat.com>; Mon, 23 Oct 2023 07:35:24 +0000 (UTC)
-Received: from mail.schoeppi.net (mail.schoeppi.net [193.41.226.221]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-427-J6GgB29SN2abAkDgJ9ZwoA-1; Mon,
- 23 Oct 2023 03:35:21 -0400
-X-MC-Unique: J6GgB29SN2abAkDgJ9ZwoA-1
-Received: from d5421.linova.de (pc19f8a83.dip0.t-ipconnect.de [193.159.138.131])
+        Mon, 23 Oct 2023 07:00:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.32 as permitted sender) client-ip=65.20.63.32;
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-652-0p4n-WipNTWuZNlqEiiP-A-1; Mon, 23 Oct 2023 10:00:24 -0400
+X-MC-Unique: 0p4n-WipNTWuZNlqEiiP-A-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.schoeppi.net (Postfix) with ESMTPSA id B2B452F0D6F
-	for <blinux-list@redhat.com>; Mon, 23 Oct 2023 09:25:36 +0200 (CEST)
-Date: Mon, 23 Oct 2023 09:25:35 +0200
-From: "'Christian Schoepplein' via blinux-list@redhat.com" <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5670A857A85
+	for <blinux-list@gapps.redhat.com>; Mon, 23 Oct 2023 14:00:24 +0000 (UTC)
+Received: by smtp.corp.redhat.com (Postfix)
+	id 52E33492BE2; Mon, 23 Oct 2023 14:00:24 +0000 (UTC)
+Delivered-To: blinux-list@redhat.com
+Received: from mimecast-mx02.redhat.com (mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4AACA492BE3
+	for <blinux-list@redhat.com>; Mon, 23 Oct 2023 14:00:24 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 27B56816522
+	for <blinux-list@redhat.com>; Mon, 23 Oct 2023 14:00:24 +0000 (UTC)
+Received: from altprdrgo04.altice.prod.msg.synchronoss.net
+ (altprdrgo04.altice.prod.msg.synchronoss.net [65.20.63.32]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-655-xUcIHYulN52HgDhqsoe8ng-1; Mon,
+ 23 Oct 2023 10:00:20 -0400
+X-MC-Unique: xUcIHYulN52HgDhqsoe8ng-1
+X-RG-VS-CS: clean
+X-RG-VS-SC: 0
+X-RG-VS: Clean
+X-Originating-IP: [47.217.109.117]
+X-RG-Env-Sender: martin.m@suddenlink.net
+X-RG-Rigid: 64D3D1350C191802
+X-RazorGate-Vade: gggruggvucftvghtrhhoucdtuddrgedvkedrkeeigdejtdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucetnffvkfevgfgfufdpggftfghnshhusghstghrihgsvgdpqfgfvfenuceurghilhhouhhtmecufedttdenucenucfjughrpefhvffugggtsehttddttddttddvnecuhfhrohhmpedfofgrrhhtihhnucfotgevohhrmhhitghkfdcuoehmrghrthhinhdrmhesshhuugguvghnlhhinhhkrdhnvghtqeenucggtffrrghtthgvrhhnpefhkedtkedtleejtdevhffgueelieevveffudeileeiffeujeetleeludekkefhueenucfkphepgeejrddvudejrddutdelrdduudejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehhvghlohepfigshegrghiirdhlrghnpdhinhgvthepgeejrddvudejrddutdelrdduudejpdhmrghilhhfrhhomhepmhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvthdpnhgspghrtghpthhtohepuddprhgtphhtthhopegslhhinhhugidqlhhishhtsehrvgguhhgrthdrtghomhdprghuthhhpghushgvrhepmhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvthdpghgvohfkrfepfgfupdfovfetjfhoshhtpegrlhhtphhrughrghhotdeg
+X-RazorGate-Vade-Verdict: clean 0
+X-RazorGate-Vade-Classification: clean
+Received: from wb5agz.lan (47.217.109.117) by altprdrgo04.altice.prod.msg.synchronoss.net (5.8.812) (authenticated as martin.m@suddenlink.net)
+        id 64D3D1350C191802 for blinux-list@redhat.com; Mon, 23 Oct 2023 10:00:19 -0400
+Received: from martin by wb5agz.lan with local (Exim 4.92)
+	(envelope-from <martin.m@suddenlink.net>)
+	id 1quvTZ-0001AH-S6
+	for blinux-list@redhat.com; Mon, 23 Oct 2023 09:00:13 -0500
+From: "Martin McCormick" <martin.m@suddenlink.net>
 To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Raspberry pi post install
-Message-ID: <ZTYf74InEAqhvPMi@d5421.linova.de>
-References: <m3wmvfmb15.fsf@dalen.lamasti.net>
+Subject: WSL using rsnapshot to copy to a Local Drive
 MIME-Version: 1.0
-In-Reply-To: <m3wmvfmb15.fsf@dalen.lamasti.net>
+Date: Mon, 23 Oct 2023 09:00:13 -0500
+Message-Id: <E1quvTZ-0001AH-S6@wb5agz.lan>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.9
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: schoeppi.net
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: chris@schoeppi.net
+X-Mimecast-Originator: suddenlink.net
+Content-Type: text/plain; charset="us-ascii"
+Content-ID: <4479.1698069613.1@wb5agz.lan>
+X-Original-Sender: martin.m@suddenlink.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of chris@schoeppi.net designates 193.41.226.221 as permitted sender) smtp.mailfrom=chris@schoeppi.net
-X-Original-From: Christian Schoepplein <chris@schoeppi.net>
-Reply-To: Christian Schoepplein <chris@schoeppi.net>
+ domain of martin.m@suddenlink.net designates 65.20.63.32 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -149,33 +131,43 @@ List-Subscribe: <https://groups.google.com/a/redhat.com/group/blinux-list/subscr
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Hi Lars,
+I'm trying to backup my Windows10 world to a new SSD which is
+formatted for Windows and shows up as drive f in Windows, so far,
+so good.  I can even see it in ubuntu WSL if I do ls on /mnt/f
+from the ubuntu instance that is running.  It's obviously mounted
+since one can see the volume information file from /mnt/f.  I've
+already learned that if there is no drive recognized there, /mnt
+lists f as a directory since it is meant to be a mount point.
 
-On Sun, Oct 22, 2023 at 08:22:30AM +0200, Lars Bj=C3=B8rndal wrote:
->I've installed the latest Raspberry Pi lite OS. Previously it was
->possible to login with SSH as the user pi with password raspberry. But wit=
-h the
->newer images, it's not possible any more. The recommended way is to use
->the Raspberry Pi imager to set user/password. However, I don't have a grap=
-hical environment
->to run that tool.
->
->Do some of you have a solution to this?
+	I even did mkdir /mnt/f/hpwin and now have that directory
+so the plumbing works but rsnapshot is still not happy for some
+reason.
 
-Yes. See here:
+	So, we should be ready to rock and roll with a rsnapshot
+of the Windows drive which is everything under /mnt/c copied
+faithfully to the currently empty space which is drive f.  When
+done, the tree structure of F starts at hpwin and should be a
+copy of the same directory in c.
+One of the lines from /etc/rsnapshot.conf which is creating the
+squawk of no destination given is as follows:
 
-https://medium.com/nerd-for-tech/boot-raspberry-pi-headless-and-enable-wifi=
--on-linux-c204034f7ee3
+backup	/mnt/c/ "Program Files" /mnt/f/ "hpwin"/
 
-In short you have to write a file called userconf.txt to the root of your s=
-d=20
-card with the users and their passwords before booting the PI the first=20
-time. The users will be created then automaticaly...
+/mnt/c/ "Program Files" is the source directory and
+ /mnt/f/ "hpwin"/
+should be the destination but that's not what rsnapshot seems to
+think.  In Windows, files with spaces in their names are as
+common as grains of beach sand.  This is the rsnapshot.conf file
+that the system generated and it seems happy with the source
+syntax.  I'm just trying to imitate the destination syntax based
+on what the source lines showed.  In f, "program files" should
+show up under "hpwin/"
 
-So, still no wizard or grafical tool needed to install and configure a PI..=
-.
+So, what am I missing here?
 
-Ciao,
+	Thanks for any constructive ideas as I know I'm close but
+syntax is one of the biggest headaches since it only takes one
+typo to crash and burn.
 
-  Schoepp
+Martin McCormick
 
