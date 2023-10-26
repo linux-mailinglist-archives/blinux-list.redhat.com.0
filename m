@@ -1,118 +1,156 @@
-Return-Path: <blinux-list+bncBCVPTHE7K4IIVIHKVEDBUBAZ26KXE@redhat.com>
+Return-Path: <blinux-list+bncBC3NDNGRUAMRBVVL5KUQMGQEYAOVI5I@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mail.lfdr.de (Postfix) with ESMTPS id AA6287D8686
-	for <lists+blinux-list@lfdr.de>; Thu, 26 Oct 2023 18:12:59 +0200 (CEST)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-66d1e755077sf14344466d6.0
-        for <lists+blinux-list@lfdr.de>; Thu, 26 Oct 2023 09:12:59 -0700 (PDT)
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mail.lfdr.de (Postfix) with ESMTPS id A28B27D86D8
+	for <lists+blinux-list@lfdr.de>; Thu, 26 Oct 2023 18:37:44 +0200 (CEST)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-41cba27f8b2sf13420291cf.3
+        for <lists+blinux-list@lfdr.de>; Thu, 26 Oct 2023 09:37:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1698338263; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=y1lnEP0H4lXWKeKB7+0aiKte3N/15kcyJTwTDr309dnS1DJP1TeEJ9vCaJaKmXNhLm
+         NUBkND9f+H8LB7NflQ/8AbzWe2ds8uBC6lbLpRev2ykEaAhjYHmGt/HoVdcLCdurx254
+         0tSHbh0OzlaQkOg87dIRhOHZCloM1QhuDbeMvliGs7VswE2rrKO6j9K8hlqQrEYOQj/j
+         alHPi86Mox4P0aPWkN5IBWG+GgfHOOOgFINAg/YrZW9y+nGfEOAe0NyU+R232rRGTTjn
+         CGVZMYuzjpjU1mpj4f2bumie+SRHq1c1jXc72/jVZSueJlyVTBmMWxu5k86dygfpnkEi
+         hJCQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:mime-version:references:message-id
+         :in-reply-to:subject:cc:to:from:date:feedback-id:delivered-to;
+        bh=RdErd8TgMNfhJuLtCEFcpPlxd421tsR6WEm5gM+P5Ts=;
+        fh=KO6uEEYi8ES6POT/nQXMbozMU5ruwoCoOuAms9FIyqc=;
+        b=HltuANfVLFxmmluuxK9bxAGUnPCjOkEqF03GhyBuPhgaWadra8vLgk60FbRrlqiExK
+         EiKaSz9V4b+I9XiwImRIbCwJ1ZGd9bm4NWepJ9hdxjJ9TB713a3iPlX/l9Jg5O3tm778
+         Iz3E8cImX4TojH1YZAs0hFlmnDej8B4A5cR0u27NRkM/yN6t4FnIxOcedZdW5QR8+x1i
+         49lbgXbZcnnKdVSN/mh5GU5WETIFwx8cnylhZg5/sQoZXWXYGtaJ/KCQTKMwo/Z7BcKf
+         TX1bvlgO1mR/9CjI4d8qdmBMO5Qmf7VOCaDlLoeZaU3NGtIwtJ1l3z/YoeZIh+mrYL6B
+         Y0Qg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       spf=pass (google.com: domain of chime@hubert-humphrey.com designates 66.111.4.27 as permitted sender) smtp.mailfrom=chime@hubert-humphrey.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698336778; x=1698941578;
+        d=1e100.net; s=20230601; t=1698338263; x=1698943063;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender:mime-version
          :references:message-id:in-reply-to:subject:cc:to:from:date
-         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=y6rn1zQyvCXx3OawRHmLCNRtC0EozRhw5AUrhYMFnns=;
-        b=p3NlI2zpCwGygO8umbPPgvxQLGjitHII16oGRU4FWvggWP2rmBH4XdC4IC18f+Hujr
-         ncMxkEN5sgG9QEdmntnYfcHItKlJ+5k5l85LCCba4bK4lSElSRf4wBy0RdnUBpgmPOPL
-         j4ZfyfZ5mTwYQ7L05Yiw4HxziUpiQowxEma3W9C3YudpdGvz6A6qxuJ1NmHP5xzqyEGO
-         7WSu7W07kO/Lj/kP1UzGHq1nWDta5yi68n1wyAB/KaIjvGGgT5Lp2+4jSDiCjimCZkwd
-         aP8UtNYlf8Zwvrc/l0H5Otz4yEaucEGRi4oZj018Fc+Vq4LezpQcZ71zUSyd2+ABkHwD
-         oRfg==
-X-Gm-Message-State: AOJu0Yz0IJ6xO/zeNhfeI35n0v0+g/dUlz4BagVMR/JtkXNhUBt/mbBY
-	ZGBw2+JgqboqowqFnn81l+Xqag==
-X-Google-Smtp-Source: AGHT+IHrWg+tHtOUeJqAzEPEceI7hTz+HXDgSXEJUF+8G2DHxqRFa66TgN0/Geq55cErquOFsPCezg==
-X-Received: by 2002:a05:6214:300b:b0:66d:1eae:4849 with SMTP id ke11-20020a056214300b00b0066d1eae4849mr98133qvb.8.1698336778578;
-        Thu, 26 Oct 2023 09:12:58 -0700 (PDT)
+         :feedback-id:delivered-to:x-beenthere:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RdErd8TgMNfhJuLtCEFcpPlxd421tsR6WEm5gM+P5Ts=;
+        b=bCS++DKdljk7Bib6QdH8aWlO3VsTZE6yg0S+PeDZK7VknbedRJMRcRUcYrKkTH4S6w
+         Hgrk9XJfqJAQPpBGB2NQP/SSHmWUpX9YJzPf/P4SuePp9+8khVrn87Tq3T2wXpkEZhCu
+         UxPewJwtt1oSo8UZW26LimymxQE+e6Eh/67r/+eQXmofgWPLIvVdJZi28O5Ix8+gqGrP
+         /nlf8q5+A10j2NZpZg4P9h3NZ66p8IdLvVWe0FqK9DfE0UQKyITDjn4q1cbhtLO7Mcu8
+         n/ORF9DJbitZf0U41JgwyqYenE/ecgg1afB9Pfbwaz06ri6BEY0DYY1QAEjU0yX8WKLG
+         Db8w==
+X-Gm-Message-State: AOJu0YxWGjV2o6sqMVoHP0D/eTb22uvDBauG5GDXDiZ78ERbVfFXIWpX
+	S3W4HVVGP12/psqtrGNdJwiWqw==
+X-Google-Smtp-Source: AGHT+IHy0aBnxZnxdwHHsYPDBiKKz01+emvwVfyh/W47Sg961TMTECtNVUMItNlM3dfuX4INBH4ohw==
+X-Received: by 2002:ac8:5e4e:0:b0:41e:3c42:bbff with SMTP id i14-20020ac85e4e000000b0041e3c42bbffmr52954qtx.49.1698338263053;
+        Thu, 26 Oct 2023 09:37:43 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a0c:e7c4:0:b0:65a:f624:1956 with SMTP id c4-20020a0ce7c4000000b0065af6241956ls145904qvo.2.-pod-prod-09-us;
- Thu, 26 Oct 2023 09:12:58 -0700 (PDT)
-X-Received: by 2002:a05:620a:1a0b:b0:76d:96a9:da25 with SMTP id bk11-20020a05620a1a0b00b0076d96a9da25mr22917875qkb.61.1698336777952;
-        Thu, 26 Oct 2023 09:12:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1698336777; cv=none;
+Received: by 2002:ac8:7ed3:0:b0:40b:404b:aeb3 with SMTP id x19-20020ac87ed3000000b0040b404baeb3ls149492qtj.0.-pod-prod-08-us;
+ Thu, 26 Oct 2023 09:37:42 -0700 (PDT)
+X-Received: by 2002:a05:622a:8d:b0:41e:24d9:596f with SMTP id o13-20020a05622a008d00b0041e24d9596fmr67209qtw.44.1698338262256;
+        Thu, 26 Oct 2023 09:37:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1698338262; cv=none;
         d=google.com; s=arc-20160816;
-        b=jDxEwcXTGfwvZ3tWMjSHMg2xSw528B0baUQjWJJYDEP15iSSX7rHXnESYyj/rURyNb
-         3PT24iIgGr1IGKGArtqcRqcVagn8t5xQGgPbZIYmPJr7b+P1CDjfckUL7k6v99EDrH+l
-         yjYIJEp/fqgzoNHRd3u3z63euzhx3yiJfkrUkosx6mR3dXiYTqF8gAYxQuGpxQ5naXIM
-         gDNDohUvbszzfPYaj8PPQ6wAyi09F2YcHqYgg/1ZYYgmLa4X8xWcvsZtXRG4PSJHUNae
-         kkjakDenlTQ+FeEcFgLLWqF0xHD3GCwww+HnXNtGItWV1+JFsEs5YMxrXOfu8SLA9WqW
-         EJtQ==
+        b=SvzIgiHBDx6X6YYzWnZFe2Z46H+xHQvLBNYUQmucbicxFN7I+XhInZDHSwgHcAOBPd
+         3KvagGzym/9SNq876NOQCwWbT2rOa4iw15Y/lPeIvFV7QcENv741SXZsyJIbp3g1is/m
+         nHtLEQF5b2FFsvxNGOLUqTqW+KxMSsa5bgFfNlgaf4FWV13HoswHDm0fDSs9P3JqrmGc
+         dn3ax6qYqR91TYed6RDPBhp7rwwCg+VS9TJROsz9avGrH6n83ldEgxmIRxvAfjUge6TV
+         QSgEK3HOvd2ERkVYm/XSSg4WjHslPzT8xK/FwSef4iVaMcTkF14+sjOZKXJv/hroh5KZ
+         39mw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:delivered-to;
-        bh=y6rn1zQyvCXx3OawRHmLCNRtC0EozRhw5AUrhYMFnns=;
-        fh=VyKXAThI+6qSjiPugOOIse8Xpla/smkW2tVZYif5aK4=;
-        b=B4tGcPruvpFkkH+/t4cJLso0gcp6wDqAIu1nt5ixqH5dXnQOXh633PmepvoHfruiQE
-         Xl5hC7Cyi+571XBwBZr8pVJiQK+SvzOWM+CtD2FNTH7p9Zq+hP1kGAZMf7ZZdBXHWkEZ
-         tyXDh5OwJuWaM7QK91HjYNrjW3xHFUHSoj6AZsApYkKQ7J7r6sSbXtIeeWuynzWY82Tx
-         bQAVsJl+NLeC3nkjlkMZT6+DbLiSwnmcVSwWYGDPTJGHME0LnE5DgMdynH5Y+fes/NFK
-         kQNnk9WJKCKArn1vbSs/DMSacGYR2sT7XEXcH9O/NZoSkhJU4cwEvbR842hayUkdRQXQ
-         ZK5w==
+         :date:feedback-id:delivered-to;
+        bh=RsSYcmw0NDDPtIuR/tAGVdhj/htDzW2Lp7F+qyF2++k=;
+        fh=KO6uEEYi8ES6POT/nQXMbozMU5ruwoCoOuAms9FIyqc=;
+        b=tIhe4caoqf0zWR9kQmIKo8Rvh5RRt3qTkD4HlDal31GGAd68QT5KULpBnUF8pDbW3C
+         eTvcECuqXIDtfE2NamtO5AUIb2+flimoHsND6HtWkovzuqpt8IaD6Bb7AD5pwdbXyZ/7
+         rCZVt394MTPOHiP/ElVYOYA6R02w8ofl90V2AQVhSc/MI2+PwyfmTPtF1ne+4H/Uy3hC
+         JhOisLRDqsxEz2xoWcFV7kJfcZ7EjGngUSbqv+AQpqGaI+XGdH9DPrhk0uK9kKbj8SQ4
+         1AQyFzouOBXEkv0iwwaGAKNERqMtUp/5fo3sblYz+Z+x15QkX27Ah7xhl9ZZeY2Ay2z8
+         NsNg==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
+       spf=pass (google.com: domain of chime@hubert-humphrey.com designates 66.111.4.27 as permitted sender) smtp.mailfrom=chime@hubert-humphrey.com
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [205.139.110.61])
-        by mx.google.com with ESMTPS id i7-20020a05620a144700b007749dc7ce32si9329298qkl.123.2023.10.26.09.12.57
+        by mx.google.com with ESMTPS id c2-20020ac87dc2000000b0041b83912a5dsi9511330qte.187.2023.10.26.09.37.41
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Oct 2023 09:12:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
+        Thu, 26 Oct 2023 09:37:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of chime@hubert-humphrey.com designates 66.111.4.27 as permitted sender) client-ip=66.111.4.27;
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-308-CrywF57vP4mtODIft8QxTA-1; Thu,
- 26 Oct 2023 12:12:55 -0400
-X-MC-Unique: CrywF57vP4mtODIft8QxTA-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-554-o-2MSi9AOmmIX3O2UMNOUA-1; Thu,
+ 26 Oct 2023 12:37:40 -0400
+X-MC-Unique: o-2MSi9AOmmIX3O2UMNOUA-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A12753810D35
-	for <blinux-list@gapps.redhat.com>; Thu, 26 Oct 2023 16:12:54 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 77B86280BC41
+	for <blinux-list@gapps.redhat.com>; Thu, 26 Oct 2023 16:37:40 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id 9DC64C1596D; Thu, 26 Oct 2023 16:12:54 +0000 (UTC)
+	id 74CD11C060B0; Thu, 26 Oct 2023 16:37:40 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 96363C15984
-	for <blinux-list@redhat.com>; Thu, 26 Oct 2023 16:12:54 +0000 (UTC)
+Received: from mimecast-mx02.redhat.com (mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6D8561C060AE
+	for <blinux-list@redhat.com>; Thu, 26 Oct 2023 16:37:40 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 72148881C87
-	for <blinux-list@redhat.com>; Thu, 26 Oct 2023 16:12:54 +0000 (UTC)
-Received: from atlas.bondproducts.com
- (23-24-6-165-static.hfc.comcastbusiness.net [23.24.6.165]) by
- relay.mimecast.com with ESMTP id us-mta-389-cLpfCcODOfCwqStqd_dz6A-1; Thu,
- 26 Oct 2023 12:12:52 -0400
-X-MC-Unique: cLpfCcODOfCwqStqd_dz6A-1
-Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
-	by atlas.bondproducts.com (Postfix) with ESMTP id B90DD40508;
-	Thu, 26 Oct 2023 12:12:51 -0400 (EDT)
-Received: by users.shellworld.net (Postfix, from userid 1005)
-	id 7C734100B87; Thu, 26 Oct 2023 12:12:51 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by users.shellworld.net (Postfix) with ESMTP id 7AFE41001A6;
-	Thu, 26 Oct 2023 12:12:51 -0400 (EDT)
-Date: Thu, 26 Oct 2023 12:12:51 -0400 (EDT)
-From: Karen Lewellen <klewellen@shellworld.net>
-To: Didier Spaier <didier@slint.fr>
-cc: blinux-list@redhat.com
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 48A83811E7B
+	for <blinux-list@redhat.com>; Thu, 26 Oct 2023 16:37:40 +0000 (UTC)
+Received: from out3-smtp.messagingengine.com (out3-smtp.messagingengine.com
+ [66.111.4.27]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-157-cevwKu2yNqSjafYb1fq6BA-1; Thu, 26 Oct 2023 12:37:38 -0400
+X-MC-Unique: cevwKu2yNqSjafYb1fq6BA-1
+Received: from compute7.internal (compute7.nyi.internal [10.202.2.48])
+	by mailout.nyi.internal (Postfix) with ESMTP id BE5F95C0259;
+	Thu, 26 Oct 2023 12:37:37 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute7.internal (MEProxy); Thu, 26 Oct 2023 12:37:37 -0400
+X-ME-Sender: <xms:0ZU6ZaJw6xbGfzPc9VEhpJ8xar9P5T40dgVKKoDNUpd-4I5wVwBWhA>
+    <xme:0ZU6ZSKdvuI5HFSgW9AUkyjYRBgtvU4ztH9G7deVcWU1mwsRigxVJ0NDkZktBnObG
+    b6tOmwJjiAUDjDdzCU>
+X-ME-Received: <xmr:0ZU6ZavLDRvjyR3wLs4zp_L5qT8C_1dtJ15eon-09KuRCSmL6aiEGUx6z02Gp5Pr2EXOtpo6Z6bDkfodTswLelMU6UwbiAUyVQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrledvgddutddvucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepfffhvfevufgjkfhfgggtsehttdertddttddvnecuhfhrohhmpeevhhhimhgv
+    ucfjrghrthcuoegthhhimhgvsehhuhgsvghrthdqhhhumhhphhhrvgihrdgtohhmqeenuc
+    ggtffrrghtthgvrhhnpedvheegleejkeeguefgfeelkeejiedvkeekvdetueevueeffeff
+    ffefffeludeftdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
+    hrohhmpegthhhimhgvsehhuhgsvghrthdqhhhumhhphhhrvgihrdgtohhm
+X-ME-Proxy: <xmx:0ZU6ZfbFYjovehiyTA5V-PfIj0Wy5PFqIEK0ql-VTQtAGsX4aUaa0w>
+    <xmx:0ZU6ZRYS9ajfuSaceDWmW71ztEJhNLC9JwaszF_Z3MbiRDMOceiUrw>
+    <xmx:0ZU6ZbATx1-zqLscs1XkClUOO_wF7QzxANt0f1fFMBEvz7g7OcrFWQ>
+    <xmx:0ZU6ZQxalGH1Vcix7DnUGEd0A4If_OtZAkz-5SRFt7qLHKabFBIYbQ>
+Feedback-ID: ia9b947fb:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 26 Oct 2023 12:37:36 -0400 (EDT)
+Date: Thu, 26 Oct 2023 09:37:33 -0700 (PDT)
+From: Chime Hart <chime@hubert-humphrey.com>
+X-X-Sender: chime@chime.lan
+To: Karen Lewellen <klewellen@shellworld.net>
+cc: Didier Spaier <didier@slint.fr>, blinux-list@redhat.com
 Subject: Re: seeking a sftp site to test a problem?
-In-Reply-To: <e5b85119-9e37-439a-aa0d-d77a0a3d970b@slint.fr>
-Message-ID: <Pine.LNX.4.64.2310261209260.3065297@users.shellworld.net>
-References: <Pine.LNX.4.64.2310260936510.3063300@users.shellworld.net>
- <e5b85119-9e37-439a-aa0d-d77a0a3d970b@slint.fr>
+In-Reply-To: <Pine.LNX.4.64.2310261209260.3065297@users.shellworld.net>
+Message-ID: <9857b30e-cba4-bf77-66bb-20471e31b1a1@hubert-humphrey.com>
+References: <Pine.LNX.4.64.2310260936510.3063300@users.shellworld.net> <e5b85119-9e37-439a-aa0d-d77a0a3d970b@slint.fr> <Pine.LNX.4.64.2310261209260.3065297@users.shellworld.net>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.7
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: shellworld.net
-Content-Type: MULTIPART/MIXED; BOUNDARY="1949452079-428152643-1698336771=:3065297"
-X-Original-Sender: klewellen@shellworld.net
+X-Mimecast-Originator: hubert-humphrey.com
+Content-Type: text/plain; format=flowed; charset="UTF-8"
+X-Original-Sender: chime@hubert-humphrey.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of klewellen@shellworld.net designates 23.24.6.165 as permitted
- sender) smtp.mailfrom=klewellen@shellworld.net
+ domain of chime@hubert-humphrey.com designates 66.111.4.27 as permitted
+ sender) smtp.mailfrom=chime@hubert-humphrey.com
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -124,85 +162,14 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
---1949452079-428152643-1698336771=:3065297
-Content-Type: TEXT/PLAIN; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+OK Didier, Shellworld has been around since at lest 2002, created by another 
+blind user. Shellworld is under another owner now, running ubuntu. Its original 
+owner Ken Scott was on a podcast explaining the service. It was surpirsing your 
+search didn't find it. Also, reguarding putty, when I have used a windows 
+machine, I had much better luck useing teratterm.
+Chime
 
-hi,
-
-no none of this is correct.
-I use pure dos only because the adaptive tools I personally need only worki=
-ng=20
-dos.
-In 2021, sshdos was updated to include more current dh keys.
-When I go to shellworld or my website hosted there via sftp, it=20
-connects just fine.
-exit though causes a system reboot.
-so does bye.
-So to narrow down I sought a location where I can test my tools,
-  have a username and password, using the same sshdos sftp client.
-No reference to windows, so am confused by that.
-Understand your security,
-Karen
-
-
-
-On Thu, 26 Oct 2023, Didier Spaier wrote:
-
-> Sorry Karen, I can't help you there as I access my VPS using a RSA key an=
-d a
-> passphrase and can't share these credentials at all (they also protect my=
- email
-> server).
->
-> Just to clarify: you are trying yo reach your site which is running Linux=
- from a
-> Windows system, right? I have found a link to sshdos here:
-> https://sshdos.sourceforge.net/
-> hence my assumption.
->
-> If this is correct you could instead try putty, in the hope that the issu=
-e comes
-> from sshdos itself. I suggest that as according to
-> https://en.wikipedia.org/wiki/PuTTY this software includes an sftp client=
- named
-> psftp.
->
-> Also, out of curiosity, what is shellworld? I couldn't find an answer usi=
-ng a
-> web search engine.
->
-> Cheers,
-> Didier
->
-> Le 26/10/2023 =C3=A0 15:42, Karen Lewellen a =C3=A9crit=C2=A0:
->> Hi folks,
->> its karen Lewellen.
->> I am having a computer built, with=C2=A0 a problem coming up.=C2=A0 in f=
-act I have the
->> same issue on this older machine too, which is why I need your help.
->> When I access my workspace with shellworld, either my personal site one =
-or the
->> main one typing exit causes the computer to reboot.
->> The person building the computer has the same issue, typing exit causes =
-a reboot.
->> shellworld is my only access point of this kind.
->> What we need is a sftp location, user name and password, where we can te=
-st if
->> the issue is general i. e. network card, site specific, or tied to the s=
-ftp client.
->> Can anyone share a door?
->> Will likely not need access for=C2=A0 more than 48 hours.Thanks,
->> Karen
->
-> --=20
-> You received this message because you are subscribed to the Google Groups=
- "blinux-list@redhat.com" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to blinux-list+unsubscribe@redhat.com.
->
->
---1949452079-428152643-1698336771=:3065297--
+-- 
+You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
