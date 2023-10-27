@@ -1,137 +1,178 @@
-Return-Path: <blinux-list+bncBCM2V5WE3MDBBFXF6CUQMGQELBUKBXA@redhat.com>
+Return-Path: <blinux-list+bncBCLPHQH4XEIRBIHG6CUQMGQEWGOL3TY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com [209.85.210.70])
-	by mail.lfdr.de (Postfix) with ESMTPS id CA4137DA2B6
-	for <lists+blinux-list@lfdr.de>; Fri, 27 Oct 2023 23:58:48 +0200 (CEST)
-Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-6ce279b7033sf3326479a34.0
-        for <lists+blinux-list@lfdr.de>; Fri, 27 Oct 2023 14:58:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1698443927; cv=pass;
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mail.lfdr.de (Postfix) with ESMTPS id 98A2F7DA308
+	for <lists+blinux-list@lfdr.de>; Sat, 28 Oct 2023 00:01:06 +0200 (CEST)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-41ce372d248sf36889111cf.2
+        for <lists+blinux-list@lfdr.de>; Fri, 27 Oct 2023 15:01:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1698444065; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aWlcSW2MWHmZzapu54v3waZ+5FUcBwBWcvZMpbFTRMHp6sxmcClU+PA/sBMpRQ1ycy
-         ubUrhQfslFyoH3uZZgq8iT063H9iIhCHuWT3gpEGzZWdt7PaY3GJxQvY6OqF/r2rjdeR
-         uaXbQBDqNSljK8G5xVD50ciaD5bfAXlBZ4X2qIPeRWQYb3sy+rTcKB4EJqc9RdeHayl/
-         j2Gd3z6M2OOt+bKFWED0dMVwHINlvqtRnmdbEi4+GHSHgGQmjiiJlzXMDr8VF/Sa54Bn
-         ZYIO8m97Jf7wMN8za27Cja32nRsNVnoOE/sixNX4LoxTRpqd3zDGjcmz6tIo4+ibfDwB
-         ZAFg==
+        b=MytJ7TcSAodAM/eU9R64kyJBGSDZtsQ3RMVa6djtTcHUXvg63Apk/ndtNaPRbdsgFd
+         SYmBW2e5vCjZKnS4zZI04HNRpb1vnDDhQ21hY+n3rxUR0TrZch7JNxuS6CKQM2U4nE3+
+         QCitt4WqvJbbYDE5DfdEOdQKNdWbnoBTW468s6Plysm/97tM0wPC+YTaNhetuHFM3bzS
+         fjvkQWxB2vKHEs0EmSqA14zTmLS+GCDKiQoMzs3bLC1SX42RrhrxWfyHq6hEavMLf0p2
+         wko1si1uf+Ehb17lZ/vIJ40VqpHEoqXYah8ntgp4uurqIC/A5gUPKIYid6ZIzhKYKEfr
+         iB4g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
          :mailing-list:precedence:reply-to:content-transfer-encoding
-         :mime-version:feedback-id:references:in-reply-to:message-id:subject
-         :from:to:date:delivered-to;
-        bh=m9B5gU+691MQit5IwuIZ/G6Uwo4vIG8uyrXttyKsZOw=;
+         :content-language:in-reply-to:autocrypt:from:references:to:subject
+         :user-agent:mime-version:date:message-id:delivered-to;
+        bh=sIVw5f1/Qyi1gUmpSlLDms+T3b63JKmH4+Vat5xysbs=;
         fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=gQEwdwgoTufCGFFGoSMAPdEcgcgtmZ0xsfQSwuT8uO/ZIlvizlQUjstjeKhs6KqRei
-         pGQfqKedlRAZ9b63bPql1guTo3T7TPiO2rwBiIueP+CSJfMNb8Ca4qp9iqsWBBQpSxlR
-         BhSCzd41iDTUcZla3SPBU1bg/z3u0elUJIlRavZ6DPkbys51qsMdh8yuKwKyjRsB4KT1
-         Y2iJ4XW0K/mKtrNQk9QfrBvAwgYyUTHSmWS6s11vWYhvuuw71OL4fiifOVp1JUscO+84
-         MK7J7ZjdmJ40i6MT7gkwUy8Mr93TUPtt2iXdkMx2pOi88izYc80WU2i+i9fC9/UtbeAP
-         HXWQ==
+        b=DtzcxDtjs5xZrS7ZusshunFBoVgw0bKI7hdX3HV2xSFfOrtamEjNu0ATIPYphW6bdh
+         zvGTHHLAMVu+tFA/8o8jblkHq2RHgykHkmjKpZV3rEVY2oRupUr5947+kaE2okKMZE8M
+         kYA5Q4atWYYLck60Fe5rOgOSJVVIXiRRJmBXU9H/EvFD+oK3C2IZWw5LJ/DH2LlMfjE8
+         PUP0GJB5Dnazufo0UXVpxuJI5Q7/C7VJIFKqO6XpB4zk8wMggssciqAdaoqluGyimgzo
+         zDsHSR1AUhUqnMFEmDPlaq7J9PmsxaM6SuZzwabXYcuKQ2AVrsXRU5OlDVwAVveuvF78
+         cYog==
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.40.134 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
+       spf=pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698443927; x=1699048727;
+        d=1e100.net; s=20230601; t=1698444065; x=1699048865;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
-         :content-transfer-encoding:mime-version:feedback-id:references
-         :in-reply-to:message-id:subject:from:to:date:delivered-to
-         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=m9B5gU+691MQit5IwuIZ/G6Uwo4vIG8uyrXttyKsZOw=;
-        b=Sf/fT2pLfqbvbVhq0sMjLsBVapsyyPvVHQ3ZCRaQRBhW9CVn1VZgXqeLobfsABI9we
-         VAqtEoLVEKmPbXoE14FtkLSrEgX12F/B56iIL6Cxjkqe2MFqaHvhhNgr9SC2KwWiC/Pg
-         BU/EhIHLIgvSlnT2LfYIerDJZkKgYeGQkChBGM/akMTmeMhSHkMkdiMYt5CU0QffiUB9
-         BVqMpkj4p5i5c8o3W4BQlXOOOQ95dhVYrZRfleiNt/71+f3wg3yXAJ5qPHqp9eerOqZ2
-         xaS3HAiDByo4LIWuTXUggrc6n4T4kf2lmmFJlUbFtnq5XlToQ/taeLQIfIIbu9LMK0h6
-         w+IQ==
-X-Gm-Message-State: AOJu0Yy3J8PPFQlKRLll0jmCDZ1mhYU+mSk2rn7cjrOgXCv56v2XWWkL
-	B4aeJn3xrlGaA4cRs3I1L72lKQ==
-X-Google-Smtp-Source: AGHT+IGw21vThA18hITUA1T8/94QXZr6ogFAH+Si/iz5OrFqbwLoUE8iU8UwQdj+Lnt6CKGRlUPRMQ==
-X-Received: by 2002:a05:6870:1656:b0:1e9:90d2:f546 with SMTP id c22-20020a056870165600b001e990d2f546mr4651988oae.37.1698443927229;
-        Fri, 27 Oct 2023 14:58:47 -0700 (PDT)
+         :content-transfer-encoding:content-language:in-reply-to:autocrypt
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sIVw5f1/Qyi1gUmpSlLDms+T3b63JKmH4+Vat5xysbs=;
+        b=SJKkWL5sMDe1IL5i8WW0Gz+J9xkH1EcvvImx3eiNka7V7/8NgQ0SqVqoDchSvvOvny
+         DQmIoqfy3DXwkCUl3aE5Xx3oChwLTT/KRpAY0ylj3jYsW/RqW+Dz/YMXbDschUyIeWi6
+         t/DjS3tff4eaBzr1DOD6oUiW+fa/qobhh0GVqqNDczYptV3fKPOBciFU0dPqb8A0LRTc
+         7zMv+Wga1noWIlHXYGzmyJdHzm47CF5HT7BGcMCsAGXRiJmd+TjHva+KgHmWvPmukLE7
+         93+i3I3I0DgfWYzXtB2rTpoxMf6rJkkPERRVS1m9n4Q5fUpX5K3Se+oXZlbT8CeSGVwy
+         jkpQ==
+X-Gm-Message-State: AOJu0YyW3ITBB76FCMrnc7JU6bBO9ddLppv2y2r9bXem9iPfCadXHvnA
+	NFwq4aBXLkBMLWksAx61t07z+A==
+X-Google-Smtp-Source: AGHT+IE5ShCQq/pUsINdkDR1BfwXNt5fVD+ZQxBrnHXeQUtVH+dEgisyMWjTD1xEvxie5VF2GxDG9w==
+X-Received: by 2002:a05:622a:144b:b0:417:b7c7:5a2b with SMTP id v11-20020a05622a144b00b00417b7c75a2bmr4737981qtx.37.1698444065135;
+        Fri, 27 Oct 2023 15:01:05 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6870:5a3:b0:1e1:5989:cb9f with SMTP id
- m35-20020a05687005a300b001e15989cb9fls2281825oap.2.-pod-prod-04-us; Fri, 27
- Oct 2023 14:58:46 -0700 (PDT)
-X-Received: by 2002:a05:6808:1493:b0:3af:a0bd:45c3 with SMTP id e19-20020a056808149300b003afa0bd45c3mr4349306oiw.20.1698443926463;
-        Fri, 27 Oct 2023 14:58:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1698443926; cv=none;
+Received: by 2002:a05:622a:518a:b0:419:8ce8:251d with SMTP id
+ ex10-20020a05622a518a00b004198ce8251dls593828qtb.1.-pod-prod-01-us; Fri, 27
+ Oct 2023 15:01:04 -0700 (PDT)
+X-Received: by 2002:a05:622a:3d0:b0:418:110e:6179 with SMTP id k16-20020a05622a03d000b00418110e6179mr4910728qtx.1.1698444064263;
+        Fri, 27 Oct 2023 15:01:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1698444064; cv=none;
         d=google.com; s=arc-20160816;
-        b=y9TASh8tbh2HA6mSWbCvwARWsvbX3SH7u91nxNAlj7GqVYmr28dxXp3MoMil8b4Wv3
-         r60pE7TLU1t5qOkQHXH+YALKx8602PPG7oWIO+dV3npaTiRo969oDF1j8cIhERTKuH+T
-         CrqdmygOsjfy+6gpIFKeEHhyWn7pEkZFPck9bHJ2xIcwwT4QsnMMHx0Xw4/o6GaNPqrn
-         +HkoMY21pYOFGTaMehK8ckJQHQsXM/wMquw+69D2isyvcC4A50pe7Myh3nDDCny0u0Vz
-         xc0D3dcwocjA14nsehsQRd12KZ/rYmT6qPeEDa1MYeQlZHrGJaJgcvsFJzdGc3BNxAVO
-         VkTA==
+        b=UaXnAwl49tdw1/4mjdZOdMU8vompofx2ImvgvFArU6bkYinMHKlzOvM1HzfPXW0be9
+         KIFNC2HYyLnHjlQHJy777f18O6ACGwuv+gQH345qboCPLVGd8sG/SCiqMXTE7VsGOkqU
+         DDj5ec3pBiwSVupvIXS/V9AwmU2Q5/8Uz3Hcknq1LRGh6ixf956FTkNmYItVNUosaQbn
+         wv5fb1jHxK+3TsTB/xc5fnxBV4hoYy52sslK8mnHYu5jPp4JjFXyjKJ/q6ECp6NhsFwq
+         yCA3BCzbbj0hQvtXWW7RMBZQLq2/s7nueHapLb8b3wVKL63VKbYBAtXcv7i+PbmpjDbq
+         3Eeg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:feedback-id:references
-         :in-reply-to:message-id:subject:from:to:date:delivered-to;
-        bh=Ai2bneSUMkj+pP8Lp4llQU1zm+ITJkqlNLJPziUHdok=;
+        h=content-transfer-encoding:content-language:in-reply-to:autocrypt
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to;
+        bh=WMJtFaW0Bz7ZRFSMvTuZowFqiagfrmmPofFGEmfDEmQ=;
         fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=dumaRzuvLOIfXremRGVo+W1qpnNmFQHl0n80SypSXGNI+mT6DvygIHC+Ox/WgoClDb
-         7c/4fdv6e3ba3bdSmfV91PnVd3H7h5IHXhRacdhRPu6Lr5PR5tKYchcgLEP39dbRzM2U
-         SQTgtwVmY2h6YoNXBqfyfYwH/kfVlOqoGMdkKMu4Au60+GK+8HvysprHn+4ibOqXWP8n
-         7jao7oJNFVXsTPemOI01aRY3p1Rwr4Viy4/3GdFy4rCzLMmdrccacTW1uoMUz+B//6Xd
-         fu7SYIj8jEz+ZkEhqkDn+1vuoLi8XZvdy17qkdHGwXwB3icjPlMK31CHG8CIq2vQo/cP
-         cCZw==
+        b=tNh+bmgfyG1P+hecxBURORjvo1LqnlMWJ4MURsNNQCFY4DXSxe714Q134pMJKwkYy+
+         7YPHWBoMwIQTliocgTkzhWdL68nqJFfFTnv/oGY/XwFxUcw9K9V8FS2tbWyfrCRb3bvG
+         dpWI1/lnm+TZ0aoDOuD1lAodv8bJgOkRRPK4NWD0xfloaKcD9/9oxfxuSS9JKhHWU5qv
+         aFWdxsa+ELCNBaFsdKPH0/1ukoDrKEcuGIrW6ycvL8o9xEUdrMdLmOXO0G6PWmQnQ0e7
+         wWAyZoOdiQMLK6TRxPgGwilzcZe+XVz4AD1BE2sWj2yt1EpUXoKEXeTuVAm/rSjK83y8
+         g9Hw==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.40.134 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-1.mimecast.com. [205.139.110.61])
-        by mx.google.com with ESMTPS id kk25-20020a056214509900b00646f2d31709si1337866qvb.178.2023.10.27.14.58.46
+       spf=pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-2.mimecast.com. [205.139.110.61])
+        by mx.google.com with ESMTPS id d9-20020a05622a15c900b004181451a0ecsi1285298qty.57.2023.10.27.15.01.03
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Oct 2023 14:58:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.40.134 as permitted sender) client-ip=185.70.40.134;
+        Fri, 27 Oct 2023 15:01:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) client-ip=192.155.90.172;
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-202-6ALNwmK9PKWTmwl-UXNkgA-1; Fri, 27 Oct 2023 17:58:45 -0400
-X-MC-Unique: 6ALNwmK9PKWTmwl-UXNkgA-1
+ us-mta-286-havmmROFMHulVyKlTpt1Zw-1; Fri, 27 Oct 2023 18:01:02 -0400
+X-MC-Unique: havmmROFMHulVyKlTpt1Zw-1
 Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EB0FF185A780
-	for <blinux-list@gapps.redhat.com>; Fri, 27 Oct 2023 21:58:44 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id F3C4B185A78A
+	for <blinux-list@gapps.redhat.com>; Fri, 27 Oct 2023 22:01:01 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id E7BFE2166B28; Fri, 27 Oct 2023 21:58:44 +0000 (UTC)
+	id F0BD72166B26; Fri, 27 Oct 2023 22:01:01 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id E000D2166B26
-	for <blinux-list@redhat.com>; Fri, 27 Oct 2023 21:58:44 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+Received: from mimecast-mx02.redhat.com (mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E94762166B2A
+	for <blinux-list@redhat.com>; Fri, 27 Oct 2023 22:01:01 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BBA7E185A780
-	for <blinux-list@redhat.com>; Fri, 27 Oct 2023 21:58:44 +0000 (UTC)
-Received: from mail-40134.protonmail.ch (mail-40134.protonmail.ch
- [185.70.40.134]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-324-9nfz7pPkMGyPs62z-M1I8w-1; Fri, 27 Oct 2023 17:58:42 -0400
-X-MC-Unique: 9nfz7pPkMGyPs62z-M1I8w-1
-Date: Fri, 27 Oct 2023 21:58:34 +0000
-To: blinux-list@redhat.com
-From: "'Rastislav Kish' via blinux-list@redhat.com" <blinux-list@redhat.com>
-Subject: Re: OT Dell Inc. XPS 13 9350 Linux related question
-Message-ID: <d46e3b4a-a554-495f-a8e4-185959a154c6@protonmail.com>
-In-Reply-To: <ec2a66e8-9e7d-42ca-acb8-20b635478e80@gmail.com>
-References: <ec2a66e8-9e7d-42ca-acb8-20b635478e80@gmail.com>
-Feedback-ID: 26663242:user:proton
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BD6C32808FEB
+	for <blinux-list@redhat.com>; Fri, 27 Oct 2023 22:01:01 +0000 (UTC)
+Received: from svr.jasonjgw.net (svr.jasonjgw.net [192.155.90.172]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-453-c7h_e2BuMM-baZUoPJDVHw-1; Fri,
+ 27 Oct 2023 18:00:59 -0400
+X-MC-Unique: c7h_e2BuMM-baZUoPJDVHw-1
+Received: from [10.0.2.1] (jpw.jasonjgw.net [10.0.2.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (secp384r1) server-digest SHA384)
+	(Client did not present a certificate)
+	by svr.jasonjgw.net (Postfix) with ESMTPSA id 56A9732609
+	for <blinux-list@redhat.com>; Fri, 27 Oct 2023 22:00:57 +0000 (UTC)
+Message-ID: <9c6cab4b-197a-43ff-b613-d598cc531377@jasonjgw.net>
+Date: Fri, 27 Oct 2023 18:00:56 -0400
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: OT Dell Inc. XPS 13 9350 Linux related question
+To: blinux-list@redhat.com
+References: <ec2a66e8-9e7d-42ca-acb8-20b635478e80@gmail.com>
+From: "'Jason J.G. White' via blinux-list@redhat.com" <blinux-list@redhat.com>
+Autocrypt: addr=jason@jasonjgw.net; keydata=
+ xsDNBF/xBRsBDADlVy0XG2HBtn9QyhH5yfQ+V5QwBUTBCMvguxy7FP2FaRB4eWfzEcqlK6vm
+ zg9+26qlMfrnLqsv5G2XAbPYuPMmPSnQgRxXr855Dx369wz5lwioAEaGAGu9/Q8nG/y/9svf
+ ZFkA67LDk7au9AN0+vZu7E6c0IhmirvjN9BxRLvGq8jCNdrR9Oh36y3UevZnpFUBD8gOqdPt
+ mJgMXbfYSrEWzEqDcTOlG2o3ppyXGaj2aLGmyGUtnqK4DWnYCfaPyZaKJ1V/7SvVJ2gXvco0
+ BEeP06rnbJf59ssg3mFv16XLxEEwPjG8g8BiZ4Csf6mGtIJ1HPSc/KNQegLxc1w6sOzs5TQo
+ pYos+kT08lapoBwXhqSKjEN3swdh30v/s46CxFTcD6ksthgDZeSftNbcD8r5u94vIVP11GDO
+ nPRMdZQIcyuNpKl7TqYb6pZOOWq7Yxmva77rV0WDmIrUI/V14ZN0r+PheGgp/4mBM/sueDMh
+ /6ea5l3GuTepsOcwtSMZb6sAEQEAAc0gSmFzb24gV2hpdGUgPGphc29uQGphc29uamd3Lm5l
+ dD7CwQkEEwEIADMWIQTqUmUTWtPL6lh3Yvx4WzV0iFry7QUCZKn3lgIbAwULCQgHAgYVCAkK
+ CwIFFgIDAQAACgkQeFs1dIha8u152QwArR9WmCmFL9r6Kna984Dg8ZE/aRQ9L0I64wmWTrGW
+ 9OO2a6ouRU1XdqkA3D1PoZzZ22Czcjn5BXZkZIOshLWIEnL9Ey/Pj4Y4+PanKOOU1tKsF4bA
+ kteR7RajGwLiVsjAL3E6SB+HS2NwuA99/tuIOiumnR95Xrf6Fd3RTPMCoDXlv6hBDg1lmV5x
+ 3MlSO0dgRZNahpJ+syIKy74FdGKWrZLND1yB0Pmz5SvgPglvGEAvBl5EgH0ha/s8AT/fTYCb
+ GSH0FPU60RWXQdG0ou0mOnUB38nwwxoID6KKw7Ba76IZgex4K6QZiN60wV5zNSTQi64xyu2S
+ m6Z1RC40tKPrEkEfhAVamvF532FukF5oFpu26K5RZmR7hIc20upn1NigJNBqbFd92MptGktZ
+ 0jC3JSW8nEuRfCPp0pQazbu5M14wUKsjk5adG5tD3FnNicE5k1wOTMJIQPMl/X9KDipkmxDH
+ 4h/wB4zD/Gqn0rz3KzV0KucwpJm9vfDW0sMm729bzsDNBF/xBRsBDADd/3voDU1gk90zYHXG
+ X0KWaAztsmCtqG+hNFShiEX9aj/y1nX1Fdwmm04ZiLPLZ0Ogsa5zDrikTnabYxo6z4Ej2TAR
+ OMJLEo5YiT3J8GGHljqVh+LuGBNgF8hnrTvDqvhHL4+jTSIdeSqa3FhL9jiCfDpSAWABDHM0
+ FxGMl6lMiS+DhTpRQs0mbJ9Sb7yYBoYzt9moFG7+v/dH8nG7C/hy7bqOPTeBNCUj8ceOQMkQ
+ yVnjuipaxj5p8YxQA+SNqSTAA/SNoYs7v0Slr6oAkTnM30p+r35zX3RGRIqfduizy5Uo/ZGd
+ T8XOfE++0fI4A5iWQh7q06Yn1jG/5WY1L0N2wgKF53SckdWYMHa9hrB+lzH8azMeggsgrOW1
+ +SdbpF6kKSGTiQytchadJ+q8xtiLiDtbNdV79o7OvgrTVW2dpJ0zDyqdUvwQKHgczd4GFqDj
+ FOTDpzOK92lQVswwG1RILdcSe29g0rdzrVEw7Y+RfFUn2Hl8fHIOuvtvyPqdnb0AEQEAAcLA
+ 9gQYAQgAIBYhBOpSZRNa08vqWHdi/HhbNXSIWvLtBQJkqfeWAhsMAAoJEHhbNXSIWvLtuMIL
+ /0eWg3rtJqq57TVvSKZKtaBBDtxll0FFykWkIQKSzxoLBA7GcmPz3avp0NgzQdHOEjIwQ2Dk
+ IWO0iPyGPrzjAM4jps0pEkI6UofXWDpPuBjY7rYqnGcp1iPsAdaaFSYMQYUgXaFEW/9lws2s
+ wipaUkUiqOT0tCEv+9NF6oB/GRJo9q8K2vZ3Hv2/YFQPmFB/2Qu6pFjCMHs80rscoIO+YLlP
+ wV6+FzkknTewSVrGRJ/OYKCVdaIu3GD5gZkeDqMgAHZ4gy41uX9nM2dxv2+1wAUaQGwLL30K
+ WvRqI9jAA2K3IPGuTPHIVK6ADNymKJ8Uw3yJNLbsthEnjeXIvkQ7PggQm/qyME8NNS6mVSPW
+ TWzS3JUV+O4jT1qBM6r2TnCBdxOe/NVcFR0fYwxXRl3+n/dehU7QAWMDnqvBRQ5SMTZyBK1K
+ 76SANvwEOvlkI2yEBs8mL3WxxPuliybrtxz4qF6aT/D3NSadxiuS/FXl5Xx55n4jNHenPpY+
+ Jlx6Ar305Q==
+In-Reply-To: <ec2a66e8-9e7d-42ca-acb8-20b635478e80@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: protonmail.com
-Content-Type: text/plain; charset="UTF-8"
+X-Mimecast-Originator: jasonjgw.net
+Content-Language: en-US, en-AU-large, en-US-large
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: rastislav.kish@protonmail.com
+X-Original-Sender: jason@jasonjgw.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of rastislav.kish@protonmail.com designates 185.70.40.134 as permitted
- sender) smtp.mailfrom=rastislav.kish@protonmail.com
-X-Original-From: Rastislav Kish <rastislav.kish@protonmail.com>
-Reply-To: Rastislav Kish <rastislav.kish@protonmail.com>
+ domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
+X-Original-From: "Jason J.G. White" <jason@jasonjgw.net>
+Reply-To: "Jason J.G. White" <jason@jasonjgw.net>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -143,57 +184,19 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Hi Pavel,
 
-personally, I don't see a reason for using BIOS, it's... well... legacy. :)
+On 27/10/23 17:27, Pavel Vl=C4=8Dek wrote:
+> So my question, some Dell XPS 13 user here with Legacy only mode=20
+> enabled? Or is it better to forget old legacy mode and accept Uefi?=20
+> Uefi has more friendly and accessible boot menu order manipulation and=20
+> that's good of course, but someone told me legacy mode is the best=20
+> option for Linux, but I don't know, why.
 
-Some 5-10 years ago, using it might have had some benefits, since UEFI=20
-was just gaining traction and not every hardware supported it.
+As far as I know, UEFI is better than legacy BIOS mode. Only try legacy=20
+mode if UEFI fails to boot once everything is installed correctly.
 
-But that's very unlikely to be an issue today with any reasonable=20
-equipment, and, there is far more to UEFI than just the nice boot menu.
-
-
-Best regards
-
-
-Rastislav
-
-
-D=C5=88a 27. 10. 2023 o 23:27 Pavel Vl=C4=8Dek nap=C3=ADsal(a):
-> Hi,
->
-> I am sending this mail also to Orca list, so sorry for off topic here,
-> but I have a question, which can be related to accessibility.
->
-> Someone told me about the best computer for playing with Linux, Dell
-> Inc. XPS 13 9350. And it's really true. 8 Gb Ram and Intel Core i5 6th
-> generation are really the best friends with Gnome 45.1, laptop is fast
-> and absolutely silent, much better than my second laptop with Amd Rizen
-> 5 / 2.80 ghz / 16 Gb ram. But I am unable to install any linux distro
-> using legacy mode, Uefi absolutelly without problems, but when I want to
-> install it with legacy, I get an error about something with waiting 30
-> seconds for and error, not found. So my question, some Dell XPS 13 user
-> here with Legacy only mode enabled? Or is it better to forget old legacy
-> mode and accept Uefi? Uefi has more friendly and accessible boot menu
-> order manipulation and that's good of course, but someone told me legacy
-> mode is the best option for Linux, but I don't know, why. So at this
-> time, we turned secure boot off, we also turned off the TPM and we
-> turned off legacy mode. Before I installed Arch Linux here, I upgraded
-> the BIOS to the latest available version.
->
-> Thanks,
->
-> Pavel
->
->
->
-> --
-> You received this message because you are subscribed to the Google Groups=
- "blinux-list@redhat.com" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to blinux-list+unsubscribe@redhat.com.
->
+If you use GRUB as your boot loader, you can configure it to sound a=20
+beep when it reaches the menu.
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
