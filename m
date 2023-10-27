@@ -1,164 +1,141 @@
-Return-Path: <blinux-list+bncBCMKFVG4RQEBBL5U5KUQMGQEUSGZ2WI@redhat.com>
+Return-Path: <blinux-list+bncBDEPFPWCWMDRBMFX5WUQMGQE2MYWYJQ@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0727E7D8717
-	for <lists+blinux-list@lfdr.de>; Thu, 26 Oct 2023 18:56:17 +0200 (CEST)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-66d03b02d16sf33469666d6.0
-        for <lists+blinux-list@lfdr.de>; Thu, 26 Oct 2023 09:56:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1698339376; cv=pass;
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8CA027D8EDD
+	for <lists+blinux-list@lfdr.de>; Fri, 27 Oct 2023 08:41:54 +0200 (CEST)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-41cca916954sf22974911cf.2
+        for <lists+blinux-list@lfdr.de>; Thu, 26 Oct 2023 23:41:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1698388913; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OHmqf36Pvk8105GEw5I/6vnmeULRlBxvp93AEWg3v3684frGrHApbpIO/AU1yBJkWA
-         S/N+aoo4slYjF6dMIMU6oBevwzC0+JKAb/9TAcxra7eLWJ4oW7wgGmCrHszssr1AKBlG
-         27zSIy8nEQBOPbXGOMgBcIA6psjRCuzxI6ZYIQweP66pubblumNWyLtyhIx+bGbki3ik
-         7H7y9Z50KvfaElAmbSSb5BgmI88rPS5bOdX49K4I1xnLzMQPfcI7mEkcNOYuxNdtKyOu
-         qaILjEOdRtMdwWrhi+XNLwP1g6MrrRtTMBbiM1u2BiusSFjbuh87+kJDnl+LqiMg6q3F
-         4voQ==
+        b=un+xOlISzSjZCKWVJwOrQlrdqyzWdMi2HeB3tRQSr35INVaeROvA0aa9Ij6word260
+         H4gfG183MXhwsonkZAE7KllU4XltE/PhGl66xoS92pAnQGpS4Rw2QUz8CJ5kKkd5lOBR
+         sbe4nySEEKOHNvC3qBrxvgjwXv+JOrG0lxlPGXlUMzZ+dT4MIKIKK9F5xlSCownwxLhr
+         3tewa7lZEmIAv9adIP1SnpgSYydhxx+eL7d7bmYUsJY0ZhusAkQkCPqWjfLd//hePx/G
+         mjOPAIwD5H4388OlPOdHzRwO5YjHvtC2sRgLBu04BNJElYbfaUfbusfliextvbWecCJr
+         xksA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
          :mailing-list:precedence:content-transfer-encoding:content-language
-         :in-reply-to:autocrypt:from:references:to:subject:user-agent
-         :mime-version:date:message-id:delivered-to;
-        bh=K6TfUtqDDQES+YCtNp5ZP9gHesE0yYwV7DWgKnn7VKw=;
-        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=IshajG5/8EHBCqRDcvY8J/7sg8mJ0lMy0eXEDnvR8vHP/kbl9xA1d7dfEKOlSWNirz
-         8wYzsV++bXKjmL57JUqQwghiE/n14cnjcHPH/80ttKfLOqGo6EAnMwAJ/Zp+M1zIWll/
-         FZgmhTnHuXQd2A0v7nTHnIyUmrgAlU1KjbDMNIIjXClaRXPzTQhjkyCujPSbSe+dOhCr
-         OhjxE1p24QRfqEgY/OJbrLELL0fcmRfCXJJ19nNjdCOobJ3KH154NPXDpymBl+Cv/YgZ
-         O7bgofiAjMN0zgnNpkiV08RpqEnFot35bko9fIBZiQdmHjUB8lZsewTOCtJSzrwD+rsx
-         CQ9g==
+         :subject:from:to:user-agent:mime-version:date:message-id
+         :delivered-to;
+        bh=LOt5v/nU5t33LAsTb6ddNGe3IdB2jNEWDXMegJuI+7Y=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=J1y2yNe7bLQik3Wp96pjzhGIS4DD7CywKhA3wFZCYpJp99nfmVnb8h203Mus0WrBS1
+         8XnAY4yqLcb4ATT75S4qIsT2T7j0eGy+uwBos5LFjm7KeUwc5AvJ2EBxaloPoe7MHtVs
+         Z6vUYV3gJ/OjU+TmuLYSYrAXfug7PO6VU97E3fPXWvgHAEbwHX0Y2vq1zakDb/XiEtRs
+         QP7Z6MRgYToqPtzlcv7wJ0tJ66+ijbAL0QiqwLjB2nvtn1CW1+jkiJqFyANIPlcVolLA
+         zyj34fwuwz4hxh5qyMTDopIVyUu50/3ch/6Gts6wS0N6hEsK/vFZumtCVCf+52gjlBan
+         MpCw==
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
+       spf=pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698339376; x=1698944176;
+        d=1e100.net; s=20230601; t=1698388913; x=1698993713;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender
-         :content-transfer-encoding:content-language:in-reply-to:autocrypt
-         :from:references:to:subject:user-agent:mime-version:date:message-id
-         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K6TfUtqDDQES+YCtNp5ZP9gHesE0yYwV7DWgKnn7VKw=;
-        b=EKXRdNF2cpEc+DyIBpvLOYNlbS+XZbTeo+q1KBV3kBAks36T2QbKQRxsFli1661NVk
-         OwBtpsRAyoEbTHa1TdImExVYUI89JVIZMqXcVZXY0R1iMYAyANJ5bQBIKcOQp4QHLdRa
-         enATt+R5tCDMmX1m8a/GWWozVmtT09JTI34XDFntxaYD43dUqHhYIEuQvz14E0mHUKj4
-         Ss9SNp2XullZPXpn6roD265kLxYVWyTAl4CN9YBYzbGA3cMHZpsBz282cM+D9NJorz0i
-         sr0tOYGQZnd0R0nb/TclF/ao+hZv2p7A92TwL5HAU7HQN3N2zS0DYoSM/ZymYtThZNZn
-         VtDQ==
-X-Gm-Message-State: AOJu0Yx+rlydjXRWS8JO/iStKgZK1ia1ONOGbxssnM2EY0A4quuXMwOt
-	IAqB3GbYTRlrpjAReJ88gcsmZw==
-X-Google-Smtp-Source: AGHT+IGTte+goVJZSEwIJMWeH3g3quyA5KmWONqMVoh1TUggOVpilJPCKr5m70EEs1eRoxwnLZbdgg==
-X-Received: by 2002:a05:6214:1d06:b0:66f:a46b:c3a3 with SMTP id e6-20020a0562141d0600b0066fa46bc3a3mr5491501qvd.12.1698339375931;
-        Thu, 26 Oct 2023 09:56:15 -0700 (PDT)
+         :content-transfer-encoding:content-language:subject:from:to
+         :user-agent:mime-version:date:message-id:delivered-to:x-beenthere
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LOt5v/nU5t33LAsTb6ddNGe3IdB2jNEWDXMegJuI+7Y=;
+        b=TSrz7nuO6UY8Qq8IS5bj/kL4GI1XDupLnVegBnSsu3eXp7lDx1c76rSPjlALY/xuNz
+         508h5X/ouQUcUdnD9qZDve1C7nphNcpGSCda4sn1pS9Rf9dbz57uOg/Ylsr83/Bwb6HG
+         mM5NqrQoA3qqf6iJO3IxgfsbH8DqP/ChtCi+zrlLUwSSO61RAZmWRcPO6tImIwyjA3+u
+         qxWpQbHaDKNRBEC/lJ/p4Wi/4B1hE9tkfCMet3WM/MfAXMPnH+gaV8fkHAslzwZ+w1bJ
+         8v3Rc4vsdIbXlK8yCF2jia2iWV7Bs+97+WiZIEo9mI0DgZTX5NThzfD95QgB5MBj+dcj
+         HE6A==
+X-Gm-Message-State: AOJu0Yw4RAzDnVaM7kV5bHVE2yNTLR+y1UWjtvpaV4w/pDfwQApH/9gG
+	M9CIwyUBDDJ5KLPkrvS2lNpfig==
+X-Google-Smtp-Source: AGHT+IHfPAmYjjewxpi73hk2Q2cs/0ugsC8qxSPSEHRbj4IKXJdKqTn+Q+P1Fx/B92oQ3TBN74ekNQ==
+X-Received: by 2002:ac8:570a:0:b0:418:152d:bf4 with SMTP id 10-20020ac8570a000000b00418152d0bf4mr1984328qtw.51.1698388913123;
+        Thu, 26 Oct 2023 23:41:53 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6214:4985:b0:66c:ffc9:ab7f with SMTP id
- pf5-20020a056214498500b0066cffc9ab7fls235636qvb.2.-pod-prod-00-us; Thu, 26
- Oct 2023 09:56:15 -0700 (PDT)
-X-Received: by 2002:a05:6214:f23:b0:66d:9987:68f9 with SMTP id iw3-20020a0562140f2300b0066d998768f9mr442889qvb.15.1698339375341;
-        Thu, 26 Oct 2023 09:56:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1698339375; cv=none;
+Received: by 2002:ac8:478c:0:b0:41c:d096:9c9d with SMTP id k12-20020ac8478c000000b0041cd0969c9dls253157qtq.1.-pod-prod-06-us;
+ Thu, 26 Oct 2023 23:41:52 -0700 (PDT)
+X-Received: by 2002:a05:622a:138f:b0:41c:dd28:d16f with SMTP id o15-20020a05622a138f00b0041cdd28d16fmr2209976qtk.55.1698388912284;
+        Thu, 26 Oct 2023 23:41:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1698388912; cv=none;
         d=google.com; s=arc-20160816;
-        b=bvOrz5IeinSHrAs9SqOHnw9l4uxZsIwcGbsSZhyoU878ue6lEXsp6Mag7CUAQyys3Z
-         ps2xzpYEleY04y7vpSkhPET7012XwPrHggDtFv9dMFFwVJ4zmEkg2arkfnWUjAUMwSb+
-         LsZwN4oTl1qwjcVJAwyzhPW6z36l+WByKMO5BZaiG+vrw4KonN9ezn18/Pc4IuivK11W
-         JrFd3nYEaBTc4NN8Ay6SNzGw006IXNFmUpHMJnZds3Vyh5XYjJRT2zxPnQPW0KjTTJdy
-         +Ud8OXdQdD4mF66QAGlyOL8czkXExuX5hzk0fzY/1peWeBHbFEjYQ87b32uu+Nhkm071
-         8+gg==
+        b=BGo8015S/8gAvIYdEQyBaOUlyKKseaD1Ax/Y1I4Nf6Ju1sKRqwwu0tPT8y6ZRRGLWh
+         y8+Ge+T3AKbq+PvPWZ5hR+e8obvLNcaFvuknwOA4Bw+0t0jpGToAYlRZyRz1wDP1LaWQ
+         qinseoC7XE3uHWG2MsQ22pDChOpJSjFFZFffdBH5Mo9X22ZEbkDuJutdl1ZmzQIWOT5B
+         Yzjr4MwIa3y08ivO1vwqQ4i6+7HgT2A0MtiGVDhn9rplDexsoqlkuVlwvxCqirmJONBa
+         qlDaEsnO6okxRiqJi5wJEJnjiHWNnNn2CiS2azhpwyvocd0Tm2dlIMj0zAklBvpHhFYN
+         3tkQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:autocrypt
-         :from:references:to:subject:user-agent:mime-version:date:message-id
-         :delivered-to;
-        bh=N8/r6WyDsRBRIiuBKvCkVwypIvcUaWZulN4dNXrHn2Q=;
-        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=EkunOLpVG6NJIH67EnZybZbCNGb9QJY5ycWQ6PGG2xIzvKNY9DAZSsYjDDzx/SLdUS
-         IGgXI6vNH5iOvcNWIif2fP9l+HnXzBDOBILOnMTrBrqcC1coPn/jkLMygGgVcNqhzkNl
-         bmbiBTwxUfqf6U6ZGgdtIM6TwwK/H9fd8kdmodKECcq6kXjkimHELkT5LaElaLBdy/tX
-         ZT/4BzrGIGAOyNarLKvKbGCHSzw9iWCihhNd4HXiUZGaZbeowykzAKhKRIzFfXZiLfL5
-         jHqDLDMdH+KzN72l/eaw7V9AiDHbRm3NzPite4A+elAhiXcO8yhBguuz0abwTHudEyzl
-         HdpQ==
+        h=content-transfer-encoding:content-language:subject:from:to
+         :user-agent:mime-version:date:message-id:delivered-to;
+        bh=CSvto+eKiGiXp8DqvetO1o1qXDrND7CJrJkYprTHu7g=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=kS4Eg9ERmrqXbDzWhvbt0r/7DN6j19tnhOEfCfBgR3/VZaTxp8s6AO8leDCzo0NQrC
+         zzglMv4mqEog0ByfYOapBgwAnV4RvRMpN0zshiyYe6HfWcMHvvgtz3U+ef9teVlMmLt0
+         PuNgozE3LCOEYnCUoDWUIObA7iX5VereU2VXb2p7BeIFNQSmOFsXLD4fnSWSMU2oLLYt
+         YUBW7a3sr8nDGfSr1W7K0Zvx4DqcERHxDZ82SWmU48JDZgLDTG9GCDKxbbiY6nOK0jna
+         ECZTgo3lDFJMr9B8eBPJXo6kyEgZwyPCUJqebBbd5CbUq3RtEXJar0gNa4pchWaowHLU
+         o3uQ==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [207.211.31.81])
-        by mx.google.com with ESMTPS id ek17-20020ad45991000000b006587b5f54aesi9492348qvb.24.2023.10.26.09.56.14
+       spf=pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-1.mimecast.com. [207.211.31.81])
+        by mx.google.com with ESMTPS id j15-20020a05622a038f00b0040fd9f98527si439218qtx.754.2023.10.26.23.41.51
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Oct 2023 09:56:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) client-ip=172.105.89.79;
+        Thu, 26 Oct 2023 23:41:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) client-ip=77.75.78.210;
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-637-kHzB7U1TMlSoI2wcx2Hbhw-1; Thu, 26 Oct 2023 12:56:13 -0400
-X-MC-Unique: kHzB7U1TMlSoI2wcx2Hbhw-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+ us-mta-77-_OkbVZQUPeinbuCVi6eb0Q-1; Fri, 27 Oct 2023 02:41:50 -0400
+X-MC-Unique: _OkbVZQUPeinbuCVi6eb0Q-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D8E3B101A53B
-	for <blinux-list@gapps.redhat.com>; Thu, 26 Oct 2023 16:56:12 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3D1B5185A783
+	for <blinux-list@gapps.redhat.com>; Fri, 27 Oct 2023 06:41:50 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id D5F8E1C060B0; Thu, 26 Oct 2023 16:56:12 +0000 (UTC)
+	id 39B921121319; Fri, 27 Oct 2023 06:41:50 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id CEAFB1C060AE
-	for <blinux-list@redhat.com>; Thu, 26 Oct 2023 16:56:12 +0000 (UTC)
+Received: from mimecast-mx02.redhat.com (mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3196B1121320
+	for <blinux-list@redhat.com>; Fri, 27 Oct 2023 06:41:50 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A1FD33C025CC
-	for <blinux-list@redhat.com>; Thu, 26 Oct 2023 16:56:12 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
- relay.mimecast.com with ESMTP id us-mta-118-LYq078eKNqSquHQFwpZ2mA-1; Thu,
- 26 Oct 2023 12:56:10 -0400
-X-MC-Unique: LYq078eKNqSquHQFwpZ2mA-1
-Received: from [192.168.41.245] (92-184-124-67.mobile.fr.orangecustomers.net [92.184.124.67])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id CC5B5C2EBA
-	for <blinux-list@redhat.com>; Thu, 26 Oct 2023 16:56:02 +0200 (CEST)
-Message-ID: <47e0cfd8-224d-4f7c-b5c5-33c1de60fc7e@slint.fr>
-Date: Thu, 26 Oct 2023 18:55:46 +0200
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0F68B101A53B
+	for <blinux-list@redhat.com>; Fri, 27 Oct 2023 06:41:50 +0000 (UTC)
+Received: from mxd.seznam.cz (mxd.seznam.cz [77.75.78.210]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-518-PNaZZs9_MGW55yyBkR1opQ-1; Fri, 27 Oct 2023 02:41:47 -0400
+X-MC-Unique: PNaZZs9_MGW55yyBkR1opQ-1
+Received: from email.seznam.cz
+	by smtpc-mxd-6786d888bc-w26z9
+	(smtpc-mxd-6786d888bc-w26z9 [2a02:598:64:8a00::1000:4ef])
+	id 1551690700c93a5d14bb981b;
+	Fri, 27 Oct 2023 08:41:45 +0200 (CEST)
+Received: from [192.168.1.173]
+	(host-213-235-142-85.ip.topnet.cz [213.235.142.85])
+	by smtpd-relay-75b8985f9d-kxb8s (smtpd/2.0.15) with ESMTPA
+	id 9fb1b441-b10b-4bd0-abd1-57e5ae5ed2db;
+	Fri, 27 Oct 2023 08:40:30 +0200
+Message-ID: <34eec98c-20bc-4f28-9646-b5ae01f8b86a@seznam.cz>
+Date: Fri, 27 Oct 2023 08:40:28 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: seeking a sftp site to test a problem?
-To: blinux-list@redhat.com
-References: <Pine.LNX.4.64.2310260936510.3063300@users.shellworld.net>
- <e5b85119-9e37-439a-aa0d-d77a0a3d970b@slint.fr>
- <Pine.LNX.4.64.2310261209260.3065297@users.shellworld.net>
- <9857b30e-cba4-bf77-66bb-20471e31b1a1@hubert-humphrey.com>
-From: Didier Spaier <didier@slint.fr>
-Autocrypt: addr=didier@slint.fr; keydata=
- xsBNBFY6fG8BCADH4Hf/OaE2MwXRFMrU/9oDd+YPqR/wkhmIv0veDio84fsWA5qMz1De7TEv
- dNuxIVYTznuVOd/9lpdfxQ1KV9rgD7yoBPLmjbQA1vVjB+1QylIQUV0B9AYFUsxZP32Ic2pg
- TS3US/WiZyx+/jS50ri4kvT9iDtIEu7WBWFr8YMOoq3oLkHI8Y7gBG0WsK9XYN09glhtI+bA
- jLPr/ezwEg5M3FDb4U7XFq7GcA6EEzanKMAOHdZl3lta7dv5gpgdj+38j5jPfV1cJW+J1fha
- 63X72xxXGs7V6J7NGpnW7SAKfTAMXsPXZwwGIuqMQs1Z89I+2ZPJPOoV8zMncTsWzHStABEB
- AAHNH0RpZGllciBTcGFpZXIgPGRpZGllckBzbGludC5mcj7CwHkEEwEKACMCGwMHCwkIBwMC
- AQYVCAIJCgsEFgIDAQIeAQIXgAUCYZVPGAAKCRDVAgLvYMA+6pOxCADB2pKmm/LgncWREzob
- Z6M+RsvgzvGS/48ik/E/TH2KyPO/hn+Fzbj4MmMwQdqz5YPfdBmkcM7WyDzkPaukzfS8QUvl
- VKyWQ92pqpbI/JUeShI+DLMKV7LZxiPinMBuKmpyLdpxuhk08g2+6F8X6ztbl8mbXQy5jcIZ
- zKQ442N0D4wnn8VXM0tb0uonmqc6ly7dcmkQ/GI7Q0tF/hkn4n3g1Lh6+K1jBqEIC9vn/c6X
- yf67ec+CwbE0GtgVM1FR1R0J1y/6vkYWr7gZHhnzgwKr6k1wzCGkVUyCSpFwB2oeANT9c0qP
- rgn4YjoYQIHS3vMWd630vRyOfqwetWXmVjPxzsBNBFY6fG8BCACqDQKHSw0ElDkwPPpNguL0
- ujOyygO30xlLyfW9pWOEycHSLhLzvDTlFkvr5IxvyCDBIFBdzpkeQqh1+ZxrFliwWyj+9/ro
- JlIjxeAyNs2xQZ7tQM6K5xtbUs8O5YtkCCO3OegAiLgmzzgxes79Qy+V3ciKbl+vrsNu7T9r
- o3zZhyinci1eOCcKEtXFPQW5P4woB+6+JheN9pIiDkjojmdC+xkvDadP7kJYKp19Itys/CbN
- vxEoOLsgeJhsZSmNU2QNhXkLfr7+AC99fb/c5ZDTNPRBqgLJCp+gTxn1QVJrAbq2OP3refmS
- RxdA3yUDMjxEeHwDNZJL9aEtTDlTzPk5ABEBAAHCwF8EGAEKAAkCGwwFAmGVT44ACgkQ1QIC
- 72DAPuqjhwgApl0pdNIrbU+8Hn0mr3CTEXxPaTbAU2bYFPDiBaEvXsBGoz8xJ6EZQnywbC7o
- l5wFtVT08LKDewLHaL78zS+Q8rv5sNmWwzMAaipFtZg67e/rU3V5tw4E12nUghyMzQpngUur
- lZPMFlB9IZN9681cXuv2sZzAZlR2+3PsSAftpPQxReoSC7hj3dfiCiAis19G3A184HClA5MB
- I5heGinSz7R/AXhkiej8HZZzz9ZPkS7aeL8HsZKqCwZvViutbGmpm+V70JnbRAHLFjYb+Se3
- rdUWWAXcca4Ry8HCLTo5iK9xCTQh5gEuJ7ROdOXeY4SvMiqWjYhlrsR0qhTv9q/gfg==
-In-Reply-To: <9857b30e-cba4-bf77-66bb-20471e31b1a1@hubert-humphrey.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+From: =?UTF-8?Q?Vojtech_=C5=A1miro?= <vsmiro@seznam.cz>
+Subject: Esys braille display and Archlinux
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.7
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: slint.fr
+X-Mimecast-Originator: seznam.cz
 Content-Language: en-US
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: didier@slint.fr
+X-Original-Sender: vsmiro@seznam.cz
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
+ domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -170,24 +147,18 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Thanks for the explanation Chime. I initially thought shellworld was a soft=
-ware,
-hence my confusion. I have now found the website https://shellworld.net/
+Hello,
 
-Cheers,
-Didier Spauer
+have someone Eurobraille Esys braille display? I have problems with=20
+working on it with Archlinux. Sometimes it connect and work, sometimes=20
+it writes USB cable disconnected and I can't work with braille. Please=20
+how to solve it?
 
-Le 26/10/2023 =C3=A0 18:37, Chime Hart a =C3=A9crit=C2=A0:
-> OK Didier, Shellworld has been around since at lest 2002, created by anot=
-her
-> blind user. Shellworld is under another owner now, running ubuntu. Its or=
-iginal
-> owner Ken Scott was on a podcast explaining the service. It was surpirsin=
-g your
-> search didn't find it. Also, reguarding putty, when I have used a windows
-> machine, I had much better luck useing teratterm.
-> Chime
->=20
+Thanks a lot.
+
+Best regards
+
+Vojtech =C5=A0miro.
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
