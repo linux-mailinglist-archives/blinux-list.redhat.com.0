@@ -1,140 +1,177 @@
-Return-Path: <blinux-list+bncBCW5NIVR6ABBBHPB6SUQMGQECLK7TVY@redhat.com>
+Return-Path: <blinux-list+bncBCLPHQH4XEIRB7FO6WUQMGQECMNNMLA@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mail.lfdr.de (Postfix) with ESMTPS id 177267DA7F0
-	for <lists+blinux-list@lfdr.de>; Sat, 28 Oct 2023 18:02:40 +0200 (CEST)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-66d857105b6sf34790876d6.3
-        for <lists+blinux-list@lfdr.de>; Sat, 28 Oct 2023 09:02:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1698508958; cv=pass;
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9EE737DA8B8
+	for <lists+blinux-list@lfdr.de>; Sat, 28 Oct 2023 20:48:30 +0200 (CEST)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-41cb900adc7sf48835991cf.1
+        for <lists+blinux-list@lfdr.de>; Sat, 28 Oct 2023 11:48:30 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1698518909; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eXkz5SKX1tkTzFY4LqOJtOGTXqJfMZ8MvEPwH6lBsJgqL1Kc+4Opuhq8ITmRxcZgOy
-         30Mvr0rqHVGv4jyWpMaRoBOwJOalKXHgd5cRANgNnOoXPw5/pdSNa8q0sHrC56t47zDt
-         cyHYJX1wpJoSZNXJ8lH8vRN526utQ6zVm0016cyrqE8tLW/4QIH+4tn38FilXR4TjfGe
-         jC6nkBxwJxeTbqFm+wvXZBunySE+6oyLBEpux1QBGU44HVZM3SLTGyiR/eI40LS1HUWD
-         lILMROQIyXsAJL5JZHNJ3RBQTRayyMy9pH9jEHgAEl1iYRxIziSqr/UJZMILjy857Msk
-         dsyg==
+        b=zCakYDWApvjhnoB8CWpnEuv6cWDIG+WsJP+iWQChPVoet3R1v35HMUAHO0a24pF8dv
+         37nEPMpezVR1YmVHIRTYohXIdL0aWkWhG+v7Gg3Mb/matD984AucC6Jy9ke+ONmWQOc/
+         /LSPclPPjaCdd3o7/10kRRt0SxL26tLfH8muggMXxv+WXLGMwg10wyniNgpojaAMmz5X
+         JAPq0vfB/NDiFneNXrE6MNE27jkTRhpxKuaRO6P0kCpR2JClmV4Hc69LTrqx39hyG9lX
+         yUGyl0RV35/KFdYBsZDvIS1vvqjJSaCnQ6VIJK7bt6Kd7Wqa8jLIWnVTRvG9uxJZ8jI7
+         0qqQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-language:subject:from:to:user-agent
-         :mime-version:date:message-id:delivered-to;
-        bh=NJE6S8iEGfMoKPzAQ0oOereevAhiHGxvWcpzoq0Nats=;
-        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=Bli+l19hsI8S+0T4DpFwavHtua5B+DPMIHR0/ByDtn797p3VMSwI+g1kygsN8j5h5X
-         nMHi4HH+1Tw9yeT3llNNnB/Mh8MVmJ1VKwEW/WMEpcBh4Bb/xesSbNmi6LuMVnMHTB4S
-         WWn7Re9wUh4JNkmMxxZF6JjMU7SiFn69P0BOUSky1KcbAsD5FoVYK4DvTEGS7HVx18X4
-         8OaH0ADr8aL1nJb9k+V/zPip8IgR8yqRQQ0LcnDqyj1uFaZ4xJI/qrI4lCK/cEzN+xxM
-         q64GTswEsUjC0HW7yZJa8VMszShjOlytHqtPBw1dz29CtaluwE7FEpZblSLVU2xrEmql
-         IOYw==
-ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of vlcekpavel93@gmail.com designates 209.85.218.43 as permitted sender) smtp.mailfrom=vlcekpavel93@gmail.com
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698508958; x=1699113758;
-        h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender
-         :content-language:subject:from:to:user-agent:mime-version:date
-         :message-id:delivered-to:x-beenthere:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NJE6S8iEGfMoKPzAQ0oOereevAhiHGxvWcpzoq0Nats=;
-        b=q6fEQ9NG8qM9Rxe6aRyf/zOId+CFZlGBdM7GRt6Vo9YcnNLzsgrCOIZaPjjEad7mwH
-         9Mg4GGOX9foF3Q3VFSj3sX+ZUwAIumg8oIOyIwdpgKwiKIjYS/hglNhRyVauEBPkhBmp
-         dqaCMG6h4h/3OQfDNkRoig9Se0XgIfXQO8fGDmi2mJk2LJeoy5V2BtscKWJmmuFg7pDn
-         KuauHsIZYTE/Y0Oz0oP83dv7scsECJZe00htD16hjXH9qdLj3TkacwN3gT4RquNEwBrZ
-         OCsvuD3sCsWmeVCUUSbJp45PJd7PkOtBybFkFxL4WQo6rZeP1Q1ppHvjAA3Cwf7AgMqh
-         rwdw==
-X-Gm-Message-State: AOJu0YxPdLbWePiY0ieaNr8C7aOe89fj7Y3piJrBRntuaVBtjJNLKhIS
-	TFYzd8lXzCLPvotnQAzSQqp7vQ==
-X-Google-Smtp-Source: AGHT+IGXOHYIdUvDDICeolbj+9QOHXlQevS3+Jf97yflY08QkoTiZ+iFuHUIAfS7phamK+EjtGt4Iw==
-X-Received: by 2002:a05:6214:21aa:b0:66d:d6b:f24f with SMTP id t10-20020a05621421aa00b0066d0d6bf24fmr6275768qvc.50.1698508958250;
-        Sat, 28 Oct 2023 09:02:38 -0700 (PDT)
-X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6214:2e46:b0:66d:871:cd95 with SMTP id
- my6-20020a0562142e4600b0066d0871cd95ls973690qvb.0.-pod-prod-08-us; Sat, 28
- Oct 2023 09:02:37 -0700 (PDT)
-X-Received: by 2002:a05:6214:268d:b0:66d:bdd3:5d5 with SMTP id gm13-20020a056214268d00b0066dbdd305d5mr6876147qvb.0.1698508957491;
-        Sat, 28 Oct 2023 09:02:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1698508957; cv=none;
-        d=google.com; s=arc-20160816;
-        b=uotLKvmlv3oCnNOqYxc3CPkLprlZBVAw6y2Oc+smrmnjgNa9wcdtCgHN078DyxMFRQ
-         A14RtETIemTbEsKNHdCFG1YZ/9ITlfHynnTHjmVkJOszObw32jicYG8Wq8uNq0bYwzyB
-         AwXsdDOKj3Y/upTJcK7ciSAPHWTjF5Jj8sFQNJzI4jrIaSqou+eQ2w4EsC45v2MFZQl+
-         QkC5pfaNEa6jQsUMhWwlQXY4iCI51QhAn0E8ke6Gl747mILMIp1aCD8Ys060AtrVIXNY
-         O6WIHGht0iDLNgiaiZ8pB2qF/237QT289RrEzVpJn4bq7dCznMQVKpOM/WKt7o9gzyZ7
-         gJfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:subject:from:to
+         :mailing-list:precedence:reply-to:content-transfer-encoding
+         :content-language:in-reply-to:autocrypt:from:references:to:subject
          :user-agent:mime-version:date:message-id:delivered-to;
-        bh=GB9zAeovCmyWEO3uQ2v0nvphso4Wv24DDufBlG1ndwg=;
+        bh=z6zBU4F399W9e5hKHE5hzLjhRYe4PV9fDRalfyN8Vmw=;
         fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=Iael+AUhdk6DA9JNxC25BrJE9YjLKT9YS1oaKZn/cdu0K02BVuY2zEj1zE39/T+ANT
-         JZ1Ux0HAAKBcsQW3PbtMSw7VSFPQ1fvyjXzB4EEf26hhMBssJoAQp7J9tJkAs7IuS64I
-         LA5hWGx3swegSF+f5jNoeGdiLcP2g617uPP5At7dcACUY4MFgxunSAG3n5W/9QDUFCzp
-         bparQbJgiV7ai+1C2Za+5nsDcLKF8PgJ1p2ed1Ge7B3jyqv2EzQJeLnR96sXUEIRix5E
-         FUz9ltDMSKhHxwzYqjFBlUyqn0F0zK/hexYKZks+gu0vz5NL8O8e0uB5qg5f8HWV3yDo
-         ANxw==
+        b=uu8/o2tDALBsjpJxaX5jYUZh1M90vNEknYAk2nt8GqvfOldNa6c6SVGv0Rdmdjeywj
+         ixii0A+uyfvOGz9ZE3cURGDQIrdrj9CBTOJ7xaB5zQvtQUf80jCwhxIs2unXNAYYkuPG
+         Mi3F+9QmKb4H1WNaET5jmc/9K0eUVzICwtZj+3fz4MYjrRpHG8FGfkH+cXJwPwEFdHQn
+         3bkMrG1i7J3qn8GldejXG1UoelMJ4CFP9Ew1Ho1/wvp8J1GmyrjQQbY2MLD2TzuN0sPh
+         QMrTtbgoMK1GE/eCl8Fy0VTt1L75g9Us6eX/rYLbCs6E2CiC6eUyDWWdQ1MD5JHq2aMD
+         l0Dw==
+ARC-Authentication-Results: i=2; mx.google.com;
+       spf=pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1698518909; x=1699123709;
+        h=list-unsubscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender
+         :content-transfer-encoding:content-language:in-reply-to:autocrypt
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=z6zBU4F399W9e5hKHE5hzLjhRYe4PV9fDRalfyN8Vmw=;
+        b=ar+dQd3GW6q3tHBew2OBb4LPKR5itsCWvOjnb23+HPr+b4IHK6rVUIiOVyLxGsP03v
+         MnlSxcvehamCvlIq++OfAtBs2rtVGPKTTenqfwiyqn23OWpVu0lc4ziVuMSCEs9rP4Ln
+         1rYMWyEC8JlDSzJY1JYf8Qsw5uNG4PCiPHHyAJEclu4ju8B9S6wxXaouP5ntyA52JOdU
+         kVZP0H8t3w15oQvff5JybPARsB1Sjy+yemMtE84vbSfJAJaFGmSJssuCYdqm+cVDDYa5
+         FAICeInYkyAfUpu/IVHdjrKxrTmv5OR/IFAPJ2zgsguar7gG7veUE6rOZiV7sXRN0QYN
+         KvRw==
+X-Gm-Message-State: AOJu0Yx3bILwmvji+t9qcPCZGDlziQkXR20i20k7TJ9lfyBJ6aTuPhx5
+	Jnl2XtHczevFEEKGOUmaUQfzhQ==
+X-Google-Smtp-Source: AGHT+IF4/qxAL00H+LjelYRlJrGNeCv4niU7Coq7RZ28F94fQwVDO7vpQ0iiRpVOjmUyER4kmAw6/Q==
+X-Received: by 2002:a05:622a:50b:b0:41c:bfc5:dc6a with SMTP id l11-20020a05622a050b00b0041cbfc5dc6amr8632222qtx.11.1698518909244;
+        Sat, 28 Oct 2023 11:48:29 -0700 (PDT)
+X-BeenThere: blinux-list@redhat.com
+Received: by 2002:ac8:41c8:0:b0:41c:d310:a7c2 with SMTP id o8-20020ac841c8000000b0041cd310a7c2ls2688397qtm.2.-pod-prod-00-us;
+ Sat, 28 Oct 2023 11:48:28 -0700 (PDT)
+X-Received: by 2002:a05:622a:118c:b0:410:92ca:3dcd with SMTP id m12-20020a05622a118c00b0041092ca3dcdmr13121642qtk.9.1698518908400;
+        Sat, 28 Oct 2023 11:48:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1698518908; cv=none;
+        d=google.com; s=arc-20160816;
+        b=N9wSGNZyCESqKnMFcoRXzRrcBzxpG6aAyW6qWVCkCNzWRtCxQvgtNHEsS8u9TBhd25
+         bbYJ8jMWbaiWZI5GQQb4Do28YXVSmunMcmk8JJfi06VssF9Bvb5y14ShXe+2XhDVSoKG
+         8tC5RrMb8hjvkaIzdFvooWvirdOmbfRstm1+DhjuKj3XGOO3c4bIxbjpeYzjva7msYRl
+         z/BsEKuZnPAY8Eg7W6GlXB4E3GUaDLPSMg9Tb3P3j/Ssp/HZEmRAPFZzX+4Mg1dNSrTk
+         PXI2sAvP4iDajZguPnkyzjxnHKIb7f1Wgt9jwK/yzACSUjh8OWfuFIIexwYPnRaiUCA+
+         XfvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:content-language:in-reply-to:autocrypt
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to;
+        bh=cmiIDIdq1XWNyuZJKm3ApQEwu/IjItuTHtblksDm+yA=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=jBKmB/9OecGMAlYiW5ltai4b/6hpwqzuuu2Y2p6YXmhcfj8EVkKa/Ktz/ljTm0aN7U
+         WOt3sh+hue37N08bSWMYfSLRtcJjNQ/YQsf9IxbcMWZpOTkVQtyjAJAVHGtR8Un2/nwg
+         BiZHlyNN66Bfj771TUL5YkHESc1jIdO8sf0ktRMzmzGDlwvq8vrmx81EmOMPdHOjz14j
+         Mc0Ikv+DMxYYBUGnQYDoo8oeKhpVDlDtR13dgq8+fCLMRndzpUUYS6GPNR/347NVFEDd
+         Rg83XbFfj+lJIa8gbd0vN4G7vdFbc7Lzip+WvR+3TAM4cF4vHaVowUpeF9nAn02n6HOw
+         lLZQ==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of vlcekpavel93@gmail.com designates 209.85.218.43 as permitted sender) smtp.mailfrom=vlcekpavel93@gmail.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
-        by mx.google.com with ESMTPS id g13-20020a0cf08d000000b0065652a344fdsi2575397qvk.397.2023.10.28.09.02.37
+       spf=pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [207.211.31.120])
+        by mx.google.com with ESMTPS id e21-20020a05622a111500b00418175f3a92si2812870qty.482.2023.10.28.11.48.28
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Oct 2023 09:02:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of vlcekpavel93@gmail.com designates 209.85.218.43 as permitted sender) client-ip=209.85.218.43;
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-487-UvCV2KuoMiyXIbMTekGe9w-1; Sat, 28 Oct 2023 12:02:31 -0400
-X-MC-Unique: UvCV2KuoMiyXIbMTekGe9w-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+        Sat, 28 Oct 2023 11:48:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) client-ip=192.155.90.172;
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-315-HA7FgU2WMwKb01tFu_yzeA-1; Sat,
+ 28 Oct 2023 14:48:26 -0400
+X-MC-Unique: HA7FgU2WMwKb01tFu_yzeA-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C64EB8021B1
-	for <blinux-list@gapps.redhat.com>; Sat, 28 Oct 2023 16:02:30 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 842042800B3E
+	for <blinux-list@gapps.redhat.com>; Sat, 28 Oct 2023 18:48:26 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id C337D492BFC; Sat, 28 Oct 2023 16:02:30 +0000 (UTC)
+	id 80B47C15985; Sat, 28 Oct 2023 18:48:26 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BBB87492BFD
-	for <blinux-list@redhat.com>; Sat, 28 Oct 2023 16:02:30 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
+Received: from mimecast-mx02.redhat.com (mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 79A53C15984
+	for <blinux-list@redhat.com>; Sat, 28 Oct 2023 18:48:26 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9B3AD8678A2
-	for <blinux-list@redhat.com>; Sat, 28 Oct 2023 16:02:30 +0000 (UTC)
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com
- [209.85.218.43]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-33-9FDQthq_Pbq8fiOotrx9qg-1; Sat, 28 Oct 2023 12:02:28 -0400
-X-MC-Unique: 9FDQthq_Pbq8fiOotrx9qg-1
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-9bdf5829000so491564166b.0
-        for <blinux-list@redhat.com>; Sat, 28 Oct 2023 09:02:28 -0700 (PDT)
-X-Received: by 2002:a17:907:8f0d:b0:9bf:5771:a8cf with SMTP id wg13-20020a1709078f0d00b009bf5771a8cfmr3122936ejc.70.1698508946776;
-        Sat, 28 Oct 2023 09:02:26 -0700 (PDT)
-Received: from [192.168.1.4] ([78.80.191.29])
-        by smtp.gmail.com with ESMTPSA id d24-20020a170906041800b0099b7276235esm2978818eja.93.2023.10.28.09.02.25
-        for <blinux-list@redhat.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 28 Oct 2023 09:02:26 -0700 (PDT)
-Message-ID: <9accf86c-3ce5-44e7-8495-822f2f363540@gmail.com>
-Date: Sat, 28 Oct 2023 18:02:25 +0200
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4A4CA2800B42
+	for <blinux-list@redhat.com>; Sat, 28 Oct 2023 18:48:26 +0000 (UTC)
+Received: from svr.jasonjgw.net (svr.jasonjgw.net [192.155.90.172]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-621-eexezslHOPq4vuyS3aKsgQ-1; Sat,
+ 28 Oct 2023 14:48:23 -0400
+X-MC-Unique: eexezslHOPq4vuyS3aKsgQ-1
+Received: from [IPV6:fd6e:ebcf:467e:2::1] (jpw.jasonjgw.net [IPv6:fd6e:ebcf:467e:2::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (secp384r1) server-digest SHA384)
+	(Client did not present a certificate)
+	by svr.jasonjgw.net (Postfix) with ESMTPSA id F13B43216D
+	for <blinux-list@redhat.com>; Sat, 28 Oct 2023 18:48:21 +0000 (UTC)
+Message-ID: <60b6f108-a67d-4d86-83d9-5bef4f91aa89@jasonjgw.net>
+Date: Sat, 28 Oct 2023 14:48:21 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
+Subject: Re: Dualboot remember last used os question
 To: blinux-list@redhat.com
-From: =?UTF-8?Q?Pavel_Vl=C4=8Dek?= <vlcekpavel93@gmail.com>
-Subject: Dualboot remember last used os question
+References: <9accf86c-3ce5-44e7-8495-822f2f363540@gmail.com>
+From: "'Jason J.G. White' via blinux-list@redhat.com" <blinux-list@redhat.com>
+Autocrypt: addr=jason@jasonjgw.net; keydata=
+ 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
+ Jlx6Ar305Q==
+In-Reply-To: <9accf86c-3ce5-44e7-8495-822f2f363540@gmail.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.8
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: gmail.com
-Content-Language: cs
+X-Mimecast-Originator: jasonjgw.net
+Content-Language: en-US, en-AU-large, en-US-large
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-Original-Sender: vlcekpavel93@gmail.com
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: jason@jasonjgw.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of vlcekpavel93@gmail.com designates 209.85.218.43 as permitted
- sender) smtp.mailfrom=vlcekpavel93@gmail.com
+ domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
+X-Original-From: "Jason J.G. White" <jason@jasonjgw.net>
+Reply-To: "Jason J.G. White" <jason@jasonjgw.net>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -146,25 +183,21 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Hi,
 
-because Gnome 45 is interesting, I installed Fedora 39 to my HP 255 G10 
-laptop, this is my primary production computer. I turned off Bitlocker, 
-secure boot and I have dual boot for now. Fedora is first boot entry, 
-Windows 11 is second. And now, I have a question. Is some way to tell 
-the UEFI about latest os and when restarting, it will restart to lastly 
-used system? For example, when I want to restart Windows 11 and when I 
-forget to press F9 and select it manually, it will start Fedora.
+On 28/10/23 12:02, Pavel Vl=C4=8Dek wrote:
+> Is some way to tell the UEFI about latest os and when restarting, it=20
+> will restart to lastly used system?
 
-Apple had this great feature, when Mac was used, computer restarted to 
-Mac, when Windows was used, computer restarted to Windows if needed.
+You can achieve this with GRUB, which can boot both Linux (whichever=20
+distribution is installed) and other operating systems, including=20
+Microsoft's.
 
-Thanks,
+To set which system to boot, try the grub-set-default command. In=20
+Fedora, this has been renamed to grub2-set-efault.
 
-Pavel
-
-
--- 
-You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+blinux-list@redhat.com" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
 
