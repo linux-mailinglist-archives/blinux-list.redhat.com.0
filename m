@@ -1,134 +1,145 @@
-Return-Path: <blinux-list+bncBDYPVTOXSQEBB64L7OUQMGQE43NTIFQ@redhat.com>
+Return-Path: <blinux-list+bncBDEPFPWCWMDRBQUN7OUQMGQEETLH5ZY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com [209.85.128.69])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1E6F77DAE53
-	for <lists+blinux-list@lfdr.de>; Sun, 29 Oct 2023 21:52:12 +0100 (CET)
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4083fec2c30sf27937705e9.1
-        for <lists+blinux-list@lfdr.de>; Sun, 29 Oct 2023 13:52:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1698612731; cv=pass;
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mail.lfdr.de (Postfix) with ESMTPS id E94907DAE56
+	for <lists+blinux-list@lfdr.de>; Sun, 29 Oct 2023 21:55:31 +0100 (CET)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6717027ac96sf11984476d6.2
+        for <lists+blinux-list@lfdr.de>; Sun, 29 Oct 2023 13:55:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1698612931; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mcHF+FLFWqUUQqJTBV3boxjtUBPHCGHe++QA9EQrl092K78XmZknv9mkG/D16hY1uI
-         rdsuKGuNhXpioMMCLklipNz5VpDasdCcecVGg9rFKRcEJ9Pk8fd+/1MPPhHnDkNyMMh9
-         XpmP0R7d2sZsPsOK86ozcxWHRQveqr6lHRuxkr36gpnobgtGFF0Lt9UXXcT50/Er9GDN
-         UGT+AKQkhbjs/c1v52TrW7FNloK1/b3ENpAMYdJuups0YqyKdbOmm/qUqbDuU2WFLwuP
-         9mByxvgDCZpZTaHdh+2U9riD4DiZDfqHWGERAb4W/9XqIWW++Sx//eJGQfOb/zcfrEt0
-         +fNw==
+        b=AuP+YjHlCDbJxOH9qFq+QngpXI1Li1b1RxRpxBwyojfuzi1RB9uSf810ze6bUlC8ax
+         k5ZHzNMIHGUKC7yv1Suo4jqmjAkw/7eoQZSI2yI11V/hbgzwvnzrl1MoVk1MRaSEQJMA
+         g22QDBg+iywaYUjPJsDqDgglw1+TCeIS0amSaLS7dwFL8qkxZhF+jkRq0NbTq2lrCb7I
+         AZFYnv4h1cpmvM7SH1+DlTzqe5q262HLX8r0v5YkgWbkMbT/ETxnQFkxSC+pPDHPBOrf
+         5jkBuqCuFqxOJRsF4hMp0zQTfee9Fxk6l7/85gRDEqqL5E1EkU4SCUXFpFL/tv9A8I8Y
+         190w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:mime-version:message-id:subject:to:from
-         :date:delivered-to;
-        bh=38FTbzA3HA0OwH640ODgR00E4kj4RfXyD14eid1nIz8=;
-        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=GAOrezXUPQ5SGDXRjUITkq73+ddoy6qJLdC7BgnM2Wnp9WuDohrGBAmsT3fXGRcnRv
-         Hz+ZjmPInDYLlbtGQyagmD9VfyoTlXfcTGI0QVdt3E3kR+Q6++pzRtZVyOWO6abm2y3J
-         mYzse3KisLmcjM6US0NfSDkQTMPEXWlgsQXZ22xjV/15eoEK4EXZV+YGAQ+4azVAK0nQ
-         47F1kfKkfGNkjXeZiLnDNCwdgA28rv/Vjeh5PVITwwhb1TFVOgHynBU60hdTJwnxBxFg
-         9xiS/erfwCEj9yIDfCcE/lAsyLRnOMyLLAxC/8Q1kipE1+HMJwym78KfzqPQ1v9REyIZ
-         DzJw==
+         :mailing-list:precedence:content-transfer-encoding:content-language
+         :in-reply-to:references:to:from:subject:user-agent:mime-version:date
+         :message-id:delivered-to;
+        bh=VjKGY0UA4kG6AOwObhGSf6y2lj12XGI0rbZ0l+MPT9M=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=er80ikWdnbeUJncP3xEleZlHpKk1kc/mLUbGfMEj7bFua0JzxN/nEjgzcux51crcdt
+         5woUwQj0W5I79DZhlzNsUIcnGx9Zbwx8hRbo5aBH1NUNvpEOWQhIm1oTAk5C49o3Mn9v
+         X9JcfiqlM6lgM/auQfk67bv6noYtSO3Pp5xZX9R/0xB0jEn1pp21MoIwolgjJ1895dd6
+         78UwRXiBSe5Kse6ax4KMEXWlDLv7mjWoMxv5TQ6trK+YJ+PcVISIpIPOvsMFYVw0QkYf
+         MvnrTTx4cmcZUrqHNIhV/RQ9+eOY69LBIzkIVFmo4WjTtc5Fule5l0TZmw1EpYgKUB4U
+         +Xmw==
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+       spf=pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1698612731; x=1699217531;
+        d=1e100.net; s=20230601; t=1698612931; x=1699217731;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:mime-version
-         :message-id:subject:to:from:date:delivered-to:x-beenthere
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=38FTbzA3HA0OwH640ODgR00E4kj4RfXyD14eid1nIz8=;
-        b=YGRg2v2nAfQ8G7HFFC7Ko2vV8f5zbte92z9sXtn/8+iMcz9L90e8d9iPw8Je3AHVbd
-         9cq10mjaU+BGiTOL2fj+wqmELsZBI8Jw+SYFyrh+7sTbN1Yl766PizF6Oyt9zpRF0u+O
-         JQHEjz3FOl1CHpn1djSVnL4YjhNxPYfXsBx8m/equnU4u74RFKvqL0d0Xh4G17O6vRAP
-         onQHSxD2oT/JYCjZgB+rvcnN1Jq1hOhaB5eOlXbXn7T/vXJhpapjO7Nm8wo2rp6SEa39
-         b1VhlBSA2o05i9gJ0LBRuuxiZZHcbiz4DOb8IE2J/1qhP+jNwqOTHt0QjDvKOBPg0sv+
-         OoaQ==
-X-Gm-Message-State: AOJu0YzzzDI2ZvhzlWg/tb9htTs+tdqSy01wS3JUN5RC992xenH5SCwl
-	40xEBSMTXJrwmdG8s2Sp4/GHqw==
-X-Google-Smtp-Source: AGHT+IFmdA3BPz8LSdKDrCFw0K2SiM6r64n3r0Iyl1N6UbaSZqzqdCx/fKwU80D4rsZOlqQFxoU5wg==
-X-Received: by 2002:a05:600c:46c8:b0:3ff:233f:2cfb with SMTP id q8-20020a05600c46c800b003ff233f2cfbmr6194931wmo.23.1698612731508;
-        Sun, 29 Oct 2023 13:52:11 -0700 (PDT)
+         :x-original-authentication-results:x-original-sender
+         :content-transfer-encoding:content-language:in-reply-to:references
+         :to:from:subject:user-agent:mime-version:date:message-id
+         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VjKGY0UA4kG6AOwObhGSf6y2lj12XGI0rbZ0l+MPT9M=;
+        b=I503Vl++LtC3tG8GW6kqGA/3XiK38LZKAmIJSis1dZItB0J+tXPh8c9n3Sq/dAZoPf
+         eff2qd0HLLTy7aUTg93rM6YY6tZqe/jQ6cQ4XyZRZFW0ZDFDDu+/rr/8Arg+eeHc7KgC
+         FZtAQKQF46bnbixNXL/bEDATj70k5CUDb4JX0nklcKUejT9TRuHdQNBUzYwmTT3kTK/h
+         Y2MLxVic2UK9wjp3qSsAQRUw2wqh+AQuIOAL0Wdghz8A84gjwmt7FuQgLdq+CIXilncd
+         a8a2t9glJFWwnIUBh43LbdVHp0jZr+cXDfs9qhuLiQgq0qLPjNlqaOSA8Q5GNlczBwJB
+         uH+g==
+X-Gm-Message-State: AOJu0YwM8k7JpMbmolCJr+Qtg25dav4qs5SX8FAtARut87IeUxZWk2hB
+	3JG3f/7SS+PdHPVdv4mFU84nxg==
+X-Google-Smtp-Source: AGHT+IEi6LcowpA9E8opN9XGhQ7SHXaCruFnaYds7nBlAdR7qp6JOlezTFtfkn7+JA+Wn9k2AZ1feQ==
+X-Received: by 2002:ad4:4ee9:0:b0:66d:6693:53ad with SMTP id dv9-20020ad44ee9000000b0066d669353admr8295612qvb.36.1698612930642;
+        Sun, 29 Oct 2023 13:55:30 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:600c:1c01:b0:407:67a8:8d2a with SMTP id
- j1-20020a05600c1c0100b0040767a88d2als1254349wms.0.-pod-prod-01-eu; Sun, 29
- Oct 2023 13:52:10 -0700 (PDT)
-X-Received: by 2002:a05:600c:4f53:b0:405:4002:825a with SMTP id m19-20020a05600c4f5300b004054002825amr6645513wmq.13.1698612730051;
-        Sun, 29 Oct 2023 13:52:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1698612730; cv=none;
+Received: by 2002:a0c:fdc8:0:b0:63d:1f5c:79f5 with SMTP id g8-20020a0cfdc8000000b0063d1f5c79f5ls2853377qvs.2.-pod-prod-03-us;
+ Sun, 29 Oct 2023 13:55:30 -0700 (PDT)
+X-Received: by 2002:a05:6214:76d:b0:65d:6a5:1a3f with SMTP id f13-20020a056214076d00b0065d06a51a3fmr10988662qvz.43.1698612929890;
+        Sun, 29 Oct 2023 13:55:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1698612929; cv=none;
         d=google.com; s=arc-20160816;
-        b=KVQj7PZQEeW3+NEovZrZYp7QdVX4NUxpl0swGtUaxxOzrb+749Efu6UV84YMVTfr0E
-         P9oIKElIZHE9rnb3lRqwGs2ZVT8I3pOI5lGdrEB8X9oSuJ3RoXToY2GKIWE8EHrtwWTj
-         cgTszoJ42fSeTkXEKgfAFWqg5D2o/Ef/+gB1PqEK6iyRWU5vZ4QhBiGNKgwneyXr6Azn
-         cEuwPD6WwRAlGC4N8DRYSRxQpjfTOkBON0hYabeOsQ/FevdJTu78ac5EYQWIaf6CD9XM
-         V9UW0fyWUSWxfw4L5WB7ALOooA05zLweU5ueNIMVHewvsNCxDebj9aHZ8c6HPrXAgWD6
-         ApCg==
+        b=iHxSlh5riRG7Ah8IYrd+pgvrxScmgqtF5Y5b858nWnrtRFX5aB87dgUuBWnFXj7zcQ
+         IMT7r6khcBBP7Q05/DEN2HNFmvzE4bQTAqTD9NkNC5GxPkT3NyltLkWgSDZiyqqWTkId
+         HnWaSnwGswpFEPFHZLKPgKW61RDqj65i+NArVCxqZlfVPvdHogxwK16KO8Yefq3fQ/2F
+         auuS9eJSkwtZ8VN8YOJKEv4ojKO92wJVNkHHTJTbny4MnehVWJWw1p3S+oUQRnNcyKzX
+         QKDhEEY54OBJRfOpmBBzdU3aCPr3OU+YyJzqbjKY7ihqzXbXDvuyb/rzLKETqo/GWljg
+         cXpA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:subject:to:from:date:delivered-to;
-        bh=Rk9jbzMAwAiPvmhay037mE2CaZJ4wLsZLkpyrGV3iFE=;
-        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=zKkoe0nxuPqnK5Y1xLH6ORqe8mFLtC9Qe/JYb1BRNEbfPCNxW3+l0aJYCyy2aRq1Te
-         2OOBKK+NVcqyZbhjE+DzQJnDX50yL8rGJcO+PBzdRW1TSNkS/q7DU4JHh/wdUneFtvMy
-         GOXEXH1B2ce38+bDUbMLPxwj96yFN55liGg/6fjD6G30zZnNgGEgU9LV1sO2A8eXSZ5a
-         xXzawj0gCudOzL+RgHTnJ8/mWcMxKeP7dQgO4B0zJqBaYQo6002XtKLCFZZ2TYgAuTeV
-         sulfFIOT0f9CK5gSHWrHpmu+aGuCi/cu6OLxqjVgx2aXtoB8sBliUCOX62UEWwmslizL
-         RrlA==
+        h=content-transfer-encoding:content-language:in-reply-to:references
+         :to:from:subject:user-agent:mime-version:date:message-id
+         :delivered-to;
+        bh=krFpyNqX0KwNqOg5RQnUZ9hZiAPx5zC7FewS1KsnYqU=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=YQpNKrLtr2Yryh+pde6idxfU5K1veVxARSNNhrgk/oPXd644/Qg2HGXXcOd2n9bdoG
+         nscRvQ5huzM3q23GDnohV8oi5kP1VvkeEJI7D+dJ8VYBZt4hrFmUatS4lw4Wnepq3pD+
+         uwc8OhnTwz7lSSJfDLLHKZ/zi8lIsZBu15xQAWOFNARfYrjTFVRamdqNA7Nm9c6GDLbV
+         JF9wV3qlUnhZjcT4+mNpR0n3fO0D75KVr5K4vDvwSr9H5O6AM8PGowKNDFdRB+KDLH08
+         ngNkzYPw+rBuPrJKy9XIqqQc5TYRR+Wwb04fEoG7Bhf+e1oBsgvppzzuxK1hJog6sUkL
+         erNg==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-2.mimecast.com. [205.139.110.61])
-        by mx.google.com with ESMTPS id 15-20020a05600c020f00b00405297e3b15si4463074wmi.128.2023.10.29.13.52.09
+       spf=pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-1.mimecast.com. [205.139.110.61])
+        by mx.google.com with ESMTPS id v4-20020a0ced44000000b0066d6b153797si2547950qvq.233.2023.10.29.13.55.29
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Oct 2023 13:52:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) client-ip=166.84.1.89;
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-46-PNGO58apMZyCU0TnjnqWqA-1; Sun, 29 Oct 2023 16:52:07 -0400
-X-MC-Unique: PNGO58apMZyCU0TnjnqWqA-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
+        Sun, 29 Oct 2023 13:55:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) client-ip=77.75.78.210;
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-688-0EN9quErMQ-deAICTWQuyg-1; Sun,
+ 29 Oct 2023 16:55:28 -0400
+X-MC-Unique: 0EN9quErMQ-deAICTWQuyg-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7E6E4101A529
-	for <blinux-list@gapps.redhat.com>; Sun, 29 Oct 2023 20:52:07 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 64337380671E
+	for <blinux-list@gapps.redhat.com>; Sun, 29 Oct 2023 20:55:28 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id 7AE872166B28; Sun, 29 Oct 2023 20:52:07 +0000 (UTC)
+	id 6107AC15984; Sun, 29 Oct 2023 20:55:28 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com (mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 72CF92166B26
-	for <blinux-list@redhat.com>; Sun, 29 Oct 2023 20:52:07 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 590BCC1596D
+	for <blinux-list@redhat.com>; Sun, 29 Oct 2023 20:55:28 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4FDF23C025BC
-	for <blinux-list@redhat.com>; Sun, 29 Oct 2023 20:52:07 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-247-ff0TlVgVN2uyIVHU0UQNYw-1; Sun,
- 29 Oct 2023 16:52:05 -0400
-X-MC-Unique: ff0TlVgVN2uyIVHU0UQNYw-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4SJT9J58c8zkZH
-	for <blinux-list@redhat.com>; Sun, 29 Oct 2023 16:52:04 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4SJT9J4mKnzcbc; Sun, 29 Oct 2023 16:52:04 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4SJT9J4dmGzcbC
-	for <blinux-list@redhat.com>; Sun, 29 Oct 2023 16:52:04 -0400 (EDT)
-Date: Sun, 29 Oct 2023 16:52:04 -0400
-From: Jude DaShiell <jdashiel@panix.com>
-To: blinux-list@redhat.com
-Subject: archlinux multimedia difficulties
-Message-ID: <346a287a-2c6-71b5-c8e-60f39850c9e7@panix.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1D31A3C025C3
+	for <blinux-list@redhat.com>; Sun, 29 Oct 2023 20:55:28 +0000 (UTC)
+Received: from mxd.seznam.cz (mxd.seznam.cz [77.75.78.210]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-75-fi9sNBx1Pfqg03jQ3bANCA-1; Sun, 29 Oct 2023 16:55:26 -0400
+X-MC-Unique: fi9sNBx1Pfqg03jQ3bANCA-1
+Received: from email.seznam.cz
+	by smtpc-mxd-6786d888bc-w26z9
+	(smtpc-mxd-6786d888bc-w26z9 [2a02:598:64:8a00::1000:4ef])
+	id 7c933e03690b6d597d79cf1f;
+	Sun, 29 Oct 2023 21:55:24 +0100 (CET)
+Received: from [192.168.1.173]
+	(host-213-235-142-85.ip.topnet.cz [213.235.142.85])
+	by smtpd-relay-75b8985f9d-sr9x7 (smtpd/2.0.15) with ESMTPA
+	id 7bc51434-1fb2-4800-a0b4-541f8dbd5b8e;
+	Sun, 29 Oct 2023 21:55:23 +0100
+Message-ID: <cc31b550-13c4-4f2c-a4ae-fcffa364dde2@seznam.cz>
+Date: Sun, 29 Oct 2023 21:55:21 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: Esys braille display and Archlinux
+From: =?UTF-8?Q?Vojtech_=C5=A1miro?= <vsmiro@seznam.cz>
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <34eec98c-20bc-4f28-9646-b5ae01f8b86a@seznam.cz>
+In-Reply-To: <34eec98c-20bc-4f28-9646-b5ae01f8b86a@seznam.cz>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.8
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: panix.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jdashiel@panix.com
+X-Mimecast-Originator: seznam.cz
+Content-Language: en-US
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: vsmiro@seznam.cz
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+ domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -140,29 +151,39 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-I did not install a sound server when I installed this system.
-Relatively safer that way.
-I installed mpv and chose jack rather than pipewire-jack since pipewire
-isn't on this system.
-I cannot get jackd to find alsa and get it going properly so could use
-some help with a good command line to get the system matched up properly.
-There is no jackdmp command on the system or in archlinux repositories so
-far as I can find.
-I'm doing this to enable podcasts playing mp3 files playing and listening
-to youtube.
-Archlinux does have a good package for listening to youtube called
-pipe-viewer and it's worth installing on other systems like debian that
-don't have the package.  A search for pipe-viewer for debian on the web
-will bring you to instructions to get that done.
-For any interested I'm running a basic system without G.U.I. now.
-Not all attempts to install a desktop system have been successful here.
+Hello,
 
+that's internal bug  in Stormux, because in Arch  on laptop it works=20
+correctly. but I don't know what to do with that on RPI and Stormux.=20
+I've discussed it on Stormux mailing list, but they couldn't help. The=20
+cable is correct, in Ubuntu there aren't problems on Raspberry. What=20
+does logs say I don't know, because I don't know how can I do that. My=20
+way is only to switch back to Ubuntu on RPI.
 
--- Jude <jdashiel at panix dot com> "There are four boxes to be used in
-defense of liberty: soap, ballot, jury, and ammo. Please use in that
-order." Ed Howdershelt 1940.
+Thanks a lot.
 
--- 
-You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+Best regards
+
+Vojta.
+
+Dne 27. 10. 23 v 8:40 Vojtech =C5=A1miro napsal(a):
+> Hello,
+>=20
+> have someone Eurobraille Esys braille display? I have problems with=20
+> working on it with Archlinux. Sometimes it connect and work, sometimes=20
+> it writes USB cable disconnected and I can't work with braille. Please=20
+> how to solve it?
+>=20
+> Thanks a lot.
+>=20
+> Best regards
+>=20
+> Vojtech =C5=A0miro.
+>=20
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+blinux-list@redhat.com" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
 
