@@ -1,120 +1,133 @@
-Return-Path: <blinux-list+bncBCVPTHE7K4IKXO7QVIDBUBB4INQOY@redhat.com>
+Return-Path: <blinux-list+bncBDYPVTOXSQEBBAOH6CVAMGQEI4N2GGA@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0D5FD7F2473
-	for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 04:02:05 +0100 (CET)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-41e58a33efasf64305651cf.2
-        for <lists+blinux-list@lfdr.de>; Mon, 20 Nov 2023 19:02:05 -0800 (PST)
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8C1E97F249B
+	for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 04:26:58 +0100 (CET)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-77a033cbd96sf535228185a.2
+        for <lists+blinux-list@lfdr.de>; Mon, 20 Nov 2023 19:26:58 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1700537217; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=TI9HOfsu8Um1z2UX28Ohp7NKvb//DEoLQdVNX8zF52D2uHx23PoxzX+h8eDV1BlGo9
+         GHIArOER3QYpYXwM6WeJSVnnIYimX6SHdGKTIscKqD3xd5CkOHobbT7eVn/OYr/VT7vV
+         JGd/5ukRQpfzdNYa0E369S4NhOiWiFaybiz94J3AXn1Y7HwR1KPw6fQrV8Lgcln/vyKb
+         XVZGvX1YzoB+IMm+uI8uok0+y4/pJJ/J6UrZxb5MB4VET2vkp08NStxPBVf3NUGTTsYc
+         SIf7mQkjEydorHVgyE7QvbozB0frHh2Al/3lburhabxALDGjbJWBWgM8p77z+Aissoc1
+         3nUQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:mime-version:message-id:subject:to:from
+         :date:delivered-to;
+        bh=iXtjLr5pLf9RQKKbI11SCBwPh53ofQNIHY/wp0fN+Q4=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=wS9GezlYmzSwTcWuebKH9qLzE3Xx0cCDmY8nHhgjl9MUT/WUJe2gVdD0kYLV/RjWMi
+         UgQPUYNdjggaj2gmFWx242R4y4POoc/UImk01z63etwJkPU0o6R6ar3AGuu2XuPsiOrA
+         WZRIM9FLzVzHpMFc/w0qTvV2pHqcaYuW1R/XUZPvRgrGp2jrag++65pjwZmJd32F7G9P
+         8Opvcr16gTaDpGU0pZ9FtzQ5KPK1Nzhm2WqmAVGWqkjSqyMsks84Mku0uKJuFOBY9rfS
+         OCC+x+ZhCLtZf7lkll5RAvzDvVaSI+OaKK+Pr6V272iyWDaDTThceCdh132ywOGHpPlS
+         TIdQ==
+ARC-Authentication-Results: i=2; mx.google.com;
+       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700535724; x=1701140524;
+        d=1e100.net; s=20230601; t=1700537217; x=1701142017;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender:mime-version
-         :references:message-id:in-reply-to:subject:cc:to:from:date
-         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7iqbIukIiWv7oG10J63TONJYoyEcnN5CQN6XadVeTFg=;
-        b=W4iP3WV19Xs+ZbP+tgg+DI9lyDzm2Mo2rMts79/lAKEmdmA0vMeS3orGYvFLSiQfrW
-         wMksPbW2dyWvIPcWcAdw42O4VjhbYZ7k9jhMVEapSGs8KJY0hBsHt2NjTy0hrxe9d5ka
-         3mcHahVJ6TQwe0yNNVv8ku4R9vH105935sLdL/Ok7dpxeTmqNY9ZXNkj0lQL644iHg95
-         lsnKv+WIM6awppnWY/RUMzWURYakfmK0vbPrGQw64GR1DeVphqDLVscr8vfbGocbyENB
-         qfSTFndUc+Z6KcbV40oIb4oOFuUla3FyQfuopZXVvam4WklM4AJ9OnhEN5APsegSYu72
-         rVPw==
-X-Gm-Message-State: AOJu0YzGFf9IF7UFhUjflo8zynoQPrhjxcB1TmdDpL/cG4Uoe9mgioZ6
-	KZTBR47tN2ugt+0SNmmvhsd7JA==
-X-Google-Smtp-Source: AGHT+IEFKD3nXyHsQ2y4UfJjrhoOSrtueYIMWW2Qph8pz61S6UfRtegFJVSlnw8ib3GxCG5EBnT8zA==
-X-Received: by 2002:a05:622a:488d:b0:423:6e0c:427d with SMTP id fc13-20020a05622a488d00b004236e0c427dmr1650682qtb.32.1700535723957;
-        Mon, 20 Nov 2023 19:02:03 -0800 (PST)
+         :message-id:subject:to:from:date:delivered-to:x-beenthere
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iXtjLr5pLf9RQKKbI11SCBwPh53ofQNIHY/wp0fN+Q4=;
+        b=JjiMb2ffP5InziOIpqMwdiFUL/aNd7wrioPxK/b1OOHierdRNefhwPxdzDptKNh0it
+         rLxPTAv+vz3ve6NDnE1dxFYp4tzB/XKkq8+fKQgZKNaGrGUFhcXeWPFxxLvWDohmDpbm
+         wLvRWIARGv4487n5W9Zg4P6zo3no07DoTbkRhs7tIWEuab+vpZuc6KXOHjspK/xF8QG9
+         r+YaKudOb6zVCaEGA8UuML2pSURL8XFhlht+8SwWwekaUYRzABChm1Kky+PopxY1+dV6
+         fe6Wa/U3HuiI0Q3uA8fF4AoZVh7JvOtmrolOGgRHJHhwReBAP8JkmZr0obboG1UfaOG+
+         aV7Q==
+X-Gm-Message-State: AOJu0YyCM6CZVpjxgwQ+z0Ct029FLUjC77Qn0LVMxeIc0Z2XFMbxS9yr
+	/cyioIzueAwWkbjANQM7aFrO1g==
+X-Google-Smtp-Source: AGHT+IHZ+MKSLboNrw4lZdFiz1o4p39EGc0xu9nLX1hoyspDmzYY9NETBCS3oxzOF4BaT3fouVRPag==
+X-Received: by 2002:a05:620a:14aa:b0:77d:5852:8fc4 with SMTP id x10-20020a05620a14aa00b0077d58528fc4mr859791qkj.23.1700537217542;
+        Mon, 20 Nov 2023 19:26:57 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ac8:5d54:0:b0:421:96cf:753c with SMTP id g20-20020ac85d54000000b0042196cf753cls3991245qtx.1.-pod-prod-05-us;
- Mon, 20 Nov 2023 19:02:03 -0800 (PST)
-X-Received: by 2002:a05:622a:19a0:b0:41c:c2db:217e with SMTP id u32-20020a05622a19a000b0041cc2db217emr11702409qtc.46.1700535723187;
-        Mon, 20 Nov 2023 19:02:03 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1700535723; cv=none;
+Received: by 2002:ac8:5704:0:b0:41e:89db:3bf4 with SMTP id 4-20020ac85704000000b0041e89db3bf4ls4804969qtw.2.-pod-prod-08-us;
+ Mon, 20 Nov 2023 19:26:57 -0800 (PST)
+X-Received: by 2002:ae9:ea04:0:b0:76f:17ad:3c83 with SMTP id f4-20020ae9ea04000000b0076f17ad3c83mr6909747qkg.47.1700537216714;
+        Mon, 20 Nov 2023 19:26:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1700537216; cv=none;
         d=google.com; s=arc-20160816;
-        b=tFA6qRHlC7RMr+ktEuQttB5SFCrHyDWWdUlhzmXlZpZx5MeWLY/4j1WsOjyPR4rAcx
-         Dg+CrWiVJmwzc7/yTfbm/8uoHma3dH2n3r1cdS71A0f67/QQnQst5Ahmx50YLpPFe5pa
-         7eMFdeSMxdSlLNabo3UwCeJ2+YSAqfy0qUudX6JzdRpY69lUbaOXI0nDAm1XnCcgVaQE
-         Oquhtn9FmLZC/FDBCQczBy/1x7i0D2oF2FYFMqsHbVCJWxit7fU6eBriJOk+rWRBFFHZ
-         QCM5Uzf83bcP10d72g9Y3+bvWt9h5sJzrSmiC1hE1HENLsfDV+DRT9qVGFJo2x11LVWR
-         /XBQ==
+        b=W1TtT1y3aH3qjDAk/mhVCG9ngKpC2Os4I5TsRcALEqQpA7HMIHo1VIAB/iB52CgAQC
+         q9tg9XO1IdFlVdJZfDVPfk97b+pjtlY/f9GHoEyowB07PwcjT69yL4owU6YbtsQES8rH
+         IMdkPBlUE+cSKfc8O9QdoxRSa97imztjGmy3DOG/ry57Fxfpgw+tGNql2+TRG0MQhhsl
+         mXbAwdb5LF9dFky33kJKEHeNpwHrbJ+wChCuYfDnw7V0/uQgvHfWXL5vjJ2iux5CQT5e
+         L5vDBcW/KYBhgRZO2EKDbnN3iMV2QstdmV1iNqygYcfLHS5njsAwQ63GFcqqebCnGROD
+         rLcQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:delivered-to;
-        bh=7iqbIukIiWv7oG10J63TONJYoyEcnN5CQN6XadVeTFg=;
-        fh=AISzwqGD61sZMYJiju9jWSKUGCMc5rv7GSLo65LOhDI=;
-        b=EZID1Or+dUgXozX/rtaoD0k/6ZJtyiSlkMa9SF1gfbfnjRXzhxCyCyISldnqaFDd+A
-         TrbytQ9qAei+mnSSo2W1+pA+HUQbhKxvK9wg9d8HgNMOuHsWwD9uwiFqBZxbB+LoYJeA
-         NTeF4fwUB/PAyjGBHczT2oeZ3k3ckvfP9sZVTVS+oRzfJGriNDNOVtr8+eFUl2x1uRuJ
-         nEe6kvdMj83JEy3ge2fD7QmiOfhcfdeyTE5D11hOTo8K31gqShNEjrEGCDXkSEF7/xUL
-         xQjcgjS5Vt17vRA7jZQ8G8RuxF8wx+e4uIDLnuPenEugwRW0jPyHjU+8e7TDctewqkUJ
-         bPww==
+        h=mime-version:message-id:subject:to:from:date:delivered-to;
+        bh=WR4cjRxUk9qXhkByqSPjwKXgSgCdT0jPoSV2uuInvyo=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=qa4S+NBNyfKsNZHoDrLyAiWNTHqtp245yogA4nQ0+WQPmGkidu+gKsI5TniMUoHXxW
+         atwfbKi5OJTHkOu7RUc+kLSVCkHUDgCxPkZx6aopQJ1KO1+yoV+88T6cfWH2O2Ej5aSQ
+         4iqTAi24jq9MFPLy7f9WI9QeBPB+Nc9k1dNbz9QIDs5XFcJ/fRgu/JZzucdYs3r5tITQ
+         39WrORvrdgNLwVVwpIPeF1olZbOcU23EGmk4/BIB4SddAhsTMtDP6+LZtlBqTJ1IqxVV
+         AhZBtdJ/SNOfkZ7QcE3uPfWC77edS41bC7jRsi7TE5rMUJf1zaEw2roGUiEdANekmFYN
+         l95g==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
+       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
-        by mx.google.com with ESMTPS id ga8-20020a05622a590800b0042372a5a7c9si59472qtb.154.2023.11.20.19.02.02
+        by mx.google.com with ESMTPS id bj4-20020a05620a190400b007681446a032si8893204qkb.269.2023.11.20.19.26.56
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Nov 2023 19:02:03 -0800 (PST)
-Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
+        Mon, 20 Nov 2023 19:26:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) client-ip=166.84.1.89;
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-436-WvKXRxUcPr6gID4GO9A8Ug-1; Mon, 20 Nov 2023 22:02:01 -0500
-X-MC-Unique: WvKXRxUcPr6gID4GO9A8Ug-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
+ us-mta-340-MGihr4cYMaaJMQtWdkjXUg-1; Mon, 20 Nov 2023 22:26:54 -0500
+X-MC-Unique: MGihr4cYMaaJMQtWdkjXUg-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DEC49805143
-	for <blinux-list@gapps.redhat.com>; Tue, 21 Nov 2023 03:02:00 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7C4EE852AC1
+	for <blinux-list@gapps.redhat.com>; Tue, 21 Nov 2023 03:26:54 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id DB7092166B27; Tue, 21 Nov 2023 03:02:00 +0000 (UTC)
+	id 78C1A36E4; Tue, 21 Nov 2023 03:26:54 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id D44CC2166B28
-	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 03:02:00 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
+Received: from mimecast-mx02.redhat.com (mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7084436E2
+	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 03:26:54 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-1.mimecast.com [207.211.31.81])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AB2221C07247
-	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 03:02:00 +0000 (UTC)
-Received: from atlas.bondproducts.com
- (23-24-6-165-static.hfc.comcastbusiness.net [23.24.6.165]) by
- relay.mimecast.com with ESMTP id us-mta-527-ofuRkvTzM1uM7OJEagUfPA-1; Mon,
- 20 Nov 2023 22:01:58 -0500
-X-MC-Unique: ofuRkvTzM1uM7OJEagUfPA-1
-Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
-	by atlas.bondproducts.com (Postfix) with ESMTP id 98B064050A;
-	Mon, 20 Nov 2023 22:01:57 -0500 (EST)
-Received: by users.shellworld.net (Postfix, from userid 1005)
-	id 5D4701001C0; Mon, 20 Nov 2023 22:01:57 -0500 (EST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 52EFB185A780
+	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 03:26:54 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-451-whTvM7q-NIuPEZfXvxV9nA-1; Mon,
+ 20 Nov 2023 22:26:52 -0500
+X-MC-Unique: whTvM7q-NIuPEZfXvxV9nA-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4SZ8tg688Mz4GHX
+	for <blinux-list@redhat.com>; Mon, 20 Nov 2023 22:26:51 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4SZ8tg5kfNzcbc; Mon, 20 Nov 2023 22:26:51 -0500 (EST)
 Received: from localhost (localhost [127.0.0.1])
-	by users.shellworld.net (Postfix) with ESMTP id 5CC9710009B;
-	Mon, 20 Nov 2023 22:01:57 -0500 (EST)
-Date: Mon, 20 Nov 2023 22:01:57 -0500 (EST)
-From: Karen Lewellen <klewellen@shellworld.net>
-To: Henry Yen <blinux-mail@AegisInfoSys.com>
-cc: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: google removing basic html access, alternatives?
-In-Reply-To: <20231121024247.GX23130@nntp.AegisInfoSys.com>
-Message-ID: <Pine.LNX.4.64.2311202159420.3566012@users.shellworld.net>
-References: <Pine.LNX.4.64.2311201725230.3562522@users.shellworld.net>
- <20231121000352.GW23130@nntp.AegisInfoSys.com>
- <Pine.LNX.4.64.2311202007280.3564917@users.shellworld.net>
- <20231121024247.GX23130@nntp.AegisInfoSys.com>
+	by panix1.panix.com (Postfix) with ESMTP id 4SZ8tg5cLxzcbC
+	for <blinux-list@redhat.com>; Mon, 20 Nov 2023 22:26:51 -0500 (EST)
+Date: Mon, 20 Nov 2023 22:26:51 -0500
+From: Jude DaShiell <jdashiel@panix.com>
+To: blinux-list@redhat.com
+Subject: re: fleacollar.sh weak on gpg2 key creation
+Message-ID: <e781cf8b-4bdb-c6b5-90f6-174d2dadb653@panix.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: shellworld.net
-Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
-X-Original-Sender: klewellen@shellworld.net
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
+X-Mimecast-Spam-Score: 1
+X-Mimecast-Originator: panix.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: jdashiel@panix.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of klewellen@shellworld.net designates 23.24.6.165 as permitted
- sender) smtp.mailfrom=klewellen@shellworld.net
+ domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -126,85 +139,20 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Hi,
-Thanks for these details.
-What does the "handy" read only flag provide?
-My goal is to access this account fully, not simply to read email, 
-although as a test it should be handy.
-Unless it has changed, the code would indeed come to the alternative 
-address google has on file, instead of to a sell phone..but it has been 
-about a year.
-Thanks,
-Karen
+I sent a suggestion to the developer of fleacollar.sh which should fix the
+gpg2 key generation problem.  Two parts, first a sleep command followed by
+`ls -recursive /* >/dev/null` lists all files and directories on the
+system from root on down and sends the output to /dev/null.  This
+generates all manner of keyboard output and allows enough of a delay for
+the key to be created.  I don't know if that was ever tried or
+implemented.
 
 
+-- Jude <jdashiel at panix dot com> "There are four boxes to be used in
+defense of liberty: soap, ballot, jury, and ammo. Please use in that
+order." Ed Howdershelt 1940.
 
-On Mon, 20 Nov 2023, Henry Yen wrote:
-
-> according to google, you will have to use "app password" as a password
-> to your gmail account (to keep your overall google password safe).
-> to do that, you need to first turn on "2-step verification", then
-> generate the app password (i think it's in the 2-step-verification section).
-> in addition, yes, there's an "enable imap" (and some imap-related
-> settings) in gmail account settings.
->
-> you will have to respond to the code that google sends when first turning
-> on 2-step verification. but once you've generated the app password for
-> gmail-imap, i don't think google will send any codes merely to access
-> gmail via imap.
->
-> most of this is in step 2 and step 3 of the general instructions:
->
->   https://support.google.com/a/answer/9003945
->
-> two other notes:
-> 1. imap access has to be via ssl-imap.
-> 2. there's a handy "Read Only" flag on mutt, so the command line should be:
->
->   mutt -R -f imaps://username@imap.gmail.com
->
-> On Mon, Nov 20, 2023 at 08:09:58AM -0500, Karen Lewellen wrote:
->> Hi,
->> so for the following to work.
->> mutt -f imap://lewellen.kd@imap.gmail.com
->> Something would have to be turned on in my gmail settings?
->> I got interrupted system call when I tried.
->> as shared, testing with another gmail account before tampering with my
->> main one.
->> Karen
->>
->> On Mon, 20 Nov 2023, Henry Yen wrote:
->>
->>> my reading is that google/gmail will start requiring a more complicated
->>> method of connecting to gmail server emailboxes in about 9 months.
->>> in the meantime, plain imap access will still work.
->>>
->>> mutt can access an emailbox via imap simply enough, like:
->>>
->>>  mutt -f imap://username@imap.gmail.com
->>>
->>> my reading also suggests that the ability for an imap client to connect
->>> to gmail requires a setting in one's gmail account.
->>>
->>> On Mon, Nov 20, 2023 at 05:30:59AM -0500, Karen Lewellen wrote:
->>>> Hi folks,
->>>> I still have direct access to basic html, at least until this morning.
->>>> Google is forcing the issue, a change to standard view, requiring a
->>>> captcha to ahem confirm it is me.
->>>> I understand some folks use mutt, which is likely installed on shellworld.
->>>> Before I  tamper with my main gmail account though, I am considering a
->>>> test, I have a second gmail account I have not reached independently for
->>>> some time.
->>>>
->>>> its set to forward..not solid as I have no access to my actual inbox.
->>>> I am told though that mutt may do the trick, but as I only use Linux via
->>>> shellworld, want a safe test, needing information.
->>>> Anyone use  mutt that can lend documentation, or a hand?
->>>> Thanks,
->>>> Kare
->
-> -- 
-> Henry Yen                                       Aegis Information Systems, Inc.
-> Senior Systems Programmer                       Hicksville, New York
->
+-- 
+You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
