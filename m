@@ -1,125 +1,155 @@
-Return-Path: <blinux-list+bncBCVPTHE7K4IJLGHTVIDBUBDAJPXBK@redhat.com>
+Return-Path: <blinux-list+bncBD6J3OOK2IIBBYM36OVAMGQEWWM2WIY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mail.lfdr.de (Postfix) with ESMTPS id 805067F3252
-	for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 16:26:15 +0100 (CET)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-66d91b47f23sf34217196d6.2
-        for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 07:26:15 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700580374; x=1701185174;
-        h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:mime-version
-         :references:message-id:in-reply-to:subject:cc:to:from:date
-         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Uvnru3ubsSFhdKYxRCkVGLXrvUqKXKKru9ZjtbiREcc=;
-        b=bWGLJJmYE1myuXLLBIotx6wll/zRlTm7SXvU7iVdBR23qMMt58Gt/zX2ZP60QurQpT
-         wVnU4okBUYJOuDTOXf0btDGVymvoI7boQPqtfieN4XfX6uoYsscJgt/vW9RV+HPYyEym
-         IrAQAJtEU5BUjOmltFw7t0B5yLrA2hbtZtjhMWec8AOAqUkHlqbVnO3wsLST3JNnPR+7
-         tnsBH8DLcxQYFb/SZfQ7GqfVLDfV+/6+d6t/zntYj/7+sxiFEYlde1V6rX0Ou3H3xPze
-         d+hFx0ua+QFobDVCsRuC7J7mALos5epMJAeCyyUWhzDwzKxH+W3o8YFyBjjJOEQEd+Qn
-         q3Fg==
-X-Gm-Message-State: AOJu0Yy6okHn4gKPzX9ZhTqucW5QeFMStWcTuQiiEguwiLiBEchX+Rtf
-	6wh9UQCFsdifpZYN0hClrwTheQ==
-X-Google-Smtp-Source: AGHT+IHXso8zub8N5Kqv2DKIXEU6u1fQzDsMjxv5H6xZ0dBBn1mLJRR64oCXVCEcT4etc41PZUc05A==
-X-Received: by 2002:a05:6214:212c:b0:66d:1112:e870 with SMTP id r12-20020a056214212c00b0066d1112e870mr13318791qvc.22.1700580374210;
-        Tue, 21 Nov 2023 07:26:14 -0800 (PST)
-X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6214:1149:b0:65b:216:b4b6 with SMTP id
- b9-20020a056214114900b0065b0216b4b6ls384906qvt.2.-pod-prod-08-us; Tue, 21 Nov
- 2023 07:26:13 -0800 (PST)
-X-Received: by 2002:a1f:6d83:0:b0:49c:37a1:235b with SMTP id i125-20020a1f6d83000000b0049c37a1235bmr5856373vkc.7.1700580373436;
-        Tue, 21 Nov 2023 07:26:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1700580373; cv=none;
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5E0F77F3263
+	for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 16:33:55 +0100 (CET)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-41cdffe4d1csf68366851cf.0
+        for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 07:33:55 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1700580834; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Pf9y/NLw/zX/dYTszPDWBLBPc2AOEmc2ZG5nPfUqI0bZ/mY8ICcX581ULKYTgT/ihZ
-         Ipp8q+Mfp9X0fEacHhzM/nCrMUk62SIvZRpdCMmWQPXVWfvizzUG+KFu1PpB4i4Mu0qE
-         CFw0qVFHDwZfLJ9bHn8EzsVV6KpzAdZ5pbGKwFw9/JRZW4Ub17I1WulirvbHsbmrHp1R
-         GcQaWjVsvOZhCzkcF/jOUTczY7+nox/Ugg4OLQKXBTRxVRRdu1iDTdVSGPBkhRZFs0Hf
-         FRHhdHXZdq53ljRkz5LZpz5k1nrbw7p1PPP+qU5JIkE9o0jtjk7vWmn0yDRcxr/e4aQW
-         c9OA==
+        b=dHjKEwTl+2B3swArPDmSZ4Sp7PxIrPjMc0sqEAryJ3Qabhx1gRl+pMEHP+NaumJfLR
+         y4ChBX1Cwhg2N1zHGAU15g0msyond+bU8UgAkrLhwyWHd7CkOPd5EkW70tuTW6Ugms7M
+         u7W5lOgUHZma2Yd5ufC95y7sdBXkXRYqaG07HO2V8lJx9+tWeBC9ZLzPIC04Z68uyC5z
+         DQSki1DQVPcXZRyK+6MoAKpn9M4nz1TFZYVJknm07ZtOgkbOEuleZp/oVyGAHXsAvtT4
+         7Ap4UjYwFt3w6O2W0qLssfgIpU9REgnzUZ6kboGAv++jiopxYm7Y9fpHx01BS7i1N5JX
+         tDZg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:reply-to:ui-outboundreport:user-agent
+         :mime-version:date:subject:to:from:message-id:delivered-to;
+        bh=vGaf1cS+B49wwtLyFXBmMx1NAtn3DClfQ66Q7pAlT2A=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=FtjBamoCPYedUKNPIKH8fyVZYLhU7ZByte6AQ0dyP1QfieXH5/cuY5/AG3T4ReCS3Z
+         ORjRSp4Y3i2lyg+s2/U8OhC32Oc9+3QeFFK6qeKGV5a0QZYFFSxdkMInn3W3Tq5CAsP3
+         RN0k25x2rp1dKr5wkCJDcUk1nDAAC0fJM8G8rSkHDZvbBQoOL2tVAIDAM98LOcilRtnn
+         L0zkY4oaGo32Ft7tr8cNlogUjWXwlBFItorSiH9YW+7xfmt1byC9p2bb+H2IUR000bwS
+         ub3E0r4ifXay6vu5J067n+3mLqf48Y0UyEUmZWNGEeWeK59L2rtQNM7ieWWH6asCSMDH
+         3kyg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       spf=pass (google.com: domain of rob_hudson_3182@gmx.com designates 212.227.17.20 as permitted sender) smtp.mailfrom=rob_hudson_3182@gmx.com
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700580834; x=1701185634;
+        h=list-unsubscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender
+         :ui-outboundreport:user-agent:mime-version:date:subject:to:from
+         :message-id:delivered-to:x-beenthere:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vGaf1cS+B49wwtLyFXBmMx1NAtn3DClfQ66Q7pAlT2A=;
+        b=JMMpASoDHD1IsEUZ5q+V86/ostnMmU8MrR+eaib9gXmInpmiP8c+OZ486UNpfIauIo
+         PbZhrIHR92dH9ZDIMGCF/3tqIz7r4uXC5VLCGqzXnWf/eKt8kRHLMNwqPSxnxq1YUoGH
+         TQw2OC6Q3Kk/X6fet34bPeLNTr7a/KLPTfV6dRgFlBeLrWk8pvKgbtAmq/1OUAJ652hE
+         nRoM1VUa8iqhFVUoBQDCm9KD7A+YFfj/+G42J4ILuepoR6jOc5mzt8p5SY5JKOOP8jpJ
+         h1AvYW/S//saIBJR6FyD7306RdFxJxSW/KaW46UZ2p396g6itF8FiEdaDvmSWrfwwjMC
+         d6nA==
+X-Gm-Message-State: AOJu0YzrrKJFjsiQYTSuK8KCF1RMdsioHC1oQOyftDgW0HywdX4eV20W
+	nWeZjIKF45WCUs5/lKN3v41xEQ==
+X-Google-Smtp-Source: AGHT+IF+xNz2MGeqUkBlPR0yq0VyKCFyt7R26UvdUPpUqXn+9S1VOEWkU2omDVl64g/jNvcIsSoC/g==
+X-Received: by 2002:a05:622a:1393:b0:412:395c:e794 with SMTP id o19-20020a05622a139300b00412395ce794mr16237866qtk.50.1700580834143;
+        Tue, 21 Nov 2023 07:33:54 -0800 (PST)
+X-BeenThere: blinux-list@redhat.com
+Received: by 2002:ac8:5d12:0:b0:421:c71a:9295 with SMTP id f18-20020ac85d12000000b00421c71a9295ls1781514qtx.0.-pod-prod-01-us;
+ Tue, 21 Nov 2023 07:33:53 -0800 (PST)
+X-Received: by 2002:a1f:da01:0:b0:495:c10c:ec39 with SMTP id r1-20020a1fda01000000b00495c10cec39mr9096586vkg.2.1700580833550;
+        Tue, 21 Nov 2023 07:33:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1700580833; cv=none;
+        d=google.com; s=arc-20160816;
+        b=QpGxJyMezbeJ7ut76uKlufJHdkJenw1FHMZ5Nc4HxBtz3OiZ9MAaJRnyuNJ6RNUi4z
+         DpuO8pM+a8scgOMmrxVy62KhRk8UvG9GjA6gQoL2Dn4FhpTE6b4uke6tzpRm8EDctD3H
+         Bb9zPtr0j67EvHuDmxf2Cczt1/8vhD8WwiWlt3/JTIrJQLIXaM6uiCJsGijfmJa5UC47
+         uiOVUX4CLX5Hbz4baiTOrhs7nYN+HINfwZG4CPqai8W86GODV5GLCgACIDXw8SDdTWlk
+         1NqhQl9jninjnNqLiNW9vQJwO5hKbH0tBpwUu+Bb6HBlt2At4nWfbPfr64w6UzaifCTV
+         ijjg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:delivered-to;
-        bh=Uvnru3ubsSFhdKYxRCkVGLXrvUqKXKKru9ZjtbiREcc=;
-        fh=Zhaa2uQiovV7pyUoDlpj15EQNxpPQLHAhQV/HdKckBs=;
-        b=pCriK/P5AR9TB/ysHrJiNjF/F5Y/0K9tkI2B3uY/zX9q67YVcq7psPyBn2mju+Rtuy
-         QnzDUkg556h0ppxmBE2eyJuRlfZ07r0s6G0iI3G6d3UL12Jr/3U5eyc7Y8cDqMS7YYyc
-         CgPu0yrITQEU0uvvB0Wmlha2Wo2kVlAJI3DNTj5TL6Sd9GoqHL+S7/V+fukwlL+4A+++
-         kT3fnM/ya9FTTL7+H6Y+WbD+TG1wMl1iBsqRjMcwu08QJ9Gs9YAFEw/frzeMFSLaS5Iy
-         8FkG0rtXGVEdmATmUFWj6KacjRpS4zerLHIS81pkE3MXCvhmSvN55jHx3sM3TvpBu7zn
-         KJIQ==
+        h=content-transfer-encoding:ui-outboundreport:user-agent:mime-version
+         :date:subject:to:from:message-id:delivered-to;
+        bh=vPwIHXfrN9NKBt9SGYA+h7MPSewSpwP06bLWfYLFlPo=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=wZ/zj2jIkKCd+io5vL3Vr1qMmtfi15Pwq8zDh6IejxWDH7IYxgVZ0kniIbwpR6Vifp
+         JLrd85LVioMeGCoj2XpnUnSHrjApGXanIDp5sp/SoQQ3IewC4WpzziP52I5A6PkIsBp8
+         rhOhbi9rkTuD/K6yJKhVQfBm8yK21IDv4iw414QBTPuyxLfXx7mWoFUpQIEvxb1Oq4FM
+         nDRkYf8pC+NhPtuXKVsaG1OqWJSsQctG31bFc5VeULCMsy16n9B8MR18uJ0GpMfvan+3
+         dvhqoULEByEDkirBnBSm52v4/UdlYyrF2pdqb+6a/W0YCCcYHvQipXQgif2gBqMMsJ4s
+         bQxg==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
-        by mx.google.com with ESMTPS id r2-20020a056122146200b0049d2cea68cbsi2126903vkp.271.2023.11.21.07.26.13
+       spf=pass (google.com: domain of rob_hudson_3182@gmx.com designates 212.227.17.20 as permitted sender) smtp.mailfrom=rob_hudson_3182@gmx.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-2.mimecast.com. [207.211.31.81])
+        by mx.google.com with ESMTPS id d6-20020a1f4f06000000b004b03b90e0f0si807226vkb.70.2023.11.21.07.33.53
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Nov 2023 07:26:13 -0800 (PST)
-Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
+        Tue, 21 Nov 2023 07:33:53 -0800 (PST)
+Received-SPF: pass (google.com: domain of rob_hudson_3182@gmx.com designates 212.227.17.20 as permitted sender) client-ip=212.227.17.20;
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-373-HByEsyMYN5a7BxJefSr7cQ-1; Tue, 21 Nov 2023 10:26:11 -0500
-X-MC-Unique: HByEsyMYN5a7BxJefSr7cQ-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+ us-mta-617-z4pl9sKWMtW3bdd8dL0ykA-1; Tue, 21 Nov 2023 10:33:52 -0500
+X-MC-Unique: z4pl9sKWMtW3bdd8dL0ykA-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C668F85A58A
-	for <blinux-list@gapps.redhat.com>; Tue, 21 Nov 2023 15:26:10 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0B91185A58C
+	for <blinux-list@gapps.redhat.com>; Tue, 21 Nov 2023 15:33:52 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id C2AECC15983; Tue, 21 Nov 2023 15:26:10 +0000 (UTC)
+	id 077DE2166B27; Tue, 21 Nov 2023 15:33:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BA336C1596F
-	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 15:26:10 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-2.mimecast.com [205.139.110.61])
+Received: from mimecast-mx02.redhat.com (mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 004E52166B26
+	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 15:33:51 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [205.139.110.61])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 94D36811E86
-	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 15:26:10 +0000 (UTC)
-Received: from atlas.bondproducts.com
- (23-24-6-165-static.hfc.comcastbusiness.net [23.24.6.165]) by
- relay.mimecast.com with ESMTP id us-mta-450-qDqfZ_mrNT6nKFkMs74dXg-1; Tue,
- 21 Nov 2023 10:26:08 -0500
-X-MC-Unique: qDqfZ_mrNT6nKFkMs74dXg-1
-Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
-	by atlas.bondproducts.com (Postfix) with ESMTP id B94D344FC9;
-	Tue, 21 Nov 2023 10:26:07 -0500 (EST)
-Received: by users.shellworld.net (Postfix, from userid 1005)
-	id 8528C1001AD; Tue, 21 Nov 2023 10:26:07 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by users.shellworld.net (Postfix) with ESMTP id 83C171000B6;
-	Tue, 21 Nov 2023 10:26:07 -0500 (EST)
-Date: Tue, 21 Nov 2023 10:26:07 -0500 (EST)
-From: Karen Lewellen <klewellen@shellworld.net>
-To: Harley Richardson <destructatron2018@gmail.com>
-cc: blinux-list@redhat.com
-Subject: Re: google removing basic html access, alternatives?
-In-Reply-To: <a37d8eaa-1824-42d5-8a32-75bf17a906f8@gmail.com>
-Message-ID: <Pine.LNX.4.64.2311211022030.3574401@users.shellworld.net>
-References: <Pine.LNX.4.64.2311201725230.3562522@users.shellworld.net>
- <20231121000352.GW23130@nntp.AegisInfoSys.com>
- <Pine.LNX.4.64.2311202007280.3564917@users.shellworld.net>
- <20231121024247.GX23130@nntp.AegisInfoSys.com>
- <Pine.LNX.4.64.2311202159420.3566012@users.shellworld.net>
- <20231121035449.GY23130@nntp.AegisInfoSys.com>
- <Pine.LNX.4.64.2311202309160.3567236@users.shellworld.net>
- <a37d8eaa-1824-42d5-8a32-75bf17a906f8@gmail.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D30CC85A58C
+	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 15:33:51 +0000 (UTC)
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.20]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-76-k4WAbbv6N6iWdLNMR1k5hw-1; Tue,
+ 21 Nov 2023 10:33:49 -0500
+X-MC-Unique: k4WAbbv6N6iWdLNMR1k5hw-1
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.100] ([208.107.97.40]) by mail.gmx.net (mrgmx104
+ [212.227.17.174]) with ESMTPSA (Nemesis) id 1MV63q-1qw4p00sy6-00S3Gv for
+ <blinux-list@redhat.com>; Tue, 21 Nov 2023 16:33:48 +0100
+Message-ID: <20231121.153445.633.1@[192.168.1.100]>
+From: "'Rob Hudson' via blinux-list@redhat.com" <blinux-list@redhat.com>
+To: blinux-list@redhat.com
+Subject: Regex for spaces
+Date: Tue, 21 Nov 2023 09:34:45 -0600
 MIME-Version: 1.0
+User-Agent: POP Peeper Pro (5.4.6.0)
+X-Provags-ID: V03:K1:VlxZyJPKUU81U249B4GCSIjdiagjU6Jcp/bnALioswdP6q1UL/I
+ di9ouBlCweu3FB3qBE0WMqTkOfQzvPPFoBWMcK2If0Jmu+9uN5B2EYVEJJsdnmikRZ0OLzM
+ 5QmFSUkYeobj4BpuhUEtb9EdYQkreuGBO551aZDiDEVH2W3Y+vouoEw2XNkYrdljbo+FTQS
+ GArwnVIP76gvm8e+DnwQQ==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:MpftabSEtJc=;Efmc2EmFOzQ1AF1OfbUuDVKcQc+
+ 0ZR3Ci1Tnrmcf07rQ57MyKcQTFxnsBUtnlathpFsFHgxEFQYlhdK99D5DkrNzzi9QSaa64KCj
+ tPge43tOQA2EUNlhHDbvDtQAYeZhxsNUeFOr/oCU8OMIAENp2tWvH7UP3nIYq4SCUYM749zaE
+ yBHQuOMOVDSLGLSqvCmJR2+R41UDkDGVlaXhM2X9QOwUou7XOZ5PLVwhwGUPG6Fyoq7DPcxTB
+ oweXbEtvVvfAO0p46ecV5AvE+b+6gOBnAliq7laCfd7C3TkgZRLaa6AMq7qSNcOVjTD9lrcJ2
+ Xh8p7rbHW8k24CR09XZw0wQNm9i56tLhmqsL/oiLYhDRY0YI7egZl33UkA5eRoFy2jPqc/YaC
+ /H+kxJoZ8TD9AKoe+fMym8MJXIcOIYgjotWSq4JBmzkFuIuCvz8p5Rgj3reUvCx4cB1iYCsaG
+ 3EiqNo73frXoM5LGZXjx8M/uTa6O7urc/1qxhtohAoYnDCgALBGDLSt+/f0K45uDX+RSAl2hD
+ yVDnki4TXIbpZyInDtrpq3RQCBzAZAQ6PG95vbsKl8KtRPAHItnxm2XmHYT/URezRCkm7TkV4
+ noKQw42B/Wz+7uhOryWmCDsv04TUDtYD5h9isCa2iD3FRYbV3ixH+F53nozyCx8Cs+7Yki9jn
+ WSyOiWAgKVy/fpA+kwuE9O3yXW3j/6Aerf78YQxqbh3nLEuwTRHFGZFjSxExp6vOg6F4BL6e6
+ 8T9Pq/Gyets/U6QXqcFfiPNSQvFBvO3xBXRGHw/sdqdoOrEBaq+w20i+UD1vUh6qB7opVFcBA
+ 7VjZK4PD5RjZ/mo1tNMCZ6hOjOqkgKE5wWdQ948yzdwGhWdHUfI8ylLIWcsMyKW0wud/G7DEw
+ bIVqA78Mc6psKWz4hxh2Vxy6faTFwmlhhxy2Tb8015TquhO0emKREHilKHksEenb8k4XfQ2l6
+ 7nPYM8WgyeVWOZbj12s1HRi4Vw4=
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: shellworld.net
-Content-Type: MULTIPART/MIXED; BOUNDARY="1949452079-1880974240-1700580367=:3574401"
-X-Original-Sender: klewellen@shellworld.net
+X-Mimecast-Originator: gmx.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: rob_hudson_3182@gmx.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of klewellen@shellworld.net designates 23.24.6.165 as permitted
- sender) smtp.mailfrom=klewellen@shellworld.net
+ domain of rob_hudson_3182@gmx.com designates 212.227.17.20 as permitted
+ sender) smtp.mailfrom=rob_hudson_3182@gmx.com
+X-Original-From: "Rob Hudson" <rob_hudson_3182@gmx.com>
+Reply-To: "Rob Hudson" <rob_hudson_3182@gmx.com>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -131,224 +161,12 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
---1949452079-1880974240-1700580367=:3574401
-Content-Type: TEXT/PLAIN; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+I am not good with regexes at all. They give me a headache lol. Can anyone supply me a regex that will remove any trailing spaces in front or at the end of a file name? I use the program brename:
+https://github.com/shenwei356/brename/
+I have a regex to remove double spaces, but now I need one that will knock off leading and trailing.
+Thanks for any help.
 
-Hi there,
-We do not have Thunderbird either as a part of dreamhost, or here at=20
-shellworld.
-What I would personally appreciate is an email option that still uses a=20
-web  interface and then I would link things to that address.  I already=20
-have mail forwarding on a second gamil account, not only faulty, but I do=
-=20
-not get to access what the system decides is spam but might actually be=20
-needful.
-Linux as a stand alone system cannot work for me personally.
-thanks,
-
-Kare
-
-
-
-On Tue, 21 Nov 2023, Harley Richardson wrote:
-
-> Hello,
->
-> Gmail via thunderbird works fine and has done so for a while now. 2 facto=
-r=20
-> authentication, at least via security keys, broke in thunderbird 115.0. I=
-t=20
-> asks you to install an extension, and the link to said extension gives a =
-404.=20
-> How this stuff gets past testing and QA I'll never know. For the average =
-user=20
-> though, it just works. You enter your google account info in the popup th=
-at=20
-> appears, allow Thunderbird to access your account, and it just works with=
-out=20
-> any additional configuration.
->
-> Harley
->
-> On 21/11/2023 04:21, Karen Lewellen wrote:
->>  Oh I imagine it is..but I am not a programmer.
->>  Part of my professional life gets spent=C2=A0 trying to configure Alpin=
-e,
->>  which dreamhost provides the company for whom I work.
->>  I end up with rhs timeouts to the imap server, and lost emails, and
->>  closing inboxes, and clutter over and over again.
->>  If I am forthright, I would pay gmail for the right to keep using basic
->>  html, or someone else to configure this mess so I can get back to work =
-and
->>  contact with the scores of=C2=A0 resources who use this gmail address.
->>  May be one reason why I am unsure I would personally use Linux as my on=
-ly
->>  operating system, even if I could.
->>  its wonderful magical clay to be sure, but I prefer just buying the cup=
- so
->>  I can get a drink lol.
->>  Given what I have been reading on the Debian list=C2=A0 about what chal=
-lenges
->>  folks there encounter getting gmail to work with imap, even using
->>  Thunderbird?
->>  I respect the gifts others have for scripting and the like, but my tale=
-nts
->>  lie elsewhere.
->>
->>  Kare
->>=20
->>=20
->>
->>  On Mon, 20 Nov 2023, Henry Yen wrote:
->>=20
->> >  yes, handy for testing. to use as a full-fledged email client, some
->> >  configuration is necessary, though really not any more than any other=
-=20
->> >  client
->> >  (outgoing SMTP server, accounts/identities, etc.). mutt is very=20
->> >  powerful,
->> >  with the ability to run macros/scripts at lots of important junctures=
-.
->> >=20
->> >  On Mon, Nov 20, 2023 at 10:01:57AM -0500, Karen Lewellen wrote:
->> > >  Hi,
->> > >  Thanks for these details.
->> > >  What does the "handy" read only flag provide?
->> > >  My goal is to access this account fully, not simply to read email,
->> > >  although as a test it should be handy.
->> > >  Unless it has changed, the code would indeed come to the alternativ=
-e
->> > >  address google has on file, instead of to a sell phone..but it has=
-=20
->> > >  been
->> > >  about a year.
->> > >  Thanks,
->> > >  Karen
->> > >=20
->> > >=20
->> > >=20
->> > >  On Mon, 20 Nov 2023, Henry Yen wrote:
->> > >=20
->> > > >  according to google, you will have to use "app password" as a=20
->> > > >  password
->> > > >  to your gmail account (to keep your overall google password safe)=
-.
->> > > >  to do that, you need to first turn on "2-step verification", then
->> > > >  generate the app password (i think it's in the 2-step-verificatio=
-n
->> > > >  section).
->> > > >  in addition, yes, there's an "enable imap" (and some imap-related
->> > > >  settings) in gmail account settings.
->> > > >=20
->> > > >  you will have to respond to the code that google sends when first=
-=20
->> > > >  turning
->> > > >  on 2-step verification. but once you've generated the app passwor=
-d=20
->> > > >  for
->> > > >  gmail-imap, i don't think google will send any codes merely to=20
->> > > >  access
->> > > >  gmail via imap.
->> > > >=20
->> > > >  most of this is in step 2 and step 3 of the general instructions:
->> > > >=20
->> > > >  =C2=A0https://support.google.com/a/answer/9003945
->> > > >=20
->> > > >  two other notes:
->> > > >  1. imap access has to be via ssl-imap.
->> > > >  2. there's a handy "Read Only" flag on mutt, so the command line=
-=20
->> > > >  should be:
->> > > >=20
->> > > >  =C2=A0mutt -R -f imaps://username@imap.gmail.com
->> > > >=20
->> > > >  On Mon, Nov 20, 2023 at 08:09:58AM -0500, Karen Lewellen wrote:
->> > > > >  Hi,
->> > > > >  so for the following to work.
->> > > > >  mutt -f imap://lewellen.kd@imap.gmail.com
->> > > > >  Something would have to be turned on in my gmail settings?
->> > > > >  I got interrupted system call when I tried.
->> > > > >  as shared, testing with another gmail account before tampering=
-=20
->> > > > >  with my
->> > > > >  main one.
->> > > > >  Karen
->> > > > >=20
->> > > > >  On Mon, 20 Nov 2023, Henry Yen wrote:
->> > > > >=20
->> > > > > >  my reading is that google/gmail will start requiring a more=
-=20
->> > > > > >  complicated
->> > > > > >  method of connecting to gmail server emailboxes in about 9=20
->> > > > > >  months.
->> > > > > >  in the meantime, plain imap access will still work.
->> > > > > >=20
->> > > > > >  mutt can access an emailbox via imap simply enough, like:
->> > > > > >=20
->> > > > > >  mutt -f imap://username@imap.gmail.com
->> > > > > >=20
->> > > > > >  my reading also suggests that the ability for an imap client =
-to=20
->> > > > > >  connect
->> > > > > >  to gmail requires a setting in one's gmail account.
->> > > > > >=20
->> > > > > >  On Mon, Nov 20, 2023 at 05:30:59AM -0500, Karen Lewellen wrot=
-e:
->> > > > > > >  Hi folks,
->> > > > > > >  I still have direct access to basic html, at least until th=
-is=20
->> > > > > > >  morning.
->> > > > > > >  Google is forcing the issue, a change to standard view,=20
->> > > > > > >  requiring a
->> > > > > > >  captcha to ahem confirm it is me.
->> > > > > > >  I understand some folks use mutt, which is likely installed=
- on
->> > > > > > >  shellworld.
->> > > > > > >  Before I=C2=A0 tamper with my main gmail account though, I =
-am=20
->> > > > > > >  considering a
->> > > > > > >  test, I have a second gmail account I have not reached=20
->> > > > > > >  independently for
->> > > > > > >  some time.
->> > > > > > >=20
->> > > > > > >  its set to forward..not solid as I have no access to my act=
-ual=20
->> > > > > > >  inbox.
->> > > > > > >  I am told though that mutt may do the trick, but as I only =
-use=20
->> > > > > > >  Linux via
->> > > > > > >  shellworld, want a safe test, needing information.
->> > > > > > >  Anyone use=C2=A0 mutt that can lend documentation, or a han=
-d?
->> > > > > > >  Thanks,
->> > > > > > >  Kare
->> >=20
->> >  --=20
->> >  Henry=20
->> >  Yen=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=20
->> >  Aegis Information Systems, Inc.
->> >  Senior Systems Programmer=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=20
->> >  Hicksville, New York
->> >=20
->>=20
->
-> --=20
-> You received this message because you are subscribed to the Google Groups=
-=20
-> "blinux-list@redhat.com" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
-=20
-> email to blinux-list+unsubscribe@redhat.com.
->
->
->
---1949452079-1880974240-1700580367=:3574401--
+-- 
+You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
