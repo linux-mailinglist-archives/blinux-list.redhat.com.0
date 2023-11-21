@@ -1,141 +1,129 @@
-Return-Path: <blinux-list+bncBDYPVTOXSQEBB3N56OVAMGQE5XPXHZI@redhat.com>
+Return-Path: <blinux-list+bncBCVPTHE7K4INLP7TVIDBUBAA4KTIQ@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mail.lfdr.de (Postfix) with ESMTPS id B108C7F3427
-	for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 17:46:38 +0100 (CET)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-677e7daa85fsf42957316d6.2
-        for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 08:46:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1700585197; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=SzSaoSw95d87ptNgZHDQKxkyvswP7z/I/IgoCCe+P6wYIzoMwVR/hGv/U0iue6XOAI
-         KpjTjiXy2A85M5q0MaIlGmhv0fQyLJt5ZjEgGxbCeq99jH3zp/fSLtLGc20HbGsQhesO
-         qBccaPji4s+37sZSLjhP3WKd6l/DMAaRgzWbKmzIyq6/HFkh7koQsVNh58osZtX0WGgv
-         gVcyly1aLLVmiDWY8vMb68DD2o3gwg4CsRwd0gT0A2Mkac3GPP8+u9d2atYVGdNL24PU
-         E/0x7w3nN40FctDNe4mFzQk16dJxILHVywU+5bmZlJO5A5Xo0IG4/uEzySAqWzG3XMie
-         sDRw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:mime-version:references:message-id
-         :in-reply-to:subject:cc:to:from:date:delivered-to;
-        bh=DujYvIBjkhXjrRv1MJcCr5GtCLSprUzfh0/9Tddh3YY=;
-        fh=GGMicPffpeqTvxIhsPCizLxvwEUE/a2K7NAErL8QmD4=;
-        b=a+iHvpx8tnm9f8BdZlp2x2YrETM8Xtqk+9uXH6a2kwlew5ELTVbChWaEL1QL0n+nrQ
-         JGl/UCp/KXmF8CJhkeMXTJrPqKTXfyV8jK16qgJi8iDpaH2rR3DnGmyyf8xXyDu5kx+W
-         kYOp20y5WVWYePQqf0krTSWXgvGSPvJdmo2pQjSFhJdItHTcutbd4SsZrsCs4S7Kfn+A
-         t8RsVaRB4m4e4rXxNAvDfKCQPmSTZmpl6JlfzogZy3UX15j3famgTtvUS4zX6tbVBfH+
-         6HYwgfi7yYREmtfF6z3RW0KXbk0JAd08XDSlJXuyI5XAYCpcisUV5egFVPxzH0VOzW+7
-         ufhg==
-ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mail.lfdr.de (Postfix) with ESMTPS id EC2F67F3434
+	for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 17:50:30 +0100 (CET)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-77d62634693sf4740285a.0
+        for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 08:50:30 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700585197; x=1701189997;
+        d=1e100.net; s=20230601; t=1700585430; x=1701190230;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender:mime-version
          :references:message-id:in-reply-to:subject:cc:to:from:date
          :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DujYvIBjkhXjrRv1MJcCr5GtCLSprUzfh0/9Tddh3YY=;
-        b=Ve9DoIVmwZytvDft0mKssSu9Zzg0qK5eePaKbJK7+vJxlZO8J1dFvfSa4k69oE7RHP
-         cdpCW18IMlktqlk4IJ+Di0honPnqHl3oNgYemoBdSgBgdmJUDWO8YJryx3vcsIMO6sgW
-         45IWTJvWiXxxJLsT3K0lHaTtdkuFE4iTrlX0OwMXHs+no+s3iS3sgOMt7a8qvqP6clbs
-         zFzcmHT6CVRVEwFkSBKmeLN+Y2FS/gvguSoV7TiSOahYNL/ptZELsmR2WqZfqbNuUZEH
-         m7V6rCFuw1r5/cX74IdYp7hgHxnHL3hbimgd2lWH/4OAmZiNOTqQOV+7ekZTOnFjgkOo
-         mnog==
-X-Gm-Message-State: AOJu0YyMmJSiYYogwTY4xIdAantaXGz3zZ8AMKYrUfykGfzErgwYSRTT
-	rLIXNlq62A4iRujIcaIAQ4g5SA==
-X-Google-Smtp-Source: AGHT+IHIqW4U11ysnRomli9JIjfpDVOMMU4RTD7OIPdITei7bozT7mEdMGErVBXIb3B/kvhxs8qTSQ==
-X-Received: by 2002:a05:6214:124c:b0:670:710f:2042 with SMTP id r12-20020a056214124c00b00670710f2042mr7332574qvv.15.1700585197637;
-        Tue, 21 Nov 2023 08:46:37 -0800 (PST)
+        bh=znsVHaHw1THL7BLPnTuWQfJ4Ofdji1RaydH63tE7VO4=;
+        b=kJw5V5Xq8hfwsrj46uY820YN1MvVEGVyM3hTcvibbm5ViSnQNqAZuE3PxIMi/z+nZl
+         cUP/Z1eX+MwcrKZapiq50OSFd334PSD+hr051XrF8R3lMRN1YCyBGLvCX34WdPL1Jg4w
+         lIfAEzEWNfTQUjB8+7z8+3G1FwQjaaaVTOXoY/K7KkUHbochg7XXLp765TIxe1YquFGb
+         3wsKx8lKO29EEKdAeJ7KULOhd1Buqjphp5n/VCbn4t8Pg10DF79Ym8H0AXGB5GlFd3SG
+         UPRG5oKBnbd9J4M4XOqWhcgfbFCzRRNGNC9hxjEHtkCLDfbyEOS+/MMFMQbReR557aqa
+         gk5A==
+X-Gm-Message-State: AOJu0YzBR4TXnTw8+xUxy2pqbEArk1T255Q+B4lIwF5C03DzrORAlnSY
+	iDLwn+f7uEsWfkSNAu9d6tFzsg==
+X-Google-Smtp-Source: AGHT+IGaiSVwkjYMM2qvtiQxIFrP2e12ZWLfMIAEiLpYCE+b4Q/pK4vy8rwFhISQMzWdNKGJGRUseA==
+X-Received: by 2002:a05:620a:2845:b0:772:749a:ec13 with SMTP id h5-20020a05620a284500b00772749aec13mr4182100qkp.2.1700585429399;
+        Tue, 21 Nov 2023 08:50:29 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ad4:4f13:0:b0:658:93db:e755 with SMTP id fb19-20020ad44f13000000b0065893dbe755ls2764848qvb.0.-pod-prod-01-us;
- Tue, 21 Nov 2023 08:46:36 -0800 (PST)
-X-Received: by 2002:a0c:9c4b:0:b0:66f:b89e:71de with SMTP id w11-20020a0c9c4b000000b0066fb89e71demr10409419qve.36.1700585196742;
-        Tue, 21 Nov 2023 08:46:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1700585196; cv=none;
+Received: by 2002:ad4:4f13:0:b0:668:d9c1:f577 with SMTP id fb19-20020ad44f13000000b00668d9c1f577ls797357qvb.0.-pod-prod-00-us;
+ Tue, 21 Nov 2023 08:50:28 -0800 (PST)
+X-Received: by 2002:a05:6214:500c:b0:679:2f90:d02 with SMTP id jo12-20020a056214500c00b006792f900d02mr4622835qvb.26.1700585428380;
+        Tue, 21 Nov 2023 08:50:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1700585428; cv=none;
         d=google.com; s=arc-20160816;
-        b=ELgrT4Rcyvgb77YQyKNpagpP2zjlcsDSBqy/FQjQIdjhewp7zG4OPbk2szpHm/UCXK
-         /PPt3ZUNN2Y2Mz9rP55DByKdTHahdSYw1c9Hf+KKqUThxRO93Kw2M56i/lTcP8FTaHsR
-         oq9kcOhuuAOotlyvD/xJvozT1pE+tA8AkSPMS8/pf+KsAyIxknaa1C/N10IOB7hdiLNx
-         /oU1JkWCozHUfDSJJ/s5R/BsFhOOSH0mdiybtmTNdQkJghfFu2ZWlsbwAJRyf39lVqFv
-         w8NtGcRiy62U/efWhQTusQhRJFu7ITbciIIZ6MxnXR6Um5ZNR+f8z3PAKgqyCs3j8uAv
-         EdXQ==
+        b=O64u2KMzVLy/UsjRINFLGL5IqXllcb27adjuQn2HSgqnhChtk2vcbtu8vHF3fSudGY
+         ZKP8+51fSict0n9W0OOxJoQSQM9LjkewTgahvceYwadck63Sh2DF3ewvFMNXqFcsEtzX
+         gqRT9ZrxRO7I+7q7mkFFDgMTarnraBntAixmWJSVGVaqSD0PR+TEtxjjxE4/jSiRc3cq
+         UprDK5fgYzE7QkfNhCLb4uF9zMifCbD7/biHdnQbPEuZ57e4rPXA2sJ0GUeDYFf7KY8R
+         jXg6zyg3vPs1jDA8rdAzggsjjYWsLwh/VqJAV4rIPjwXasT8WvyArex+g1TxBO+c3Za3
+         89/A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:delivered-to;
-        bh=VgQoikmrG95tK0v1KU1rTNY9faHXuugYjZjOIWPjMOc=;
-        fh=GGMicPffpeqTvxIhsPCizLxvwEUE/a2K7NAErL8QmD4=;
-        b=bOTxfL//3YKFwDVsn7AFSUc03jJ2ZjGMFLJgOv0QDNCcveYMUMJP/DAaCHFTKt7Rpw
-         n5Vd4lR8FbDXuSk42oco+J5aMRNOuCTqEXt30RnXx7TBa7jv5lJwrr7MKtlLrIG598BS
-         pRor9WqEbD8i7FhY63G0KPzfqBqoh17TjB8rkdv4qQBtW89lgtvBVIXAzx8PVe1ZYFPf
-         wLn3dkZh1g0nzJ6OHbCqes2+g9r7+5L2BHghLjsCjGqL8JMTrl8tscYDd2IxHkGAty+I
-         B+9cmH3iZbTSqljpKvCF+htRjjSP04hk0ppuXAaRpioyJotqfxSlYZAzhzUOvdXLO/P4
-         leJg==
+        bh=znsVHaHw1THL7BLPnTuWQfJ4Ofdji1RaydH63tE7VO4=;
+        fh=Yb/fQpl84BEXH03hjotBnK5nrlAdTBygY+Ct56T3T5A=;
+        b=GO9oXJaCJt++vF3IjGmsNv+A0Ev6pBYpstsCVwA2pbV1mIEbnV0iumxEyS4TvMsShi
+         hF9+HrbpglIM8LU/WQ4uojpr21foilcRkdhTqSSgy2brSARW463/Q2/iVa3iT1jSU3eg
+         yLRZwHEI4sKMRPLwIW6wSUsJDstWJ5qRsIszBjGIiousKzHWqA3YUPgkG8xcKZ2q65V0
+         f3BK9yZbhEcmEIDxrSlHTAw3d/wn2nMO+yelY7aDxALOi6EsB9jvTSVWIQ33ceScG2uv
+         KwGQ9VV86okrACaOm7tC+qClr3rL5UepvOUuOA9JtbazMqDKDTkBmzjuXb7IOaBhWMHU
+         xPnA==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+       spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
-        by mx.google.com with ESMTPS id de16-20020a05620a371000b00767d5b81886si373060qkb.458.2023.11.21.08.46.36
+        by mx.google.com with ESMTPS id hf3-20020a0562140e8300b006782027a895si7024173qvb.179.2023.11.21.08.50.28
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Nov 2023 08:46:36 -0800 (PST)
-Received-SPF: pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) client-ip=166.84.1.89;
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-121-5YgIzaDdNoWaajxAVQAzHg-1; Tue, 21 Nov 2023 11:46:35 -0500
-X-MC-Unique: 5YgIzaDdNoWaajxAVQAzHg-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 465B4811E91
-	for <blinux-list@gapps.redhat.com>; Tue, 21 Nov 2023 16:46:35 +0000 (UTC)
-Received: by smtp.corp.redhat.com (Postfix)
-	id 434042026D66; Tue, 21 Nov 2023 16:46:35 +0000 (UTC)
-Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3C68B2026D4C
-	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 16:46:35 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1D7D5185A788
-	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 16:46:35 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+        Tue, 21 Nov 2023 08:50:28 -0800 (PST)
+Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-68-lwaU0brbN5WWRzGPYih1KA-1; Tue,
- 21 Nov 2023 11:46:33 -0500
-X-MC-Unique: lwaU0brbN5WWRzGPYih1KA-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4SZVdP1Qgxz10bL;
-	Tue, 21 Nov 2023 11:46:33 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4SZVdP12cpzcbc; Tue, 21 Nov 2023 11:46:33 -0500 (EST)
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-335-77R1Tj0kMTqHRWZaZgLmbA-1; Tue,
+ 21 Nov 2023 11:50:27 -0500
+X-MC-Unique: 77R1Tj0kMTqHRWZaZgLmbA-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E9AEF29ABA39
+	for <blinux-list@gapps.redhat.com>; Tue, 21 Nov 2023 16:50:26 +0000 (UTC)
+Received: by smtp.corp.redhat.com (Postfix)
+	id E6745502A; Tue, 21 Nov 2023 16:50:26 +0000 (UTC)
+Delivered-To: blinux-list@redhat.com
+Received: from mimecast-mx02.redhat.com (mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id DED2C5028
+	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 16:50:26 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B86BB2806046
+	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 16:50:26 +0000 (UTC)
+Received: from atlas.bondproducts.com
+ (23-24-6-165-static.hfc.comcastbusiness.net [23.24.6.165]) by
+ relay.mimecast.com with ESMTP id us-mta-623-DN8aYsc4Oz-_2D6zsVuR1g-1; Tue,
+ 21 Nov 2023 11:50:25 -0500
+X-MC-Unique: DN8aYsc4Oz-_2D6zsVuR1g-1
+Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
+	by atlas.bondproducts.com (Postfix) with ESMTP id 95A2244FC9;
+	Tue, 21 Nov 2023 11:50:24 -0500 (EST)
+Received: by users.shellworld.net (Postfix, from userid 1005)
+	id 4BDB91001AD; Tue, 21 Nov 2023 11:50:24 -0500 (EST)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4SZVdP0xPZzcbP;
-	Tue, 21 Nov 2023 11:46:33 -0500 (EST)
-Date: Tue, 21 Nov 2023 11:46:33 -0500
-From: Jude DaShiell <jdashiel@panix.com>
-To: Karen Lewellen <klewellen@shellworld.net>, 
-    Chime Hart <chime@hubert-humphrey.com>
-cc: Harley Richardson <destructatron2018@gmail.com>, blinux-list@redhat.com
+	by users.shellworld.net (Postfix) with ESMTP id 49F151000B6;
+	Tue, 21 Nov 2023 11:50:24 -0500 (EST)
+Date: Tue, 21 Nov 2023 11:50:24 -0500 (EST)
+From: Karen Lewellen <klewellen@shellworld.net>
+To: Jude DaShiell <jdashiel@panix.com>
+cc: Chime Hart <chime@hubert-humphrey.com>, 
+    Harley Richardson <destructatron2018@gmail.com>, blinux-list@redhat.com
 Subject: Re: google removing basic html access, alternatives?
-In-Reply-To: <Pine.LNX.4.64.2311211101130.3574401@users.shellworld.net>
-Message-ID: <981c24e6-d364-83de-17f0-c6ca7c588623@panix.com>
-References: <Pine.LNX.4.64.2311201725230.3562522@users.shellworld.net> <20231121000352.GW23130@nntp.AegisInfoSys.com> <Pine.LNX.4.64.2311202007280.3564917@users.shellworld.net> <20231121024247.GX23130@nntp.AegisInfoSys.com> <Pine.LNX.4.64.2311202159420.3566012@users.shellworld.net>
- <20231121035449.GY23130@nntp.AegisInfoSys.com> <Pine.LNX.4.64.2311202309160.3567236@users.shellworld.net> <a37d8eaa-1824-42d5-8a32-75bf17a906f8@gmail.com> <Pine.LNX.4.64.2311211022030.3574401@users.shellworld.net> <e4c20f48-32f9-751a-34a1-3426e6e01d2d@hubert-humphrey.com>
+In-Reply-To: <981c24e6-d364-83de-17f0-c6ca7c588623@panix.com>
+Message-ID: <Pine.LNX.4.64.2311211149300.3575549@users.shellworld.net>
+References: <Pine.LNX.4.64.2311201725230.3562522@users.shellworld.net>
+ <20231121000352.GW23130@nntp.AegisInfoSys.com>
+ <Pine.LNX.4.64.2311202007280.3564917@users.shellworld.net>
+ <20231121024247.GX23130@nntp.AegisInfoSys.com>
+ <Pine.LNX.4.64.2311202159420.3566012@users.shellworld.net>
+ <20231121035449.GY23130@nntp.AegisInfoSys.com>
+ <Pine.LNX.4.64.2311202309160.3567236@users.shellworld.net>
+ <a37d8eaa-1824-42d5-8a32-75bf17a906f8@gmail.com>
+ <Pine.LNX.4.64.2311211022030.3574401@users.shellworld.net>
+ <e4c20f48-32f9-751a-34a1-3426e6e01d2d@hubert-humphrey.com>
  <Pine.LNX.4.64.2311211101130.3574401@users.shellworld.net>
+ <981c24e6-d364-83de-17f0-c6ca7c588623@panix.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: panix.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jdashiel@panix.com
+X-Mimecast-Originator: shellworld.net
+Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
+X-Original-Sender: klewellen@shellworld.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+ domain of klewellen@shellworld.net designates 23.24.6.165 as permitted
+ sender) smtp.mailfrom=klewellen@shellworld.net
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -147,53 +135,58 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-People with the money haven't put it out for a browser like that and won't
-put the money out for a browser like that.  That's why it hasn't and won't
-happen.  Putting a browser together like that would need a development
-team and not only for the interface there's security considerations
-requirements and patching that will have to happen into the future for any
-such project.  That needs dollars or some other currency to attract and
-pay development team and give them enough money that this new project
-remains their only project for long enough to get the project to first
-release.
+okay then, lets speculate.
+How much would it cost?
+Kare
 
 
--- Jude <jdashiel at panix dot com> "There are four boxes to be used in
-defense of liberty: soap, ballot, jury, and ammo. Please use in that
-order." Ed Howdershelt 1940.
 
-On Tue, 21 Nov 2023, Karen Lewellen wrote:
+On Tue, 21 Nov 2023, Jude DaShiell wrote:
 
-> Chime,
-> And that is something I do not personally understand.
-> freedos and djppp, both editions of DOS still under development are not kept
-> there by individuals using adaptive technology.
-> Instead, they are there because many people want choice.
-> Elinks when compiled with the options, provides a blending of the graphical
-> and the text. paypal is treating it as my default device for one of my
-> accounts, no more captcha.
-> Links can create the best of both worlds as well.
-> So why is there not a port of Thunderbird or another email tool that blends
-> the best too?
-> Creates enough of a progressive enhancement factor i. e. basic html, then
-> builds upon that for interfacing? That helps mobile users who are not all able
-> to get apple or are unhappy with android items.
-> Kare
+> People with the money haven't put it out for a browser like that and won't
+> put the money out for a browser like that.  That's why it hasn't and won't
+> happen.  Putting a browser together like that would need a development
+> team and not only for the interface there's security considerations
+> requirements and patching that will have to happen into the future for any
+> such project.  That needs dollars or some other currency to attract and
+> pay development team and give them enough money that this new project
+> remains their only project for long enough to get the project to first
+> release.
 >
 >
+> -- Jude <jdashiel at panix dot com> "There are four boxes to be used in
+> defense of liberty: soap, ballot, jury, and ammo. Please use in that
+> order." Ed Howdershelt 1940.
 >
-> On Tue, 21 Nov 2023, Chime Hart wrote:
+> On Tue, 21 Nov 2023, Karen Lewellen wrote:
 >
-> > Well Karen-and-All, I think there are no non-graphical ThunderBird
-> > applications, so I wouldn't think that would be an option for those of us in
-> > a straight commandline shell.
-> > Chime
-> >
-> >
+>> Chime,
+>> And that is something I do not personally understand.
+>> freedos and djppp, both editions of DOS still under development are not kept
+>> there by individuals using adaptive technology.
+>> Instead, they are there because many people want choice.
+>> Elinks when compiled with the options, provides a blending of the graphical
+>> and the text. paypal is treating it as my default device for one of my
+>> accounts, no more captcha.
+>> Links can create the best of both worlds as well.
+>> So why is there not a port of Thunderbird or another email tool that blends
+>> the best too?
+>> Creates enough of a progressive enhancement factor i. e. basic html, then
+>> builds upon that for interfacing? That helps mobile users who are not all able
+>> to get apple or are unhappy with android items.
+>> Kare
+>>
+>>
+>>
+>> On Tue, 21 Nov 2023, Chime Hart wrote:
+>>
+>>> Well Karen-and-All, I think there are no non-graphical ThunderBird
+>>> applications, so I wouldn't think that would be an option for those of us in
+>>> a straight commandline shell.
+>>> Chime
+>>>
+>>>
+>>
+>>
 >
->
-
--- 
-You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
