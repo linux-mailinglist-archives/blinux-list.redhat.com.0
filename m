@@ -1,120 +1,116 @@
-Return-Path: <blinux-list+bncBCVPTHE7K4IILK7QVIDBUBGAOGSNC@redhat.com>
+Return-Path: <blinux-list+bncBCVPTHE7K4IKXO7QVIDBUBB4INQOY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mail.lfdr.de (Postfix) with ESMTPS id B539A7F23F2
-	for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 03:27:18 +0100 (CET)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-41e3e4aa311sf63331251cf.1
-        for <lists+blinux-list@lfdr.de>; Mon, 20 Nov 2023 18:27:18 -0800 (PST)
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0D5FD7F2473
+	for <lists+blinux-list@lfdr.de>; Tue, 21 Nov 2023 04:02:05 +0100 (CET)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-41e58a33efasf64305651cf.2
+        for <lists+blinux-list@lfdr.de>; Mon, 20 Nov 2023 19:02:05 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1700533637; x=1701138437;
+        d=1e100.net; s=20230601; t=1700535724; x=1701140524;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender:mime-version
          :references:message-id:in-reply-to:subject:cc:to:from:date
          :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JXxxfgppKu9DAXhjQu/OuNBBV0sQpi56ID0KZQTdwNQ=;
-        b=MV/XconTUcKjPnbjMIW7Jg3uipu/V7JkNsmOtZafuQK/QNipxNR+K+FqkoMXz548f5
-         PuE/y0ddhruFAHHWttug8tjq16zGls79nOZdI74EbQ/kF6tgcxD/1S+AHAFLpuswEg1C
-         /HLVaCZNg8zYC5EowIrfuBgphWLTHbTRu9ArEBI2DjMgWDfESBmLvESkPYABlmwn6aOb
-         3bXaIrXXMXgqzgV80jDw4EVqHUercLTaU4bhjynPr/BQNSAdeEFcN8BP4FF3TKAlEToQ
-         DbgkUgiSsk3a9e9TMC7dUUBNkldk6fT38hWthIsbfSk1rd579acBZtZYetvd6ZWM8NkH
-         QTQw==
-X-Gm-Message-State: AOJu0YweQyaxSYytetBkQySstfZENJrQr/NMB/fmvXQ/Glc1BjsKmyvS
-	IcnszT3aDVIwgiDzGGVa81uqzA==
-X-Google-Smtp-Source: AGHT+IGkiRDYBxaFkL9Z0fdba7EfGcKyof3ODca2eEBRf79zmVaJKFc9YbWQggCR9o0abqTMchF1+g==
-X-Received: by 2002:ac8:5d55:0:b0:421:bc6a:a643 with SMTP id g21-20020ac85d55000000b00421bc6aa643mr13669880qtx.45.1700533637526;
-        Mon, 20 Nov 2023 18:27:17 -0800 (PST)
+        bh=7iqbIukIiWv7oG10J63TONJYoyEcnN5CQN6XadVeTFg=;
+        b=W4iP3WV19Xs+ZbP+tgg+DI9lyDzm2Mo2rMts79/lAKEmdmA0vMeS3orGYvFLSiQfrW
+         wMksPbW2dyWvIPcWcAdw42O4VjhbYZ7k9jhMVEapSGs8KJY0hBsHt2NjTy0hrxe9d5ka
+         3mcHahVJ6TQwe0yNNVv8ku4R9vH105935sLdL/Ok7dpxeTmqNY9ZXNkj0lQL644iHg95
+         lsnKv+WIM6awppnWY/RUMzWURYakfmK0vbPrGQw64GR1DeVphqDLVscr8vfbGocbyENB
+         qfSTFndUc+Z6KcbV40oIb4oOFuUla3FyQfuopZXVvam4WklM4AJ9OnhEN5APsegSYu72
+         rVPw==
+X-Gm-Message-State: AOJu0YzGFf9IF7UFhUjflo8zynoQPrhjxcB1TmdDpL/cG4Uoe9mgioZ6
+	KZTBR47tN2ugt+0SNmmvhsd7JA==
+X-Google-Smtp-Source: AGHT+IEFKD3nXyHsQ2y4UfJjrhoOSrtueYIMWW2Qph8pz61S6UfRtegFJVSlnw8ib3GxCG5EBnT8zA==
+X-Received: by 2002:a05:622a:488d:b0:423:6e0c:427d with SMTP id fc13-20020a05622a488d00b004236e0c427dmr1650682qtb.32.1700535723957;
+        Mon, 20 Nov 2023 19:02:03 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ac8:7f4d:0:b0:419:5434:d639 with SMTP id g13-20020ac87f4d000000b004195434d639ls4772588qtk.0.-pod-prod-06-us;
- Mon, 20 Nov 2023 18:27:16 -0800 (PST)
-X-Received: by 2002:a05:620a:4005:b0:778:8dc1:bb7b with SMTP id h5-20020a05620a400500b007788dc1bb7bmr11434085qko.27.1700533636432;
-        Mon, 20 Nov 2023 18:27:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1700533636; cv=none;
+Received: by 2002:ac8:5d54:0:b0:421:96cf:753c with SMTP id g20-20020ac85d54000000b0042196cf753cls3991245qtx.1.-pod-prod-05-us;
+ Mon, 20 Nov 2023 19:02:03 -0800 (PST)
+X-Received: by 2002:a05:622a:19a0:b0:41c:c2db:217e with SMTP id u32-20020a05622a19a000b0041cc2db217emr11702409qtc.46.1700535723187;
+        Mon, 20 Nov 2023 19:02:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1700535723; cv=none;
         d=google.com; s=arc-20160816;
-        b=WmwdYkahtz8abAJUCidsImprFVQvNq1iN8GF/GVJ3FXgn7l6bvrU1mzZ6jpIvaHa3z
-         MRpKw4y2T3bo5JT21j5gAX5+yKetnZ2/6bkpzG/0fFN5+coKZ6/7E6sOtrxmhJ+wKSvW
-         mgggNBKUZK2hZHp1FEBRUq1rnBixHtAxHtmIG5CQ0SDd+Ck1xT7ZE8q/4nttnv+mU0R6
-         b7BUbxij+K9f80NOM80NvOSpGzB5QMvW5rehN+wDz5slDzccMPde0bNIAEKEB3h/Y8PF
-         f2zN5KdzP+Hs3IriNdqqVi7eTBPqtZ3Oo4c91bn2ZrRDpCAhdJs1mLUwjxnZKlAWwXMR
-         sQxg==
+        b=tFA6qRHlC7RMr+ktEuQttB5SFCrHyDWWdUlhzmXlZpZx5MeWLY/4j1WsOjyPR4rAcx
+         Dg+CrWiVJmwzc7/yTfbm/8uoHma3dH2n3r1cdS71A0f67/QQnQst5Ahmx50YLpPFe5pa
+         7eMFdeSMxdSlLNabo3UwCeJ2+YSAqfy0qUudX6JzdRpY69lUbaOXI0nDAm1XnCcgVaQE
+         Oquhtn9FmLZC/FDBCQczBy/1x7i0D2oF2FYFMqsHbVCJWxit7fU6eBriJOk+rWRBFFHZ
+         QCM5Uzf83bcP10d72g9Y3+bvWt9h5sJzrSmiC1hE1HENLsfDV+DRT9qVGFJo2x11LVWR
+         /XBQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:delivered-to;
-        bh=JXxxfgppKu9DAXhjQu/OuNBBV0sQpi56ID0KZQTdwNQ=;
-        fh=/WXTkerNGoKzvmET2at0GoHN0WHXrK3HWcjGxRSP3cg=;
-        b=XjKxiCudi36gIDLs6/xRdjDYlCPHB36eLoPOp4AgHP91ED8TzcRDwUCe3w/0nSHY7Q
-         0ayUkBEft7J2Yeb4981BRA30nNPgGetAiWH6LEj16HX/L2r0gmIrT3bTHqVqQE8uV4q6
-         qVAfwqc0bQNhs3/9EDDlqvjW5JzsE+5bru8zVQ0nKT6+hvkGgf+CIZh5ck7Dr/kElZYU
-         I90MBQSXi22W5las6WXN9HbMwc72Cqd/K+nJ1WLfLkko/8KwRNaYIsk+MHpAfAEb4rPl
-         ebbaje37XbXxUDJ932kuSlYz8eRx+9/IO2N6d5Ar4WW9BsamDDX8wXLSg+Q+XXfwJykS
-         UQsw==
+        bh=7iqbIukIiWv7oG10J63TONJYoyEcnN5CQN6XadVeTFg=;
+        fh=AISzwqGD61sZMYJiju9jWSKUGCMc5rv7GSLo65LOhDI=;
+        b=EZID1Or+dUgXozX/rtaoD0k/6ZJtyiSlkMa9SF1gfbfnjRXzhxCyCyISldnqaFDd+A
+         TrbytQ9qAei+mnSSo2W1+pA+HUQbhKxvK9wg9d8HgNMOuHsWwD9uwiFqBZxbB+LoYJeA
+         NTeF4fwUB/PAyjGBHczT2oeZ3k3ckvfP9sZVTVS+oRzfJGriNDNOVtr8+eFUl2x1uRuJ
+         nEe6kvdMj83JEy3ge2fD7QmiOfhcfdeyTE5D11hOTo8K31gqShNEjrEGCDXkSEF7/xUL
+         xQjcgjS5Vt17vRA7jZQ8G8RuxF8wx+e4uIDLnuPenEugwRW0jPyHjU+8e7TDctewqkUJ
+         bPww==
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-2.mimecast.com. [207.211.31.81])
-        by mx.google.com with ESMTPS id y22-20020a37e316000000b007759e85025fsi8285909qki.628.2023.11.20.18.27.16
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by mx.google.com with ESMTPS id ga8-20020a05622a590800b0042372a5a7c9si59472qtb.154.2023.11.20.19.02.02
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Nov 2023 18:27:16 -0800 (PST)
+        Mon, 20 Nov 2023 19:02:03 -0800 (PST)
 Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-691-TUbMHC2ROYuUbvs4mlWBcA-1; Mon, 20 Nov 2023 21:27:14 -0500
-X-MC-Unique: TUbMHC2ROYuUbvs4mlWBcA-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+ us-mta-436-WvKXRxUcPr6gID4GO9A8Ug-1; Mon, 20 Nov 2023 22:02:01 -0500
+X-MC-Unique: WvKXRxUcPr6gID4GO9A8Ug-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AC52A85A59D
-	for <blinux-list@gapps.redhat.com>; Tue, 21 Nov 2023 02:27:14 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DEC49805143
+	for <blinux-list@gapps.redhat.com>; Tue, 21 Nov 2023 03:02:00 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id A8BDD36E2; Tue, 21 Nov 2023 02:27:14 +0000 (UTC)
+	id DB7092166B27; Tue, 21 Nov 2023 03:02:00 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A165A36E9
-	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 02:27:13 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [205.139.110.61])
+Received: from mimecast-mx02.redhat.com (mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D44CC2166B28
+	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 03:02:00 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-2.mimecast.com [207.211.31.81])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CCB0A8007B3
-	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 02:27:13 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AB2221C07247
+	for <blinux-list@redhat.com>; Tue, 21 Nov 2023 03:02:00 +0000 (UTC)
 Received: from atlas.bondproducts.com
  (23-24-6-165-static.hfc.comcastbusiness.net [23.24.6.165]) by
- relay.mimecast.com with ESMTP id us-mta-530-BmuAUCL7PO-4PeAlOjY2bA-1; Mon,
- 20 Nov 2023 21:27:11 -0500
-X-MC-Unique: BmuAUCL7PO-4PeAlOjY2bA-1
+ relay.mimecast.com with ESMTP id us-mta-527-ofuRkvTzM1uM7OJEagUfPA-1; Mon,
+ 20 Nov 2023 22:01:58 -0500
+X-MC-Unique: ofuRkvTzM1uM7OJEagUfPA-1
 Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
-	by atlas.bondproducts.com (Postfix) with ESMTP id 18AC04050A;
-	Mon, 20 Nov 2023 21:27:11 -0500 (EST)
+	by atlas.bondproducts.com (Postfix) with ESMTP id 98B064050A;
+	Mon, 20 Nov 2023 22:01:57 -0500 (EST)
 Received: by users.shellworld.net (Postfix, from userid 1005)
-	id D42B21001C0; Mon, 20 Nov 2023 21:27:10 -0500 (EST)
+	id 5D4701001C0; Mon, 20 Nov 2023 22:01:57 -0500 (EST)
 Received: from localhost (localhost [127.0.0.1])
-	by users.shellworld.net (Postfix) with ESMTP id D378710009B;
-	Mon, 20 Nov 2023 21:27:10 -0500 (EST)
-Date: Mon, 20 Nov 2023 21:27:10 -0500 (EST)
+	by users.shellworld.net (Postfix) with ESMTP id 5CC9710009B;
+	Mon, 20 Nov 2023 22:01:57 -0500 (EST)
+Date: Mon, 20 Nov 2023 22:01:57 -0500 (EST)
 From: Karen Lewellen <klewellen@shellworld.net>
-To: Jude DaShiell <jdashiel@panix.com>
-cc: Ishe Chinyoka <chinyoka.consultant@yahoo.com>, 
-    "Jason J.G. White" <jason@jasonjgw.net>, 
-    Linux for blind general discussion <blinux-list@redhat.com>
+To: Henry Yen <blinux-mail@AegisInfoSys.com>
+cc: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: google removing basic html access, alternatives?
-In-Reply-To: <f2f8c94f-1dd1-3d48-0878-b0c31abc62ee@panix.com>
-Message-ID: <Pine.LNX.4.64.2311202125320.3565931@users.shellworld.net>
+In-Reply-To: <20231121024247.GX23130@nntp.AegisInfoSys.com>
+Message-ID: <Pine.LNX.4.64.2311202159420.3566012@users.shellworld.net>
 References: <Pine.LNX.4.64.2311201725230.3562522@users.shellworld.net>
- <7d33104a-9bdf-4435-9e11-6e0158e2ef8e@jasonjgw.net>
- <Pine.LNX.4.64.2311201757570.3563251@users.shellworld.net>
- <87y1esexx0.fsf@programming.brainpower.africa> <f535aa18-d83a-637d-4fc6-298db97b360f@panix.com>
- <Pine.LNX.4.64.2311202021350.3564917@users.shellworld.net>
- <f2f8c94f-1dd1-3d48-0878-b0c31abc62ee@panix.com>
+ <20231121000352.GW23130@nntp.AegisInfoSys.com>
+ <Pine.LNX.4.64.2311202007280.3564917@users.shellworld.net>
+ <20231121024247.GX23130@nntp.AegisInfoSys.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.1
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: shellworld.net
-Content-Type: MULTIPART/MIXED; BOUNDARY="1949452079-2039967928-1700533630=:3565931"
+Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
 X-Original-Sender: klewellen@shellworld.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
  domain of klewellen@shellworld.net designates 23.24.6.165 as permitted
@@ -130,176 +126,85 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
---1949452079-2039967928-1700533630=:3565931
-Content-Type: TEXT/PLAIN; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: QUOTED-PRINTABLE
-
-As stated, if sent to the alternative email address, and not a cell phone,=
-=20
-that would not be the worst thing.
-Honestly I am considering finding a way to export both gmail inboxes=20
-somewhere after I get access again.
-
+Hi,
+Thanks for these details.
+What does the "handy" read only flag provide?
+My goal is to access this account fully, not simply to read email, 
+although as a test it should be handy.
+Unless it has changed, the code would indeed come to the alternative 
+address google has on file, instead of to a sell phone..but it has been 
+about a year.
+Thanks,
+Karen
 
 
-On Mon, 20 Nov 2023, Jude DaShiell wrote:
 
-> It's a prompt notification gmail sends you each time you log on and it ha=
-s
-> a yes and no button hitting the yes button gets you access to your
-> account.
-> Two factor authentication has been cracked regularly by the bad actors on
-> the internet.  I think it was stormdragon2976 that wrote fleacollar.sh an=
-d
-> I have what's probably an outdated copy of it around here somewhere.
+On Mon, 20 Nov 2023, Henry Yen wrote:
+
+> according to google, you will have to use "app password" as a password
+> to your gmail account (to keep your overall google password safe).
+> to do that, you need to first turn on "2-step verification", then
+> generate the app password (i think it's in the 2-step-verification section).
+> in addition, yes, there's an "enable imap" (and some imap-related
+> settings) in gmail account settings.
 >
+> you will have to respond to the code that google sends when first turning
+> on 2-step verification. but once you've generated the app password for
+> gmail-imap, i don't think google will send any codes merely to access
+> gmail via imap.
 >
-> -- Jude <jdashiel at panix dot com> "There are four boxes to be used in
-> defense of liberty: soap, ballot, jury, and ammo. Please use in that
-> order." Ed Howdershelt 1940.
+> most of this is in step 2 and step 3 of the general instructions:
 >
-> On Mon, 20 Nov 2023, Karen Lewellen wrote:
+>   https://support.google.com/a/answer/9003945
 >
->> fleacollar? laughs!
->> seriously,  unless that cell phone process is voice only, that door is a
->> closed one, if it has to be done often.
->> When I lost access to my research gmail account lewellen.kd@gmail.com, I=
- set
->> up mail forwarding.  only to have items flagged as spam that I could not=
-,
->> still cannot reach.
->> For the inbox I lost access to  this morning, my need is greater, access=
- to
->> its contents for the files  stored there.
->> lost that with the mail forwarding door as well.
->> Kare
+> two other notes:
+> 1. imap access has to be via ssl-imap.
+> 2. there's a handy "Read Only" flag on mutt, so the command line should be:
+>
+>   mutt -R -f imaps://username@imap.gmail.com
+>
+> On Mon, Nov 20, 2023 at 08:09:58AM -0500, Karen Lewellen wrote:
+>> Hi,
+>> so for the following to work.
+>> mutt -f imap://lewellen.kd@imap.gmail.com
+>> Something would have to be turned on in my gmail settings?
+>> I got interrupted system call when I tried.
+>> as shared, testing with another gmail account before tampering with my
+>> main one.
+>> Karen
 >>
+>> On Mon, 20 Nov 2023, Henry Yen wrote:
 >>
->> On Mon, 20 Nov 2023, Jude DaShiell wrote:
->>
->>> Gmail always has AllMail which is everything that comes at anyone in gm=
-ail
->>> and everything that goes out to everyone in gmail, the inbox and all ot=
-her
->>> labels are subsets of AllMail.
->>> For would-be mutt users, a script found in some versions of mutt is cal=
-led
->>> fleacollar.sh intended to make proper setup of mutt less pain-filled.
->>> If use of gmail is a must have, you'll need to enable two factor
->>> authentication which means you need to provide your cell phone number f=
-or
->>> two factor authentication and then generate an app-password to use it.
+>>> my reading is that google/gmail will start requiring a more complicated
+>>> method of connecting to gmail server emailboxes in about 9 months.
+>>> in the meantime, plain imap access will still work.
 >>>
->>> Another alternative would be to log into your google account and arrang=
-e
->>> to have everything forwarded to a different email address off gmail in
->>> some future date.  This way for the stuff coming at you you'd never nee=
-d
->>> to touch gmail again.
->>> Pre-existing content of AllMail could be pulled onto that other email
->>> address with offline-imap.
+>>> mutt can access an emailbox via imap simply enough, like:
 >>>
+>>>  mutt -f imap://username@imap.gmail.com
 >>>
->>> -- Jude <jdashiel at panix dot com> "There are four boxes to be used in
->>> defense of liberty: soap, ballot, jury, and ammo. Please use in that
->>> order." Ed Howdershelt 1940.
+>>> my reading also suggests that the ability for an imap client to connect
+>>> to gmail requires a setting in one's gmail account.
 >>>
->>> On Tue, 21 Nov 2023, 'Ishe Chinyoka' via blinux-list@redhat.com wrote:
->>>
->>>> Hi,
+>>> On Mon, Nov 20, 2023 at 05:30:59AM -0500, Karen Lewellen wrote:
+>>>> Hi folks,
+>>>> I still have direct access to basic html, at least until this morning.
+>>>> Google is forcing the issue, a change to standard view, requiring a
+>>>> captcha to ahem confirm it is me.
+>>>> I understand some folks use mutt, which is likely installed on shellworld.
+>>>> Before I  tamper with my main gmail account though, I am considering a
+>>>> test, I have a second gmail account I have not reached independently for
+>>>> some time.
 >>>>
->>>> I use mutt and gmail. What I can say is that, first you need to enable
->>>> two-factor on your Gmail account. Then, second, you have to generate a=
-n
->>>> app password for mutt. Having copied the generated password, you have =
-to
->>>> set up both an Imap and msmtp utilities such as offlineimap for fetchi=
-ng
->>>> the mail, and msmtp for sending the mail. Of course, I understand mutt
->>>> can handle both these operations, so you can set up in the .muttrc, bu=
-t
->>>> as for me I use other external programmes for doing just that.
->>>>
->>>> What I did was to set up the ~/.netrc file where I stored my login
->>>> credentials so both offlineimap and msmtp use this .netrc to read the
->>>> gmail app password.
->>>>
->>>> As for mutt accessibility, as a text mail handler, it is just fine. Yo=
-u
->>>> can use vim for composing your messages.
->>>>
->>>> Anyway, mutt has many configuration items. The mutt manual is detailed
->>>> in how each of these settings affect the behaviour of mutt itself. I
->>>> hope others can chip in. But I just wanted to help on how I set up mut=
-t
->>>> with gmail on my machine.
->>>>
->>>> Be blessed,
->>>>
->>>>
->>>> Ishe
->>>>
->>>>
->>>>
->>>>
->>>>
->>>> Karen Lewellen <klewellen@shellworld.net> writes:
->>>>
->>>>> Hi,
->>>>> my problem though is that I need access to the inbox contents entirel=
-y,
->>>>> not just to forward.
->>>>> The Debian list  is currently discussing things like mutt with gmail,=
- and
->>>>> imap as an alternative.
->>>>> Apparently this bypasses the security problems with gmail in general?
->>>>> And yes, I send from it too..agree that hosting your own mail has
->>>>> positives.
->>>>>
->>>>> Thanks,
->>>>> Karen
->>>>>
->>>>>
->>>>>
->>>>> On Mon, 20 Nov 2023, Jason J.G. White wrote:
->>>>>
->>>>>>
->>>>>> On 20/11/23 17:30, Karen Lewellen wrote:
->>>>>>>  Anyone use=C2=A0 mutt that can lend documentation, or a hand?
->>>>>>>
->>>>>> I'm familiar with Mutt, but not with using it with Gmail. In particu=
-lar,
->>>>>> it
->>>>>> is my understanding that authentication is more complicated now than=
- it
->>>>>> used
->>>>>> to be, due to Google's security policies.
->>>>>>
->>>>>> This article seems to be a reasonably up to date starting point:
->>>>>> https://www.thetechedvocate.org/how-to-install-and-configure-mutt-wi=
-th-gmail-on-linux/
->>>>>>
->>>>>> I have a GMail account, but it's configured to forward everything to=
- one
->>>>>> of
->>>>>> my "real" e-mail accounts, and I don't use it to send messages. My M=
-utt
->>>>>> configuration is et up to work with mail on my own server.
->>>>>>
->>>>>>
->>>>
->>>>
->>>
->>
+>>>> its set to forward..not solid as I have no access to my actual inbox.
+>>>> I am told though that mutt may do the trick, but as I only use Linux via
+>>>> shellworld, want a safe test, needing information.
+>>>> Anyone use  mutt that can lend documentation, or a hand?
+>>>> Thanks,
+>>>> Kare
 >
-> --=20
-> You received this message because you are subscribed to the Google Groups=
- "blinux-list@redhat.com" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to blinux-list+unsubscribe@redhat.com.
+> -- 
+> Henry Yen                                       Aegis Information Systems, Inc.
+> Senior Systems Programmer                       Hicksville, New York
 >
->
---1949452079-2039967928-1700533630=:3565931--
 
