@@ -1,145 +1,139 @@
-Return-Path: <blinux-list+bncBCPN3MHH6QPBBOU6SGVQMGQEKZEAFKI@redhat.com>
+Return-Path: <blinux-list+bncBD36XIOOVQCRB7NHSGVQMGQERQDJINQ@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	by mail.lfdr.de (Postfix) with ESMTPS id E8BC17F9B5C
-	for <lists+blinux-list@lfdr.de>; Mon, 27 Nov 2023 09:11:39 +0100 (CET)
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-3b2e0f24de0sf4635351b6e.0
-        for <lists+blinux-list@lfdr.de>; Mon, 27 Nov 2023 00:11:39 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1701072698; cv=pass;
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4BCC17F9BBC
+	for <lists+blinux-list@lfdr.de>; Mon, 27 Nov 2023 09:31:59 +0100 (CET)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-677fc779771sf54438996d6.0
+        for <lists+blinux-list@lfdr.de>; Mon, 27 Nov 2023 00:31:59 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1701073918; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NFD45TH5hBPvaMVhaH4NUAArp+eAknMURjdxseVditFiXg6U470ChzfEVQd5Yofj8n
-         bzjb9Vl14xitMSOFjoVhxK2duPlKa1iXj0MiAiIzhIcImqfSDwutkehUxNL/vlZedI5R
-         5H7F8Z+kNXW+ElPjEz1QEOdRQU75EAb2FGSSR4Y0UJC/KjINiTy07GI2w6iplvzFXtCL
-         cI2cc9xlwMqizoYc8RFcxWsCY+A3EcGtO2CujDbQCVXC2qSp1/iWZPEQTXin0QC0Puqu
-         opFmN14DVJJLNS6a+9xZEbBSrJUnL7hOkwYoZARHTJZT/WXN16snsf9qEAtbvpVvQcG3
-         UXVg==
+        b=Gu6wrmQbIz3i/LKvy+ux9wrqzHVbgRplXUamrSSZ4qYO87HPXeDj7WK4Xj+tzfwcHN
+         xO/d1aHt5jKjqfyOiUN9SvP5CbI9/e5ZC1nQrce95xUlCHVi663sApsIZZBm1+e41Yn8
+         zjp32ZZgbWz0L9tGamuFOwhFXtaz7NJOq2IQckkFZIq2KeIMZ3eQZ6aJrgZvTytGccln
+         kkMh97zpcUguxIlVEcD/CFp8e4uYhhAohy49XN2/Ut0CGnVkL0O732OpPkSuKNs99wbY
+         CyYJk0ErNALYoh+zrk1SxskzTt1zeqQd488spejjaEHOleXmesYYBurWc9mwtgziP4VH
+         SIeA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-transfer-encoding:content-language
-         :in-reply-to:from:references:to:subject:user-agent:mime-version:date
-         :message-id:delivered-to;
-        bh=UTs69HSxRjiciBvb7aLMA2EzW/Dy2r72ILcY9Zf/67M=;
-        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=D2lRDdrry82k9Pb6I/sx7g00JFficCZ0Z0C2UGJa0O9FoZq+qU8CKwdLErrk6BjP2i
-         uzCAJmBS2k4HB+Jljfyp2zKLUoHLJVhJMeEzP+yUBGAyp3Y1NQKPXHYuiLeFqT3omWDT
-         cIfbl1tmZRA6kgadeiRg4x52/wsvSE0ycHCdfjBd+3mSgTxI0YZX4oR4LzNoLi2gJAv8
-         0YXu/yOo3fDSRKarLwsD9HnTKHhaA2CcBgumoadE9jXBuEtLOTFT8OZJ364mzG7hLp5X
-         pG+EgmxavogZrVsPhItAZ/yJA4++dyxl1MqSG74gvdoAtk719PzJa+5Uq784FJT4xD3U
-         ULkw==
+         :mailing-list:precedence:reply-to:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:delivered-to;
+        bh=NkaF7gjVDYs0jBC1zXfd1mrhJcGykuVQERkDT9+Jb/E=;
+        fh=bCabGQs3jn1s0M0qXUniS/CTf8AL/F0wZwsNHkuqrnc=;
+        b=iT1U/P+cfi/SlyWajU3TcVugv5zZe4Mc07mYLXfT39phZT99zoE9FVnhRq+1YTMXPw
+         eXrfNLHiBmz+z+SltmMBcRfUaHeR71r0U3eprUMbUeI7QsObeKXHRx1kkNV+PDonNPv0
+         VsDeXZNAy0qPnpYe1XF3kqHAO/nTEeui+c7x8+thMk/pO3lSq6Eda+FwuCKbZjpilSG0
+         n6Tp0URcd5iONMriusjWZtEkZCQfPQz1O9Phq5wUJqWup998H7++ySiQpUD0QvLYRJVf
+         8+WqGGLWjvVqIKxxFwtCF1bNV6LYDQqubBx6SCOjXIX2KXMihPCzvDdpaBo4IxwaXOOk
+         8HuQ==
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of destructatron2018@gmail.com designates 209.85.208.179 as permitted sender) smtp.mailfrom=destructatron2018@gmail.com
+       spf=pass (google.com: domain of karl@karlwilbur.net designates 209.85.218.44 as permitted sender) smtp.mailfrom=karl@karlwilbur.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701072698; x=1701677498;
+        d=1e100.net; s=20230601; t=1701073918; x=1701678718;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender
-         :content-transfer-encoding:content-language:in-reply-to:from
-         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:cc:to:subject
+         :message-id:date:from:in-reply-to:references:mime-version
          :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UTs69HSxRjiciBvb7aLMA2EzW/Dy2r72ILcY9Zf/67M=;
-        b=j44T4N3CO9MqmWDdEnS/glyNkhWHLDnjEMC6gOPLs4d8hO2qvz7HtaZa7doXdy+1UV
-         ca3PFVKqMTtI90Ca83q5EVcx52BkFPdLUZmVG5oNDLOOWXX+sLy8YP6av1UleKuNJmmU
-         RoMoQwB7lmLMaDM0w2biyLnSX+7ksYGa8wWwDKtNqdQg4xkQ6vWYl8Def7fRJa/wHib0
-         EKiDgFaDV3+qS8Am3NL002+uq34Jz08Tta1im/wTDw+ou+VYCBJI87oG/8txz/3eJQhd
-         cmZwMQUUK/9SQw0Lc06zw5ME/cL8PyGVo9+p5GM/M7iuWGSCQ7ht8UCh7v904KyLoHkU
-         8nIw==
-X-Gm-Message-State: AOJu0YwrJR4ZIH+Y1Sfw74pL2CTsECv+u2uYOLLZkQUMV6UA+PwQvwre
-	2iLsIZj6H0wEjljUhLso2T73zQ==
-X-Google-Smtp-Source: AGHT+IH4jbGY/rCKTfb6U3lSTaSoIaubvrgSgHT+1NpFCflDv81kxhQnstOiVh6T05Kf9AMv9fHDHg==
-X-Received: by 2002:a05:6358:4406:b0:16e:12e:e232 with SMTP id z6-20020a056358440600b0016e012ee232mr12015510rwc.6.1701072698373;
-        Mon, 27 Nov 2023 00:11:38 -0800 (PST)
+        bh=NkaF7gjVDYs0jBC1zXfd1mrhJcGykuVQERkDT9+Jb/E=;
+        b=qj+mXRSXRQ00NkwjJ6wIUj5Gh63VwEq7iFB9HTgEacycX1pHpOmM805Qr0zNsxTe3z
+         WYvscfH7f7pjhlGY8MLbi3bLLNKEULzHQx2PP3qVzTlsU313H/sVjjRykqZwnLbl6+fX
+         NsP8oPVG3mcnLmup64I8xgKAhdf5yP7+PMwfmfbnCqIUV+vQqRwdmJ02TDm8DHeQV0F7
+         H8nVDRVLx6Mny8z/LF1ArvtYD0ZBtTrIjpoOmwCw1j7fCOsXxrlSgC44AW9Kn14FCQbt
+         zgVaQrc5oVamI2VpSQKByg4vUm75kE7JZi3UULrinvBQsZ2lgBZMoYMlXvNWgbkOx1gz
+         XKNg==
+X-Gm-Message-State: AOJu0Yz0V427Icq1fExEcFAXHoSD3+6o2vUgBJNTgnRvnRoTCP6hdz5j
+	F7lo6RwQI4RbcVs4+IkZ9veGzQ==
+X-Google-Smtp-Source: AGHT+IEVHesk6iwacZtzUdby6opuL1M1FL+X+yzW/g0z13M89kYXBI1n7CMCAeIl8HzoHjOs8g2kZQ==
+X-Received: by 2002:a05:6214:1396:b0:679:d4d8:1af5 with SMTP id pp22-20020a056214139600b00679d4d81af5mr11592362qvb.15.1701073918029;
+        Mon, 27 Nov 2023 00:31:58 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ac8:58d1:0:b0:41b:5e46:aa61 with SMTP id u17-20020ac858d1000000b0041b5e46aa61ls1257880qta.1.-pod-prod-02-us;
- Mon, 27 Nov 2023 00:11:37 -0800 (PST)
-X-Received: by 2002:a05:620a:2815:b0:76d:9f64:f638 with SMTP id f21-20020a05620a281500b0076d9f64f638mr7251178qkp.51.1701072697600;
-        Mon, 27 Nov 2023 00:11:37 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1701072697; cv=none;
+Received: by 2002:a05:6214:1650:b0:67a:3bbd:90d7 with SMTP id
+ f16-20020a056214165000b0067a3bbd90d7ls122720qvw.2.-pod-prod-06-us; Mon, 27
+ Nov 2023 00:31:57 -0800 (PST)
+X-Received: by 2002:a67:ed90:0:b0:462:8a7b:8d28 with SMTP id d16-20020a67ed90000000b004628a7b8d28mr8999718vsp.1.1701073917116;
+        Mon, 27 Nov 2023 00:31:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701073917; cv=none;
         d=google.com; s=arc-20160816;
-        b=ubPpZ2pdCirAxzavV5RZb9hxas3FKmeyXcOnrHbPmd3HnnRatf/lgas3vg/ifUdamH
-         8+cshLffo8VL1c380Y/q+MOVcs9OH5Gv+OFM4JwrlLwAETj6qEw0kNxJ3JNiTYZ2wSyw
-         dtJfLFQsd+EmutiDMKnsWWhZc7kueldUqrF/ZjUBTesocVMbthik1Kp2sQb7f3OT91hw
-         pKBgjoSupvPMp2mN0AueIG78DX4FACAPNTIYmph4ODAKZxsAcHjBWODmrFo50DSx7uWs
-         KVSH2j30FCcvWUQxSPAcwy/8CyqZlgW752SyJiuh6M5sYi5VUagzi27/0VSjyzIKbXJX
-         YfWw==
+        b=BHRcqT1Y1629lPn821dr/6XncN/Beq8VtHUFVcKDN6pS6bjcLaH+VYPMbrznqhdfnH
+         BBofo3sVBxqGSoL7svdCPnvBwtyZag8oCLBB9da5OoBr4x3nILEAVgzgwQUMq89MgH2w
+         qtL1klD+CEH1wv9MJyWmMIdqHe53iErgj82heLteFkFUqAR5Vdouv1X5pevBQ+zd1eB7
+         4m7MTl0/8OGyQ1oyW41nhQt8ZwtkBMjDq+nNuhJYVOONYs7AsGyVP0ty8YcBDarXN+Yj
+         5pgr21+r67LvJzMJXWV1GB6mQaOUsZHL9agWxDhxzczqsbzRsgO8bKYVkAZgh3ayUa/v
+         v0jA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:from
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :delivered-to;
-        bh=ZSas7ibcZgc9jeGSdDDGyJhFEnK2i02g8TfZ2bZWvzc=;
-        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=ZTqt2XQhf9PZpNH0VNImdnvvFyMw4Zn+adj7NNDPnNiur9z+SixtBfDGj8TLm5JizQ
-         tfMkxyBVg/xWmkHudi+YeTGS7brklqh/AN8EUu/GZ2kjMUIZt+IxnoRLfNdEtKdC/ptv
-         roJ3h7qtyjfWq8+BWUM9wP0a4rAlhB0aKn/zBA7DoUaH0YIVs3GI3F+mbbIPiln8+1rN
-         dNk+YrDG6knkqGMA8XvDqaLJAoFgmb1HQRfvtkXOT3z1gtqJi1vMjW8XD3i+k/7mZVxv
-         XxI1CqWXdh+OZhUb2Kk+nh5shuQnju+FFz77qPQFvHbdG9kvguBSsXL1YLQGViEaT3se
-         BOig==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:delivered-to;
+        bh=szvoYMcP6cMKNtBw+yCSOv4d9ooDwro7f5R+zPlMGow=;
+        fh=bCabGQs3jn1s0M0qXUniS/CTf8AL/F0wZwsNHkuqrnc=;
+        b=yjRKZm2w0corLyyUiwvuwZfK7WuPzcfPNu53ZoN/iwGtumfkKCxvC4EMTo+45DXkHR
+         bqcYPQ9nfYe36G5Um7Tb5Jf1EHV+UPhnrs0anIwLDL38+4zey/qKgk99Rrm55+P1Ix5E
+         Fy3v1KHncryBySGiWniIM5eKfMnK5J7VWnBF2tWXyh0jlFUE3oZEvtpck86ffkVA1tJM
+         emF7vlf7wD4YZaJ0y/uq4EgUxulNKkKMci+bNqOBssY1zRPnn1pnlX4HU144/ulQMwWW
+         mHj0SdvQGX44E3419Vu96Box4x4yrW+SZ211sqHXhbvDn8EuRQD+p3n8v/A0KROmWCyo
+         zYQw==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of destructatron2018@gmail.com designates 209.85.208.179 as permitted sender) smtp.mailfrom=destructatron2018@gmail.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [205.139.110.61])
-        by mx.google.com with ESMTPS id w28-20020a05620a095c00b0077bcd1f26a0si8549346qkw.163.2023.11.27.00.11.37
+       spf=pass (google.com: domain of karl@karlwilbur.net designates 209.85.218.44 as permitted sender) smtp.mailfrom=karl@karlwilbur.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [207.211.31.81])
+        by mx.google.com with ESMTPS id u20-20020a05621411b400b0067a07e87c08si8136696qvv.280.2023.11.27.00.31.56
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Nov 2023 00:11:37 -0800 (PST)
-Received-SPF: pass (google.com: domain of destructatron2018@gmail.com designates 209.85.208.179 as permitted sender) client-ip=209.85.208.179;
+        Mon, 27 Nov 2023 00:31:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of karl@karlwilbur.net designates 209.85.218.44 as permitted sender) client-ip=209.85.218.44;
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-594-EyVuKkfnOPS5xp6NCZzYCg-1; Mon,
- 27 Nov 2023 03:11:36 -0500
-X-MC-Unique: EyVuKkfnOPS5xp6NCZzYCg-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-107-4viCtsi7PO2z0G6sAxPjiw-1; Mon,
+ 27 Nov 2023 03:31:55 -0500
+X-MC-Unique: 4viCtsi7PO2z0G6sAxPjiw-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C473E3C0E642
-	for <blinux-list@gapps.redhat.com>; Mon, 27 Nov 2023 08:11:35 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 2F0EC3C0F37B
+	for <blinux-list@gapps.redhat.com>; Mon, 27 Nov 2023 08:31:55 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id C19E4503A; Mon, 27 Nov 2023 08:11:35 +0000 (UTC)
+	id 2B1782166B2C; Mon, 27 Nov 2023 08:31:55 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mimecast-mx02.redhat.com (mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id B998A5038
-	for <blinux-list@redhat.com>; Mon, 27 Nov 2023 08:11:35 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 23ADC2166B26
+	for <blinux-list@redhat.com>; Mon, 27 Nov 2023 08:31:55 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3BB303C0E646
-	for <blinux-list@redhat.com>; Mon, 27 Nov 2023 08:11:35 +0000 (UTC)
-Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com
- [209.85.208.179]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E757C3C0F37B
+	for <blinux-list@redhat.com>; Mon, 27 Nov 2023 08:31:54 +0000 (UTC)
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com
+ [209.85.218.44]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-588-XV5jcbe3PJieA_Si9AbCTA-1; Mon, 27 Nov 2023 03:11:33 -0500
-X-MC-Unique: XV5jcbe3PJieA_Si9AbCTA-1
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-2c5b7764016so43305851fa.1
-        for <blinux-list@redhat.com>; Mon, 27 Nov 2023 00:11:33 -0800 (PST)
-X-Received: by 2002:a2e:2206:0:b0:2c9:a342:444b with SMTP id i6-20020a2e2206000000b002c9a342444bmr1474351lji.32.1701072691264;
-        Mon, 27 Nov 2023 00:11:31 -0800 (PST)
-Received: from [10.130.248.2] ([37.203.138.226])
-        by smtp.gmail.com with ESMTPSA id r7-20020a05600c35c700b0040b30be6244sm12958885wmq.24.2023.11.27.00.11.30
-        for <blinux-list@redhat.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Nov 2023 00:11:30 -0800 (PST)
-Message-ID: <ae47a771-a3a9-4e19-bd16-63a963c077c0@gmail.com>
-Date: Mon, 27 Nov 2023 08:11:29 +0000
+ us-mta-507-3AofpZYDMLypLGnUBEVq1g-1; Mon, 27 Nov 2023 03:31:52 -0500
+X-MC-Unique: 3AofpZYDMLypLGnUBEVq1g-1
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-a00a9c6f1e9so557856766b.3
+        for <blinux-list@redhat.com>; Mon, 27 Nov 2023 00:31:51 -0800 (PST)
+X-Received: by 2002:a17:906:2c4c:b0:a04:bd7c:b7f7 with SMTP id
+ f12-20020a1709062c4c00b00a04bd7cb7f7mr7760791ejh.64.1701073910480; Mon, 27
+ Nov 2023 00:31:50 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Lightdm-gtk-greeter volume is set to 100 percent
-To: blinux-list@redhat.com
-References: <5fcb774c-8b8d-4d7a-be5b-c418c2c5f2fb@gmail.com>
-From: Harley Richardson <destructatron2018@gmail.com>
-In-Reply-To: <5fcb774c-8b8d-4d7a-be5b-c418c2c5f2fb@gmail.com>
+References: <433e1464-0c97-bd74-32bf-06ab48664fdf@panix.com>
+ <CAMuGJS=qR4KKwsFrDNa3+tENTWHMZ3r1Z+zHc=AgGHTg0st5Mg@mail.gmail.com> <0ac79846-59e1-8efe-8444-7240592473ad@panix.com>
+In-Reply-To: <0ac79846-59e1-8efe-8444-7240592473ad@panix.com>
+From: "'Karl Wilbur' via blinux-list@redhat.com" <blinux-list@redhat.com>
+Date: Mon, 27 Nov 2023 03:31:37 -0500
+Message-ID: <CAMuGJSn_KmcdKHy2tB8SziLkUi7odHwk0bL09ETt2oYx0SrnPQ@mail.gmail.com>
+Subject: Re: vlcrc file needed
+To: Jude DaShiell <jdashiel@panix.com>
+Cc: Linux for blind general discussion <blinux-list@redhat.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: gmail.com
-Content-Language: en-US
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: destructatron2018@gmail.com
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
+X-Mimecast-Spam-Score: 1
+X-Mimecast-Originator: karlwilbur.net
+Content-Type: multipart/alternative; boundary="0000000000002bd1a0060b1e2266"
+X-Original-Sender: karl@karlwilbur.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of destructatron2018@gmail.com designates 209.85.208.179 as permitted
- sender) smtp.mailfrom=destructatron2018@gmail.com
+ domain of karl@karlwilbur.net designates 209.85.218.44 as permitted sender) smtp.mailfrom=karl@karlwilbur.net
+X-Original-From: Karl Wilbur <karl@karlwilbur.net>
+Reply-To: Karl Wilbur <karl@karlwilbur.net>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -151,27 +145,180 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-If you use pipewire as your audio server, copy=20
-~/.local/state/wireplumber to /var/lib/lightdm/.local/state and use=20
-chown to set the owner of the folder to user and group lightdm. For=20
-pulseaudio, it's either .config/pulse or it's in .local/state somewhere.=20
-This should set your lightdm volume to the same as your normal user volume.
+--0000000000002bd1a0060b1e2266
+Content-Type: text/plain; charset="UTF-8"
 
-On 11/26/23 21:47, Pavel Vl=C4=8Dek wrote:
-> Hi,
+I'm not sure what you mean about GitHub.
+
+The link that I gave you goes straight to a `vlcrc` file that has 3600
+lines of config option and comments that somewhat explain what the config
+option does, its datatype, as well as the default value. I just checked the
+link and it works.
+
+Now, it is old and the config option may have changed, but I think it's
+unlikely that it has changed much.
+
+--
+Karl Wilbur
+513-322-2481
+karl@karlwilbur.net
+
+On Sun, Nov 26, 2023, 18:37 Jude DaShiell <jdashiel@panix.com> wrote:
+
+> The github site is gone no longer exists.
+> The incomplete documentation on vlcrc configuration location I have
+> already read.
+> If missing a vlcrc file how to get vlc to make you a basic vlcrc file that
+> could then be edited would be a nice thing to know since configuration
+> file format and valid contents isn't documented.  I'll try cvlc and see if
+> that works.
 >
-> is it possible to change lightdm-gtk-greeter volume? When Orca starts,=20
-> I get 100% volume and changing it wia default keys is not working.
 >
-> Thanks,
+> -- Jude <jdashiel at panix dot com> "There are four boxes to be used in
+> defense of liberty: soap, ballot, jury, and ammo. Please use in that
+> order." Ed Howdershelt 1940.
 >
-> Pavel
+> On Sun, 26 Nov 2023, 'Karl Wilbur' via blinux-list@redhat.com wrote:
 >
+> > This is pretty old but might be a good place to start:
+> > (a GitHub repo that has someone's `vlcrc` file in it)
+> > https://github.com/bashwork/settings/blob/master/linux/.config/vlc/vlcrc
+> >
+> > Also, VLC docs about config file location:
+> > http://www.videolan.org/support/faq.html#Config
+> >
+> > --
+> > Karl Wilbur
+> > 513-322-2481
+> > karl@karlwilbur.net
+> >
+> > On Sun, Nov 26, 2023, 07:36 Jude DaShiell <jdashiel@panix.com> wrote:
+> >
+> > > What's not on that videolan website is instructions for command line
+> users
+> > > giving format of vlcrc and valid items that can go in that vlcrc file.
+> > > I installed mpv and vlc on archlinux and have mpv working since it's
+> > > better documented but not the case with vlc.
+> > >
+> > >
+> > > -- Jude <jdashiel at panix dot com> "There are four boxes to be used in
+> > > defense of liberty: soap, ballot, jury, and ammo. Please use in that
+> > > order." Ed Howdershelt 1940.
+> > >
+> > > --
+> > > You received this message because you are subscribed to the Google
+> Groups "
+> > > blinux-list@redhat.com" group.
+> > > To unsubscribe from this group and stop receiving emails from it, send
+> an
+> > > email to blinux-list+unsubscribe@redhat.com.
+> > >
+> > >
+> >
+> >
 >
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-blinux-list@redhat.com" group.
+-- 
+You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+
+--0000000000002bd1a0060b1e2266
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">I&#39;m not sure what you mean about GitHub.<div dir=3D"a=
+uto"><br></div><div dir=3D"auto">The link that I gave you goes straight to =
+a `vlcrc` file that has 3600 lines of config option and comments that somew=
+hat explain what the config option does, its datatype, as well as the defau=
+lt value. I just checked the link and it works.<div dir=3D"auto"><br></div>=
+<div dir=3D"auto">Now, it is old and the config option may have changed, bu=
+t I think it&#39;s unlikely that it has changed much.=C2=A0<br><br><div dat=
+a-smartmail=3D"gmail_signature" dir=3D"auto">--<br>Karl Wilbur<br>513-322-2=
+481<br><a href=3D"mailto:karl@karlwilbur.net">karl@karlwilbur.net</a></div>=
+</div></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"=
+gmail_attr">On Sun, Nov 26, 2023, 18:37 Jude DaShiell &lt;<a href=3D"mailto=
+:jdashiel@panix.com">jdashiel@panix.com</a>&gt; wrote:<br></div><blockquote=
+ class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc soli=
+d;padding-left:1ex">The github site is gone no longer exists.<br>
+The incomplete documentation on vlcrc configuration location I have<br>
+already read.<br>
+If missing a vlcrc file how to get vlc to make you a basic vlcrc file that<=
+br>
+could then be edited would be a nice thing to know since configuration<br>
+file format and valid contents isn&#39;t documented.=C2=A0 I&#39;ll try cvl=
+c and see if<br>
+that works.<br>
+<br>
+<br>
+-- Jude &lt;jdashiel at panix dot com&gt; &quot;There are four boxes to be =
+used in<br>
+defense of liberty: soap, ballot, jury, and ammo. Please use in that<br>
+order.&quot; Ed Howdershelt 1940.<br>
+<br>
+On Sun, 26 Nov 2023, &#39;Karl Wilbur&#39; via <a href=3D"mailto:blinux-lis=
+t@redhat.com" target=3D"_blank" rel=3D"noreferrer">blinux-list@redhat.com</=
+a> wrote:<br>
+<br>
+&gt; This is pretty old but might be a good place to start:<br>
+&gt; (a GitHub repo that has someone&#39;s `vlcrc` file in it)<br>
+&gt; <a href=3D"https://github.com/bashwork/settings/blob/master/linux/.con=
+fig/vlc/vlcrc" rel=3D"noreferrer noreferrer" target=3D"_blank">https://gith=
+ub.com/bashwork/settings/blob/master/linux/.config/vlc/vlcrc</a><br>
+&gt;<br>
+&gt; Also, VLC docs about config file location:<br>
+&gt; <a href=3D"http://www.videolan.org/support/faq.html#Config" rel=3D"nor=
+eferrer noreferrer" target=3D"_blank">http://www.videolan.org/support/faq.h=
+tml#Config</a><br>
+&gt;<br>
+&gt; --<br>
+&gt; Karl Wilbur<br>
+&gt; 513-322-2481<br>
+&gt; <a href=3D"mailto:karl@karlwilbur.net" target=3D"_blank" rel=3D"norefe=
+rrer">karl@karlwilbur.net</a><br>
+&gt;<br>
+&gt; On Sun, Nov 26, 2023, 07:36 Jude DaShiell &lt;<a href=3D"mailto:jdashi=
+el@panix.com" target=3D"_blank" rel=3D"noreferrer">jdashiel@panix.com</a>&g=
+t; wrote:<br>
+&gt;<br>
+&gt; &gt; What&#39;s not on that videolan website is instructions for comma=
+nd line users<br>
+&gt; &gt; giving format of vlcrc and valid items that can go in that vlcrc =
+file.<br>
+&gt; &gt; I installed mpv and vlc on archlinux and have mpv working since i=
+t&#39;s<br>
+&gt; &gt; better documented but not the case with vlc.<br>
+&gt; &gt;<br>
+&gt; &gt;<br>
+&gt; &gt; -- Jude &lt;jdashiel at panix dot com&gt; &quot;There are four bo=
+xes to be used in<br>
+&gt; &gt; defense of liberty: soap, ballot, jury, and ammo. Please use in t=
+hat<br>
+&gt; &gt; order.&quot; Ed Howdershelt 1940.<br>
+&gt; &gt;<br>
+&gt; &gt; --<br>
+&gt; &gt; You received this message because you are subscribed to the Googl=
+e Groups &quot;<br>
+&gt; &gt; <a href=3D"mailto:blinux-list@redhat.com" target=3D"_blank" rel=
+=3D"noreferrer">blinux-list@redhat.com</a>&quot; group.<br>
+&gt; &gt; To unsubscribe from this group and stop receiving emails from it,=
+ send an<br>
+&gt; &gt; email to <a href=3D"mailto:blinux-list%2Bunsubscribe@redhat.com" =
+target=3D"_blank" rel=3D"noreferrer">blinux-list+unsubscribe@redhat.com</a>=
+.<br>
+&gt; &gt;<br>
+&gt; &gt;<br>
+&gt;<br>
+&gt;<br>
+</blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;blinux-list@redhat.com&quot; group.<br />
 To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to blinux-list+unsubscribe@redhat.com.
+mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
+nsubscribe@redhat.com</a>.<br />
+
+--0000000000002bd1a0060b1e2266--
 
