@@ -1,112 +1,113 @@
-Return-Path: <blinux-list+bncBCVPTHE7K4IN3P4ZVMDBUBBVPCMSY@redhat.com>
+Return-Path: <blinux-list+bncBCVPTHE7K4IOJQEZVMDBUBF5O3SUA@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2002E7FC828
-	for <lists+blinux-list@lfdr.de>; Tue, 28 Nov 2023 22:47:11 +0100 (CET)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-67a3bbd9510sf36373036d6.1
-        for <lists+blinux-list@lfdr.de>; Tue, 28 Nov 2023 13:47:11 -0800 (PST)
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	by mail.lfdr.de (Postfix) with ESMTPS id E842B7FC832
+	for <lists+blinux-list@lfdr.de>; Tue, 28 Nov 2023 22:49:25 +0100 (CET)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-67a680956d4sf1117456d6.2
+        for <lists+blinux-list@lfdr.de>; Tue, 28 Nov 2023 13:49:25 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701208030; x=1701812830;
+        d=1e100.net; s=20230601; t=1701208165; x=1701812965;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender:mime-version
          :references:message-id:in-reply-to:subject:cc:to:from:date
          :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FEQ+MBB6L6OrWlYlFVhxYSqwev3iXcjhKlKj+r7wbXs=;
-        b=ibaLDwXwdilJ6XtZkC+d4aej9JWj3RsiJL2BKsYyoDTiEaKiqzi7unf7UxbyJSUYeO
-         k1xoAX3dvPdo385U1MVe9JjIuxT42a9ZnusWm7LeN68gtQtbszu9i0NT02OSSJ5KgW3v
-         Ijm4I//srBuP08rsHqBOdRQZmnzlSKdNy7oMZBAkz/z+MwvM3PupfobwrIkkDXIn7I1Q
-         vVQ1sUG2vN2c/Y1/+F7cGcUa4pWYev4ct9xJ+bmu+j8YmjTDK3BTlJcUBvBh2rOz7O+T
-         7JMJeJT9PxLt8T/esY7AjsqHVyHhF1VMeqIaW+W+QDmeMR20026986lsuXzYy6nsWjyj
-         e6ig==
-X-Gm-Message-State: AOJu0Yx2XTN8pWLr8Rng1gG5eLFdAqGEAnKoLV+XIFhmn06g42k1BVzO
-	j+rjYjVPcu5vUMnRUk3205uNtw==
-X-Google-Smtp-Source: AGHT+IFinFNWVv3DHFc1T8HAzdK/8JJTXsFtYFGzWymikF656wzQPqTHH7i8k6958MsD+NJECYu4/A==
-X-Received: by 2002:a05:6214:16d:b0:67a:287c:6c6c with SMTP id y13-20020a056214016d00b0067a287c6c6cmr14296600qvs.63.1701208030121;
-        Tue, 28 Nov 2023 13:47:10 -0800 (PST)
+        bh=p26bFdr1VGAZtaI2t+faPkypRGG4P12b+ksPMdIJpUs=;
+        b=CK7/dD3kNUMizu+P7mVkT21cZizTJknGM9+1A5fJgdbVtHUhW10B0qvzfeE3eENjbW
+         8CxP01fwMrq3wbvzlHS4vvxW8AYMPFFsfYKgIvwPdK4sv0xY+IOjNwjhTz4V+X1sq6uX
+         0HnOEiV/EP2ZuNDr2OrLisfy9SecKKNlFMRA/xG3KGEDSV/VZACRQKW0EDoo3+7XqHuY
+         HqLUtGrWdujIfpRIeeT5STlxt0FoH/s7WJK6GcBptS5nkVYWkgBJCLF9ZiYkhU5w6JGh
+         6dwn8dJ8Guc0KnbbiaxkhgK9QNUDSLQOo/WK45rw3nlyW3cqqt1EFnCMgouz6OoemBc3
+         7z9g==
+X-Gm-Message-State: AOJu0YyrD12yp5y8jVk9D+Ug5Q6ihMtyL5ZwawmSvJbaN2Wz+3oIBLob
+	WN0wvF0ylgKiLkGfDwMOXrKyrQ==
+X-Google-Smtp-Source: AGHT+IEPJlU4/r1f3kY4RlZmjkkwukQcjK4D/3hjx1LFsL7f7yBDpV+xRZIFIptyIFD8iksx7flk6w==
+X-Received: by 2002:a05:6214:c86:b0:67a:4e24:501d with SMTP id r6-20020a0562140c8600b0067a4e24501dmr7614496qvr.43.1701208164912;
+        Tue, 28 Nov 2023 13:49:24 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a0c:fe49:0:b0:679:e68a:ed80 with SMTP id u9-20020a0cfe49000000b00679e68aed80ls1090427qvs.2.-pod-prod-02-us;
- Tue, 28 Nov 2023 13:47:09 -0800 (PST)
-X-Received: by 2002:a05:6214:4a50:b0:67a:68e2:aed with SMTP id ph16-20020a0562144a5000b0067a68e20aedmr67237qvb.1.1701208029545;
-        Tue, 28 Nov 2023 13:47:09 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1701208029; cv=none;
+Received: by 2002:a05:6214:18f:b0:656:3716:f1e6 with SMTP id
+ q15-20020a056214018f00b006563716f1e6ls2817265qvr.0.-pod-prod-06-us; Tue, 28
+ Nov 2023 13:49:24 -0800 (PST)
+X-Received: by 2002:a05:6214:580d:b0:67a:1d26:fc4a with SMTP id mk13-20020a056214580d00b0067a1d26fc4amr14396029qvb.64.1701208164290;
+        Tue, 28 Nov 2023 13:49:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701208164; cv=none;
         d=google.com; s=arc-20160816;
-        b=vfigHprAMe7eSCK/9kn42RH15G3TPQRPvY1DupN3OehYQpmqUHO6imakcGFmm/PgpX
-         jukHMn9PakhHBoC4BVwTzFt71AynCZC6CcoHofjzDQ4eoX592dj85Ubgq/hvnkpGcFMx
-         Etb3NVCJxERP0PIlg20gmXhGdD3ZoSxjcBIAtcEgkHLtWPG348VScU2jx7jgetbP08zR
-         dJXDRkJ1SFFJZ2ES8Ox6rlx1Ja2TR6/yLsSrAD0AEvV4bE5m67RcYZKpWigYNonvvu6h
-         HjTAwzcAA/VklN9sW6zYMnrHwxMEzSw2tu+CnSnaoVDPvPRDx7sEjSX751d5Pkb1l43Y
-         gkRw==
+        b=PR1TpDdjyBMYl1TuIwc5y8FjslbFMpkLzsEh5qBUDOEZ6asLuL2OiUAvWiOtwyJM/o
+         MScpWqlwVaM3OnIWADvRbMJJ63626yIte/iCfVP/HllRNiPW0KxEufO7/jkrivyjMaVU
+         L7Iax7DV/kzpYsrZ1MEuBR3HIhGiE6ajCSw9/bESXju/adfsDymIOn8ouOXkVZ55FsCK
+         4aXkqS4/DHEKTqDkqu/vVNyyLrxF6i/4tdXzPOEH7OBKRFAcdySrN+pOGn52cFg/cCA/
+         cCP/1aatsQQ5YI+CWjtGpAb3SMoDgn9B88G+8UbxgDw9ysePGZiBWn8RfXezCHofnGgk
+         grpw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:delivered-to;
-        bh=FEQ+MBB6L6OrWlYlFVhxYSqwev3iXcjhKlKj+r7wbXs=;
-        fh=rS7V2DSEK9k/UBcijMAlx6f4Jf/rBARn/SL7RUptQDc=;
-        b=iAjNB+eNQAu1hpeCphYlno30xaBNwttazzNbZ/+v393XuAAiigsGf60Dlj0Uq5uBb1
-         OSVQsZawdRnjYete6ndkF6O0BrYr6KZf/64kTWK2xuYX68d6YFb2h5agbtt+2tZ5yzTa
-         8gAfeC5C06kz7T5GdydVxCXoziq6hG01h7eI1/KUFD1RsGqJ1CzsLuC7Y7vgmF0VzsTM
-         psalrQ2LrOi5jLiavoQrfrhc1ynZqVp0T/ds7KbtX30fhqejG/xN9SD5paptbVbuKt3Y
-         dgCfmIOyEswxoiXIZaDf3a66fFOOBgGKXna/b1rdqk2TgZa7PN4OZN65dUatTzou881V
-         JkNg==
+        bh=p26bFdr1VGAZtaI2t+faPkypRGG4P12b+ksPMdIJpUs=;
+        fh=NExXtP6gscNCFT5r+KZAp3B9XPM8l+2PkkR+9Mq3ZZI=;
+        b=WCxiqcHghJtz0860KbisEcDuNjnUWMOMwuX+K8Wd6GxFUfRA+i7Hip4dGstcqonNap
+         i9SV1Hgon0bGq5+LYF0cA2C1O0anpTsY7SJLTxFfiYEy+nQChFJHsx6eHw7FDPY2URJD
+         dZcP5bdqI0jfVcc+hJHBD6GKAEYEaiqUk2Yv35MQLPifv1Wnxi1/u79SsWClhCSO6HSK
+         o1vl+W24nXp1G5dp6hiLwnbmgm3FjweW7ozn4TRF0SfJPuJ3Tlc9LXG01st8Rn5ZJ2FB
+         HawUpx8m1aDSNdKkKLwB+fXVIGy9n8A6LftRbHgTQ5P3oFYstCemJIyoEDoEjck02yJb
+         ZvaA==
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-1.mimecast.com. [205.139.110.61])
-        by mx.google.com with ESMTPS id fv10-20020a056214240a00b0067a1c7eff32si10279351qvb.119.2023.11.28.13.47.09
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [205.139.110.61])
+        by mx.google.com with ESMTPS id o16-20020ac87c50000000b0042384dc50ecsi11933176qtv.331.2023.11.28.13.49.23
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Nov 2023 13:47:09 -0800 (PST)
+        Tue, 28 Nov 2023 13:49:24 -0800 (PST)
 Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-580-bWgI2nh_NkOHeYd4DB7bgg-1; Tue, 28 Nov 2023 16:47:08 -0500
-X-MC-Unique: bWgI2nh_NkOHeYd4DB7bgg-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+ us-mta-390-ycIwEJF8OXeqw_TKb1kFtQ-1; Tue, 28 Nov 2023 16:49:20 -0500
+X-MC-Unique: ycIwEJF8OXeqw_TKb1kFtQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C95FE185A780
-	for <blinux-list@gapps.redhat.com>; Tue, 28 Nov 2023 21:47:07 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 28AAC101AA6F
+	for <blinux-list@gapps.redhat.com>; Tue, 28 Nov 2023 21:49:19 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id C6AA6492BFC; Tue, 28 Nov 2023 21:47:07 +0000 (UTC)
+	id 257B220268DB; Tue, 28 Nov 2023 21:49:19 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BF620492BFA
-	for <blinux-list@redhat.com>; Tue, 28 Nov 2023 21:47:07 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-1.mimecast.com [205.139.110.61])
+Received: from mimecast-mx02.redhat.com (mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 1D9E420268DC
+	for <blinux-list@redhat.com>; Tue, 28 Nov 2023 21:49:19 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A11A7101A529
-	for <blinux-list@redhat.com>; Tue, 28 Nov 2023 21:47:07 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 01AEC830EA4
+	for <blinux-list@redhat.com>; Tue, 28 Nov 2023 21:49:19 +0000 (UTC)
 Received: from atlas.bondproducts.com
  (23-24-6-165-static.hfc.comcastbusiness.net [23.24.6.165]) by
- relay.mimecast.com with ESMTP id us-mta-438-gjESkog9OFqhdvF5qnqKSQ-1; Tue,
- 28 Nov 2023 16:47:05 -0500
-X-MC-Unique: gjESkog9OFqhdvF5qnqKSQ-1
+ relay.mimecast.com with ESMTP id us-mta-501-RnL7YGL9O2uoxzvxRjLPYQ-1; Tue,
+ 28 Nov 2023 16:49:16 -0500
+X-MC-Unique: RnL7YGL9O2uoxzvxRjLPYQ-1
 Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
-	by atlas.bondproducts.com (Postfix) with ESMTP id 40C7440508;
-	Tue, 28 Nov 2023 16:47:05 -0500 (EST)
+	by atlas.bondproducts.com (Postfix) with ESMTP id AC0D440508;
+	Tue, 28 Nov 2023 16:49:15 -0500 (EST)
 Received: by users.shellworld.net (Postfix, from userid 1005)
-	id ED70A1001B4; Tue, 28 Nov 2023 16:47:04 -0500 (EST)
+	id 715171001B4; Tue, 28 Nov 2023 16:49:15 -0500 (EST)
 Received: from localhost (localhost [127.0.0.1])
-	by users.shellworld.net (Postfix) with ESMTP id ECE8510008B;
-	Tue, 28 Nov 2023 16:47:04 -0500 (EST)
-Date: Tue, 28 Nov 2023 16:47:04 -0500 (EST)
+	by users.shellworld.net (Postfix) with ESMTP id 70E6010008B;
+	Tue, 28 Nov 2023 16:49:15 -0500 (EST)
+Date: Tue, 28 Nov 2023 16:49:15 -0500 (EST)
 From: Karen Lewellen <klewellen@shellworld.net>
-To: Michael Taboada <michael@michaels.world>
-cc: Linux for blind general discussion <blinux-list@redhat.com>, 
-    blind_linux_users <discuss@blvuug.org>
+To: Sandra Snan <sandra.snan@idiomdrottning.org>
+cc: Karl Dahlke <eklhad@comcast.net>, blinux-list@redhat.com, 
+    discuss@blvuug.org
 Subject: Re: Brave, or new browser projects and  the command line?
-In-Reply-To: <ZWZZpkibLrSEpaNp@michaels.world>
-Message-ID: <Pine.LNX.4.64.2311281645460.3701114@users.shellworld.net>
+In-Reply-To: <877cm1pnmo.fsf@ellen.idiomdrottning.org>
+Message-ID: <Pine.LNX.4.64.2311281648410.3701114@users.shellworld.net>
 References: <Pine.LNX.4.64.2311281559340.3700734@users.shellworld.net>
- <ZWZZpkibLrSEpaNp@michaels.world>
+ <20231028162540.eklhad@comcast.net> <877cm1pnmo.fsf@ellen.idiomdrottning.org>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: shellworld.net
 Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
@@ -125,48 +126,20 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Understood,
-any other new current projects with possibilities?
-There was another on their list vigiliti?
-No that is misspelled lol.
+Indeed.
+part of why their team wants to improve the inclusion of web interface 
+options.
 
 
 
-On Tue, 28 Nov 2023, Michael Taboada wrote:
+On Tue, 28 Nov 2023, Sandra Snan wrote:
 
-> Brave is a full gui browser, it's not for the command line. You can grab
-> linux builds, however.
+> Karl, fastmail requires a specific password for each client and you can only 
+> generate those passwords from the web interface.
 >
-> -Michael.
+> Here is more detail:
 >
+> https://providers.delta.chat/fastmail
 >
->
->
->
-> On Tue, Nov 28, 2023 at 04:04:58PM -0500, Karen lewellen wrote:
->> Hi everyone,
->> what is feeding the question is that the development team at fastmail is 
->> rather stunned that they have dropped access so completely.
->> Future testing with lynx, links, and elinks, is  intended, but they 
->> reference a new browser, brave that I  have been asked to  raise here.
->> does it come with Linux builds currently?
->> If not, is there another new browser perhaps blending some JavaScript 
->> elements like elinks, that might be tested?
->> Thanks for your perspective,
->> Karen
->> 
->> 
->> 
->
-> -- 
-> Sorry about the test, it's just a me thing.
-> Michael Taboada, Creator of Games. Does that make me a god, well, sorta.
-> My pgp key: 79BC390E8864CD71305D4DD606CD2197A6EE5ED7
-> My website: https://michaels.world
-> 2MB website: https://2mb.games
-> Don't believe everything you read on the internet. I might not be real, you 
-> might not be real, and this email certainly isn't real.
-> Sent from my vintage...
-> stationary bicycle
 >
 
