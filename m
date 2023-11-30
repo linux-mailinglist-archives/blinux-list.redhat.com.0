@@ -1,138 +1,124 @@
-Return-Path: <blinux-list+bncBDYPVTOXSQEBBDUMUOVQMGQEZ5X4XEI@redhat.com>
+Return-Path: <blinux-list+bncBCVPTHE7K4IPRFFDVMDBUBE643UPW@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com [209.85.160.71])
-	by mail.lfdr.de (Postfix) with ESMTPS id B57127FF833
-	for <lists+blinux-list@lfdr.de>; Thu, 30 Nov 2023 18:27:43 +0100 (CET)
-Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-1f9fcdf9a5asf1609403fac.1
-        for <lists+blinux-list@lfdr.de>; Thu, 30 Nov 2023 09:27:43 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1701365262; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=BEzHtIS10M1Etkr+iRNQUFNUakCw64hEq2hu815GFwFgoa0VNKsEWeIAxiSaD+MUHs
-         Uuko94wlDRZ9PBigCck1R40GcQNlG3Z/fU7gRwTC3Hr7af21UUO7YFaPETLxcstYvEr0
-         aYPR7a3mZtHueji0Sr0cHcKvcMBa2sd1dqp30bX5Uy2QiFlw8qYsOCgQ0cCmwo8LQGGC
-         g9EJWuMGrqQl79piEw+pqdlf+XTVGprqwvSjQrKA3cyA94/tKssKmKvYHkiAO+OaB1WD
-         pZY700iAIYjbdMwxGJeXVZVaXiagws+BuC55Zbj883hUjlQoK5J4OMoLMpZGSyFXVIz/
-         d4oA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:mime-version:references:message-id
-         :in-reply-to:subject:to:from:date:delivered-to;
-        bh=CU12k75KTVJnNFwRl0y4Py6nMv7c9Cdicg/O9k9OF+0=;
-        fh=kmFVvUygEbg3y4v+YLw78QEgTFzMbPk2Zqqx87uTZVc=;
-        b=fpPg9FBo27L8y85sYwoWF/FsHk4sOwpz+HtDyGn1OUgMNDEqRw0jBbwBsirVgGwU2w
-         3i2SiyVzfLIDGsSG6Fnk5S3Am5ZyiFdE8/SIsjvQuLKbg7Zo1SKopCFPLImoH+bUCqfS
-         JYZBWdfHT7NxFe2G1QFf6xmc4iIQLhJZ43/op7DUS/yWfYttfKCqCQqGJunZBfACCyCx
-         fG2F6u/Mp1Lr5wibym4W1gHwk9qjwE92TGwRTNI1sZQ258kR09q03cIyUChZ4E5ICoxd
-         KX5t1zqFlU6xwuabJnCnJRckKqzy0+8FtnADgLm1HKfy6IySXlavLYQcGTufzjbk/U46
-         xTwQ==
-ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mail.lfdr.de (Postfix) with ESMTPS id AB8607FF8AE
+	for <lists+blinux-list@lfdr.de>; Thu, 30 Nov 2023 18:46:33 +0100 (CET)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-423f4652604sf14701471cf.2
+        for <lists+blinux-list@lfdr.de>; Thu, 30 Nov 2023 09:46:33 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701365262; x=1701970062;
+        d=1e100.net; s=20230601; t=1701366392; x=1701971192;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender:mime-version
-         :references:message-id:in-reply-to:subject:to:from:date:delivered-to
-         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CU12k75KTVJnNFwRl0y4Py6nMv7c9Cdicg/O9k9OF+0=;
-        b=VBI0/eQLUyd8i/ZCWpt8PsxgQ0zlgWDGPV4shAV8Bam2U1npABnp7otfS6bqdIpAGZ
-         afHPe5OxVypHuLO7PHEWeqPFRNhMYBJlapwS/WIvhwtodGENXoqaQP6jDs7YO4PjVWgn
-         4h/yJe71Naa62ziDkt32mOtgK60lZxvI2skyJC3eL345Ddjm0lO0wPytUdnGe4ftf4Sq
-         2opKAvmeXiA/oBy+3PMcLyt3idzRwu7aFyQYAhSmaUWQMK1dbA6yFIJGXqkSWE4crsw1
-         KWZVygFHYGwq4KkeaW7njTCmdHi8ala7sixiTkJGBXqLbjj1e1mtua++fpCCNHTggMIO
-         KJRQ==
-X-Gm-Message-State: AOJu0Yy8DAnkVdWMEhFiw2wtzjr9hbPu0IEYKX6j4yyXnysxTM0OaljT
-	Oj0ovxCke2gq1nK+GMmDy+S6ow==
-X-Google-Smtp-Source: AGHT+IEoWQoPR4V7O0VuId9acUr87yT9tb8DbQ+kdlCM8R8X4uDUAx4MUNYOljaxqig8VpxtvddxYg==
-X-Received: by 2002:a05:6871:5d3:b0:1fa:14a3:703 with SMTP id v19-20020a05687105d300b001fa14a30703mr25174631oan.4.1701365262545;
-        Thu, 30 Nov 2023 09:27:42 -0800 (PST)
+         :references:message-id:in-reply-to:subject:cc:to:from:date
+         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gl4LOxh90WJf+yMRbWx7RdkZNN+8NiU8NPB5Y1B8l8w=;
+        b=bhS++EwvJpSkR4u8E3ZW7c/7n8XbQuxSgbmvNYsKJ3QD3iLA9bmcKmaeEGcmPw0jZV
+         Ga9Qw4SUbw2b5crLt+nBGNtM50X8lhIT5dbm/5p/rMU2XHNCNTeDU+MMjq5Ys6O6n8A3
+         cgJiZZNUzDdT4hlWhZlqIkjJVI2YiRdFj5l4ao30fcyDKdX8Was53H+9wCVxayqH4GEn
+         kjOD3gqxYlB4Y6jChKVooDt9eFzMVb9CGYQa3g6+XfEw4QEuD8eH2b7tZHm8M0cgMM9E
+         j9T+pxScGyewEIR5oJpsV/lZ84mjPVeMP1yDDyp86whKPu1KYfFdrTBCmSl9mU3Aze3+
+         fvDw==
+X-Gm-Message-State: AOJu0YzR4DKB7Gsm2gTtjx/oH88sz9ayEhgN1xbMx2nVPJJMgNXwlRig
+	xMC+YRMXIL97G4L6rA8E7Biakg==
+X-Google-Smtp-Source: AGHT+IHfmRxaMDxroDIM2qFOtTEi3+rULBDFcIGd7EA7L5Rtivthla/YqDOe8bKbmnc0VZOE1nWiRA==
+X-Received: by 2002:a05:622a:647:b0:423:9598:1878 with SMTP id a7-20020a05622a064700b0042395981878mr25414321qtb.25.1701366392438;
+        Thu, 30 Nov 2023 09:46:32 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6870:bac7:b0:1fa:2fe5:f5f with SMTP id
- js7-20020a056870bac700b001fa2fe50f5fls384820oab.0.-pod-prod-03-us; Thu, 30
- Nov 2023 09:27:42 -0800 (PST)
-X-Received: by 2002:a05:6808:b0a:b0:3af:8ed3:d7a3 with SMTP id s10-20020a0568080b0a00b003af8ed3d7a3mr195565oij.54.1701365262022;
-        Thu, 30 Nov 2023 09:27:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1701365261; cv=none;
+Received: by 2002:ac8:5bcd:0:b0:423:84c3:cf93 with SMTP id b13-20020ac85bcd000000b0042384c3cf93ls667662qtb.1.-pod-prod-06-us;
+ Thu, 30 Nov 2023 09:46:31 -0800 (PST)
+X-Received: by 2002:a05:620a:6088:b0:77d:6802:8455 with SMTP id dx8-20020a05620a608800b0077d68028455mr26333118qkb.26.1701366391332;
+        Thu, 30 Nov 2023 09:46:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701366391; cv=none;
         d=google.com; s=arc-20160816;
-        b=lqavTfypTiDFPGVURk0m6/3hYDfKgtkxUPuO6vw5esivicMlG3TYakl/FoPW3sUer8
-         egotPLcK5PcHbvVZur1SH6ccjki9zN2VBr6PzyJrAEiaGfly6zVYXU4PeC11hF8C3a+Q
-         SAyuPgPmVEtcRs+sgXe8++QX0glGY38GB+WtSUvTc/6AKNoxb2e+5Bu7UT5bzT74zwCK
-         PEuoJOTbgK7oUvOmD+1jNeFCwnZOCS3alLzkvoa9GxbIr/aYYdR41wlvO/c9zlK60wwZ
-         megmUcatlFnzySbpZAGB5Sq04PMCtp3yFJsN+QHfjm2OhTMn9uMo+tDKjCV51gtNXfeS
-         enLg==
+        b=i7CBKLR1beNVR6YMUb59XHQe63hn9CbM2lScB+4Hfa7C8aVxCKq0WtF8HMuuIgL6Ku
+         OZLaEAw16JZKcnPlL1vMpuzdx3AsVH7XBAMrNl3AlHLdffivsIr83yrtMZvuxw6ICXrz
+         OkQ4/9WJNgIkKgh2LfClacCvlhc5QCJgsoe0LJvctUwt3kcFs60/EgscrYc6OFBZ0dj1
+         FhaIjkh/DoXPPYAqMEFsPGDXr7fh+xKqCJryGBwfog/CCuV+xSNwRYR2FwUIb2LEUx6/
+         eqpkBS6kYBpVV9c4xpaevwnjoOJ0M9UmIWuYs98Q6GjR/7m/hHtceIIin2ENlbeFxSaT
+         F5mg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:message-id:in-reply-to:subject:to:from:date
-         :delivered-to;
-        bh=tDoKyKKvMkXISIQpfJYqm4xTslvwVJPCDwWCl5SzkbQ=;
-        fh=kmFVvUygEbg3y4v+YLw78QEgTFzMbPk2Zqqx87uTZVc=;
-        b=GxGxfZ5JrBHl3CXpg3baBEBJwqjxcKD/L4p7XfCKiW/qsKYXLcTkfo83PlrUykx/fJ
-         TvlePzsNewjAM3p0tvYy9Uu5o4Xm+qYHbQwtUFz1SEeevoGhC0EdDLgmNoSeTQu93T5u
-         /LLxSDTM6feUNceZWtZd9lkxlZI4kk6BJUh8blCeNzOdTcvGQZ4JN9PKES/Km3NQTEdK
-         vbhUj1VjH3c7edYyeQdY8L8E8PG/SDN64eY0GSwn9+VdeJCL3yezhzi75qA7yQNoUhzP
-         d2Z+N+wuvWsyIAR9rwOka9hPXhTIsiNgcKkxwiJ3FqcMh16muea3YBCu8W9SvPstd/BM
-         8edQ==
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:delivered-to;
+        bh=gl4LOxh90WJf+yMRbWx7RdkZNN+8NiU8NPB5Y1B8l8w=;
+        fh=bCabGQs3jn1s0M0qXUniS/CTf8AL/F0wZwsNHkuqrnc=;
+        b=BDxnCydxnQ5QwgTnEngXg2xbzjPGTQPRVuxmpHfu8iEBWFUJYoNB9YohGIgMb9K3TG
+         8F62pO6VwuL/0w+dLQz+69Idma7ih6gb5L9DzJFRaCaorRr3kt2Zh+w7WsGVZZNw8eZs
+         xji/7gO+LYY3oDALwBKZ6x1QQoYbx+R7fSu0Ov1z/rgMqlUenfKS6R7PdabjPCzLw0Gc
+         MYoORMn5uhsDU5DvWbJvr//V4goT26/KfNja326jhgwwQYtowgc+yL5XPIcwtYVnfsdz
+         GfojmUZB0mDeJzfyHFsNsniGhzIVA2E1QtOhjqyNhHDbSxZAxyjlNLZzj+tiqR/g0u8D
+         K+3w==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
-        by mx.google.com with ESMTPS id or18-20020a05620a619200b0077d7b083f62si1451310qkn.655.2023.11.30.09.27.41
+       spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [207.211.31.120])
+        by mx.google.com with ESMTPS id tq21-20020a05620a3d1500b0077dcd3716ffsi1305768qkn.745.2023.11.30.09.46.31
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Nov 2023 09:27:41 -0800 (PST)
-Received-SPF: pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) client-ip=166.84.1.89;
+        Thu, 30 Nov 2023 09:46:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-74-JOP6tc2cOaaeNSLu2N9kvw-1; Thu, 30 Nov 2023 12:27:40 -0500
-X-MC-Unique: JOP6tc2cOaaeNSLu2N9kvw-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+ us-mta-413-GGMr78C5MeOF1iMGIvTlXw-1; Thu, 30 Nov 2023 12:46:29 -0500
+X-MC-Unique: GGMr78C5MeOF1iMGIvTlXw-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B8213185A781
-	for <blinux-list@gapps.redhat.com>; Thu, 30 Nov 2023 17:27:39 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 85B95185A781
+	for <blinux-list@gapps.redhat.com>; Thu, 30 Nov 2023 17:46:29 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id B45F02026D68; Thu, 30 Nov 2023 17:27:39 +0000 (UTC)
+	id 82DA8C15983; Thu, 30 Nov 2023 17:46:29 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id ACE842026D4C
-	for <blinux-list@redhat.com>; Thu, 30 Nov 2023 17:27:39 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [207.211.31.120])
+Received: from mimecast-mx02.redhat.com (mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7C8CBC1596F
+	for <blinux-list@redhat.com>; Thu, 30 Nov 2023 17:46:29 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 90AFA3C00094
-	for <blinux-list@redhat.com>; Thu, 30 Nov 2023 17:27:39 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-433-kP4ihGcmO7aSnrM3titj5Q-1; Thu,
- 30 Nov 2023 12:27:37 -0500
-X-MC-Unique: kP4ihGcmO7aSnrM3titj5Q-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4Sh36d43c5zjtb;
-	Thu, 30 Nov 2023 12:27:37 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4Sh36d3ph8zcbc; Thu, 30 Nov 2023 12:27:37 -0500 (EST)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5CC2688D128
+	for <blinux-list@redhat.com>; Thu, 30 Nov 2023 17:46:29 +0000 (UTC)
+Received: from atlas.bondproducts.com
+ (23-24-6-165-static.hfc.comcastbusiness.net [23.24.6.165]) by
+ relay.mimecast.com with ESMTP id us-mta-690-JdlECbebN9urrLGwtUk9hg-1; Thu,
+ 30 Nov 2023 12:46:27 -0500
+X-MC-Unique: JdlECbebN9urrLGwtUk9hg-1
+Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
+	by atlas.bondproducts.com (Postfix) with ESMTP id 0ABC844FC7;
+	Thu, 30 Nov 2023 12:46:26 -0500 (EST)
+Received: by users.shellworld.net (Postfix, from userid 1005)
+	id BADF51001B6; Thu, 30 Nov 2023 12:46:25 -0500 (EST)
 Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4Sh36d3k8jzcbC;
-	Thu, 30 Nov 2023 12:27:37 -0500 (EST)
-Date: Thu, 30 Nov 2023 12:27:37 -0500
-From: Jude DaShiell <jdashiel@panix.com>
-To: Tim Chase <blinux.list@thechases.com>, blinux-list@redhat.com
-Subject: Re: links the chain stinks!
-In-Reply-To: <ZWi9fsW48rqdh_os@thechases.com>
-Message-ID: <da372ac5-3028-9989-67bb-d85b02070231@panix.com>
-References: <5e6becb6-91ef-aa6b-1a07-af08c37a3f7a@panix.com> <ZWi9fsW48rqdh_os@thechases.com>
+	by users.shellworld.net (Postfix) with ESMTP id B93A6100094;
+	Thu, 30 Nov 2023 12:46:25 -0500 (EST)
+Date: Thu, 30 Nov 2023 12:46:25 -0500 (EST)
+From: Karen Lewellen <klewellen@shellworld.net>
+To: Jude DaShiell <jdashiel@panix.com>
+cc: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: quick links are numbered question?
+In-Reply-To: <5d011372-8b4d-d519-6fc8-f54549926285@panix.com>
+Message-ID: <Pine.LNX.4.64.2311301240060.3728928@users.shellworld.net>
+References: <Pine.LNX.4.64.2311292019330.3718624@users.shellworld.net>
+ <c9277002-d894-203e-511b-952f27c98048@panix.com>
+ <Pine.LNX.4.64.2311292132230.3719449@users.shellworld.net>
+ <7640c72f-2f0b-9f4f-11f4-5d660150b273@panix.com>
+ <Pine.LNX.4.64.2311292213270.3720159@users.shellworld.net>
+ <7634f774-0813-cb35-2519-7ceb2e4216af@panix.com>
+ <Pine.LNX.4.64.2311301103200.3728673@users.shellworld.net>
+ <5d011372-8b4d-d519-6fc8-f54549926285@panix.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.8
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: panix.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jdashiel@panix.com
+X-Mimecast-Originator: shellworld.net
+Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
+X-Original-Sender: klewellen@shellworld.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+ domain of klewellen@shellworld.net designates 23.24.6.165 as permitted
+ sender) smtp.mailfrom=klewellen@shellworld.net
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -144,45 +130,145 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-That works, and I thought I had tried exactly that earlier.
+Jude,
+That is a chime question.
+My only direct access to e-links is via shellworld.  Links are already 
+numbered here.
+the wisdom around links the chain was perfect, there is a DOS build of 
+Links  the chain with JavaScript that I use on my desktop, now it has 
+numbered links.
+The one thing I truly wish though?
+is that there was a way to get links the chain to speak better.
+when I ssh to shellworld or dreamhost using links the chain here, 
+everything speaks just fine.
+I am unsure if there is an option that leads to this,  but if there is a 
+write to bios one or something it would be wonderful.
+as it is I must use the speak full window, or go into review mode, or read 
+by line for  speech when using my DOS build of links the chain on my 
+desktop.
+Its a shame too because the links build with JavaScript actually works in 
+rather a few places.
+Kare
 
 
---
- Jude <jdashiel at panix dot com>
- "There are four boxes to be used in defense of liberty:
- soap, ballot, jury, and ammo.
- Please use in that order."
- Ed Howdershelt 1940.
 
-On Thu, 30 Nov 2023, Tim Chase wrote:
+On Thu, 30 Nov 2023, Jude DaShiell wrote:
 
-> I think you have to follow it with a 0/1 to disable/enable it.  So the following worked for me:
->
->   $ links -html-numbered-links 1 duckduckgo.com
->
-> -tim
+> Is it only numbered links you need when working with elinks?  If you need
+> more options than that, let me know.
 >
 >
-> On 2023-11-30 11:35, Jude DaShiell wrote:
-> > the -html-numbered-links option on a command line does not work no matter
-> > how it is entered.  The documentation is vaporware.
-> >
-> >
-> > --
-> >  Jude <jdashiel at panix dot com>
-> >  "There are four boxes to be used in defense of liberty:
-> >  soap, ballot, jury, and ammo.
-> >  Please use in that order."
-> >  Ed Howdershelt 1940.
-> >
-> > --
-> > You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-> > To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
-> >
+> --
+> Jude <jdashiel at panix dot com>
+> "There are four boxes to be used in defense of liberty:
+> soap, ballot, jury, and ammo.
+> Please use in that order."
+> Ed Howdershelt 1940.
 >
+> On Thu, 30 Nov 2023, Karen Lewellen wrote:
 >
-
--- 
-You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+>> Jude,
+>> I dare say this applies only to a personal build?
+>> Speaking personally, I am not a programmer, and the script concept seems more
+>> trouble then simply reaching the menu bar, but that is  just me.
+>> Kare
+>>
+>>
+>>
+>> On Thu, 30 Nov 2023, Jude DaShiell wrote:
+>>
+>>> With these browsers a command like:
+>>> elinks --help|less
+>>> makes the command options come up at a more reasonable pace and it's
+>>> possible to write a script like mylinks.sh that starts the browser has all
+>>> your favorite command line options on the same line and ends with $1 which
+>>> takes an url if you type
+>>> mylinks <url>
+>>> later once you make the script executable.
+>>> If you figure out you need more command line options and you know what
+>>> those options are, edit the mylinks script again and you don't need to
+>>> mess with menus any longer.
+>>>
+>>>
+>>> --
+>>> Jude <jdashiel at panix dot com>
+>>> "There are four boxes to be used in defense of liberty:
+>>> soap, ballot, jury, and ammo.
+>>> Please use in that order."
+>>> Ed Howdershelt 1940.
+>>>
+>>> On Wed, 29 Nov 2023, Karen Lewellen wrote:
+>>>
+>>>> And Jude provides the command line option.
+>>>> Thanks.
+>>>>
+>>>>
+>>>>
+>>>> On Wed, 29 Nov 2023, Jude DaShiell wrote:
+>>>>
+>>>>> links -html-numbered-links=1 should do that for you.
+>>>>>
+>>>>>
+>>>>> --
+>>>>> Jude <jdashiel at panix dot com>
+>>>>> "There are four boxes to be used in defense of liberty:
+>>>>> soap, ballot, jury, and ammo.
+>>>>> Please use in that order."
+>>>>> Ed Howdershelt 1940.
+>>>>>
+>>>>> On Wed, 29 Nov 2023, Karen Lewellen wrote:
+>>>>>
+>>>>>> I did say links the chain, you are thinking of l y n x which is not the
+>>>>>> same
+>>>>>> browser.
+>>>>>>
+>>>>>>
+>>>>>>
+>>>>>> On Wed, 29 Nov 2023, Jude DaShiell wrote:
+>>>>>>
+>>>>>>> There is no keystroke for that.  You can turn that on in options or
+>>>>>>> start
+>>>>>>> lynx with lynx -number_fields.
+>>>>>>>
+>>>>>>>
+>>>>>>> --
+>>>>>>> Jude <jdashiel at panix dot com>
+>>>>>>> "There are four boxes to be used in defense of liberty:
+>>>>>>> soap, ballot, jury, and ammo.
+>>>>>>> Please use in that order."
+>>>>>>> Ed Howdershelt 1940.
+>>>>>>>
+>>>>>>> On Wed, 29 Nov 2023, Karen Lewellen wrote:
+>>>>>>>
+>>>>>>>> Hi folks,
+>>>>>>>> for those using links the chain, there is a command line option that
+>>>>>>>> turns
+>>>>>>>> on
+>>>>>>>> links are numbered.
+>>>>>>>> Can someone remind me of the keystroke?
+>>>>>>>> Thanks,
+>>>>>>>> Karen
+>>>>>>>>
+>>>>>>>>
+>>>>>>>>
+>>>>>>>>
+>>>>>>>
+>>>>>>> --
+>>>>>>> You received this message because you are subscribed to the Google
+>>>>>>> Groups
+>>>>>>> "blinux-list@redhat.com" group.
+>>>>>>> To unsubscribe from this group and stop receiving emails from it, send
+>>>>>>> an
+>>>>>>> email to blinux-list+unsubscribe@redhat.com.
+>>>>>>>
+>>>>>>>
+>>>>>>
+>>>>>>
+>>>>>
+>>>>
+>>>
+>>
+>>
+>>
+>
 
