@@ -1,142 +1,145 @@
-Return-Path: <blinux-list+bncBCFIHJ744YGRBDE7UOVQMGQEACFPQDQ@redhat.com>
+Return-Path: <blinux-list+bncBDP7P6HU4IERBO6GWOVQMGQE3PISBHA@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com [209.85.128.200])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6A7A17FF90C
-	for <lists+blinux-list@lfdr.de>; Thu, 30 Nov 2023 19:08:14 +0100 (CET)
-Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-5d336b082f0sf17140957b3.1
-        for <lists+blinux-list@lfdr.de>; Thu, 30 Nov 2023 10:08:14 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1701367693; cv=pass;
+Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com [209.85.161.72])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2212B80273A
+	for <lists+blinux-list@lfdr.de>; Sun,  3 Dec 2023 21:21:17 +0100 (CET)
+Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-58d5bb052dfsf5050298eaf.3
+        for <lists+blinux-list@lfdr.de>; Sun, 03 Dec 2023 12:21:17 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1701634876; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sG6/1YFQR9zBAkyI8ObKnTwwQ76PvJUCJKegsipISm4FGJPX68m1rrBFKCsLUiAVgI
-         JeKKT9ozSIVnTPzySFuc3fe68T8YSQrRajTDaIesG7zkIoM32GkIbrZkqBEZkhyVdhRS
-         TDy86CKdWC7TMCCmG4txpPbQ8aHNRKPIChVmnIo30AoHXdCLDL+uakM8K0aBlmvXn4yz
-         VRkjB1rIAu5KCHssXKf0vDN9syhHaE7xbeXMw6g2eG47ScUP/MYsPcheMHMWf2HSUAie
-         Zva/w1YgyJ7T4WdgJqU1B7EKG58NFS1t0NqFHruOqf+4QwjJY4jdZrTpQWUx0jhUGbRT
-         yaQw==
+        b=WMclt/3Nc9hSs0aZ5vmoAsINX9AcFm58XZl8qJ9C6sOQ1V9PAFnpDFTQ0EPx2YBjtw
+         HvtQR9qnPTLJ3a+gmE4nrR646JqlvlzwX3j7DYT0IUw/4AG+PdlP4nI2SDiYIPjk6WpY
+         FG2okzWa3pSO47JmTLOnM2W+5UTDsWIlKqIlzvLa6VBk1fSMaY+QzIORoo9HjwmULT90
+         eoeoYKIzwLQaLz2qaFeQFbEQY1RT6zQj+OEYIPV5JDymm1ZdgW00xDKhZohcf6UsuwiO
+         f7M97EFSYzTb5UtoTd1KA/XTJ/yO616fozA+rveW8lwyaLZ+3m7mjKX0r4eGeObRpBnq
+         oagA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-disposition:in-reply-to
-         :mime-version:references:mail-followup-to:message-id:subject:to:from
-         :date:delivered-to;
-        bh=rkOeoVnPUqVpec8rw85W5BFCQGd0gJ0qmYy1GMZYuc0=;
+         :mailing-list:precedence:content-id:message-id:date:mime-version
+         :subject:to:from:delivered-to;
+        bh=vYhXR7YIdLJLBRDZl7Zu9ZZFlSJYDR5OLxtKh3BNjCc=;
         fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=ftSaxzlMWi/p9GDb4aP/fxqLI/aAnlvWb+vSho1xOA0t/j+ydXjj2CLSmHsx4TheXV
-         nxc9MaD5j7auaufkG/b2grnhNXT/UIz554GO7MA0mu740olTNXKc8HXH9bNtojyTAaBN
-         ThpmalbkpToTvZyKFZ35Wdtre6AWIWI+u8vLwtNZ6TB5szuTnG58LfZ/FyFexa1gL5+O
-         VdvbNQj4N8zIOrEVGFQTjclBsse8tLxJkdF6KKXqnKKnBeETJ6HyWWBQLodHbYn+JUfi
-         i6FVkJyj0oQZnT5nCcGtlk7AlOIUzH3vusj7r8+M7+QnAXGSSM86XUmBtCOcjtQXPxPo
-         ZIgg==
+        b=zE8PQ3IwVLch7FmH9X6PDgwZ+ymzhURSySTOS1UcFW6fxbRVx5mjeDVfoUU0mrwtdi
+         xA5GH0WytFtk8oEZDMzIGe64cGx/su1HUf2JODYXA1OURzNOTLP59prissQTqC8zMGcJ
+         O2DzWn7lH0VnNt/x33irgwLGCKDCXZz84lIt2cCNdA/paMMy+RqJNB29THrYWnzC3YTc
+         jhkkLiX/BraVtBlw+scUuWa+82KMX8ZHBrlKIWeqMyXRZiTJ9iwfi11KRd2T7NjUmhH1
+         8nwYQZleQTpZzBu1awYkUXYKAHUO+OClFM+kSH+R46hefqobdaCEezIzUvXgfXnoelqQ
+         DA8w==
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) smtp.mailfrom=blinux.list@thechases.com
+       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.40 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701367693; x=1701972493;
+        d=1e100.net; s=20230601; t=1701634876; x=1702239676;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender
-         :content-disposition:in-reply-to:mime-version:references
-         :mail-followup-to:message-id:subject:to:from:date:delivered-to
+         :x-original-authentication-results:x-original-sender:content-id
+         :message-id:date:mime-version:subject:to:from:delivered-to
          :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rkOeoVnPUqVpec8rw85W5BFCQGd0gJ0qmYy1GMZYuc0=;
-        b=Z+Wtv5KsS8CHsRefWoyQOWc+oO28yQENbw1qhfupeU5zSqsNV3QbGXqNDOyyzaW8V4
-         J+T3uk+Hc6CsNhwUsE1wW/WDcnSkXBDSsUjhpnHUHTFs4ueFCfucYvvhBz8/eeLiyJm/
-         JDxeobxUbeowiTHW3SPOmOrEW0aa8dm0qs/GDohLGFGVGhw7RSb/IyUP7+xvYlOhnqnH
-         oznkQs1S0Ya/yTJz4USZySUB/UFNsiGF1ZE9PFa3Z8vlWw+fbATtghuHMfjkcugyZSog
-         sqDhY7R3isS+6MrpI9W4whdAPQUb+FIt0FSeJ3UADDJi1ee5Au8/jKHLze3NpyCnH6ub
-         ScFw==
-X-Gm-Message-State: AOJu0Yzzs65gJox2xQ9GNaCwXFe0ic+R2p45E1qFA+0qBFhxtGhWA0Sk
-	4WvgUFDw3/fNDiFrg2afv87Okg==
-X-Google-Smtp-Source: AGHT+IHob9iBoGGmidwRpK5f2QNmhrin93yISg7FQ9QfEk4qnVanEKrtBI0jBQ4lVmm/12u5thYeZA==
-X-Received: by 2002:a5b:20c:0:b0:daf:b23c:8619 with SMTP id z12-20020a5b020c000000b00dafb23c8619mr21190896ybl.51.1701367692815;
-        Thu, 30 Nov 2023 10:08:12 -0800 (PST)
+        bh=vYhXR7YIdLJLBRDZl7Zu9ZZFlSJYDR5OLxtKh3BNjCc=;
+        b=mHvWrmp9lwq0dLWZypL8QdMbCsuu5s9El2tH/hO52LvtyEZrRe+KWDsEefdduIaagW
+         vY0umNfRx+RTUnbdudpQXnQHSkCSYi0uOotntHfLItWODBdul43mIZXftgROadTg9dsx
+         ymk5cqmi4yT9dK0EUX0tMSXy4LyJUSzUp0zoWg+1GWz/8gLG7ancdoM3Ael2YI+i2S+w
+         tnf6I/ImNaF6dHwOWA1SJuzjI4q9LPJq/+5cOKTGEcv++bh4hNZ6+mrb6970O9NBsDOD
+         O2GL+0ToAIFXGUObIkVgZ7TRAzBk8BsTZScxg1x1bk5RWgd3AHqmVYttArCGwB3m7VsN
+         mASw==
+X-Gm-Message-State: AOJu0YypnlaJU7aNTDjSY2YH/dtwh+gH9EYQRe5V9dm2NsfuesUHPibs
+	3Y2gw+eNPDNU2yIRwWFCdd4rpw==
+X-Google-Smtp-Source: AGHT+IFMpSvBurXq9VIUIBzpgp2yAt2q49HLa5HsP6FPikFZmgSGkjEEzMfCFAq88SNHsGuQWwoBJg==
+X-Received: by 2002:a4a:c289:0:b0:58e:1c48:39ac with SMTP id b9-20020a4ac289000000b0058e1c4839acmr3431855ooq.18.1701634875717;
+        Sun, 03 Dec 2023 12:21:15 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a25:d1d7:0:b0:da0:cfa1:5bbc with SMTP id i206-20020a25d1d7000000b00da0cfa15bbcls1636231ybg.1.-pod-prod-08-us;
- Thu, 30 Nov 2023 10:08:12 -0800 (PST)
-X-Received: by 2002:a25:3447:0:b0:db5:395c:c84c with SMTP id b68-20020a253447000000b00db5395cc84cmr3049362yba.46.1701367691841;
-        Thu, 30 Nov 2023 10:08:11 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1701367691; cv=none;
+Received: by 2002:a05:6820:1c94:b0:581:f8a9:54e4 with SMTP id
+ ct20-20020a0568201c9400b00581f8a954e4ls4860962oob.0.-pod-prod-08-us; Sun, 03
+ Dec 2023 12:21:14 -0800 (PST)
+X-Received: by 2002:a05:6830:3b84:b0:6d8:8077:8017 with SMTP id dm4-20020a0568303b8400b006d880778017mr2351123otb.4.1701634874731;
+        Sun, 03 Dec 2023 12:21:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701634874; cv=none;
         d=google.com; s=arc-20160816;
-        b=hzCDzqjA0o9eZNBEds13EtwKcokJZE4CTjoaLYR9N6Tf4GQZbIYLKi1+8jzA57gpgU
-         KjPWX+z30nvzGKlbjuPZV4TQy7367WdUmkec2qc0njS2pohjx2KXjlJAuGmRC3CjRkp/
-         aOKoi77HChUZSpjM44qUamfAxwmPIeYJHBxWbZmOxWqtwyC/2idjeuShVHUWO3/Y27cP
-         5GcBu8/+Yb1PiCmVIqAlmyVsjVNK2Buqq7c7qK9vh01M3tvS+i6IyPKY6pOG0VoLSo0n
-         lHdYV+C7b/NvKTs5yXRstzkcjz6ay8vhJt5AECdTxnR38ETZ7hG97TcGOAsM27YvGMZd
-         RIVg==
+        b=M18jwvZ6awuVF5/CtptouBlSND6nh5SS5XRp6uXr3behy91XAkD9dZYTYiZ2Urm7Bm
+         lTbnZITIk85Y78Z7hhQXG3Q84V5GJl6t/yanGe0ijVnVQgts6JKoEWSctiuDpaZS2tvn
+         1NVQ8vzL12Q6m6B33Ev6TsCwq1nlmjobC6XZBNcr0y99HX1yG64xXSvwZ16qiiacaq+i
+         a8Poy2yQk673vQ4HhRokETrXugH0HKONBOJL0Z8T3OlkBFG+DZQYO52QFwzYKrSmSAG8
+         AjKiSLfO7oHCJUA8NoUC/yV1qJrL1VDP8ncs31ASrYBUn2ChpPMbMP9863uxwG+I38jh
+         Vr3Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:in-reply-to:mime-version:references
-         :mail-followup-to:message-id:subject:to:from:date:delivered-to;
-        bh=SJ+shGoWbqWAkQvBHYAWp8ZJqtP5/H2vrfZrVSiMYxY=;
+        h=content-transfer-encoding:content-id:message-id:date:mime-version
+         :subject:to:from:delivered-to;
+        bh=ppkbCSBCsB/nNhbKKD5hnf0PvyUn5zJEQ1RciQlMnD8=;
         fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=EkeGYSlRx4UbrOMCCjPjnd9DrUv8OuD2aFfNVlUxE1vQsUbpOnieItlwglfkioRZJI
-         1w5nHigvvd42R3z0OTUJbsXW+gbUhCR1WEcShaCnkUZySXq6cqHyWc9ZCYmYAgkoUHDb
-         37C0vFZY1Q8N5xdKBu6dsxKboJ83sYQNuh+LriVsjb64AH8WWy49iS7/8+Olm6Eg42Mg
-         giFgwnGtJj6KS94jkkUDOQFgPCjf90OCILtsxmOnHJeEnmMUNL7FsnoZJNIvAcQ7H/E6
-         U+VxpK1KanRb8mdVe49BbxXrMWzaeVKVE6qQgim85rY7dJuQ+kbhhcDHsdNqng7jTF4X
-         9m5A==
+        b=m0yyueXDQGdgMSJ2Yj39WcTa9Px3Rqdt/F4ad+1mBAXITf0u6CEb7+BlCbQ6pvRzm/
+         s0V5OolMowSA2WEFookrNo5pif/ou1gFh71jyYVf+6W2hDjQZ89IPK6mFaojIZiaXrp8
+         DhXwRY5JibYcDCqRhcYp37YAgLCteeCOuU6jfT2eoEq7MLDM+1Z+a8Ea3Uo433iStWs/
+         cj5N8m/a8rwaKqKD+iRXq/AGzeRSwPXuEqsceNpRSwamIYVkAUlwztVLAmHabw559cz4
+         /sgLBn5u7YlmA2T4vVljf9AtHqfMcEvkjEfmwx3Ss4yRTHT3kCYQH3ajt5WLOIk0JQky
+         JsTw==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) smtp.mailfrom=blinux.list@thechases.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [207.211.31.120])
-        by mx.google.com with ESMTPS id t31-20020a252d1f000000b00da05787ef25si912782ybt.689.2023.11.30.10.08.11
+       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.40 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
+        by mx.google.com with ESMTPS id fy12-20020a05622a5a0c00b004238b1500easi8577985qtb.603.2023.12.03.12.21.14
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Nov 2023 10:08:11 -0800 (PST)
-Received-SPF: pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) client-ip=54.39.151.74;
+        Sun, 03 Dec 2023 12:21:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.40 as permitted sender) client-ip=65.20.63.40;
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-247-FSFiEDKNNze7wBKuXUlaEw-1; Thu, 30 Nov 2023 13:08:09 -0500
-X-MC-Unique: FSFiEDKNNze7wBKuXUlaEw-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+ us-mta-537-A87gFz-tPLiZFA-BJaqBdQ-1; Sun, 03 Dec 2023 15:21:13 -0500
+X-MC-Unique: A87gFz-tPLiZFA-BJaqBdQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 55E4989F9E0
-	for <blinux-list@gapps.redhat.com>; Thu, 30 Nov 2023 18:08:09 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 440B685A58A
+	for <blinux-list@gapps.redhat.com>; Sun,  3 Dec 2023 20:21:13 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id 5256640C6EBA; Thu, 30 Nov 2023 18:08:09 +0000 (UTC)
+	id 413202026D68; Sun,  3 Dec 2023 20:21:13 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast03.extmail.prod.ext.rdu2.redhat.com [10.11.55.19])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4B97640C6EB9
-	for <blinux-list@redhat.com>; Thu, 30 Nov 2023 18:08:09 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+Received: from mimecast-mx02.redhat.com (mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 398FA2026D4C
+	for <blinux-list@redhat.com>; Sun,  3 Dec 2023 20:21:13 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 30271811E7E
-	for <blinux-list@redhat.com>; Thu, 30 Nov 2023 18:08:09 +0000 (UTC)
-Received: from thechases.com (thechases.com [54.39.151.74]) by
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 19D9F821981
+	for <blinux-list@redhat.com>; Sun,  3 Dec 2023 20:21:13 +0000 (UTC)
+Received: from altprdrgo06.altice.prod.msg.synchronoss.net
+ (altprdrgo06.altice.prod.msg.synchronoss.net [65.20.63.40]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-696-dp57tPgdP9-HNj14Rfo8Yg-1; Thu,
- 30 Nov 2023 13:08:04 -0500
-X-MC-Unique: dp57tPgdP9-HNj14Rfo8Yg-1
-Received: from localhost (thechases.com [local])
-	by thechases.com (OpenSMTPD) with ESMTPA id 81be2bfe
-	for <blinux-list@redhat.com>;
-	Thu, 30 Nov 2023 18:08:03 +0000 (UTC)
-Date: Thu, 30 Nov 2023 12:08:03 -0600
-From: Tim Chase <blinux.list@thechases.com>
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-679-DcpIYCRqPXO1DIQYDvrwcQ-1; Sun,
+ 03 Dec 2023 15:21:10 -0500
+X-MC-Unique: DcpIYCRqPXO1DIQYDvrwcQ-1
+X-RG-VS-CS: clean
+X-RG-VS-SC: 0
+X-RG-VS: Clean
+X-Originating-IP: [47.217.109.117]
+X-RG-Env-Sender: martin.m@suddenlink.net
+X-RG-Rigid: 655881A00233B6F4
+X-RazorGate-Vade: gggruggvucftvghtrhhoucdtuddrgedvkedrudejgedgudefiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucetnffvkfevgfgfufdpggftfghnshhusghstghrihgsvgdpqfgfvfenuceurghilhhouhhtmecufedttdenucenucfjughrpefhvffugggtgfesthhqtddttddtvdenucfhrhhomhepfdforghrthhinhcuofgtvehorhhmihgtkhdfuceomhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvtheqnecuggftrfgrthhtvghrnheplefgveegveevhfdufeefffeuvdduleduffekgedtieejheffffefveetieekffeknecukfhppeegjedrvddujedruddtledruddujeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhephhgvlhhopeifsgehrghgiidpihhnvghtpeegjedrvddujedruddtledruddujedpmhgrihhlfhhrohhmpehmrghrthhinhdrmhesshhuugguvghnlhhinhhkrdhnvghtpdhnsggprhgtphhtthhopedupdhrtghpthhtohepsghlihhnuhigqdhlihhsthesrhgvughhrghtrdgtohhmpdgruhhthhgpuhhsvghrpehmrghrthhinhdrmhesshhuugguvghnlhhinhhkrdhnvghtpdhgvghokffrpegfufdpoffvtefjohhstheprghlthhprhgurhhgohdtie
+X-RazorGate-Vade-Verdict: clean 0
+X-RazorGate-Vade-Classification: clean
+Received: from wb5agz (47.217.109.117) by altprdrgo06.altice.prod.msg.synchronoss.net (5.8.812) (authenticated as martin.m@suddenlink.net)
+        id 655881A00233B6F4 for blinux-list@redhat.com; Sun, 3 Dec 2023 15:21:10 -0500
+Received: from martin by wb5agz with local (Exim 4.94.2)
+	(envelope-from <martin.m@suddenlink.net>)
+	id 1r9sxc-00D01F-D5
+	for blinux-list@redhat.com; Sun, 03 Dec 2023 14:21:04 -0600
+From: "Martin McCormick" <martin.m@suddenlink.net>
 To: blinux-list@redhat.com
-Subject: Re: links the chain stinks!
-Message-ID: <ZWjPg-tVZIb01DTx@thechases.com>
-Mail-Followup-To: blinux-list@redhat.com
-References: <5e6becb6-91ef-aa6b-1a07-af08c37a3f7a@panix.com>
- <ZWi9fsW48rqdh_os@thechases.com>
- <4c9524e6-3b94-f825-6fdb-bdb2997e5bb4@hubert-humphrey.com>
- <ZWjLX2UX4dsyL1C-@thechases.com>
- <Pine.LNX.4.64.2311301258100.3728928@users.shellworld.net>
+Subject: Alsa-compliant Sound Programs
 MIME-Version: 1.0
-In-Reply-To: <Pine.LNX.4.64.2311301258100.3728928@users.shellworld.net>
+Date: Sun, 03 Dec 2023 14:21:04 -0600
+Message-Id: <E1r9sxc-00D01F-D5@wb5agz>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.2
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: thechases.com
+X-Mimecast-Originator: suddenlink.net
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-X-Original-Sender: blinux.list@thechases.com
+Content-ID: <3098339.1701634864.1@wb5agz.lan>
+X-Original-Sender: martin.m@suddenlink.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of blinux.list@thechases.com designates 54.39.151.74 as permitted
- sender) smtp.mailfrom=blinux.list@thechases.com
+ domain of martin.m@suddenlink.net designates 65.20.63.40 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -148,51 +151,82 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-I use the slash key to find too, but often I find the "next/previous
-link/form-control" navigation useful.
+I have written some sound recording programs in c, gcc to be
+exact, and I want to modernize them to take advantage of the
+better capabilities provided by alsa than one gets using the
+older oss or Open Sound System API of days gone bye.
 
-As one who touch-types, I'd prefer to keep my hands on the home-row,
-and using tab (or occasionally shift+tab) let me do that.  Even
-better, the "j" and "k" VI keys let me do that in lynx-the-cat when
-I have VI keys enabled.  But as far as I can tell, links-the-chain
-doesn't offer either.  So to navigate that next/previous, I have
-to move my hands from the home row over to the arrow key-cluster.
+	If one searches on the web for examples, there are
+several bits of sample code that use alsa functions rather than
+/dev/dsp-based activity which the oss apps used.
 
--tim
+	Every one I have tried fails in exactly the same way to
+compile.
 
+	For those who don't write your own programs, this
+messagecan be skipped but I am hoping somebody can suggest what I
+might be doing wrong since all samples reference snd_pcm
+functions such as snd_pcm_open, etc.  All need a specific alsa
+library called with
+#include <alsa/asoundlib.h>
 
+	That library is on the Raspberry pI and the desktop
+systems I have tried these sample code blocks on.
 
-On 2023-11-30 13:00, Karen Lewellen wrote:
-> Not sure what the goal would be.
-> if I want to find something I use the slash find  feature.  takes me where I
-> wish to go on a page.
-> i do not believe I have ever used tab or shift tab to navigate anywhere.
-> 
-> 
-> 
-> On Thu, 30 Nov 2023, Tim Chase wrote:
-> 
-> >I wish I knew how to make Tab & shift+Tab work like in other browsers.  The up/down arrows navigate the links/fields, but I wish I could either use tab or the VI keys (j & k) to navigate.  Ah, well.
-> >
-> >-tim
-> >
-> >
-> >On 2023-11-30 09:07, Chime Hart wrote:
-> >>Well, thank you Tim, that works, and it seems to stay, but now can I make
-> >>the tab work like in other browsers-and-platforms? Thanks in advance
-> >>Chime
-> >>
-> >>--
-> >>You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-> >>To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
-> >>
-> >
-> >-- 
-> >You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-> >To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
-> >
-> >
-> 
+	Both the Raspberry pI and the HP work station that uses
+the AMD64 processor appear to be working normally but when I try
+to compile anybody's test code, I always get errors like the
+following:
+
+/usr/bin/ld: /tmp/ccTjr3cU.o: in function `main':
+tester.c:(.text+0x3c): undefined reference to `snd_pcm_stream_name'
+/usr/bin/ld: tester.c:(.text+0x79): undefined reference to `snd_pcm_access_name'
+
+	This means that gcc can't find any of those missing
+functions.  There were several more lines, all referring to
+snd_pcm_ calls but you get the idea.  Any snd_pcm_call produces a
+squawk like the 2 I just showed.
+
+	The author of the sample says:
+
+   line. Some ALSA library functions use the dlopen function and
+   floating-point operations, so you also may need to add -ldl and -lm.
+
+	I ended up with the command
+
+gcc -lasound -ldl -lm tester.c
+	Which changed nothing and produced exactly the same
+complaints.
+
+	So, has anybody running debian bullseye on a Raspberry pI
+or the same on a 64-bit desktop gotten alsa code to compile?
+
+	I have looked for -dev versions of alsa libraries which
+are the ones you want if you are programming and there are a
+bunch but none of them touches those errors or I wouldn't be
+posting this question to this and one other group.
+
+	The alsa libraries allow one to more easily setup a sound
+card to provide digital audio in several formats with several
+sample rates that some sound cards won't give you in Linux either
+because of hardware limitations or the fact that the Linux driver
+is not fully compatible with the sound card.
+	
+The older sound programs I wrote let a PC or Raspberry pI store
+audio from a police scanner or short wave radio on to a file and
+only record when there is sound.  They are always recording but
+the recording app sees silence on the line so just throws those
+samples away.  A very small buffer keeps the last fraction of a
+second of silence before the sound started in order not to clip
+it off.
+
+	I'll keep much of the old program but use the alsa
+routines to feed the audio in instead of /dev/dspx where x is the
+sound card in question.
+
+Thanks
+
+Martin McCormick
 
 -- 
 You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
