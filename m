@@ -1,175 +1,149 @@
-Return-Path: <blinux-list+bncBCLPHQH4XEIRB7UJWSVQMGQEH54C6EA@redhat.com>
+Return-Path: <blinux-list+bncBDP7P6HU4IERBWV6XCVQMGQESVC6LDI@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6201480287F
-	for <lists+blinux-list@lfdr.de>; Sun,  3 Dec 2023 23:45:20 +0100 (CET)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-67a94e16c21sf41406696d6.1
-        for <lists+blinux-list@lfdr.de>; Sun, 03 Dec 2023 14:45:20 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1701643519; cv=pass;
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mail.lfdr.de (Postfix) with ESMTPS id D3AEE803D70
+	for <lists+blinux-list@lfdr.de>; Mon,  4 Dec 2023 19:50:03 +0100 (CET)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-423950ce84asf66557181cf.0
+        for <lists+blinux-list@lfdr.de>; Mon, 04 Dec 2023 10:50:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1701715802; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qrGkyKiM7uPUlL0W/u0ukQq+0fUg6wv4gJ/SZJNy1PnLgpn4WUbbUoYCVHAsWSyFaN
-         lNNaB/jYSRX4LiR5EiCpxYNfqfraAisIq9y2Z56JYJSquCbSubU78mRheoGtxbPbGn0D
-         yfLmMCFc34y0SpgWOVO44SxheQ2QJsFZ7moyBsUAkT7L4gjJRc3pOrFQYyR1BAP9CLpO
-         LRTaxWfQhwZ6j5rcqVPy7U7Vr0KjBYH4HAzHZQLfoBYHUyZIffzG2fyecxJn1NocyWwC
-         lojsCrxhFN/5eR8lvn6S+/iu5lsPGHHp4l5hm/VKo4xIb3zdXO5Ko7Wj9CybAaUB0Qwk
-         5P9A==
+        b=ynxq66s/17kJNPd/IW7nIzrUqOCs/zHLd1NLK9FnpcubeBAYulsa1WdP1eWg14qNdO
+         xR+1vsiCsSX290WDl6J0lt+bli+/7VDiT/qGZcdV1V2IbbWbDh5ifiZvWLm/SAPOHVZz
+         bOUBvRe9yRo3iUW783ZQOKe70gqYHl+wMXoCemZHILx07K+AsfzospnifBzcj5by10Jg
+         RxRsWDFC18EC1/fJgtNfE59BB7a0ycGYCYDUhCT1sCuPLpd29J4lUDvJkOfWpBaDOWC1
+         ccyOOTgxsq/ATI72lsBCgGSiLG3a+pM+eDB753yVN9PzmI6t5iDmms0NAgixK3s7QjXO
+         OspQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:reply-to:content-language:in-reply-to
-         :autocrypt:from:references:to:subject:user-agent:mime-version:date
-         :message-id:delivered-to;
-        bh=+FNvGb6DRvE8BMFIBsKWgVVHEUTBP1qbvDazDZZryuE=;
-        fh=cmfAmPUxkdlE6k/8QawyoJ+RfGTR602B939b2oWmPxM=;
-        b=jKYGW/w1aelhf3K2OPN81Fzs7b3DRcsHiRG/lyjc2beylmfHvtqJeo6yuh77BP1You
-         xx8oAzh5bAIPOUDKUHM2YAj4sLyb1LnA26TgBbPr+NyuEUrdAzrGu4MAHAKOnJZkikTG
-         f4jcwOJMEsrnBRXIuKzWNiu/eK1yS047DV5p8uAE5NG/0endO7nUfgJsWV9sPq6e8ShS
-         7XxTioEyHOWmUCUnC8mDOaxajKXMwpUQbp2CuZzZRe7uTFBqZWORQkm5Ts0vdpArmgKX
-         ao7Sq0eOEeg86MQoXIEkxRXe9wiL+J+C04g60nAC4NggUJdME1JbOtkBTNo6NVZHC5XX
-         MDaA==
+         :mailing-list:precedence:content-id:message-id:date:mime-version
+         :comments:references:in-reply-to:subject:cc:to:from:delivered-to;
+        bh=M3DnnufOucR75iJRW2AUWULs2SVnf/F5y3aW3FoAi1I=;
+        fh=K9KbUIAdR2VBm2UkIEKsRFlcsRMjWRpjSALH8MBk7H0=;
+        b=iu4YsxZw+08nzArZJ8sQOhEphBygeHnHmRmodh3iW9HDQyeHoGYFUYmHv2yedTeYJK
+         XUdMvyKcPwMqzkib36iwGibTWbcPP7LCDC5rtX5e4stm+gI0jfI2oyTHn9Yl99zhVBld
+         nrEy6V2MmTBkibQaSC5bKDsLJnEr4xTHXhO31D8lvg/mph3gbwz/Dw21SFWd4XdtK43F
+         ZW9IbxyuARVAHTqb60HgSyQcdyrpgUxMlN+6eSs0qcoElHts9mB7FG/0QByYzCLuyo+h
+         LcXlJDXD2rwOwT6ZpE3EmZUZpSiX8SquR2w1Lxm7RybpxQuj2h+y0LfHNOcVhw2RPWPY
+         O3xA==
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
+       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.60 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1701643519; x=1702248319;
+        d=1e100.net; s=20230601; t=1701715802; x=1702320602;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender
-         :content-language:in-reply-to:autocrypt:from:references:to:subject
-         :user-agent:mime-version:date:message-id:delivered-to:x-beenthere
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+FNvGb6DRvE8BMFIBsKWgVVHEUTBP1qbvDazDZZryuE=;
-        b=nKuQHcAUAEzanJAHa1oXf5afLzL+Rrawg6X4hBvXRFuu7Oh5u1Z/gP1MCyK3mah0mC
-         D7QY1hjGU4SZvVnRNDZlAh52A16Who/XHzYHZZBh4Q8m3gz+ehCCGhNk3xcKSqrUlKNz
-         lp6cGBjk4sHfXbGoziPuHFDAgjphlP7ou9MjJWnUuL8wkdTItWsQZDKm8cwGptOQpuFg
-         xltjXvnz1pMSRIwvijfzTMIqhZL418bNUD+lB/OV7B9Hh9yfpSN76/7+i6Ei2yDz3QL2
-         J9GgTS+OHBwD2+GjSN6X2n6PMYwFv8jnrlMUTHVZgA37+ySIkieTlJJ611L+IHO/85Bf
-         KZeQ==
-X-Gm-Message-State: AOJu0Yzmj5i55DwLaxGdHeabOCR1YssErHFxX7eICav0NV9ryc9ELaFp
-	WK+JeCIxKkIX4ertHNUk9IAryA==
-X-Google-Smtp-Source: AGHT+IGD0VjA97xdr55p0IPDRj0nw6L+J8KQ7usRr8y4I2TqVKLkwEHWVnobKMVh136AvvxKygIoqg==
-X-Received: by 2002:a05:6214:186c:b0:67a:a721:d781 with SMTP id eh12-20020a056214186c00b0067aa721d781mr4237914qvb.103.1701643519241;
-        Sun, 03 Dec 2023 14:45:19 -0800 (PST)
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:content-id
+         :message-id:date:mime-version:comments:references:in-reply-to
+         :subject:cc:to:from:delivered-to:x-beenthere:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=M3DnnufOucR75iJRW2AUWULs2SVnf/F5y3aW3FoAi1I=;
+        b=pnp59XIkDdMSd3AJMPWngXbX/6CRFfGTwYCkUZZ1S9SSA3WmOgl/NIaCuLaC1BuCiL
+         X7m49/vuKYCGvx1GETDFazZRM2jLceHFtT51ORDAeO+PgbW+XuxrvwjFAp4ab5JwQnoq
+         19FRqorVvSVzyV+Vo198tYIVsecFKnZfk6kZwASHlVtgx66vW1DeN3lsSmE9vUhjAl3a
+         ipkndzmOlMHXKNxv7ekZA48EXhwpYRcCoO0d/6vtj3KZ+FuVgGe/877xijz1aVREfTuv
+         pEouhbM2nGJpq6ujlD1xEhX91M19wHDSRcHYd/gN+VB6oYTjZwzXikWHnIakWAgA5Pa1
+         dMNw==
+X-Gm-Message-State: AOJu0YyJo4D5cRfYl6Y+9rp767df6zX+FnskgFHMfmB127nXvzkclWCA
+	2gZlVBDCj9NdLxcluAjNmWD+BA==
+X-Google-Smtp-Source: AGHT+IGqXFW1WO7tpCqA0435MzLExEYTiwv7wrLqALaV54EQh6eCFgYEbkfWWyj9/6layz08C2ZBdQ==
+X-Received: by 2002:a05:622a:110e:b0:423:6fc5:9650 with SMTP id e14-20020a05622a110e00b004236fc59650mr22040qty.18.1701715802712;
+        Mon, 04 Dec 2023 10:50:02 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a0c:fde2:0:b0:67a:3bbd:90d7 with SMTP id m2-20020a0cfde2000000b0067a3bbd90d7ls1474005qvu.2.-pod-prod-06-us;
- Sun, 03 Dec 2023 14:45:18 -0800 (PST)
-X-Received: by 2002:a0c:f64e:0:b0:67a:9ff2:68b3 with SMTP id s14-20020a0cf64e000000b0067a9ff268b3mr3702280qvm.28.1701643517910;
-        Sun, 03 Dec 2023 14:45:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1701643517; cv=none;
+Received: by 2002:ac8:5d01:0:b0:421:c71a:9295 with SMTP id f1-20020ac85d01000000b00421c71a9295ls803500qtx.0.-pod-prod-01-us;
+ Mon, 04 Dec 2023 10:50:02 -0800 (PST)
+X-Received: by 2002:a05:620a:3f03:b0:77f:948:8a09 with SMTP id tx3-20020a05620a3f0300b0077f09488a09mr10703qkn.114.1701715801888;
+        Mon, 04 Dec 2023 10:50:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1701715801; cv=none;
         d=google.com; s=arc-20160816;
-        b=ONg+nKY5j+N9O5rggkU9Kfs6ccU0HgFp3Bhwu5A1eGiayYUSP/7iTA3ns/EQShnSkn
-         ac0/Dxd1PphRfGjs89uASFQXqFQkUlfcubzBIhIUXQvmRJOqFEN4ma4VHFOK1pYMKMk9
-         swK64QY60xGwFP7S+0a5CuOoRzF5f+utD29LH8LErai6w9D2FQzwY86jUDaftU0pRegf
-         wyULfDkv8s+jJiPFnpBsUZVVslUY8YVd5zdjm7L561UsvNWsHTfLm4UYVPUaBcfm6g5F
-         QPBChc7qcsKf15kfJ7scJ8CeVQsAISdcQVP3zKfYIUf5vwg2C1zVTRqiow9TJpQvmNY3
-         xShQ==
+        b=a7G9q10zVnlgZ4ZTsjrucMVxmO3c4Z0mVzkEkMZmOsz1iXbxfZleZUXgKh9ipcxgqU
+         4TrGN2Ml+Lqm3mbIxjGyRbSg4GXV2uKMsMVRPClLNQp0kkq0sCWjbSYRdH/s7qv9kH+k
+         hXlFuydv8PCDqm85xsO6HdZ/dprODS/NIBIeDPcIMBsBmE8axYRcbKeVyXIpd2S8ht8I
+         Vr5RlnMXgYoFPIuG73v3lL0gLbKv48IdpihYyBRZnGEyBcxRlV3jWZ6/RLScTcbIizgY
+         0jDJZGhpLEz6tpzbX20VGZQkuGgZ76ZRkROdk4XQ0U9WL0PwvtfeptudKwBqTCQsqtcx
+         lgPA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:autocrypt
-         :from:references:to:subject:user-agent:mime-version:date:message-id
-         :delivered-to;
-        bh=z8N+Pcj3XY7eVJ8+Bj8FDu2kGSpB/rARy8Gu2oIM21o=;
-        fh=cmfAmPUxkdlE6k/8QawyoJ+RfGTR602B939b2oWmPxM=;
-        b=vLRsSoQDpcPuaXPUEsSRhCqK9hO6eyvVIEPd11VuRg2IUq05jguDuOvxm+yqJqi9eL
-         dTXK52OUSpmPI+H7352QoufkKx/4SVfzvi1H81PcctMVRFJr0NaSoQ13VD9CLVoxjivg
-         tCvyUeuW5E3llRnbjcy12XgyGgtjTaKPqG5wKnLCk9rdTIMR6A+e4xEVxxs9kYgovsva
-         IVpOLlhl6PAoyjTa7tthtMLYK9/KWt50uQb2qSWPwuhu21IoU7tvkrYLT/koxHwYJqDP
-         Lj+m6O5ioQvio8R9pUcRjmyGaSU+tk1un/Tegc7d0F9J3nprrqC4oXq7HIp2KVC681Ow
-         YmJQ==
+        h=content-transfer-encoding:content-id:message-id:date:mime-version
+         :comments:references:in-reply-to:subject:cc:to:from:delivered-to;
+        bh=0h4IR0y3x3DcGHCcdcJIJ8f4VISnEUYc3WZKmKl+2NQ=;
+        fh=K9KbUIAdR2VBm2UkIEKsRFlcsRMjWRpjSALH8MBk7H0=;
+        b=roas7u/TfgMWYXbQgy/ONNSxcdfX0kKczydBLN9s02RB6Kl7VwBQHBpZ0VRC9ibq69
+         q5mi+UkdI45yU84FdHaARXEwWwQFogoPWhIdZPXff1FqFOpgIsPedyKL5cGWViLKuaHW
+         0Kfx9NAfWNqUuO7Lb+10YCoLm/UxEqPkKA++dPhfLxTaGGFofXhXwB1HcN1ybIzjPTkb
+         3a/rOnqqrt1Ill6CrNJSCp2w2SGPZJSthkT2T5Jpy+9z8eR0Sw6dS7aOjeN7PNx+XajZ
+         PBh9XQtOy8HOWn5meOdNg4xh6jlIfAWOnwttAHaipcgOp385u+k9NFUqfpI8w0QTaa97
+         3ZAQ==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
+       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.60 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
-        by mx.google.com with ESMTPS id x5-20020ad440c5000000b0067a268c8cf6si7375115qvp.449.2023.12.03.14.45.17
+        by mx.google.com with ESMTPS id os17-20020a05620a811100b0077db457b362si9541179qkn.777.2023.12.04.10.50.01
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 Dec 2023 14:45:17 -0800 (PST)
-Received-SPF: pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) client-ip=192.155.90.172;
+        Mon, 04 Dec 2023 10:50:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.60 as permitted sender) client-ip=65.20.63.60;
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-486-dYBRkppyM0id91WkQOIxVg-1; Sun, 03 Dec 2023 17:45:16 -0500
-X-MC-Unique: dYBRkppyM0id91WkQOIxVg-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
+ us-mta-452-crulQIiAMMC3AqA-U4VGzQ-1; Mon, 04 Dec 2023 13:50:00 -0500
+X-MC-Unique: crulQIiAMMC3AqA-U4VGzQ-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3EEDA821935
-	for <blinux-list@gapps.redhat.com>; Sun,  3 Dec 2023 22:45:16 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E47E6811E7E
+	for <blinux-list@gapps.redhat.com>; Mon,  4 Dec 2023 18:49:59 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id 3C0B02166B27; Sun,  3 Dec 2023 22:45:16 +0000 (UTC)
+	id E166F1121308; Mon,  4 Dec 2023 18:49:59 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast05.extmail.prod.ext.rdu2.redhat.com [10.11.55.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 354972166B26
-	for <blinux-list@redhat.com>; Sun,  3 Dec 2023 22:45:16 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+Received: from mimecast-mx02.redhat.com (mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D8E3F1121307
+	for <blinux-list@redhat.com>; Mon,  4 Dec 2023 18:49:59 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 140C4821935
-	for <blinux-list@redhat.com>; Sun,  3 Dec 2023 22:45:16 +0000 (UTC)
-Received: from svr.jasonjgw.net (svr.jasonjgw.net [192.155.90.172]) by
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B7473101A52D
+	for <blinux-list@redhat.com>; Mon,  4 Dec 2023 18:49:59 +0000 (UTC)
+Received: from altprdrgo06.altice.prod.msg.synchronoss.net
+ (altprdrgo06.altice.prod.msg.synchronoss.net [65.20.63.60]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-412-cgER-3ZvMkq102tKLmZHzA-1; Sun,
- 03 Dec 2023 17:45:13 -0500
-X-MC-Unique: cgER-3ZvMkq102tKLmZHzA-1
-Received: from [IPV6:fd6e:ebcf:467e:2::1] (jpw.jasonjgw.net [IPv6:fd6e:ebcf:467e:2::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (secp384r1) server-digest SHA384)
-	(Client did not present a certificate)
-	by svr.jasonjgw.net (Postfix) with ESMTPSA id 95C0E32102;
-	Sun,  3 Dec 2023 22:45:12 +0000 (UTC)
-Message-ID: <eb293e4c-cd90-4f35-973c-d7b64ee3b7c1@jasonjgw.net>
-Date: Sun, 3 Dec 2023 17:45:12 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-517-eSW6xvUqPzKP0Yyi3NrWEw-1; Mon,
+ 04 Dec 2023 13:49:57 -0500
+X-MC-Unique: eSW6xvUqPzKP0Yyi3NrWEw-1
+X-RG-VS-CS: clean
+X-RG-VS-SC: 0
+X-RG-VS: Clean
+X-Originating-IP: [47.217.109.117]
+X-RG-Env-Sender: martin.m@suddenlink.net
+X-RG-Rigid: 655881A00259F1BA
+X-RazorGate-Vade: gggruggvucftvghtrhhoucdtuddrgedvkedrudejiedguddukecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucetnffvkfevgfgfufdpggftfghnshhusghstghrihgsvgdpqfgfvfenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefujghfgggtgfesthhqtddttddtvdenucfhrhhomhepfdforghrthhinhcuofgtvehorhhmihgtkhdfuceomhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvtheqnecuggftrfgrthhtvghrnhepkeekheffueeivdeukedtjeejvdeigedtvdeihfeffffffeelgfefhfelhfefgfejnecukfhppeegjedrvddujedruddtledruddujeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhephhgvlhhopeifsgehrghgiidpihhnvghtpeegjedrvddujedruddtledruddujedpmhgrihhlfhhrohhmpehmrghrthhinhdrmhesshhuugguvghnlhhinhhkrdhnvghtpdhnsggprhgtphhtthhopeefpdhrtghpthhtohepsghlihhnuhigqdhlihhsthesrhgvughhrghtrdgtohhmpdhrtghpthhtohepjhgrshhonhesjhgrshhonhhjghifrdhnvghtpdhrtghpthhtohepmhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvthdprghuthhhpghushgvrhepmhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvthdpghgvohfkrfepfgfupdfovfetjfhoshhtpegrlhhtphhrughr
+	ghhotdei
+X-RazorGate-Vade-Verdict: clean 0
+X-RazorGate-Vade-Classification: clean
+Received: from wb5agz (47.217.109.117) by altprdrgo06.altice.prod.msg.synchronoss.net (5.8.812) (authenticated as martin.m@suddenlink.net)
+        id 655881A00259F1BA; Mon, 4 Dec 2023 13:49:56 -0500
+Received: from martin by wb5agz with local (Exim 4.94.2)
+	(envelope-from <martin.m@suddenlink.net>)
+	id 1rAE0r-00D5Pd-LA; Mon, 04 Dec 2023 12:49:49 -0600
+From: "Martin McCormick" <martin.m@suddenlink.net>
+To: "Jason J.G. White" <jason@jasonjgw.net>
+cc: Martin McCormick <martin.m@suddenlink.net>, blinux-list@redhat.com
 Subject: Re: Alsa-compliant Sound Programs
-To: Martin McCormick <martin.m@suddenlink.net>, blinux-list@redhat.com
-References: <E1r9sxc-00D01F-D5@wb5agz>
-From: "'Jason J.G. White' via blinux-list@redhat.com" <blinux-list@redhat.com>
-Autocrypt: addr=jason@jasonjgw.net; keydata=
- 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
- Jlx6Ar305Q==
-In-Reply-To: <E1r9sxc-00D01F-D5@wb5agz>
+In-reply-to: <eb293e4c-cd90-4f35-973c-d7b64ee3b7c1@jasonjgw.net>
+References: <E1r9sxc-00D01F-D5@wb5agz> <eb293e4c-cd90-4f35-973c-d7b64ee3b7c1@jasonjgw.net>
+Comments: In-reply-to "'Jason J.G. White' via blinux-list@redhat.com" <blinux-list@redhat.com>
+   message dated "Sun, 03 Dec 2023 17:45:12 -0500."
+MIME-Version: 1.0
+Date: Mon, 04 Dec 2023 12:49:49 -0600
+Message-Id: <E1rAE0r-00D5Pd-LA@wb5agz>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: jasonjgw.net
-Content-Language: en-US, en-AU-large, en-US-large
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-Original-Sender: jason@jasonjgw.net
+X-Mimecast-Originator: suddenlink.net
+Content-Type: text/plain; charset="UTF-8"
+Content-ID: <3119071.1701715789.1@wb5agz.lan>
+X-Original-Sender: martin.m@suddenlink.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
-X-Original-From: "Jason J.G. White" <jason@jasonjgw.net>
-Reply-To: "Jason J.G. White" <jason@jasonjgw.net>
+ domain of martin.m@suddenlink.net designates 65.20.63.60 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -181,21 +155,45 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
+There simply hasn't been anything else I can find that gives
+snd_pcm.  I know what the errors mean but I haven't found any
+other libraries that cause any of the 2 or 3 code samples I have
+found to see the snd_pcm functions.  Since the system I was most
+interested in is a Raspberry pI, I have looked for any libraries
+whose names include -dev:armfs.  There are many of those but none
+open up snd_pcm functions of which there are many.  Basically, if
+these code samples ask for any snd_pcm functions, one is
+guaranteed to throw this error right now.
 
-On 3/12/23 15:21, Martin McCormick wrote:
-> 	For those who don't write your own programs, this
-> messagecan be skipped but I am hoping somebody can suggest what I
-> might be doing wrong since all samples reference snd_pcm
-> functions such as snd_pcm_open, etc.  All need a specific alsa
-> library called with
-> #include <alsa/asoundlib.h>
+	One sample is for a 64-bit desktop system sound system
+and it throws the same errors on a 64-bit desktop.  What I am
+thinking is that there may have been some change in thesound
+libraries and their contents so stay tuned.  I know it's here
+somewhere.
 
-Those errors from the linker typically mean that you aren't linking to 
-the required library in the command that links the executable.
+	In searching among lots of dead ends, I have run across a
+couple of other people complaining about the same issue but no
+answers at all.
 
-You have to include the appropriate header file in compiling your 
-program, and link to the shared library. Try adding -l asound to the 
-command that builds the executable.
+	Oh, and don't you just love the net cops who will post a
+whole diatribe in some list about how X Y or Z is not the
+appropriate question for the list.  That shows up in searches,
+also and you have to waste time to determine that this spigot is
+dry, also.  It just makes faucet noises but produces no actual water.
+
+	Anyway, Thank all who responded and I'll keep trying to
+see how to get snd_pcm to show it's face, so to speak.
+
+Martin
+"'Jason J.G. White' via blinux-list@redhat.com" <blinux-list@redhat.com> writes:
+> Those errors from the linker typically mean that you aren't linking to the
+> required library in the command that links the executable.
+> 
+> 
+> 
+> You have to include the appropriate header file in compiling your program,
+> and link to the shared library. Try adding -l asound to the command that
+> builds the executable.
 
 -- 
 You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
