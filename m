@@ -1,141 +1,140 @@
-Return-Path: <blinux-list+bncBDEPFPWCWMDRBOOTY6WAMGQEWMOJNRQ@redhat.com>
+Return-Path: <blinux-list+bncBDYPVTOXSQEBBOPOY6WAMGQEC6K6UAY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mail.lfdr.de (Postfix) with ESMTPS id C0AC9820FA7
-	for <lists+blinux-list@lfdr.de>; Sun, 31 Dec 2023 23:22:50 +0100 (CET)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-427b56e96a6sf135041051cf.3
-        for <lists+blinux-list@lfdr.de>; Sun, 31 Dec 2023 14:22:50 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1704061369; cv=pass;
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	by mail.lfdr.de (Postfix) with ESMTPS id 514528210F6
+	for <lists+blinux-list@lfdr.de>; Mon,  1 Jan 2024 00:20:27 +0100 (CET)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-67ef8bbfe89sf169605876d6.0
+        for <lists+blinux-list@lfdr.de>; Sun, 31 Dec 2023 15:20:27 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1704064826; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CRwJB8Fe4HmB2b23xZiPePtBqithHOB1hwa/xkU3HbrsW7wzcizAPC/krmIWVKEToH
-         Brwq0+9yUt+5qkO65DPyGKJrtAeBIRZ/P8BAtrek5OLeXGoC6CcO6X8aii3Uuzr2MT2b
-         6GHDLIVwubWN7fjAXQNqeVDVH79JdGPcLj6nAOw24opjbSdovIEjwbtiJjaJTM2lzAuc
-         ybGLL1Cm+9arJw5KiLRzBU/YSqWi6YpeMVyc8xe+uJUf6MID2pbfontJF5cBtG0D0jtP
-         Z6b0suyhK6ysBTJl4ixBxtHMBuKdD9B7ibS7Zdg2h3tGUtv1B4sG79fTuzBmnoBFxweC
-         PMlA==
+        b=04Qa4TmdPkUq6+owI1xtgcIdbjjWC0O15tQtrI2pg4Knpe3zVjL4RKlNThRarrhrAj
+         iW0z7wTmHRu/ta4HL6vYXQZ4qcynhtrBs59W+OALN6cj6PbomLhxTXXGdPLz5lh7ZKjF
+         wjOAzWst27KXCtKMgXVxA+BLzoWI7GjlFguCn+Qs6gchujLquhUL/kXSYYQh385Tlmwb
+         nuDLeDw+Z97rWrFl8OFt1/3Wxue5ekZgMNjdssNtGczycIBXGUZi6vywbMY6dDRGhQFy
+         JVFvCqNvi55BXym3FXXi1anfuqUJOGug8Iv/DO8SEVxI8ASvSIbV4R/Vl8iyzOTwostA
+         GMTw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-language:subject:from:to:user-agent
-         :mime-version:date:message-id:delivered-to;
-        bh=V+FGGLPUExaXgQrFswWqe37LTfqimj2WJpp29p5lMGA=;
+         :mailing-list:precedence:content-transfer-encoding:mime-version
+         :references:message-id:in-reply-to:subject:to:from:date:delivered-to;
+        bh=99+amiWmabaUOhSLiVyu3uiWmkYn+mUmuLzWrztsExM=;
         fh=bUWW1R1V4Oa4f6njeRZrKqBiOU2zKO5LVIe4RDhFmeU=;
-        b=fogN9QVFLt0D5LqQjc4CwigeVUv6y9Z/Rs+ABZDYNM9v8F8E7x7HI42iL0EO4RNRtt
-         sZKkHstDk9Uhahveza23LyxOjNYvwDYopTL0IUU9IENeufWWmMX69j/1OMce6k6h4q6Z
-         dq+er8fRCCQJwzizG/I+p8dROhmJ2FFBtainHfhpJD8/fZuWaiZ1ngAfvey3i/GYJUp2
-         TNs5qepTEWcXvrTScXUrjQIvQux1azBGTD2Wmkt6kLozhLvSjdoI3rG7JAwUBO5nN53t
-         gdI3lDsSxsJHePOxOR8FSc2tFTrmsrfv0Ljgi5/+FdreAwSWFCWDH0I+nWjHLF8zQCkf
-         mVPg==
+        b=c4ceRawoSiGG9bZb2Y8LSrXWtQo2Whsl8kP7ZSjeOoppbJHLR128QOXt/LOINqlqEZ
+         jbZYWMK+pYX4kOtws6Q1Qksf9sx7VjsCojw87U22/j6bUXzMd+hUMyO181w1+4xBWRZe
+         9z6TaQmvoKVAb7QwrBiofeNeEIqc6297V7ALT2GCy6WEEkx7dM9If8ZgN/9zIwTdF78I
+         LtGxYfvW9H8w25H1MhllElZvc3DZNum4IQtt0mejMbUuTJsStng2h+qTsuFgY+cswpKS
+         x/Yz+PKhfrnN2MLACIHPFlIWCb50l8DwpdRIEoCeWsNDBxtWcYnOFZ/mFlVvLrDHTTg3
+         i66w==
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
+       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1704061369; x=1704666169;
+        d=1e100.net; s=20230601; t=1704064826; x=1704669626;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender
-         :content-language:subject:from:to:user-agent:mime-version:date
-         :message-id:delivered-to:x-beenthere:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=V+FGGLPUExaXgQrFswWqe37LTfqimj2WJpp29p5lMGA=;
-        b=bF5HP3SLEJQyVGy55Vq61RCkVJ/xdFsfBsW/lHf6rBQAWMRy3Cy9p/NbneMvVPt43j
-         J1Aq0yxq98Z5e4Ozun3R7lYaey7HXd4rWp8s3X75stw7dxG3/xmIs5DnziCYYXt1OozO
-         nx1A8IM9xE85kuOgZZ/WkBvK3SpNpMjnDkfSwIssYSYPsP7+xdZC9K7k7d1as75BvuM0
-         2H3+BazcMw3hT+GVT4O4xYacMGMNpqLe0cwXl9H821trqm7R078dWc5rfT/hmvE+baM2
-         2Cm+9qSRVcr0hP2xOlpViejRhNXmcKzAkkZNQG/XtV5GMtKt+bLoQXHku22QYZHEjTGS
-         eAdA==
-X-Gm-Message-State: AOJu0Yw4ARn9EhHa+rLYmbpeLtaGJElTg/kVNuyNESzCtino+weWIXaD
-	GmB4Cukk6VpV/ipLrnQnFdl1Kl5GfwFivQ==
-X-Google-Smtp-Source: AGHT+IEskvHvQMTYjJ5L3FzMxAAJ9kCdUYrXmtPKgH/p5tE/Asfwfw8WygOudJnD2cujy4cdy+Grtw==
-X-Received: by 2002:a05:622a:646:b0:425:4043:96d9 with SMTP id a6-20020a05622a064600b00425404396d9mr22733073qtb.102.1704061369544;
-        Sun, 31 Dec 2023 14:22:49 -0800 (PST)
+         :content-transfer-encoding:mime-version:references:message-id
+         :in-reply-to:subject:to:from:date:delivered-to:x-beenthere
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=99+amiWmabaUOhSLiVyu3uiWmkYn+mUmuLzWrztsExM=;
+        b=QfUwP/1ybTMaR/CXsTKVQf1LNvHm/10def95xYqkYzhacuPqiNM1TY73RR6QhD0XfH
+         ivUITRF0feWf5cfi5BF1NTUpDb/a4WVDC2DE3otrjwuQfVR38Zs3NXmmnf25px/qFAdx
+         VYzVW8pLcPx4iUMoCjmVeXpxl72ask2eVePntD8YhDzJKAFanhgaXlPHBMnI8AYwIsuh
+         amDo0rg4CjAZo92KH4haXezbXLWxgD6XwMSTzgTXh2B2AiWv1Qa0L+GkcJTE25LVBMdL
+         XroCs5c6zLSaZ+vyJ3Cp2c25xRBKKyXc65PG69uAoGl4PtbxOn9XO3xDtKfZ9Y/ipy7C
+         7C1A==
+X-Gm-Message-State: AOJu0Yx8Y5IE52F16RhKteM5bdZIAUIwzNEa82aGnK1m0PiYjBBerlkN
+	5wPGlJAfW0ugcOzSl6S6wHdFMA/Z6g/kOg==
+X-Google-Smtp-Source: AGHT+IEJEyH2LED4DGFDoQKroT2/+ua9619Tla4xqP8kFVSZvK/hE2xK/Rtorfc/GWPSuZEZVCifiA==
+X-Received: by 2002:ad4:5be3:0:b0:67f:1a6e:ce06 with SMTP id k3-20020ad45be3000000b0067f1a6ece06mr25341510qvc.68.1704064825986;
+        Sun, 31 Dec 2023 15:20:25 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:622a:13c6:b0:427:a283:e24c with SMTP id
- p6-20020a05622a13c600b00427a283e24cls2083853qtk.1.-pod-prod-09-us; Sun, 31
- Dec 2023 14:22:48 -0800 (PST)
-X-Received: by 2002:a05:622a:1485:b0:428:d16:835e with SMTP id t5-20020a05622a148500b004280d16835emr4980918qtx.41.1704061368712;
-        Sun, 31 Dec 2023 14:22:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1704061368; cv=none;
+Received: by 2002:a05:6214:1bc9:b0:67a:b34a:6626 with SMTP id
+ m9-20020a0562141bc900b0067ab34a6626ls719839qvc.0.-pod-prod-05-us; Sun, 31 Dec
+ 2023 15:20:25 -0800 (PST)
+X-Received: by 2002:a05:6214:628:b0:680:b7fd:e3c0 with SMTP id a8-20020a056214062800b00680b7fde3c0mr66476qvx.130.1704064825164;
+        Sun, 31 Dec 2023 15:20:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1704064825; cv=none;
         d=google.com; s=arc-20160816;
-        b=t4b2YBQJ4kOZF35vrYjA1/MzRXCCEAr/BSnvZJFldcOyUmvKwPcwSmrYVzv+J7jXGl
-         w6d9tBO4Q8aGIgAgtw8TG0Fkul5Bcngv92FOyccRTH2He4V8LI5feBP+FBUNsyKhTFoG
-         3GIs4h2vgJ8H5AXoHZBaZhA3vNefcLpu7JZjV0TgRJ3wXA0dsEwX4FOuKWdFuld1Y+vP
-         5WJLkXc9L9TvINcfjw/4MqQ50++iUP/d24QTbIlr1G7wPMAiA+uwuc7TOFJgg39sntz/
-         729ffpDw8o5hoexba+SbfDj+S77Upq9PHgFZAjGOQtSWUp7KEPC2dN+AwFXJ/3dgWmHe
-         2aMg==
+        b=rAQI6e+xrwEqrOXP/Zl7KZ2y6AGx6FJMFoAbKCJxqV3+m4VhnKwH9H/v3BgVIjG34J
+         60Uao0I/aZ8QEBsgtRgyivb6G8OxsLYfas+TV+OsPw0JB5e+Na++OksMRAK5iEX8W5hX
+         M2hsJPm5LdNNxTp3j9N2sdHf+VVBhNgh8u9UQyy9jOv/SM28MH+cfo5e6CLRqQ4NWGR+
+         6TFLuFDycAOedwjSPhJR/c4Bv85bgBVVfEqKwMDmDR3+pheiLsy9ML6ArjoYy4GTBdRr
+         cH3x8lh+zORd4VWOBbuddyiHKjt8EBDY9f8/7MiqtnyNbjuHFE/Wp2+VUxus+++nuklw
+         usXg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:subject:from:to
-         :user-agent:mime-version:date:message-id:delivered-to;
-        bh=zDcbnzpSU8jCyVcHcDgyI1LN9fM4feGgLofPqw5OzK0=;
+        h=content-transfer-encoding:mime-version:references:message-id
+         :in-reply-to:subject:to:from:date:delivered-to;
+        bh=Pgo3Kk8tv38gqdOrAnkE8G0H5LvTsJg88YmxjlMVjSM=;
         fh=bUWW1R1V4Oa4f6njeRZrKqBiOU2zKO5LVIe4RDhFmeU=;
-        b=KU2QUG7f2xOaKr96U3mcnQbNfK1l6jKW2ZbCyP1FpCo2G/SOmgTtlmiUuez9WOvC4B
-         1mZfD+YSyrcymk9uNtRwbD+zdsC4jsa7E04kQ4gY4kG7NY/rOUWxj0KFvBeaUhM006R8
-         NrZFofvSCkWhfs9w32FkN6fKz0GCLajhsvpzXO4I9DMF+R1ibwrDUVciENHt6FqI0FlL
-         etnOt+Wnk3gTodsTAER8MXqC6a2tSW+oECMErRf0JS3BrlD5+LvHh55lCxcuwVSbraiu
-         qVcgvVpuuABiqctKK+50dqssHd4roWzgei2aAkMcDJHaAYWGSZNS86F4fkrVnPTV+Idr
-         li/w==
+        b=O8g8F6TTJlJ9Z1P2Ax4d0ZJLzz69KsgbY7f2amrjyhxVzrW00xWYE3SFuKmdBqpB8I
+         X+I1QjCe7s+EeyJRcgrwQg0agD5YM9R72sX2vfqEjOoBmapwFXT70QcjSca3f/y70yvb
+         /auN3gMujkUDgaDRaquLTcVnzGuPgtlm2Bim5abCAK8dmdajAm+dXH9YCpMuSE9pp4UZ
+         R3bgD9oDiklDN1roetVLYC8IQo9IEO2JtP6HUVgch0FHZYRojydj+cASTD0ugnd2eHtC
+         0Z2q1a9Aw5yncOH5i3UywSbCIcvvt8KvKM8cJVb6pyyc7vJeZHTmL3XcUAWEcYYotoFV
+         JbGQ==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [207.211.31.120])
-        by mx.google.com with ESMTPS id 1-20020ac85941000000b004237f549779si23580666qtz.53.2023.12.31.14.22.48
+       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by mx.google.com with ESMTPS id a2-20020a0ce342000000b0067f9605db69si21661186qvm.562.2023.12.31.15.20.24
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 31 Dec 2023 14:22:48 -0800 (PST)
-Received-SPF: pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) client-ip=77.75.78.210;
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-685-26reNu_pMM2Kxmf4nqXd8w-1; Sun, 31 Dec 2023 17:22:46 -0500
-X-MC-Unique: 26reNu_pMM2Kxmf4nqXd8w-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+        Sun, 31 Dec 2023 15:20:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) client-ip=166.84.1.89;
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-232-JZ2avCpTNlK6P6yb0qJ6bQ-1; Sun,
+ 31 Dec 2023 18:20:23 -0500
+X-MC-Unique: JZ2avCpTNlK6P6yb0qJ6bQ-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B1CDB85A588
-	for <blinux-list@gapps.redhat.com>; Sun, 31 Dec 2023 22:22:46 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3F6BF3C000B4
+	for <blinux-list@gapps.redhat.com>; Sun, 31 Dec 2023 23:20:23 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id AE4035191; Sun, 31 Dec 2023 22:22:46 +0000 (UTC)
+	id 3C2E01121312; Sun, 31 Dec 2023 23:20:23 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A66F55190
-	for <blinux-list@redhat.com>; Sun, 31 Dec 2023 22:22:46 +0000 (UTC)
+Received: from mimecast-mx02.redhat.com (mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 34FA81121306
+	for <blinux-list@redhat.com>; Sun, 31 Dec 2023 23:20:23 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 6B3083C000BA
-	for <blinux-list@redhat.com>; Sun, 31 Dec 2023 22:22:46 +0000 (UTC)
-Received: from mxd.seznam.cz (mxd.seznam.cz [77.75.78.210]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-695-95mA0tjyP1GLGt21VLttJQ-1; Sun, 31 Dec 2023 17:22:44 -0500
-X-MC-Unique: 95mA0tjyP1GLGt21VLttJQ-1
-Received: from email.seznam.cz
-	by smtpc-mxd-669f474d4c-28xh6
-	(smtpc-mxd-669f474d4c-28xh6 [2a02:598:128:8a00::1000:a7d])
-	id 49a1fae75c39a9bd484b0bfb;
-	Sun, 31 Dec 2023 23:22:37 +0100 (CET)
-Received: from [192.168.1.193]
-	(host-213-235-142-85.ip.topnet.cz [213.235.142.85])
-	by smtpd-relay-57455747ff-m6g2z (smtpd/2.0.17) with ESMTPA
-	id 98aa5fd0-4323-40ae-8731-d835a8f77400;
-	Sun, 31 Dec 2023 23:22:35 +0100
-Message-ID: <ba666dd4-3459-46f0-a29a-a1c087fba3e2@seznam.cz>
-Date: Sun, 31 Dec 2023 23:22:33 +0100
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 13ED085A589
+	for <blinux-list@redhat.com>; Sun, 31 Dec 2023 23:20:23 +0000 (UTC)
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-271-sX-NrKApNHadvGnh6vEHQQ-1; Sun,
+ 31 Dec 2023 18:20:20 -0500
+X-MC-Unique: sX-NrKApNHadvGnh6vEHQQ-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4T3FTJ30Y8zDCW;
+	Sun, 31 Dec 2023 18:20:20 -0500 (EST)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4T3FTJ2dqNzcbf; Sun, 31 Dec 2023 18:20:20 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4T3FTJ2WYGzcbP;
+	Sun, 31 Dec 2023 18:20:20 -0500 (EST)
+Date: Sun, 31 Dec 2023 18:20:20 -0500
+From: Jude DaShiell <jdashiel@panix.com>
+To: stormux@groups.io, 
+    Linux for blind general discussion <blinux-list@redhat.com>
+Subject: Re: [stormux] Arch crash upgrade
+In-Reply-To: <ba666dd4-3459-46f0-a29a-a1c087fba3e2@seznam.cz>
+Message-ID: <3d6b98a6-12f9-a2e4-71a0-ad1d5f1ca6f6@panix.com>
+References: <ba666dd4-3459-46f0-a29a-a1c087fba3e2@seznam.cz>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: stormux@groups.io,
- Linux for blind general discussion <blinux-list@redhat.com>
-From: =?UTF-8?Q?Vojtech_=C5=A1miro?= <vsmiro@seznam.cz>
-Subject: Arch crash upgrade
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: seznam.cz
-Content-Language: en-US
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-Original-Sender: vsmiro@seznam.cz
+X-Mimecast-Originator: panix.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: jdashiel@panix.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
+ domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -147,23 +146,61 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Hello all,
+If you haven't already got it, install the downgrade package from the aur
+repository then run downgrade mesa and back out to the older version on
+your machine before this upgrade.
 
-in Stormux and Arch for Intel machines, there was new upgrade.
-iputils-20231222-2
-mesa-1:23.3.2-1
 
-After upgrading these packages, it isn't possible to run Mate, only 
-console. Please is some way to repair it? In Intel arch Mate works, in 
-Stormux not.
+--
+ Jude <jdashiel at panix dot com>
+ "There are four boxes to be used in defense of liberty:
+ soap, ballot, jury, and ammo.
+ Please use in that order."
+ Ed Howdershelt 1940.
 
-Thanks a lot.
+On Sun, 31 Dec 2023, Vojt=C4=9Bch =C5=A1miro wrote:
 
-Best regards
+> Hello all,
+>
+> in Stormux and Arch for Intel machines, there was new upgrade.
+> iputils-20231222-2
+> mesa-1:23.3.2-1
+>
+> After upgrading these packages, it isn't possible to run Mate, only conso=
+le.
+> Please is some way to repair it? In Intel arch Mate works, in Stormux not=
+.
+>
+> Thanks a lot.
+>
+> Best regards
+>
+> Vojta.
+>
+>
+> -=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-
+> Groups.io Links: You receive all messages sent to this group.
+> View/Reply Online (#2371): https://groups.io/g/stormux/message/2371
+> Mute This Topic: https://groups.io/mt/103454451/11102
+> -=3D-=3D-
+> Donations: https://ko-fi.com/stormux
+> Images: https://stormux.org/downloads
+> Repository: https://gitlab.com/stormux/stormux
+> Website: https://stormux.org
+> -=3D-=3D-
+> Group Owner: stormux+owner@groups.io
+> Unsubscribe: https://groups.io/g/stormux/leave/9747028/11102/784292745/xy=
+zzy
+> [jdashiel@panix.com]
+> -=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-
+>
+>
+>
+>
 
-Vojta.
-
--- 
-You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+blinux-list@redhat.com" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
 
