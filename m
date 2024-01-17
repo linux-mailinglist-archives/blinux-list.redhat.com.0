@@ -1,110 +1,111 @@
-Return-Path: <blinux-list+bncBCVPTHE7K4IOZUMXVUDBUBEEBDVWW@redhat.com>
+Return-Path: <blinux-list+bncBCVPTHE7K4IJTIU5VUDBUBG4VYXOK@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mail.lfdr.de (Postfix) with ESMTPS id F2F1E82E7E9
-	for <lists+blinux-list@lfdr.de>; Tue, 16 Jan 2024 03:24:45 +0100 (CET)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-42987be5d14sf126718451cf.1
-        for <lists+blinux-list@lfdr.de>; Mon, 15 Jan 2024 18:24:45 -0800 (PST)
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mail.lfdr.de (Postfix) with ESMTPS id E142182FF74
+	for <lists+blinux-list@lfdr.de>; Wed, 17 Jan 2024 05:01:30 +0100 (CET)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-68058b0112csf213725296d6.1
+        for <lists+blinux-list@lfdr.de>; Tue, 16 Jan 2024 20:01:30 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1705371884; x=1705976684;
+        d=1e100.net; s=20230601; t=1705464090; x=1706068890;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender:mime-version
          :references:message-id:in-reply-to:subject:cc:to:from:date
          :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VxrTjb25mQ+YfyJuNcP/pTQ8VKz7aTRcU9+ZEKmjAfs=;
-        b=xUCLfC9K3SVT+dWfYkxypEh3jjzXzL8azrtRzoZcG+9eRGIReJ+6J4hkbQD6AoXrUl
-         N104H0lBKihbmPTlQohvOFRvtOPPS34OHA2YvSQet/CW1oLq1mJ6vE2dQHjLvWljHnS/
-         LyLyrYzA3XNUlSVlFQ0f/JTvGxTWGJlI6TlfFbTbD3LF/k9P6PLgnS+49AGRxTHfpO47
-         EyqfGn2uLkhD5U8Umc0ylWmbgcBpNdnKyWjd54Xm7IxDE91mW9z0HP6TXSF5GVrqElWN
-         iheLz2AkaqQFKBnJtHjWyDLOLCukU7r+iDoWn1g8jWvOLR2u9IL409edYXApQ5b6izld
-         WPaw==
-X-Gm-Message-State: AOJu0Yx8p/qSqziu0ZRK4GPnYldt/QXYVhxnsVLueogICJJfv4jr284Z
-	jsScxuD+ETEv4tC+6aYeE31JXpKH8hJ81Q==
-X-Google-Smtp-Source: AGHT+IEkpQZGU1DvD+HoR8OIEZ6wP5qS6qfUiofY/een7YwAg6bRnBramSjop4QT8GtjOULVGNKL0Q==
-X-Received: by 2002:a05:622a:1193:b0:429:cd67:c93b with SMTP id m19-20020a05622a119300b00429cd67c93bmr8379604qtk.79.1705371884527;
-        Mon, 15 Jan 2024 18:24:44 -0800 (PST)
+        bh=suhqACp1yXx2dA3Iza6J1POw+8Z45LK7uK5Ii+JI/W4=;
+        b=sKt9b0gzGp3UxYhZLq85u7NXpQ377vaQE2iEAp0QHnhGcRD5/4O0YP8hPDOGM63MtV
+         fvFMq9utiksrAPRR0D7Lr7mqf5+34wdEiktGOfRguYLCkak5Fgfqxn/0yEeu2ZJ+Tn3G
+         B3znS5T8WSD/IIgALgGy8aKudA65MOXgICsqlwCdS//f0G1ENm8j6UOnIwv4hUiOlv4e
+         ELDt1PrR2s05K9dy4nHhLS6S7fPMGgeyMEtRiEThd1Acyac39RGeXezC6B7zqwA3r0Km
+         tM/2ZG3FbOHBxuGwNtx4w3SjhjnCAkXV/neq6tnpLhfmGZSqD/5CBXIvP4Mk69HedxZz
+         XPFw==
+X-Gm-Message-State: AOJu0YwKgz0a/hrciXcq/Dn5dymMeha4eZ4UhdpriM3RWWiON1UEpdgG
+	k3b5hui6LIEzzpXaxIz+jdDXB9S4kNJnqA==
+X-Google-Smtp-Source: AGHT+IH/lZrWXSq23D7KcXK71cM2iMLFS0uinE6JHGJbeEYCFBvvr98KudpoJveXT2SqLz+h5H5nYw==
+X-Received: by 2002:ad4:5968:0:b0:680:114b:f9f5 with SMTP id eq8-20020ad45968000000b00680114bf9f5mr9514428qvb.86.1705464089627;
+        Tue, 16 Jan 2024 20:01:29 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ac8:6991:0:b0:429:7609:f7c3 with SMTP id o17-20020ac86991000000b004297609f7c3ls2649148qtq.0.-pod-prod-04-us;
- Mon, 15 Jan 2024 18:24:43 -0800 (PST)
-X-Received: by 2002:ae9:e646:0:b0:783:5218:7cfd with SMTP id x6-20020ae9e646000000b0078352187cfdmr5441987qkl.3.1705371883458;
-        Mon, 15 Jan 2024 18:24:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1705371883; cv=none;
+Received: by 2002:a0c:b3d4:0:b0:67a:203f:dbc7 with SMTP id b20-20020a0cb3d4000000b0067a203fdbc7ls1337143qvf.1.-pod-prod-06-us;
+ Tue, 16 Jan 2024 20:01:28 -0800 (PST)
+X-Received: by 2002:a05:620a:158a:b0:783:4b7e:10f3 with SMTP id d10-20020a05620a158a00b007834b7e10f3mr7812225qkk.24.1705464088711;
+        Tue, 16 Jan 2024 20:01:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1705464088; cv=none;
         d=google.com; s=arc-20160816;
-        b=0ucAGslRkw4yxDMlGZVC5TZkNJtZX+Ekko3B43ZHRu6we6zyaxM/Iv9egpwJYIVOBE
-         oJv7RtAS+F5tRXAUhSJKo/ZLpT3u15w9iQEqHSznkPEEIchr8qcrbD8bAFsEiADb/ksy
-         6mQddTMxX9WwXnNpTSuhV8ZNW6SuG7QRwLt+Ngp+kniY3nYjSri6tVFDstrPbhsF/DuO
-         5rk8OVLU6K7tS7MxWZWD7G7MNB4JdrFwBVwoZO/XUuuT1aeYlr5zMvyLgNCnsQ90Ea0M
-         rXTk1TQKOSQ3fjbluptdyFXjU0/bOtJOXqITDFf9bAdSmsC4Xkxf0+0vBC2fJMkdunVM
-         1IFQ==
+        b=S0XZhrhpFw7WCNZrLhdsQrg7R2R8B1I98kMVomYTwgnuQh4mH/jEZfemA5rYDoIuFs
+         hQvXUur664hsVUjfNF9RUafwjsZpOuagzr85zA7P+JiL3t8jJ4AVV85Vjd5YSRQ9iNUN
+         Yh+A6TUZib6pxIh9RbTe4GVV/HbPw7PGbtBkgr01XpI9ksdd++XGsKCRK1iU5s1zyq1L
+         iJweOOV7Saq2AQSltuoFbJcLcTwBKqm2GtN0eR6xZ8VmgbT1oYHixX+sdotU7QfxZtbT
+         TaEWBNQwQrK6UF7teMe0iSlp4LcwJ/iNV2YKlAIXjq/G3VXbR2F7mmcyuH8owaox2M+t
+         KAOA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:delivered-to;
-        bh=VxrTjb25mQ+YfyJuNcP/pTQ8VKz7aTRcU9+ZEKmjAfs=;
-        fh=3WcMQvfhmo0H+DAbN68fgpXgafmXfJWUb1u/ZrhEh8U=;
-        b=uz+XlEdu/phJ92J4NNutbB9uAMwsTrkPPJTdsVYpxskAwkHYNd3ulx/lDXPX5E6Xdg
-         LNaR6j+GK46Eu2exUTN66g54Po+nGiOv5DWWeONpEGu4YqTYklKmpj+T1UuHL0a9qJL4
-         8OjBpZ7Vt/0LEtQE6NrCBxBjFObX06kLgw2Khsg4OFpGu3BQMOx5HVa6KMYs6lLWe2Y0
-         GqW7z1p03ZN6MQlrA7fipbPhZTMOhlXjiHm7FnIgHLGJzntg6OMFZyJqyKfP4lQiMuxg
-         VmO4YH2CkO7BFUkuNHfwuDQ+TFLJxDtRniWrqkk/VP9WLDOHVdeu5Qpsp5ohKb2mmerl
-         /QZQ==
+        bh=suhqACp1yXx2dA3Iza6J1POw+8Z45LK7uK5Ii+JI/W4=;
+        fh=5BGpd9k4y8F62sA2rfcSjN7zgK8lTBpG/Wr3HsCq4Ec=;
+        b=fznLIHpJQz1k8HnVHSIlohIWFsnPQ8ENP7wQsGW/ZQfebEIqF6tIp90SglxvhxND3+
+         aPkdYwD0a/S3Y/qTdy5nnEcVDq0ghHqh7AcDz7k+8tSO44Sk8Cxp3z6ZNwzqg0h3zirM
+         tahV0n2PDKth3gZNLVHasWp7+f7JkJXly8vdvoWfujM6tjC35i8mHECXTGvRLOnjVBRv
+         jENt6hBnoajUaKKwGNjBWocPDgIikoSKmMuRjDhF633IjevLg9CPA8lnApGeehHtPmGD
+         72wBN0y421SjOxTFCdNiwYtWYXKpXkjKQDsyjojhLzCoej+8GNkxX1NjSN5n92kr16VG
+         bYRQ==
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
-        by mx.google.com with ESMTPS id vv25-20020a05620a563900b00781cac14dfdsi8826155qkn.705.2024.01.15.18.24.43
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [207.211.31.120])
+        by mx.google.com with ESMTPS id du32-20020a05620a47e000b0077f10ed7a98si10399290qkb.489.2024.01.16.20.01.28
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jan 2024 18:24:43 -0800 (PST)
+        Tue, 16 Jan 2024 20:01:28 -0800 (PST)
 Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-187-cO0C9xcIPrGK6P3vEHhKCg-1; Mon, 15 Jan 2024 21:24:41 -0500
-X-MC-Unique: cO0C9xcIPrGK6P3vEHhKCg-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-433-ayax7qzONfakvBs9YYxftw-1; Tue,
+ 16 Jan 2024 23:01:27 -0500
+X-MC-Unique: ayax7qzONfakvBs9YYxftw-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8FE90102B560
-	for <blinux-list@gapps.redhat.com>; Tue, 16 Jan 2024 02:24:41 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D8B8229AB3F1
+	for <blinux-list@gapps.redhat.com>; Wed, 17 Jan 2024 04:01:26 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id 8C52B1C060B3; Tue, 16 Jan 2024 02:24:41 +0000 (UTC)
+	id D5A39492BFA; Wed, 17 Jan 2024 04:01:26 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 85A101C060B2
-	for <blinux-list@redhat.com>; Tue, 16 Jan 2024 02:24:41 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+Received: from mimecast-mx02.redhat.com (mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id CD673492BE6
+	for <blinux-list@redhat.com>; Wed, 17 Jan 2024 04:01:26 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5E0DF1C05ABA
-	for <blinux-list@redhat.com>; Tue, 16 Jan 2024 02:24:41 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id ADAFC85A589
+	for <blinux-list@redhat.com>; Wed, 17 Jan 2024 04:01:26 +0000 (UTC)
 Received: from atlas.bondproducts.com
  (23-24-6-165-static.hfc.comcastbusiness.net [23.24.6.165]) by
- relay.mimecast.com with ESMTP id us-mta-610-Odl8bYe_MLOjR3aWIuELog-1; Mon,
- 15 Jan 2024 21:24:39 -0500
-X-MC-Unique: Odl8bYe_MLOjR3aWIuELog-1
+ relay.mimecast.com with ESMTP id us-mta-47-eteXa3CEMdO9mJk84XiScw-1; Tue,
+ 16 Jan 2024 23:01:24 -0500
+X-MC-Unique: eteXa3CEMdO9mJk84XiScw-1
 Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
-	by atlas.bondproducts.com (Postfix) with ESMTP id 2D3F640508;
-	Mon, 15 Jan 2024 21:24:38 -0500 (EST)
+	by atlas.bondproducts.com (Postfix) with ESMTP id 55D0540508;
+	Tue, 16 Jan 2024 23:01:23 -0500 (EST)
 Received: by users.shellworld.net (Postfix, from userid 1005)
-	id D9BD81001C0; Mon, 15 Jan 2024 21:24:37 -0500 (EST)
+	id 22EAC1001AD; Tue, 16 Jan 2024 23:01:23 -0500 (EST)
 Received: from localhost (localhost [127.0.0.1])
-	by users.shellworld.net (Postfix) with ESMTP id D932210008B;
-	Mon, 15 Jan 2024 21:24:37 -0500 (EST)
-Date: Mon, 15 Jan 2024 21:24:37 -0500 (EST)
+	by users.shellworld.net (Postfix) with ESMTP id 213EC1000B6;
+	Tue, 16 Jan 2024 23:01:23 -0500 (EST)
+Date: Tue, 16 Jan 2024 23:01:23 -0500 (EST)
 From: Karen Lewellen <klewellen@shellworld.net>
-To: debian-user@lists.debian.org
+To: Tim Chase <blinux.list@thechases.com>
 cc: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: [Lynx-dev] ANN: lynx2.9.0
-In-Reply-To: <ZaXPzuthOaViVfqQ@prl-debianold-64.jexium-island.net>
-Message-ID: <Pine.LNX.4.64.2401152122260.218292@users.shellworld.net>
-References: <ZaXPzuthOaViVfqQ@prl-debianold-64.jexium-island.net>
+Subject: alpine and gmail,   was  a question  about email clients?
+In-Reply-To: <ZY2NxT23qm2gJZMq@thechases.com>
+Message-ID: <Pine.LNX.4.64.2401162252340.235084@users.shellworld.net>
+References: <Pine.LNX.4.64.2312280043090.4143862@users.shellworld.net>
+ <ZY2NxT23qm2gJZMq@thechases.com>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.7
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: shellworld.net
 Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
@@ -123,73 +124,120 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-As of today, current edition of lynx.
-Announcement below.
-Kare
+Hi all,
+This effort has needfully expanded since I first asked.
+Having no direct access to Linux, only via shell services, i ended up 
+being very thankful that a member of Toronto's local Linux group likes to 
+play with mail setup.
+He created an ssh door into one of his machines, where in turn alpine is 
+being used to reach my gmail account via imap.
+However, there are a few odd things.  Ron has never used alpine before 
+finding some elements confusing.
+one surprising problem seems to be getting anything saved to the trash, 
+others are having this issue as well.
+Another odd thing I am noticing is that I cannot remove anything from 
+spam.
+Things can be deleted from my main all mail gmail folder, but when i reach 
+the one gmail created..it has a folder called important for example, I 
+cannot remove any spam.  I also cannot, as one could with the basic html 
+web interface, shift items that are not spam back  to the inbox.
+I can save them somewhere else, but they still remain in my spam folder if 
+all that makes sense.
+Anyone using alpine in a comparative way managing to get things into the 
+trash folder?
+
+Thanks,
+Karen
 
 
 
-On Tue, 16 Jan 2024, Thomas Dickey wrote:
+On Thu, 28 Dec 2023, Tim Chase wrote:
 
-> The current version of lynx is 2.9.0
+> Tim here.  There are a number of parts involved in email, and
+> managing the email depends on any/all of those bits.  Beware, a bit
+> of a flood of info falls below (you've never known me to be anything
+> but prolix)
 >
-> It's available at
-> 	https://lynx.invisible-island.net/
-> 	https://invisible-island.net/archives/lynx/
-> Development & patches:
-> 	https://lynx.invisible-island.net/current/index.html
+> On the user-facing end of things, you have your "mail user agent"
+> (MUA).  This either stores mail locally to where it's running or
+> it access a remote folder-structure via IMAP (or, if you're stuck
+> with Microsoft, they created their own MAPI protocol just to make
+> it hard to interoperate).  If you keep your mail locally, you can
+> either fetch it from a remote machine (usually via POP3), optionally
+> deleting it from that remote machine; or you can just have a local
+> cache with the authority being kept on the remote mailserver,
+> accessed via IMAP.  Mail can be kept locally in a number of common
+> formats, but most frequently you'll find "mbox" (a single file acts
+> as a folder holding all the messages) and "Maildir" (each message
+> is in its own file) formats.
 >
-> Files:
->  https://invisible-island.net/archives/lynx/patches/lynx2.9.0.patch.gz
->  https://invisible-island.net/archives/lynx/patches/lynx2.9.0.patch.gz.asc
->  https://invisible-island.net/archives/lynx/tarballs/lynx2.9.0.tar.bz2
->  https://invisible-island.net/archives/lynx/tarballs/lynx2.9.0.tar.bz2.asc
->  https://invisible-island.net/archives/lynx/tarballs/lynx2.9.0.tar.gz
->  https://invisible-island.net/archives/lynx/tarballs/lynx2.9.0.tar.gz.asc
->  https://invisible-island.net/archives/lynx/tarballs/lynx2.9.0.zip
+> Email management can happen either on the mail-server itself where
+> the admin might define rules like "mail coming from this server is
+> always spam, just delete it before users ever even see it"; or mail
+> management can happen in the local MUA where you can manually
+> move/copy/delete messages, or set up filters to run (automatically
+> or manually) to take some of the druge-work out of it.
 >
-> 2024-01-15 (2.9.0)
-> * change version of OpenSSL used in Windows installers to 3.x and 1.1.1x,
->  for new/old respectively -TD
-> * fixes for UBSAN/ASAN issues with clang on Windows -GV
-> * modify install-doc rule to use relative path for symbolic links -TD
-> * add support for gopher's hURL functionality (patch by Viatrix).
-> * allow ^G interrupt to end read from a stalled connection without exiting
->  Lynx (Debian #1033423) -TD
-> * allow the ^S keymap to be disabled in the configuration file, e.g.,
->    KEYMAP:^S:UNMAPPED
->  (report by TG) -TD
-> * repair docs/OS-390.announce and docs/README.jp -TD
-> * make the test-files non-empty, to appease some packaging tools -TD
-> * check for getpwuid(), use in preference to deprecated cuserid() -TD
-> * modify curses initialization to permit ^S built-in keymap to work without
->  needing external stty changes -TD
-> * correct ifdef for LYmsec_delay() (report by Alexander Arkhipov) -TD
-> * add a NUL after "/" in the SGML parser when the next character is ">", to
->  make PRETTYSRC view display correctly (report by "Dima") -TD
-> * trim some obsolete style code for NeXT -TD
-> * improve responsiveness with respect to SIGWINCH (report by Mark Zaharov) -TD
-> * improve check for MAX_URI_SIZE -TD
-> * improve check for UTF-8 character encoding in XML Text Declaration (report by
->  Lennart Jablonka) -TD
-> * fix for decoding utf-8 in CDATA sections (patch by Hiltjo Posthuma)
-> * treat HTTP 308 permanently redirected the same as HTTP 301 permanently moved
->  (Debian #1041686).
-> * formatting fixes for manpage (Debian #1037353).
-> * change defaults in configure script to use compression -TD
-> * modify HTChunkPutb2() to avoid passing a zero-size or null pointer to
->  memcpy() -TD
-> * correct loop in fill_addrinfo() which adds sizes of struct addrinfo's found
->  in getaddrinfo() call; the 2.8.8dev.15 change did not update the pointer to
->  the struct addrinfo's (Redhat #2185402) -TD
-> * modify configure script to reduce implicit-function warnings -TD
-> * add viewport meta-tag to documentation/test files -TD
-> * update config.guess (2023-08-22), config.sub (2023-09-15)
-> * update ro.po from
->    http://translationproject.org/latest/lynx
+> When you send mail, some programs just submit to the local system
+> utilities for sending mail and let it worry about getting the mail
+> to the other end.  Other times your MUA talks directly to a mail-server
+> via SMTP to send mail.  Since it involves mail-servers talking to
+> other mail-servers, so either side can institute management decisions
+> in the process.
 >
-> -- 
-> Thomas E. Dickey <dickey@invisible-island.net>
-> https://invisible-island.net
+> It sounds like you're SSHing into a remote machine and running
+> Alpine there where it talks directly to the Gmail servers via IMAP
+> (where the mail remains on Google's servers).
+>
+> Gmail does some internal IMAP trickery to present each label as an
+> IMAP folder, so deleting a message from a label-folder is more like
+> removing the label; and copying a file to a label-folder is like
+> adding a label.  Though it should still have some common-type folders
+> (there's no standardized naming) like "Trash" or "Deleted Items",
+> "Junk" or "Spam", "Drafts" or "Queue", etc.
+>
+> So when you ask "which system matters?" they all do in a way.
+>
+> However, message *sorting* (the order in which they're presented;
+> different from filtering or categorizing) is usually a MUA thing.
+> The Gmail web interface might sort one way (IIRC it does a top-level
+> priority-based sort, and then sorts by a user-defined method inside,
+> such as by received-date or thread) while Alpine (or mutt/neomutt
+> or aerc or Thunderbird or whatever) should be able to sort by
+> whatever aspects you prefer (date, recipient, thread, etc).
+>
+> Hopefully that makes sense?
+>
+> -tim
+>
+>
+>
+>
+> On 2023-12-28 00:56, Karen Lewellen wrote:
+>> Hi All,
+>> Going  to ask this carefully, so as to avoid confusion.
+>> Given that there are different email clients, alpine, Thunderbird,  and the
+>> like, what actually determines how email gets managed, the client, or the
+>> source?
+>> there is a member of the greater Toronto Linux  users group who has set up a
+>> mail server where I use alpine to access gmail.
+>> However, because he has never used alpine, nor has he used basic html in
+>> gmail, he is basing the expected sorting on the standard gmail process. that
+>> process does not use folders at all, but labels apparently.
+>> as a result,there are things I imagine alpine expects to find which is not
+>> here.  We are using imap for gmail, but my personal experience of imap,
+>> based on dreamhost, still has a mail folder with  saved messages, sent mail,
+>> postponed messages probably spam etc.
+>> and an imap folder which has other elements unique to dreamhost.
+>>
+>> I would guess Thunderbird has its own sorting system.
+>> My question is this.
+>> If you are using imap for gmail, or yahoo mail or whatever, in a client like
+>> alpine or Thunderbird which system matters, the source where the email comes
+>> from, or the client you are using?
+>> Hope question is clear,
+>> Karen
+>>
+>>
 >
 
