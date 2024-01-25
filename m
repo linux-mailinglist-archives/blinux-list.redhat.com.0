@@ -1,140 +1,162 @@
-Return-Path: <blinux-list+bncBCFIHJ744YGRB5OUZKWQMGQEVZ2KEJQ@redhat.com>
+Return-Path: <blinux-list+bncBCMKFVG4RQEBB36YZKWQMGQE6JZAXQY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mail.lfdr.de (Postfix) with ESMTPS id 49AE783CB3E
-	for <lists+blinux-list@lfdr.de>; Thu, 25 Jan 2024 19:37:43 +0100 (CET)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-68058b0112csf139871476d6.1
-        for <lists+blinux-list@lfdr.de>; Thu, 25 Jan 2024 10:37:43 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1706207862; cv=pass;
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mail.lfdr.de (Postfix) with ESMTPS id AA3AE83CB73
+	for <lists+blinux-list@lfdr.de>; Thu, 25 Jan 2024 19:46:08 +0100 (CET)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-42a3cd0db31sf51358071cf.0
+        for <lists+blinux-list@lfdr.de>; Thu, 25 Jan 2024 10:46:08 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1706208367; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FhchvitImDWZMJIrOtO25QBob8NOuwgHZCLNEmoKOIPNCST9AknzGEFl+H8xheXuaa
-         igDAtYWoxoklpsOxZ6gIGJu3dmTHDUU0Qcvg1PTDienLoZoK+Gv6acc5hQTXrhw0S+Yh
-         8JHOoww9rlCxKtExEHBAQdrD1s4dkTUbUrdBXoqO4ICd1ZQvJG2FsY0kSmU0t87bSniH
-         DlhdyjcmTnCYAg64ADAEE+aYBB5VaZ+EnQY5PxMO1iU4HXtlIujIMMCD9YKkdk5WFJjC
-         /PxH2yeKQt6BrlPiMcxUa5lw8wKHipASE6plB6muL2UWILdqy5bOvWOvd4y+arZfH6RB
-         sFQw==
+        b=clV89RAqqR/dYveMToFr6idn4jq1a09CBd2+3wgZTDPVz+wPW9HK5ZLrjraAd829w8
+         jgr7pu7Sc8MaY7KpfUIU/eMaWeUvJeHnJCwhXpbMRuHEaXIl03xwtznNqMyMXoWLFeU7
+         /JGURBsuJzlI0QOxoXTqx+Iv7fGmYdcp5jy9nL7yKH9Hy8BtbSEABDYhpthicw5AIQ+F
+         B6avFaS+zM64By3RWK/dEgNBw5Eel0bLVe4+wfp470nbU1cTpK8wRE89lN3s6qHb+0SB
+         uNc7ZDb+H8o/9w0Vefg2mwgTKPcbbPVTuwJ1xnEChXS4hV09F5cN5Vo0Bbj7aOtOCwZD
+         M3jA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-disposition:in-reply-to
-         :mime-version:references:mail-followup-to:message-id:subject:to:from
-         :date:delivered-to;
-        bh=DdJe25AuP+W037yomK7am1HocgOHLUhj7eKcqA299DU=;
+         :mailing-list:precedence:content-transfer-encoding:content-language
+         :in-reply-to:autocrypt:from:references:to:subject:user-agent
+         :mime-version:date:message-id:delivered-to;
+        bh=P6VS/jes/aeW4X+TZ/C3X39liNWZWDx8dCSV8GakYy4=;
         fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=Wsf49S8lMSmWRLBpVt1BHI5RfNf4kfdnemWzrBqXiWTAysvjICwkiUnCnwuI9Jx3vi
-         rjaHBJEvcDCCFXF43bTIkVABy5yFrBEdVQ5X+5OCw1HvC/9NoKv9yx34dWYSYJ4cgutS
-         OgREMf0EDnafkcKme43R0IVRJ2qTDYRRVdGe5QdZGzeQ37cShMfVCtnv9ydgtuf7ADRN
-         OlmFm7b4ExLDUojKWeWSi7l+vOEAv/L+ZAwuhYZ3XI3C2Y/F6eEgOob1NRqcdIUrdXS1
-         7ODfpzuZx3YzB4ytpxfKz8J7W+93u9gu2bc/eA0X2WbpsCIBy6VTxSf9xn5fHakR0IeW
-         asrA==
+        b=0682yNJUDnRNseAQJ/DwT5hdcPShTg7sdJ/Lm0RrrzXp+YjheUkeuKfnFXUsK65Vhr
+         Q9kwiTZW7dpUCsLGv/ZN4ArADftq/dBahfkIRRABf46sUY9LKw+bMllDjzvuVsNgHN74
+         LbGhwpNn/0T7AweYoocqF/edCGBa8yCuSRmPQnRjHJ2MMdG2S6fhwj8sAioOuGP++688
+         Sfl1JkktkzOH6ktvskClNONmvIvJREaQ1tge2nUCs+KuRuESCU5fp8MV+BMsQkaXyjDf
+         9Uj6LAr2y6Lo+J0gYicOh3CUPHrKuhnyrx60s7l3/xkdu1HnLFc/4C2sAXfmpYzetvzZ
+         z4/Q==
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) smtp.mailfrom=blinux.list@thechases.com
+       spf=pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1706207862; x=1706812662;
+        d=1e100.net; s=20230601; t=1706208367; x=1706813167;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender
-         :content-disposition:in-reply-to:mime-version:references
-         :mail-followup-to:message-id:subject:to:from:date:delivered-to
-         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DdJe25AuP+W037yomK7am1HocgOHLUhj7eKcqA299DU=;
-        b=KeXMaYxLQYTM6myokzXW5gOXIU3Hazti4C6Ro1APglLjY7Q59TZTQ41gDjSILkHJzH
-         Vda1krSGTdVSbmE/gz8YNHjwYl3B9zLmMHNNN/MWv8LTefFai6fy/+sEmDOl826R2cJh
-         q231hXcWYj2uCBkJhgFzvRU1XPnLLUjoND78HYxtx5dl3A8ZmS1Uc4CWGMCvAQ0UGE12
-         Ammxplt21RjLbPFrRzRXPHNut59O4YNZxvt+q67iLsi9/1zXrMfvPTE9BZawXycrdtwE
-         nC5Hfe1NiVz5JpKBTbSz4ulwGv9dMntu8D8/qqGLSPlibnw78PTvjX5biWsoAILQCaSm
-         5YXw==
-X-Gm-Message-State: AOJu0YyMleEve6V7EtOl8N/zZwkPmLJSiDjGFIA93xfADCC7pWbI2Y5Z
-	f1Dy9HEbywv0vstkLUHP3Q8lLaP+wOVgOEdOLyTeFnyO5Ak0jVXORL1Xz1t42Nk=
-X-Google-Smtp-Source: AGHT+IEgdzT1zCTlBH78X5pT8Ak00Qpngha3QPSTMIe3iIgvE6D1BuAGbYlkUonbFDco/eefYOFqcA==
-X-Received: by 2002:a05:6214:481:b0:686:963d:f32a with SMTP id pt1-20020a056214048100b00686963df32amr91193qvb.24.1706207862011;
-        Thu, 25 Jan 2024 10:37:42 -0800 (PST)
+         :content-transfer-encoding:content-language:in-reply-to:autocrypt
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=P6VS/jes/aeW4X+TZ/C3X39liNWZWDx8dCSV8GakYy4=;
+        b=KOe/8SiixR9/dkyRT4jNNGdu5u3TJxx4OhMDQw2iduDpMpXgmvjp7N78hznSfxUOv9
+         +2FU1rbfKmprhigXUfwcUm56fBEtuBT62WCYL3VOb7nHEwPOcE6hfT6Zz3QqTCj2xYuz
+         8cYdlvaLDRJU7tvs9El/4vYovRdzbRPqVlrDaExcTNHvlCvXrIUMMd+OuNb8hSYOMUA/
+         8F3CyQHebwTPtOR8UU07ISsjYRsC9jpT2tLR5KqBxlhgwp65bB6JONaU9+5bPs5g3nXC
+         74YBFzqAoE9Xiip1y/g3QzsR0vadc7T56kiTWbP+ZPGzwo0CjDZp7k+1nRm2H58rIkXA
+         p8eQ==
+X-Gm-Message-State: AOJu0YxNNsQMcuA32sYMow34zoMjxoo+OeWV6xnyLR81JfCO+ZGWlfp3
+	qGsWl1EB+ARORF3DQfJDgTKk4IgFMtcIugPhjPFu3BAaNv2md2bC5nFmhhaKCmg=
+X-Google-Smtp-Source: AGHT+IEKgGn7AOGS58R1S183OHutx906CIBXfr7Ur0mocCOP7enu1cEGIjr8FHD1z5u86miopeCnfg==
+X-Received: by 2002:a05:622a:54c:b0:42a:6c59:5513 with SMTP id m12-20020a05622a054c00b0042a6c595513mr75799qtx.76.1706208367558;
+        Thu, 25 Jan 2024 10:46:07 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a0c:da12:0:b0:681:7940:512a with SMTP id x18-20020a0cda12000000b006817940512als62275qvj.0.-pod-prod-06-us;
- Thu, 25 Jan 2024 10:37:41 -0800 (PST)
-X-Received: by 2002:a05:620a:4720:b0:783:8275:fbc7 with SMTP id bs32-20020a05620a472000b007838275fbc7mr183738qkb.58.1706207861153;
-        Thu, 25 Jan 2024 10:37:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1706207861; cv=none;
+Received: by 2002:ac8:5405:0:b0:42a:30ba:32bc with SMTP id b5-20020ac85405000000b0042a30ba32bcls6580330qtq.1.-pod-prod-03-us;
+ Thu, 25 Jan 2024 10:46:06 -0800 (PST)
+X-Received: by 2002:a05:620a:16b4:b0:783:c889:9887 with SMTP id s20-20020a05620a16b400b00783c8899887mr157352qkj.18.1706208366688;
+        Thu, 25 Jan 2024 10:46:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1706208366; cv=none;
         d=google.com; s=arc-20160816;
-        b=JLuFsQfsYK/DZXcKJL9LvFXPRyzwBeSsE4JNupX0jgllJHrXtKyxRotIVt777McNA8
-         2eotfwKWoiubu/lpMtyRFm3RLHbWc2pfYnElN5vcfS8Pk9AlIhuvf8XE8axg9y9DfEvj
-         en/V9voK7tfJaJHHxm12Jk/b2GeZYhst7Lp1Gnf6y3GHUjuzerATfIjc3dD5+O8i2Wt4
-         9DqPl+Vk+xsbV+AZQ/9YMVZK6EvaQ2oLmw9qO0YzlZa9GUFH7Fa+ceA6CzLoQAp9Qclz
-         YqqRx1PiEwpcLFEpsT73lWVJDIQgo7smiMCcmiMHn0WBMvMwA6t6X7qv8Cga9kWd87B2
-         skxQ==
+        b=RcIh3gk3VXEKvyFajacEmVibJ20strJipYarDZkQyNPQYOHxx+tAQ4T84Asr+paA83
+         GYz/ZULEO7JOCttCsx5IbMOOqltqaIjU0D4z6xtS99QivAqc+ANgPBSGt1fqOucjGiVO
+         x+FAfF75D5VBeTONXtLDpediv0aENK3XfKLQTbNYa37rcZ4SSRwFb1nN7J/j4gQ4JJGM
+         urwlKcEa8q3MwwE+KCNpwZ7qyGf3KkJLywYP3pI9Timi5dswehNiH1oG5EPh9MJbpzA0
+         6Pv5mZI91DO+v+g0yF8y8T2jq36a8Dvj1QGuOYA1b4L0iSBRMW0ne2prhg28uW0fR8Ww
+         NvJw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:in-reply-to:mime-version:references
-         :mail-followup-to:message-id:subject:to:from:date:delivered-to;
-        bh=Z/vB8P4fl0tbuJZBDL9kA3kKc00YwcjWmK+N9zX0oXE=;
+        h=content-transfer-encoding:content-language:in-reply-to:autocrypt
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to;
+        bh=9vc/jlII/GO+PIUN9sIOF7/YoKPKN1yIG7kjStK4kMA=;
         fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=u3t4e8gV/czHa43TPQt8pPjNPifuCtbAqq9IMyeOE9k/vH9/T2xa1KUrTXzsNk3PhH
-         FMN0PLxabmkHMy8aRCNw4ijlNeu70p/wBjS1/O3Ui+xrwJMjL+qzzusMWVIADubhDAeP
-         r5Rhj6XgpsdgasI7XSdkZ4yMuZ+cAA5kesPXx2jbdqvk43AyWjjln0w58L2c/lDOyOIE
-         INMSd+avcaTY7pGBADmF6wLUXo+LXlW5SEUEv2dr6TjTAuAf93gChIBXG1XBeCGtgj0D
-         Tm26iuovM14YPtGwJbyjQBxUwCPXkJgkqvI2TSY7HkqcZzFWEjghw5cKOKeTGYet6GEG
-         OwLQ==
+        b=A8YSnJ2+wN2I9bT9kSwPhSwC5y7hkj3TaO4kAV9QXCTwOJGIggSuKgQW/Qbe3yd0zc
+         Jh8n3QKHltvw02eP8RpnD67NRdTXBFVND4xLhwU+YBYHqUwR4ZhKqDo0D7f69/IMSqay
+         chhIBfK0yGcmOSlPiks3tv+b2lc7oxYvEkwpt3P9QBD9Nb/pz3HBGoqW+Je6KsD4gRfC
+         dOKBX2aVGAm02ja7ZE3+mWnA/BmJhCkQ5uf+MVMxXQRebGQ2epeSF/RYTXUTNPKM3v/T
+         0Z8GozyVMxBu2lzJje2tcIxF+pvgrodak6UqKyygrbVdJQZAe2ARlzsWR8GOjG0ecgzi
+         cudg==
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) smtp.mailfrom=blinux.list@thechases.com
+       spf=pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [207.211.31.120])
-        by mx.google.com with ESMTPS id u1-20020a05620a454100b007839780eef6si12955459qkp.49.2024.01.25.10.37.40
+        by mx.google.com with ESMTPS id vy25-20020a05620a491900b007832234df97si12673755qkn.553.2024.01.25.10.46.06
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Jan 2024 10:37:41 -0800 (PST)
-Received-SPF: pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) client-ip=54.39.151.74;
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-287-5VlaTxSzNUWz22yqnrWA4Q-1; Thu, 25 Jan 2024 13:37:39 -0500
-X-MC-Unique: 5VlaTxSzNUWz22yqnrWA4Q-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+        Thu, 25 Jan 2024 10:46:06 -0800 (PST)
+Received-SPF: pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) client-ip=172.105.89.79;
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-511-zXi3E45LOqmBuhv9cDwk3w-1; Thu,
+ 25 Jan 2024 13:46:04 -0500
+X-MC-Unique: zXi3E45LOqmBuhv9cDwk3w-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 5D9CD88CC44
-	for <blinux-list@gapps.redhat.com>; Thu, 25 Jan 2024 18:37:39 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EC0892820B8E
+	for <blinux-list@gapps.redhat.com>; Thu, 25 Jan 2024 18:46:03 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id 5A927492BFD; Thu, 25 Jan 2024 18:37:39 +0000 (UTC)
+	id E905E200ADE2; Thu, 25 Jan 2024 18:46:03 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 52C1D492BFA
-	for <blinux-list@redhat.com>; Thu, 25 Jan 2024 18:37:39 +0000 (UTC)
+Received: from mimecast-mx02.redhat.com (mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id E048D200A08E
+	for <blinux-list@redhat.com>; Thu, 25 Jan 2024 18:46:03 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 3230185A588
-	for <blinux-list@redhat.com>; Thu, 25 Jan 2024 18:37:39 +0000 (UTC)
-Received: from thechases.com (thechases.com [54.39.151.74]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-290-MHWvK4LIMl2IMn6Cc80deA-1; Thu,
- 25 Jan 2024 13:37:37 -0500
-X-MC-Unique: MHWvK4LIMl2IMn6Cc80deA-1
-Received: from localhost (thechases.com [local])
-	by thechases.com (OpenSMTPD) with ESMTPA id 9af99a75
-	for <blinux-list@redhat.com>;
-	Thu, 25 Jan 2024 18:37:36 +0000 (UTC)
-Date: Thu, 25 Jan 2024 12:37:36 -0600
-From: Tim Chase <blinux.list@thechases.com>
-To: blinux-list@redhat.com
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B85D23C0F252
+	for <blinux-list@redhat.com>; Thu, 25 Jan 2024 18:46:03 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+ relay.mimecast.com with ESMTP id us-mta-418-PWAzMaiTMxusRW1UgGAjpw-1; Thu,
+ 25 Jan 2024 13:46:00 -0500
+X-MC-Unique: PWAzMaiTMxusRW1UgGAjpw-1
+Received: from [192.168.1.186] (212-194-64-62.abo.bbox.fr [212.194.64.62])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id C4B62625D8
+	for <blinux-list@redhat.com>; Thu, 25 Jan 2024 19:45:55 +0100 (CET)
+Message-ID: <77c0e23f-32de-4103-9bf1-f504a4d4b82f@slint.fr>
+Date: Thu, 25 Jan 2024 19:45:12 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: Something small to install Linux on.
-Message-ID: <ZbKqcBJR9aMmr4Lf@thechases.com>
-Mail-Followup-To: blinux-list@redhat.com
+To: blinux-list@redhat.com
 References: <A9534E5B-88A3-4F43-914B-846CF6F8E465@pipkrokodil.se>
  <ZbJ81eC3H6fmtfoC@thechases.com>
  <ce95a147-37c1-4347-99ef-9520116af9a1@seznam.cz>
-MIME-Version: 1.0
+From: Didier Spaier <didier@slint.fr>
+Autocrypt: addr=didier@slint.fr; keydata=
+ xsBNBFY6fG8BCADH4Hf/OaE2MwXRFMrU/9oDd+YPqR/wkhmIv0veDio84fsWA5qMz1De7TEv
+ dNuxIVYTznuVOd/9lpdfxQ1KV9rgD7yoBPLmjbQA1vVjB+1QylIQUV0B9AYFUsxZP32Ic2pg
+ TS3US/WiZyx+/jS50ri4kvT9iDtIEu7WBWFr8YMOoq3oLkHI8Y7gBG0WsK9XYN09glhtI+bA
+ jLPr/ezwEg5M3FDb4U7XFq7GcA6EEzanKMAOHdZl3lta7dv5gpgdj+38j5jPfV1cJW+J1fha
+ 63X72xxXGs7V6J7NGpnW7SAKfTAMXsPXZwwGIuqMQs1Z89I+2ZPJPOoV8zMncTsWzHStABEB
+ AAHNH0RpZGllciBTcGFpZXIgPGRpZGllckBzbGludC5mcj7CwHkEEwEKACMCGwMHCwkIBwMC
+ AQYVCAIJCgsEFgIDAQIeAQIXgAUCYZVPGAAKCRDVAgLvYMA+6pOxCADB2pKmm/LgncWREzob
+ Z6M+RsvgzvGS/48ik/E/TH2KyPO/hn+Fzbj4MmMwQdqz5YPfdBmkcM7WyDzkPaukzfS8QUvl
+ VKyWQ92pqpbI/JUeShI+DLMKV7LZxiPinMBuKmpyLdpxuhk08g2+6F8X6ztbl8mbXQy5jcIZ
+ zKQ442N0D4wnn8VXM0tb0uonmqc6ly7dcmkQ/GI7Q0tF/hkn4n3g1Lh6+K1jBqEIC9vn/c6X
+ yf67ec+CwbE0GtgVM1FR1R0J1y/6vkYWr7gZHhnzgwKr6k1wzCGkVUyCSpFwB2oeANT9c0qP
+ rgn4YjoYQIHS3vMWd630vRyOfqwetWXmVjPxzsBNBFY6fG8BCACqDQKHSw0ElDkwPPpNguL0
+ ujOyygO30xlLyfW9pWOEycHSLhLzvDTlFkvr5IxvyCDBIFBdzpkeQqh1+ZxrFliwWyj+9/ro
+ JlIjxeAyNs2xQZ7tQM6K5xtbUs8O5YtkCCO3OegAiLgmzzgxes79Qy+V3ciKbl+vrsNu7T9r
+ o3zZhyinci1eOCcKEtXFPQW5P4woB+6+JheN9pIiDkjojmdC+xkvDadP7kJYKp19Itys/CbN
+ vxEoOLsgeJhsZSmNU2QNhXkLfr7+AC99fb/c5ZDTNPRBqgLJCp+gTxn1QVJrAbq2OP3refmS
+ RxdA3yUDMjxEeHwDNZJL9aEtTDlTzPk5ABEBAAHCwF8EGAEKAAkCGwwFAmGVT44ACgkQ1QIC
+ 72DAPuqjhwgApl0pdNIrbU+8Hn0mr3CTEXxPaTbAU2bYFPDiBaEvXsBGoz8xJ6EZQnywbC7o
+ l5wFtVT08LKDewLHaL78zS+Q8rv5sNmWwzMAaipFtZg67e/rU3V5tw4E12nUghyMzQpngUur
+ lZPMFlB9IZN9681cXuv2sZzAZlR2+3PsSAftpPQxReoSC7hj3dfiCiAis19G3A184HClA5MB
+ I5heGinSz7R/AXhkiej8HZZzz9ZPkS7aeL8HsZKqCwZvViutbGmpm+V70JnbRAHLFjYb+Se3
+ rdUWWAXcca4Ry8HCLTo5iK9xCTQh5gEuJ7ROdOXeY4SvMiqWjYhlrsR0qhTv9q/gfg==
 In-Reply-To: <ce95a147-37c1-4347-99ef-9520116af9a1@seznam.cz>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: thechases.com
+X-Mimecast-Originator: slint.fr
+Content-Language: en-US
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-X-Original-Sender: blinux.list@thechases.com
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: didier@slint.fr
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of blinux.list@thechases.com designates 54.39.151.74 as permitted
- sender) smtp.mailfrom=blinux.list@thechases.com
+ domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -146,93 +168,85 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-(Tim here again) Yeah, the basics still hold regardless of the
-flavor of Linux you install.  I reached for the default Raspbian
-image because it's what's most supported on the Raspberry Pi.
-However, any distribution that works on the RPi should be fine and
-fit within 8 to 10GB for the OS while still having plenty space for
-OS-related stuff.  Then you'd need to take into consideration
-whatever space you need for your files/data.  If your plan is to
-work with media, that might need tens or hundreds of GB for your
-files.  If it's just a writing machine or a reading machine with
-just some documents, a 16GB drive might be more than plenty.
+Hello
 
--tim
+You could install stormux: https://stormux.org/ which has up to date softwa=
+re.
 
+Didier
 
-On 2024-01-25 18:19, Vojtech ??miro wrote:
+Le 1/25/24 =C3=A0 18:19, Vojtech =C5=A1miro a =C3=A9crit=C2=A0:
 > Hello,
-> 
-> but, unfortunatelly, in Raspbian there is no way to use Mate desktop and
-> Orca in the system is pretty old.
-> 
+>=20
+> but, unfortunatelly, in Raspbian there is no way to use Mate desktop and =
+Orca in
+> the system is pretty old.
+>=20
 > Vojta.
-> 
+>=20
 > Dne 25. 01. 24 v 16:23 Tim Chase napsal(a):
-> >Tim here, responding in-line:
-> >
-> >>How much storage do I need?
-> >
-> >That's a bit like asking how long a piece of string you need.  It
-> >depends on what you're doing with it.  The base Raspbian operating
-> >system should fit in a couple gigabytes (I think it fits on a 2GB
-> >card last time I checked), however that doesn't leave much room for
-> >*your* files.  If you use some other Raspberry Pi distribution,
-> >you'd want to take into consideration its base image-size.
-> >
-> >That said, an 8GB card should be plenty big-enough, and I see 64GB
-> >SD cards for under $10.  However, note that the *speed* is likely
-> >more important than the space since SD cards can be a bit slow.  I
-> >have some older 4GB cards that are slower than class-10 and they
-> >are *painful* to run from.  Also, buy a reputable brand from a
-> >reputable vendor.  There are a LOT of rubbish cards out there that
-> >report large sizes but only have some minimal capacity and you don't
-> >find that out until seve3ral months down the road.
-> >
-> >>And how many usb-ports are there on the 400?
-> >
-> >There are two USB 3.0 ports and one USB 2.0 (all USB-A form-factor)
-> >
-> >And there's also a USB-C port for power-supply.
-> >
-> >>Does it support Bluetooth and Wifi?
-> >
-> >Yes, it has Bluetoogh 5.0 with BLE, and Wifi
-> >
-> >You can read the full specs here
-> >
-> >https://www.raspberrypi.com/products/raspberry-pi-400/specifications/
-> >
-> >I don't know what your accessibility-preferences are, but it might
-> >be important to note that it doesn't have an audio-out jack (standard
-> >3mm headphone jack). So you intend to use TTS rather than Braille
-> >or a screen-magnifier, you would either need to get an HDMI-to-headphone
-> >adapter or a USB audio device (I picked one up recently for under
-> >$10).
-> >
-> >Additionally, I wrote up a detailed description identifying the
-> >ports and keyboard layout, and Mike posted it here:
-> >
-> >http://www.raspberryvi.org/pages/guides/board-description.html#model-400
-> >
-> >in case you want the nitty-gritty for familiarizing yourself with
-> >the unit.
-> >
-> >Hopefully this helps,
-> >
-> >-tim
-> >
-> >
-> >
-> >
-> >
-> 
-> -- 
-> You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
-> 
+>> Tim here, responding in-line:
+>>
+>>> How much storage do I need?
+>>
+>> That's a bit like asking how long a piece of string you need.=C2=A0 It
+>> depends on what you're doing with it.=C2=A0 The base Raspbian operating
+>> system should fit in a couple gigabytes (I think it fits on a 2GB
+>> card last time I checked), however that doesn't leave much room for
+>> *your* files.=C2=A0 If you use some other Raspberry Pi distribution,
+>> you'd want to take into consideration its base image-size.
+>>
+>> That said, an 8GB card should be plenty big-enough, and I see 64GB
+>> SD cards for under $10.=C2=A0 However, note that the *speed* is likely
+>> more important than the space since SD cards can be a bit slow.=C2=A0 I
+>> have some older 4GB cards that are slower than class-10 and they
+>> are *painful* to run from.=C2=A0 Also, buy a reputable brand from a
+>> reputable vendor.=C2=A0 There are a LOT of rubbish cards out there that
+>> report large sizes but only have some minimal capacity and you don't
+>> find that out until seve3ral months down the road.
+>>
+>>> And how many usb-ports are there on the 400?
+>>
+>> There are two USB 3.0 ports and one USB 2.0 (all USB-A form-factor)
+>>
+>> And there's also a USB-C port for power-supply.
+>>
+>>> Does it support Bluetooth and Wifi?
+>>
+>> Yes, it has Bluetoogh 5.0 with BLE, and Wifi
+>>
+>> You can read the full specs here
+>>
+>> https://www.raspberrypi.com/products/raspberry-pi-400/specifications/
+>>
+>> I don't know what your accessibility-preferences are, but it might
+>> be important to note that it doesn't have an audio-out jack (standard
+>> 3mm headphone jack). So you intend to use TTS rather than Braille
+>> or a screen-magnifier, you would either need to get an HDMI-to-headphone
+>> adapter or a USB audio device (I picked one up recently for under
+>> $10).
+>>
+>> Additionally, I wrote up a detailed description identifying the
+>> ports and keyboard layout, and Mike posted it here:
+>>
+>> http://www.raspberryvi.org/pages/guides/board-description.html#model-400
+>>
+>> in case you want the nitty-gritty for familiarizing yourself with
+>> the unit.
+>>
+>> Hopefully this helps,
+>>
+>> -tim
+>>
+>>
+>>
+>>
+>>
+>=20
 
--- 
-You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+blinux-list@redhat.com" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
 
