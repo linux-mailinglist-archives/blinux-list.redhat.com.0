@@ -1,143 +1,153 @@
-Return-Path: <blinux-list+bncBDYPVTOXSQEBB2XJ7CXAMGQEQSARZUY@redhat.com>
+Return-Path: <blinux-list+bncBDP7P6HU4IERBFMM7GXAMGQEJ2U6NTA@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9BC5E869FF7
-	for <lists+blinux-list@lfdr.de>; Tue, 27 Feb 2024 20:15:55 +0100 (CET)
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-3c1a5031bb7sf1869450b6e.1
-        for <lists+blinux-list@lfdr.de>; Tue, 27 Feb 2024 11:15:55 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1709061354; cv=pass;
+Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com [209.85.161.72])
+	by mail.lfdr.de (Postfix) with ESMTPS id C1D4C86A0D6
+	for <lists+blinux-list@lfdr.de>; Tue, 27 Feb 2024 21:29:11 +0100 (CET)
+Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-5a0a19006a3sf1959089eaf.1
+        for <lists+blinux-list@lfdr.de>; Tue, 27 Feb 2024 12:29:11 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1709065750; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LAvVoMSi7+r6J4AgQI+Kbwnt5HOaU+AjVrahcC+/zfX4hSkktThVUD212aT5UQatsl
-         GxVF+MT7WEuTCzfkQLhppqIO+GrUSqowxyCTisMv0E8m8uSA0yhS3PS2ip9B4RmWqcOo
-         GZy/AJzPiwiK5+NNf7XkCP+bW+nYZGmE+gCEjE4CDGtaK9zTmSwvLONdsdUytXuRiQvS
-         sWESDrm0jWCx7KsT3hGMc1FMVufQ+eubpIyJGCOgxAcUguCAX+ygK2xzcelYhQaxAWUg
-         SMlsZCjR+GjdTUfXDLbW8JQbG8tpMKrtW/lb/r8FiZ6sIYqweEnhhU8IKf8AQM5XVTpL
-         Xohg==
+        b=s26RPRHCMjDOqX6FSANBTQR7nRPUUc1YR8nt0LHsU8k0z5NRRiwBf75332bbBOV8hq
+         WsSwcZbIsJzc5YGtMRhhLolkjDrZxPBhz48+mB0KdZYkzpIsyspfExmoH11h6LqZrATW
+         SmlCxy8kBYzFGwhhZWaf5ZLyhD7Abd5snz3AEZihh8cPTjkn7hmAeV781Rn8L0YDYQ5N
+         SWGkHxSizq4J4biul2l9KSIxhuL4q89iN91i38AgtyeyUt239xYkGaqq9V8ZUkA6rDAV
+         i5IExM/rd1X7Z6gsgQ18Qy9SCOQJNHSdx6RdTdjLaR7KrtAUw6JWWVdXMMNch7LyrPN0
+         ubQQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:mime-version:references:message-id
-         :in-reply-to:subject:to:from:date:delivered-to;
-        bh=lz0ZSSuFP+rtnkJrjRWcI1rLtDpv9LLT9r0scUk6+WU=;
-        fh=y3/Sh5X9k0PTlcXk6iEphUebV7Fw5/ryHOxFvx06PO4=;
-        b=eDs+pZwkb/PAC14PRLqiMntbm5YIc6+ADh7duXQYkiy0Cuq7SOXYTaYbNywAoG5A3Z
-         Rk33fCzrl0G+QQ84HptmIFcSrc2aFd03Bipn/li1mTm/dhRg1fhWYc3IWvPj16I8yekQ
-         KqgegceajGbUo2Mb4sKSg7evZBFJEHErB/RqTPtcQj4mrSv2xgavlKrjC+iRAFfW6GHU
-         aU3fJ5VNny+Iwnhp5FqeTyLBiFdjsUpRGyIFPlfXG64rg+liZcfU6t4ZtyJ7/AQyok19
-         DCbvjsSQdfZMNXKx1D7TGfoi08cOfnzYg63gQH71cnUY3hZoYijJC1AJ1PUrlVwSmnY7
-         f8qw==;
+         :mailing-list:precedence:content-id:message-id:date:mime-version
+         :comments:references:in-reply-to:subject:to:from:delivered-to;
+        bh=lZ0zFbi/F+NeDEBLlgsC0Kisv9UhJIGxMx79+yljknc=;
+        fh=WLKl5Ej1bH12opzsbCTm5y7YDsGkXopzhzmuVkM2pU8=;
+        b=0lpdG3hgL231Zv3uKk5pggk/PZRu0dGyjvwH24m1rQbwnZ7nv+/YYNhfikVeIEtEGV
+         NzYGCoCF3K3T37N9ZEe7r+i3Nv2R3YLQnUdEe7ai8ibPVrdi7wGG8pf0q0OD6ZAZw1ic
+         3n/2uN3H55hG11aXgnN62bWwsn9dFDD3CmX+OTWhcl9FZ2nIeCpqbnuF2rQOGlwN9ax6
+         K73UJhE+VJwUkpBg/Q220FlJ+wUM4CS+Y7xH1AVT1dzEianp0ZvJAhhneRTXGRTYv850
+         OTFddY5yTRMGdbBxMdvtFvhjSZblhkMzgh24vlDCoqreFk0rrpQ/HGcp0mHaJ3a2X2PK
+         Jxyg==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.32 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709061354; x=1709666154;
+        d=1e100.net; s=20230601; t=1709065750; x=1709670550;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:mime-version
-         :references:message-id:in-reply-to:subject:to:from:date:delivered-to
-         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lz0ZSSuFP+rtnkJrjRWcI1rLtDpv9LLT9r0scUk6+WU=;
-        b=iDM4kuXd1cH9LbVw5hfm5FMGneTXtetTZLft9ch4WGVQqBCCk1Z/puhTHF+/hSztpo
-         0fLHezkTI2/elK7cv92wk8EtRHPaUXics6qn6lK3S0qIP6Wv9ag8pgGWYzjiKB3humdF
-         +I2gu4pysxKzHdf8XN97EUI5hoVCKKnVJEB7YfX1z8vnHRSgHu9M+kEc+7C2C0tKl936
-         rjK5ZQb6ZoZipqex3zoLtDBuoQyXzThn9tjejh4klks4E5A/1wMOXMRN7Vl2WGaR7mQm
-         uF5oVDxoZoJs351qljXY5nNDKcsdJE9rYcUYUUMI6EVIptJ7MBBfMuH+cfdwtC0R8ePs
-         c4Wg==
-X-Forwarded-Encrypted: i=2; AJvYcCWPSOc0zFLFkkNnE8hRspZSqmK6bCzoGHLlbgIhqXe7yvvhX+nSDg07od2py1RM0Fcplt+Ey8iqE6PpjBdMbxA7MLhILG4I3d+2
-X-Gm-Message-State: AOJu0YyTiyzBdhopR/iHJW3ufmHwSYwYQCuNd27kdNKQpQjUAFuBixKM
-	lCOvzsZCcP3wlptVQyzADetY/92KzjErjrGA5P0HeHkXrwtvj9NDweJdBoMpFwc=
-X-Google-Smtp-Source: AGHT+IH5WRZWvxXecC47tiYLpBcW3s1G6d3ynExGG4ov35reVhwIiu3TmUtXu1h3McyCWyzI6GrBqA==
-X-Received: by 2002:a05:6871:a68d:b0:21e:77bd:b7e0 with SMTP id wh13-20020a056871a68d00b0021e77bdb7e0mr10261018oab.39.1709061354332;
-        Tue, 27 Feb 2024 11:15:54 -0800 (PST)
+         :x-original-authentication-results:x-original-sender:content-id
+         :message-id:date:mime-version:comments:references:in-reply-to
+         :subject:to:from:delivered-to:x-beenthere:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=lZ0zFbi/F+NeDEBLlgsC0Kisv9UhJIGxMx79+yljknc=;
+        b=SH1nfvD8tPn0iHa+4K4ohU9pCz5EPl+kdf+Fl5Qx3k4e9ND/BJ/oAXDqccmQ21dCcK
+         5I00OxGjr4mxqOr/MK7GiS3WFwCnrwyJoy0m2ZVn2KEp8uaysB8rcMi6kiWkNbA2o8nV
+         9xK/lv4CiSZK63JCyfjZg3V/nq4qPXfaZT1IfClWxbd4sAgnrL1dGKRBkOc+4Ix1yrcj
+         dYFkJa4jEnCR7zb1RDaGQjxXZPg5INxZEgdS+4TCb/j926vqoZNv1oqgYpldlXXE9R2Z
+         nHCG+4+hyw30+x+BtAKPyzvrsbOYICP6YUbFHSaHowbYF0eUXIPCRq6ifI2Ac1oQbmYb
+         ZjOg==
+X-Forwarded-Encrypted: i=2; AJvYcCWM2m4jFaV8p8PAksjpqB+7+LNQu1U+Jbo5Nw7sOJO/UBdC6GmZpD/ov8p/HYPTBdIgQSTdNN9eTpV9w+BihFzWHOoW44tcyvBj
+X-Gm-Message-State: AOJu0Yw0BdmcWhXlNehxlKnWzofhMI4rGTZDIG4jjHMBMhEwAOvsLtqx
+	feu7k5hR3gb3cw/NPb0P+ep5KrAF/O7tKKm7frUk5xmEOgdXdNTRayEwnaqC19s=
+X-Google-Smtp-Source: AGHT+IHi9ZD9JX4iCA1TkmPWogY8wCqpXG8fBfptdVxYvIeduGel9P8YrbnAmDHecfFWAvg1bqYrvQ==
+X-Received: by 2002:a05:6359:4588:b0:178:faff:7173 with SMTP id no8-20020a056359458800b00178faff7173mr8420103rwb.22.1709065750243;
+        Tue, 27 Feb 2024 12:29:10 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6870:230d:b0:220:4300:c4ef with SMTP id
- w13-20020a056870230d00b002204300c4efls1066783oao.2.-pod-prod-06-us; Tue, 27
- Feb 2024 11:15:53 -0800 (PST)
-X-Forwarded-Encrypted: i=2; AJvYcCWy3sg8D7xPNDer42jmQrKFmSB/mUzyQgKjuoEsPUSH5UMfGpXtZC93+vYC7DUtLawU0pNnQP+0nYMBJ2R/TPxD4iRssS/DpXQrhefd
-X-Received: by 2002:a05:6870:659e:b0:21f:4534:8977 with SMTP id fp30-20020a056870659e00b0021f45348977mr10729278oab.31.1709061353459;
-        Tue, 27 Feb 2024 11:15:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1709061352; cv=none;
+Received: by 2002:a05:6214:b65:b0:68e:eeaa:8248 with SMTP id
+ ey5-20020a0562140b6500b0068eeeaa8248ls988563qvb.2.-pod-prod-06-us; Tue, 27
+ Feb 2024 12:29:09 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCUcz38LuTgAKCEYKtILWHqJu+d5v47qzVUoE6YUtmmSWgDC72zhVklCd22uz9MgJcOVkYi3D+kzbW/R3RlzT5ykbShztGVWSxqQ1X2C
+X-Received: by 2002:a05:620a:3dd:b0:787:2017:21b2 with SMTP id r29-20020a05620a03dd00b00787201721b2mr3175734qkm.70.1709065749284;
+        Tue, 27 Feb 2024 12:29:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1709065749; cv=none;
         d=google.com; s=arc-20160816;
-        b=l4z/QCFGMgptYqc+IujM4SJBGxVF9VZ8dVTyKwsKmfcxkVmJNKO1uzfb2DAdn4jfSD
-         vQou4oFqTUUuPGHMv1RqIyPWUahB+102NarBvqFBJ3sizaFUqZ8CCvbExLBr3yueS966
-         tK204PzlCeoBkOznQMoQ5VUbmLzx5uDtMwiK51t52pz6cK9IbCo0lPNFDjAk25UK69DS
-         yricHL9OpuI4H5EVCEMIs2wgiDG3Q0v10FQgD3ujzoV1V7Z4Qz5qA2vBd6cqyJ13asaO
-         dpAg99B8G7xVzAl4qLPXKDF82Pjo7+Jx8KmeMI5xCdkrmoQ93zBk983Lry7c3f6bYZu9
-         PSFQ==
+        b=KfyNQzH41T0VON4s41/NeV+wqBBLL54ZxgWudbg1XBvBMovaosmHEZFEvx0FM9o0j/
+         W31ZTlbijCKsR491Krs1s8LBcXlhzSS0DD7+fTrP/m+pB5yzCMpKjQj+gzUqzbr8ss2V
+         HaLlG6cB6J07+ppdEy/nxEIxt7UPq/yZU0HNw0JnyY+V2Rq+QEK3dIFYUYPGWJxwNLW7
+         cc1DP35M8gMMcLiBsBSn0CnohSd7VZnuRg/1pxrDHhXExBMCXAGGzjVmIUlUqNUUTpSS
+         0UFglO5sgPgdNn3vcMrLYV2JpJXmwSlKzv2nQXjzOLMhqUD6rQzBjiwfSy+Qk6MWYuKk
+         rCqw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:message-id:in-reply-to:subject:to:from:date
-         :delivered-to;
-        bh=7xTr1lI2vbI3WgiE8dieku7tgSdYs9LAKj1nhhOruMA=;
-        fh=xjr+nr5u++CU8k7N6XBcrDU/Vwd1Ngx6NopgaRunhU8=;
-        b=0T3xujIbF0v1Hsc36iCe0V+C9O50zGvSGvtgHl7zt21OGKSLBp2tuWABjsMXw119Fk
-         QaSYZL3VWcZTqlywo7qKwzkB8uasaylrwpolvpKbj+nZ3y/W48vRHnUouYyQh6ORlLGG
-         SbdUfyjJh6tIH7AZX08mSDOwFGfO6duxkf+IAREX3bCGsZKjLXL0WMLYJuzowhOK5KRF
-         Y4ulntcNGOnmXL7eCDxwwfl1oXOwDoqtKf9lBrZDrIvTMMBOdGordsXdkMkxqc90SS5P
-         1VNKHQ+r7oGOg8xpID39J5GOO/Y3vBmeXGHJpFZz5XZqffPzp/xKEn7TPOVdfNMyk9ia
-         TPKA==;
+        h=content-id:message-id:date:mime-version:comments:references
+         :in-reply-to:subject:to:from:delivered-to;
+        bh=Pnj7q3NVTLlNAU6lhYcSEdNeqK0Ygc5NduCJuXslmUI=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=qKkcmdaduGYo9SykxwD1my346BKMNgHS9b8MCwqlnDEOYqu8DPaJj5JCWCdja8CLWX
+         skb7Kw5UP8PLaZY0ZHuRrYNNPp71RvZ0O7bGyV2ibi8KgEjW9QMSEIxqjm7m8805+msS
+         6SOeu9UeH1Gp3TzvXRuSlVhEjZePRamum/amJkDSL7q4eSw2zcjyJH7qrOJq6hyilPq+
+         tzIMQ8gmJrKiiyQRFzdeMFM8UjkxKD9Bt8J+ZYSS6LchxUsXMzsaVXE7HcX/Rgb9Hhuz
+         GHaoKianjFNJlMxvU7mdAFZbFkD5Ny6h5BRJ6frmAgCckK63eNGCWRzCYoI6MEZkKW/u
+         INDQ==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
-        by mx.google.com with ESMTPS id v24-20020a05620a091800b00785d5fb869asi8088917qkv.208.2024.02.27.11.15.52
+       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.32 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by mx.google.com with ESMTPS id b3-20020a05620a270300b00787e14f24e9si3017643qkp.332.2024.02.27.12.29.09
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Feb 2024 11:15:52 -0800 (PST)
-Received-SPF: pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) client-ip=166.84.1.89;
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-401-BDsrYCl0OsSLHdvEE8gZNw-1; Tue, 27 Feb 2024 14:15:50 -0500
-X-MC-Unique: BDsrYCl0OsSLHdvEE8gZNw-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+        Tue, 27 Feb 2024 12:29:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.32 as permitted sender) client-ip=65.20.63.32;
+Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-124-eeRmLs-_Oje9H6j304jY2g-1; Tue,
+ 27 Feb 2024 15:29:07 -0500
+X-MC-Unique: eeRmLs-_Oje9H6j304jY2g-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7390D868A00
-	for <blinux-list@gapps.redhat.com>; Tue, 27 Feb 2024 19:15:50 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9DA9A2820B74
+	for <blinux-list@gapps.redhat.com>; Tue, 27 Feb 2024 20:29:07 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id 708C5492BE3; Tue, 27 Feb 2024 19:15:50 +0000 (UTC)
+	id 9A7CE1121312; Tue, 27 Feb 2024 20:29:07 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9ED4E492BD7
-	for <blinux-list@redhat.com>; Tue, 27 Feb 2024 19:15:49 +0000 (UTC)
+Received: from mimecast-mx02.redhat.com (mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 611E1112132A
+	for <blinux-list@redhat.com>; Tue, 27 Feb 2024 20:29:06 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 48E9E3869145
-	for <blinux-list@redhat.com>; Tue, 27 Feb 2024 19:15:49 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-259-b5WnOK2SOcWm5649hS1MHg-1; Tue,
- 27 Feb 2024 14:15:47 -0500
-X-MC-Unique: b5WnOK2SOcWm5649hS1MHg-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4TknJM1d1fz18Hk;
-	Tue, 27 Feb 2024 14:15:47 -0500 (EST)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4TknJM1Qx6zcbc; Tue, 27 Feb 2024 14:15:47 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4TknJM1MhCzcbC;
-	Tue, 27 Feb 2024 14:15:47 -0500 (EST)
-Date: Tue, 27 Feb 2024 14:15:47 -0500
-From: Jude DaShiell <jdashiel@panix.com>
-To: Martin McCormick <martin.m@suddenlink.net>, 
-    Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Keeping Orca Talking
-In-Reply-To: <E1rf21P-00085h-Q5@wb5agz>
-Message-ID: <f0af8fd9-8801-3e60-93dd-d49cad1e6662@panix.com>
-References: <E1reg56-0002ET-Pr@wb5agz> <fc7ed743-6f4e-40d8-b41c-d95a3f8b06bc@gmx.it> <E1rf21P-00085h-Q5@wb5agz>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 79E27185A780
+	for <blinux-list@redhat.com>; Tue, 27 Feb 2024 20:29:06 +0000 (UTC)
+Received: from altprdrgo04.altice.prod.msg.synchronoss.net
+ (altprdrgo04.altice.prod.msg.synchronoss.net [65.20.63.32]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-615-IXoaZTqqPHS3NpTmnAhQow-1; Tue,
+ 27 Feb 2024 15:29:04 -0500
+X-MC-Unique: IXoaZTqqPHS3NpTmnAhQow-1
+X-RG-VS-CS: clean
+X-RG-VS-SC: 0
+X-RG-VS: Clean
+X-Originating-IP: [47.217.109.117]
+X-RG-Env-Sender: martin.m@suddenlink.net
+X-RG-Rigid: 65C3739303FF676C
+X-RazorGate-Vade: gggruggvucftvghtrhhoucdtuddrgedvledrgeehgdduuddvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecutefnvffkvefgfgfupdggtfgfnhhsuhgsshgtrhhisggvpdfqfgfvnecuuegrihhlohhuthemuceftddtnecunecujfgurhephffvufgjfhggtgesthdttddttddtvdenucfhrhhomhepfdforghrthhinhcuofgtvehorhhmihgtkhdfuceomhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvtheqnecuggftrfgrthhtvghrnhepgfeijedtffevtdfftdfgkedvueeftedvveelffegjeetueeltdefgeeutdeihefgnecukfhppeegjedrvddujedruddtledruddujeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhephhgvlhhopeifsgehrghgiidpihhnvghtpeegjedrvddujedruddtledruddujedpmhgrihhlfhhrohhmpehmrghrthhinhdrmhesshhuugguvghnlhhinhhkrdhnvghtpdhnsggprhgtphhtthhopedupdhrtghpthhtohepsghlihhnuhigqdhlihhsthesrhgvughhrghtrdgtohhmpdgruhhthhgpuhhsvghrpehmrghrthhinhdrmhesshhuugguvghnlhhinhhkrdhnvghtpdhgvghokffrpegfufdpoffvtefjohhstheprghlthhprhgurhhgohdtge
+X-RazorGate-Vade-Verdict: clean 0
+X-RazorGate-Vade-Classification: clean
+Received: from wb5agz (47.217.109.117) by altprdrgo04.altice.prod.msg.synchronoss.net (5.8.812) (authenticated as martin.m@suddenlink.net)
+        id 65C3739303FF676C for blinux-list@redhat.com; Tue, 27 Feb 2024 15:29:04 -0500
+Received: from martin by wb5agz with local (Exim 4.94.2)
+	(envelope-from <martin.m@suddenlink.net>)
+	id 1rf44Q-0008Xu-5v
+	for blinux-list@redhat.com; Tue, 27 Feb 2024 14:28:58 -0600
+From: "Martin McCormick" <martin.m@suddenlink.net>
+To: blinux-list@redhat.com
+Subject: Re: archival social media for the blind?
+In-reply-to: <CAO2sX30LnDznpE+VwT2P8ypMrNmNovw03+1+f139P1P574ZCrA@mail.gmail.com>
+References: <971136C7-7CB2-4BF6-9528-60C5255889FF@cfcl.com> <Pine.LNX.4.64.2402252345480.900490@users.shellworld.net> <E1reXEO-000RgT-24@lapcust> <20240226100618.ydn7y7ay2py3esv6@sprite> <CAO2sX30LnDznpE+VwT2P8ypMrNmNovw03+1+f139P1P574ZCrA@mail.gmail.com>
+Comments: In-reply-to Jeffery Mewtamer <mewtamer@gmail.com>
+   message dated "Mon, 26 Feb 2024 14:06:44 -0500."
 MIME-Version: 1.0
+Date: Tue, 27 Feb 2024 14:28:58 -0600
+Message-Id: <E1rf44Q-0008Xu-5v@wb5agz>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: panix.com
+X-Mimecast-Originator: suddenlink.net
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jdashiel@panix.com
+Content-ID: <32852.1709065738.1@wb5agz.lan>
+X-Original-Sender: martin.m@suddenlink.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+ domain of martin.m@suddenlink.net designates 65.20.63.32 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -149,150 +159,98 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Speech synthesis was in use in 1964 but you would have had to be flying a
-fighter plane to hear it.  Pilots needed the speech sounding inhuman so
-they could tell it apart from their radio and intercom traffic.
-Electronics is more of an open field these days than it was earlier since
-colorimeters are available on the iphone and inexpensive at  that.  Also
-soldering is no problem if done correctly.  Wrapping solder around a joint
-when cold then placing the loop on the joint and then applying power for a
-few seconds gets the joint soldered with no burnt fingers.  I think solder
-starts smelling when it melts so clear sinuses can be helpful.  This is a
-summary of an article in New Beacon Magazine written in the 1970's by
-blind hams who were responsible for running the radio network in the chain
-home network England used to defeat the Germans during World War II.
-Those hams were responsible for use of radios and repair of radios so had
-to know how to solder after a bomb may have damaged some radio equipment.
+There is no one right or wrong way to do this but you can even get
+help by using the man command but through a filter to turn the
+output in to plain ASCII text as follows:
 
+Let's say you want to look at the ls command and all it's option.
+You can perform the following:
 
+man ls |col -b >lsfile
 
---
- Jude <jdashiel at panix dot com>
- "There are four boxes to be used in defense of liberty:
- soap, ballot, jury, and ammo.
- Please use in that order."
- Ed Howdershelt 1940.
+	man ls gives you the man page for ls formatted for a
+screen so if you just did man ls >lsfile, you would see a lot of
+stuff you don't need or want because of the markup commands
+embedded in to the man page.
 
-On Tue, 27 Feb 2024, Martin McCormick wrote:
+	When you do ls |col -b, the output is supposed to be
+clean ASCII text written the way you write to write a file that
+is just text.
 
-> Your take on the terminal or command-line is very similar to
-> mine.  I began programming the Apple II back in 1979 and then
-> went to MSDOS in the eighties and did 6502 assembler on the Apple
-> and 8086 assembler on the IBM PC and clones during the eighties
-> and finally got a job in network operations for the last 25 years
-> before I retired and that job was my first encounter with unix,
-> shell scripting and C.  The unix command line was every wish I
-> had ever had about the command line being granted.  Try setting
-> the system's time, for instance, in a DOS bat file.
->
-> 	At the age of 72, I have been using the graphical user
-> interface on Macs since voiceover came out in the first decade of
-> the 2000's and Windows with nvda since 2019 and I still like the
-> command-line best since it is like having a conversation and more
-> easily scripted and automated.
->
-> 	As someone who was born blind, I sort of straddle the
-> days before personal computers and the days after their
-> introduction around 1980 and I did not even think of majoring in
-> computer science in college which started for me in the Fall of
-> 1970.  Being interested in in electronics and amateur radio since I
-> was 5 years old ruled my life choices and I made a major mistake
-> as a freshman when I listened to an advisor who was a nice enough
-> fellow but a total ignoramus when it came to electronics and
-> engineering.  He talked me out of majoring in that and I had an
-> interesting 4 years and graduated but by the time I did so, I
-> realized that I didn't like the broadcasting industry much and
-> the traditional jobs for blind folks were totally unappealing to
-> me so I worked for our state's Library for the blind as a
-> technical person and saved up enough to go back to school.
->
-> 	What does this have to do with Linux and blind people?
-> Not much but my hobbies were what got me in to computing kind of
-> by accident, unsuccessful job searching for something interesting
-> and my nack for graduating college just as the economy would tank.
-> It happened twice for crying out loud.
->
-> 	While in Graduate school, I saw my first microcomputer
-> during a lecture and demonstration.  This would have been in 1977
-> and was a 6800-based PDP8 with 8 or 16  big toggle switches
-> across the front panel and a LED readout of a few characters.
->
-> 	What it did not have is just as important as what it had.
->
-> 	I don't remember how much RAM it had and it probably had
-> enough ROM to accept input from those toggle switches and also a
-> paper tape reperf machine (program storage) and the LED's were
-> one's output.  You had to decode the output depending on what you
-> were doing.  Did it talk?  Heck no!  In 1977, that would have
-> been science fiction.  Actually, it could have spoken individual
-> characters with a Telesensory Systems speech board but one was on
-> their own when it came to stuff like that back then.
->
-> 	The lecture and presentation was given by a professor
-> from the University of Houston, Clear Lake City campus and he was
-> one of those guys who knew everything and was patient when you
-> asked him dumb questions like one I asked after the talk when I
-> came up to examine the computer.
->
-> 	I asked him if it was connected to our university main
-> frame and he did not laugh but said that "no, this is a whole
-> computer."
->
-> 	He also said that it could be connected to a main frame
-> with a modem, the first time I ever heard that acronym.  The
-> amateur radio hobby came in handy right then because I knew from
-> the world of amateur radio about what is called a TU or Terminal
-> Unit which is used for radio teletype and is just a modem by
-> another name.
->
-> 	There may have even been elementary forms of basic on
-> rolls of paper tape that one could load in to that 6800 system.
->
-> 	My memory is hazy from 45 years ago but the LED readouts
-> may have shown the address bus interspersed with data because one
-> frequently single-stepped through a running program in machine
-> language to study it.
->
-> 	To make the long story shorter and to provide food for
-> thought for those at the beginning of their search for gainful
-> employment in something they can stand, I will just say that in
-> 1989, I got layed off from a job as a repair technician but had
-> contacts with our university's computer center and had learned
-> enough about digital technology to be useful to them so I started
-> as a part-timer for a year and ended up there until I retired in
-> 2015.
->
-> 	It was the best full-time job I ever had.
->
-> 	If you really enjoy technology but are blind, you've just
-> got to get your ducks in a row and know how to do something
-> useful and not take no for an answer.  Enough of the motivational
-> stuff and no, I don't "live in a van by the river."
->
-> 	For those not familiar with American TV comedy shows,
-> that is a reference  to a skit that was once on a satirical
-> Saturday-night comedy show about a ne'er-do-well who, wait for
-> it, lives in a van by the river, has a gravelly voice and who
-> gives motivational speeches and describes where he lives.
->
-> Martin
-> "'Kyle' via blinux-list@redhat.com" <blinux-list@redhat.com> writes:
-> > I generally just use the sound settings available from my system
-> > preferences menu. But I'm running MATE on Fedora here, so your mileage
-> > with this may vary somewhat, or possibly quite a lot. These days I
-> > usually try to stay out of a terminal, as most things work as expected
-> > from the graphical desktop interface. Still, I do find some things are a
-> > little faster in a terminal since I still know my way around a shell
-> > just a bit. Sound though is not one of those things, at least not for
-> > me, as it is quite a lot less complicated now than it was 20 years or so
-> > ago when I started using Linux primarily, though not exclusively as I do
-> > now. Those were the days before Orca, even before Gnopernicus, when the
-> > Linux terminal brought me back to the days of DOS, but put it on
-> > steroids and made it much nicer than DOS ever dreamed of.
-> >
-> > ~Kyle
->
->
+	If you just typed man ls |col, you'd get the last screen
+full of the man page rather than a series of screens that one
+sees when they reach the bottom of one screen and are ready for
+the next screen-full which is what you get if you pipe through
+the more utility.
+
+	So, to save ls |col -b, the last part of the command is
+>lsfile or any file name your heart desires.
+
+	You can then pick out some part you are interested in
+from the file lsfile and edit lsfile until you have zapped
+everything but what you wanted.
+
+	Try man col |col -b >somefile
+
+	Another good viewer in the unix world is called less,
+yes, l e s s as in the opposite of more.  You may even read
+humorous statements such as "less is more."
+
+	The keyboard commands are quite similar to vi but you can
+not write to a file, only read it.
+
+	If you start it out as less -i, your word searches ignore
+case.  This means that if what you wanted was written strangely
+such as AmErIcA rather than America, your search for /america
+will find it.
+
+	I don't care fore nano much but that's mostly because
+when I first learned unix shell command, vi was the editor you
+were most likely to find on any unix computer.  I've tried nano
+and maybe I just wasn't doing something right but speech didn't
+echo key strokes except to say the current character position in
+the line which is not usually that helpful.
+
+	The one thing I do know about nano is if you find
+yourself in it when you didn't want to be, control+x gets you out
+without altering what you were editing.
+
+	Unix has a plethora of engines that do interesting things
+with text such as fmt which will take standard ASCII text and do
+kind of like a word processor to put limits on the length of
+lines and combine non-indented lines in to blocks of text that are
+nicely formatted according to the right margin but not justified.
+
+	Have fun.
+
+martin
+
+Jeffery Mewtamer <mewtamer@gmail.com> writes:
+> and if -h doesn't work with a given command --help usually does... I
+> also find piping to nano useful when I want a general overview of a
+> command, but the -h output is long.
+> 
+> [command] -h | nano -
+> 
+> | nano -
+> 
+> Is also useful for any other non-interactive command that produces
+> more output than is easily reviewed with screen review hotkeys.
+> 
+> Though, more to the original topic of this thread, I'm not sure if
+> there's any good way of archiving this stuff... but at the same time,
+> I'm not sure an archive would be all that useful. This is just my
+> experience, but 9 times out of 10, typing "How do I do x at the linux
+> command line" without the quotes into Firefox's address bar or
+> something similar will return a mainstream tutorial that doesn't need
+> any accessibility tweaks, and with how much Orca is constantly having
+> to adapt to every little change in every major desktop application
+> that runs under Linux, I'd have to question the value of searching an
+> archive that might have mostly outdated information instead of just
+> asking here, on the Orca mailing list, or on another blind linux users
+> list.
+> 
+> --
 
 -- 
 You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
