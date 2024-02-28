@@ -1,153 +1,139 @@
-Return-Path: <blinux-list+bncBDP7P6HU4IERBFMM7GXAMGQEJ2U6NTA@redhat.com>
+Return-Path: <blinux-list+bncBCM2V5WE3MDBBXNS7OXAMGQEBBJZGOA@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com [209.85.161.72])
-	by mail.lfdr.de (Postfix) with ESMTPS id C1D4C86A0D6
-	for <lists+blinux-list@lfdr.de>; Tue, 27 Feb 2024 21:29:11 +0100 (CET)
-Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-5a0a19006a3sf1959089eaf.1
-        for <lists+blinux-list@lfdr.de>; Tue, 27 Feb 2024 12:29:11 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1709065750; cv=pass;
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mail.lfdr.de (Postfix) with ESMTPS id F350086A89C
+	for <lists+blinux-list@lfdr.de>; Wed, 28 Feb 2024 07:57:34 +0100 (CET)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-42e520c4283sf9467611cf.0
+        for <lists+blinux-list@lfdr.de>; Tue, 27 Feb 2024 22:57:34 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1709103454; cv=pass;
         d=google.com; s=arc-20160816;
-        b=s26RPRHCMjDOqX6FSANBTQR7nRPUUc1YR8nt0LHsU8k0z5NRRiwBf75332bbBOV8hq
-         WsSwcZbIsJzc5YGtMRhhLolkjDrZxPBhz48+mB0KdZYkzpIsyspfExmoH11h6LqZrATW
-         SmlCxy8kBYzFGwhhZWaf5ZLyhD7Abd5snz3AEZihh8cPTjkn7hmAeV781Rn8L0YDYQ5N
-         SWGkHxSizq4J4biul2l9KSIxhuL4q89iN91i38AgtyeyUt239xYkGaqq9V8ZUkA6rDAV
-         i5IExM/rd1X7Z6gsgQ18Qy9SCOQJNHSdx6RdTdjLaR7KrtAUw6JWWVdXMMNch7LyrPN0
-         ubQQ==
+        b=f8vM3TJi3iWJJ1pcwWDoX4DBrQUrxdQI6XNXNUlcLmUkE7qToabvUHJZHjgh1Z0/Vw
+         vnGWeSVbju4IFd0msf0cnjGyx8R+SO9Z3HeY1JXPW3UqfqIxhuqvMUHrjd8jYX+AmSvh
+         ia9n9fBRfZ8noRR3OEGRfFSgtK61vQZVKilZZW9RMemWvVU/okjmL6q//3gWXPjmRqli
+         aiSeuyKRGuzvj4fM9cXlxccsHwlbKi2T6FOfqBwbHHJyncw0bU5l2StI8jd/OObOtJMW
+         3Hf/DoSOSBHiJaf+DjBKa2TImqm7+I+t3hzemT22iVUo94CtPKMXlvknYzb/NTUYlzht
+         jv/g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-id:message-id:date:mime-version
-         :comments:references:in-reply-to:subject:to:from:delivered-to;
-        bh=lZ0zFbi/F+NeDEBLlgsC0Kisv9UhJIGxMx79+yljknc=;
-        fh=WLKl5Ej1bH12opzsbCTm5y7YDsGkXopzhzmuVkM2pU8=;
-        b=0lpdG3hgL231Zv3uKk5pggk/PZRu0dGyjvwH24m1rQbwnZ7nv+/YYNhfikVeIEtEGV
-         NzYGCoCF3K3T37N9ZEe7r+i3Nv2R3YLQnUdEe7ai8ibPVrdi7wGG8pf0q0OD6ZAZw1ic
-         3n/2uN3H55hG11aXgnN62bWwsn9dFDD3CmX+OTWhcl9FZ2nIeCpqbnuF2rQOGlwN9ax6
-         K73UJhE+VJwUkpBg/Q220FlJ+wUM4CS+Y7xH1AVT1dzEianp0ZvJAhhneRTXGRTYv850
-         OTFddY5yTRMGdbBxMdvtFvhjSZblhkMzgh24vlDCoqreFk0rrpQ/HGcp0mHaJ3a2X2PK
-         Jxyg==;
+         :mailing-list:precedence:reply-to:mime-version:feedback-id
+         :references:in-reply-to:message-id:subject:from:to:date:delivered-to;
+        bh=PqIBTEJAVi3wdtOibHr2tGih381gszYCta9qwnqeUjQ=;
+        fh=YW9x/k7IEZJEBIA6iqvUIik88sSrw9SNgvX8hmKCUZ8=;
+        b=zfRffVntmoN61v+965cm3rGnLKtjgimbDYn8XnMFxl/kyHkZoerAtjWbHleP/xoVu2
+         Wl0Msho1SN8NXckk2tSx+fgURZOtBPajN4qpSpdE2F1LN4dmzbOcpMQtIBWE1vUly7zj
+         msYBtV6SUM6zVfHjAK7eKhjHgp920N/H1tqlGViGI77IAtD05/ko8jXXn2yKLuhQKMYq
+         aR5tx9anjn39Iig0e9nDcE3hOEDWzsJlSR4FKALlQmGtLCLLhX0VoBGXxCkl0yQjUBYd
+         /iBpAeUO1h63s/shipX+9ofn72u8xtWAuyNvwORzyF6doFMrxM1fG23M0SHnvGZi3qHu
+         f3pw==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.32 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
+       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.43.27 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709065750; x=1709670550;
+        d=1e100.net; s=20230601; t=1709103454; x=1709708254;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:content-id
-         :message-id:date:mime-version:comments:references:in-reply-to
-         :subject:to:from:delivered-to:x-beenthere:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=lZ0zFbi/F+NeDEBLlgsC0Kisv9UhJIGxMx79+yljknc=;
-        b=SH1nfvD8tPn0iHa+4K4ohU9pCz5EPl+kdf+Fl5Qx3k4e9ND/BJ/oAXDqccmQ21dCcK
-         5I00OxGjr4mxqOr/MK7GiS3WFwCnrwyJoy0m2ZVn2KEp8uaysB8rcMi6kiWkNbA2o8nV
-         9xK/lv4CiSZK63JCyfjZg3V/nq4qPXfaZT1IfClWxbd4sAgnrL1dGKRBkOc+4Ix1yrcj
-         dYFkJa4jEnCR7zb1RDaGQjxXZPg5INxZEgdS+4TCb/j926vqoZNv1oqgYpldlXXE9R2Z
-         nHCG+4+hyw30+x+BtAKPyzvrsbOYICP6YUbFHSaHowbYF0eUXIPCRq6ifI2Ac1oQbmYb
-         ZjOg==
-X-Forwarded-Encrypted: i=2; AJvYcCWM2m4jFaV8p8PAksjpqB+7+LNQu1U+Jbo5Nw7sOJO/UBdC6GmZpD/ov8p/HYPTBdIgQSTdNN9eTpV9w+BihFzWHOoW44tcyvBj
-X-Gm-Message-State: AOJu0Yw0BdmcWhXlNehxlKnWzofhMI4rGTZDIG4jjHMBMhEwAOvsLtqx
-	feu7k5hR3gb3cw/NPb0P+ep5KrAF/O7tKKm7frUk5xmEOgdXdNTRayEwnaqC19s=
-X-Google-Smtp-Source: AGHT+IHi9ZD9JX4iCA1TkmPWogY8wCqpXG8fBfptdVxYvIeduGel9P8YrbnAmDHecfFWAvg1bqYrvQ==
-X-Received: by 2002:a05:6359:4588:b0:178:faff:7173 with SMTP id no8-20020a056359458800b00178faff7173mr8420103rwb.22.1709065750243;
-        Tue, 27 Feb 2024 12:29:10 -0800 (PST)
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :feedback-id:references:in-reply-to:message-id:subject:from:to:date
+         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PqIBTEJAVi3wdtOibHr2tGih381gszYCta9qwnqeUjQ=;
+        b=ttOY7Az0q/694fMDAopyrbMvhX69dGPCAzkXIYeRXpAQ5nY7oF8n/nAD2RzMlsS6Fm
+         V2p8awpNnAizQG8Yj+b8bPSWeEwwKIeuAHAfNfVIbS8S0c6USh8ZXrLNFREcDasH1P/m
+         Pu/FAeJsYoPdLGUp7iQaMdGrjWScvj1nW/UKMDUa9A7t2N2WHM9YZxT4Zf3VdYSsiGxc
+         NCRgWLxit98QOUO1eQ8kpHe7YbBtcopIaHAG/o0a8VwfdfYfp8djXMX/00rtN2MhtvpK
+         FCEemB/EdnJiiU+G9WKG8VqSn7EDnbuLrYmwBmSg5BCAAG6qY5Gs6dS2qMIUD5ZpqeU3
+         iP+A==
+X-Forwarded-Encrypted: i=2; AJvYcCUL5UhBSeZkeRrfqkyXBlr4T2O98JiEV/TI40vVPYzIL1UCG2OkNYZWcFFDUrY9h2Z6pnGzmU/xcPN4VDsiBN9zQLi+gghOywkp
+X-Gm-Message-State: AOJu0YyfiIqeWilUUqOeQ3wsE81RE4YD09ax2+/1WXkE19XlYQL8ghDx
+	Uq46P9wBLjulEwuJfl0i/PsGMGeHZl/Upc//dHYeagNu4k57l9thtVgRIr8Pvv4=
+X-Google-Smtp-Source: AGHT+IGHkqj+j5D1LYVfm/y7idB8ucS6rxfr5IM75CHnYvEzjs4nwRu6L4Funy+qk3s4OIKzpB0unA==
+X-Received: by 2002:a05:622a:1c8:b0:42e:a842:b910 with SMTP id t8-20020a05622a01c800b0042ea842b910mr2446516qtw.9.1709103453660;
+        Tue, 27 Feb 2024 22:57:33 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6214:b65:b0:68e:eeaa:8248 with SMTP id
- ey5-20020a0562140b6500b0068eeeaa8248ls988563qvb.2.-pod-prod-06-us; Tue, 27
- Feb 2024 12:29:09 -0800 (PST)
-X-Forwarded-Encrypted: i=2; AJvYcCUcz38LuTgAKCEYKtILWHqJu+d5v47qzVUoE6YUtmmSWgDC72zhVklCd22uz9MgJcOVkYi3D+kzbW/R3RlzT5ykbShztGVWSxqQ1X2C
-X-Received: by 2002:a05:620a:3dd:b0:787:2017:21b2 with SMTP id r29-20020a05620a03dd00b00787201721b2mr3175734qkm.70.1709065749284;
-        Tue, 27 Feb 2024 12:29:09 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1709065749; cv=none;
+Received: by 2002:a05:6214:ac4:b0:68c:3fc2:b931 with SMTP id
+ g4-20020a0562140ac400b0068c3fc2b931ls143011qvi.0.-pod-prod-00-us; Tue, 27 Feb
+ 2024 22:57:32 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCUJL43N8rjweaQUxRTcPzNRQ+v+R16vlxIKS9lOFupBACwy4rZJQJ/PSc6hUnl4+oBgzsvQcoV5iF33iO/h0XDc0c1vSfbCR+Qe+EYe
+X-Received: by 2002:a05:6214:438a:b0:690:2069:d413 with SMTP id oh10-20020a056214438a00b006902069d413mr2299475qvb.6.1709103452675;
+        Tue, 27 Feb 2024 22:57:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1709103452; cv=none;
         d=google.com; s=arc-20160816;
-        b=KfyNQzH41T0VON4s41/NeV+wqBBLL54ZxgWudbg1XBvBMovaosmHEZFEvx0FM9o0j/
-         W31ZTlbijCKsR491Krs1s8LBcXlhzSS0DD7+fTrP/m+pB5yzCMpKjQj+gzUqzbr8ss2V
-         HaLlG6cB6J07+ppdEy/nxEIxt7UPq/yZU0HNw0JnyY+V2Rq+QEK3dIFYUYPGWJxwNLW7
-         cc1DP35M8gMMcLiBsBSn0CnohSd7VZnuRg/1pxrDHhXExBMCXAGGzjVmIUlUqNUUTpSS
-         0UFglO5sgPgdNn3vcMrLYV2JpJXmwSlKzv2nQXjzOLMhqUD6rQzBjiwfSy+Qk6MWYuKk
-         rCqw==
+        b=waqUJigpMUJcTmeI0SyPkF3GINJNp8o5kU19FoVr4mJh+bpXqEXbhOx4Hmr5OD/adx
+         lgYo1YUofV/eKO068e6U3igKZ8uzgvr7gj1NBNCkgxBctokuZJB5JE9KIHEQnhHIpEFp
+         PefX786pF0nRPuHi/3QZ5dLNQNKw9o9eLiceWcR/kUNgMEAW8wue6aqmOXOrI1YtzwoF
+         p6FnVwF1cDjkSrT6wFS/A9NLQXffh8OqwljX3as0cdLphC2U6aHKuPeBqXZLnFwQ0iSv
+         XpnYYhqW0mDZXmSzucVdhir9tm+wIVQp+dMNq83sWaVGkC1eCQXnUiut3pU1RmBopHs1
+         aXEg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-id:message-id:date:mime-version:comments:references
-         :in-reply-to:subject:to:from:delivered-to;
-        bh=Pnj7q3NVTLlNAU6lhYcSEdNeqK0Ygc5NduCJuXslmUI=;
-        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=qKkcmdaduGYo9SykxwD1my346BKMNgHS9b8MCwqlnDEOYqu8DPaJj5JCWCdja8CLWX
-         skb7Kw5UP8PLaZY0ZHuRrYNNPp71RvZ0O7bGyV2ibi8KgEjW9QMSEIxqjm7m8805+msS
-         6SOeu9UeH1Gp3TzvXRuSlVhEjZePRamum/amJkDSL7q4eSw2zcjyJH7qrOJq6hyilPq+
-         tzIMQ8gmJrKiiyQRFzdeMFM8UjkxKD9Bt8J+ZYSS6LchxUsXMzsaVXE7HcX/Rgb9Hhuz
-         GHaoKianjFNJlMxvU7mdAFZbFkD5Ny6h5BRJ6frmAgCckK63eNGCWRzCYoI6MEZkKW/u
-         INDQ==;
+        h=mime-version:feedback-id:references:in-reply-to:message-id:subject
+         :from:to:date:delivered-to;
+        bh=pvTKohXWNDtQ0uiGoR3ctCuWfDp415DI9Symwb9l39o=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=FMGHeC4W+jLHMm16YEXBjEj+leFngqj8NyVLwKzkGdMigkDqjWT/wc6tMMnT9jYq2k
+         z4xq+Rzgg/Ok0cWCbwcNzAVwyrsTTRwcX9/W2rGHw5l1qnNUHbRRvD9Qg7M4/8I7n66L
+         YITqmuM1LPyWryzo+fLrCpsUmZRVf8nFs6GHx7i3duNHuKxEsWBiVJlcEzK3ef5lMs8I
+         TcaMFbsVDv/CQi/1SBIA6nW94nfYfro5kB1udveJ/mZDZaUe+P1AMXHNUE8gWJzynV1V
+         5nfQWS6oHgYH7dcQPKJvtfTcv52WZakAOgJrwm+4taKSvYSIl8feXfh5uEhjyZCjZqdw
+         bTgg==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.32 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
-        by mx.google.com with ESMTPS id b3-20020a05620a270300b00787e14f24e9si3017643qkp.332.2024.02.27.12.29.09
+       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.43.27 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [207.211.31.120])
+        by mx.google.com with ESMTPS id m7-20020a0562141bc700b0068eda254d98si9098457qvc.29.2024.02.27.22.57.32
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Feb 2024 12:29:09 -0800 (PST)
-Received-SPF: pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.32 as permitted sender) client-ip=65.20.63.32;
+        Tue, 27 Feb 2024 22:57:32 -0800 (PST)
+Received-SPF: pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.43.27 as permitted sender) client-ip=185.70.43.27;
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-124-eeRmLs-_Oje9H6j304jY2g-1; Tue,
- 27 Feb 2024 15:29:07 -0500
-X-MC-Unique: eeRmLs-_Oje9H6j304jY2g-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-445-XL1IiGKROJqVkltfU0xTWQ-1; Wed,
+ 28 Feb 2024 01:57:31 -0500
+X-MC-Unique: XL1IiGKROJqVkltfU0xTWQ-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9DA9A2820B74
-	for <blinux-list@gapps.redhat.com>; Tue, 27 Feb 2024 20:29:07 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DF5141C04B42
+	for <blinux-list@gapps.redhat.com>; Wed, 28 Feb 2024 06:57:30 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id 9A7CE1121312; Tue, 27 Feb 2024 20:29:07 +0000 (UTC)
+	id DC46A2166B33; Wed, 28 Feb 2024 06:57:30 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 611E1112132A
-	for <blinux-list@redhat.com>; Tue, 27 Feb 2024 20:29:06 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [207.211.31.120])
+Received: from mimecast-mx02.redhat.com (mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A358F2166B5E
+	for <blinux-list@redhat.com>; Wed, 28 Feb 2024 06:57:30 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 79E27185A780
-	for <blinux-list@redhat.com>; Tue, 27 Feb 2024 20:29:06 +0000 (UTC)
-Received: from altprdrgo04.altice.prod.msg.synchronoss.net
- (altprdrgo04.altice.prod.msg.synchronoss.net [65.20.63.32]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-615-IXoaZTqqPHS3NpTmnAhQow-1; Tue,
- 27 Feb 2024 15:29:04 -0500
-X-MC-Unique: IXoaZTqqPHS3NpTmnAhQow-1
-X-RG-VS-CS: clean
-X-RG-VS-SC: 0
-X-RG-VS: Clean
-X-Originating-IP: [47.217.109.117]
-X-RG-Env-Sender: martin.m@suddenlink.net
-X-RG-Rigid: 65C3739303FF676C
-X-RazorGate-Vade: gggruggvucftvghtrhhoucdtuddrgedvledrgeehgdduuddvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecutefnvffkvefgfgfupdggtfgfnhhsuhgsshgtrhhisggvpdfqfgfvnecuuegrihhlohhuthemuceftddtnecunecujfgurhephffvufgjfhggtgesthdttddttddtvdenucfhrhhomhepfdforghrthhinhcuofgtvehorhhmihgtkhdfuceomhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvtheqnecuggftrfgrthhtvghrnhepgfeijedtffevtdfftdfgkedvueeftedvveelffegjeetueeltdefgeeutdeihefgnecukfhppeegjedrvddujedruddtledruddujeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhephhgvlhhopeifsgehrghgiidpihhnvghtpeegjedrvddujedruddtledruddujedpmhgrihhlfhhrohhmpehmrghrthhinhdrmhesshhuugguvghnlhhinhhkrdhnvghtpdhnsggprhgtphhtthhopedupdhrtghpthhtohepsghlihhnuhigqdhlihhsthesrhgvughhrghtrdgtohhmpdgruhhthhgpuhhsvghrpehmrghrthhinhdrmhesshhuugguvghnlhhinhhkrdhnvghtpdhgvghokffrpegfufdpoffvtefjohhstheprghlthhprhgurhhgohdtge
-X-RazorGate-Vade-Verdict: clean 0
-X-RazorGate-Vade-Classification: clean
-Received: from wb5agz (47.217.109.117) by altprdrgo04.altice.prod.msg.synchronoss.net (5.8.812) (authenticated as martin.m@suddenlink.net)
-        id 65C3739303FF676C for blinux-list@redhat.com; Tue, 27 Feb 2024 15:29:04 -0500
-Received: from martin by wb5agz with local (Exim 4.94.2)
-	(envelope-from <martin.m@suddenlink.net>)
-	id 1rf44Q-0008Xu-5v
-	for blinux-list@redhat.com; Tue, 27 Feb 2024 14:28:58 -0600
-From: "Martin McCormick" <martin.m@suddenlink.net>
-To: blinux-list@redhat.com
-Subject: Re: archival social media for the blind?
-In-reply-to: <CAO2sX30LnDznpE+VwT2P8ypMrNmNovw03+1+f139P1P574ZCrA@mail.gmail.com>
-References: <971136C7-7CB2-4BF6-9528-60C5255889FF@cfcl.com> <Pine.LNX.4.64.2402252345480.900490@users.shellworld.net> <E1reXEO-000RgT-24@lapcust> <20240226100618.ydn7y7ay2py3esv6@sprite> <CAO2sX30LnDznpE+VwT2P8ypMrNmNovw03+1+f139P1P574ZCrA@mail.gmail.com>
-Comments: In-reply-to Jeffery Mewtamer <mewtamer@gmail.com>
-   message dated "Mon, 26 Feb 2024 14:06:44 -0500."
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 477C485A588
+	for <blinux-list@redhat.com>; Wed, 28 Feb 2024 06:57:30 +0000 (UTC)
+Received: from mail-4327.protonmail.ch (mail-4327.protonmail.ch
+ [185.70.43.27]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-495-wKUGFRF7NIeHsxcCAJHtpg-1; Wed, 28 Feb 2024 01:57:27 -0500
+X-MC-Unique: wKUGFRF7NIeHsxcCAJHtpg-1
+Date: Wed, 28 Feb 2024 06:57:17 +0000
+To: Linux for blind general discussion <blinux-list@redhat.com>
+From: "'Rastislav Kish' via blinux-list@redhat.com" <blinux-list@redhat.com>
+Subject: Re: Keeping Orca Talking
+Message-ID: <c5f3a276-44f9-40d4-ad12-a78fbad917b9@protonmail.com>
+In-Reply-To: <E1reg56-0002ET-Pr@wb5agz>
+References: <E1reg56-0002ET-Pr@wb5agz>
+Feedback-ID: 26663242:user:proton
 MIME-Version: 1.0
-Date: Tue, 27 Feb 2024 14:28:58 -0600
-Message-Id: <E1rf44Q-0008Xu-5v@wb5agz>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.6
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: suddenlink.net
-Content-Type: text/plain; charset="UTF-8"
-Content-ID: <32852.1709065738.1@wb5agz.lan>
-X-Original-Sender: martin.m@suddenlink.net
+X-Mimecast-Originator: protonmail.com
+Content-Type: multipart/alternative;
+ boundary="b1_R4v2JON7aCcLJbLia5Nf2iMfur2xq6iBMuqrbRJKAgo"
+X-Original-Sender: rastislav.kish@protonmail.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of martin.m@suddenlink.net designates 65.20.63.32 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
+ domain of rastislav.kish@protonmail.com designates 185.70.43.27 as permitted
+ sender) smtp.mailfrom=rastislav.kish@protonmail.com
+X-Original-From: Rastislav Kish <rastislav.kish@protonmail.com>
+Reply-To: Rastislav Kish <rastislav.kish@protonmail.com>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -159,100 +145,348 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-There is no one right or wrong way to do this but you can even get
-help by using the man command but through a filter to turn the
-output in to plain ASCII text as follows:
+This is a multi-part message in MIME format.
+--b1_R4v2JON7aCcLJbLia5Nf2iMfur2xq6iBMuqrbRJKAgo
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Let's say you want to look at the ls command and all it's option.
-You can perform the following:
+> It's amazing how quickly one can go from hero to zero in
+>
+> this game
 
-man ls |col -b >lsfile
+I guess that=E2=80=99s what FS snapshots are for. <grin> Anything goes wron=
+g? you just roll-back to the last working state and everything is intact.
 
-	man ls gives you the man page for ls formatted for a
-screen so if you just did man ls >lsfile, you would see a lot of
-stuff you don't need or want because of the markup commands
-embedded in to the man page.
+Best regards
 
-	When you do ls |col -b, the output is supposed to be
-clean ASCII text written the way you write to write a file that
-is just text.
+Rastislav
 
-	If you just typed man ls |col, you'd get the last screen
-full of the man page rather than a series of screens that one
-sees when they reach the bottom of one screen and are ready for
-the next screen-full which is what you get if you pipe through
-the more utility.
+D=C5=88a 26. 2. 2024 o 19:52 Martin McCormick nap=C3=ADsal(a):
 
-	So, to save ls |col -b, the last part of the command is
->lsfile or any file name your heart desires.
-
-	You can then pick out some part you are interested in
-from the file lsfile and edit lsfile until you have zapped
-everything but what you wanted.
-
-	Try man col |col -b >somefile
-
-	Another good viewer in the unix world is called less,
-yes, l e s s as in the opposite of more.  You may even read
-humorous statements such as "less is more."
-
-	The keyboard commands are quite similar to vi but you can
-not write to a file, only read it.
-
-	If you start it out as less -i, your word searches ignore
-case.  This means that if what you wanted was written strangely
-such as AmErIcA rather than America, your search for /america
-will find it.
-
-	I don't care fore nano much but that's mostly because
-when I first learned unix shell command, vi was the editor you
-were most likely to find on any unix computer.  I've tried nano
-and maybe I just wasn't doing something right but speech didn't
-echo key strokes except to say the current character position in
-the line which is not usually that helpful.
-
-	The one thing I do know about nano is if you find
-yourself in it when you didn't want to be, control+x gets you out
-without altering what you were editing.
-
-	Unix has a plethora of engines that do interesting things
-with text such as fmt which will take standard ASCII text and do
-kind of like a word processor to put limits on the length of
-lines and combine non-indented lines in to blocks of text that are
-nicely formatted according to the right margin but not justified.
-
-	Have fun.
-
-martin
-
-Jeffery Mewtamer <mewtamer@gmail.com> writes:
-> and if -h doesn't work with a given command --help usually does... I
-> also find piping to nano useful when I want a general overview of a
-> command, but the -h output is long.
-> 
-> [command] -h | nano -
-> 
-> | nano -
-> 
-> Is also useful for any other non-interactive command that produces
-> more output than is easily reviewed with screen review hotkeys.
-> 
-> Though, more to the original topic of this thread, I'm not sure if
-> there's any good way of archiving this stuff... but at the same time,
-> I'm not sure an archive would be all that useful. This is just my
-> experience, but 9 times out of 10, typing "How do I do x at the linux
-> command line" without the quotes into Firefox's address bar or
-> something similar will return a mainstream tutorial that doesn't need
-> any accessibility tweaks, and with how much Orca is constantly having
-> to adapt to every little change in every major desktop application
-> that runs under Linux, I'd have to question the value of searching an
-> archive that might have mostly outdated information instead of just
-> asking here, on the Orca mailing list, or on another blind linux users
-> list.
-> 
+> I am really good at getting in my own way when it comes to
+> keeping orca speaking.
+>
+> The system running orca is a HP Pavillion desktop which
+> is about 2 years old, running debian bullseye and it sure cooks
+> right along very nicely except for sound where it's just one
+> thing after another.
+>
+> With this version of debian, I installed it from a debian
+> iso image placed on a usb thumb drive and it talks if you type
+> the lower-case s as soon as you hear the beep from the piezo
+> buzzer on the mother board.
+>
+> I wanted to adjust some sound levels yesterday so I fired
+> up alsamixer which I am not familiar with.  Alsamixer is not a
+> GUI application as such as uses a curses-based terminal interface
+> and can be accessed via command-line terminal.
+>
+> I logged in to mate's terminal and commanded alsamixer to
+> start using card 0 or -c 0.
+>
+> I am not sure what I did but about 2 or 3 key strokes in
+> to the session, I typed the Enter key and, poof! voice output was
+> gone.
+>
+> I finally logged in to that system from another Linux box
+> in text-based command-line mode, downloaded a backup of /var and
+> selected var/lib/alsa/asound.state which had that file in it.
+>
+> After copying /var/lib/alsa/asound.state from the backup,
+> I did
+>
+> sudo alsactl store which seems to have stored this older version
+> of asound.state then I rebooted.
+>
+> I was able to log in as the login still talked but as
+> soon as I entered the password, everything went silent again.
+>
+> I finally got on the Linux box that has no GUI and ssh'd
+> into the gnome system and then called alsamixer as me and that's
+> when I realized more how this all works.
+>
+> One is supposed to press F3 to be in the playback setup
+> mode.  Apparently the function keys like F3 send a terminal code
+> sequence that is interpreted as F3 and then I noticed that the
+> volume slider for Master volume was all the way down to 0.
+>
+> The Up and Down arrows move that slider so I moved it up
+> and finally my orca console started speaking again.
+>
+> One then presses Escape once and alsamixer closes.
+>
+> Is there a faster and better way I could have done this?
+>
+> If I hadn't had a second Linux system, I'd still be
+> messing with it and the curses would be more than just in the
+> command-line interface.
+>
+> It's amazing how quickly one can go from hero to zero in
+> this game but finally I seem to have the talking orca terminal
+> back.
+>
+> Martin
+>
 > --
+> You received this message because you are subscribed to the Google Groups
+> ["blinux-list@redhat.com"](mailto:blinux-list@redhat.com)
+> group.
+> To unsubscribe from this group and stop receiving emails from it, send an=
+ email to
+> blinux-list+unsubscribe@redhat.com
+> .
 
--- 
-You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+=E2=80=8B
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+blinux-list@redhat.com" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
+
+--b1_R4v2JON7aCcLJbLia5Nf2iMfur2xq6iBMuqrbRJKAgo
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+  </head>
+  <body>
+    <div class=3D"markdown-here-wrapper" data-md-url=3D"" style=3D"">
+      <blockquote
+style=3D"margin: 1.2em 0px;border-left: 4px solid rgb(51, 117, 221); paddin=
+g: 0px 1em; color: rgb(119, 119, 119); quotes: none;">
+        <pre
+style=3D"font-family: Consolas, Inconsolata, Courier, monospace;font-size: =
+1em; line-height: 1.2em;margin: 1.2em 0px;"><code
+style=3D"font-family: Consolas, Inconsolata, Courier, monospace;margin: 0px=
+ 0.15em; padding: 0px 0.3em; white-space: pre-wrap; font-weight: 550; backg=
+round-color: rgba(119, 119, 119, 0.3); border-radius: 3px; display: inline;=
+white-space: pre; overflow: auto; border-radius: 3px; border: 1px solid rgb=
+(204, 204, 204); padding: 0.5em 0.7em; display: block;">It's amazing how qu=
+ickly one can go from hero to zero in
+</code></pre>
+        <p style=3D"margin: 0px 0px 1.2em !important;">this game</p>
+      </blockquote>
+      <p style=3D"margin: 0px 0px 1.2em !important;">I guess that=E2=80=99s=
+ what
+        FS snapshots are for. &lt;grin&gt; Anything goes wrong? you just
+        roll-back to the last working state and everything is intact.</p>
+      <p style=3D"margin: 0px 0px 1.2em !important;">Best regards</p>
+      <p style=3D"margin: 0px 0px 1.2em !important;">Rastislav</p>
+      <p style=3D"margin: 0px 0px 1.2em !important;"></p>
+      <div class=3D"markdown-here-exclude">
+        <div class=3D"moz-cite-prefix">D=C5=88a 26. 2. 2024 o 19:52 Martin
+          McCormick nap=C3=ADsal(a):<br>
+        </div>
+      </div>
+      <p style=3D"margin: 0px 0px 1.2em !important;"></p>
+      <p style=3D"margin: 0px 0px 1.2em !important;"></p>
+      <div class=3D"markdown-here-exclude">
+        <blockquote type=3D"cite" cite=3D"mid:E1reg56-0002ET-Pr@wb5agz">
+          <pre class=3D"moz-quote-pre" wrap=3D"">I am really good at gettin=
+g in my own way when it comes to
+keeping orca speaking.
+
+The system running orca is a HP Pavillion desktop which
+is about 2 years old, running debian bullseye and it sure cooks
+right along very nicely except for sound where it's just one
+thing after another.
+
+With this version of debian, I installed it from a debian
+iso image placed on a usb thumb drive and it talks if you type
+the lower-case s as soon as you hear the beep from the piezo
+buzzer on the mother board.
+
+I wanted to adjust some sound levels yesterday so I fired
+up alsamixer which I am not familiar with.  Alsamixer is not a
+GUI application as such as uses a curses-based terminal interface
+and can be accessed via command-line terminal.
+
+I logged in to mate's terminal and commanded alsamixer to
+start using card 0 or -c 0.
+
+I am not sure what I did but about 2 or 3 key strokes in
+to the session, I typed the Enter key and, poof! voice output was
+gone.
+
+I finally logged in to that system from another Linux box
+in text-based command-line mode, downloaded a backup of /var and
+selected var/lib/alsa/asound.state which had that file in it.
+
+After copying /var/lib/alsa/asound.state from the backup,
+I did
+
+sudo alsactl store which seems to have stored this older version
+of asound.state then I rebooted.
+
+I was able to log in as the login still talked but as
+soon as I entered the password, everything went silent again.
+
+I finally got on the Linux box that has no GUI and ssh'd
+into the gnome system and then called alsamixer as me and that's
+when I realized more how this all works.
+
+One is supposed to press F3 to be in the playback setup
+mode.  Apparently the function keys like F3 send a terminal code
+sequence that is interpreted as F3 and then I noticed that the
+volume slider for Master volume was all the way down to 0.
+
+The Up and Down arrows move that slider so I moved it up
+and finally my orca console started speaking again.
+
+One then presses Escape once and alsamixer closes.
+
+Is there a faster and better way I could have done this?
+
+If I hadn't had a second Linux system, I'd still be
+messing with it and the curses would be more than just in the
+command-line interface.
+
+It's amazing how quickly one can go from hero to zero in
+this game but finally I seem to have the talking orca terminal
+back.
+
+Martin
+
+--
+You received this message because you are subscribed to the Google Groups <=
+a class=3D"moz-txt-link-rfc2396E" href=3D"mailto:blinux-list@redhat.com">"b=
+linux-list@redhat.com"</a> group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a class=3D"moz-txt-link-abbreviated" href=3D"mailto:blinux-list+un=
+subscribe@redhat.com">blinux-list+unsubscribe@redhat.com</a>.
+
+</pre>
+        </blockquote>
+      </div>
+      <p style=3D"margin: 0px 0px 1.2em !important;"></p>
+      <div
+title=3D"MDH:PHA+Jmd0OyAmbmJzcDsmbmJzcDsmbmJzcDsgSXQncyBhbWF6aW5nIGhvdyBxdW=
+lja2x5IG9uZSBj
+YW4gZ28gZnJvbSBoZXJvIHRvIHplcm8gaW48YnI+dGhpcyBnYW1lPGJyPjxicj5JIGd1ZXNzIHR=
+o
+YXQncyB3aGF0IEZTIHNuYXBzaG90cyBhcmUgZm9yLiBcJmx0O2dyaW5cJmd0OyBBbnl0aGluZyB=
+n
+b2VzIHdyb25nPyB5b3UganVzdCByb2xsLWJhY2sgdG8gdGhlIGxhc3Qgd29ya2luZyBzdGF0ZSB=
+h
+bmQgZXZlcnl0aGluZyBpcyBpbnRhY3QuPGJyPjxicj5CZXN0IHJlZ2FyZHM8YnI+PGJyPlJhc3R=
+p
+c2xhdjxicj48YnI+PC9wPjxkaXYgY2xhc3M9Im1vei1jaXRlLXByZWZpeCI+RMWIYSAyNi4gMi4=
+g
+MjAyNCBvIDE5OjUyIE1hcnRpbiBNY0Nvcm1pY2sgbmFww61zYWwoYSk6PGJyPjwvZGl2PjxibG9=
+j
+a3F1b3RlIHR5cGU9ImNpdGUiIGNpdGU9Im1pZDpFMXJlZzU2LTAwMDJFVC1QckB3YjVhZ3oiPjx=
+w
+cmUgY2xhc3M9Im1vei1xdW90ZS1wcmUiIHdyYXA9IiI+SSBhbSByZWFsbHkgZ29vZCBhdCBnZXR=
+0
+aW5nIGluIG15IG93biB3YXkgd2hlbiBpdCBjb21lcyB0bwprZWVwaW5nIG9yY2Egc3BlYWtpbmc=
+u
+CgoJVGhlIHN5c3RlbSBydW5uaW5nIG9yY2EgaXMgYSBIUCBQYXZpbGxpb24gZGVza3RvcCB3aGl=
+j
+aAppcyBhYm91dCAyIHllYXJzIG9sZCwgcnVubmluZyBkZWJpYW4gYnVsbHNleWUgYW5kIGl0IHN=
+1
+cmUgY29va3MKcmlnaHQgYWxvbmcgdmVyeSBuaWNlbHkgZXhjZXB0IGZvciBzb3VuZCB3aGVyZSB=
+p
+dCdzIGp1c3Qgb25lCnRoaW5nIGFmdGVyIGFub3RoZXIuCgoJV2l0aCB0aGlzIHZlcnNpb24gb2Y=
+g
+ZGViaWFuLCBJIGluc3RhbGxlZCBpdCBmcm9tIGEgZGViaWFuCmlzbyBpbWFnZSBwbGFjZWQgb24=
+g
+YSB1c2IgdGh1bWIgZHJpdmUgYW5kIGl0IHRhbGtzIGlmIHlvdSB0eXBlCnRoZSBsb3dlci1jYXN=
+l
+IHMgYXMgc29vbiBhcyB5b3UgaGVhciB0aGUgYmVlcCBmcm9tIHRoZSBwaWV6bwpidXp6ZXIgb24=
+g
+dGhlIG1vdGhlciBib2FyZC4KCglJIHdhbnRlZCB0byBhZGp1c3Qgc29tZSBzb3VuZCBsZXZlbHM=
+g
+eWVzdGVyZGF5IHNvIEkgZmlyZWQKdXAgYWxzYW1peGVyIHdoaWNoIEkgYW0gbm90IGZhbWlsaWF=
+y
+IHdpdGguICBBbHNhbWl4ZXIgaXMgbm90IGEKR1VJIGFwcGxpY2F0aW9uIGFzIHN1Y2ggYXMgdXN=
+l
+cyBhIGN1cnNlcy1iYXNlZCB0ZXJtaW5hbCBpbnRlcmZhY2UKYW5kIGNhbiBiZSBhY2Nlc3NlZCB=
+2
+aWEgY29tbWFuZC1saW5lIHRlcm1pbmFsLgoKCUkgbG9nZ2VkIGluIHRvIG1hdGUncyB0ZXJtaW5=
+h
+bCBhbmQgY29tbWFuZGVkIGFsc2FtaXhlciB0bwpzdGFydCB1c2luZyBjYXJkIDAgb3IgLWMgMC4=
+K
+CglJIGFtIG5vdCBzdXJlIHdoYXQgSSBkaWQgYnV0IGFib3V0IDIgb3IgMyBrZXkgc3Ryb2tlcyB=
+p
+bgp0byB0aGUgc2Vzc2lvbiwgSSB0eXBlZCB0aGUgRW50ZXIga2V5IGFuZCwgcG9vZiEgdm9pY2U=
+g
+b3V0cHV0IHdhcwpnb25lLgoKCUkgZmluYWxseSBsb2dnZWQgaW4gdG8gdGhhdCBzeXN0ZW0gZnJ=
+v
+bSBhbm90aGVyIExpbnV4IGJveAppbiB0ZXh0LWJhc2VkIGNvbW1hbmQtbGluZSBtb2RlLCBkb3d=
+u
+bG9hZGVkIGEgYmFja3VwIG9mIC92YXIgYW5kCnNlbGVjdGVkIHZhci9saWIvYWxzYS9hc291bmQ=
+u
+c3RhdGUgd2hpY2ggaGFkIHRoYXQgZmlsZSBpbiBpdC4KCglBZnRlciBjb3B5aW5nIC92YXIvbGl=
+i
+L2Fsc2EvYXNvdW5kLnN0YXRlIGZyb20gdGhlIGJhY2t1cCwKSSBkaWQKCnN1ZG8gYWxzYWN0bCB=
+z
+dG9yZSB3aGljaCBzZWVtcyB0byBoYXZlIHN0b3JlZCB0aGlzIG9sZGVyIHZlcnNpb24Kb2YgYXN=
+v
+dW5kLnN0YXRlIHRoZW4gSSByZWJvb3RlZC4KCglJIHdhcyBhYmxlIHRvIGxvZyBpbiBhcyB0aGU=
+g
+bG9naW4gc3RpbGwgdGFsa2VkIGJ1dCBhcwpzb29uIGFzIEkgZW50ZXJlZCB0aGUgcGFzc3dvcmQ=
+s
+IGV2ZXJ5dGhpbmcgd2VudCBzaWxlbnQgYWdhaW4uCgoJSSBmaW5hbGx5IGdvdCBvbiB0aGUgTGl=
+u
+dXggYm94IHRoYXQgaGFzIG5vIEdVSSBhbmQgc3NoJ2QKaW50byB0aGUgZ25vbWUgc3lzdGVtIGF=
+u
+ZCB0aGVuIGNhbGxlZCBhbHNhbWl4ZXIgYXMgbWUgYW5kIHRoYXQncwp3aGVuIEkgcmVhbGl6ZWQ=
+g
+bW9yZSBob3cgdGhpcyBhbGwgd29ya3MuCgoJT25lIGlzIHN1cHBvc2VkIHRvIHByZXNzIEYzIHR=
+v
+IGJlIGluIHRoZSBwbGF5YmFjayBzZXR1cAptb2RlLiAgQXBwYXJlbnRseSB0aGUgZnVuY3Rpb24=
+g
+a2V5cyBsaWtlIEYzIHNlbmQgYSB0ZXJtaW5hbCBjb2RlCnNlcXVlbmNlIHRoYXQgaXMgaW50ZXJ=
+w
+cmV0ZWQgYXMgRjMgYW5kIHRoZW4gSSBub3RpY2VkIHRoYXQgdGhlCnZvbHVtZSBzbGlkZXIgZm9=
+y
+IE1hc3RlciB2b2x1bWUgd2FzIGFsbCB0aGUgd2F5IGRvd24gdG8gMC4KCglUaGUgVXAgYW5kIER=
+v
+d24gYXJyb3dzIG1vdmUgdGhhdCBzbGlkZXIgc28gSSBtb3ZlZCBpdCB1cAphbmQgZmluYWxseSB=
+t
+eSBvcmNhIGNvbnNvbGUgc3RhcnRlZCBzcGVha2luZyBhZ2Fpbi4KCglPbmUgdGhlbiBwcmVzc2V=
+z
+IEVzY2FwZSBvbmNlIGFuZCBhbHNhbWl4ZXIgY2xvc2VzLgoKCUlzIHRoZXJlIGEgZmFzdGVyIGF=
+u
+ZCBiZXR0ZXIgd2F5IEkgY291bGQgaGF2ZSBkb25lIHRoaXM/CgoJSWYgSSBoYWRuJ3QgaGFkIGE=
+g
+c2Vjb25kIExpbnV4IHN5c3RlbSwgSSdkIHN0aWxsIGJlCm1lc3Npbmcgd2l0aCBpdCBhbmQgdGh=
+l
+IGN1cnNlcyB3b3VsZCBiZSBtb3JlIHRoYW4ganVzdCBpbiB0aGUKY29tbWFuZC1saW5lIGludGV=
+y
+ZmFjZS4KCglJdCdzIGFtYXppbmcgaG93IHF1aWNrbHkgb25lIGNhbiBnbyBmcm9tIGhlcm8gdG8=
+g
+emVybyBpbgp0aGlzIGdhbWUgYnV0IGZpbmFsbHkgSSBzZWVtIHRvIGhhdmUgdGhlIHRhbGtpbmc=
+g
+b3JjYSB0ZXJtaW5hbApiYWNrLgoKTWFydGluCgotLQpZb3UgcmVjZWl2ZWQgdGhpcyBtZXNzYWd=
+l
+IGJlY2F1c2UgeW91IGFyZSBzdWJzY3JpYmVkIHRvIHRoZSBHb29nbGUgR3JvdXBzICJibGludXg=
+t
+bGlzdEByZWRoYXQuY29tIiBncm91cC4KVG8gdW5zdWJzY3JpYmUgZnJvbSB0aGlzIGdyb3VwIGF=
+u
+ZCBzdG9wIHJlY2VpdmluZyBlbWFpbHMgZnJvbSBpdCwgc2VuZCBhbiBlbWFpbCB0byBibGludXg=
+t
+bGlzdCt1bnN1YnNjcmliZUByZWRoYXQuY29tLgoKPC9wcmU+PC9ibG9ja3F1b3RlPg=3D=3D"
+        aria-hidden=3D"true"
+style=3D"height:0;width:0;max-height:0;max-width:0;overflow:hidden;font-siz=
+e:0;padding:0;margin:0;">=E2=80=8B</div>
+    </div>
+  </body>
+</html>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;blinux-list@redhat.com&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
+nsubscribe@redhat.com</a>.<br />
+
+--b1_R4v2JON7aCcLJbLia5Nf2iMfur2xq6iBMuqrbRJKAgo--
 
