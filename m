@@ -1,139 +1,138 @@
-Return-Path: <blinux-list+bncBCVPTHE7K4IL7CH5VYDBUBADNYBOY@redhat.com>
+Return-Path: <blinux-list+bncBCVPTHE7K4IMVX77VYDBUBD73EM5S@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mail.lfdr.de (Postfix) with ESMTPS id 62CE086B1DC
-	for <lists+blinux-list@lfdr.de>; Wed, 28 Feb 2024 15:33:37 +0100 (CET)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-6904160e997sf785606d6.2
-        for <lists+blinux-list@lfdr.de>; Wed, 28 Feb 2024 06:33:37 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1709130816; cv=pass;
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5628B86BF1B
+	for <lists+blinux-list@lfdr.de>; Thu, 29 Feb 2024 03:45:32 +0100 (CET)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-42eb2f6fb68sf4571331cf.0
+        for <lists+blinux-list@lfdr.de>; Wed, 28 Feb 2024 18:45:32 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1709174731; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DNp6i6hq83bOTBqmi2nXO3gT696o+ZucCG6O9iT2mY2S6/LAektv2JBrtwsAMZxf2v
-         7YYrLyKDcVsm+PNEkOLRcinkx5x+90Z/GwymLcEjxSwpt1x2FqEjusrs3O/QuIA5p8A0
-         DlIbd9B25xw3xSBysiOyL32Tbi6qsuM9iylg2tAhhNIBs2y+7+cpX4/NdwEpinB8TxkI
-         3VE3D384SFSs3kUIiHFDKPkhJzjgpqWwn3lxsz/tgYtAeDQHMzMyXvNKF66WoIAea1J+
-         HTBI0cpbjop2M6fKAWfQ0Xjv1LFKU7Dp8D1XenZRxi8/+UgTkxZiWBa3cdU5sbIRmOg3
-         hAYQ==
+        b=FJ1AxrJ40xEFqgEGYD7Sq16rIfblX41rh3UiRUd8lpZghmfkKR3sCedmOlKq8d9tWY
+         Yz7YzI8bHv5X5BOhNcOp+p8ideffjjDoq/EEWQ5q0dwp3ZovAyS0ds7801/PnP/PTJgp
+         9T9sMyTPpZhpaPkwFkTUhIPLz3Z1+JqgMQHIk5yMjerOnndAuSSMuzTwM2sbQWDn3H51
+         KNqHKgDT40/SD8ARPrtqSgJnjWmn7sjF91F5ua14u/0ya53ghNqXTdio+7UtYrUrLHgU
+         AfQK+k4XSrFBggr3dWuCT8GZXCnd4kkuq4czdmeDXfQ//FMgmWUbLR2V2hK0czIlDZPU
+         zv/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
          :mailing-list:precedence:mime-version:references:message-id
          :in-reply-to:subject:cc:to:from:date:delivered-to;
-        bh=siAVrfDLkWp/4BguNUysZnk1dlzrhC0MJk6klW9Ez3Y=;
-        fh=I8lmLsDFiI30APPMnvxlKbVsj9rfwLZj056lpKEY7ew=;
-        b=blfFnW8cNN1B4vlJB8JzxtVf4Xt1sYP1IQvMIxBvh0RWUPG2XzZga9fJznokj1Eezk
-         UDulItaK7hPhwpPw7eTaPCFQdAiGuAgtnPNssxQizUa5mwyIDE7IcKAvN5/uDxVN38NY
-         hU8dItLL2yFVolkJrlWVhL+XrDRMgVNf5yOFihM1Nj6vozC5Du8USVD7osYdepw2idRX
-         Cn+tCAQ0AYiGw09R27GM6i+p9D4r9DJOK7i50ayZZ8xmAx9diZhgusOuOZqroEYJxKRG
-         kdD1q7lsEg90BoACugGRjtWE/hDOll12EbCJDOwhWa04RpaM5b73yM4JnRO/96rILuR3
-         pyUA==;
+        bh=SZlnNr7kxJbXghk0TqrpFOcXn/ER065p/vdDhYl/2YI=;
+        fh=X0WYRx3OviBu71c8z3mnSNX3QvALcN9xCyvnkX3NZYU=;
+        b=gwqFwFO3Sxraez9pyhmn1d+9EhOcRo5BHn1CsrnViJevq2EfKW8I+Q5HLyubk9JiSW
+         PQhDSv82mfGdiIeUnF3IGZRyM/XTWPRjKjUqju8OQpcyPIbm3OHR1YukUnWtrW8R9IW2
+         rrOsSrWb3+BIbZLI3hUlo7uSjAM7iySgN4reM40JxDnfMJ++DyFjLobhIOj298LgUYCm
+         9lEE5ae/olE4BfEd3ytFF2h5LBPWbloQv9kEUQHn2dam2xNYOqIBZ274jptPUgtNNAnT
+         n1W7BRjd2egy8/w+AuA/B59gea5pPvcvQdwiqRbZCS6eA/TZIL/ZVizokQk76bsw5BK4
+         UlLQ==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
        spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1709130816; x=1709735616;
+        d=1e100.net; s=20230601; t=1709174731; x=1709779531;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender:mime-version
          :references:message-id:in-reply-to:subject:cc:to:from:date
          :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=siAVrfDLkWp/4BguNUysZnk1dlzrhC0MJk6klW9Ez3Y=;
-        b=V8acM5iEYsMGckJ/BUcsQuAJgoWdMZaXHhhyE7DKTre2KnB1CdPQ7YLwaVN2o4ehe8
-         7iHkQNkravHgTWnKGz31d4NGjiqHddlZpSYG2QleW98zxoDuXBvbNiG7fmYPKp+EBusi
-         VOHE3kxOGDcWN8ZlIAG53DhPXDdLIdjHT/I79hFZJwoD90KJklt+guWnIB1aNJTOwk3S
-         opfUm+nXyBCRJg1Zpbt6QNAqcao4yWIvyBcY63fFosmWQxD0HuWC3RVZdgUlr6y+iDXo
-         8ytOCllsBbmKcCG9610td7/HWPye2htv+RY0qZN6oFQHRCTL/JnMyVEBhwnb7PendbqL
-         zFeQ==
-X-Forwarded-Encrypted: i=2; AJvYcCUjErPdlvFxehfl3G7iiiXP6DqLBFuaLrJ3F/aSlzHr35HWAtfXrGbK94RtO/gNioy30MJEZkLFoLzQvJ4mqa7O7Hi6m2A/yOMx
-X-Gm-Message-State: AOJu0Yzw2KbP9XU7Ut4hiaCm69OHuh5r40xOJzhsmhRXlDfA6y2FieD1
-	p9kEenW1km/r3P+tKR3bBKzPdOezyIcR0M1D31vxESQFj8lsus45Gaildi71NwA=
-X-Google-Smtp-Source: AGHT+IGHI015Yde700t0riCR9WyAHLNHUUYJU2SPABjvWRLpu4eVIn7M8qg4BK7ydRVBghIX/tyhBg==
-X-Received: by 2002:ac8:5cd0:0:b0:42e:6da7:8c3c with SMTP id s16-20020ac85cd0000000b0042e6da78c3cmr15168804qta.59.1709130815991;
-        Wed, 28 Feb 2024 06:33:35 -0800 (PST)
+        bh=SZlnNr7kxJbXghk0TqrpFOcXn/ER065p/vdDhYl/2YI=;
+        b=YS/lsS6Ivqzr2EhuMpKn81vg1Xz3xXDxvCjksIHGP7n06GELoatJL0/rUuvH15/FN5
+         RWY7b0KPlSAZ7c6dJaLG7rp6qwFJ1skoKuQf/Keh6uU98ra6iLtJQUstR4WIcbr+4pFr
+         v31ojPkDmGACyYp0rSSv+QVbzG1no63RIaPvsbZnequUO/bUax2Jxpfvxo9l3VmvvMCb
+         aTVFSCgt0zBBGZaSUmt9OjU1+rF6EIOTUw01qUx6pWAec6BuGzbX9tLW0voFYcLT8cI6
+         if/c0qUEYtqVvO28PPqNTxpg/T4HYMyTfCMfNE90rYNWqZUvwzGD+n5yjk51dXr9BGf/
+         2YLw==
+X-Forwarded-Encrypted: i=2; AJvYcCVwwvhE4G039tDbHOEgW8baGmiAbJuLUeDEAiuIEUoLduBzudFz01TAPaCTYBSmgifcHHgoSS93JAG1dGb0H2OtZS1pvxZj1AKE
+X-Gm-Message-State: AOJu0YxLljpZ/IgoMqOVgfzihT56lKw1wvvMBXmcO3qkLQfThMpbjmge
+	Mieje4g6r/x6rmsIO9AdYoYq/nJvmFaAhE3IT6rz1qA5LtqTVV2U9Wp7DF2ZfhQ=
+X-Google-Smtp-Source: AGHT+IFM9VTfrvQ7Y3opntvhn9sj+tlRB5bjX5tuuU+auDD06A0gk7ZTXwLAN/Rui7opBEf7Ospt1g==
+X-Received: by 2002:ac8:5dce:0:b0:42e:814e:e0c8 with SMTP id e14-20020ac85dce000000b0042e814ee0c8mr795037qtx.47.1709174730994;
+        Wed, 28 Feb 2024 18:45:30 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:622a:1996:b0:42e:7e94:eceb with SMTP id
- u22-20020a05622a199600b0042e7e94ecebls3863306qtc.0.-pod-prod-03-us; Wed, 28
- Feb 2024 06:33:35 -0800 (PST)
-X-Forwarded-Encrypted: i=2; AJvYcCW26+dcFB12OIjf3E2u2GbMNwCCiJnC4/pRsEbLChsw9Bg/A02fJoFkBna8XPivaDc4EOX94iY5/HasWMt7bFmMowtt8P1yQGKokYRi
-X-Received: by 2002:ac8:7f54:0:b0:42e:81ad:bf24 with SMTP id g20-20020ac87f54000000b0042e81adbf24mr11411639qtk.44.1709130815133;
-        Wed, 28 Feb 2024 06:33:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1709130815; cv=none;
+Received: by 2002:a05:622a:28b:b0:42e:7f55:df6b with SMTP id
+ z11-20020a05622a028b00b0042e7f55df6bls567802qtw.2.-pod-prod-01-us; Wed, 28
+ Feb 2024 18:45:30 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCWxWavC1dNFH4hnVgYSJ3KZdynD6KDOPp+rJFBOURuESVob7093cn1kgc62nVeYjGg8M5CAdeKme8fJMY0I5zZxRdlqzVYqIE+BlQv2
+X-Received: by 2002:ac8:5f95:0:b0:42e:b44a:1e4f with SMTP id j21-20020ac85f95000000b0042eb44a1e4fmr881602qta.4.1709174730045;
+        Wed, 28 Feb 2024 18:45:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1709174730; cv=none;
         d=google.com; s=arc-20160816;
-        b=GMBKeMdhWwPzjN1clv/QFFX8/THbri1rawsdYE0ILJ+7d9aBhvBsRdohXp4LdHiL6H
-         6ZmigarWcJW0LkW2KglRhpnNglzV4ZV4wjSIm67laiksBkGFWmCGY2EeBWRcYlbSNfBg
-         K3HCod1eMZhQ1kg09VBtMW84DWq88QY3nSjpciQvcUUoa2r6TdAAorQBXPS9dRsldMaf
-         9XE8NzMEbHMu8Ma2kdMvOPOKjWR6YQhgNmsQBfMkIm0xv/vlfMQgbqbtK+LsjoStHGVI
-         d7l0pc2TVZu2ndENSuG2VCvC3+z8GDXtZyo1HMMIjaa7lSMSwUjbNv/uKXHf5GqwfJXB
-         wnSQ==
+        b=uBtgpyYIfGuVYz60oD+Us7rt52xltxZRfegWovgKClahnu45qWrOa2EiXlGLVTnbFq
+         1wdk5bw8jpFBlRGcSLVZ1wV/qqQI3IsGw6Ljs7Q8rdL2Hqln0i85oUAChtvLI8AKOSV4
+         BxY5V+FAvB18NZcIbtoKYqioOInjAwCOmTVt2HfyQ96g4x53shLfS06A62myjFbhRcI/
+         UuioxqV1Boxcaikxu0u2K6qN/F6rs1jQvoaG/5Vx66eirfElqebtMr6xXKJ1lsRNWdA3
+         28C5HPEugeXV79Tf5bjitEvJS07Aai+3Vbthhyq13M1ipiIDsZLUxsix9r9cLrh30fjA
+         g/bA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:delivered-to;
-        bh=siAVrfDLkWp/4BguNUysZnk1dlzrhC0MJk6klW9Ez3Y=;
+        bh=SZlnNr7kxJbXghk0TqrpFOcXn/ER065p/vdDhYl/2YI=;
         fh=zDMQH/MiTWddxzGyScm9OtYvjWRWlca8nHg2qv3FsqM=;
-        b=E2siLqMl/CluoFM681TiJvdK4600SIoYky9pu/kHFTZM/FX0k+dNhzOQvQCAg6sMU2
-         4mrPb/0BK+Qu2muQS24l2sOnVh15XBxH6klAcLcldqeM9O1PMNT/5gZuNe714vnGB4GA
-         z3xmbZiWx5TF8YR2+9jZoOP1k1K4hSHE37jyOLQc3jxLtBYQyv1oqwjIljzYYdekxayt
-         1Gc+IW7kr7X1oMAd+KsS1fbuHQHP1iQWYJe7cY7xO0e3MVWzkYXgDapUNkedzSrFsb3/
-         PcrdWtscxMKWNWznwVvMUXzt3kTaZ3vssdG19S+deXklzAKC5OMEHa4O9/09v5FD2q19
-         xFLQ==;
+        b=NmyTm56muBBpbmKaIbakHUJq0sUDXtTSfuyOnFB8sb6SBDzPfhGXbTUz+4gLNnlF1s
+         3lJpks5e1vwHEF152TXF3e24Hbe+HEKOIwCm/SwzJtcFWMibeOjxi3GEbEBMhSgU+ZFT
+         48IaYkf+2jxJXZZxPDKXaoRMUPO9X4JgieFZxRbIx6uEibrM164HkHaatpf16Lk/bWWs
+         FPrV69hW3Eq5wA2HwuROVNzsH7deS/JU8DmxmcQNU6If5Pun/e9UjAFP+oqefT9pRtsu
+         UyzwHKbJ5hezPkARbDuA5PY3u7jsTW709fEDecftPvnnl78u0W6NjSWYaxHxXSsTrNtU
+         Thkg==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [207.211.31.120])
-        by mx.google.com with ESMTPS id q16-20020ac84510000000b0042e5c1b4f78si9671110qtn.762.2024.02.28.06.33.34
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by mx.google.com with ESMTPS id o2-20020a05622a008200b0042e977c051fsi557559qtw.537.2024.02.28.18.45.29
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Feb 2024 06:33:34 -0800 (PST)
+        Wed, 28 Feb 2024 18:45:29 -0800 (PST)
 Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-649-adTpWUXVO8GsDQT6zpyqrQ-1; Wed, 28 Feb 2024 09:33:33 -0500
-X-MC-Unique: adTpWUXVO8GsDQT6zpyqrQ-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+ us-mta-30-YWAr-H_6Pzi7SdtzHqpP0w-1; Wed, 28 Feb 2024 21:45:28 -0500
+X-MC-Unique: YWAr-H_6Pzi7SdtzHqpP0w-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 53BA182DFE6
-	for <blinux-list@gapps.redhat.com>; Wed, 28 Feb 2024 14:33:30 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 86DF482DFE2
+	for <blinux-list@gapps.redhat.com>; Thu, 29 Feb 2024 02:45:12 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id 506FB200A382; Wed, 28 Feb 2024 14:33:30 +0000 (UTC)
+	id 837A91097C; Thu, 29 Feb 2024 02:45:12 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast10.extmail.prod.ext.rdu2.redhat.com [10.11.55.26])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 171F820155E6
-	for <blinux-list@redhat.com>; Wed, 28 Feb 2024 14:33:29 +0000 (UTC)
+Received: from mimecast-mx02.redhat.com (mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4AA9811309
+	for <blinux-list@redhat.com>; Thu, 29 Feb 2024 02:45:12 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id AC05D1C16E4B
-	for <blinux-list@redhat.com>; Wed, 28 Feb 2024 14:33:29 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id E96683869154
+	for <blinux-list@redhat.com>; Thu, 29 Feb 2024 02:45:11 +0000 (UTC)
 Received: from atlas.bondproducts.com
  (23-24-6-165-static.hfc.comcastbusiness.net [23.24.6.165]) by
- relay.mimecast.com with ESMTP id us-mta-284-PsxfZHWWMqekLW4jxgmoZQ-1; Wed,
- 28 Feb 2024 09:33:22 -0500
-X-MC-Unique: PsxfZHWWMqekLW4jxgmoZQ-1
+ relay.mimecast.com with ESMTP id us-mta-690-nonCTAVyOSSPYHvYdbxwjw-1; Wed,
+ 28 Feb 2024 21:45:10 -0500
+X-MC-Unique: nonCTAVyOSSPYHvYdbxwjw-1
 Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
-	by atlas.bondproducts.com (Postfix) with ESMTP id 34DD344FC6;
-	Wed, 28 Feb 2024 09:33:09 -0500 (EST)
+	by atlas.bondproducts.com (Postfix) with ESMTP id 4EF6B44FC6;
+	Wed, 28 Feb 2024 21:45:09 -0500 (EST)
 Received: by users.shellworld.net (Postfix, from userid 1005)
-	id E1D591000BA; Wed, 28 Feb 2024 09:33:08 -0500 (EST)
+	id 0B7C71000BA; Wed, 28 Feb 2024 21:45:09 -0500 (EST)
 Received: from localhost (localhost [127.0.0.1])
-	by users.shellworld.net (Postfix) with ESMTP id E185D1000B6;
-	Wed, 28 Feb 2024 09:33:08 -0500 (EST)
-Date: Wed, 28 Feb 2024 09:33:08 -0500 (EST)
+	by users.shellworld.net (Postfix) with ESMTP id 0A44E1000B6;
+	Wed, 28 Feb 2024 21:45:09 -0500 (EST)
+Date: Wed, 28 Feb 2024 21:45:09 -0500 (EST)
 From: Karen Lewellen <klewellen@shellworld.net>
 To: Janina Sajka <janina@rednote.net>
 cc: blinux-list@redhat.com
 Subject: Re: pandoc and the docs format?
-In-Reply-To: <Zd9C9HGn7q6cVhwp@rednote.net>
-Message-ID: <Pine.LNX.4.64.2402280932210.943044@users.shellworld.net>
+In-Reply-To: <Zd9CjhZah67fJKZQ@rednote.net>
+Message-ID: <Pine.LNX.4.64.2402282142580.952223@users.shellworld.net>
 References: <Pine.LNX.4.64.2402251934330.897574@users.shellworld.net>
- <ZdvfpQXrW8k516Tq@panix.com> <Pine.LNX.4.64.2402251957470.897936@users.shellworld.net>
- <Zd9C9HGn7q6cVhwp@rednote.net>
+ <Zd9CjhZah67fJKZQ@rednote.net>
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: shellworld.net
 Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
@@ -152,61 +151,41 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-That is terrific, thanks.
-Will keep it on hand to try next time I need it.
-Kare
+the pandoc -i  option lets me skip the html  need since it goes directly 
+to text.
+Does the process work in reverse?
+lets say I want to create a .txt file, then convert it to docx?
+Just curious.
+Karen
 
 
 
 On Wed, 28 Feb 2024, 'Janina Sajka' via blinux-list@redhat.com wrote:
 
-> OK, for text as output simply change the filename extension in the
-> command I provided as follows:
+> Try a command like:
 >
-> pandoc -i file.docx -o file.txt
+> pandoc -i file.docx -o file.html
 >
-> Works like a charm, imo.
+>
+> Best,
+> Janina
+>
 >
 >
 > Karen Lewellen writes:
->> Hi Rudy,
->> My end goal is text, not html, sorry if my post was confusing.
->> Will check for docx2html though...appreciated to learn of the program.
->> Can anyone answer my pandoc question though, since I already know that
->> program is here?
+>> Hi All,
+>> We have pandoc installed here at shellworld, with my using it most often to
+>> convert epub files into html..then using lynx to make those  text files.
+>> I have a d. o. c. x. file however.
+>> previously I would use basic gmail to convert these, but that door is closed
+>> now.
+>> Will pandoc change  these into html?
+>> Because the format if not actually a word . doc file, antiword will not
+>> convert them.
+>> Ideas?
 >> Thanks,
->> Karen
+>> Kare
 >>
->>
->>
->> On Sun, 25 Feb 2024, Rudy Vener wrote:
->>
->>> Check if you have docx2txt installed, and if not, ask shellworld to install it.
->>> Once you have a document in text, you can convert it to html easily.
->>>
->>> Rudy
->>>
->>> On Sun, Feb 25, 2024 at 07:38:51PM -0500, Karen Lewellen wrote:
->>>> Hi All,
->>>> We have pandoc installed here at shellworld, with my using it most often to
->>>> convert epub files into html..then using lynx to make those  text files.
->>>> I have a d. o. c. x. file however.
->>>> previously I would use basic gmail to convert these, but that door is closed
->>>> now.
->>>> Will pandoc change  these into html?
->>>> Because the format if not actually a word . doc file, antiword will not
->>>> convert them.
->>>> Ideas?
->>>> Thanks,
->>>> Kare
->>>>
->>>
->>> --
->>> Rudy Vener
->>> Website: http://www.rudyvener.com
->>> Check out my latest story: Downgrade, at https://www.scifishorts.co/authors/rudy-vener
->>> Need a Limerick Fix? Visit https://limerickdude.substack.com
->>>
 >
 > -- 
 >
