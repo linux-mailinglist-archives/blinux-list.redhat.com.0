@@ -1,142 +1,154 @@
-Return-Path: <blinux-list+bncBDGI3AUYYYCBB5OZ6KXQMGQEFG3SCRQ@redhat.com>
+Return-Path: <blinux-list+bncBDP7P6HU4IERBAPD6OXQMGQERLWOURA@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com [209.85.160.69])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6A67F8862C4
-	for <lists+blinux-list@lfdr.de>; Thu, 21 Mar 2024 22:56:07 +0100 (CET)
-Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-2218e929fabsf1446281fac.1
-        for <lists+blinux-list@lfdr.de>; Thu, 21 Mar 2024 14:56:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1711058166; cv=pass;
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3BFFE886544
+	for <lists+blinux-list@lfdr.de>; Fri, 22 Mar 2024 03:48:35 +0100 (CET)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-430f04c2834sf29050401cf.1
+        for <lists+blinux-list@lfdr.de>; Thu, 21 Mar 2024 19:48:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1711075714; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ut9gp9svTo5Kgiu9L9ku1Km0nZQCm4wXHkKK9LrNl3oMotpQ9gGaDI+3ogkbv3QJlU
-         MGs+9H0+vfhgnrx5LQRGTRcPj2QXhaGk+IBcQec/3XlQSM+JK7eGJy2qvfIYOLXucfvS
-         0iaPEWbHHNd8jk4rPBb/ckKR1+VHli/F+l+JWte93wk17MYORWwOuhtjxlSku2W35BMF
-         w2bJdA231UYX5PvNlJqAhCBSKy5NIPNPK+hcSk5bhDn3jhi1A1RIf5RUdMiRgAsegnvB
-         6jpxDFwMt+zFfoZm67oFu2FS88reRkEGBsWYeTD8tk/UK2S6aArXtCD2VsIHRqmM1YSh
-         r70A==
+        b=r5ONvWV6bopzLa47tW0L5Jj+aaqJ/Z3Nf8M0AHB/o4/PlAc/SLVDFgiKv0UAXLy8FY
+         YS56oKQYTdELbDJ9FgpwIyWD5rW62YXu5KdQbTm4rua1gnBE88I7cSO5Vp+iLzv5p7HG
+         f8t8CXJYL0t8nH6V8LDpMdJ3+BrM8sN8KO1Mo/c9JqzFwjMEk38FryE8nAFSxdGKEQp9
+         PoJ0Q0ndHL48OKhwkAgjLYcYhcJTFBHUgSviuGG1UD7RCn4I/K96EvQEAbWXuVLZQzeu
+         oO7QL8eZf+w+qII/IIsIdFY01Dg7gMxdLQ51FmVuG2BP0k9L1a2uvysM9xC18x+RoBvm
+         DSHQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-disposition:in-reply-to
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :delivered-to;
-        bh=DUJMaw8bjbC9fNU4UUu65Cysi81m3q0CaEIVdGUAaWM=;
-        fh=l10Zm6mY8ZPix+kIrGkYI3Bqw8zH11J4bjAUmoewMco=;
-        b=ws5e1OVjOyTdWl5GbiWaIeq4cQsOHqagsPSerw4/Z9XaHnzEt4abe2LGs54U9WcuaW
-         9nM35ANNXGAZraKmlRECM/cBb1jHF6Zdd+y2ZZ3o76k9YZWEefYVt+zguVspUUKeaPJq
-         siedVciylqrYUGtpDar7tt70jjQwhCcyX+kGEEge/ekuINjfbVJSFLF6IkXDGMCrJD/x
-         opG651/GqXALlQMoEDwyBVhtU0dUw6kEnsLHD15+YEm/g+UwSMZ9qsvE363rPku/1Nfh
-         IKZaNJqEFAidAwg/Q5U+cik+fCSZn+5k3K608wE2LzNDGfr3RMvhbkjI1RAy551WZCMl
-         x8RA==;
+         :mailing-list:precedence:content-id:message-id:date:mime-version
+         :comments:references:in-reply-to:subject:to:from:delivered-to;
+        bh=NIRZBZ7ihtMyYGhfjleWAOZacwigBJSMDqEFg3LQkrQ=;
+        fh=C80AF5h5BF6P1DzTcG2xzr4JMAgf3x9i0xRE5Zs7uE4=;
+        b=Hnu8ew5QtUn2bJLpKXrHHXMZTBuncebofQEGVfRPy4G6VRRwaiUL8poSP111CvdVP8
+         stu4AnP4bHBWeCbYoZJSVjRiO8zBH2dNMtz9IJp/Ni8tIfoKyzxNg95otHbnlm+O7waY
+         LrN+5TFQgsC7ppXbW3aKs5kPAY4m0V4r1ySlcol3d00TVp/gnDa1KD3V/DLkR3n8jcWE
+         xcnf3Sl44Pcv5XfTabWMVdrTWW54gVFfYlGYb7FmN8VLGdJ/A+lrpZsyT6L7nUaiaVEP
+         98o7srFhXKOkugeyfvPBQk0bL5e5eGj/KP0DSyw0GYRBo9cpR1CWDXv3hYLjUtFhKrAK
+         ZaaQ==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of salt@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=salt@panix.com
+       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.74 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711058166; x=1711662966;
+        d=1e100.net; s=20230601; t=1711075714; x=1711680514;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender
-         :content-disposition:in-reply-to:mime-version:references:message-id
-         :subject:cc:to:from:date:delivered-to:x-beenthere:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DUJMaw8bjbC9fNU4UUu65Cysi81m3q0CaEIVdGUAaWM=;
-        b=ujegcZR8XthMw2ckvF+eGvLymBGDmF21FOZ6LJziRL47aCPeLCwFZCtAUjbu2YhNNv
-         OXh4rq+7m+8m+G33NqGEuD88k6elJX3ibq+c5r6VE/zN+IM5VF7fRRji9GnuBtYBtkXZ
-         1ixoWKyJZI11QPMcYwMGquQ4nSr3/nEQz2rlXPhxAJjX/jaP6xTANOzXAON3OIDBN+qH
-         2xPGrR2xoeDdnMg5ELc36Q4tPE9MYkDwvLaeUaB/Fvg9XglXVwbQtInsKBCmtBKzgKN9
-         4dfBZM6ser4BbXzVoNDKWlnYAHqWgHj2DvixlLNTPlQC+X04KTND5P50YwnC7OThHVGv
-         QpHQ==
-X-Forwarded-Encrypted: i=2; AJvYcCVeQEN+KJa6jlt1UwO8mCJDgb057o/ujKVH2pB8jSfgOLsKgBF70CLaNRmcIJIdH7nkBsWd2kJjYJRSVjCeR0LXLe9/VPudvOaL
-X-Gm-Message-State: AOJu0YzvdBHtBk3nEg7w1RLF+n+ilv4LSfO9AdOOYt/fMdVy/i8IIt7m
-	qktJACgBBRv5LgHFSPVP4Ng0rTD1Z26L9ok7sbVFa1LuFgC8NUfp5aNAC4+bnEQ=
-X-Google-Smtp-Source: AGHT+IGRocWp6W4KpKByugmvSw2kfXeVYcsjS0zmlWtRyoTmYPc94gRAAcGWTZLLX6b2p7KGgJAwxw==
-X-Received: by 2002:a05:6870:6113:b0:229:baf9:957f with SMTP id s19-20020a056870611300b00229baf9957fmr529761oae.48.1711058165933;
-        Thu, 21 Mar 2024 14:56:05 -0700 (PDT)
+         :x-original-authentication-results:x-original-sender:content-id
+         :message-id:date:mime-version:comments:references:in-reply-to
+         :subject:to:from:delivered-to:x-beenthere:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=NIRZBZ7ihtMyYGhfjleWAOZacwigBJSMDqEFg3LQkrQ=;
+        b=TyawyBj8/yf0WFUNSXnK/fPDMhEdy9mzwr+zIX9nAgq8BSRqj8ONSwNwA5WyJA5Dcf
+         0URV1M1w0VdRv6dlhiJyR8AU8Ucq0NCoYSJ7Is/b8lnTtiE0HCrw/a6TUUsG5tBlHhkL
+         wXJcmNx2c/41m0H3jeWKFB6HbEDXiFLxs7I54p3oFyoNlq6CPUnFUWjFgKqIwrPpXj/m
+         vG5o8YeQ6imr6R27p74B3bh3NHbM9kczpPpNKgLUQgvFZsscLCMYSPcAB5guzJSZz78j
+         ucmZa1aiO9cFi3aiNV1nFxrnvN+2cCA70TkXwUzoRhnth43fXja3lTsnAtzW/znh2qLX
+         SpPg==
+X-Forwarded-Encrypted: i=2; AJvYcCXma2p1oBMcmdD3p8f/C9L4fhZx89OiXs/rDaJpxRqUu6LUDU8rGnYTcTmRzyBxOaDebPnCL40I+ZCyuXnLRzE9MXJD9xEovTPb
+X-Gm-Message-State: AOJu0YziYC/Dn7WCD2j2xn9lGuSUaqHTBQc4Z1wpiUmuu0VyGOoYbtzM
+	/iB8LP+iZrHU8BCyQjWzdQo+VoKT93sQEcg5ag+JWUYO5luDY5a14X1YlZRt9bA=
+X-Google-Smtp-Source: AGHT+IF9kg+7K020BT5dkuA++Igcli4Xdxj+uOmogZfKotl4fOxiB7vlyk58pZ/7DUCBMF1kituevw==
+X-Received: by 2002:ac8:5bc6:0:b0:430:b2f2:b9e7 with SMTP id b6-20020ac85bc6000000b00430b2f2b9e7mr1218784qtb.6.1711075713863;
+        Thu, 21 Mar 2024 19:48:33 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6870:b91:b0:229:c767:cac7 with SMTP id
- lg17-20020a0568700b9100b00229c767cac7ls884639oab.1.-pod-prod-06-us; Thu, 21
- Mar 2024 14:56:05 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCWdB5WvprX0Zzgk0BCCtwW3wEiE4dw2slweG1LUKePhX/lEGw3t6t4smx0oKEyy2U1WUiMNDtJSZkVpJUf/fU7vBrUdQmdfFr3n5mbv
-X-Received: by 2002:a05:6870:c348:b0:220:b713:77c1 with SMTP id e8-20020a056870c34800b00220b71377c1mr554578oak.31.1711058165184;
-        Thu, 21 Mar 2024 14:56:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1711058165; cv=none;
+Received: by 2002:a05:622a:4c89:b0:430:e26f:7f59 with SMTP id
+ ez9-20020a05622a4c8900b00430e26f7f59ls3348508qtb.1.-pod-prod-00-us; Thu, 21
+ Mar 2024 19:48:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUGqVx2RdWyXbeGmtnmv5gHQlyC7DNAJhr4E0CrqLcHTwktIyyp2kxogMvbcx0z+JzaRyrsRiS5UM89hwTxyOuWp09MO/U+2rWThE5c
+X-Received: by 2002:a05:620a:4110:b0:78a:2566:65f2 with SMTP id j16-20020a05620a411000b0078a256665f2mr1294876qko.23.1711075713027;
+        Thu, 21 Mar 2024 19:48:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1711075713; cv=none;
         d=google.com; s=arc-20160816;
-        b=mrml52yZD3L/FHf5iRRO1DZwXFRiQmMfq0FLN7a02YmByyVYYg36no8auCGIXoFYXA
-         3C+FG77vmZMXCD36Kj3FU28l2ea+MjgbxXr1z+366I/uiLHJ3y0iDiEgFP+NeMrFKFH/
-         ggHSMZo1Lk+mB5eNz2WY40kK1Z3XJz+YapqilpqcNv1KrDnLzHfgJZI9fQ1C2AD9GQYc
-         tpV1hEaZxG629PxePHsM1mlgDfLrhwJducHPdoAh6Fr8IODEVDwqbYmGKSX7KltbfEQ1
-         ZI0wT3bOzL5MuyonwPYegrL0sx5ZVwEN6Gty97SXoC4xHLmEOTzehntm7M0+51bKGwUp
-         OhvQ==
+        b=SQtTSaA6dSWwjqNdkPdHbYkYuJ0K+Oas7zpQRbZ+ZQGRne0zBo78jLe1eTHJeyiw0F
+         FECLRS51gqc4mxRSFdKz+hNJgPpBTLyJnAGqEQ33dpBUPgwb19JV9n/ff8PxvZfVQwsv
+         EB+Ij+j0zTjoAnbpv6Zckx1ByJXELBUMShK4UgUvDEjwlVT0ky9snkhXlTaOYUI1NxTK
+         ElD3jk3OLvFCaiO0bRZtkJhTsrwzUKHCEcymHTiITfFG0dh//0Tf3Y2CGVl5EuOnKBbC
+         msjfh8kLxLoPp5N5jcW40ZSMv4IIeFPDUtCQSwxeZvd4Aw03pgjzneZfGrS0HAKTuq32
+         oURA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:in-reply-to:mime-version:references:message-id
-         :subject:cc:to:from:date:delivered-to;
-        bh=6axqgPy/LEGOzO092Wh2SP/+xFwyFHNOxLblhKZEGs4=;
-        fh=rB/Dl9CIvpSmigbdsu6c006X5Mkk1djV04udk3n+r5s=;
-        b=xNfDSGkDQt49WL1Go8YqD0Q14O8zCd1Hx5B7k6VnZwjBL1pPkpDAHWccXNYMZRFMvb
-         qtitwjOa2tUNnXOnoPCRvCU52Pm24XlQSDW+xhB2zvHrKRb+K7CtFHDxTDdLov8vCx+j
-         MUyks0wEn93GLgD+/Tuk7aG+1TDSE+R2X+RovqwVRNAMZi4O+ukeYso9KVtNwsNDvP5H
-         LfwFB1oqvgJV0N30w0CEfHULKkn7qrYLw1z6uUL8rjvi4KWv762Lpiu81tiJeaaAvgIp
-         xVaQ6qo7yDlwPmYVLo7fyXjT+Bf0+B1A4OxUFlk2QD6LrUNdQDZcH+Ft+BXySaE4y0sg
-         8CZg==;
+        h=content-id:message-id:date:mime-version:comments:references
+         :in-reply-to:subject:to:from:delivered-to;
+        bh=GibcHy9Kz+InCViUY5m3kQ/JvCpl+6TamTXDbVjsosY=;
+        fh=T5S26jf+nd2FsVQi9y+1QJxSOSn2FiQ/C8hPxjjluxo=;
+        b=cnfs3VnrrmC/S2OdnjNJq91ttS11TuLaejxtlX51dL5ifEq6/bAsvUYA0I+RJmUzCJ
+         +8WSQxMmrU0QxRn67P7ckC64K2XTk/TzKVfZIQUf4jiJp2nNi/ST3CA8Z0oUqLDlwB43
+         Rk35IOMs3x0lgRIwo/c+OeRQARtx/yxu6RCwpcBDR41zWGxRq2eFsuaP+q0imFEhoibK
+         VfsxuTyVNCmj2bLl2M7XQajioxgfyXiqBwTZjJkZ/yeeUu1Q92HIF35SsJCmgwaE17bZ
+         PA16I/iqnIp6bTQNvW9KQGMvh5D37/RraV+8swVsbeKMO1tVusolZJ99sfeDpk3Ic/Oo
+         AUAA==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of salt@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=salt@panix.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [205.139.110.61])
-        by mx.google.com with ESMTPS id de38-20020a05620a372600b0078a1cb844a1si763833qkb.733.2024.03.21.14.56.05
+       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.74 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by mx.google.com with ESMTPS id wg5-20020a05620a568500b0078a3a5a79cesi369463qkn.353.2024.03.21.19.48.32
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Mar 2024 14:56:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of salt@panix.com designates 166.84.1.89 as permitted sender) client-ip=166.84.1.89;
+        Thu, 21 Mar 2024 19:48:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.74 as permitted sender) client-ip=65.20.63.74;
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-8-BUkTtkZ7OoCLTL4louy3Tg-1; Thu,
- 21 Mar 2024 17:56:03 -0400
-X-MC-Unique: BUkTtkZ7OoCLTL4louy3Tg-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-398-0IzjREGfNcu1BMdJhUXf9g-1; Thu,
+ 21 Mar 2024 22:48:31 -0400
+X-MC-Unique: 0IzjREGfNcu1BMdJhUXf9g-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 919E11C05148
-	for <blinux-list@gapps.redhat.com>; Thu, 21 Mar 2024 21:56:03 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1E5BA3806279
+	for <blinux-list@gapps.redhat.com>; Fri, 22 Mar 2024 02:48:31 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id 8D3E11C060A6; Thu, 21 Mar 2024 21:56:03 +0000 (UTC)
+	id 1B585C041F0; Fri, 22 Mar 2024 02:48:31 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 556411C060A4
-	for <blinux-list@redhat.com>; Thu, 21 Mar 2024 21:56:03 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+Received: from mimecast-mx02.redhat.com (mimecast09.extmail.prod.ext.rdu2.redhat.com [10.11.55.25])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id D78A3C041EF
+	for <blinux-list@redhat.com>; Fri, 22 Mar 2024 02:48:30 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id EB9E03830094
-	for <blinux-list@redhat.com>; Thu, 21 Mar 2024 21:56:02 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-492-6iLP6bCWOD-pH_gles6c6Q-1; Thu,
- 21 Mar 2024 17:56:01 -0400
-X-MC-Unique: 6iLP6bCWOD-pH_gles6c6Q-1
-Received: from panix5.panix.com (panix5.panix.com [166.84.1.5])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4V0zmc6llSz14hL;
-	Thu, 21 Mar 2024 17:56:00 -0400 (EDT)
-Received: by panix5.panix.com (Postfix, from userid 20196)
-	id 4V0zmc6X61zfYm; Thu, 21 Mar 2024 17:56:00 -0400 (EDT)
-Date: Thu, 21 Mar 2024 17:56:00 -0400
-From: Rudy Vener <salt@panix.com>
-To: Martin McCormick <martin.m@suddenlink.net>
-Cc: x for blind general discussion <blinux-list@redhat.com>
-Subject: Re: crontab -e behaves Oddly in Bookworm with Speech
-Message-ID: <Zfys8Hj68vaXa0kd@panix.com>
-References: <E1rnPjf-0007zA-2j@wb5agz>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8336F28C9803
+	for <blinux-list@redhat.com>; Fri, 22 Mar 2024 02:48:30 +0000 (UTC)
+Received: from altprdrgo05.altice.prod.cloud.openwave.ai
+ (altprdrgo05.altice.prod.msg.synchronoss.net [65.20.63.74]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-489-mp4bTg6zNd64Axqv2ehoqw-1; Thu,
+ 21 Mar 2024 22:48:28 -0400
+X-MC-Unique: mp4bTg6zNd64Axqv2ehoqw-1
+X-RG-VS-CS: clean
+X-RG-VS-SC: 0
+X-RG-VS: Clean
+X-Originating-IP: [47.217.109.117]
+X-RG-Env-Sender: martin.m@suddenlink.net
+X-RG-Rigid: 65F11F0D018B8503
+X-RazorGate-Vade: gggruggvucftvghtrhhoucdtuddrgedvledrleelgddulecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucetnffvkfevgfgfufdpggftfghnshhusghstghrihgsvgdpqfgfvfenuceurghilhhouhhtmecufedttdenucenucfjughrpefhvffujghfgggtsehttddttddttddvnecuhfhrohhmpedfofgrrhhtihhnucfotgevohhrmhhitghkfdcuoehmrghrthhinhdrmhesshhuugguvghnlhhinhhkrdhnvghtqeenucggtffrrghtthgvrhhnpefgieejtdffvedtffdtgfekvdeufeetvdevleffgeejteeuledtfeeguedtieehgfenucfkphepgeejrddvudejrddutdelrdduudejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehhvghlohepfigshegrghiipdhinhgvthepgeejrddvudejrddutdelrdduudejpdhmrghilhhfrhhomhepmhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvthdpnhgspghrtghpthhtohepuddprhgtphhtthhopegslhhinhhugidqlhhishhtsehrvgguhhgrthdrtghomhdprghuthhhpghushgvrhepmhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvthdpghgvohfkrfepfgfupdfovfetjfhoshhtpegrlhhtphhrughrghhotdeh
+X-RazorGate-Vade-Verdict: clean 0
+X-RazorGate-Vade-Classification: clean
+Received: from wb5agz (47.217.109.117) by altprdrgo05.altice.prod.cloud.openwave.ai (5.8.812) (authenticated as martin.m@suddenlink.net)
+        id 65F11F0D018B8503 for blinux-list@redhat.com; Thu, 21 Mar 2024 22:48:27 -0400
+Received: from martin by wb5agz with local (Exim 4.96)
+	(envelope-from <martin.m@suddenlink.net>)
+	id 1rnUxB-0009AC-2f
+	for blinux-list@redhat.com;
+	Thu, 21 Mar 2024 21:48:21 -0500
+From: "Martin McCormick" <martin.m@suddenlink.net>
+To: x for blind general discussion <blinux-list@redhat.com>
+Subject: crontab -e behaves Oddly in Bookworm with Speech Solved
+In-reply-to: <Zfys8Hj68vaXa0kd@panix.com>
+References: <E1rnPjf-0007zA-2j@wb5agz> <Zfys8Hj68vaXa0kd@panix.com>
+Comments: In-reply-to Rudy Vener <salt@panix.com>
+   message dated "Thu, 21 Mar 2024 17:56:00 -0400."
 MIME-Version: 1.0
-In-Reply-To: <E1rnPjf-0007zA-2j@wb5agz>
+Date: Thu, 21 Mar 2024 21:48:21 -0500
+Message-Id: <E1rnUxB-0009AC-2f@wb5agz>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.7
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.8
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: panix.com
+X-Mimecast-Originator: suddenlink.net
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-X-Original-Sender: salt@panix.com
+Content-ID: <35226.1711075701.1@wb5agz.lan>
+X-Original-Sender: martin.m@suddenlink.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of salt@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=salt@panix.com
+ domain of martin.m@suddenlink.net designates 65.20.63.74 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -148,77 +160,51 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-According to the man page, crontab runs the -e option with either the VISUAL or EDITOR 
-editors.
+Rudy Vener <salt@panix.com> writes:
+> According to the man page, crontab runs the -e option with either the 
+> VISUAL or EDITOR
+> editors.
+> 
+> Try
+> echo $VISUAL
+> and
+> echo $EDITOR
+> to see which editor you might be picking up. Then you could change it in 
+> your .profile or  other shell configuration file.
+> 
+> Rudy
 
-Try
-echo $VISUAL
-and 
-echo $EDITOR
-to see which editor you might be picking up. Then you could change it in your .profile or  other shell configuration file.
+	I could have sworn up and down I had a 
 
-Rudy
-On Thu, Mar 21, 2024 at 04:14:03PM -0500, Martin McCormick wrote:
-> After an upgrade to debian bookworm, things were working well in
-> the command-line mode until I ran crontab -e to edit a crontab
-> file.
-> 
-> 	I've been using the vi editor in unix   since 1989 so I'm
-> used to how it works under the command line and it has always
-> been surprisingly accessible even under very austere conditions
-> so I thought nothing about selecting vim as the editor in the
-> crontab app and then I tried to use it.
-> 
-> 	I'm not even sure what it is that gets turned on when
-> using crontab -e because up to now, it has always just ben like
-> any ASCII text document.  
-> 
-> 	Now, the arrow keys do let one step through a line of
-> text but the j, k, h and l keys uselessly let us hear cursor
-> positions and not even that fully.  We just hear 1 2 3 4, etc as
-> we move to the right with no feedback at all that identifies what
-> characters we are passing over.
-> 
-> 	If one presses the carriage return, we uselessly hear
-> more advancing digits and, if we insert characters, we uselessly
-> hear things like 1,2 1,3 and so on with not a hint as to what we
-> just typed.  This is totally unusable and I don't even know what
-> mode is turned on when running crontab -e which used to just run
-> vi on the crontab for one's shell with good feedback.
-> 
-> 	If I run a command like
-> 
-> vi SOMEFILE, I get perfectly normal behavior on somefile and can
-> edit to my heart's content.  When I tried to run the botched form
-> of crontab, I ended up somehow joining some lines together and
-> didn't know it until a cronjob failed with odd errors and I
-> simply ran crontab -l >newfile and then ran vi on that and all
-> was clear and obvious so, if I can figure out how to lose
-> whatever that mode is that crontab -e turns on, I will be happy
-> once again.  I suspect that the text characters are immediately
-> being followed by those darned cursor coordinates such that the
-> last thing sent is what we hear but whatever it is, I have heard
-> the same junk output I got once when I accidentally got nano
-> started on a document some years ago and couldn't get out of nano
-> fast enough.  The only useful thing I found about nano was that
-> ctrl-x triggers the prompt to save everything or not and I answer
-> no and make sure vi runs next time.  Another strategy might be to
-> turn off speech while typing and lose all feedback but that is
-> extreme to say the least.
-> 
-> 	Thanks for any and all constructive suggestions.
-> 
-> Martin
-> 
-> -- 
-> You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+export EDITOR='/usr/bin/vi'
+command in all my .bash_profiles.  When I checked $EDITOR and
+$VISUAL on those systems, none were set.  They are now and the
+problem went "poof!"  That is a different behavior from every
+version of Linux from as far back as I can remember up to
+bullseye.  In each of those earlier installations, all
+you needed to do was answer the prompt to choose what editor you
+wanted so thanks for reminding me.  The other thing to be aware
+of is that exporting the variable doesn't seem to carry over to a
+ssh session as I did it on 1, telling it to export $EDITOR and
+thought that would take care of it on the other two systems
+involved but it didn't change a thing on any system that didn't
+have it locally set in .bash_profile.  In other words, you
+probably don't really need to export it as it won't cause the
+remote system to honor the exported variable. One must locally set it on
+any system you plan to use crontab -e on.
 
--- 
-Rudy Vener
-Website: http://www.rudyvener.com
-Check out my latest story: Dwindling at http://www.starshipsofa.com/blog/2024/02/14/starshipsofa-726-rudy-vener/
-Need a Limerick Fix? Visit https://limerickdude.substack.com
+	I am so relieved that this fixed the problem so easily
+and now on to learning c++ so I can write some sound recording
+programs that make use of the alsa sound libraries that actually
+make the writing of audio recorders easier in the long run.
+
+	I've got some old voice-activated sound recorders I wrote
+with gcc but it seems that one needs c++ to get the alsa stuff to
+work.
+
+	Man! I could use a few more brain cells.  Again thanks.
+
+Martin
 
 -- 
 You received this message because you are subscribed to the Google Groups "blinux-list@redhat.com" group.
