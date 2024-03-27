@@ -1,145 +1,141 @@
-Return-Path: <blinux-list+bncBDYPVTOXSQEBBPH5R6YAMGQEPDXHX2Y@redhat.com>
+Return-Path: <blinux-list+bncBCM2V5WE3MDBBEOCSGYAMGQEWZWUMBY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com [209.85.160.71])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4E53D88DC1F
-	for <lists+blinux-list@lfdr.de>; Wed, 27 Mar 2024 12:10:54 +0100 (CET)
-Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-229ede09748sf5306314fac.1
-        for <lists+blinux-list@lfdr.de>; Wed, 27 Mar 2024 04:10:54 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1711537853; cv=pass;
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8A8A288EDBF
+	for <lists+blinux-list@lfdr.de>; Wed, 27 Mar 2024 19:10:27 +0100 (CET)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-69689938f75sf1542066d6.1
+        for <lists+blinux-list@lfdr.de>; Wed, 27 Mar 2024 11:10:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1711563026; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HzHVfUVMzM5zQaDKCC6q5GyUnlIhvNOs6Aur3tA1oneGoRk5dKbfGvQjAz/MmrKxvg
-         +ZR8+D+M9tuy01tLUtGRFZrDoPFYtGjfRiuxYEl05lHVudjBZyT/AdqX1zBhZGGrzpYa
-         EVjo3+MHi1YtxAA5ml6undn8ZBiOkaLnAdwukhsK4Tx6YfIqb/QtqGezWOQbSe9Wcbao
-         RKbsTCG3RwqwXl4cr6AXe5FU/RfZmkJ2FUJSzYfJUm0Bnw1Kdh1GWiXybSwDPHNJnBIb
-         KUWgayDDS1e177F1C/x09il1QbDWwo7Ctn1kDHEO5xjq683pEHVKUrFNk8kZWDqQp0pc
-         FO/A==
+        b=xwzMFiRxng6oJ3Qd/T8DjdG0LZ3ahu0bFetlH0GLxH5vIHfqHDhVs1oje6McLyqU4N
+         2O9CfGUpFo64szSCw8E1hDNBDDBlKaJFFcjRi3JAu0/cOQdSTCNztNrXh3ICId7LLrVw
+         wg9VSdXEu7K8cPQVn/lj2dsX2MVc9W4fTNBR3+SSLKht93owGLLGXbO9+iM5hb0UBH9j
+         zuyEtgA1l+QvIryanRXIFH1M+R/Xr2tIj/EVU9SkF+IoEL2U8hPcVXGcPznHD4BCi5qn
+         U08CXBswv9TGCcMS0QEOdiG4dgefhvMb9sPocYVIKHw/H5cKSJiEuQDhYFr6M1iL6TFr
+         R3VA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-transfer-encoding:mime-version
-         :references:message-id:in-reply-to:subject:to:from:date:delivered-to;
-        bh=5K89NJX6rik152D1xDRb+mmbuOS4sT4s3TQINvZ5LlU=;
-        fh=vAMH3EnkYJ072Cfm6koVMgRHVa2TXu+zozn7zElXrQw=;
-        b=wA9YWZlFh1p6F9AJJKX+RM+PPSzfCWRmvhQX5mGMScL3CuKAVa0Pg6KaK/Rv3zHJCR
-         AKC5OZZYODt7zO9A9UMDy9o6ShHY4XTNL3sB5bkTKH/UIhXM0TJQPYaaeDGK4dMD6XxU
-         di64ryyoFQ9IHjZoyXU9yg5PN0Huzg1fLFsZjk1iHkVXi4kd+V+GX0HtOzF6Px+ddFso
-         npiJTWLhsa73qHtYsp5AXk5pSlce56Hotdi3o6/5+7YiJc0r1r9KHVC63ABNtzm+2IYu
-         9HZl5U3RThX8Vqw6Trg7j+wLrYw+Z+6F5g0/Lqgy3EjyhXbgAKftxwbsh6JsUkn8Ij5w
-         gquQ==;
+         :mailing-list:precedence:reply-to:content-transfer-encoding
+         :mime-version:feedback-id:references:in-reply-to:message-id:subject
+         :from:to:date:delivered-to;
+        bh=vrmzNOxAzuHbjkLMk6oC5R+HNRaQloS7Wa3X/WLwlys=;
+        fh=l8XgfCgTpTezzTeQMkW5nmPlDneXYdvUGF+MemDdCg8=;
+        b=qD7raNU5ZxpUpogtNKzUYbAUE0wYLqHzFpQPI+YMhkB35JeiqjDkiEH8PCJvS6HtBc
+         6kfvOHb6T0yO+4HVOPeQvNDRP+yRxYyuboZx37JT1C4Vr0w0Kv6ORaJG0cWCFNHru9ah
+         KN+avrzM9/CBVdurGxak9RkQ6uU3bUMzm5FTLl3OT//Y7GMNhYTSpRSzuBK6ZUY8Y3Ve
+         9p1aptu2cfiotSmixzQSCcYK7BNokw0KRZ9vehzphnAdVrPyiyM1K9UAL6jCD4+syb9T
+         rH6AsbVF8MZGPzewLaKvl+M/hmk7mCcXFOEu92zlBVTfkbIY+7mbhoGShZSnvCsc/E4s
+         W4eQ==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.43.16 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1711537853; x=1712142653;
+        d=1e100.net; s=20230601; t=1711563026; x=1712167826;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
-         :content-transfer-encoding:mime-version:references:message-id
-         :in-reply-to:subject:to:from:date:delivered-to:x-beenthere
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5K89NJX6rik152D1xDRb+mmbuOS4sT4s3TQINvZ5LlU=;
-        b=spq1jdg08beNjZCTFBHvLywlNYlw9aM7aCeGa2D9g3vBs59JFFkW8rpjFWARsV2yGh
-         SN+N3vjDLYyuuEbCsrWzyC68HTfPXGXzcvrGQuzUvW8oBYA178kTu1VT98Yu6oJZpCmu
-         HupOfsKXueVc5NjdigHyIG2Bk+CVCfGPVCRzhRzwaeP6OBkexsyn1U1y8QWrXWvTCsWc
-         nJW4oLRoY1wzjTycIbECNt53gEV/hPqI29C/z9rPGNiXrOTmdIzP8l4AGo//K6UyEWsr
-         B6Yz/wJdNeGzXZUgwc+sFjvg2lftaXtXoUPjEhx2+m5cDLa1nmhJmUUG9zVXHHv5UO6c
-         ytwg==
-X-Forwarded-Encrypted: i=2; AJvYcCXxYtqJQq4EQwi1ZhdRlAMRSjd/I3sZ8AOfsk9zJhRZS5meRALMiO5jGYGwf/LQuGLSpQZgX+oWLscYK3KBSD7O+d4KTpladn7/
-X-Gm-Message-State: AOJu0YyzCztkGUZObehNIpaPqzdy3dlAcLtmOnQ/LvWvVrkZXFRXDdrs
-	zNrMS3I0bIPS61gefCGAwb1QM4QyqwV1IMQysh/ZaAHaCYhcM1JX114rw7jIqKY=
-X-Google-Smtp-Source: AGHT+IGmCenuqe2NIzCfkuZJqAvaMqE6jrMZRpp689dgCF/3tQUGd/AkZHuIYrpzz1RepZB629h0iQ==
-X-Received: by 2002:a05:6870:1653:b0:229:e574:9c82 with SMTP id c19-20020a056870165300b00229e5749c82mr4123391oae.3.1711537852848;
-        Wed, 27 Mar 2024 04:10:52 -0700 (PDT)
+         :content-transfer-encoding:mime-version:feedback-id:references
+         :in-reply-to:message-id:subject:from:to:date:delivered-to
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vrmzNOxAzuHbjkLMk6oC5R+HNRaQloS7Wa3X/WLwlys=;
+        b=COgms0UFK6L86j4yy4vjDRroyalfpS+/Rk+zb6PSXRGu3bvCHknBmgQBzvY7MhZ89R
+         3adP7h7P/viul/oZv/dLB+kpx5E/51LAh//hnqbAKel1yLSrKCwjX1kmKDMEmCd5u7UU
+         LUoLke+3XQZUli9ESV7g1hQy33JewdnjpjMeMMNVUkAsQU+gKJk54YeJK+zUcsrLsPyn
+         h+v19TiVm9ZLQGrX6x1qgocv4TxeczQYyMxBpxqOcB0WlntYSaccAXgjP4UpQW/Zv+zx
+         v/5nlOp2lWxzPIla/XAcnngZJ7R0rcQQxMrLx5d9y4p5CdAu7G/+7BDqeZlYpPMvD8bU
+         P9XA==
+X-Forwarded-Encrypted: i=2; AJvYcCWjVUf4E/IC8SrLQgfJxt1UNuSgKDnnrZqEAcrQi4QiT6PYbDGJQ9DzuSkqjKG1VkMhF/hEV41UuagZw7KkF6GoyBStPIz1vLrT
+X-Gm-Message-State: AOJu0Yz1m+LW71QZv02wOgE78/iQHHyYliRW4RzayRwS70WG5TG1xOuc
+	0YkVuZFUpsHoGRUanplfRhW53F6z9reu0I7pjsqQuF2oTKFbqAuP52kqjP5YaN8=
+X-Google-Smtp-Source: AGHT+IFEZqDKFFTXfJ/Un+7kx7tNXNLlB+ZBv9sZb7/s5i/cTY6xqn3yCynUzUnUfB4hhUQ1LUSijw==
+X-Received: by 2002:a05:6214:57cc:b0:696:3b0b:d780 with SMTP id lw12-20020a05621457cc00b006963b0bd780mr334738qvb.17.1711563026200;
+        Wed, 27 Mar 2024 11:10:26 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6871:60e:b0:22a:69f9:37ef with SMTP id
- w14-20020a056871060e00b0022a69f937efls1965625oan.0.-pod-prod-03-us; Wed, 27
- Mar 2024 04:10:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCWPnGQunGOVaq+cvY2r2xVCdhlyJNjuJzdWYkr4Eap5kXE5z2tiJGPmNZReDN5jaNFKNMtuLheBSpdRMOtgbPsAYTVcqwna4MkpGzgw
-X-Received: by 2002:a05:6808:3007:b0:3c2:3612:e173 with SMTP id ay7-20020a056808300700b003c23612e173mr3854252oib.47.1711537851853;
-        Wed, 27 Mar 2024 04:10:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1711537851; cv=none;
+Received: by 2002:a05:6214:1949:b0:696:9190:cd48 with SMTP id
+ q9-20020a056214194900b006969190cd48ls233014qvk.1.-pod-prod-07-us; Wed, 27 Mar
+ 2024 11:10:25 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUVFol5geaDOrKZRkL26enPRrtIR7PDJ9I0VECcXTyyRfrvR4jDhiKILt+rCcYnQxrAQsjR7q8FS6e9WUGnMrR5jrqWSn5nPBxnThWr
+X-Received: by 2002:a05:6214:d64:b0:696:7565:b058 with SMTP id 4-20020a0562140d6400b006967565b058mr546754qvs.0.1711563025181;
+        Wed, 27 Mar 2024 11:10:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1711563025; cv=none;
         d=google.com; s=arc-20160816;
-        b=jUIm8cZXGM41sN1TGqQqnJvO7IsmVSFcESLm37Muszd2IQOFs+h9Xb7SKyi+Lh53Dh
-         2BnWlIFIwj6zWualKh09K01Y8fsn9IE99t7LMUUQxLo62kvq/63S/dDefWm/73BveThp
-         faWXTtihp+99j0WGYUJbvNdPoS2MPZZIwGQwfj3p6OkjkJ8IW/LMYZ7hNvV65UKx8Wax
-         FllCjAWMjmCrmUBTg+vwJ/fA3rxlCx8ohvD3NpjrKA6HlxD9Kvkg+uQAWQU8vfUp1ENq
-         gMieCVMI52fs2Wg0Ctcd40r9XXn0ls6DLHMKXu//wp+07OnfS4U53nCD53i0FLJuClB1
-         fiUQ==
+        b=H7C9osH+BNbGtZ4LsAhVsOnQ3/3nGOqbNiWSQeEg8mvBN14XUlVhxvN6E8TPwCar4/
+         DzqbpwlYvNQUgnVSb/pdTFHIFJHn+NJc7gFWKCSRdCy2bNLwrtc+WhrhfliDH8rEO59o
+         qiTDFA9pYddG5x8QKFrbBl8BMrW70Eo9MMoKpzxprpTXWvePSzlRnVZbVvj5k4JIgy+r
+         xlRgnL1/MZYbE97wneWLTtcUFLRrkG5MNQE7nR64gtDFJzeiFga92EXSnSaLi8Jgn0pD
+         k/svz5Nbs2vnvHIHtIdt0rLOlF9ichTuX+a9MOqE/d4QSyaf23qfEBLNtn4C/eLreOyz
+         QbiA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:message-id
-         :in-reply-to:subject:to:from:date:delivered-to;
-        bh=pghz0FHD+UDOzsQYRI144BbVv+85bQC6i4apP/9P6Hc=;
-        fh=9z6violr4Smu4CVRvmHV63eU0fGu2RjOIcepDnPzhZM=;
-        b=bdbi/ZHlvDtB8VL2znO56+uJmrsJw1XeGzPMTCzF82iePtmWOabKKML5LMkqtzROjv
-         xZJe3OTEsGJnE5zp877jylcF4+l6chC71cZ5MG4f6b06EpvtVQNtnXfnZzdW/OU80dOT
-         pxN0CPHYi7HzGERLk3R5RNQOksbtOXckqqwiMsFhcEgvrcGSPJmdB51LoVwZfhVZaAwX
-         QQ8XtIE0zD7N1QNCMhCxjYbnNemLakoPwQpPZMkPgXZVKGnDzmL/EbJaIHErLYOSE1rI
-         30wcZ+tqy0ksN8m2o91HPG1aEjPQvRC95MXunL2PXNkHblmodqZy6uhp9LtboMEmcmbm
-         zisw==;
+        h=content-transfer-encoding:mime-version:feedback-id:references
+         :in-reply-to:message-id:subject:from:to:date:delivered-to;
+        bh=4WvstnfdXPcjLVe0g0cM3JMsjlgGtaBdSulavYqe3+s=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=m8c0RcK10iOtVQkJBK4ZLuAaY40+ErtlyxgRG5VKvK29/8a6TzUCcKrIWleT28Cgwx
+         0pYVKeco/FvBacLR3xsqZu5gcVdnxa6xHw44FZO73HTTobX3ebJe9D8GZMekpBgDO27C
+         hNrABur2Mh1mKZ0D11UiOuDgaz+t0Z7siOXaMG0N76fLaUDL6VkSMjB8yG8Ew5wOATKU
+         TZ6hd/zkd9syYpvCoNWZN+TCNYMZan+SpkJ+RspcUR+DO2C2qfCiIrXb4SDcuBX5Mjch
+         kp0n6OzPsC9j8c4DrkPuvv0dsZOKNk7HQj0xyltE5nmhEsbvm/ti5OGAfXSylETiS27B
+         O/7g==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
-        by mx.google.com with ESMTPS id hg10-20020a05622a610a00b0043120539247si8848293qtb.679.2024.03.27.04.10.51
+       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.43.16 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by mx.google.com with ESMTPS id gs4-20020a056214226400b00690b9abcd95si12798392qvb.364.2024.03.27.11.10.25
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Mar 2024 04:10:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) client-ip=166.84.1.89;
+        Wed, 27 Mar 2024 11:10:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.43.16 as permitted sender) client-ip=185.70.43.16;
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-503-hNpuqcW9Mpe8pKaDYZP6mA-1; Wed,
- 27 Mar 2024 07:10:50 -0400
-X-MC-Unique: hNpuqcW9Mpe8pKaDYZP6mA-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-96-z4mZr14TOwuTQOLgxoH4KA-1; Wed,
+ 27 Mar 2024 14:10:21 -0400
+X-MC-Unique: z4mZr14TOwuTQOLgxoH4KA-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 42133383CCE4
-	for <blinux-list@gapps.redhat.com>; Wed, 27 Mar 2024 11:10:50 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7AEAE383CD6D
+	for <blinux-list@gapps.redhat.com>; Wed, 27 Mar 2024 18:10:21 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id 3EE8640C6CB3; Wed, 27 Mar 2024 11:10:50 +0000 (UTC)
+	id 77F8CC51463; Wed, 27 Mar 2024 18:10:21 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6DB7B40C6CB1
-	for <blinux-list@redhat.com>; Wed, 27 Mar 2024 11:10:48 +0000 (UTC)
+Received: from mimecast-mx02.redhat.com (mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3DC9FC51464
+	for <blinux-list@redhat.com>; Wed, 27 Mar 2024 18:10:21 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 8332D85A58B
-	for <blinux-list@redhat.com>; Wed, 27 Mar 2024 11:10:48 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-345-s5lHRUzUN4uplrTl5zWvtA-1; Wed,
- 27 Mar 2024 07:10:46 -0400
-X-MC-Unique: s5lHRUzUN4uplrTl5zWvtA-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4V4P9L2bKJzqZ3;
-	Wed, 27 Mar 2024 07:10:46 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4V4P9L2PF2zcbc; Wed, 27 Mar 2024 07:10:46 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4V4P9L2LkDzcbC;
-	Wed, 27 Mar 2024 07:10:46 -0400 (EDT)
-Date: Wed, 27 Mar 2024 07:10:46 -0400
-From: Jude DaShiell <jdashiel@panix.com>
-To: Rastislav Kish <rastislav.kish@protonmail.com>, 
-    Linux for blind general discussion <blinux-list@redhat.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DF77D18F34A1
+	for <blinux-list@redhat.com>; Wed, 27 Mar 2024 18:10:20 +0000 (UTC)
+Received: from mail-4316.protonmail.ch (mail-4316.protonmail.ch
+ [185.70.43.16]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-463-gwSYXW3PNcOlj3zk0uziAA-1; Wed, 27 Mar 2024 14:10:18 -0400
+X-MC-Unique: gwSYXW3PNcOlj3zk0uziAA-1
+Date: Wed, 27 Mar 2024 18:10:12 +0000
+To: Linux for blind general discussion <blinux-list@redhat.com>
+From: "'Rastislav Kish' via blinux-list@redhat.com" <blinux-list@redhat.com>
 Subject: Re: is there a command line Reddit tool?
-In-Reply-To: <41f9c7c8-a2c1-4d44-821e-1f85e5a67e47@protonmail.com>
-Message-ID: <e1b8de54-3465-7bf9-ca78-d9774e3e8d61@panix.com>
-References: <Pine.LNX.4.64.2403252318560.1382143@users.shellworld.net> <03378586-b24c-4ec5-b2c4-6892d5b7085a@protonmail.com> <be8201e8-f1ba-4d17-81a2-11a8047f2038@gmail.com> <f573056e-b1e3-4a46-b206-ab7210a46a93@protonmail.com>
- <Pine.LNX.4.64.2403261904270.1398748@users.shellworld.net> <41f9c7c8-a2c1-4d44-821e-1f85e5a67e47@protonmail.com>
+Message-ID: <dd0e814a-def5-4cf2-acab-62ce113b13f7@protonmail.com>
+In-Reply-To: <e1b8de54-3465-7bf9-ca78-d9774e3e8d61@panix.com>
+References: <Pine.LNX.4.64.2403252318560.1382143@users.shellworld.net> <03378586-b24c-4ec5-b2c4-6892d5b7085a@protonmail.com> <be8201e8-f1ba-4d17-81a2-11a8047f2038@gmail.com> <f573056e-b1e3-4a46-b206-ab7210a46a93@protonmail.com> <Pine.LNX.4.64.2403261904270.1398748@users.shellworld.net> <41f9c7c8-a2c1-4d44-821e-1f85e5a67e47@protonmail.com> <e1b8de54-3465-7bf9-ca78-d9774e3e8d61@panix.com>
+Feedback-ID: 26663242:user:proton
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.2
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.8
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: panix.com
+X-Mimecast-Originator: protonmail.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: jdashiel@panix.com
+X-Original-Sender: rastislav.kish@protonmail.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+ domain of rastislav.kish@protonmail.com designates 185.70.43.16 as permitted
+ sender) smtp.mailfrom=rastislav.kish@protonmail.com
+X-Original-From: Rastislav Kish <rastislav.kish@protonmail.com>
+Reply-To: Rastislav Kish <rastislav.kish@protonmail.com>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -151,141 +147,150 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-It's jaws accessible and no more which means it is not any browser
-accessible.
+I have no idea about Jaws accessibility, I've tested with Orca. I'm not=20
+a very frequent Reddit poster (even though I read it a lot), but when I=20
+actually get to post something and interact, the experience is really=20
+good these days.
 
+Best regards
 
---
- Jude <jdashiel at panix dot com>
- "There are four boxes to be used in defense of liberty:
- soap, ballot, jury, and ammo.
- Please use in that order."
- Ed Howdershelt 1940.
+Rastislav
 
-On Wed, 27 Mar 2024, 'Rastislav Kish' via blinux-list@redhat.com wrote:
-
-> Actually, Reddit has done some quite impressive work on making their
-> website accessible. It used to be almost unusable, now the experience is
-> quite pleasant, even headings on posts worked for me once, but they no
-> longer do, I'm not sure why. But JS is a requirement.
+D=C5=88a 27. 3. 2024 o 12:10 Jude DaShiell nap=C3=ADsal(a):
+> It's jaws accessible and no more which means it is not any browser
+> accessible.
 >
-> Best regards
 >
-> Rastislav
+> --
+>   Jude <jdashiel at panix dot com>
+>   "There are four boxes to be used in defense of liberty:
+>   soap, ballot, jury, and ammo.
+>   Please use in that order."
+>   Ed Howdershelt 1940.
 >
-> D=C5=88a 27. 3. 2024 o 0:05 Karen Lewellen nap=C3=ADsal(a):
-> > Has any effort been made to educate the reddit team about this tool?
-> >
-> >
-> >
-> > On Tue, 26 Mar 2024, 'Rastislav Kish' via blinux-list@redhat.com wrote:
-> >
-> >> Hello,
-> >> so, the situation is like this. After Reddit API changes, now, the API
-> >> still exists, but is throttled, I believe 10 requests per minute witho=
+> On Wed, 27 Mar 2024, 'Rastislav Kish' via blinux-list@redhat.com wrote:
+>
+>> Actually, Reddit has done some quite impressive work on making their
+>> website accessible. It used to be almost unusable, now the experience is
+>> quite pleasant, even headings on posts worked for me once, but they no
+>> longer do, I'm not sure why. But JS is a requirement.
+>>
+>> Best regards
+>>
+>> Rastislav
+>>
+>> D=C5=88a 27. 3. 2024 o 0:05 Karen Lewellen nap=C3=ADsal(a):
+>>> Has any effort been made to educate the reddit team about this tool?
+>>>
+>>>
+>>>
+>>> On Tue, 26 Mar 2024, 'Rastislav Kish' via blinux-list@redhat.com wrote:
+>>>
+>>>> Hello,
+>>>> so, the situation is like this. After Reddit API changes, now, the API
+>>>> still exists, but is throttled, I believe 10 requests per minute witho=
 ut
-> >> API key and 100 with API key, or somewhere around those numbers, see t=
+>>>> API key and 100 with API key, or somewhere around those numbers, see t=
 he
-> >> Reddit API sites for exact numbers.
-> >> This is why mainstream Teddit instances that did not use an API key we=
+>>>> Reddit API sites for exact numbers.
+>>>> This is why mainstream Teddit instances that did not use an API key we=
 re
-> >> throwing 429 quite often. Not always, but often.
-> >> And that's also the reason I like i.opnxng.com, it's an inconspicuous
-> >> domain that almost nobody has been using, so getting 429 there has
-> >> always been pretty rare.
-> >> However, it's not the only problem. Reddit also from time to time
-> >> decides to arbitrarily block a Teddit instance after it had been used
-> >> for a while, that's when you get the 403 errors. But this is actually =
+>>>> throwing 429 quite often. Not always, but often.
+>>>> And that's also the reason I like i.opnxng.com, it's an inconspicuous
+>>>> domain that almost nobody has been using, so getting 429 there has
+>>>> always been pretty rare.
+>>>> However, it's not the only problem. Reddit also from time to time
+>>>> decides to arbitrarily block a Teddit instance after it had been used
+>>>> for a while, that's when you get the 403 errors. But this is actually =
 a
-> >> temporary thing that's IP dependent, so if you change either the
-> >> address/instance or just wait few days, it will start working again.
-> >> If you setup your own localhost instance, which is super-easy to do if
-> >> you have docker, then you can just use some kind of proxy or whatever
-> >> and it's rather easy to workaround.
-> >> Eventually, Teddit also has an active Reddit API key. When it's used,
-> >> the instance won't get blocked. Originally, this key had been used by
-> >> the main teddit.net website, and was discouraged from being used for
-> >> production purposes by other people, who were supposed to generate the=
+>>>> temporary thing that's IP dependent, so if you change either the
+>>>> address/instance or just wait few days, it will start working again.
+>>>> If you setup your own localhost instance, which is super-easy to do if
+>>>> you have docker, then you can just use some kind of proxy or whatever
+>>>> and it's rather easy to workaround.
+>>>> Eventually, Teddit also has an active Reddit API key. When it's used,
+>>>> the instance won't get blocked. Originally, this key had been used by
+>>>> the main teddit.net website, and was discouraged from being used for
+>>>> production purposes by other people, who were supposed to generate the=
 ir
-> >> own keys instead.
-> >> However, I'm not quite sure if this is still possible to do, it used t=
+>>>> own keys instead.
+>>>> However, I'm not quite sure if this is still possible to do, it used t=
 o
-> >> be a mostly automated process, now you need to apply for an API key an=
+>>>> be a mostly automated process, now you need to apply for an API key an=
 d
-> >> get approved for it like an app developer according to the docs, what
-> >> doesn't really make sense as fighting third-party apps was the reason =
+>>>> get approved for it like an app developer according to the docs, what
+>>>> doesn't really make sense as fighting third-party apps was the reason =
 of
-> >> halting the API in the first place.
-> >> I make use of the API key occassionally, when opnxng gets blocked and
-> >> I'm lazy to setup a proxy. The main Teddit website is down for quite a
-> >> some time by now, so it's unlikely that anyone uses it anyway.
-> >> However, I always get back to opnxng as soon as it's available again i=
+>>>> halting the API in the first place.
+>>>> I make use of the API key occassionally, when opnxng gets blocked and
+>>>> I'm lazy to setup a proxy. The main Teddit website is down for quite a
+>>>> some time by now, so it's unlikely that anyone uses it anyway.
+>>>> However, I always get back to opnxng as soon as it's available again i=
 n
-> >> order to avoid overusing the key and getting it cancelled, that would =
+>>>> order to avoid overusing the key and getting it cancelled, that would =
 be
-> >> a pity.
-> >>
-> >> So, yes, the situation with teddit, libreddit (l.opnxng.com btw) and
-> >> other Reddit frontends is a bit complicated, but they still work, so I=
+>>>> a pity.
+>>>>
+>>>> So, yes, the situation with teddit, libreddit (l.opnxng.com btw) and
+>>>> other Reddit frontends is a bit complicated, but they still work, so I=
 'm
-> >> not complaining. :)
-> >>
-> >> Best regards
-> >>
-> >> Rastislav
-> >>
-> >> D=C5=88a 26. 3. 2024 o 8:43 Jace Kattalakkis nap=C3=ADsal(a):
-> >>> Every time I try using Teddit I get a 403 or 429 though, is there any
-> >>> easy way around this, or?
-> >>>
-> >>>
-> >>>
-> >>> On 26/03/2024 05:32, 'Rastislav Kish' via blinux-list@redhat.com wrot=
+>>>> not complaining. :)
+>>>>
+>>>> Best regards
+>>>>
+>>>> Rastislav
+>>>>
+>>>> D=C5=88a 26. 3. 2024 o 8:43 Jace Kattalakkis nap=C3=ADsal(a):
+>>>>> Every time I try using Teddit I get a 403 or 429 though, is there any
+>>>>> easy way around this, or?
+>>>>>
+>>>>>
+>>>>>
+>>>>> On 26/03/2024 05:32, 'Rastislav Kish' via blinux-list@redhat.com wrot=
 e:
-> >>>> Hello,
-> >>>> for reading, I'm personally using the Teddit frontend, which should =
+>>>>>> Hello,
+>>>>>> for reading, I'm personally using the Teddit frontend, which should =
 work
-> >>>> well in LYNX as well:
-> >>>> https://codeberg.org/teddit/teddit
-> >>>>
-> >>>> My favourite instance is thisone (since it's usually free):
-> >>>> https://i.opnxng.com
-> >>>>
-> >>>> Best regards
-> >>>>
-> >>>> Rastislav
-> >>>>
-> >>>> D=C5=88a 26. 3. 2024 o 4:22 Karen Lewellen nap=C3=ADsal(a):
-> >>>>> Hi All,
-> >>>>> previously, reddit worked well,  at least for reading posts, in bot=
+>>>>>> well in LYNX as well:
+>>>>>> https://codeberg.org/teddit/teddit
+>>>>>>
+>>>>>> My favourite instance is thisone (since it's usually free):
+>>>>>> https://i.opnxng.com
+>>>>>>
+>>>>>> Best regards
+>>>>>>
+>>>>>> Rastislav
+>>>>>>
+>>>>>> D=C5=88a 26. 3. 2024 o 4:22 Karen Lewellen nap=C3=ADsal(a):
+>>>>>>> Hi All,
+>>>>>>> previously, reddit worked well,  at least for reading posts, in bot=
 h lynx
-> >>>>> the cat and links the chain.
-> >>>>> Now, even elinks produces a blocked error message, my guess is that=
+>>>>>>> the cat and links the chain.
+>>>>>>> Now, even elinks produces a blocked error message, my guess is that=
  the
-> >>>>> reddit community is not aware of Linux and these tools for access.W=
+>>>>>>> reddit community is not aware of Linux and these tools for access.W=
 ondered
-> >>>>> though if another tool already exists that might be a part of a she=
+>>>>>>> though if another tool already exists that might be a part of a she=
 ll
-> >>>>> infrastructure?
-> >>>>> With appreciation,
-> >>>>> Karen
-> >>>>>
-> >>>>>
-> >>> --
-> >>> You received this message because you are subscribed to the Google Gr=
+>>>>>>> infrastructure?
+>>>>>>> With appreciation,
+>>>>>>> Karen
+>>>>>>>
+>>>>>>>
+>>>>> --
+>>>>> You received this message because you are subscribed to the Google Gr=
 oups "blinux-list@redhat.com" group.
-> >>> To unsubscribe from this group and stop receiving emails from it, sen=
+>>>>> To unsubscribe from this group and stop receiving emails from it, sen=
 d an email to blinux-list+unsubscribe@redhat.com.
-> >>>
-> >> --
-> >> You received this message because you are subscribed to the Google Gro=
+>>>>>
+>>>> --
+>>>> You received this message because you are subscribed to the Google Gro=
 ups "blinux-list@redhat.com" group.
-> >> To unsubscribe from this group and stop receiving emails from it, send=
+>>>> To unsubscribe from this group and stop receiving emails from it, send=
  an email to blinux-list+unsubscribe@redhat.com.
-> >>
-> >>
->
->
+>>>>
+>>>>
+>>
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
