@@ -1,144 +1,140 @@
-Return-Path: <blinux-list+bncBDULHE7XYACBBYNBRSYQMGQEYQAYUXI@redhat.com>
+Return-Path: <blinux-list+bncBCHY5TMQ6YERB3NYRWYQMGQE4QCVQ7Q@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com [209.85.128.197])
-	by mail.lfdr.de (Postfix) with ESMTPS id 290868AB830
-	for <lists+blinux-list@lfdr.de>; Sat, 20 Apr 2024 02:48:35 +0200 (CEST)
-Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-61890f3180asf54251487b3.2
-        for <lists+blinux-list@lfdr.de>; Fri, 19 Apr 2024 17:48:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1713574114; cv=pass;
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mail.lfdr.de (Postfix) with ESMTPS id D22128AB9F8
+	for <lists+blinux-list@lfdr.de>; Sat, 20 Apr 2024 08:10:55 +0200 (CEST)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-69bc71365aasf36817766d6.0
+        for <lists+blinux-list@lfdr.de>; Fri, 19 Apr 2024 23:10:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1713593455; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PftHnuiF2IGkAZFJkb1pI8YXN3HTkCbXiYYaKmoAqB3qzj8+nSCIf7cEubdGojfMwy
-         rh0YFLQgBP2X/VTuJPkwX2My6m2Hx2gVad/98Bqp0bgwSrxCIRMHyN3KpYphQ7ZpGVhJ
-         ytfA3C99+B4NhW8nDlXkN1Edhnmj4hap8oGScFgvKAHyHnJo1V3W6nHv95wbZLJiM+bx
-         qz+ZkauRIiz7t2o+Ll0YLBMLCabkWIRm/R8J1eUSAN8uD2K5IGxltk1jq5tE1QaWOCel
-         sZ4FC7JD9u/chS19nONnLSmglJbQU0Q3ixYhPiNy4kyXbHfnJ0rGLungUKcrl8JRwUEf
-         xyLQ==
+        b=NxhcVLRQ4nXRG2eUaENoL4dkHv8A7WH72wR8x2ah/abGzmHCPs1F+iZn0YtDY9kRpu
+         IPyTvS9jcHe6LzhtDyEmfvh3isaNMfECCH0rrOHmSqsWmR24l9s4VgsRZYJGt1NpHsW8
+         klJqb5oAn7z4e8SqiFCKYC9oLbjwbV6vG0S5wDsDMXchywfBSdkMFygVl4hfCl0k7DPi
+         WplnjEsSm+CrfwfPAu3HU8SHs+9jOjcVwX7+wb3K6qO50a8gdxSxVhDsoICKuB/PvrUK
+         doakSllaLcub4mTaymvoVQA0D1AOsKkaQuqB71SWEQIeC5TFBts2TCBZxX3iwp0Rvyd6
+         h5mw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-language:subject:from:to:user-agent
-         :mime-version:date:message-id:delivered-to;
-        bh=v974r9fX1ALhR8K9rR7PtgTj/Mpq+ZfN6Fi5VWn0rdo=;
-        fh=XMQQKic7jTimR/lDVRSZr8b80axbHlLmhdmD3Rt1gwQ=;
-        b=xOpdvZC6aEdbCiYmyhTqjqHyTp3PxPThsQlPM/fxf30t02Rollrodkx1gKln4/S6ph
-         VK8h6WV+ItHeZ1xsdHXjI3xsTqkzUUBpg4N6qvuNrRqHbe1pS5IUFOB1jqyeXnxeK5cC
-         lWdR2TIuSlZJwIu2kyZDgSALS4Hiwrz31YdMoIwHPoEYJ0Cb+ioZaizFxr5VZFKOidV+
-         D6K/uc06Qoljcc0DkPSCAn6AgM/uM5TJL6bNQ7Cc6LyZaVHp+x+XNhhgN/snImh9DC+3
-         hhkQfCVqTLgJlLeUl5Zvba66UdI8sRewe8iI94pr3Q5VVj8m7s6TdeViI6iyV/bHK8m0
-         XG+w==;
+         :mailing-list:precedence:reply-to:content-language:subject:from:to
+         :user-agent:mime-version:date:message-id:delivered-to;
+        bh=ytpReebwo2lzT+OCWbYWs9tuPCS8pzYXWetK/fVlbsU=;
+        fh=AG2fj59MGo0LPd7RILeArXRP9BGGeCOfT/bhjgPECOk=;
+        b=VtoCig2jsNYlpHfOLS7xqL0iBngMbfysn1rk2NSo3zbjgowRN1ZC1+jlFBHsNQvQF4
+         zy08ax7f5avgPeMOvPhfGjDvMtl4wxsebpCg+Ym5KFY9I4eyrhZj7/xetlLwAkmwEalS
+         SigHJmwl/1M0v3BV5S8AgEhWb85BcH931rve69MZUzc63DZdB5I/XTYVE6w1IXbAyxSz
+         ocneg2BrSFc8b/M01ADORarkzBSNvSn/neg4KAKQzT/XjKR8PAAG1sQgbpumaRdOyG+M
+         UGTiyexhUuhcncEv20uA7qeamZRQwFBhKVpBRfa/cGyc1kamRbvS94r4kQiHpWrV3SrH
+         zmBw==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of hank.smith966@gmail.com designates 209.85.214.174 as permitted sender) smtp.mailfrom=hank.smith966@gmail.com
+       spf=pass (google.com: domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as permitted sender) smtp.mailfrom=elias.stahlberg@harrastenurkka.fi
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713574114; x=1714178914;
+        d=1e100.net; s=20230601; t=1713593454; x=1714198254;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
          :content-language:subject:from:to:user-agent:mime-version:date
          :message-id:delivered-to:x-beenthere:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=v974r9fX1ALhR8K9rR7PtgTj/Mpq+ZfN6Fi5VWn0rdo=;
-        b=atqkhuNjl9MYXbRpc5SDK9PnDnvB3YXvSmdmzjikYuN6ptUAFvo0WIv2VUuY4T7xWl
-         8/mRSRUpGOKvJUFHWxije/viECOxhznh5g1zF4Xs7OtxkgWvNxDBPE0ijKKoKeJN9k63
-         h+MLUau3MliwovpHQIA+fYVbx9T4z+Vyp/y+JN9+1kpdM4ob5tpObISq586iebkbwsyq
-         pG3sX72zK0UX44/aPz7ZIx/r0TORypJjXntrem64jDG/yB4tqufzJ6429nIUUP0pZvZy
-         bpYl4uXGekrTu1y/AD70yVat3tmpcfnYqnLHVFyXqMlGt0V5lyJBL+7q0kBluv7yYsYE
-         gnZg==
-X-Forwarded-Encrypted: i=2; AJvYcCW/XqQ+rXhYlKdD1ZVQrQrFzjisaeU630ypFtmzCOgMn0qDkTB+AwoRZVop0528QgDJNwW7DRVTwbpn8KlUwx6MEuSJk5W3dKE9
-X-Gm-Message-State: AOJu0YySA1T3lm8rsKS6A1RF6+1i1DOUhKvGKOesUpgclaRp+KHsAZ1r
-	KUfSAIpYfJjX+JFf1sbyvXcX/jMrFI7PigRb2N8Ch70rKdhaAHUKthAP7A5Btjw=
-X-Google-Smtp-Source: AGHT+IHR/hBKJQUphHQQpQZVqD9I1HVtXvioZdxmyBuAcnIsZ1iSc3b7lO/7YER8r177OtbuydMQBQ==
-X-Received: by 2002:a05:690c:39c:b0:61b:c89:1e73 with SMTP id bh28-20020a05690c039c00b0061b0c891e73mr4337594ywb.45.1713574113587;
-        Fri, 19 Apr 2024 17:48:33 -0700 (PDT)
+        bh=ytpReebwo2lzT+OCWbYWs9tuPCS8pzYXWetK/fVlbsU=;
+        b=vxAjCaRNXM4UeAn1R9ivZmjimH4+lxiFARDEgneTSI+as3oOXQlYGiXqbRWXL5z3l2
+         uHLRtIbe4xjctCUF/s6AgsZiedFYjSJY8z9EQrONEjr3cCkuOWGzxuPGvBIp6WmLUAZi
+         p/fH2pOdVf00gqwCb/fOrBcwj0jubdnZ1DZ4h4QNyQ2yCQCzp2Y8vCV+oesCENKus4Tv
+         XcuMk7Tg0rY4ItQ7rE+gGkoDDiATK1vl+VmxPNzMcVSGrrIBzYCwMrvXgSl6HOHxt+x3
+         KP3Lie7iGC9dmU5Hga6DYmE8tc2DYdQnFcmi+0QiD0U2ywy97Y4RtUJIxYO9ji/z4Zfb
+         Je2A==
+X-Forwarded-Encrypted: i=2; AJvYcCUgYEaI1JVIssEET99WiotJA7q19krnKFuP1OESWUSXyIwVptfss8f2R86NtnPDKd24nX11eJ3kUMeQaV/zE0NY9udZxsmK/k4z
+X-Gm-Message-State: AOJu0YzUKPlWi1zOodA/a2I59ZI4Ou5q29nMoJFpc7UkTHmMGSSqZq5n
+	FxoXvEtMuOxSRXMVNUYJAV6ENazWstX74bMDHifKltxHEosuPyCK2gC4FmdNX14=
+X-Google-Smtp-Source: AGHT+IHPV9i6echevpL8ioBNgzFePeldhFlKntnMxMWuG/+FdFom+WhYvXL2YfA5nqtFlXQP+CQuEw==
+X-Received: by 2002:a0c:e789:0:b0:69b:7c1e:ac02 with SMTP id x9-20020a0ce789000000b0069b7c1eac02mr4588422qvn.18.1713593454479;
+        Fri, 19 Apr 2024 23:10:54 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:622a:190a:b0:436:8dad:fee9 with SMTP id
- d75a77b69052e-437bbc20e79ls17796771cf.2.-pod-prod-06-us; Fri, 19 Apr 2024
- 17:48:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCXPfUOS+a+rEF4n95aHQYDdlFyDesj4Q7ciZfRuY+efep1dJPcqFckhpAzgATwK038+x4u1GL9akET0ca0TzWEi5Jx+9IR44jN2JMZa
-X-Received: by 2002:a05:620a:2911:b0:78e:fe43:2916 with SMTP id m17-20020a05620a291100b0078efe432916mr5356270qkp.38.1713574112649;
-        Fri, 19 Apr 2024 17:48:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1713574112; cv=none;
+Received: by 2002:a05:6214:262d:b0:690:c124:c187 with SMTP id
+ 6a1803df08f44-6a05d771ff5ls23178166d6.1.-pod-prod-02-us; Fri, 19 Apr 2024
+ 23:10:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCWI6rAn0DI4+qXlydWankzJn7fEKv9cyO2jTDjd6FeCDFGmz+wO4HekO+2vGV0VgZKQunOGzxCiVanTB29LQ5ZM1WeecrfNv6XQdV6M
+X-Received: by 2002:a05:620a:621e:b0:78d:7546:762e with SMTP id ou30-20020a05620a621e00b0078d7546762emr4600776qkn.53.1713593453492;
+        Fri, 19 Apr 2024 23:10:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1713593453; cv=none;
         d=google.com; s=arc-20160816;
-        b=IUgiRD2yPHJDjoiVESsLE/FeyVTUbrFJGJ/ogTZknRyuhcW5x4UGakbIbbNCjgnbNr
-         BV+C+xqLmXrE3bumzFCZequ2wK9itR0kIkGorR1WT8WsEcW2S1vq/5drm4DuayvY7in2
-         gykCt8OgsKYhZubF7cDE9j881RrLUB4HeZx2qzUrFitpYiXEB7SNnCIOWU8Fhv3/Vgs5
-         3QBOCq9NOFfoh8AK247qLG8oKznOdiih/32fpWMzo1U6Wy1V6d4EQpUUaRCVCLdPrGvv
-         SMy+gTpJsYtrTrW6zMuR7OlZvO/wAF1XUNVTcIAyxxVSUgsFJhpba3AY5nv2DIwiHk4O
-         54SQ==
+        b=uU0dIY3NlwQ2Uo2oMXFjUhZ4QO4yKYTc4J2ZJsO1WuC++CWnXxB0idIfyHUh7GjzR+
+         XzokUKQTVMV65/K4h3m7aV/SPCOxbm6vc7mtj9wHsiKzYY/GQxOVPUzNe2TvWbCbZSN9
+         31O2reQ2xRrVONw7ETmLkICgj62NoGZblnOBdGU8lGOB7kOWhQzBl2u7/pq1C+7tqRA7
+         S/zBEA25zwlhCu2AVuCYwxSF6keWlS0rcn9jSduTYZ/582CZRK0DjzFNk3YliMQe/b2d
+         nYd9EI1s41DYWNTMBwRn+Syj6tIngfYs41F5qkJQTWOiuZ3Ors3w/BVqohbyn9RwfSzR
+         GL2w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:content-language:subject:from:to
          :user-agent:mime-version:date:message-id:delivered-to;
-        bh=x1So3mxQ97gupPJetnRRXPh1xLIEQfm/jsnF6rt1Vv0=;
-        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
-        b=y9ES/uIJ0MUifiJIbKd7Ek2JBsNuWqeqJmgcu8sUgOWdjUGuIpBYft6jur7i7Z0yFi
-         9Fg8oOqt+YWOPYImc4phEfCXr5ssnySFdiv4VSUJBd9+KQyHPTq2vlMLPvDP5I/xTFN4
-         /1IuUCR5SfrDqSFVmMu7bT5WfJ5tE8FrMsmfL5zC5vsn6cdoRVmECnRJ7y+CKyQJUu8p
-         zqqn5rhZvwlCw4IGA2C+ahk5gPAW+8A1baP0LvqDuXiR7Eg6X+qrTbQP1d4pc7ytfihb
-         ui/HW0dOgnXLD9zQJ1st3TtsW+BwNDUAQr01I51Vlct9WDkGWXYpUkuSoGyNcIiqwB2+
-         7qww==;
+        bh=fWzV5zraR9pY6N7ropD3vuzn4GR5BAe9o73IMsKGjAw=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=sc1WClFV2++nJ+2hOGMnjVSwJV+Em80zAfZL/gVyUbY/egZOZU/qmp7KGl27ODrA84
+         S3BC0aL4wTW5k4/91gQ9eNhvwkBevC1Q4xxDj5t+Mkid5uiCr1LZZ2bmzByQbRWrovOe
+         Ti/74EgwJozzv6BzzsMenOCZUX/PsWTkrCSHkPKYbJ3co/1LG0j0b7UnyvkHJbX04wEY
+         yOEPzUqQKPrWbh+3zqcrTT0G22SqG3o6aixTqPzG8Plo6oOu+/VdE8h26lV9yZWobY7o
+         GSi2UqV7MkUpKZXBtNj+yB/HYBrg42v39ybc6Du07EzxhWR1PsFuSmYgbH/IXU/pr8Xq
+         01hQ==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of hank.smith966@gmail.com designates 209.85.214.174 as permitted sender) smtp.mailfrom=hank.smith966@gmail.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id f23-20020a05620a20d700b0078ee7907da6si5275998qka.342.2024.04.19.17.48.32
+       spf=pass (google.com: domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as permitted sender) smtp.mailfrom=elias.stahlberg@harrastenurkka.fi
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by mx.google.com with ESMTPS id vy14-20020a05620a490e00b0078f072034b4si5408782qkn.539.2024.04.19.23.10.51
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Apr 2024 17:48:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of hank.smith966@gmail.com designates 209.85.214.174 as permitted sender) client-ip=209.85.214.174;
+        Fri, 19 Apr 2024 23:10:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as permitted sender) client-ip=185.218.88.66;
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-373-8D5NOfBbO_yJ58TmOJPQDg-1; Fri, 19 Apr 2024 20:48:31 -0400
-X-MC-Unique: 8D5NOfBbO_yJ58TmOJPQDg-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+ us-mta-664-_fsr2mYzPpWnhnc996YElA-1; Sat, 20 Apr 2024 02:10:47 -0400
+X-MC-Unique: _fsr2mYzPpWnhnc996YElA-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C5FAD810431
-	for <blinux-list@gapps.redhat.com>; Sat, 20 Apr 2024 00:48:30 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id CF3FD800CAC
+	for <blinux-list@gapps.redhat.com>; Sat, 20 Apr 2024 06:10:46 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id C2D9C4026B8; Sat, 20 Apr 2024 00:48:30 +0000 (UTC)
+	id C88BC1121313; Sat, 20 Apr 2024 06:10:46 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast06.extmail.prod.ext.rdu2.redhat.com [10.11.55.22])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8AA4F492BC7
-	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 00:48:30 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+Received: from mimecast-mx02.redhat.com (mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 902811121306
+	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 06:10:46 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 384D118065AE
-	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 00:48:30 +0000 (UTC)
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com
- [209.85.214.174]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 086F18001B2
+	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 06:10:46 +0000 (UTC)
+Received: from server.harrastenurkka.fi (server.harrastenurkka.fi
+ [185.218.88.66]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-58-EQRIlDOOO_KFCr5mHNBVkQ-1; Fri, 19 Apr 2024 20:48:28 -0400
-X-MC-Unique: EQRIlDOOO_KFCr5mHNBVkQ-1
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-1e2b1cd446fso21916165ad.3
-        for <blinux-list@redhat.com>; Fri, 19 Apr 2024 17:48:27 -0700 (PDT)
-X-Received: by 2002:a17:902:7684:b0:1e8:a63b:d427 with SMTP id m4-20020a170902768400b001e8a63bd427mr3953042pll.49.1713574106195;
-        Fri, 19 Apr 2024 17:48:26 -0700 (PDT)
-Received: from ?IPV6:2601:602:c083:adc0:8c02:649:cc94:7ec2? ([2601:602:c083:adc0:8c02:649:cc94:7ec2])
-        by smtp.gmail.com with ESMTPSA id u7-20020a17090341c700b001e2a7fb6e01sm3966664ple.44.2024.04.19.17.48.25
-        for <blinux-list@redhat.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Apr 2024 17:48:25 -0700 (PDT)
-Message-ID: <fa371673-1c80-4150-b198-608f078a1d0b@gmail.com>
-Date: Fri, 19 Apr 2024 17:48:24 -0700
+ us-mta-25-5hBqi1rFOp6lwaGO7gtnIw-1; Sat, 20 Apr 2024 02:10:38 -0400
+X-MC-Unique: 5hBqi1rFOp6lwaGO7gtnIw-1
+Received: from [192.168.1.20] (178-75-190-98.bb.dnainternet.fi [178.75.190.98])
+	by server.harrastenurkka.fi (Postfix) with ESMTPSA id 3851F413F5
+	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 09:04:17 +0300 (EEST)
+Message-ID: <ed94fea5-26ca-41f4-b7dc-6b090aea0778@harrastenurkka.fi>
+Date: Sat, 20 Apr 2024 09:04:00 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-To: Linux for blind general discussion <blinux-list@redhat.com>
-From: The wolf <hank.smith966@gmail.com>
-Subject: attn kyle
+To: blinux-list@redhat.com
+From: =?UTF-8?Q?=27Elias_St=C3=A5hlberg=27_via_blinux=2Dlist=40redhat=2Ecom?= <blinux-list@redhat.com>
+Subject: writing yaml visually impaired
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.10
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: gmail.com
+X-Mimecast-Originator: harrastenurkka.fi
 Content-Language: en-US
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-Original-Sender: hank.smith966@gmail.com
+X-Original-Sender: elias.stahlberg@harrastenurkka.fi
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of hank.smith966@gmail.com designates 209.85.214.174 as permitted
- sender) smtp.mailfrom=hank.smith966@gmail.com
+ domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as
+ permitted sender) smtp.mailfrom=elias.stahlberg@harrastenurkka.fi
+X-Original-From: =?UTF-8?Q?Elias_St=C3=A5hlberg?= <elias.stahlberg@harrastenurkka.fi>
+Reply-To: =?UTF-8?Q?Elias_St=C3=A5hlberg?= <elias.stahlberg@harrastenurkka.fi>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -150,13 +146,17 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Hello kyle
+hi
 
-its Hank can you email me off list?
+Is there a solution for writing yaml for the visually impaired, e.g. 
+docker, ansible and cubernetes use this configuration language which is 
+very specific about layouts, is there a converter that would convert the 
+basic configuration to yaml, for the completely blind
+yaml's syntax is very difficult to internalize, is there a way to do this
+solution to the problem
 
-thanks
 
-Hank
+Elias
 
 To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
