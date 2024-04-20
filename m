@@ -1,160 +1,142 @@
-Return-Path: <blinux-list+bncBCCIDSOV5UGBB4OIRWYQMGQED3XRD5A@redhat.com>
+Return-Path: <blinux-list+bncBCM2V5WE3MDBBR6AR2YQMGQECQU5FWQ@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mail.lfdr.de (Postfix) with ESMTPS id AE1C78ABA05
-	for <lists+blinux-list@lfdr.de>; Sat, 20 Apr 2024 08:45:07 +0200 (CEST)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4348786d28bsf30488811cf.2
-        for <lists+blinux-list@lfdr.de>; Fri, 19 Apr 2024 23:45:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1713595506; cv=pass;
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	by mail.lfdr.de (Postfix) with ESMTPS id B62858ABB31
+	for <lists+blinux-list@lfdr.de>; Sat, 20 Apr 2024 13:00:25 +0200 (CEST)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6993c176044sf79546096d6.0
+        for <lists+blinux-list@lfdr.de>; Sat, 20 Apr 2024 04:00:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1713610824; cv=pass;
         d=google.com; s=arc-20160816;
-        b=s2QUK0OlCVp+npLleQ9sTFEy1xvWsM0WGFcMR1Zb9h64D8cOBfI2nBBWQz5no5OvOZ
-         mfJMDLuEya5KXWTteiVTX5KN09jEW1iWxPR7Sg8ZQw2iacbG3cArH0UmLdgvsaRO1oOP
-         grU1g1/Zh03KREWn4OWfDTmsEBCKbA7JPf2NFwFteal9jPEFT4qbdqeDDJnNRgIxThPC
-         UWMqGVz2UzDR4E9qDJwpFiUcoN6pNMLxytZLf3hhVmmYEIru5lGAPKnDPyuM4HIW1HC5
-         AMUXTO0aAbv08aZ4pkCrYm9k/uXWN6hcKWu9BZ430ITkx09KGdtU4RjvrKTIA5VXhtzL
-         v9vA==
+        b=RtqHbWsMlQ7bMNMl7RWkZKttI+wy+AI5vx+dvcFczqmqXt1fqelcchWYope/zeHqgi
+         IAA2dLFVV9R2ukcVNcBRTVa4cjKcprOeG0WxjT5TuBCodeIrnhH+DPKx5CBTJ01lsWMZ
+         fW/ALsBHBop55RjuO1xTTgJkQO1rhU3Q171PLOgQcW12Qk4ZzxkxI+bgWzM/mYpBYii/
+         vNc/hFYvKC6t65cr1l+/65+dPU4ANiWZP2P8prlZbqfa8mKe8WzwmHJ31A/ROjkpsr7m
+         qmnouoJextFjlITzh/afesor9d/reHXhrYY2N3npejISRLMESoJttLCvQjXNRs84ynS8
+         sdwg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-transfer-encoding
-         :content-disposition:in-reply-to:mime-version:references:reply-to
-         :message-id:subject:to:from:date:delivered-to;
-        bh=uuiUublFdwP3M9RFluXsE1SWW02owH99H5T+5wRqgcI=;
-        fh=Cj5Nf3J8SoQVAJBPdk83wznBdriCSyAn0FVFAEHDxtQ=;
-        b=NR2F5wP89uKoHqNk4lPpPDPocj+oGRsari9MCkOMxnDxGbLdYqT9a1UIUxlyRcSkC6
-         DXVhtg9RxACsEgSqHut1yI0G7BPyLKRErm8MSj6Xnam9jP9gcQzVUjYfaF08BYqqzNzc
-         tc7E8SyRRgFT9CUEPnlPWw0nYA87qcyux8E/xHSVgKw7p/YVqnpJHDvlawWCbYZ+IeVk
-         hRpvrnhp1nBdkyhikpn7rI6QES2u6zZR+DTvTN+e1iEqc4n9fTg/giTiLxXjQpDcV+SO
-         MrVQnIYB7dRQp1SEWRqXcISvBHVgGBDHg5z67wiiBwJo2BvIhRaDJ9Chrel/iayS7iev
-         IkxA==;
+         :mailing-list:precedence:reply-to:content-transfer-encoding
+         :mime-version:feedback-id:references:in-reply-to:message-id:subject
+         :from:to:date:delivered-to;
+        bh=vulTmeZ5FPwfn51dI7kKoIZNjuKGKwnrQY+33Z6Z8ks=;
+        fh=i3Kgx7KEoQFSirYz5H/LxuulbpxOavp03mdoILzKEVo=;
+        b=ffxHYl3xKXp5OoHDRRJonmskeISuGw9Eyov1XD86LJecKL/Kl+BE8sYq/weTXbezu/
+         tQi5FQ2TEF5QPHMx9MKiQjodCCAlFXQJcuiMSQiBdgNKiuLM59nPfEY6bx1276wR+nw+
+         vTkrgMolEXju8JICtlelf0x60R3N+J8nd2uirrrDKrNDjqRmm2UOGHOpIIEc+/2GX5Gy
+         8udFOSYE6RW983bAlFs2jHe+guYpEvgjHB/Oe7K+1hc/IhIZ8u+ceKOqCGpafGALflwJ
+         QKChrAazOBZluLrFvvcd/AN4WWNvN2bBS0Xociiyemo2HwmYhE3Om/tC/E05AkQzefKs
+         B8+w==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of joelz@pobox.com designates 64.147.108.71 as permitted sender) smtp.mailfrom=joelz@pobox.com
+       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.40.131 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1713595506; x=1714200306;
+        d=1e100.net; s=20230601; t=1713610824; x=1714215624;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
-         :content-transfer-encoding:content-disposition:in-reply-to
-         :mime-version:references:reply-to:message-id:subject:to:from:date
-         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uuiUublFdwP3M9RFluXsE1SWW02owH99H5T+5wRqgcI=;
-        b=Jac1mC0RkRSYa/gn9HgmulyCwGGAi4w623yd+OaRKBKElFX1nYhfZDLSkV6fpKcri2
-         oHaCakiCRQsfjc2olJYiUU4PeCIZbwHRFwoyFMzeEDjLuYCGHgPn4AUcIcQ+v1Wl8E+/
-         7vZYZc+ycVZMUkQVZKWh3jjg1JpNMc84+KdF3eoIvN5PkUweyj1t5AXIoddct3naVxia
-         JURje1+5Uhh5/UQOafRWKIFRKg0alon2XFL+ueYetTXi96vRe+GilPG54F/yTS//VsSc
-         TIifsKSOGcSlWZYt6BUGjkNCm9rfVZj1bucyRIEm2sRTS5tJVWs8JFHtAg0FjKpzZi+B
-         fjaQ==
-X-Forwarded-Encrypted: i=2; AJvYcCWP8qIB6rJvvtwSVO1kTxhVRykd1Hn4ufZQXWdlyzjQOHx4Et12alyjhlc1eKiVj80yPc3UaXl86HnQcCC6ECW4oSROl7fq1ETm
-X-Gm-Message-State: AOJu0YyHz3zDRYEhHoaExmSy9W3xIeFlSY3ae3Mn0fnDxP3M+xoek7Xd
-	nP5PXzcswafTqXLXT4VJ8Qw2Up3q1adcdCdQ/nUkeiqNUmD1DTWeAJVML8nrxYg=
-X-Google-Smtp-Source: AGHT+IG+d2p7BXmICu9gxJFQYi31Ys1oX6XdKtwNUytEu5aGRb0raJIVIs10fMZq/xAryTdkI1ha1w==
-X-Received: by 2002:a05:622a:5ce:b0:434:9135:4392 with SMTP id d14-20020a05622a05ce00b0043491354392mr5541786qtb.38.1713595506043;
-        Fri, 19 Apr 2024 23:45:06 -0700 (PDT)
+         :content-transfer-encoding:mime-version:feedback-id:references
+         :in-reply-to:message-id:subject:from:to:date:delivered-to
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vulTmeZ5FPwfn51dI7kKoIZNjuKGKwnrQY+33Z6Z8ks=;
+        b=XvDDe8oAVtNONovoQ+1tHpHQ9qMhqzxMP9RnwcuQM9RS2ADBq3w5C+wikuYnsuMzjO
+         ZFAQ7npuXTdlVfigGpnTnT6DUxHDlUcOFGzPYM8LWaKuAuWJwLX7P6pZTolbYh1xrhh+
+         vhUgaXZb2KFG8gPNcPZR7iK4h8gQ1ZkaZWZLCllxHZ2YOazXRkA9BafRcO6Xs+NIhEA6
+         xBdUD6PTNgAzQdltbZnQlc077Qp7BupwtJd/3aMvc2mgdt7OPbUaJ+/rYQUCMDfy5h7F
+         amDB9xOcJP9fN40KK+MgtL2Tl4mg12y+SkdNS8LtoPslj1XaCkJA5RIjZDpzrgxrrPm9
+         EQhQ==
+X-Forwarded-Encrypted: i=2; AJvYcCWZW78aBjjwTH6dUStbqMJzlc0HbwMDumVZAQkP7GbyqLcUCctG0bTYACgdT9tvgm5QUqT5acikLF1GwlinTO9+sFGPq828K8z0
+X-Gm-Message-State: AOJu0YzSDhgy1MCidO3/+IA8iwpg0WfhTIspokVQu3imnMmAaNKNrQuE
+	WeSnd+CPV9oRaLtz5Vuq4233988+thvnKigdisUJ+nYlEmEYqRQchZgcAV1pwLA=
+X-Google-Smtp-Source: AGHT+IEk3BhBUrGs9DFWG36t6HfXN3i0Leb7Cxayuc2GKvGbVDwBkQ3EbRfZpUSfY7wFoEK7wo6c+A==
+X-Received: by 2002:a05:6214:e47:b0:69f:6a4f:9c2f with SMTP id o7-20020a0562140e4700b0069f6a4f9c2fmr14006247qvc.15.1713610824417;
+        Sat, 20 Apr 2024 04:00:24 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:622a:189c:b0:436:9fd5:9347 with SMTP id
- d75a77b69052e-437bbae215als20709111cf.1.-pod-prod-04-us; Fri, 19 Apr 2024
- 23:45:05 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCWvV3nKJ/CDOETctYHTHlGKTf3Tg/3CMv9l/xQKiRfAnTnAYIJA6fWMnGnWoej0lVW18d+TrsauJjQP5BcMFe8bTGRKtpxJd4VGUUOH
-X-Received: by 2002:ac8:5a87:0:b0:437:885e:a012 with SMTP id c7-20020ac85a87000000b00437885ea012mr4671085qtc.10.1713595505404;
-        Fri, 19 Apr 2024 23:45:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1713595505; cv=none;
+Received: by 2002:a05:6214:2605:b0:69b:a44:bb68 with SMTP id
+ 6a1803df08f44-6a05d4e5a87ls46729056d6.0.-pod-prod-00-us; Sat, 20 Apr 2024
+ 04:00:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCX7jPMGY8YLovPKNGDjLuKg1WCRQDnxGiFedukOx/OukZ/7CHZGvnHQEXLm8mvqBZ7+W1xwZQocFl/PNNLbwfbitoYEdjnuKHmR2JGn
+X-Received: by 2002:a0c:fd49:0:b0:6a0:713e:5c90 with SMTP id j9-20020a0cfd49000000b006a0713e5c90mr1834938qvs.0.1713610823480;
+        Sat, 20 Apr 2024 04:00:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1713610823; cv=none;
         d=google.com; s=arc-20160816;
-        b=jgVbMJqQWG0k8akpxnQjiPqb1r3Dy348rYsi2T1R+6il/H7vhzReKts4HfBn2zbWmh
-         ma63uBdgnfmnSfYWtQ1djdbsv3b07XmMMHlFgXOGc+hUYBi/RbDlVN5dNTNxSJ8MYgfP
-         A37yPgBmT6o4+Xrk1r77Xh2szzLgkXYOe3fR33gTsZdYq7ImXU4PrEjEdNak3qmpyLIO
-         EJd5S2CpL58Ib2zyWb/zJEBOw3Fbs6iBvLLLvC3mFYywTcFLm67t9Of0rG0LQfb6Tjdm
-         qTUOieeaWzk+jCg6fy17kELIN+uKpMx62D3RyEODZ1EALCzqA4S8q4fBx77b13NhNtTQ
-         HWag==
+        b=UAVlrP9EuGtCawrSSukAczjJwC/1R0EdZaFTCJiXPeXRbuvI6URjaF5hOfnUsTtdKu
+         YbY/E9IoY3d+04jacQtdN8XIlcAeY3cFCQEspDb09fE8vz7+ZRvzZnCkQZlAEdzpz9ZG
+         i9M5qNvfg6cDm+t5nedolQmyEkT1L2xsu45ZlPTpoUcXZjtGh7czTo+vwl7rilTXEnj7
+         R+mGjoG5ROIstJtzmU0UwM+rcd4yTgdOZbJ51DHHnDMxyPQxCP0ROBsDdbTAwHrhWoV7
+         Z29gKVof1iiCu9iJ5zQi9rgP3TKsS/dZvmrwzmaLnZBcMyiYQBztxYy3dnfHgT79ITHS
+         B8AQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-disposition:in-reply-to
-         :mime-version:references:reply-to:message-id:subject:to:from:date
-         :delivered-to;
-        bh=MuOAG0DpiaxDQfBnHzaakJQbdnhvT2/mvbBN7gPnTVw=;
+        h=content-transfer-encoding:mime-version:feedback-id:references
+         :in-reply-to:message-id:subject:from:to:date:delivered-to;
+        bh=zW1OuVv8L4LR3zKYWyzkdWLz5RPw5IOBtP28fC+lwFM=;
         fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=nMfcZ0FqywrX4MOU9Pjq6ofFMWUp9mV1UIzIe3egpnheOWFQVAMDFtoi5sjB5T/Ccg
-         Nle6LWysRGKsgjluoUv5uMqt1Avv6OJeKBL6iKH3ra1Ni6K+8BPraldyNsOv6y3vxAt3
-         D0qWDnY0nM1jQlTQKMN+FrLHYgjjzIvOxr+/TBzrrgyFzuim5bMkW54v9OOccrdrMm5l
-         ypy96IktkLZGkGIHRkTC1rdPc0ua+4tXUI8ktKQIAFsNKm2XKnnkhKFPmC8o+wQbxurq
-         Qid7bEUU6dVdzOUZ7samu4w/f3RXMXdXvI1WO2NnEzupW6hYJMjWmNHaJg6y7qfyGJVa
-         JJ7w==;
+        b=nvvKs87NBuJpP15mbEyWNBQhDaJgZhSES9C8ahgAiYN/I1eoc9KZrYJ/D3lnpvbWdc
+         vW66z00sFGsgfIroFS7gsVDm1w1x/MjSTPuSd8thXnwFTTVtF4Ze7VoAZyDmAkHv7QIN
+         2RCWpBp8x1wGaENt6LRSrPaRV4EgM9y/nwWbOORkzbEMVC8cEC7qTYWMzFc40Qognrn7
+         QlIMAQb88QZIJQAFv/YYRu4fUOWjYE25flqQMOsvDiyubAVqiyXa6p6aeFLYys3nK8fs
+         BgKLwhajzD4crkv9cGhnvJGE3L62Rpa3qTdDWeyuBefokHxtXPPEryJawe4XKfoYiEBx
+         /E3A==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of joelz@pobox.com designates 64.147.108.71 as permitted sender) smtp.mailfrom=joelz@pobox.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
-        by mx.google.com with ESMTPS id c5-20020ac87d85000000b0043784fa5b73si5502583qtd.373.2024.04.19.23.45.05
+       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.40.131 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
+        by mx.google.com with ESMTPS id js2-20020a0562142aa200b0069f276f451csi5828089qvb.458.2024.04.20.04.00.23
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Apr 2024 23:45:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of joelz@pobox.com designates 64.147.108.71 as permitted sender) client-ip=64.147.108.71;
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-444-a6UWasPvPa2c7xpEAiyrug-1; Sat,
- 20 Apr 2024 02:45:04 -0400
-X-MC-Unique: a6UWasPvPa2c7xpEAiyrug-1
+        Sat, 20 Apr 2024 04:00:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.40.131 as permitted sender) client-ip=185.70.40.131;
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-679-0pbKL0NCPM2yUT0k1MdGog-1; Sat, 20 Apr 2024 07:00:22 -0400
+X-MC-Unique: 0pbKL0NCPM2yUT0k1MdGog-1
 Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id BC68D1C0AF54
-	for <blinux-list@gapps.redhat.com>; Sat, 20 Apr 2024 06:45:03 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DC66C8884A5
+	for <blinux-list@gapps.redhat.com>; Sat, 20 Apr 2024 11:00:21 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id B96A743FB1; Sat, 20 Apr 2024 06:45:03 +0000 (UTC)
+	id D861944046; Sat, 20 Apr 2024 11:00:21 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8130543FAD
-	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 06:45:02 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [207.211.31.120])
+Received: from mimecast-mx02.redhat.com (mimecast08.extmail.prod.ext.rdu2.redhat.com [10.11.55.24])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A046F44047
+	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 11:00:21 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 9991E1049CA1
-	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 06:45:02 +0000 (UTC)
-Received: from pb-smtp2.pobox.com (pb-smtp2.pobox.com [64.147.108.71]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-691-OhDbjRa-NymrIRPB3jMLKA-1; Sat, 20 Apr 2024 02:45:00 -0400
-X-MC-Unique: OhDbjRa-NymrIRPB3jMLKA-1
-Received: from pb-smtp2.pobox.com (unknown [127.0.0.1])
-	by pb-smtp2.pobox.com (Postfix) with ESMTP id EFB241F4163
-	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 02:44:59 -0400 (EDT)
-	(envelope-from joelz@pobox.com)
-Received: from pb-smtp2.nyi.icgroup.com (unknown [127.0.0.1])
-	by pb-smtp2.pobox.com (Postfix) with ESMTP id D96DC1F4162
-	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 02:44:59 -0400 (EDT)
-	(envelope-from joelz@pobox.com)
-Received: from sprite (unknown [76.88.164.51])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by pb-smtp2.pobox.com (Postfix) with ESMTPSA id 392FD1F4161
-	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 02:44:59 -0400 (EDT)
-	(envelope-from joelz@pobox.com)
-Received: from jroth by sprite with local (Exim 4.96)
-	(envelope-from <joelz@pobox.com>)
-	id 1ry4T3-0001bh-1o
-	for blinux-list@redhat.com;
-	Fri, 19 Apr 2024 20:44:57 -1000
-Date: Fri, 19 Apr 2024 20:44:57 -1000
-From: Joel Roth <joelz@pobox.com>
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 4D169380673E
+	for <blinux-list@redhat.com>; Sat, 20 Apr 2024 11:00:21 +0000 (UTC)
+Received: from mail-40131.protonmail.ch (mail-40131.protonmail.ch
+ [185.70.40.131]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-414-RZDTh6f_O4eKHYaMdYGGBA-1; Sat, 20 Apr 2024 07:00:18 -0400
+X-MC-Unique: RZDTh6f_O4eKHYaMdYGGBA-1
+Date: Sat, 20 Apr 2024 11:00:08 +0000
 To: blinux-list@redhat.com
+From: "'Rastislav Kish' via blinux-list@redhat.com" <blinux-list@redhat.com>
 Subject: Re: writing yaml visually impaired
-Message-ID: <20240420064457.zp3umevzqdvdqzq4@sprite>
-Reply-To: Joel Roth <joelz@pobox.com>
-References: <ed94fea5-26ca-41f4-b7dc-6b090aea0778@harrastenurkka.fi>
-MIME-Version: 1.0
+Message-ID: <89a75ee1-c1fe-415e-b637-d4b67b209c81@protonmail.com>
 In-Reply-To: <ed94fea5-26ca-41f4-b7dc-6b090aea0778@harrastenurkka.fi>
-X-Pobox-Relay-ID: 81B81684-FEE1-11EE-8F64-25B3960A682E-04347428!pb-smtp2.pobox.com
+References: <ed94fea5-26ca-41f4-b7dc-6b090aea0778@harrastenurkka.fi>
+Feedback-ID: 26663242:user:proton
+X-Pm-Message-ID: 9ad0cbf148bffeb04f8285bda4c83625c8079424
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.5
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: pobox.com
+X-Mimecast-Originator: protonmail.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: joelz@pobox.com
+X-Original-Sender: rastislav.kish@protonmail.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of joelz@pobox.com designates 64.147.108.71 as permitted sender) smtp.mailfrom=joelz@pobox.com
+ domain of rastislav.kish@protonmail.com designates 185.70.40.131 as permitted
+ sender) smtp.mailfrom=rastislav.kish@protonmail.com
+X-Original-From: Rastislav Kish <rastislav.kish@protonmail.com>
+Reply-To: Rastislav Kish <rastislav.kish@protonmail.com>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -166,33 +148,46 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Hi Elias,
+Hello Elias,
 
-It would be easy to create a script to generate YAML from
-another format such as JSON or TOML.
+personally, I like YAML due to its slickness, higher delving levels=20
+don't add up braces, no quotes prevent quotation errors etc. You could=20
+try my ride_desktop program, it will make working with the indentation a=20
+breeze:
 
-Joel
+https://github.com/RastislavKish/ride_desktop
 
-'Elias St=C3=A5hlberg' wrote:
+It works quite nicely with YAML. The only problem is that Ride doesn't=20
+respect the number of spaces used for the indentation and just uses 4=20
+when writing to the file, what is the standard for many programming=20
+languages but YAML typically uses two spaces instead of 4. Also Lists=20
+tend to be semi-indented at times, what Ride doesn't do. But neither is=20
+a syntax problem for YAML and it's a normal thing that different people=20
+have different formatting preferences, if your work requires certain=20
+guidelines, you can always use an external formatter.
+
+Best regards
+
+Rastislav
+
+D=C5=88a 20. 4. 2024 o 8:04 'Elias St=C3=A5hlberg' via blinux-list@redhat.c=
+om=20
+nap=C3=ADsal(a):
 > hi
->=20
-> Is there a solution for writing yaml for the visually impaired, e.g. dock=
-er,
-> ansible and cubernetes use this configuration language which is very
-> specific about layouts, is there a converter that would convert the basic
-> configuration to yaml, for the completely blind
+>
+> Is there a solution for writing yaml for the visually impaired, e.g.
+> docker, ansible and cubernetes use this configuration language which is
+> very specific about layouts, is there a converter that would convert the
+> basic configuration to yaml, for the completely blind
 > yaml's syntax is very difficult to internalize, is there a way to do this
 > solution to the problem
->=20
->=20
+>
+>
 > Elias
->=20
+>
 > To unsubscribe from this group and stop receiving emails from it, send an=
  email to blinux-list+unsubscribe@redhat.com.
->=20
-
---=20
-Joel Roth
+>
 
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to blinux-list+unsubscribe@redhat.com.
