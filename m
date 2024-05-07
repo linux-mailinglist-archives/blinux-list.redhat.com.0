@@ -1,142 +1,141 @@
-Return-Path: <blinux-list+bncBCM2V5WE3MDBBXED3GYQMGQEHQGDZSI@redhat.com>
+Return-Path: <blinux-list+bncBCHY5TMQ6YERBPEG5GYQMGQEERQ2P3Y@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mail.lfdr.de (Postfix) with ESMTPS id A1EED8BBC56
-	for <lists+blinux-list@lfdr.de>; Sat,  4 May 2024 16:10:37 +0200 (CEST)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-43ace079ba1sf8729451cf.0
-        for <lists+blinux-list@lfdr.de>; Sat, 04 May 2024 07:10:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1714831836; cv=pass;
+Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com [209.85.161.72])
+	by mail.lfdr.de (Postfix) with ESMTPS id B4D578BE6E5
+	for <lists+blinux-list@lfdr.de>; Tue,  7 May 2024 17:05:34 +0200 (CEST)
+Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-5aa2b311cecsf5460227eaf.0
+        for <lists+blinux-list@lfdr.de>; Tue, 07 May 2024 08:05:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1715094333; cv=pass;
         d=google.com; s=arc-20160816;
-        b=juf4yyk1ey8jkU0iJUrHKSzab+dKwi1jKKYIKR/A0XiKtXST9uB5TGD/WT/7YHvIDl
-         GjetJj2U5BVVkhzQwG98AvIJZuDtvjfxnl15vMEOBXLoc+toAB/StstV1iMIeuLLHjJA
-         PKmGMUWmbUprTxF+BQk/rEld3fF8seyn1WNIWVAikkF9q3JgIru1BF5KU64a5LiOAqJO
-         jjtGgRQgZ1WOFy/NPCxPIVV8GAEvV4oxq4STXqQvbT5/UsU6JJhMVlS27ngSZR58QliS
-         HqSrAQUvOmo0PCp50BzzSryLkhS4V3NKaGQ7gzIhrTE8VmxbY4dJ5NbjClz3Ee88QIMb
-         Z9pw==
+        b=0Pmko+QVl9QugAtuysTv2WVxy4L+FtqeVOUUrPwdlDtHvuuWmDQkeyEqPEPo01aLFG
+         Aqs4xDoylUi55krZ96ktJbSDSF5yBpEypKvI0iI2VBeRBCFO2DHC66Ujy38CIJYEHkEp
+         cTnKSdkUf/FJuniiwJV68DWn0QC6sLwKlmpNsWSDVp61nx3wNTXXnqkN8X2p7VahO3AJ
+         aCrxO34m6Sb9Mo9Z7+QKZNSfWLMAXDS6VBrHTGuta1oJd9/lqU2dFhG5f50y8KhzIt1M
+         WGDbMDhJgITaKk6q0YlAWlmb56bbfReLJGM/QbzpIywz8Gz/vC80fy6u/hXIiEO0EijH
+         WnVA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
          :mailing-list:precedence:reply-to:content-transfer-encoding
-         :mime-version:feedback-id:references:in-reply-to:message-id:subject
-         :from:to:date:delivered-to;
-        bh=44FVRPwlBrL9Dtu7Em+cCS/xzYlX/ONXiZnlxsZrg/U=;
-        fh=gyf+1OcfjQ0kos5H1F9ZKNQWA+zDMi+S6DMIlljdZMM=;
-        b=pNDXoX162Eam8vn2iQf074P4wl5K+tgrZ/BK1x5xv/3A1djUY9xw9ocwZNlrnwXcNx
-         Dgb+pF/bXqbMizkCAG5P7mhnc94dq2JhLgPxOsRXumJ9nvkh4aW2nC0BmXb9wMszVY5p
-         qzfJnIdPnEHmS6Vz8x1EDWtLcvQQO2Y54YT+job3ozmndw/U7uhf8XmcGh3uwGIHD9rU
-         FSP/rDeHNHOmSDs4joKQL42ydj0cZz7IX5zUYJ6awAm5mwDfinLhTFE4bE030dAZhOFK
-         Ml5lNtVIoOjjxt7th4ezIMdi9YCZsCc6Zr54IuO+cHGds224AQYeGXIbwkHiq0//hBma
-         xtJA==;
+         :content-language:subject:from:to:user-agent:mime-version:date
+         :message-id:delivered-to;
+        bh=6XpmTCZS59zb2WZBYci1shllYkC+zYjwveho6HbI21g=;
+        fh=tc2AFfAYkDLsglt1PDmNHE0D2fIVpn+B7tZkrfXF3GA=;
+        b=Zr8VCT+DRKdUko4PMs9AICmSnyX+FNPAVzaqzUmV6UXLXpXxUfDh3FwJr+M3q0I4+6
+         IE/3k4z/ZZhnBmz4tAh7o6nV9S50/Ld8myYE1tT+C1w88DBUOtm8puYpxvQJG/4At1au
+         gmrwkcxduEn8YfauTvRozZMzIRr4qlDOanSfmEY/yLvuF4tajyTMZ50fZ4vkkhtQeqCc
+         mSX0nXJz4Xl3GfE5+4WkdpD0Jxj0xT36dVTzxDi0ppU4r5GuSfykVBoFGWOCusWh3tuH
+         Nzr6GJ5Xduk967Xt8HW8T8OfVgqQ0QDXIQs/bUFosrNRAR/L4yoV0xBIZpQyvjtri18c
+         acMw==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.40.131 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
+       spf=pass (google.com: domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as permitted sender) smtp.mailfrom=elias.stahlberg@harrastenurkka.fi
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1714831836; x=1715436636;
+        d=1e100.net; s=20230601; t=1715094333; x=1715699133;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
-         :content-transfer-encoding:mime-version:feedback-id:references
-         :in-reply-to:message-id:subject:from:to:date:delivered-to
-         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=44FVRPwlBrL9Dtu7Em+cCS/xzYlX/ONXiZnlxsZrg/U=;
-        b=iZgkdreIBaeMIlkF3RkXX0S83VnBHkOMu8dlM2D3AKHxpSM0t4bA3z3fOdMa/0yLmi
-         jSd43QhvjcVf6nd2/SpyrnjJ90IODocf2hgmgbYmAmynGQU581ee6mxd/03WvrpsAMWU
-         kCvXRwxVUK9hNupQIWEVe6uSZHijZH3iDUBSokeYoE0TI13HIh7S/76CrHDWQ/86gbKX
-         hQveT+5YRALBkqF5R+lX+EIeRu5AGoBNY2W1cqYxBc8dp3k5E6UZyE/S5jmqUHMbIzyb
-         mbCmze9jmmzXKbhQa9n2MBwHJ+DtzQ6fiIHblxojBsimQveXw0rgbGN5gH5wqvxzv4Ic
-         DXEA==
-X-Forwarded-Encrypted: i=2; AJvYcCUIzrpAa3m+Kd9vQzGYK8rRC+Ltab8lsUXxIvUfs4SBobBNgUkXTSEyVRlzsxqmw56D24e8Uxv8fExVOzbv+swA4bmFSvuJLW0i
-X-Gm-Message-State: AOJu0YwXRX0rwijOXYbjYr8VELB56VWDvdUc/g3D8+wSHTZGqeWXaeQo
-	uuaO6s90KdWn8iRAD4r4RQ0jvQmIMQGLrkej1HRbbMGaLP2aCXxVtUCCouNRI6Q=
-X-Google-Smtp-Source: AGHT+IEgjOFZp/o4Vfnyt+dUQ3iwuIKGaYxr6QpvWdlE2lKo9Tmg6+cO8hpAVRmhD7u6SZlXHAoYcQ==
-X-Received: by 2002:a05:622a:50:b0:43a:f8d3:f4c4 with SMTP id y16-20020a05622a005000b0043af8d3f4c4mr6872747qtw.21.1714831836268;
-        Sat, 04 May 2024 07:10:36 -0700 (PDT)
+         :content-transfer-encoding:content-language:subject:from:to
+         :user-agent:mime-version:date:message-id:delivered-to:x-beenthere
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6XpmTCZS59zb2WZBYci1shllYkC+zYjwveho6HbI21g=;
+        b=UJK0mJ/TQ1tGk9HhkKCGNnWPigT4mubVpOqWUN1NZIAycpJ5JiQqJ0XO6mt8I7gVpf
+         R+3WUF+gk2vKoqjkCKDJzD9M0ZclQCIQ+paZ9KWYp/ZxmtU94igJilRNe4UQ82bc/Duv
+         lOYROV0dqti664f/xzL4vbxfhM+X43iaQtpjL1Uzu90pq5707wx7H8yk0hLUcYvHRGiJ
+         yg4joawPz8znNRjqe8swJFbjDfD+CwbRf26oEc+zNWYd4gr1pMCNRpSNKB54ypytZvp/
+         4tyqjsweVP2w7DorlYZlgaOZYmfWc2ewFRkBZy8nNtd4X/FVJHA8KvEcMuNCVFI2+sKB
+         tWEw==
+X-Forwarded-Encrypted: i=2; AJvYcCXjk48GM7JC7WUpDYTIvMn+7FAZACVoWmDJjMbsqiVFitr4H5aRaHZfi19uigfGWnKx9yPpOAS4WYaldGqTBV1LgqNea99oDX6e
+X-Gm-Message-State: AOJu0YyWMB9QLSK3R5uMhJAsq6qNZ8kVmG6Y3Ji43IVkK7jnx3K+gXuU
+	7eqcJZ8RhRNfP+ys3P/PuMsVm1wkp65C6WlniJYiLKTXqP1CN+RqmLMOdjtF2Wc=
+X-Google-Smtp-Source: AGHT+IHPaSMrnylZl/jhtVhjuv5dvU/PkaYCfFqqXa05eD0bvF5USm6fcL63w7MMTuno0faOMDCYLw==
+X-Received: by 2002:a4a:6244:0:b0:5b2:201c:ee8e with SMTP id y4-20020a4a6244000000b005b2201cee8emr4955069oog.3.1715094332897;
+        Tue, 07 May 2024 08:05:32 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:622a:18a4:b0:43a:b543:e7da with SMTP id
- d75a77b69052e-43ca818f15els39582551cf.1.-pod-prod-04-us; Sat, 04 May 2024
- 07:10:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCXd5tUG8VcSMMqHOWH1mvuMxMGWUJiNDA0qlEsOEuBWi2QpPzMU3o2kNcTioP72wHT//hccxhScVnNb0Jp8JOqNPgSTNMhImjst4+8t
-X-Received: by 2002:a05:6102:723:b0:47e:f6e6:a53a with SMTP id u3-20020a056102072300b0047ef6e6a53amr6131081vsg.19.1714831835493;
-        Sat, 04 May 2024 07:10:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1714831835; cv=none;
+Received: by 2002:a4a:8c49:0:b0:5b1:a8bf:ea63 with SMTP id 006d021491bc7-5b1babdad5dls5598689eaf.0.-pod-prod-05-us;
+ Tue, 07 May 2024 08:05:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCXwcrAVTLgyLmq4lof7f1/7VcGS4AgcvUPUEwTbVCVk7PiG792wrgaPna5t6A2p1sohNBxcUh7yrJXkGAR3uT49s9vP/DRJTF/PpMdr
+X-Received: by 2002:a54:4e94:0:b0:3c9:7f1e:76dc with SMTP id c20-20020a544e94000000b003c97f1e76dcmr1131254oiy.59.1715094331294;
+        Tue, 07 May 2024 08:05:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1715094331; cv=none;
         d=google.com; s=arc-20160816;
-        b=bKBsE2tHMZyjz/R3j6mEwHpg/GUhPKkJrkwxH8CctiM1por21jkgy84HD10jE7D6H1
-         iHejVmecbfsUX7M9zgVgkmcAwVuN+/FZgQd+OcIJD9Hq3hb0JVg1vyLAdAWjU4lp3udK
-         mlHX95Rzs2JGou1mxCyx7hRw4fo6Qesuzk8nIe73iMtkXPkg1DIYOp3HLM6I9MVHVa37
-         fw5sLmUvlKmfsFMZq9n/lkMPccoO43LESCHq0D6QY4CS/pSEvQmyAiU4WwvhAVX78AWR
-         yW/482FqiU+iB/Fl2gv/OUsGkAkGq9eIHJHnWEn8YaQf18MA6nzIm2p09MnV/dZaYxtg
-         Cq4g==
+        b=ncK1KLldcxnYDguMKzha96j+ePAdgGCytvYCfcNFc3VoeNvOer8PDlUkTv75Z4Saxd
+         IcUxYb6qNAYPefm2c/Jc/7+KZe26OY0agkCw7xa0qV6Tc/jkKe2Abi8JSJW59dx4kkqS
+         eOpOaMLiOIFLE3xYk8QqKntNA7zWU2IAen0MNzMmZbrPIazibS71WEJCrpCeTy3xXXad
+         OjlUa/z1WhbbqHVwKO3QUXPwIrrTgVzXVB4IwdVAP3RZUdq+inNm4coxhqLApnB0omtF
+         uLlOZA+W8ZBLElwb/0lhmY0DvzyH2cMcpaMM10fjbISY5b91U23nSC5YBsUYQCMDk48C
+         eFoA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:feedback-id:references
-         :in-reply-to:message-id:subject:from:to:date:delivered-to;
-        bh=aQmKapf025GT8bf5TB7ZmjpULqiSEkAm+HVay5+X6/I=;
-        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=UmHoeT6IOVBJUXq7Xl7g/zL042gXj7gSNoqC9RoTEDwi3/ykNclnka9yFjGt5lsnDD
-         qrwA7aEIEKum+oSgqjC6GJSyW6qTSGmwmGIURw1i+T0+TQGcRWvodupZKKjKrGYlou0E
-         uDJw+4MCdaI2JvK4HXeK7tyP5MpT++K5j/058Psh0rBb/heoTjqP5lajnFteUNc3Cg+4
-         jl6dWXRr//geP6UWtf0W1S2ZEsC5Bs+n3fe56Ev/QYxidsoDN2vhABXgZc/lEJhO5qdZ
-         dczmDxHr2X5bJ2HDk1ayVlOBXJNvV4XdV6V6wrEIew/a9w8H4wtcfib0JIy8HlmKXlm6
-         XIiA==;
+        h=content-transfer-encoding:content-language:subject:from:to
+         :user-agent:mime-version:date:message-id:delivered-to;
+        bh=/Qxim1meHNRU62R7054ruUOshJ9lmif7LrEZVnBWaKU=;
+        fh=NbaJD2uAKV4/FIqTd0wat3NgsLwCgLHQrdb54Oo5y/Q=;
+        b=V+OERK6qqxJjEcYkqdiIm8SLMtm6Sj3fPYl22I/E/eD0EV9GwoNbDbYYWULgPgx8p2
+         hMwH49SxMFZtOxZy90kXN06nW3BUHncEzEg4I9j68Gvf+uYnZubbZCDVtgemQody4LYX
+         3KGK8bQhMgkzC5ttxw6zyC3Eoh4eAQ1GCdokM1JidF3dP5BVzbPKILLdlxn52YN4NoHI
+         L0uPv8IIlCbCrI12XFD2ExPjelt/20qZRgdGvflOdGflaETSyy8j3qj8KJ8cgXCDjLHI
+         hS2HXjIRMiGuAWKin41KK5Ctj9dxljuas7LAX+6sOHwI7Z3Ztnm2SN1KoMTaAQeeQGsw
+         sttA==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.40.131 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
-        by mx.google.com with ESMTPS id ib15-20020a0561022b8f00b0047be5a4dbaesi113768vsb.650.2024.05.04.07.10.35
+       spf=pass (google.com: domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as permitted sender) smtp.mailfrom=elias.stahlberg@harrastenurkka.fi
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
+        by mx.google.com with ESMTPS id ip23-20020a056130621700b007f057903369si2137001uab.171.2024.05.07.08.05.30
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 May 2024 07:10:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.40.131 as permitted sender) client-ip=185.70.40.131;
+        Tue, 07 May 2024 08:05:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as permitted sender) client-ip=185.218.88.66;
 Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
  by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-342-OO1pdNTdOySlE7eyGNR8RQ-1; Sat,
- 04 May 2024 10:10:34 -0400
-X-MC-Unique: OO1pdNTdOySlE7eyGNR8RQ-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.rdu2.redhat.com [10.11.54.3])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-641-BNhDYnwOMGKWrqcS-OOW1w-1; Tue,
+ 07 May 2024 11:05:28 -0400
+X-MC-Unique: BNhDYnwOMGKWrqcS-OOW1w-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id C5FA11C04323
-	for <blinux-list@gapps.redhat.com>; Sat,  4 May 2024 14:10:33 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 0FC8B29ABA0B
+	for <blinux-list@gapps.redhat.com>; Tue,  7 May 2024 15:05:28 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id C28A5112131D; Sat,  4 May 2024 14:10:33 +0000 (UTC)
+	id 0C5DB200AFEA; Tue,  7 May 2024 15:05:28 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast02.extmail.prod.ext.rdu2.redhat.com [10.11.55.18])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8A4681121306
-	for <blinux-list@redhat.com>; Sat,  4 May 2024 14:10:32 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+Received: from mimecast-mx02.redhat.com (mimecast01.extmail.prod.ext.rdu2.redhat.com [10.11.55.17])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C81C1200AD74
+	for <blinux-list@redhat.com>; Tue,  7 May 2024 15:05:27 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A59D08059E0
-	for <blinux-list@redhat.com>; Sat,  4 May 2024 14:10:32 +0000 (UTC)
-Received: from mail-40131.protonmail.ch (mail-40131.protonmail.ch
- [185.70.40.131]) by relay.mimecast.com with ESMTP with STARTTLS
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7700D857A83
+	for <blinux-list@redhat.com>; Tue,  7 May 2024 15:05:27 +0000 (UTC)
+Received: from server.harrastenurkka.fi (server.harrastenurkka.fi
+ [185.218.88.66]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-326-GWfFyOGCMk2WE0D4vLkkSA-1; Sat, 04 May 2024 10:10:31 -0400
-X-MC-Unique: GWfFyOGCMk2WE0D4vLkkSA-1
-Date: Sat, 04 May 2024 14:10:23 +0000
-To: blinux-list@redhat.com
-From: "'Rastislav Kish' via blinux-list@redhat.com" <blinux-list@redhat.com>
-Subject: Re: nvda2 speech and debian install error
-Message-ID: <87c6097d-443f-4202-877c-1ca1acdc7edd@protonmail.com>
-In-Reply-To: <08f98aaf-e42e-40df-bc16-76822a05e000@harrastenurkka.fi>
-References: <2aafa8d0-f421-42da-9178-fcfbbf5a5a1a@harrastenurkka.fi> <20240503123117.6vhsfjpfuhjgwxno@begin> <126a3a3c-2f91-411b-b72f-74cd586cf7bf@harrastenurkka.fi> <20240503125138.ccmtstpyuyyyyf3e@begin> <4703c033-5eee-4d95-b6c2-c1e9a9ddf089@harrastenurkka.fi> <20240503130413.rxcx55qhjx64utco@begin> <11a8b732-c9a8-476f-94d8-34a1f8fe2bb7@harrastenurkka.fi> <7792665a-af52-4379-bf77-2adb056fbe7b@protonmail.com> <08f98aaf-e42e-40df-bc16-76822a05e000@harrastenurkka.fi>
-Feedback-ID: 26663242:user:proton
-X-Pm-Message-ID: 572971eed90cd3de624f31de72f7d9b384945106
+ us-mta-677-Dq-4it6MOoma3S5lj1vIEw-1; Tue, 07 May 2024 11:05:24 -0400
+X-MC-Unique: Dq-4it6MOoma3S5lj1vIEw-1
+Received: from [192.168.1.20] (178-75-190-98.bb.dnainternet.fi [178.75.190.98])
+	by server.harrastenurkka.fi (Postfix) with ESMTPSA id 7E18E4111B;
+	Tue,  7 May 2024 18:05:18 +0300 (EEST)
+Message-ID: <f2d2325e-636a-437d-a489-b2a2fe6fec7a@harrastenurkka.fi>
+Date: Tue, 7 May 2024 18:04:57 +0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: blinux-list@redhat.com, orca@freelists.org
+From: =?UTF-8?Q?=27Elias_St=C3=A5hlberg=27_via_blinux=2Dlist=40redhat=2Ecom?= <blinux-list@redhat.com>
+Subject: lost website linux accessibility
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.3
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.4
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: protonmail.com
-Content-Type: text/plain; charset="UTF-8"
+X-Mimecast-Originator: harrastenurkka.fi
+Content-Language: en-US
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: rastislav.kish@protonmail.com
+X-Original-Sender: elias.stahlberg@harrastenurkka.fi
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of rastislav.kish@protonmail.com designates 185.70.40.131 as permitted
- sender) smtp.mailfrom=rastislav.kish@protonmail.com
-X-Original-From: Rastislav Kish <rastislav.kish@protonmail.com>
-Reply-To: Rastislav Kish <rastislav.kish@protonmail.com>
+ domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as
+ permitted sender) smtp.mailfrom=elias.stahlberg@harrastenurkka.fi
+X-Original-From: =?UTF-8?Q?Elias_St=C3=A5hlberg?= <elias.stahlberg@harrastenurkka.fi>
+Reply-To: =?UTF-8?Q?Elias_St=C3=A5hlberg?= <elias.stahlberg@harrastenurkka.fi>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -148,110 +147,16 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Hello,
+hi
 
-I'm not sure which version of the library is packaged by Debian, but if=20
-it's compiled using mingw, you may also need to include a dependency lib=20
-together with the controller, see the compilation section of the readme.
+Does anyone remember a website where you could download a kind of=20
+realtime ocr script, it used your computer's webcam and this person
+ =C2=A0 had been able to install e.g. proxmox independently with it. There=
+=20
+was other Linux stuff on the site, among other things, instructions for=20
+installing waydroid and android with talkback support
 
-Also watch the terminal whether connection is received by the server,=20
-plus the game you're trying to get working needs to be set to use NVDA,=20
-most do so automatically I believe but some (like Swamp) require you to=20
-select the synthesiser manually.
-
-Best regards
-
-Rastislav
-
-D=C5=88a 4. 5. 2024 o 15:46 Elias St=C3=A5hlberg nap=C3=ADsal(a):
-> hi
->
-> The server starts, I move nvda2speechd32.dll to the game folder, rename
-> it nvdaControllerClient32.dll so it replaces the existing dll file, but
-> still the orca specified via speech-dispatcher does not speak, I use
-> audiogame manager, could it affect this.
->
-> https://git.stormux.org/storm/audiogame-manager
->
-> On 5/4/24 01:37, 'Rastislav Kish' via blinux-list@redhat.com wrote:
->> Hello Elias,
->> nvda2speechd author here. Regarding the compilation error you got
->> earlier, I believe this is caused by the speech-dispatcher dependency in
->> the server's Cargo.toml, which seems to be still at 0.15.1 (while the
->> latest version is 0.16.0).
->> If you bump up the number and delete the Cargo.lock file, it should
->> compile just fine. It's a bit unfortunate situation, in my opinion, Rust
->> should have a from-scratch implemented crate for communication with
->> speech dispatcher, instead of relying on libspeechd-dev and causing
->> issues like these. I even wanted to write such a library, similar to the
->> lib I wrote for C#, but I was not yet in such a heavy need to do so,
->> thus we have what we have. :)
->>
->> As for n2s usage, the server is a standard TUI app, it's pretty much
->> upto you how do you use it. You can run it temporarily in a terminal,
->> for example if you want to play a game, or, if your usage will be more
->> frequent, you can have it autostart upon your system boot up and then
->> there will be no need to do anything. The server has no output unless
->> something happens I believe, so if you start it up and it seemingly does
->> nothing, it likely works properly.
->> I think it prints out when a connection from clients is open/close, this
->> is a good functionality because when something goes wrong, you can
->> easily diagnose whether the clients and the server found each other and
->> it also works as a good confirmation the client was started in the first
->> place.
->>
->> n2s has a default port that will be used, which is mentioned in the
->> readme. If the default port doesn't work for you for some reason, you
->> can change it by setting up an environment variable, see the readme
->> (don't forget to log out and back in after doing so to have it initializ=
-ed).
->>
->> The reason why a variable is used instead of a flag or config file is
->> the need to communicate the settings to the clients, which can't accept
->> flags because they're just libraries (well technically, maybe they
->> could, now I'm not sure if dlls have access to the arguments of their
->> process, but even if they did, messing in flags and cmd parameters to
->> the interface of another apps would cause trouble in more situations
->> than those where it would have actually worked), and config files are
->> also tricky because one thing is your Linux FS and another the Wine
->> space, you may want to sandbox Wine apps, etc. so it's overall the
->> easiest option to just maintain an environment variable when necessary.
->>
->> Best regards
->>
->> Rastislav
->>
->> D=C5=88a 3. 5. 2024 o 15:08 'Elias St=C3=A5hlberg' via blinux-list@redha=
-t.com
->> nap=C3=ADsal(a):
->>> yes, but e.g
->>> this command does nothing, the server has to be started somehow, or is
->>> it running all the time, I get the message command
->>> not found
->>>
->>> ws://localhost:3457
->>>
->>> On 5/3/24 16:04, Samuel Thibault wrote:
->>>> 'Elias St=C3=A5hlberg' via blinux-list@redhat.com, le ven. 03 mai 2024=
- 15:57:53 +0300, a ecrit:
->>>>> I have now installed the required packages, but where do I set the po=
-rt and
->>>>> address of the server, how can I start the server, the command nvda2s=
-peechd
->>>>> does nothing, command not found
->>>> I can only point at the readme file.
->>>>
->>>> Samuel
->>>>
->>>> To unsubscribe from this group and stop receiving emails from it, send=
- an email to blinux-list+unsubscribe@redhat.com.
->>>>
->>> To unsubscribe from this group and stop receiving emails from it, send =
-an email to blinux-list+unsubscribe@redhat.com.
->>>
->> To unsubscribe from this group and stop receiving emails from it, send a=
-n email to blinux-list+unsubscribe@redhat.com.
->>
+Elias
 
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to blinux-list+unsubscribe@redhat.com.
