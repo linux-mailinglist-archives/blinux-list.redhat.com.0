@@ -1,147 +1,175 @@
-Return-Path: <blinux-list+bncBCHY5TMQ6YERBX4X5GYQMGQEUWXQPUA@redhat.com>
+Return-Path: <blinux-list+bncBDYPVTOXSQEBBF5B6SYQMGQEYJE2L6I@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6AF448BE797
-	for <lists+blinux-list@lfdr.de>; Tue,  7 May 2024 17:42:26 +0200 (CEST)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6a0cf23b982sf44126806d6.1
-        for <lists+blinux-list@lfdr.de>; Tue, 07 May 2024 08:42:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1715096545; cv=pass;
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mail.lfdr.de (Postfix) with ESMTPS id AAB5A8C1471
+	for <lists+blinux-list@lfdr.de>; Thu,  9 May 2024 20:06:17 +0200 (CEST)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-43d9796d7a1sf9345051cf.0
+        for <lists+blinux-list@lfdr.de>; Thu, 09 May 2024 11:06:17 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1715277976; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RsvHDZtgvb6nArbWCWz3Pyiu9k4MEz+4bsqYV1oJBULn9BtSQXZYs4Mg5m1GSl2y8E
-         IO2aC2ysSrRiLUQXHXc6DrzyjiVrx6xzesJlKy6ZfywPsbIRQ69MCl9DQmOEuVfwqnmi
-         lhZxS7h87lFi/2Ie8S2P7YE77iJhRzIZCbNOKacPDvvcnyD2ierSp+YDG5N7LEvrm7DW
-         6XprCuOJgjkeo54oV5d0h9lwf85iidFVDhOuqhYX7ilxDEiR5GIq4Zv7cx04HYPKKBQh
-         wdnczCrmSjpKSyJ+V2LSCbCtc/Ef63I/xhLr+wdC1sCYl9R5zP2hk1yz8I0c6QJ4Cble
-         2e0g==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=OAKXfDfXyy+Ad3PbaoMpphmjyrXXvZiiHAmTEfYx79fZ7UMvzoYQeOdaY9Z0VkA2TO
+         wYGAAH2kr9mmc01Gbw4kN1VIVKoQCOZb3/WuZExt1Yc+ti2NtdHukCwB7kU0bUU7yrsg
+         bFTSe+QK5ctG87MpaK8V65qw4Q7ciiEE8QUSj6CPsllXRa/nNM9IHOIaRXM29xqwHYQv
+         9SD/IdBF/x5v5X6ZeIytFr63iDqMqlEgElKS7vAremOpNFXGGtzOpiudgHy8gAfBiF/t
+         bpfTY9mRfxsoifSvA0Nc3QV03Mxm7PA/AehBhhRsdDFP4lX1ivZQOGQXBeELBeFdlxFx
+         psDg==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:reply-to:content-language:in-reply-to:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :mailing-list:precedence:content-transfer-encoding:mime-version
+         :references:message-id:in-reply-to:subject:cc:to:from:date
          :delivered-to;
-        bh=f03y+51aJRLK0UgJlyrrb0vQY/WLb/s9Qx6pUjWOTn0=;
-        fh=GhzRfWlNMFIKwX/BqWeW6w7zDAA3iDmPHU1LkftBHZo=;
-        b=aS9DdiUafwBi6YyIvhUJc+ATnCRNyaPLjiU2l72zPG7+5uCNszdc4HKJkofuIx4f/K
-         PhIHG55rbmjFjPEOZt5HjUHc5Hf65CltDmnWeqYtHaQk1P7s+C4LcLqyN0uUyFoBXOH6
-         7gmW6zkvXTl8hdKpco2PzcAtEzIlloT0CVZn5jwrxMwzR6UNjMFRR8vANmy6ULJ8q3Df
-         HIzcUnSUXbsTDfvhhB9Ylj//NGKJN4yMArdK7fNN7RrzoHNDm+dmFolp0fG7MhkyCmQa
-         Eg5MvnqgTXMh4iztuG0Yb+KO+K0GMOMUUlOsulZzSCfPQcPmti4c0vg/+fzxuE5SNlEb
-         C5eA==;
+        bh=RlUr07Cc8RS2HeFVwvEV1Awm66/09Zi3Oo0Q8302X70=;
+        fh=sJf+VdnAtu9+mqdT7yTQJegfwC9WbqrIIXGApE2vMjM=;
+        b=IpoMo0fSrm/NcBuiAPAj0jM1XMAymUT+pC4l712cZA4PLmk62kTpnq8jKFbvCa3IbI
+         gr1H7M3Y4/mJTADXJf6144l1LaBlr7wRf7Nqxz6aNt/XEwpvDHFftAQw7f9Q2RQQsrBG
+         OeQ1v/p6kpuCx+jNLLd4GXJDn4ZxIJue38+qSRogBZ4vuUg5nVU0oi5NlDd/m8JCG+Kt
+         Y5JoUzmBgIL6e+3WzxdnUbTFPsAXlnShKOoj+jVMaDb1EZB6BOeQ9eEQ7bNMiw13pAV2
+         zM2lAda8imif3A5RHuJAx/kflcwhYQQJK9stHAC5H8D0R7NSZQNxf80YR0k+KOMy8b6K
+         5WOw==;
         darn=lfdr.de
-ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as permitted sender) smtp.mailfrom=elias.stahlberg@harrastenurkka.fi
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@panix.com header.s=panix header.b=gL8MvqIE;
+       arc=pass (i=1 spf=pass spfdomain=panix.com dkim=pass dkdomain=panix.com dmarc=pass fromdomain=panix.com);
+       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1715096545; x=1715701345;
+        d=1e100.net; s=20230601; t=1715277976; x=1715882776;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender
-         :content-language:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:delivered-to:x-beenthere
+         :content-transfer-encoding:mime-version:references:message-id
+         :in-reply-to:subject:cc:to:from:date:delivered-to:x-beenthere
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=f03y+51aJRLK0UgJlyrrb0vQY/WLb/s9Qx6pUjWOTn0=;
-        b=ZfMrj7xuJy+YVROfa9eadQNmOja4ljtrvfvOTtrR8HIxp/T+ZGZmLBGYODzYy4bDSJ
-         D2s21bOi4GDivo1MfjSDtbe6On1ASjdgxsnmI1osxjs1VJbepNwHwCHb+uYMxa982M1S
-         i3X54umCeQwixW+SSSh5QsN7PRKDhoAJV5gfsK27T89E4gny+As6E1DOG+hh5Ae10Wym
-         6mLXLO6P+AbuBE9qMBu74Z29r8Q38M/WPSDDUrux6tocUG4j9OQfVjKtCNyb3d34vDS9
-         KhVELujUTC+I2g4QHtLmWHQIqjCoPYqHk4TaJLI/xQfnbWpLvKxU15LB5OlrwtxpJQPk
-         6KlA==
-X-Forwarded-Encrypted: i=2; AJvYcCWQc3Mjy0C4N/5fo8xGVDDSFf22ahwtEszNPaUdUTm+5uX06jMnY2fTadauMFN+iWowKPY3ScJoxEak+kW38AsrxlZaQeoVeMtQ
-X-Gm-Message-State: AOJu0Yx9JXyNKjWlUb3mQR7JOUM8EPsnP84Em4ZK2E62bqELYJqbsYgN
-	3PBHnEZuxtPnG/8vwUmcETxLWfmEh3m92/Zu9bjZl0xBqdoM6zE/kEw6uCMN2F0=
-X-Google-Smtp-Source: AGHT+IGjv3cxbYwOP2Qa+KOZL+vX9PTV0W5rEZn26Ao6OklaezRFQ43hbj9YDrwN4cG3GXtdIHHnYA==
-X-Received: by 2002:a05:6214:1246:b0:6a0:6545:2306 with SMTP id 6a1803df08f44-6a1514e92e3mr1862386d6.28.1715096545027;
-        Tue, 07 May 2024 08:42:25 -0700 (PDT)
+        bh=RlUr07Cc8RS2HeFVwvEV1Awm66/09Zi3Oo0Q8302X70=;
+        b=jG1qnFMeQAZhJT5ESs+aDrmhPiAsfs8ub+geDtcSzR27Sr1HjFK5lZAgwmxcYxs+h8
+         rV5C84I/eURjmiWYXci65y11e6RmRZtEZalwG50A5L3/9fAnBljA1OEo9na0hPmrO8kX
+         gm9a4PVv55500J+1DPS0VV0auYr+dczno5zdJdhaGfpZjVnM9wePmuxbtDCJv5TZHrra
+         wgpDfaeiLGQswdC7EoETdeNzUjZdLDb+nCg5m54TpWsuVWbXnfxJD00o+sI4nt6lFQS7
+         9iEak3YGObT95W/CJOqnBDWCzNsxesXxnjZGBD5iHAEmJX8MRwyvG0D2qH24yl67ykVR
+         fYTg==
+X-Forwarded-Encrypted: i=3; AJvYcCXioVT5n52ziuoTWsGo/kJ0EAAx6U7/qP8eLqzeAyxI01aCksYwZj4b/gAShJIT+GEsZ2iq2ia7uwDBYEFr/wrrfY+YBYlmVzO5
+X-Gm-Message-State: AOJu0YxLxFVQE6eQ7/qTSC+iJN9GVPC4dkkYAAk42wawxH9wd2aYkprU
+	3U+qh5gkVd4nO1vwJjBzxQNXbQXc47I4Fpal5H3CPxQrpsUDUhrIuGIa2WnswO4=
+X-Google-Smtp-Source: AGHT+IHcaQaY91oaf/61GN3vL4DeU5wrsM+W8cN061VsKlZS3yo8W8qBBT14N76CWqdSWWWbhd+PYQ==
+X-Received: by 2002:ac8:7f0a:0:b0:43b:4bc:6606 with SMTP id d75a77b69052e-43dfdae7392mr1511501cf.24.1715277975996;
+        Thu, 09 May 2024 11:06:15 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6214:1d02:b0:6a0:e152:6b47 with SMTP id
- 6a1803df08f44-6a0fefc877als104008936d6.1.-pod-prod-09-us; Tue, 07 May 2024
- 08:42:23 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCWHiEUtGmkSVg3uGzmIcVylFy0m/IAsMQrc2EY2W/eD5qZnry/Z7kEwxHcmRQPcuQo7uglTUdWyQ9eAX0CJ9o4jfSgbtVRCgKbyp8Xi
-X-Received: by 2002:a05:6214:1246:b0:6a0:6545:2306 with SMTP id 6a1803df08f44-6a1514e92e3mr1861356d6.28.1715096542964;
-        Tue, 07 May 2024 08:42:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1715096542; cv=none;
+Received: by 2002:a05:622a:188a:b0:437:bede:6e20 with SMTP id
+ d75a77b69052e-43deda23ac4ls17768171cf.2.-pod-prod-09-us; Thu, 09 May 2024
+ 11:06:15 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCWLX4L/CKJfH8Rl0Szo+Id4N1yVrlVOpWgwJ21DhRaCP2VetcNQiVfodp65dpYtJ4JDOqtUDtLMIlWhuh12dLiee550CO5mdr2020yM
+X-Received: by 2002:a05:622a:314:b0:43d:fd4e:b893 with SMTP id d75a77b69052e-43dfdb81c06mr1074891cf.45.1715277974964;
+        Thu, 09 May 2024 11:06:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1715277974; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gNeXUKEtF18dzBq/CRSENANKpA7EG/cL0yyZXGQz2uAWKJxbqzrRkXj7F3op+7tzzu
-         MYKDgwnvd9UoeWxCoFViC4uNmRDFu9xEzr/KyeCvCL9vzENINltO4Y901O8CJsSccCxQ
-         qTqBnlm2YUZvScYH7jQkp6K3UFTZzlrQYJdJMcnVRxR+uVn51TPqE4FjV1MrlKv50cIo
-         mdIlr0jc6v6Ku0008FJb+UWnqaEysZxVeMP3Mj1wW52ZEaCDtiiMMuXX3FDPNULYGjI1
-         UhFH2yU7UsP0OHLa0LcnG4mCJ8tWi1AcSW0f1MJT22ic4Sjz9YBv3rfg5/rQGhFVWzWR
-         4Tmw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:delivered-to;
-        bh=oelNvYTj6hHQk/6v4aMjuAw36yfLYZjFcULYx5emlVo=;
-        fh=x03oKV0ON9VCn8ATqg7XyUNKdWmb3T5hF846lrBhrsY=;
-        b=DLtRdwvctjtfT4TLna9dBE62V6oi49fpXED0gXwXVTy9COP9xXOH33kRoR9VDylnrG
-         eAKRQF6OdV0OeBNInr4LhjQiPDGiBYZ4Av2QpUOEj1gQRYcx2d5HSpd//lMdJjqgMkgA
-         Tut040VPdOMVUgj2vebn8paFIb3bjL5GqqZIM1G6XKMd4Ih0xcsh7EEXl3qkFzndb4/i
-         J4ho9nw0YqsQJah5rDMahd9KSSfodB4cQtP5zXJo7E3WigaAnHxLCS/S+YvzGluMs1HB
-         DYd43cAoxvaGBjo9BNAXX32BXOE1dyHHtR95pdgmMC/1E2LhHur4QMJm7AYXU86wSZ0S
-         gSkw==;
+        b=XTeINOgi6VNEZzGB604kbQZLm5PL13JLUUSZm8SSaJb6AuhUgojJb3irlvIH8+JYhG
+         VEG0mXKBYJXE8KxsVp8r2Kwc+gP7ezGinpmHknOrhQN5eAaotvl124L/mOBKS4l0QZ2l
+         Thxt2IWLY0CE1wvvabH1RYwh1KD+oUXe8gyeCHjS9N3ZouIpkIfFKeFDWLVQ8ZTq16Ip
+         AVdWUxGoEXjePn4kNEghEeeY5IkvI1maizn2uI5vY+uQ0amlZXRMptP9iIBAY/utGnKG
+         THwTQkycXh6jOJknyWJTCmsXkS6Km6IDs8Lkvj9WMfMoZvQUonoRnYKkGjTP2J6vKFib
+         /o9g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:references:message-id
+         :in-reply-to:subject:cc:to:from:date:dkim-signature:delivered-to;
+        bh=sXjPZzpGUrq8m/CoNFez4fphhB5IL6V2pFmy4WaSSsI=;
+        fh=tpQChr1BRGd2FZGiK++wk4+fN+JHAwOoCVjm5WhWons=;
+        b=tdnme9YkRqijykCre/FUjVX9nL7n6sC+Ifhk7piWoSOstF/eo6tdB4kYy7iJgO7y0o
+         00v2DHRomgEsKabqI5d/vFJdB+htESqK7GJ3GLLzzqcinBRjQybMKb+l9UO34+UB6Msy
+         WciYGbijyT+DMF5DZBKxTHSv2+guXc3Ykck/1JhpsRGYSp8Whp3NAD8Fp4dN7/QgXrWe
+         h/qydkojE0mDvmFRu3mKEgG1lhlHHscXEO99/CMByaOweSBllXHhdoo4rKSZbq+Fjy9I
+         f1XojlvHgzu0redmWynXkJt0dgeMiujWQ523TCs9a1VeNJiPvAHhF0dt1aWbi08uc/oi
+         4BUw==;
         dara=google.com
-ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as permitted sender) smtp.mailfrom=elias.stahlberg@harrastenurkka.fi
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@panix.com header.s=panix header.b=gL8MvqIE;
+       arc=pass (i=1 spf=pass spfdomain=panix.com dkim=pass dkdomain=panix.com dmarc=pass fromdomain=panix.com);
+       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id js13-20020a0562142aad00b006a0b359779esi11539318qvb.330.2024.05.07.08.42.21
+        by mx.google.com with ESMTPS id d75a77b69052e-43df54b52c1si17760321cf.201.2024.05.09.11.06.14
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 May 2024 08:42:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as permitted sender) client-ip=185.218.88.66;
-Received: from mimecast-mx02.redhat.com (mx-ext.redhat.com [66.187.233.73])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-395-uXUrG2y6Pr2AThWJwGVAaw-1; Tue,
- 07 May 2024 11:42:20 -0400
-X-MC-Unique: uXUrG2y6Pr2AThWJwGVAaw-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
+        Thu, 09 May 2024 11:06:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) client-ip=166.84.1.89;
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-577-bHEENTWyP6ypm2V8obPQBA-1; Thu, 09 May 2024 14:00:09 -0400
+X-MC-Unique: bHEENTWyP6ypm2V8obPQBA-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id B07053C3D0CF
-	for <blinux-list@gapps.redhat.com>; Tue,  7 May 2024 15:42:19 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 09B82184869B
+	for <blinux-list@gapps.redhat.com>; Thu,  9 May 2024 18:00:09 +0000 (UTC)
 Received: by smtp.corp.redhat.com (Postfix)
-	id AD2B7C08F3A; Tue,  7 May 2024 15:42:19 +0000 (UTC)
+	id 067981D67274; Thu,  9 May 2024 18:00:09 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mimecast-mx02.redhat.com (mimecast07.extmail.prod.ext.rdu2.redhat.com [10.11.55.23])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 75159C08F39
-	for <blinux-list@redhat.com>; Tue,  7 May 2024 15:42:19 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [207.211.31.120])
+Received: from mimecast-mx02.redhat.com (mimecast04.extmail.prod.ext.rdu2.redhat.com [10.11.55.20])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C0CC61D67273
+	for <blinux-list@redhat.com>; Thu,  9 May 2024 18:00:07 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 02AB03C3D0CE
-	for <blinux-list@redhat.com>; Tue,  7 May 2024 15:42:19 +0000 (UTC)
-Received: from server.harrastenurkka.fi (server.harrastenurkka.fi
- [185.218.88.66]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-599-4sVT0wnhMueeczx8C_AWFA-1; Tue, 07 May 2024 11:42:16 -0400
-X-MC-Unique: 4sVT0wnhMueeczx8C_AWFA-1
-Received: from [192.168.1.20] (178-75-190-98.bb.dnainternet.fi [178.75.190.98])
-	by server.harrastenurkka.fi (Postfix) with ESMTPSA id 9512A4111B;
-	Tue,  7 May 2024 18:42:12 +0300 (EEST)
-Message-ID: <33303af7-4eaf-449b-a356-043e93f4f138@harrastenurkka.fi>
-Date: Tue, 7 May 2024 18:41:51 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D3F39101AA5C
+	for <blinux-list@redhat.com>; Thu,  9 May 2024 18:00:07 +0000 (UTC)
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1715277607;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=sXjPZzpGUrq8m/CoNFez4fphhB5IL6V2pFmy4WaSSsI=;
+	b=kpZze2zzMtyuroHVI7qyMkkBESsuhOBCvY8wEiVaxwxM1SpzDJXBemg+bPzEyKj+pZI9E7
+	zP3p4rOn5sQPmEsjEczhgOBexmkADi/cpwTdkMuyikTGMMAOrPRJfP63Kx58ql2OAZcCeC
+	tTtL8EImLrysO9kvl7nNqRaQT6qTgaxWXkzi4TwnCWbYDJBXqsAHnhBecOw7dDtVrPAGv6
+	hAfwAvEuXkXCwt4ii4sCXz0MuwNWGHSBhfG4snt4TMKbr9hHnabHL3VnrtynULhgWQd5GD
+	Ahq9hU3a6CwD/iEgtDDAIjxwviKJF6VzNAncTf81kJbYobXN3s4fVHcC16ZSNA==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1715277607; a=rsa-sha256;
+	cv=none;
+	b=B3tML+Kv/ZdpfIvPFlnXd/LoxF/mgmlVH4vtLRPYT4rwPGvmlnknkp6rvmMqvtAcwVoSQg
+	YWLWky8qBYKHfxiJatWFCUl6m7d464+GT8ZvNQ4ueKSJ9lIyBK27caeuURjKPppFxfuix2
+	vKYexd6t+7Vej/u3xI5MVWCFP5Fi4gxHt7l+ikn0bEQnv6PryoXzLU+YJEJDgUpkAHquIY
+	khdk7znueE4Q4OE19j3G/wYVnwSP7g9LVk3xgATFmogJx+3zsSfkWzqne0GApKUuSm7Wfh
+	30G7nm7YQWSTeAeocAjUhuixxcO/kJefWPM6bq9JoBMp856b8qNk+FffW0L9VA==
+ARC-Authentication-Results: i=1;
+	relay.mimecast.com;
+	dkim=pass header.d=panix.com header.s=panix header.b=gL8MvqIE;
+	dmarc=pass (policy=none) header.from=panix.com;
+	spf=pass (relay.mimecast.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-460--dB2at3LNamee79eipOMsg-1; Thu,
+ 09 May 2024 14:00:05 -0400
+X-MC-Unique: -dB2at3LNamee79eipOMsg-1
+Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
+	by mailbackend.panix.com (Postfix) with ESMTP id 4Vb0Ck5CbZz4KB;
+	Thu,  9 May 2024 14:00:02 -0400 (EDT)
+Received: by panix1.panix.com (Postfix, from userid 20712)
+	id 4Vb0Ck50SQzcbc; Thu,  9 May 2024 14:00:02 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by panix1.panix.com (Postfix) with ESMTP id 4Vb0Ck4vd3zcbV;
+	Thu,  9 May 2024 14:00:02 -0400 (EDT)
+Date: Thu, 9 May 2024 14:00:02 -0400
+From: Jude DaShiell <jdashiel@panix.com>
+To: orca@freelists.org
+cc: blinux-list@redhat.com
 Subject: Re: [orca] Re: lost website linux accessibility
-To: orca@freelists.org, Francesco Tissera <francescotissera1211@gmail.com>
-Cc: blinux-list@redhat.com
-References: <f2d2325e-636a-437d-a489-b2a2fe6fec7a@harrastenurkka.fi>
- <CAL9unEtZYVaSFOLjJ4LRqXceNte4xDv=F=BZnZ5smYn37AELBA@mail.gmail.com>
-From: =?UTF-8?Q?=27Elias_St=C3=A5hlberg=27_via_blinux=2Dlist=40redhat=2Ecom?= <blinux-list@redhat.com>
-In-Reply-To: <CAL9unEtZYVaSFOLjJ4LRqXceNte4xDv=F=BZnZ5smYn37AELBA@mail.gmail.com>
+In-Reply-To: <Zj0NbP0wKAmWJvkB@d5421.linova.de>
+Message-ID: <a9410e1e-969e-8ff4-6530-5d319b511b58@panix.com>
+References: <f2d2325e-636a-437d-a489-b2a2fe6fec7a@harrastenurkka.fi> <CAL9unEtZYVaSFOLjJ4LRqXceNte4xDv=F=BZnZ5smYn37AELBA@mail.gmail.com> <33303af7-4eaf-449b-a356-043e93f4f138@harrastenurkka.fi> <Zj0NbP0wKAmWJvkB@d5421.linova.de>
+MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Mimecast-Spam-Signature: yes
-X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.8
+X-Scanned-By: MIMEDefang 3.4.1 on 10.11.54.7
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: harrastenurkka.fi
-Content-Type: multipart/alternative;
- boundary="------------7woF0I7wd0CM5dOHFoEQi9nG"
-Content-Language: en-US
-X-Original-Sender: elias.stahlberg@harrastenurkka.fi
-X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of elias.stahlberg@harrastenurkka.fi designates 185.218.88.66 as
- permitted sender) smtp.mailfrom=elias.stahlberg@harrastenurkka.fi
-X-Original-From: =?UTF-8?Q?Elias_St=C3=A5hlberg?= <elias.stahlberg@harrastenurkka.fi>
-Reply-To: =?UTF-8?Q?Elias_St=C3=A5hlberg?= <elias.stahlberg@harrastenurkka.fi>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: jdashiel@panix.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@panix.com header.s=panix header.b=gL8MvqIE;       arc=pass (i=1
+ spf=pass spfdomain=panix.com dkim=pass dkdomain=panix.com dmarc=pass
+ fromdomain=panix.com);       spf=pass (google.com: domain of
+ jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -153,171 +181,64 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-This is a multi-part message in MIME format.
---------------7woF0I7wd0CM5dOHFoEQi9nG
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: quoted-printable
+I doubt they're on the market any longer but a weasel card could be
+plugged into the vga port on the computer and would capture everything
+going out that port with a serial connector could be plugged into a
+hardware synthesizer if memory serves.  Very expensive cards you could
+probably buy a couple nice computers for one of those cards when they were
+available.
 
-hi
+--=20
+ Jude <jdashiel at panix dot com>
+ "There are four boxes to be used in defense of liberty:
+ soap, ballot, jury, and ammo.
+ Please use in that order."
+ Ed Howdershelt 1940.
 
-Do you have experience with the camocr script,
-have you used it, what kind of webcam or capture card would you=20
-recommend for the purpose, my purpose would be to be able to navigate=20
-the bios independently and maybe install proxmox. Would there be a=20
-capture card for this that would be connected to the machine to be=20
-installed and to the other port a machine running camocr
+On Thu, 9 May 2024, Christian Schoepplein wrote:
 
-On 5/7/24 18:15, Francesco Tissera wrote:
-> Hello there,
+> Hi Elias,
 >
-> Are you maybe talking about
-> https://nashcentral.duckdns.org/projects.html
-> and the CamOCR script?
+> On Tue, May 07, 2024 at 06:41:51PM +0300, Elias St=C3=A5hlberg wrote:
+> >
+> >   for the purpose, my purpose would be to be able to navigate the bios
+> >   independently and maybe install proxmox. Would there be a capture car=
+d for
+> >   this that would be connected to the machine to be installed and to th=
+e
+> >   other port a machine running camocr
 >
-> Thanks and kind regards,
+> Do oyu need to access the bios just in case to install Proxmox , maybe
+> because the installer does not boot?
 >
-> Francesco Tissera.
+> If  the Debian installer can be booted you can install Proxmox on top of
+> Debian. This has the advantage that you can install Debian with braille
+> and / or speech support and have full speech and braille support also
+> for the Proxmox installation. I've installed several Proxmox clusters
+> this way, not problem and fully doable for a blind person.
+>
+> Since Proxmox 8 there is also support for a serial console in the
+> Proxmox installer. This might also work  for us to install Proxmox, but
+> I never tried it because we are still using Proxmox 7 at work and all I
+> have to do is update the clusters to version 8 some when in future.
+>
+> Ciao,
+>
+>   Schoepp
 >
 >
-> On Tue, May 7, 2024 at 5:05=E2=80=AFPM Elias St=C3=A5hlberg=20
-> <dmarc-noreply@freelists.org> wrote:
 >
->     hi
->
->     Does anyone remember a website where you could download a kind of
->     realtime ocr script, it used your computer's webcam and this person
->     =C2=A0=C2=A0 had been able to install e.g. proxmox independently with=
- it. There
->     was other Linux stuff on the site, among other things,
->     instructions for
->     installing waydroid and android with talkback support
->
->     Elias
->
->     _______________________________________________
->     Orca mailing list
->     orca@freelists.org
->     https://www.freelists.org/list/orca
->     General information: https://orca.gnome.org
->     Orca documentation (English):
->     https://gnome.pages.gitlab.gnome.org/orca/help/
->     Orca documentation (translations):
->     https://gnome.pages.gitlab.gnome.org/orca/
+> _______________________________________________
+> Orca mailing list
+> orca@freelists.org
+> https://www.freelists.org/list/orca
+> General information: https://orca.gnome.org
+> Orca documentation (English): https://gnome.pages.gitlab.gnome.org/orca/h=
+elp/
+> Orca documentation (translations): https://gnome.pages.gitlab.gnome.org/o=
+rca/
 >
 
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to blinux-list+unsubscribe@redhat.com.
-
---------------7woF0I7wd0CM5dOHFoEQi9nG
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
-">
-  </head>
-  <body>
-    <p>hi<br>
-    </p>
-    <p>Do you have experience with the camocr script,<br>
-      have you used it, what kind of webcam or capture card would you
-      recommend for the purpose, my purpose would be to be able to
-      navigate the bios independently and maybe install proxmox. Would
-      there be a capture card for this that would be connected to the
-      machine to be installed and to the other port a machine running
-      camocr<br>
-    </p>
-    <div class=3D"moz-cite-prefix">On 5/7/24 18:15, Francesco Tissera
-      wrote:<br>
-    </div>
-    <blockquote type=3D"cite"
-cite=3D"mid:CAL9unEtZYVaSFOLjJ4LRqXceNte4xDv=3DF=3DBZnZ5smYn37AELBA@mail.gm=
-ail.com">
-      <meta http-equiv=3D"content-type" content=3D"text/html; charset=3DUTF=
--8">
-      <div dir=3D"ltr">
-        <div>Hello there,</div>
-        <div><br>
-        </div>
-        <div>Are you maybe talking about <br>
-        </div>
-        <div><a href=3D"https://nashcentral.duckdns.org/projects.html"
-            moz-do-not-send=3D"true" class=3D"moz-txt-link-freetext">https:=
-//nashcentral.duckdns.org/projects.html</a></div>
-        <div>and the CamOCR script?</div>
-        <div><br>
-        </div>
-        <div>Thanks and kind regards,</div>
-        <div><br>
-        </div>
-        <div>Francesco Tissera.<br>
-        </div>
-        <div><br>
-        </div>
-      </div>
-      <br>
-      <div class=3D"gmail_quote">
-        <div dir=3D"ltr" class=3D"gmail_attr">On Tue, May 7, 2024 at 5:05=
-=E2=80=AFPM
-          Elias St=C3=A5hlberg &lt;<a
-            href=3D"mailto:dmarc-noreply@freelists.org"
-            moz-do-not-send=3D"true" class=3D"moz-txt-link-freetext">dmarc-=
-noreply@freelists.org</a>&gt;
-          wrote:<br>
-        </div>
-        <blockquote class=3D"gmail_quote"
-style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);pa=
-dding-left:1ex">hi<br>
-          <br>
-          Does anyone remember a website where you could download a kind
-          of <br>
-          realtime ocr script, it used your computer's webcam and this
-          person<br>
-          =C2=A0=C2=A0 had been able to install e.g. proxmox independently =
-with
-          it. There <br>
-          was other Linux stuff on the site, among other things,
-          instructions for <br>
-          installing waydroid and android with talkback support<br>
-          <br>
-          Elias<br>
-          <br>
-          _______________________________________________<br>
-          Orca mailing list<br>
-          <a href=3D"mailto:orca@freelists.org" target=3D"_blank"
-            moz-do-not-send=3D"true" class=3D"moz-txt-link-freetext">orca@f=
-reelists.org</a><br>
-          <a href=3D"https://www.freelists.org/list/orca" rel=3D"noreferrer=
-"
-            target=3D"_blank" moz-do-not-send=3D"true"
-            class=3D"moz-txt-link-freetext">https://www.freelists.org/list/=
-orca</a><br>
-          General information: <a href=3D"https://orca.gnome.org"
-            rel=3D"noreferrer" target=3D"_blank" moz-do-not-send=3D"true"
-            class=3D"moz-txt-link-freetext">https://orca.gnome.org</a><br>
-          Orca documentation (English): <a
-            href=3D"https://gnome.pages.gitlab.gnome.org/orca/help/"
-            rel=3D"noreferrer" target=3D"_blank" moz-do-not-send=3D"true"
-            class=3D"moz-txt-link-freetext">https://gnome.pages.gitlab.gnom=
-e.org/orca/help/</a><br>
-          Orca documentation (translations): <a
-            href=3D"https://gnome.pages.gitlab.gnome.org/orca/"
-            rel=3D"noreferrer" target=3D"_blank" moz-do-not-send=3D"true"
-            class=3D"moz-txt-link-freetext">https://gnome.pages.gitlab.gnom=
-e.org/orca/</a><br>
-        </blockquote>
-      </div>
-    </blockquote>
-  </body>
-</html>
-
-<p></p>
-
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
-nsubscribe@redhat.com</a>.<br />
-
---------------7woF0I7wd0CM5dOHFoEQi9nG--
 
