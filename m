@@ -1,144 +1,182 @@
-Return-Path: <blinux-list+bncBDEPFPWCWMDRBEWBU2ZQMGQE74IBFYI@redhat.com>
+Return-Path: <blinux-list+bncBCLPHQH4XEIRBOWGU2ZQMGQEBPDF4II@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com [209.85.161.72])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2D54B90538A
-	for <lists+blinux-list@lfdr.de>; Wed, 12 Jun 2024 15:20:20 +0200 (CEST)
-Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-5bc5d474d8bsf18412eaf.2
-        for <lists+blinux-list@lfdr.de>; Wed, 12 Jun 2024 06:20:20 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1718198419; cv=pass;
+Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com [209.85.128.199])
+	by mail.lfdr.de (Postfix) with ESMTPS id AC1539053D4
+	for <lists+blinux-list@lfdr.de>; Wed, 12 Jun 2024 15:31:40 +0200 (CEST)
+Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-62a0eb1c809sf127455877b3.2
+        for <lists+blinux-list@lfdr.de>; Wed, 12 Jun 2024 06:31:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1718199099; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bQzoVh3uAk1szKk7XDtLEByeP4KozjUK1tACf0MHkhlL1SGr8nyFCBj6ElTX4Xnl7X
-         T9idtgsqmux1KKTsbuKsHBfKhQP1h5sFNsZ1YkzPtdCsOsGAudwM6DVHvs/1NiwpZOov
-         nUdNNlMSKx++qI0TIR7VMVKh1lWaHn09tA/JYyH4/gmCdQ0QYWwBCcPHo+6qChCrU6HW
-         g6sUWIRgQx6h+7YF+3meKw+KQFDmLLpe+ZPMc6hshpVSUh5AhyhfABmAddJfyVaTvCOP
-         B5aU4lhbILNss49+JVj39LFXAqbsMfdOKQ18sqkQnPpjYQuESWsEDuwyPPP6VBkRUqrD
-         dJIg==
+        b=HZkiXXMm5cNKKrOY1s7xaxHaOVP1it/B3sUy2sroAh2X6RWf/JG58dsl4C8OhdN+1m
+         MAq76fowp/XNDoyYki6GC2HGs74hXypzA6J7QxX/GXQ2THXr7QQiIqJ256pv2HzsVg4i
+         j4NYT2rerPqRfmR7AXP/r/Nv8a0cQ8iwE7UQeRSJt1yN9hbd3yqLpNyT2T5auQtst4z4
+         da8ENhTN8aCG9aexmiEwDkHYzRmSQZ8fvtlqUCZO1rdfKoxd81qrqe8CjWKSSuUoS1UV
+         eLGpec6laBo/jjq0NSh6ITL3uzzQuOFKF924oj9FuWchqjvNS+kPCajOrVacRiYiN9Ss
+         oWrA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-language:subject:from:to:user-agent
-         :mime-version:date:message-id:delivered-to;
-        bh=1WOQYIPSA+FNxHq+jYK01GUdHt4fFbJDNVuXHvsOnJg=;
-        fh=AVWzEmOFhpYruTlAj6hu8qUctkpzkv1qbVjeaWP7Z1U=;
-        b=IoqRNgZHmmdYxiyX1yQTuB6LUO0R5WMOiJ+UAWpoXwoYeN7mewOLGCSGVCF0+jJ5qh
-         XQwFHTgDhm66OM43bb9Swrr0sF3pF1TpoZyixlW9LyW6jsWrIj8mLXaZvzqg82cE2CH8
-         Y8H0vCaxbvDTWfHpva9Y8qG9T9RPDK8ppHTSp29h/2JhwjLR6kUNTLu53qp/TL2wd2In
-         sgG5xEmo8bRHxgBwSD2gwTgvt8HZwBqmZ9ctZ0HXCLXgRDPaZrgxZZjRO1cMN4NpDWCw
-         y7JbivejCuQFR1mbz4da4NJlth6C7JtoSsCt5Akgf4+SOw8Z+TZATGjEbMOLDnx6gLQV
-         yZQw==;
+         :mailing-list:precedence:reply-to:content-transfer-encoding
+         :content-language:in-reply-to:autocrypt:from:references:to:subject
+         :user-agent:mime-version:date:message-id:delivered-to;
+        bh=d2+L2iCtmKxXgx3VVoLOBtzPTKQ1DJpApofImzxtWIA=;
+        fh=49Dpx/aAptmMNAuTEePix0WpdMkIeBhMeAfmsjWO/GM=;
+        b=CgSGAu7MF46Du9iP7oFyVi9F5nVFnB5GdouBUyaZbqZdqcYRMHZ5jJ7E5rdth4u8dy
+         eJpD9Bk9lj7Xu8aYs9MPa/9Wco7/uep55ODbiNlKSfDKgJlyWJIrIUBI0AAL2qWF/ZM0
+         Coe3Bjo4Vc+GXhSV8CvCwU33eoJ+byX8m3Nog/WkqSNFcZ6pOFEjUqDaEJw18497DRz2
+         erzvewFiM7M/T94/XiccFUxE4ZftfcmfiTmK/joeVR8hUJslRZyGL2OfcWC5Z/xMhPEn
+         6m0fTBDn7pYKicCWixA7StbLX3/4FtZecMZd5t+0UWzlUcUdBxqAhDw0SIUq1S9iH+zP
+         en5A==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
+       spf=pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1718198419; x=1718803219;
+        d=1e100.net; s=20230601; t=1718199099; x=1718803899;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
-         :content-language:subject:from:to:user-agent:mime-version:date
-         :message-id:delivered-to:x-beenthere:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1WOQYIPSA+FNxHq+jYK01GUdHt4fFbJDNVuXHvsOnJg=;
-        b=Fo3+FEi0uJsa8J5wGJ/+lj3/+IcU09dQj2rKa7P372E9tnTnhE6WPSPPUBG4Y6c634
-         8PvZnStnspp94qhFOyxxKQ+vsGOHqV2EbY2wPyv6pjVgEOD9ENleQLm1stKvq8HRPmtn
-         OVQl5DzkJD4IB6fKiBb/dGCXXRfODIUL43hmqRv33ZUeZqWjuxFVZZOwdscoLKN1xUA/
-         OquBBWeLS5P5+gikNQ5zF4IzKpxiPvsEUN6mzCIGBkdHmalcWE+a3pdb8mbgUJ9NvhOJ
-         kABWjTlpypYCWo9Tk707aeXU+s9eKRUa1VS6PLX67Z/9JvqsChEwoWyPFBdC02QMU7+4
-         o3gQ==
-X-Forwarded-Encrypted: i=2; AJvYcCUvxPOzb0JJaaMlZsAuoGyHUVdcLBmh2a/IIfYreFZv9ifO264x5tJ7rPsMI3TN/qVHuL6rDZ1aZT05kEC4Bz9P0DeJCnMtXGeH
-X-Gm-Message-State: AOJu0YxLUo4QFogQTpq9DIai1pg2eTLaZLA+oOaieP0RUmhdL6QIh2kf
-	7bXeTH7rtbcET+sn4X7nbR43pTFLPERzQVjCz3msT03XrjXLrAbI2euLWZf48NA=
-X-Google-Smtp-Source: AGHT+IE6ruwHJmq/s1hY6OcP9Wzv2IIx6b7lYY4tDpFVPOpv7xo2hNVPcoh61/B9bK96z3/GuPuJSw==
-X-Received: by 2002:a4a:8552:0:b0:5ba:ca86:a025 with SMTP id 006d021491bc7-5bb3b7a9135mr2038201eaf.0.1718198418396;
-        Wed, 12 Jun 2024 06:20:18 -0700 (PDT)
+         :content-transfer-encoding:content-language:in-reply-to:autocrypt
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d2+L2iCtmKxXgx3VVoLOBtzPTKQ1DJpApofImzxtWIA=;
+        b=nle683DXk2nvDGSk1SxZwbNzcywiFV7GVrFxr2YmHBwW3/Qt9nhf777ucNFzwOkkX6
+         e2EGglskog0hApamBGaZvZtQ/JmTQsXtphMu6ra6zFIHSLrqBbsYRZwlBmIKimUOqUuO
+         UMBQDZKda1UVgwkyAH179VKKn21gnNZx9EBGbYKyj1brPorPq+ciBiB52ZAf1vq2Hea+
+         S6v/PdPEF0kWBRrCSP/eWFxtU85Bx4+OCun+9DMh74+F4UxAvwKx3lPEACy1668IgOnq
+         bcjWcfovwL2MvEvI2hf73hqHo6HkKmjP5bfkfdFr6Gf5mPpiJMa3ulKahrJTPnOOuwHi
+         IdcQ==
+X-Forwarded-Encrypted: i=2; AJvYcCUaua+V8v5D2/OKy/DdmVDx31GCHDhFqUCUAFyNYZDRc9fQAJ/rwVyKf21YXgnisPGgpGhojb7er6HZmyJ3C4jsc7Qm6web8JeI
+X-Gm-Message-State: AOJu0Yw9lujUkcR1yR9LqejDDlb6YvsOl9b7yRem7eNXtTa9SODv3+C0
+	DiBvLC25doVt4Y6T+4Vx9pETlPqIvkV7SQZZxkDjjPUVEtuDzYqJPesLshH+81k=
+X-Google-Smtp-Source: AGHT+IHR0fBfCFiM1NhrGQqMVhXbsT3GdLy3zMH0mDI8f07Fo/BB0DHDb9DWKKGKzxi+fiBqbsQK1g==
+X-Received: by 2002:a05:6902:50c:b0:df7:7399:f98f with SMTP id 3f1490d57ef6-dfe6715d7c4mr1699541276.29.1718199098803;
+        Wed, 12 Jun 2024 06:31:38 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a4a:d47:0:b0:5aa:44f9:9b11 with SMTP id 006d021491bc7-5baaa2abc07ls6060473eaf.1.-pod-prod-05-us;
- Wed, 12 Jun 2024 06:20:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCWBy4fRVrhgamx7WSbxWyo0BkjEHgiQQ8aI2FK0+Nkz0xTTLV8YEosUQolD/XyU6fN6g0MHkP3g31Z4GOrRQFxt3vf10b46BPmBmbnQ
-X-Received: by 2002:a05:6808:2023:b0:3d2:3566:9cb8 with SMTP id 5614622812f47-3d23e1236abmr2069583b6e.53.1718198417260;
-        Wed, 12 Jun 2024 06:20:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1718198417; cv=none;
+Received: by 2002:a25:fc09:0:b0:dfa:77ba:dc1f with SMTP id 3f1490d57ef6-dfaf162a805ls8050773276.2.-pod-prod-06-us;
+ Wed, 12 Jun 2024 06:31:37 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCWcZyqBDjIBIzItVBIsa7UjTlwR9M+8Ybd9/l0mlVOKFqoOeDE95qu/93pdoOafpJ/KX6KkxtRupYHG0lu9Nb5Cy1Q7XESRdT3Kdw2U
+X-Received: by 2002:a25:7406:0:b0:dfb:308f:911 with SMTP id 3f1490d57ef6-dfe691fd32fmr1528787276.60.1718199097729;
+        Wed, 12 Jun 2024 06:31:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1718199097; cv=none;
         d=google.com; s=arc-20160816;
-        b=MUUMXMBwgM3xDuhdktB4WLMPtSZ1auskHnhJ4lgJL9ELkBaKi3cOdY4CWL5s8bka+L
-         CKzWbvd8D1Un8lB3dQJvEKd6ysgVvChuNMMx5/lIdA1S13gVElk0OR4DQbTr62Du9ArT
-         Gzup3f+1lZPfzrY2idm1ypMsS41IE2ki9GVs1VIO1TTNPRdjZrYQMsk1D+KFMcNa90Vj
-         LvXsiT8lH/S3/i39Kah/ItJN6Duc+s4n6WoPp01fJKfTw136nKTadV6wf+7EZ7cgKB6M
-         DDQLf46Exf4gvF8PBQnrR/Y7rxQFwpJCwGJhHTyLMSn+zCbahRSrOPr6Fq2V/HheG5vr
-         2YAQ==
+        b=rdYIKJdD398nPBfoPT0vH44T7KRKUu4na9UIHiOPXC5HxKwTfQ80MWdkXaw7gW2Eeh
+         QwegFHrlbiQhiHuHZFIFxxnxU7npMntbxQiqPIw5MI+8BJETmpRKpSqrn7yJ31NRyQKV
+         WltyXfe2Kq7vILXsXfitL/6OfF/22jfXM6Lu3dX9eH0Dty+dLALUn6iPe3/IEGOL9AQq
+         DekD7c5bI9IEOxm4nqO2xHuGdSSTLzFciaLMORqyV2pLW5J5yqMFi4v6jTZp28rVRCnn
+         yMbyE7GBAC+WkWfH6XXuUlDxljRqVnH9obEm4+4CG7DZ03QzYJMN+9+L9mQJg1e1EpBf
+         Ksyg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:subject:from:to
-         :user-agent:mime-version:date:message-id:delivered-to;
-        bh=sA1vEVRAJ6GY+5VKOx7r+ATQUg393x2GpWe5SlAp89Y=;
-        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
-        b=UEdsRRUiJUNAZ5r1eJCC4fIY8p85+/p3sV5LLyLmmE7DSiFsT9e1oMMWmtrAdSWGCS
-         d3dnm56gsDbhQ9o5RjsTfSDwrCLqDHJlEESoWg0K89gala3dHnMGC+RAvZO31mN9dpdj
-         Eb+rXxRPLhN3H2a2n3+2Mye8KTRo8/w8VbsFdBEpPH2MDplPzqr7C4Nxf0JzPBPwQbxC
-         alJCmBMwWp96pJ4hSM6DhLN3JVmHzyjtSU9qnF3yXQzvN8Bgi4W9Njr7KWhrTTpWqC2P
-         qKJTktDTePbPUWhMBMdz2Dqay8YyoMUCTPK5QSZY2H68b/+DTWbI6ehfdNNYVu3vq7oI
-         4GHw==;
+        h=content-transfer-encoding:content-language:in-reply-to:autocrypt
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to;
+        bh=Eln33tZmlhWZU3JRRtey3LvCP5r+W9j2AOC3l2KCxOo=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=PVf1419CqnfdhK93AxXpoKGLjgmxMVM3VrFAjY3bE5bQFZm8DRirNeaU22rEHhyoBm
+         +/ax67EjAZPhO233atAvHcuWLVF5U49GiolJ1ecZ52CjzWV79YT+eHoPL+t2JYy297py
+         Eizy43OD+xepOZ5fbmB2HN5tD+p6aehsYYdG5OKM7BdoIoBX8RB5iuu4VCA5z+WojQkn
+         RLU/ftaWru9yN8Suo8Vc0RYFJ/AN380iDNxz/2/bhFLp00ccJnS4x/dFebublNqZxNk2
+         G+D1RkyNE7anvJE7mMjbqSuIOGpon9wfrqqblIGCapJYiX5LI3F85yyaI8eKMwE2D8gY
+         46pA==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
+       spf=pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id a1e0cc1a2514c-80d6d38ee38si136273241.104.2024.06.12.06.20.17
+        by mx.google.com with ESMTPS id d75a77b69052e-44038b170b6si163703251cf.389.2024.06.12.06.31.37
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Jun 2024 06:20:17 -0700 (PDT)
-Received-SPF: pass (google.com: domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) client-ip=77.75.78.210;
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+        Wed, 12 Jun 2024 06:31:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) client-ip=192.155.90.172;
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-561-KZVz0HrjO-WMUiDPEVrFIw-1; Wed,
- 12 Jun 2024 09:20:12 -0400
-X-MC-Unique: KZVz0HrjO-WMUiDPEVrFIw-1
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-349-pWCYABRxNfWccpF_WwBD1A-1; Wed,
+ 12 Jun 2024 09:31:34 -0400
+X-MC-Unique: pWCYABRxNfWccpF_WwBD1A-1
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A430A1955D66
-	for <blinux-list@gapps.redhat.com>; Wed, 12 Jun 2024 13:20:11 +0000 (UTC)
-Received: by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 9395619560B4; Wed, 12 Jun 2024 13:20:11 +0000 (UTC)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2EB4D1955BE6
+	for <blinux-list@gapps.redhat.com>; Wed, 12 Jun 2024 13:31:34 +0000 (UTC)
+Received: by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 1F8EB19560AE; Wed, 12 Jun 2024 13:31:34 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.58])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8FF5719560AF
-	for <blinux-list@redhat.com>; Wed, 12 Jun 2024 13:20:11 +0000 (UTC)
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.49])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1CF8219560AD
+	for <blinux-list@redhat.com>; Wed, 12 Jun 2024 13:31:33 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0CE691955DC0
-	for <blinux-list@redhat.com>; Wed, 12 Jun 2024 13:20:11 +0000 (UTC)
-Received: from mxd.seznam.cz (mxd.seznam.cz [77.75.78.210]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-392-55W_812vPoqnlOCqTGWObQ-1; Wed, 12 Jun 2024 09:20:08 -0400
-X-MC-Unique: 55W_812vPoqnlOCqTGWObQ-1
-Received: from email.seznam.cz
-	by smtpc-mxd-54dbcd9fc5-42krr
-	(smtpc-mxd-54dbcd9fc5-42krr [2a02:598:64:8a00::1000:4c7])
-	id 4dd2073d584a54674c38f621;
-	Wed, 12 Jun 2024 15:20:07 +0200 (CEST)
-Received: from [192.168.1.173]
-	(host-213-235-142-85.ip.topnet.cz [213.235.142.85])
-	by smtpd-relay-84df5ff787-kht89 (szn-email-smtpd/2.0.19) with ESMTPA
-	id 821a84fa-2c96-4909-802d-25f603d808b3;
-	Wed, 12 Jun 2024 15:20:06 +0200
-Message-ID: <91ed4ab0-0c90-4188-99d2-7445be7422b5@seznam.cz>
-Date: Wed, 12 Jun 2024 15:20:05 +0200
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8EFD11955D92
+	for <blinux-list@redhat.com>; Wed, 12 Jun 2024 13:31:33 +0000 (UTC)
+Received: from svr.jasonjgw.net (svr.jasonjgw.net [192.155.90.172]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-620-k7ZUS8a6O9Oa5bbhpF6GrQ-1; Wed,
+ 12 Jun 2024 09:31:30 -0400
+X-MC-Unique: k7ZUS8a6O9Oa5bbhpF6GrQ-1
+Received: from [IPV6:fd6e:ebcf:467e:2::1] (jpw.jasonjgw.net [IPv6:fd6e:ebcf:467e:2::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (secp384r1) server-digest SHA384)
+	(Client did not present a certificate)
+	by svr.jasonjgw.net (Postfix) with ESMTPSA id 411AE32156
+	for <blinux-list@redhat.com>; Wed, 12 Jun 2024 13:31:29 +0000 (UTC)
+Message-ID: <174b9aa4-bac2-46c1-ad80-07a7164b0a04@jasonjgw.net>
+Date: Wed, 12 Jun 2024 09:31:28 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-To: Linux for blind general discussion <blinux-list@redhat.com>
-From: =?UTF-8?Q?Vojtech_=C5=A1miro?= <vsmiro@seznam.cz>
-Subject: Beep in Fedora
+Subject: Re: Beep in Fedora
+To: blinux-list@redhat.com
+References: <91ed4ab0-0c90-4188-99d2-7445be7422b5@seznam.cz>
+From: "'Jason J.G. White' via blinux-list@redhat.com" <blinux-list@redhat.com>
+Autocrypt: addr=jason@jasonjgw.net; keydata=
+ xsDNBF/xBRsBDADlVy0XG2HBtn9QyhH5yfQ+V5QwBUTBCMvguxy7FP2FaRB4eWfzEcqlK6vm
+ zg9+26qlMfrnLqsv5G2XAbPYuPMmPSnQgRxXr855Dx369wz5lwioAEaGAGu9/Q8nG/y/9svf
+ ZFkA67LDk7au9AN0+vZu7E6c0IhmirvjN9BxRLvGq8jCNdrR9Oh36y3UevZnpFUBD8gOqdPt
+ mJgMXbfYSrEWzEqDcTOlG2o3ppyXGaj2aLGmyGUtnqK4DWnYCfaPyZaKJ1V/7SvVJ2gXvco0
+ BEeP06rnbJf59ssg3mFv16XLxEEwPjG8g8BiZ4Csf6mGtIJ1HPSc/KNQegLxc1w6sOzs5TQo
+ pYos+kT08lapoBwXhqSKjEN3swdh30v/s46CxFTcD6ksthgDZeSftNbcD8r5u94vIVP11GDO
+ nPRMdZQIcyuNpKl7TqYb6pZOOWq7Yxmva77rV0WDmIrUI/V14ZN0r+PheGgp/4mBM/sueDMh
+ /6ea5l3GuTepsOcwtSMZb6sAEQEAAc0gSmFzb24gV2hpdGUgPGphc29uQGphc29uamd3Lm5l
+ dD7CwQkEEwEIADMWIQTqUmUTWtPL6lh3Yvx4WzV0iFry7QUCZKn3lgIbAwULCQgHAgYVCAkK
+ CwIFFgIDAQAACgkQeFs1dIha8u152QwArR9WmCmFL9r6Kna984Dg8ZE/aRQ9L0I64wmWTrGW
+ 9OO2a6ouRU1XdqkA3D1PoZzZ22Czcjn5BXZkZIOshLWIEnL9Ey/Pj4Y4+PanKOOU1tKsF4bA
+ kteR7RajGwLiVsjAL3E6SB+HS2NwuA99/tuIOiumnR95Xrf6Fd3RTPMCoDXlv6hBDg1lmV5x
+ 3MlSO0dgRZNahpJ+syIKy74FdGKWrZLND1yB0Pmz5SvgPglvGEAvBl5EgH0ha/s8AT/fTYCb
+ GSH0FPU60RWXQdG0ou0mOnUB38nwwxoID6KKw7Ba76IZgex4K6QZiN60wV5zNSTQi64xyu2S
+ m6Z1RC40tKPrEkEfhAVamvF532FukF5oFpu26K5RZmR7hIc20upn1NigJNBqbFd92MptGktZ
+ 0jC3JSW8nEuRfCPp0pQazbu5M14wUKsjk5adG5tD3FnNicE5k1wOTMJIQPMl/X9KDipkmxDH
+ 4h/wB4zD/Gqn0rz3KzV0KucwpJm9vfDW0sMm729bzsDNBF/xBRsBDADd/3voDU1gk90zYHXG
+ X0KWaAztsmCtqG+hNFShiEX9aj/y1nX1Fdwmm04ZiLPLZ0Ogsa5zDrikTnabYxo6z4Ej2TAR
+ OMJLEo5YiT3J8GGHljqVh+LuGBNgF8hnrTvDqvhHL4+jTSIdeSqa3FhL9jiCfDpSAWABDHM0
+ FxGMl6lMiS+DhTpRQs0mbJ9Sb7yYBoYzt9moFG7+v/dH8nG7C/hy7bqOPTeBNCUj8ceOQMkQ
+ yVnjuipaxj5p8YxQA+SNqSTAA/SNoYs7v0Slr6oAkTnM30p+r35zX3RGRIqfduizy5Uo/ZGd
+ T8XOfE++0fI4A5iWQh7q06Yn1jG/5WY1L0N2wgKF53SckdWYMHa9hrB+lzH8azMeggsgrOW1
+ +SdbpF6kKSGTiQytchadJ+q8xtiLiDtbNdV79o7OvgrTVW2dpJ0zDyqdUvwQKHgczd4GFqDj
+ FOTDpzOK92lQVswwG1RILdcSe29g0rdzrVEw7Y+RfFUn2Hl8fHIOuvtvyPqdnb0AEQEAAcLA
+ 9gQYAQgAIBYhBOpSZRNa08vqWHdi/HhbNXSIWvLtBQJkqfeWAhsMAAoJEHhbNXSIWvLtuMIL
+ /0eWg3rtJqq57TVvSKZKtaBBDtxll0FFykWkIQKSzxoLBA7GcmPz3avp0NgzQdHOEjIwQ2Dk
+ IWO0iPyGPrzjAM4jps0pEkI6UofXWDpPuBjY7rYqnGcp1iPsAdaaFSYMQYUgXaFEW/9lws2s
+ wipaUkUiqOT0tCEv+9NF6oB/GRJo9q8K2vZ3Hv2/YFQPmFB/2Qu6pFjCMHs80rscoIO+YLlP
+ wV6+FzkknTewSVrGRJ/OYKCVdaIu3GD5gZkeDqMgAHZ4gy41uX9nM2dxv2+1wAUaQGwLL30K
+ WvRqI9jAA2K3IPGuTPHIVK6ADNymKJ8Uw3yJNLbsthEnjeXIvkQ7PggQm/qyME8NNS6mVSPW
+ TWzS3JUV+O4jT1qBM6r2TnCBdxOe/NVcFR0fYwxXRl3+n/dehU7QAWMDnqvBRQ5SMTZyBK1K
+ 76SANvwEOvlkI2yEBs8mL3WxxPuliybrtxz4qF6aT/D3NSadxiuS/FXl5Xx55n4jNHenPpY+
+ Jlx6Ar305Q==
+In-Reply-To: <91ed4ab0-0c90-4188-99d2-7445be7422b5@seznam.cz>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: seznam.cz
-Content-Language: en-US
+X-Mimecast-Originator: jasonjgw.net
+Content-Language: en-US, en-AU-large, en-US-large
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-Original-Sender: vsmiro@seznam.cz
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: jason@jasonjgw.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of vsmiro@seznam.cz designates 77.75.78.210 as permitted sender) smtp.mailfrom=vsmiro@seznam.cz
+ domain of jason@jasonjgw.net designates 192.155.90.172 as permitted sender) smtp.mailfrom=jason@jasonjgw.net
+X-Original-From: "Jason J.G. White" <jason@jasonjgw.net>
+Reply-To: "Jason J.G. White" <jason@jasonjgw.net>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -150,16 +188,16 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Hello,
 
-is some way to add beep before startup to Fedora 40? Please, how can I 
-do that?
+On 12/6/24 09:20, Vojtech =C5=A1miro wrote:
+> is some way to add beep before startup to Fedora 40? Please, how can I=20
+> do that?
+If you're using Grub as the boot loader, editi /etc/default/grub and=20
+specify the GRUB_INIT_TUNES option as documented here:
 
-Thanks.
+https://gist.github.com/yunga/8df042eb4eb5970ba86ba4ba3ed535d9
 
-Best regards
 
-Vojta.
-
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
 
