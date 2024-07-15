@@ -1,152 +1,152 @@
-Return-Path: <blinux-list+bncBCFIHJ744YGRBRHB222AMGQE2INBDIA@redhat.com>
+Return-Path: <blinux-list+bncBCVPTHE7K4IK3ZWWWQDBUBGPOODTQ@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7AE60931D9C
-	for <lists+blinux-list@lfdr.de>; Tue, 16 Jul 2024 01:29:10 +0200 (CEST)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-6b772457b40sf26459556d6.2
-        for <lists+blinux-list@lfdr.de>; Mon, 15 Jul 2024 16:29:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1721086149; cv=pass;
+Received: from mail-vk1-f198.google.com (mail-vk1-f198.google.com [209.85.221.198])
+	by mail.lfdr.de (Postfix) with ESMTPS id F1CF0931DB3
+	for <lists+blinux-list@lfdr.de>; Tue, 16 Jul 2024 01:39:26 +0200 (CEST)
+Received: by mail-vk1-f198.google.com with SMTP id 71dfb90a1353d-4f33e7d1348sf1145099e0c.0
+        for <lists+blinux-list@lfdr.de>; Mon, 15 Jul 2024 16:39:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1721086765; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qHWZHLqw6LespZEv4xIrqNgrn6qlxPwZCeWyfOgzF+Cj/c046CTYyXaS+aTZRLb+dq
-         xlG8P1s9R9hZnEczj4olASJI0U4SsHjDplTXZtEX1TLoXoaQ6O7A7hS4M6VBFtds1uX5
-         MZaQF+DcF7MuDPwSifQeOtnqhH1FKwWBwYV8AdEpgfHHjoQEPa6fXnqp1HVsUQ89G4SU
-         qQczDRsWGC1n/cujeZdzO2JMzAZbi+iNWxnM+fWhy/I1PbngHeXkXWKQsQchpX0Hp1dh
-         R75TUq8hvEZdF3O2UdDp6yYA1I9xmKdi8KFuTBBIrBbYUgICsWYYGosiq15qwQWbpgpC
-         085Q==
+        b=ySQZtGMCi5u97kQwcWIYtSOT0R7goqWxFsVUAWs9f9DFAYzjyV8nO3kGm1kDThYjI0
+         lWqnSKzpMQQMP6Hkf8tSVcVlSzrVvXmvBTYLt55bdJIvf+nUKnt8MkUa5FsbUm/wHynm
+         U/kIGA7CNzUo8nQCUhfxpYvP/AaHFsFs8j7+sWZ5AI+pFuEPD1IlzcanD3rP4nKCNR8N
+         hYItPnWlxyZ2uEfAhFTbCWCaJBQgXduhKrQlgr2CKnYJKYGMNETdwnCAjiiZc0s/GWVv
+         R0DvFcEFOOMwxYk2GFG0aG7RSrt7OfUe7ffH0c1mmk8xaQSf23Kjgmk+Q9RTzboRHzBI
+         lcfQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-disposition:in-reply-to
-         :mime-version:references:mail-followup-to:message-id:subject:cc:to
-         :from:date:delivered-to;
-        bh=ukX6KATt/wEUzPjg/dCFswEujQZz49w5n+1gt27EfKs=;
-        fh=a2vW8ndVQESWwkPaskmQl2x5MWqhLvwLrlYxOSmdQqU=;
-        b=ocLfXO1lL0TnkhXgj+CGtXUzb05v1I5PdrdpavkmFJ4vOSbsIPZehS3vEJIkvAcN6c
-         XG0ZDTR0HdaimiZJwIrV+/0NeG77wLZP4/fXAFoncN+yKZcfZhSLp4EliYAz3jqhjDCl
-         Y9e6ZckzZdmN/LIslw9M8ogSsKnluNN0Ak1Q5Z3QoR0GptmNkLrw4zs7dbt0V7cj3uda
-         K73PuqoF1Tmm5BqSdZaiC0Rlh5+LJNBYjmLSPATQYZKHF4VKH8s+2HhcceJe57xaayWR
-         W/f6lwXUHtIzqzsQyBV1t77S62YImkIFYsW9mD38KstjMpvryS/st1M2OU+cYlChhqVg
-         XL5Q==;
+         :mailing-list:precedence:mime-version:references:message-id
+         :in-reply-to:subject:cc:to:from:date:delivered-to;
+        bh=nZax94p3lOsVf16WeSn/zvmSfUs6qimJzehO4cB4VB4=;
+        fh=ZhE/fExqYNPNA4t6OsSPlXmA6qkrBogbCB8drGYa64I=;
+        b=P91PoDyBrbZd7GMJ2621RaD2ww2Ffa6Z61AUxyFcsJP1cvWo4P4LefK1+Hses31uv4
+         ckIXyM+b0Tk2rfvIEgHAqtkLBdqf5ADG7iISxeem6yjDBEFraxGQCJ34JpggL5uKkJk1
+         vJgfnCfdUAush0N7kVQxgtUJBvTBNIQA8oL8nOVC9t3Ca10xoWlpO9GHGUzsikl9pYsr
+         KiQS/GTiZ3y0VJ3jRrU4eS1oaL67c4uhoCGUSlyJZPuHIjTtl+8Jgrq3IqQNbQ8Kc9Ax
+         Inj6GqwydCBik2XdzkSFCYBum5N5FRcztKrMaG9jkwaqqmoekUCDNJieoyi5g6xq5Muq
+         OaZQ==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) smtp.mailfrom=blinux.list@thechases.com
+       spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721086149; x=1721690949;
+        d=1e100.net; s=20230601; t=1721086765; x=1721691565;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender
-         :content-disposition:in-reply-to:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date:delivered-to
-         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ukX6KATt/wEUzPjg/dCFswEujQZz49w5n+1gt27EfKs=;
-        b=FLrOY+xZzm8r/SInSOxZ1MmMvFVxLtnNpkNlZSm8WsOpZoFYwzvEnZrAjEOQdbwzlI
-         SZzcwdOXlIfN0b8ddYuvo7lK3Togno8zy52BcwM7IColROVLhWa6l6DM8LrlWVMzybl9
-         XdaJ5+KCSUMxMz9eoR3uZotDiSF+G+XMB/ZWpV6lLgsmtVvnkdcSB/uGDYQa/4W+NV6o
-         Zqy0zqU1Z+kWuSUIUNtwG4oFk8Edxtsot9uJXVzwya65QBvRtTbP3w1Kht7+3+GtJN/e
-         vqOfHn4h20W4Gz3czNoFOf06a3F9HKLRT+gdkjm7FStFhADxjMcT5uJIvi2LL8lhnT9s
-         PwrA==
-X-Forwarded-Encrypted: i=2; AJvYcCXr2BUHHIVAeJVUzrhwC8kWRPH0XhbENi0li0X46OR+3o61bew6gBpHJ8Di3ferX4mmWB6XWvq6Fe+3a4kUX7vQ9Ec89mVrEhoD
-X-Gm-Message-State: AOJu0Yy2SLLXyrgbI0J/OArFT4lkqP1Ynw6nTUrc03Dvrmt4dxPST+9u
-	UsdX2wONXFm3Xhro3LcHU2euuL5QzsDQZXc6GM0vhl5GXHXO9QISVvAJF9x6f0M=
-X-Google-Smtp-Source: AGHT+IFg9iQjL4OOe2gyK2q/bjZHToWe9JeQEoNzYDRhl9OQ3ztil9/6qyfZVyi/EtO3uJVZCyHXsg==
-X-Received: by 2002:a05:6214:d68:b0:6b5:a4c6:4b3b with SMTP id 6a1803df08f44-6b77f625b55mr7196846d6.54.1721086149348;
-        Mon, 15 Jul 2024 16:29:09 -0700 (PDT)
+         :x-original-authentication-results:x-original-sender:mime-version
+         :references:message-id:in-reply-to:subject:cc:to:from:date
+         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nZax94p3lOsVf16WeSn/zvmSfUs6qimJzehO4cB4VB4=;
+        b=o5LR+fv8KOLfl0P6cLh+rWt7dHaA2SyYhsvKNX9GgZGE+cQ6bTfSZMfyo31WtnakYU
+         xA+ooJ66USgTuvjYds4l7u/U8UwXSaqCfg+4RFUJ4J5Dt8l9NCJE4bAnhCB7mNrUo3dn
+         vqdXvYax23T0UAkkhX1qJAxh5RQmEmiFNpQjB78k8xbwrLHon+RGbo6nVSPEwhf4YT5L
+         hKt0BWd+RtIEg1s5B7KZ33NUKmvxKjajCBWQObbDxJeF+cTQRDfv0TKPftY2TzktJ5L1
+         XkocajS/726Xm96dAXu7f10XZawjbhzrXvpong8SIuUNuVZb3bhEvAWsvwF1Ym8fxRxf
+         KO+A==
+X-Forwarded-Encrypted: i=2; AJvYcCUO8z8at0a2+D8U89EvcZtOn/uT7rJaiPAbEt9xZalEF4u5cB+G15xo4rp7OmY2muCvRvOv9u9bNYf09IUuSYTPun+U33Pc+kV2
+X-Gm-Message-State: AOJu0YwWkHduKJMJzfpGZONABl69YV/GQ5HYn9Ogl11W6bFp56cc+lep
+	Adlo1Nx04nRTo/cwFMdJ6NDCDUvRdpWYazHPrmEevDDVkV5dSuNu/fbmRCVUv/0=
+X-Google-Smtp-Source: AGHT+IFr66yhz6xfSWzdkeZxXWVHd+h3fgKcnOHy51SK2c91AcdDWzvt+5Zcj8al4MlgNEW4uW5oOA==
+X-Received: by 2002:a05:6102:3352:b0:48f:95cd:e601 with SMTP id ada2fe7eead31-4914c578b23mr619955137.25.1721086765483;
+        Mon, 15 Jul 2024 16:39:25 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ad4:59ce:0:b0:6b5:deec:5eb with SMTP id 6a1803df08f44-6b74b42d37els80615876d6.2.-pod-prod-02-us;
- Mon, 15 Jul 2024 16:29:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCW9BKWjXijF7EHaVHNnUtTlpeA8Fq45YxJPklvXdV6oC+z7xMWmQ7A82COufOT4V+Vch1aGYX5L+ZRo93a0PfQY1CIV+zDI9Gkh3BI2
-X-Received: by 2002:ad4:5dc2:0:b0:6b4:f853:3855 with SMTP id 6a1803df08f44-6b77f52e844mr9548676d6.24.1721086147737;
-        Mon, 15 Jul 2024 16:29:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1721086147; cv=none;
+Received: by 2002:a05:6214:1911:b0:6b0:8c6c:833b with SMTP id
+ 6a1803df08f44-6b74b31ec4els67502966d6.0.-pod-prod-08-us; Mon, 15 Jul 2024
+ 16:39:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCXkkxytCFGO1Nxinmx7yKSdZo+ePO0RbVA3EwjfyCj8qdUM4KtygtbtGrIuqwCYR3W1jwiDEL8HZws326rnJxKl1iNtOevyIpmhr0hL
+X-Received: by 2002:a05:6102:2c8a:b0:48d:a5ff:2f5f with SMTP id ada2fe7eead31-4914c4e9b4fmr572225137.12.1721086764658;
+        Mon, 15 Jul 2024 16:39:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1721086764; cv=none;
         d=google.com; s=arc-20160816;
-        b=RS/Ao8XLHXDICGsecQ/WvP5dcnEfkwpjUmn3LRfcmHSy2xxWsrkUGpajRaIFz5Arjp
-         VxlMv48ULLK3S9MaL46Sa5KeHCNqeGhtqjYe/3ud119goH8frOSfev+zV8Yh+xqKxhpx
-         0xMtxkWCtW1BBbbd6wRJ0rI+q7/0K7xwo21asq9FhYi6x3C3ndfQX2Y3cSqJFiFW+0UI
-         o9qLJoEN6jx3BdHbxSR165LNY0TRtq1xop6caSlmNF0hhfQ4RKTZ70ND+WYBDWz3y7U5
-         h8E2L0xSpsFcSsQqvwNADF6OU8NSZQcLfcm/hA6fiXaoPYHm3lGjokmp1LphpZUshyGQ
-         X7ag==
+        b=oNH4Pg4eDoT4QhuZlFqDe0+5CVvUVJTt0566MewVRoYM09rbZgZjoD1/gUrBfOJqH3
+         pnW7pGbVQ6UoEYTcsVOSYPf4uK9CPWksjq1dT12l1kHmO6q4V7Zs4WHnnncrTcDptSM1
+         TRJ2SfT1+haqaigSNVIRXDjXLsSWHaXfJKdmGQFr51w9+K0ID/oXr2A1gl5AU384kMGw
+         V0P5AWKR5LNQa9GGwwG7LPU8XTMWkfHiFGKLwOvkhoGfc8DFWT4L/DLoqNaAILof+ZiT
+         3apfK7JpClq7YXJQJSUQ+Jbd/yHpQNUZ0yzlmBlKm3gLM7EqvYNP3jrJ9DJZiH10G8NR
+         tPgw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:in-reply-to:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date:delivered-to;
-        bh=qo+dImYa9jU6FwAR5ClFdB8znDdxgTScr9fyWnukaDk=;
-        fh=4ZoohSEpWMrCXTqrMRZ92m8uZxMeBNEBsLVncW+B5g8=;
-        b=YUtP5oUlGfuIYge3wijx00vBg4dEWYabH7MMtkFUj39eVG3KYDQXSmRHVhP7dv/F4c
-         AEZmZ3iNdtcJ0WYaFcwz5U7bnmAVitGO5HBQJ+ZxpItEU47NM7ImwDltIEKmzwROd/gK
-         ljefJ5ipuVantG5XRPYtaMfwnAxSlBXSwdtraJKlXxpjiBpez5sTKfNWAUIT6n8kKBBE
-         Q9/OalaOyKxS7/iLNbjC3K/dd+I4jhGJVNCVaMRuvqA2CvpSru+NINEn8LavagKRpLNo
-         /VNYY5kcRELALAy6NUPHJOmYXSukWEp8LNRkzq09UrFowhMK9bnlg+jUsm2eR5oMuicz
-         oeSw==;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:delivered-to;
+        bh=nZax94p3lOsVf16WeSn/zvmSfUs6qimJzehO4cB4VB4=;
+        fh=5BGpd9k4y8F62sA2rfcSjN7zgK8lTBpG/Wr3HsCq4Ec=;
+        b=ucw0r0pmnE039VC5tTVQgIOVQz50008mGjzQJ2XgL+VOj6EZARvqyc3jiNUnjl71uv
+         IWKoo4rcuBZttTaeZKMujX2gpAYbEGd/AFdkIotgnb5qxeQSJmwVVBvEItE3edWZ7QXM
+         i+aIZzf5lkxmUOjVSXojAjYQ2cp/74x95onwAuQniBQiZT36lWUDUGr2MmO5BMMrzKty
+         OWTuagg7bmDKSOo006zq6R+xkc1cLB89JT40eOn5ePXRl97tpm71Uc1DR/kqD1nhhLKp
+         BxIoF0dlqV88K+4spCnoVfXbXrSear0xj8Qxq0/mGglmFP4/eTxI+S+ivJ3U0c1Zt24/
+         4d7g==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) smtp.mailfrom=blinux.list@thechases.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
-        by mx.google.com with ESMTPS id 6a1803df08f44-6b761a25d60si62468286d6.407.2024.07.15.16.29.07
+       spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.128.131])
+        by mx.google.com with ESMTPS id d75a77b69052e-44f5b824b04si64703791cf.672.2024.07.15.16.39.24
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jul 2024 16:29:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) client-ip=54.39.151.74;
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+        Mon, 15 Jul 2024 16:39:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-520-72Iqt2NnPBaWbCUKzt_oiA-1; Mon,
- 15 Jul 2024 19:29:06 -0400
-X-MC-Unique: 72Iqt2NnPBaWbCUKzt_oiA-1
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-503-rhPXYwzpMda0F0b2XPv9nA-1; Mon,
+ 15 Jul 2024 19:39:23 -0400
+X-MC-Unique: rhPXYwzpMda0F0b2XPv9nA-1
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 81C1E1955D4F
-	for <blinux-list@gapps.redhat.com>; Mon, 15 Jul 2024 23:29:05 +0000 (UTC)
-Received: by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 723141955F66; Mon, 15 Jul 2024 23:29:05 +0000 (UTC)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9261A1955D4C
+	for <blinux-list@gapps.redhat.com>; Mon, 15 Jul 2024 23:39:22 +0000 (UTC)
+Received: by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 838021955D44; Mon, 15 Jul 2024 23:39:22 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.23])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6FAF61955F65
-	for <blinux-list@redhat.com>; Mon, 15 Jul 2024 23:29:05 +0000 (UTC)
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.58])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8100C1955D42
+	for <blinux-list@redhat.com>; Mon, 15 Jul 2024 23:39:22 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id ED3D119560B3
-	for <blinux-list@redhat.com>; Mon, 15 Jul 2024 23:29:04 +0000 (UTC)
-Received: from thechases.com (thechases.com [54.39.151.74]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-186-8IRIWbWFNwiWgHausLFGMA-1; Mon,
- 15 Jul 2024 19:28:57 -0400
-X-MC-Unique: 8IRIWbWFNwiWgHausLFGMA-1
-Received: from localhost (thechases.com [local])
-	by thechases.com (OpenSMTPD) with ESMTPA id 1e6a7618;
-	Mon, 15 Jul 2024 23:28:56 +0000 (UTC)
-Date: Mon, 15 Jul 2024 18:28:56 -0500
-From: Tim Chase <blinux.list@thechases.com>
-To: Karen Lewellen <klewellen@shellworld.net>
-Cc: Linux for blind general discussion <blinux-list@redhat.com>
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1006819560B1
+	for <blinux-list@redhat.com>; Mon, 15 Jul 2024 23:39:22 +0000 (UTC)
+Received: from atlas.bondproducts.com
+ (23-24-6-165-static.hfc.comcastbusiness.net [23.24.6.165]) by
+ relay.mimecast.com with ESMTP id us-mta-414-_NZJsAlxMCWGycECS7_smg-1; Mon,
+ 15 Jul 2024 19:39:19 -0400
+X-MC-Unique: _NZJsAlxMCWGycECS7_smg-1
+Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
+	by atlas.bondproducts.com (Postfix) with ESMTP id 3039344FC6;
+	Mon, 15 Jul 2024 19:39:19 -0400 (EDT)
+Received: by users.shellworld.net (Postfix, from userid 1005)
+	id E84231001B4; Mon, 15 Jul 2024 19:39:18 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by users.shellworld.net (Postfix) with ESMTP id E7B421001B0;
+	Mon, 15 Jul 2024 19:39:18 -0400 (EDT)
+Date: Mon, 15 Jul 2024 19:39:18 -0400 (EDT)
+From: Karen Lewellen <klewellen@shellworld.net>
+To: Tim Chase <blinux.list@thechases.com>
+cc: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: how many Linux machines do you run?
-Message-ID: <ZpWwuIvdyKoUqtoB@thechases.com>
-Mail-Followup-To: Karen Lewellen <klewellen@shellworld.net>,
-	Linux for blind general discussion <blinux-list@redhat.com>
+In-Reply-To: <ZpWwuIvdyKoUqtoB@thechases.com>
+Message-ID: <Pine.LNX.4.64.2407151938080.3552371@users.shellworld.net>
 References: <Pine.LNX.4.64.2407142337570.3536958@users.shellworld.net>
  <71972198-e2e4-9aa4-ffa2-242ad9e066cf@hubert-humphrey.com>
  <Pine.LNX.4.64.2407151356560.3547821@users.shellworld.net>
  <f3eee8ac-4e0b-fcd6-52dd-9aca74743226@straddlethebox.org>
  <Pine.LNX.4.64.2407151725360.3550597@users.shellworld.net>
- <ZpWWPBC3szmpqODv@thechases.com>
- <Pine.LNX.4.64.2407151750350.3550890@users.shellworld.net>
- <ZpWi5d1A4TkwT3n2@thechases.com>
- <Pine.LNX.4.64.2407151835130.3551659@users.shellworld.net>
+ <ZpWWPBC3szmpqODv@thechases.com> <Pine.LNX.4.64.2407151750350.3550890@users.shellworld.net>
+ <ZpWi5d1A4TkwT3n2@thechases.com> <Pine.LNX.4.64.2407151835130.3551659@users.shellworld.net>
+ <ZpWwuIvdyKoUqtoB@thechases.com>
 MIME-Version: 1.0
-In-Reply-To: <Pine.LNX.4.64.2407151835130.3551659@users.shellworld.net>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: thechases.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-X-Original-Sender: blinux.list@thechases.com
+X-Mimecast-Originator: shellworld.net
+Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
+X-Original-Sender: klewellen@shellworld.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of blinux.list@thechases.com designates 54.39.151.74 as permitted
- sender) smtp.mailfrom=blinux.list@thechases.com
+ domain of klewellen@shellworld.net designates 23.24.6.165 as permitted
+ sender) smtp.mailfrom=klewellen@shellworld.net
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -158,104 +158,115 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-No worries.  You *can* just use
-
-  $ dpkg --get-selections > all_packages.txt
-
-for everything.  You'd just need to let the recipient know that
-anything that doesn't have "install" for the status was likely a
-package that was installed at one point but then uninstalled later.
-Feel free to do that and explore the resulting "all_packages.txt"
-file.  You'll find lines like
-
-  npm      deinstall
-  wget     install
-
-By piping it through "awk" before sending it to the file, it filters
-out the lines where that last column (the package status) is anything
-other than "install" and then prints only the package's name of the
-remaining lines (without the useless status info).
-
-The results will have lots of system-type packages in it, but it
-should at least let the recipient know what was installed on the
-system.
-
-However, if you send the whole file (or just the "install" lines),
-someone with a Debian-based system can use that as input to
-"dpkg --set-selections" to automatically mark them for install with:
-
-  $ dpkg --set-selections < all_packages.txt
-
-which can be handy.
-
--tim
+Actually,
+Chime was richly helpful off list, I got the installed only items.
+took me like 5 tries, but still lol.
+Karen
 
 
 
+On Mon, 15 Jul 2024, Tim Chase wrote:
 
-
-On 2024-07-15 18:36, Karen Lewellen wrote:
-> Tim,
-> Sorry if I am being a moose feather, but I do not use Linux.
-> as I am sharing the data, i. e. want it saved in a file, do I need the
-> Install-print part of the command?
-> 
-> 
-> 
-> On Mon, 15 Jul 2024, Tim Chase wrote:
-> 
-> > $ dpkg --get-selections | awk '$NF == "install"{print $1}' > list_of_packages.txt
-> >
-> >The "dpkg --get-selections" lists all of the packages, then the
-> >"awk" portion filters it to those that are currently installed, and
-> >prints the package-name.  The results can be dumped to the screen,
-> >sent to a file (as above) or piped to "less" for review, whichever
-> >you prefer.
-> >
-> >-tim
-> >
-> >On 2024-07-15 17:53, Karen Lewellen wrote:
-> >>Hi Tim,
-> >>the goal would indeed be currently installed packages, seems to be Debian,
-> >>as dpkg seems to be here.
-> >>may I have the command for  installed packages again?
-> >>here it starts with dkg, and I want to be sure this is not a typo.
-> >>
-> >>
-> >>
-> >>On Mon, 15 Jul 2024, Tim Chase wrote:
-> >>
-> >>>>>If the server is running an RPM-based distribution, then rpm -qa, but it
-> >>>>>will likely print out a list of thousands of packages
-> >>>>
-> >>>>Is there a way to copy output into a file?
-> >>>
-> >>>The usual Unix way:
-> >>>
-> >>>$ rpm -qa > list_of_packages.txt
-> >>>
-> >>>and you can then review "list_of_packages.txt" as you see fit.
-> >>>
-> >>>If it's a Debian-based system, you can use "dpkg" to obtain similar
-> >>>info:
-> >>>
-> >>>$ dpkg --get-selections > list_of_packages.txt
-> >>>
-> >>>which will include all installed and installed-but-then-uninstalled
-> >>>packages.  If you only want the currently-installed packages, you
-> >>>can use
-> >>>
-> >>>$ dpkg --get-selections | awk '$NF == "install"{print $1}' > list_of_packages.txt
-> >>>
-> >>>-tim
-> >>>
-> >>>
-> >>>
-> >>>
-> >>>
-> >>
-> >
-> 
-
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+> No worries.  You *can* just use
+>
+>  $ dpkg --get-selections > all_packages.txt
+>
+> for everything.  You'd just need to let the recipient know that
+> anything that doesn't have "install" for the status was likely a
+> package that was installed at one point but then uninstalled later.
+> Feel free to do that and explore the resulting "all_packages.txt"
+> file.  You'll find lines like
+>
+>  npm      deinstall
+>  wget     install
+>
+> By piping it through "awk" before sending it to the file, it filters
+> out the lines where that last column (the package status) is anything
+> other than "install" and then prints only the package's name of the
+> remaining lines (without the useless status info).
+>
+> The results will have lots of system-type packages in it, but it
+> should at least let the recipient know what was installed on the
+> system.
+>
+> However, if you send the whole file (or just the "install" lines),
+> someone with a Debian-based system can use that as input to
+> "dpkg --set-selections" to automatically mark them for install with:
+>
+>  $ dpkg --set-selections < all_packages.txt
+>
+> which can be handy.
+>
+> -tim
+>
+>
+>
+>
+>
+> On 2024-07-15 18:36, Karen Lewellen wrote:
+>> Tim,
+>> Sorry if I am being a moose feather, but I do not use Linux.
+>> as I am sharing the data, i. e. want it saved in a file, do I need the
+>> Install-print part of the command?
+>>
+>>
+>>
+>> On Mon, 15 Jul 2024, Tim Chase wrote:
+>>
+>>> $ dpkg --get-selections | awk '$NF == "install"{print $1}' > list_of_packages.txt
+>>>
+>>> The "dpkg --get-selections" lists all of the packages, then the
+>>> "awk" portion filters it to those that are currently installed, and
+>>> prints the package-name.  The results can be dumped to the screen,
+>>> sent to a file (as above) or piped to "less" for review, whichever
+>>> you prefer.
+>>>
+>>> -tim
+>>>
+>>> On 2024-07-15 17:53, Karen Lewellen wrote:
+>>>> Hi Tim,
+>>>> the goal would indeed be currently installed packages, seems to be Debian,
+>>>> as dpkg seems to be here.
+>>>> may I have the command for  installed packages again?
+>>>> here it starts with dkg, and I want to be sure this is not a typo.
+>>>>
+>>>>
+>>>>
+>>>> On Mon, 15 Jul 2024, Tim Chase wrote:
+>>>>
+>>>>>>> If the server is running an RPM-based distribution, then rpm -qa, but it
+>>>>>>> will likely print out a list of thousands of packages
+>>>>>>
+>>>>>> Is there a way to copy output into a file?
+>>>>>
+>>>>> The usual Unix way:
+>>>>>
+>>>>> $ rpm -qa > list_of_packages.txt
+>>>>>
+>>>>> and you can then review "list_of_packages.txt" as you see fit.
+>>>>>
+>>>>> If it's a Debian-based system, you can use "dpkg" to obtain similar
+>>>>> info:
+>>>>>
+>>>>> $ dpkg --get-selections > list_of_packages.txt
+>>>>>
+>>>>> which will include all installed and installed-but-then-uninstalled
+>>>>> packages.  If you only want the currently-installed packages, you
+>>>>> can use
+>>>>>
+>>>>> $ dpkg --get-selections | awk '$NF == "install"{print $1}' > list_of_packages.txt
+>>>>>
+>>>>> -tim
+>>>>>
+>>>>>
+>>>>>
+>>>>>
+>>>>>
+>>>>
+>>>
+>>
+>
+> To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+>
+>
 
