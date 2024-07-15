@@ -1,162 +1,164 @@
-Return-Path: <blinux-list+bncBC3NDNGRUAMRBE5P2W2AMGQELLTSH4Q@redhat.com>
+Return-Path: <blinux-list+bncBCV3N6GOXMCRBKOB2W2AMGQETPY4XJY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mail.lfdr.de (Postfix) with ESMTPS id B63809318F7
-	for <lists+blinux-list@lfdr.de>; Mon, 15 Jul 2024 19:08:37 +0200 (CEST)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-447f73b3e35sf54535481cf.1
-        for <lists+blinux-list@lfdr.de>; Mon, 15 Jul 2024 10:08:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1721063316; cv=pass;
+Received: from mail-oa1-f70.google.com (mail-oa1-f70.google.com [209.85.160.70])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1A2D19319C7
+	for <lists+blinux-list@lfdr.de>; Mon, 15 Jul 2024 19:47:23 +0200 (CEST)
+Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-25e2a9f1414sf4691339fac.0
+        for <lists+blinux-list@lfdr.de>; Mon, 15 Jul 2024 10:47:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1721065642; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aJMMCTHRcPFmQ717D3hrNy+vHCH5/aaau8+Vd+83sn2VaJ/aMa4a7SR2j2VGzH4yKo
-         LOwJ3wJ2yIN3TM4tEUBpmV7s7p/SQ02OtrjqX6cyt5krZ9qhanie7EeRpaPn4zTf8QPo
-         VNVM2MwAtVqfQeeqN/rw0OAclZFzjAYsC/386Q7xPrDidHpK0JPPf8am9OEp6OolZoph
-         bVxv01W4oHWDkwob7h+hqNftfZzTIehLrBgiMh9nUksRHLnOherRfCRouav3NFbJur0L
-         405Cr093zh4MvWakcGpwN5xFUedH/zFx4e3a4uVOQIJa54wmBsLR5MMr+W/wZcQSRpzw
-         W6kw==
+        b=M2rRxcbgh0tzc+gsu23W9sbcsOByHAfHZr/xKYk1C9iLFIcdecTAIJdLOgwytZ9diF
+         n+01WLUez4mkIsJ5BKSrRMTZU0xgVrjKNzKuF8joJOq6AbwrsXuzQeoFlry/3GPD+MHG
+         8GOVVaXzrw7KjodmgZNdJyL02BqsxTkyfUQD5uCMoSPRow1pk2iekBCPmTUYjObPtloG
+         pmige+HYzePk+KSrqlgpShQtbBuVuw+3LiUAs3d0mf3JZBMkRHKuLs9exjJX2PIu1Gin
+         jEYPpVDxUB7mOazrf8e5vA7KRTHq2S6Bk9xjuvwXo4kyxAjwLbRCrnQirpE2iEqf03Oy
+         eYlQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:mime-version:references:message-id
-         :in-reply-to:subject:cc:to:from:date:feedback-id:delivered-to;
-        bh=wvU6UeOsEBxC4q/Xvz2BO1n4CtoK48dG6Wya0SjLroc=;
-        fh=HPoACgF1/hykC8g97I5uJ6aLXbtTupL3PKqjq118YR8=;
-        b=jCkDTX+yinLocdsejPxYsL3FmIcNH6Dmq1hEy7ifTsiSQ5HRTqLKE1RN2BybYSyAFC
-         1Ns/juXAvsiU1aagj3cTtLHAPSDkrDeJ8z82FM2Yp9xv+qGoJvXsB055eNJHhYP3wWzC
-         1Pm742Ka7N1UIoHFxQIHIRbI0HM2h/UqH7l5s74Z2KZyBpaBVDGZP2SyJl4oY69kIjf8
-         +9/SUDoEUqhvZ/kNiZQ+IxKO/N4R+MG6SVRMbYjibLNSW2NJlsZusIwLBqOX0zxLPMv5
-         AzrD7a5OdNdpzZtC6FDCJW790whDpoq8Wv+SJPB37KZRNJPCPtRo4npDV0tcwX0zxjrT
-         rJTQ==;
+         :mailing-list:precedence:reply-to:content-language:ui-outboundreport
+         :in-reply-to:from:references:to:subject:user-agent:mime-version:date
+         :message-id:delivered-to;
+        bh=hyw9J/uEJ0+m1Vks9wODSUGxyczlStAeVbaBju8gYog=;
+        fh=cGfUAUaExFAYfTjM/O4bGtg4kJssaxQy0gLuIepPG+E=;
+        b=LEanExE+mW0YaoH40kLts4VNRgE861sfGrTnQnt3fYn7g/uW3RgrMbXJcFufWVf4+V
+         uLdvMjTwRGNC0uq470ttZ8BCNCPRe3uIUp+KTqvaNwt+fYZajoglBCl1srB3B3vZ4XTv
+         8fn0xGcEbw4dIXSNiKk104aS8eoI5qngzGP6pup9N+9uMlFjsFk4w/D9MVLEBZaRO/oX
+         01gOCT7ys+7yedUzt2EXuGAWFlmmNVFE/ipNalmoxfi4N4dk98SAhj9YpbDlnManyrlN
+         yCcuF7fHM8e1yZEs/6Essd4vtxanVGzrzjcStuVgSzx7x/ASsffc1xtRIXvR80kpEw/0
+         6rJg==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of chime@hubert-humphrey.com designates 103.168.172.159 as permitted sender) smtp.mailfrom=chime@hubert-humphrey.com
+       spf=pass (google.com: domain of kyle@gmx.it designates 212.227.17.21 as permitted sender) smtp.mailfrom=kyle@gmx.it
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1721063316; x=1721668116;
+        d=1e100.net; s=20230601; t=1721065642; x=1721670442;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:mime-version
-         :references:message-id:in-reply-to:subject:cc:to:from:date
-         :feedback-id:delivered-to:x-beenthere:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wvU6UeOsEBxC4q/Xvz2BO1n4CtoK48dG6Wya0SjLroc=;
-        b=ZZo52OQs19uGxyM7hW/9pZaxJwv7mNLRza7/4f67t3Vx9BGjr629s+uFEtfbIKiN2a
-         UfAaPuGy8UCGoWBFwWeC1R0rnmUCn02RsPG35S9zSd4u7gILE/pnYaU4o7HeDmTzXif7
-         gpv8KFZV3kv/ldX1uWbqMvUnfPjlUYrM4qPqY9k3w5/l8HXSP8lRc2gwvH0kVGuvMLG/
-         QKnyTsr2ihSDBWrWFcubbVqvI4x97vZ/KSnzZgYBocCejUaGyI7STKtjSQ4nNJP/6A7C
-         7HJ4o1+v8fN3ihpaME/nERkkXtuEOEcioMaBdXijgwUIvOiaG3q921P7GbSos4WeDS3U
-         dpEw==
-X-Forwarded-Encrypted: i=2; AJvYcCUdWjrLgqikXjVxLZkDdbYRlhymoqJDgmULN6y0U6aCsblH4H7BxW9ELwN7aNohHR/yqLwhblnNESQ39YIUCGgMvrNW4nSufXio
-X-Gm-Message-State: AOJu0YztFs1UdAPRzYRV2OxugzEZ36d51EvbKfbOx2qIO2Q8LKvwGEPc
-	VYuSpIWT1jWR1KPdo6hXwPKUy0TSrafDV+GLQVOXijwjn5gL5V/FpNEgoVKLCoo=
-X-Google-Smtp-Source: AGHT+IFLBsX1TAKc9D5NdBVwR4U8hTfDuiWIvCS1WSzwdGvz5f7qNPhnCj4nfyC4BNo84oei7SYGxg==
-X-Received: by 2002:ac8:7d55:0:b0:447:df1a:d96f with SMTP id d75a77b69052e-44f7918e5b9mr4722941cf.40.1721063316171;
-        Mon, 15 Jul 2024 10:08:36 -0700 (PDT)
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender
+         :content-language:ui-outboundreport:in-reply-to:from:references:to
+         :subject:user-agent:mime-version:date:message-id:delivered-to
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hyw9J/uEJ0+m1Vks9wODSUGxyczlStAeVbaBju8gYog=;
+        b=WQWIUBjEc/LI+qSmWubSTrq6Vvrr34sWuXO7G5uh1zneZI2+JZy7LZJk4hkZkjE2RK
+         nxlAtYDmDBWu/WgOX+OFUtRZhza3tTFH2ydnXy5g7jvXO9PGJOG4C9qwhZk1htlixRZ1
+         Gta+bANjL+23GqPonoIpyLQJsE9KR/Tj69EFhXmvI3HaRpA0igIc/c9+w4G9ddjJR84Z
+         buNCwkvHyp8bU5nbeshfLOBzHIpAbp/82LJbg2xazcj5B5OeN4UfW7UOqHSmE0cRWFi9
+         Wm/Ln91FduvgFPEQ1hVFIX0eXVIIq/k1aWTWwltr7MUg87m9o+oWRrRcexMfOJdqEWDZ
+         actA==
+X-Forwarded-Encrypted: i=2; AJvYcCWiUyIcxbtzhcfz4OaePyhUR062wPuF3zwWMu+def6+G+hdmX89Z7qSLcLIZuu6a0hErqUIc+Cw8/nAK47MB8kTrGtmONoJDM9r
+X-Gm-Message-State: AOJu0YzfHov2DY/y+DtfLxLpAXe1GAtwH1EKed9anhEICSXRkmqixP/s
+	ihVKmvMNYUSBykNvHrDlWlqvl6+jV4sVvaZJVSc8TJQ3LbwFz7TGteywuWLaflI=
+X-Google-Smtp-Source: AGHT+IGbHE6exmzd5JF6yjFhYXU7QjARFKWr0NKw2QqoFGa9RTsCBEbweiJcxnQj8H5m8tP+Z4pIQQ==
+X-Received: by 2002:a05:6870:2309:b0:254:c777:6327 with SMTP id 586e51a60fabf-260b8b75e3cmr155349fac.36.1721065641682;
+        Mon, 15 Jul 2024 10:47:21 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ac8:440d:0:b0:440:348c:4bc with SMTP id d75a77b69052e-44d03389e4bls76061381cf.0.-pod-prod-06-us;
- Mon, 15 Jul 2024 10:08:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCWhFhNanbuhdRKKS/JJgmpaS3WQzanMeZxjdxpZtjdeYw2voKhGMAXoV/ub1GAc3q32bUjv5IRV9fb+dlZXYfVPjSizc0HhSpHPeki5
-X-Received: by 2002:a05:622a:28a:b0:446:6f8f:6cb4 with SMTP id d75a77b69052e-44f7910d7cemr6532321cf.21.1721063315067;
-        Mon, 15 Jul 2024 10:08:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1721063315; cv=none;
+Received: by 2002:a05:6870:200c:b0:254:7203:f69f with SMTP id
+ 586e51a60fabf-2603ad989c0ls3289060fac.2.-pod-prod-05-us; Mon, 15 Jul 2024
+ 10:47:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCXhWZLB7abqISOVl1gztpMC6lmYSk3jqJ4wKISSDPtoGHMCDCTn0AMAASkhwBUPbPWWuYf6E1cGFOCaBYG5XZiuNIExguXU14qRxFFf
+X-Received: by 2002:a05:6808:15a8:b0:3d9:dbd1:88f2 with SMTP id 5614622812f47-3dac634cbe9mr457889b6e.16.1721065640714;
+        Mon, 15 Jul 2024 10:47:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1721065640; cv=none;
         d=google.com; s=arc-20160816;
-        b=SJvesR+vHJMYYGOjqKbk+qzCJYQgrM9g+pBZtpsU1pLiaLlbEyK+lPKQZxSbzOQAG3
-         JqCJQ1OgegmexckEL0AZy8n3oZggf4j70emfzoPMpo2GyAPu0LewZN+D6jiieWHfeLAg
-         VCODW5/P3T7kU+ufJnVun9c234tBlf6zD/Qk5EchlUGap8iWtBD3DFjOSn/ll3cz+Yz4
-         KbvbXwKmuPY2ohWs9Hdd+/6QoHmsqAmY2pgavOuwbo02cFCvsqWjNuubk/sS3Pu5VwKG
-         xWt9sro6/U17jZv6wG47JHa6edbjwokWA9/cB67L58JUPpENlfC15MywPm2hFq+Ije+E
-         +DZg==
+        b=fAgRF+XNdASLlvuwEzoooSKP1jDL8H2Qy5FpPiJ1AHTp63GgKfnz3o5d/czDhi6YMM
+         Mc64eyruzRr5oEru2azlMmIwJnzYBQp+lsIcpAME3q6BDzQxejczYvDaVLsyHljfyqfX
+         i8r+wTbzOgCvfuumCZFH63jkn893xH+rczpEHFfbUKN90oDJe53zxMUHZ7bVuvk3lvux
+         fL0+coQz1zFyeBLz7M9+A4qDlkxMGzpnSACn3BR1bOwW5VRbD66s2UPtxc87jCX0SMh5
+         LFUkEqlnrMW4bcdOMbaCz2XkF7pOlap6tL9LDA+LfTNOKJYTPaHfBPe9uf26dZNTWTSK
+         g7Nw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:feedback-id:delivered-to;
-        bh=ZZFLSCT3SJfu7+o09e4xgc7h5RYY1ySxMFFLVVsBarY=;
-        fh=4ZoohSEpWMrCXTqrMRZ92m8uZxMeBNEBsLVncW+B5g8=;
-        b=Ol/EFLecfD9oymX/PTOxUtNA2e3e8Dv83w3UT6NbTc24984dy3/D0HOOUq+saoSl7w
-         GFAZQOf6hz8ZucW7B202YGeNvhXVfk+RIUsjVAyM7kIxD7N6MUOY1urwSZ8SM21Tf/u/
-         ivnjVoy9ayGl6cMAvrlyv8XKQrN497yblxMEuDpf7FQSZqmHx2h2tBPY5ekLx3yiZepb
-         m32cqkh7k0Qfg1oCgGD5Bz4Rv01MSGpgZE9dWFn9Q3ADYR0uztecN7bIzer/Q/NGAiNu
-         yq+vAK+kOMopMBUhScydi6ae04jSf2sHsXEV23wlqRRptWEjZCysrO60PpvmK0yoYlq1
-         hr4g==;
+        h=content-transfer-encoding:content-language:ui-outboundreport
+         :in-reply-to:from:references:to:subject:user-agent:mime-version:date
+         :message-id:delivered-to;
+        bh=Acn6c9Yn80UwiKJquTWxEpNJcTEpQ9zCZBJhvfGco2Q=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=LuHHQz0e8FJ1iuiCoUEFAxDcDvrfUVefwPHNDx7pj3q8LZySYpM+/bac2mONpUaCOa
+         mrkszwnPt7JQhBsOoNfJvAnho07Ry/KoY42FviPMxD+1tL8DQcAxKbWfzAQ28mzAz2Sm
+         m4CRaL2dIQeCOARGne7D6ICLSOT4sDwp34AM/BtZiaAYvreYDXCaH8/rM3DufnpHYvUa
+         7NHCTDifkUDr754yy3Dk6xMIOlxkjmU5nEWc7xthLZBFJIHwdWWMPL3OgurIlgWW1g0Y
+         F03sVhIdbiMQQTtDxadl9pYvuJ/c1+gZQ9VMUOAJupH2OuDagaOPX7FF3OfjbIK4cdE4
+         5tLw==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of chime@hubert-humphrey.com designates 103.168.172.159 as permitted sender) smtp.mailfrom=chime@hubert-humphrey.com
+       spf=pass (google.com: domain of kyle@gmx.it designates 212.227.17.21 as permitted sender) smtp.mailfrom=kyle@gmx.it
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
-        by mx.google.com with ESMTPS id d75a77b69052e-44f5b831a55si56604701cf.730.2024.07.15.10.08.34
+        by mx.google.com with ESMTPS id af79cd13be357-7a160c826d2si577928585a.652.2024.07.15.10.47.20
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Jul 2024 10:08:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of chime@hubert-humphrey.com designates 103.168.172.159 as permitted sender) client-ip=103.168.172.159;
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+        Mon, 15 Jul 2024 10:47:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kyle@gmx.it designates 212.227.17.21 as permitted sender) client-ip=212.227.17.21;
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-490-sbUnNghVN4aPMXE7Qa6fIA-1; Mon,
- 15 Jul 2024 13:08:33 -0400
-X-MC-Unique: sbUnNghVN4aPMXE7Qa6fIA-1
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-492-MfpYn_uZPzKeH04BA_SmfA-1; Mon,
+ 15 Jul 2024 13:47:18 -0400
+X-MC-Unique: MfpYn_uZPzKeH04BA_SmfA-1
 Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B5FA91955D47
-	for <blinux-list@gapps.redhat.com>; Mon, 15 Jul 2024 17:08:32 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 576D91955D48
+	for <blinux-list@gapps.redhat.com>; Mon, 15 Jul 2024 17:47:17 +0000 (UTC)
 Received: by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id A68151955D44; Mon, 15 Jul 2024 17:08:32 +0000 (UTC)
+	id 486711955D48; Mon, 15 Jul 2024 17:47:17 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.23])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A38691955D42
-	for <blinux-list@redhat.com>; Mon, 15 Jul 2024 17:08:32 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.33])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 45A2A1955D45
+	for <blinux-list@redhat.com>; Mon, 15 Jul 2024 17:47:17 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3E08919560AD
-	for <blinux-list@redhat.com>; Mon, 15 Jul 2024 17:08:32 +0000 (UTC)
-Received: from fhigh8-smtp.messagingengine.com
- (fhigh8-smtp.messagingengine.com [103.168.172.159]) by relay.mimecast.com
- with ESMTP with STARTTLS (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384)
- id us-mta-93-goYGDxSvMvirP29J4c4a5Q-1; Mon, 15 Jul 2024 13:08:29 -0400
-X-MC-Unique: goYGDxSvMvirP29J4c4a5Q-1
-Received: from compute7.internal (compute7.nyi.internal [10.202.2.48])
-	by mailfhigh.nyi.internal (Postfix) with ESMTP id 69B5011479C9;
-	Mon, 15 Jul 2024 13:08:29 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
-  by compute7.internal (MEProxy); Mon, 15 Jul 2024 13:08:29 -0400
-X-ME-Sender: <xms:jFeVZn8du1IPN9QHx0RM25rG4UBaaIIq4TPEV5nKSdvwowwkJLeOcw>
-    <xme:jFeVZjvFNfHZFYlub7OOi1qc6hmn8N3A7TDT_cElfd1eveOc48AaJmMoK2I5PBcoy
-    c-zyN1xyLC4qEb-nwU>
-X-ME-Received: <xmr:jFeVZlBU3Pbf1pAfuSBgJIREEov3uyuNW1zGLrJ_cArh0iARk0jI8OI91DHJGH2Eg0iKUyXuRD42k0m1jNozdAx8UofEKHqpWfE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddrgedvgddutdekucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepfffhvfevufgjkfhfgggtsehttdertddttddvnecuhfhrohhmpeevhhhimhgv
-    ucfjrghrthcuoegthhhimhgvsehhuhgsvghrthdqhhhumhhphhhrvgihrdgtohhmqeenuc
-    ggtffrrghtthgvrhhnpedvheegleejkeeguefgfeelkeejiedvkeekvdetueevueeffeff
-    ffefffeludeftdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
-    hrohhmpegthhhimhgvsehhuhgsvghrthdqhhhumhhphhhrvgihrdgtohhm
-X-ME-Proxy: <xmx:jFeVZjcyM279uayZiRsll2Aw0ysC2HhAsPshVDYIcsgE_NY-7udhwg>
-    <xmx:jFeVZsOP4SNjWKMN5b2dtmtIQOzO_2NZEie9pFTT9QRAYVCR_prJIw>
-    <xmx:jFeVZlkE3hCwL8XqlJmpcq9_SGolFzKsMuv9RWfsNsjAu71pcPrDxQ>
-    <xmx:jFeVZmthGUlONRsDwoqzYEilsCuUYtJJ9Mbd_c0qV5LLoXBSLyaS5Q>
-    <xmx:jVeVZlayV1kL8ahwsDg5T08b-6MFaJenN1dfY846p_e_dhQOf4l08t0p>
-Feedback-ID: ia9b947fb:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 15 Jul 2024 13:08:27 -0400 (EDT)
-Date: Mon, 15 Jul 2024 10:08:26 -0700 (PDT)
-From: Chime Hart <chime@hubert-humphrey.com>
-X-X-Sender: chime@chime.lan
-To: Karen Lewellen <klewellen@shellworld.net>
-cc: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: how many Linux machines do you run?
-In-Reply-To: <Pine.LNX.4.64.2407142337570.3536958@users.shellworld.net>
-Message-ID: <71972198-e2e4-9aa4-ffa2-242ad9e066cf@hubert-humphrey.com>
-References: <Pine.LNX.4.64.2407142337570.3536958@users.shellworld.net>
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B07DC1955D52
+	for <blinux-list@redhat.com>; Mon, 15 Jul 2024 17:47:16 +0000 (UTC)
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.21]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-88-O0B6UntZNZm1ntp4iy2KwQ-1; Mon,
+ 15 Jul 2024 13:47:14 -0400
+X-MC-Unique: O0B6UntZNZm1ntp4iy2KwQ-1
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [10.0.0.160] ([136.54.145.217]) by mail.gmx.net (mrgmx105
+ [212.227.17.174]) with ESMTPSA (Nemesis) id 1MFbVu-1sZSjW2tMU-008APw for
+ <blinux-list@redhat.com>; Mon, 15 Jul 2024 19:47:13 +0200
+Message-ID: <a253881d-75a6-436a-9485-68b832938c81@gmx.it>
+Date: Mon, 15 Jul 2024 13:47:11 -0400
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: how many Linux machines do you run?
+To: blinux-list@redhat.com
+References: <Pine.LNX.4.64.2407142337570.3536958@users.shellworld.net>
+From: "'Kyle' via blinux-list@redhat.com" <blinux-list@redhat.com>
+In-Reply-To: <Pine.LNX.4.64.2407142337570.3536958@users.shellworld.net>
+X-Provags-ID: V03:K1:Kktn0pRHHCorNulBxFxM62R3NKus+1juqzXjyNBm8vPzT+ELy9k
+ yOKYYnbstO+BRdeRqFtEdnJw00585A3dV3TGy8ox7gpyATZAbmpPRfDiF96d9lJvgHYoA4r
+ nxjpHfJyqmpa14ekkadCPfhJ42tH+HVIju8tI1yMMEUkzEwuz0GmcZrtsyQg1QwVUeCnJFk
+ N47HY40qukVYclgoq+TFQ==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:k8svFbuX6Xs=;TG65c6A6P6wuqgi0ec4lxJSSGar
+ OEoYsBVEPo6pJSp0z3DFbyhOoA6nqHVsgPC+nCJzHQ0m1G0E4wuxXL9GRO3PXcSjKXLgmsCJu
+ iLfGQutYV6r5HFzNSQGKpSOsCJ7C8p3CdOqgJIE+HPXXoZTS5EAT/KxaFG4CFuUD3frds7CWK
+ 1mnMltTtltSWNZjUkYCKB9DK+oOWC1Ubd7RymF0t5lbvusapZP7lKS/1Inw1o7Mmfy+gpIlTz
+ aIj/4Pf/4pkNGL3l0NcizRKiyNCCsgiFAA4mI+z7WjXQhoQqW0/jVT8mV152E64ckDgx6mrsi
+ 43kGNV2mh1ChGT4s8/JmbcG87XIvpdhvE2SHJGylDeR+y6ii3IojZ08sAvSVHLXcVM17pQg+4
+ 5Vv4COYqJE+h0GFxSJd1MLWU7x8uHj6+nsUV7FBSUuSHzf+2psURxa1v3Rnw+mXG8haJfToAk
+ D5cpImGX57tZXFZRRDbCYWF87ehJM6s/KRlSVsNH0WP7mAPQve6VzBEGU4ZGIpMIJIYoWW1Hr
+ +3nu1ke8UaVRl1DJqf6T0f59W42HhTZzkeuymek8wO9sgfDkxBXIaWMT12zsCrrsu+cLd/jwu
+ dWM6vaNnkeStfFLskXo9hPwr629upJR+R6TownX+D3eAcexvYgPUHjF/BnKvty/mpvDAohRqQ
+ 4CeBA3mN6hNOagLUhc+Phk3ujIVfVRJOJrHTqzz5FiYq5buUDfF6j8NnWVX49TmTGQJNdr09v
+ VniOFpWVnJpDAfmpxrJGZUGd1jNL11lx19nSGogDQpVxW2b8tLVfH4WiHz+WUxHvEUnoffNEv
+ KGCbbQ1Bz9c/bfZSPpNmsREw==
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: hubert-humphrey.com
-Content-Type: text/plain; format=flowed; charset="UTF-8"
-X-Original-Sender: chime@hubert-humphrey.com
+X-Mimecast-Originator: gmx.it
+Content-Language: en-US
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-Original-Sender: kyle@gmx.it
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of chime@hubert-humphrey.com designates 103.168.172.159 as permitted
- sender) smtp.mailfrom=chime@hubert-humphrey.com
+ domain of kyle@gmx.it designates 212.227.17.21 as permitted sender) smtp.mailfrom=kyle@gmx.it
+X-Original-From: Kyle <kyle@gmx.it>
+Reply-To: Kyle <kyle@gmx.it>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -168,30 +170,46 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Well Karen-and-All, Many of you are quite familliar with my road. I came 
-kicking-and-screaming from DOS2windows, slowly in 2003 Linux, but with horrible 
-DeC PC drivers in Speakup. Eventually in 2006 got rid of windows all2gether. 
-All along since 1995 I had Unix shell-accounts, Netcom, REXX, PrimeNet, and 
-Shellworld, where I hosted my web-site as well. In May of 2020 we almost lost 
-Shellworld forever, so after at least 3 days of no e-mail, with a big help of a 
-dear friend, I switched my domain to Fastmail. Unfortunately their interface 
-does not work in a console setup nor without javascript. After awhile they 
-blocked traditional ftp access. I found ncftp as an easiest client, but now 
-must use web-dav which has many fewer options. As far as your exact question, 
-as you see I am not hosting my web-site nor e-mail locally, however, we use 
-exim4 to grab mail from FastMail to my local machine. In addition, I have a 
-laptop also running Debian SID with a quite new Zabbly kernel. The laptop has 
-graphical so I can login to hotels when we travel. Eventually would like to put 
-graphical on my main machine so I can go to Zoom meetings. Wish there were 
-either a menu-driven or commandline Zoom client. Along the way, while I've been 
-in Linux nearly 21years, I almost still feel like a beginner, but still 
-sometimes when I atten a Linux LUG, I can still help some1 else. Also, 
-certainly folks there are still somewhat baffled how I use a computer while 
-totally blind.
-I also have a MAC which I know little about, but took a class. I have a 
-Chromebook, but the Chromevox screen-reaeer is much less easty to use than 
-something like Speakup. I hope those details will provide some prospective.
-Chime
+I have one Linux desktop running Fedora-MATE-Compiz 40. I also have a
+Raspberry Pi 400 that runs Stormux. I configured that to be somewhat of
+a laptop for myself. I also have two VPS machines over in Amsterdam
+where I have run websites and yes, email. I cheated though. I use Hestia
+Control Panel to manage everything, which makes certificates, dkim,
+dmark, etc much much easier to handle. Back when Freenom was a thing, I
+ran my own personal email through my own server, and never had any
+problems sending mail to anyone or receiving it myself, even though I
+used a .ml domain that people like to say was used by spammers and
+scammers, though if I was a spammer or scammer, I would have bitten the
+bullet and just purchased a .com, as these are magical trust-rainbow
+unicorns. Yes, I was in fact able to set my reverse DNS PTR record with
+my VPS provider, and the rest was done through the panel, all except the
+dmark and spf records, which are just TXT records on the domain which I
+added at my DNS provider, which incidentally was different from my VPS
+provider. I also hosted my own websites there, which is quite a bit
+easier to do, but I found mail to be easy enough actually. The problem
+now is that Freenom looks like it's gone forever, and I haven't found a
+decent domain registry yet that won't either charge me an arm, a leg and
+my eye teeth, force me to dox myself to any script kiddie who knows
+about the system whois command or run what feels like a sscam on me. I
+feel that ICANN itself is a scam, as it's really the United States
+Department of Commerce disguised as a global non-profit that holds a
+monopoly on every name accessible world-wide on the internet, but that's
+a discussion for another day and time. In any case, unfortunately, I now
+must also outsource my email to GMX, which is really just 1&1. I don't
+do any tricks with relays, and for some reason I could never get Mutt
+working the way I needed, so because 1&1 still allows me to enable
+secure IMAP on my GMX account, I am able to get my email on Thunderbird
+on my Linux machines and FairEmail on my Android devices. One day I hope
+to be able to run my own email again, as I trust the security of a mail
+server I control over a large corporation any day of the week, and email
+really is easier to self-host in a secure way than it seems on the
+surface, and best of all, everything needed is free open source
+software. But my budget just isn't big enough these days to be able to
+buy server space and the names I would need to bring all my stuff,
+including self-hosted more secure than Google ever dreamed of email,
+back online.
+
+~Kyle
 
 To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
