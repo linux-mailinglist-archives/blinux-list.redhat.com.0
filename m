@@ -1,143 +1,141 @@
-Return-Path: <blinux-list+bncBDYPVTOXSQEBBN5CZG2QMGQELPBQKLY@redhat.com>
+Return-Path: <blinux-list+bncBCM2V5WE3MDBBHVKZW2QMGQEXOSDALI@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com [209.85.128.197])
-	by mail.lfdr.de (Postfix) with ESMTPS id F0A909495A4
-	for <lists+blinux-list@lfdr.de>; Tue,  6 Aug 2024 18:37:12 +0200 (CEST)
-Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-66619cb2d3esf19984677b3.2
-        for <lists+blinux-list@lfdr.de>; Tue, 06 Aug 2024 09:37:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1722962232; cv=pass;
+Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
+	by mail.lfdr.de (Postfix) with ESMTPS id E24BC94A69C
+	for <lists+blinux-list@lfdr.de>; Wed,  7 Aug 2024 13:06:09 +0200 (CEST)
+Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-7094db8ec7dsf1726144a34.0
+        for <lists+blinux-list@lfdr.de>; Wed, 07 Aug 2024 04:06:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1723028768; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tMVVbrBbmhO3rOVRcaRfksW7Yx/9wW8yusKNG31KiKY6VV5hr7rN4Cp6WbXWkFHgM8
-         2QtWXbwIEtvw12gShUHWVcolllrmCTIXnIBUaMmetHTbIXhbiOwsVsMcO8Qx2PRYU4wE
-         2Zsw2vxrhP6sxWImcze1LU+4ZYF5cbsaAjKORgiTOGDIupkefdEg9F9uBvHsrJShTNLg
-         Rgs317D96B7VX1kmasqvrPNjmMuSMI4dYIi0MYczSuaKGDtuOr6scyZdZ0uQaU7VF8Zg
-         Pys3sHY2OkxCxW28M3KAAbQ6wUnWGWB+PM3+wVaUNFd6luYzYabMZHRRB/7WjaJe8vOb
-         OTHA==
+        b=AvqKzb5R07wbfyo3pKEUBxPy/ZuljXTjYBXN68XXT4xrvL/jDc6rA9hNapsFZ9+hvX
+         GxYKBc3GrJrH/wAU5thoK6aeqFpJuOcEDUweswsg+pHd0tF2pEKeHlRQsuGV3epsq6s1
+         fTwSBRxOSR511RGrj0zc1y7/Gn3zkND51bnLbmPOr1gB/7rAnRAJ6ffUO7MpbLT/Efei
+         QP3/1k0URexwLv4hHt1efEW9NpJxYRUNgLUxeF0kdRKxmXLVn1hl8MFKwCtS9tCJeejT
+         OeTwh6NTWp6TqKTsXOmX2PWhaHY74AeHd4XQp57dS+7ysBWDkF3/9OMB1slSktiDXxWW
+         en6A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:mime-version:references:message-id
-         :in-reply-to:subject:to:from:date:delivered-to;
-        bh=poE/PvTvuXZfx3PT4eCQgnmDMS5uhOa52yFaRiv2Pto=;
-        fh=zOLuzB85nhLGOxMIE9Jl/8CGCc9F4tmg5F5JC1S4uBc=;
-        b=XCZTnVqSxJei6yJ+YpO0aSIXhj7sGQ05Nhx5AGV6gmSI1XCRrlTcOgT0yiZkyEWAQF
-         Q2Awwak9+iX+oAS7XeiIg8A7J6UTynxPojAeyK9Frwh+H5L8RqysPHwsC3ESnwEjzcf5
-         RH8x9LhBc1VfMgwZ8CSFhMmBmoBE1PpkEyHWZh2a6RZV2WtVbF+RPKbojytq4kRXeauS
-         6686ADZ7uVp4nKu4FybW0ETNCa4Q9jMLly1P7zyolGY71hJ4B3mQZlJRafJiAJJuRASQ
-         jLGvvKKGr8OVddfysrIphXmKrCKzoyMyD3qmUtaR4lCbeBynH6ETq0HMBCvJxsWqWgx0
-         LGlA==;
+         :mailing-list:precedence:reply-to:mime-version:feedback-id
+         :references:in-reply-to:message-id:subject:from:to:date:delivered-to;
+        bh=gPx/97ND2FYkROmdoEuqMyoLd8eVjMLmu84L5fb0g1c=;
+        fh=vt3QQHEsh4mrLoN2rc9MJFmNeyLPFj6qQKqfGsKyeIc=;
+        b=aucFy75LhqnwN7seaJFogI+2wCWy0CDWYxPWrR7eRy9rtTUxQj4PEfUIHc961u6ici
+         lzGQgsh3UgGfCEHMhVS8Izx0av/kU8FW2v1st9gEoEsEN9QhN2yUtEJVImslnzoEI21F
+         Wn+bB3q+d+sACJl1SLEr2H5sMsuiEDP+EB8suADgiBZBrkH3HFzuWpGEIg/eUNwKlNHF
+         rrWIGkgg9gABwF6G+XeJMPgbyBTHat0slbpOqXRDlJ2aRLbXf+DKmuICbGXJgwZXF6Qm
+         7bzgQX4IRWt7HwgpRMzfovNUWNW+vJGZjXO1tBHGjY2GwoSNk21qjGbalcmDqjpdf2b8
+         WssA==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.43.21 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722962232; x=1723567032;
+        d=1e100.net; s=20230601; t=1723028768; x=1723633568;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender:mime-version
-         :references:message-id:in-reply-to:subject:to:from:date:delivered-to
-         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=poE/PvTvuXZfx3PT4eCQgnmDMS5uhOa52yFaRiv2Pto=;
-        b=qHvCH1GgZEBOH1VwXrPcgGg+zfQ3rJ0C5uMHKFWhj1JXdboGWT/OFaSkkSDSQX0M+6
-         YzbxaHBMKAvCpRWZ7c21CMuefoHS6gR7LRlr9G83SqsaUUBxgauJYd5fyLuzh8G0z5Dp
-         os06PClETh0C7txen3crtJ6UAUSZ4WR+v8iTkc9dBWYmEG5HagIM/8hfg28EoUKu+cf3
-         vDs/kGx5vBQKE2r883dPEHZjBCqXT6nNqlvnR38dOCmna8ZnOPQCGqlvS8o2J8wyjr9w
-         0dwguf56Nr6IIJdQy+6u+p7uAjPlE0eA2cMnaVOu8kJu3Bn3/05PoLIEkNCBrMegwFq8
-         N95g==
-X-Forwarded-Encrypted: i=2; AJvYcCVbBk8D0jDFM22kGWTw/fX1XbcqMCf7BCBk5RrmIBqbc9ePSgK5OyiJVIP3Jv8TBy5WBARRZaFpbJkENYcUkOLbAu/g3DT1SqhN
-X-Gm-Message-State: AOJu0YyEKrfW2mhY+GnvGNZ9HntDw+ca4BRt71GyJ7zKceXhDGEEDguU
-	zIw0gw9axDVTubuVfx/dMt33JD2G+wgGG1Ep++et8OHgh8VllQo+tyRNBT/EvDQ=
-X-Google-Smtp-Source: AGHT+IHxu6HDokZRvWe3B5bFw3u5aoM+r3uBDAq8ky75vMH9LnIJdry/LXvX2PBE0yWsoToVkZUI8A==
-X-Received: by 2002:a0d:e544:0:b0:650:9c5e:f6e2 with SMTP id 00721157ae682-68963048d93mr178260327b3.34.1722962231480;
-        Tue, 06 Aug 2024 09:37:11 -0700 (PDT)
+         :feedback-id:references:in-reply-to:message-id:subject:from:to:date
+         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gPx/97ND2FYkROmdoEuqMyoLd8eVjMLmu84L5fb0g1c=;
+        b=QUJWeZHOTplKYMyW2iOTZ62YQ1jg4TZWjzcpu5uQELAahdhW4GlPNgMeJkE6L7dIdU
+         0kFcn7CaXnpiU7HmdBHWPOiXCwjqVgjysCjiXOiXasYVJk3aWqKLOvAKKCFKz9ZYgGYj
+         ducekxtineTAGChTNRZO4trKGN3ZC7SEjM2mYfPLPPHRA3M+Hp9p4QbkaOiVyepRSPLT
+         Fp3KbPD4bYmW0eBnjLfpF1R+s5ESD+M/ksMUyyKzQoAz4miMWLC5Xh47Fk2ohtsrkPd4
+         hgZl7V7zvGbfPwLyrogCuqw5hC4TkGJph4hzAjfQufx9YsFu8sig+O0Xt9JpOd6NQ4tK
+         QGHg==
+X-Forwarded-Encrypted: i=2; AJvYcCVUkMoTrRZFGPAWoGSREvIY7SqFXfjQ65WxyUhSX3vjNO4m2zDPUadnFnGyDwMnarFtJz8nMd8i/f2VECBMrMgp41T4Y/EvYvnR
+X-Gm-Message-State: AOJu0Yz3qraEGXsiEdntfKwA3GW8FiPDPJCB3F8QhTbLsTPiPvOsG45u
+	I6E8LoEJ4gOCyM2dWh6gT9Hks0fwnSVGhzmC5GA4kVUR2kQ+iymCE1MyYs5l2Jo=
+X-Google-Smtp-Source: AGHT+IHUYp2o4usyyVW818VyaH2nP6F+tviNJq2vxyRInZc/eRErcfGX0w3VAXiXj/9bmCAKONxs/w==
+X-Received: by 2002:a05:6830:2808:b0:708:f88a:e3e7 with SMTP id 46e09a7af769-709b997d85emr23666245a34.34.1723028767920;
+        Wed, 07 Aug 2024 04:06:07 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ad4:5aa8:0:b0:6b5:dfc2:6696 with SMTP id 6a1803df08f44-6bba3408befls82106426d6.2.-pod-prod-04-us;
- Tue, 06 Aug 2024 09:37:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCUqxaJ5mPho1s68mmYrZ4e+4l3A7iGNTy8mi/0VZZPaH0F8YxcBFaIHOFS8IY3w+fnC9bBzQtQzxraRGtf1P1STPDuIV9ARVsaSvg0R
-X-Received: by 2002:a05:6214:328a:b0:6b5:d9ef:d56d with SMTP id 6a1803df08f44-6bb983b1545mr171104546d6.21.1722962230668;
-        Tue, 06 Aug 2024 09:37:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1722962230; cv=none;
+Received: by 2002:a05:6214:c42:b0:6b9:82f9:a8bc with SMTP id
+ 6a1803df08f44-6bba33ff4aals84549606d6.1.-pod-prod-09-us; Wed, 07 Aug 2024
+ 04:06:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCWFwaxqTH9l3bJuHec0zTdCCR9V2n9ewQ1Bhz6WfPhI2++PaHjSfktH21Wvyq5IbFgz1jtyF3/0h4mOAtDXbTbG06UNW85jAwTFRaK2
+X-Received: by 2002:a05:6102:a4f:b0:492:773e:a362 with SMTP id ada2fe7eead31-4945bf329e1mr23359706137.25.1723028766233;
+        Wed, 07 Aug 2024 04:06:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1723028766; cv=none;
         d=google.com; s=arc-20160816;
-        b=fQwiUT06hbBQN0MrBJK0HCqO+cf0G3thUcmh8nmJ8XucRTrFi4HaYNsXMSBBJP7K7C
-         nauxdJk6WhBkhCm9PsiXqGV5puWqvAj49aHEbl2zlCt5ibi6Uuiyc2sAk08GgBODz9/9
-         6sMeHkgUKU2MEBqGWNBCbgWrTbMLB0cu4frQ4vcRTKeiZ3T4UTVRxnyCRyPyAVi1IYgW
-         JgDRygjrV3KonBhdm5IEX9evLr68YEo88FY+S1GSSnJMyrY8kL7tQNKxeRKceuAesASB
-         r747nJUU0p5xZE3/5hw1lVHIeMBQdlA9Vvp4VkQpLkC7d9aixrprQtdiAXcHOZD2/8zW
-         fPGQ==
+        b=yM9Fb9ZQHWQiEr85NDf2H9WzO3SEFAlfhvEizVoyLY5HRaun5YLACD/+xXuyvHqY+V
+         vqO+uRYLDv1gvI8+MUW/nPU7jBt3kYrrRriYPTwsC9JbrNnoVq+Ufyly4j3B20zstUDQ
+         BveS2B6pRr1mfM13vXH2aIeoDSoUI/2UY6MdJ0MVSGfiSA6q8aVRVmug12RNaHgsLD+Z
+         gYhiw+SWyYwztjyxiq0+jsCY3cYTV/RoAqfAcgjzgAUHfmehaNEZYEKNTFNFdedaNlo9
+         iQ007TLlLi3IpMP/x03XFiiweb1XVLuf03pEivkKdrvoAPTnHHpdLrzfq2mNzUH91gzd
+         aFqQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:message-id:in-reply-to:subject:to:from:date
-         :delivered-to;
-        bh=XH//pZO2GCzH9FX+cLMM0jyb1HxZpXGBRr7Sffyg62U=;
-        fh=h+avxhsP12CKrdN8dnqqKmbrfLptYfKr1D2HayTsjac=;
-        b=1DJEPMf7k8khajLwY3BM652DcwjejrKgogubM/vojXiUNSALNWCpnTJ715vT6qjnUt
-         9jYwcOKy3xGpkp0TyXB/19qo2e85UUoy2hoDt7Zati47crYjkBFRoPdi7HXphEOZIADm
-         QBzSZWblDni9Y1eUOr0xvuR4NOkXT8yIUpyaupz7ytOAa9Wk5EFO99x0O6udIcBmHfkm
-         +1herFAN/gqxPHATMpZ7WESuOdmLN1F5+mweQtOWWe8l9aYl3CPzJ6XMaHHFd7ivAJoD
-         AeqDYu/TplXAD04V5zd4bHRz63qRUIxnFHkLRuY5sJlmcxGMNW3BQKjrsEm4Ci7ieXcJ
-         0bZQ==;
+        h=mime-version:feedback-id:references:in-reply-to:message-id:subject
+         :from:to:date:delivered-to;
+        bh=/dEfXSaezvhHTgcK75Dq+f9xZTut1DL41hWSWGih+mM=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=CkoN7ehP3KlRL8yeFhfA78GDeGokPCHJ6v6j1EdyADXUpI5twdUsTNTRVR2lWR/gYb
+         INQRUBV341m9nK2Qqg18/y2ZjqYvuM/zwI1rAyBhIiz+ETAmDTNRuIV4A4Vgee3ewm67
+         DgUSxEXOPEX7kfrs0Cx0EkdzvaBq3DmblIebayOfgVZLdY5Njzil6szD7Qjv8KQ6j25w
+         PDdaUSs7b1WBTs7B5GsLirEcURKy+rb1W47NOA0Jv3/aJgBSHBXREjetZ0l5izbbni11
+         yxbTg9DpfTNvY+x3bQCaiZ4BvQDnLulF8gqjpB5KezGma3l3CtFn4QKQw1aPBWz2c00E
+         1wwA==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id 6a1803df08f44-6bb9c79f787si122861916d6.164.2024.08.06.09.37.10
+       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.43.21 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [205.139.110.120])
+        by mx.google.com with ESMTPS id ada2fe7eead31-4945dc299edsi2443739137.723.2024.08.07.04.06.06
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Aug 2024 09:37:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) client-ip=166.84.1.89;
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+        Wed, 07 Aug 2024 04:06:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.43.21 as permitted sender) client-ip=185.70.43.21;
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-99-i72bGaaJN3S1xUmDSnrXOw-1; Tue,
- 06 Aug 2024 12:37:09 -0400
-X-MC-Unique: i72bGaaJN3S1xUmDSnrXOw-1
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-646-R2tA_qmRP3qy3yRLUHRhLg-1; Wed,
+ 07 Aug 2024 07:06:04 -0400
+X-MC-Unique: R2tA_qmRP3qy3yRLUHRhLg-1
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 748881955F43
-	for <blinux-list@gapps.redhat.com>; Tue,  6 Aug 2024 16:37:08 +0000 (UTC)
-Received: by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 6FE551955D45; Tue,  6 Aug 2024 16:37:08 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1BBE6196CDD0
+	for <blinux-list@gapps.redhat.com>; Wed,  7 Aug 2024 11:06:04 +0000 (UTC)
+Received: by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 176A2300019A; Wed,  7 Aug 2024 11:06:04 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.58])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6D2211955D42
-	for <blinux-list@redhat.com>; Tue,  6 Aug 2024 16:37:08 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [205.139.110.120])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 143A83000197
+	for <blinux-list@redhat.com>; Wed,  7 Aug 2024 11:06:03 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (unknown [170.10.128.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D54901955D4B
-	for <blinux-list@redhat.com>; Tue,  6 Aug 2024 16:37:07 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-690-SbeNepF4PkCjK5gs_66ySw-1; Tue,
- 06 Aug 2024 12:37:05 -0400
-X-MC-Unique: SbeNepF4PkCjK5gs_66ySw-1
-Received: from panix1.panix.com (panix1.panix.com [166.84.1.1])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4Wdf8x2bH4z4RdB;
-	Tue,  6 Aug 2024 12:37:05 -0400 (EDT)
-Received: by panix1.panix.com (Postfix, from userid 20712)
-	id 4Wdf8x2KN8zcbc; Tue,  6 Aug 2024 12:37:05 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by panix1.panix.com (Postfix) with ESMTP id 4Wdf8x2F13zcbC;
-	Tue,  6 Aug 2024 12:37:05 -0400 (EDT)
-Date: Tue, 6 Aug 2024 12:37:05 -0400
-From: Jude DaShiell <jdashiel@panix.com>
-To: rodney jackson <jackson.rodney.1970@gmail.com>, blinux-list@redhat.com
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 92AB91944AAE
+	for <blinux-list@redhat.com>; Wed,  7 Aug 2024 11:06:03 +0000 (UTC)
+Received: from mail-4321.protonmail.ch (mail-4321.protonmail.ch
+ [185.70.43.21]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-509-d9ZaTlz0PbuPd9p05sEVoA-1; Wed, 07 Aug 2024 07:06:00 -0400
+X-MC-Unique: d9ZaTlz0PbuPd9p05sEVoA-1
+Date: Wed, 07 Aug 2024 11:05:49 +0000
+To: blinux-list@redhat.com
+From: "'Rastislav Kish' via blinux-list@redhat.com" <blinux-list@redhat.com>
 Subject: Re: Lios
-In-Reply-To: <0a500de0-3aa3-438e-b1a1-6c77b87637c6@gmail.com>
-Message-ID: <b57017b9-0cdd-6a2e-2937-9f7aa9ab201f@panix.com>
-References: <302d6c88-edc0-f33e-bb93-311e82098da4@panix.com> <7efeda7f-aad6-46fe-b848-9bc1be473feb@gmail.com> <c20c8201-159a-6ca5-61e6-b2c349b18a66@panix.com> <2dfdde94-9d53-4fb1-b29a-308b0872dc8b@gmail.com> <37b6459d-957d-32b3-57cd-e08cc9101eaf@panix.com>
- <9233824c-dd04-40ff-acdf-fbb26c6e1d2c@gmail.com> <b2694532-b822-9c5b-1bdf-1b4ee087ba23@panix.com> <0a500de0-3aa3-438e-b1a1-6c77b87637c6@gmail.com>
+Message-ID: <0048a573-8a71-4fe9-9445-07d463c69b69@protonmail.com>
+In-Reply-To: <9233824c-dd04-40ff-acdf-fbb26c6e1d2c@gmail.com>
+References: <302d6c88-edc0-f33e-bb93-311e82098da4@panix.com> <7efeda7f-aad6-46fe-b848-9bc1be473feb@gmail.com> <c20c8201-159a-6ca5-61e6-b2c349b18a66@panix.com> <2dfdde94-9d53-4fb1-b29a-308b0872dc8b@gmail.com> <37b6459d-957d-32b3-57cd-e08cc9101eaf@panix.com> <9233824c-dd04-40ff-acdf-fbb26c6e1d2c@gmail.com>
+Feedback-ID: 26663242:user:proton
+X-Pm-Message-ID: 0b86dd7452907ea47035cf9ba6844dd6d2b0cf0d
 MIME-Version: 1.0
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: panix.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jdashiel@panix.com
+X-Mimecast-Originator: protonmail.com
+Content-Type: multipart/alternative;
+ boundary="b1_VpUZG5SL3BL19W6tcenVVgiqEnGi0eEYH1W3Lx5M4Q"
+X-Original-Sender: rastislav.kish@protonmail.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of jdashiel@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=jdashiel@panix.com
+ domain of rastislav.kish@protonmail.com designates 185.70.43.21 as permitted
+ sender) smtp.mailfrom=rastislav.kish@protonmail.com
+X-Original-From: Rastislav Kish <rastislav.kish@protonmail.com>
+Reply-To: Rastislav Kish <rastislav.kish@protonmail.com>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -149,59 +147,106 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Good, you have learned lots you can tell Epson and maybe they can file a
-bug against lios for your scanner with the developer of lios.
+This is a multi-part message in MIME format.
+--b1_VpUZG5SL3BL19W6tcenVVgiqEnGi0eEYH1W3Lx5M4Q
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+Hello,
+which distribution of LIOS are you using?
+These issues shouldn't be a big deal, LIOS has a bit incomplete implementat=
+ion of the scanner protocol, but when this happened on my machine I could f=
+ix it in the code and I believe I reported the issues and my solutions back=
+.
 
---
- Jude <jdashiel at panix dot com>
- "There are four boxes to be used in defense of liberty:
- soap, ballot, jury, and ammo.
- Please use in that order."
- Ed Howdershelt 1940.
+Best regards
 
-On Tue, 6 Aug 2024, rodney jackson wrote:
+Rastislav
 
-> this scanner works perfectly on windows and other scanning software on Linux
-> and has no issues.
+D=C5=88a 6. 8. 2024 o 3:48 rodney jackson nap=C3=ADsal(a):
+
+> I am having issues with Lios, I am hoping someone can help me figure this=
+ out.
+> Scanner I have: epson perfection v39 ii
+> When trying to run Lios to scan documents
+> Lios sees the scanner but I get the error below:
+> Error I get:
+>	Scanner update list error Object has no attribute max_y
+> I have tried this on Accessible Coconut and Linux mint as well as Debian =
+Bookworm
+> all other 3
 >
-> it is only when trying to use Lios and it has the same issue whether i am
-> using Mint, debian or Accessible Coconut
+> rd
 >
+> party scanning software on these machines have no issues with scanning wi=
+th this scanner
+> Any help will be greatly appreciated.
 > Rodney
 >
->
-> On 8/6/2024 03:25, Jude DaShiell wrote:
-> > Time to call epson and ask some questions.
-> >
-> >
-> > --
-> >   Jude <jdashiel at panix dot com>
-> >   "There are four boxes to be used in defense of liberty:
-> >   soap, ballot, jury, and ammo.
-> >   Please use in that order."
-> >   Ed Howdershelt 1940.
-> >
-> > On Mon, 5 Aug 2024, rodney jackson wrote:
-> >
-> >> I am having issues with Lios, I am hoping someone can help me figure this
-> >> out.
-> >> Scanner I have: epson perfection v39 ii
-> >> When trying to run Lios to scan documents
-> >> Lios sees the scanner but I get the error below:
-> >> Error I get:
-> >> 	Scanner update list error Object has no attribute max_y
-> >> I have tried this on Accessible Coconut and Linux mint as well as Debian
-> >> Bookworm
-> >> all other 3^rd    party scanning software on these machines have no issues
-> >> with scanning with this scanner
-> >> Any help will be greatly appreciated.
-> >> Rodney
->
-> To unsubscribe from this group and stop receiving emails from it, send an
-> email to blinux-list+unsubscribe@redhat.com.
->
->
+> To unsubscribe from this group and stop receiving emails from it, send an=
+ email to blinux-list+unsubscribe@redhat.com.
 
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
+
+--b1_VpUZG5SL3BL19W6tcenVVgiqEnGi0eEYH1W3Lx5M4Q
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+  </head>
+  <body>
+    <p>Hello,<br>
+      which distribution of LIOS are you using?<br>
+      These issues shouldn't be a big deal, LIOS has a bit incomplete
+      implementation of the scanner protocol, but when this happened on
+      my machine I could fix it in the code and I believe I reported the
+      issues and my solutions back.<br>
+      <br>
+      Best regards<br>
+      <br>
+      Rastislav<br>
+      <br>
+    </p>
+    <div class=3D"moz-cite-prefix">D=C5=88a 6. 8. 2024 o 3:48 rodney jackso=
+n
+      nap=C3=ADsal(a):<br>
+    </div>
+    <blockquote type=3D"cite"
+      cite=3D"mid:9233824c-dd04-40ff-acdf-fbb26c6e1d2c@gmail.com">
+      <pre class=3D"western">I am having issues with Lios, I am hoping some=
+one can help me figure this out.
+Scanner I have: epson perfection v39 ii
+When trying to run Lios to scan documents
+Lios sees the scanner but I get the error below:
+Error I get:
+	Scanner update list error Object has no attribute max_y
+I have tried this on Accessible Coconut and Linux mint as well as Debian Bo=
+okworm
+all other 3<sup>rd</sup> party scanning software on these machines have no =
+issues with scanning with this scanner
+Any help will be greatly appreciated.
+Rodney
+
+</pre>
+      To unsubscribe from this group and stop receiving emails from it,
+      send an email to <a
+        href=3D"mailto:blinux-list+unsubscribe@redhat.com"
+        moz-do-not-send=3D"true" class=3D"moz-txt-link-freetext">blinux-lis=
+t+unsubscribe@redhat.com</a>.<br>
+    </blockquote>
+  </body>
+</html>
+
+<p></p>
+
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
+nsubscribe@redhat.com</a>.<br />
+
+--b1_VpUZG5SL3BL19W6tcenVVgiqEnGi0eEYH1W3Lx5M4Q--
 
