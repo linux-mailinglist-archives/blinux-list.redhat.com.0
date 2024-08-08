@@ -1,140 +1,231 @@
-Return-Path: <blinux-list+bncBCM2V5WE3MDBBMEN2C2QMGQEG3QGFMI@redhat.com>
+Return-Path: <blinux-list+bncBCAJTHUAX4NBB26J2O2QMGQEXOGGQLA@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
-	by mail.lfdr.de (Postfix) with ESMTPS id A387094B3D2
-	for <lists+blinux-list@lfdr.de>; Thu,  8 Aug 2024 01:43:46 +0200 (CEST)
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-3db1b451e43sf444105b6e.0
-        for <lists+blinux-list@lfdr.de>; Wed, 07 Aug 2024 16:43:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1723074225; cv=pass;
+Received: from mail-oo1-f69.google.com (mail-oo1-f69.google.com [209.85.161.69])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1E5EC94C16D
+	for <lists+blinux-list@lfdr.de>; Thu,  8 Aug 2024 17:31:57 +0200 (CEST)
+Received: by mail-oo1-f69.google.com with SMTP id 006d021491bc7-5d5b62ee8b9sf983875eaf.1
+        for <lists+blinux-list@lfdr.de>; Thu, 08 Aug 2024 08:31:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1723131116; cv=pass;
         d=google.com; s=arc-20160816;
-        b=T/HMy43sQ5iEpuY0BiA8cO2mUR8Qy1fYlIl1a6r64WRw0NkuVO0brNlLCUJo3jpoum
-         PpDfI0w1fbhkhbXL1aF6/XhtCdLRF1/xaXE3B6cIGDewTx14xSf+Q9NSN806msaWppKn
-         l8o4mpozLPMwnPYn0mJMtpFK5sQ+J1ODyk4iOuOyeAoyJsS37kg9PZLUeNGn5rHJY/ke
-         V56cNDjnrpQomA3m7tsZgCY9BKF8Ilehl6MiVq7Ar0Pt+LGvcZpuEdYy453TZf7bqdh9
-         52+DQZPyCPWVLD2dZq6LTy3EM6cyb7A9uSoG9RKhAm3uparhiNHFavr0cpdhELyO/ATI
-         qBQg==
+        b=yBK6csovMpWdIxHeQzgqx7LeV4eaXXJyO1mEUG1farQWb+QlPVGQF11xyhfDHDowAj
+         2Qj5gfp5NleAKp0G8P9X+oiWunK+3wmfKrQeYPA9izlVT1UGgQRcdM/oNpSgU2hI0tza
+         h18lZ2S1OlV3hSsWYQBSFSl4kl7U/m+7jwkHVCZTNrv1tItgaTPn+43es4fHZiLt+2VB
+         u9RTHDWlR6rgy/ahbqMcGDirzNIKejTSr1fQwalbwTUe6vnk1QbBVmdLRpqmZ40vnUST
+         zmjeSerZN/NZi7c2k+KCIvWnivWrNUhvnp8DkWP1O5403jYx+oLsJY5KSP0JUUWhxfm1
+         bQYA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:reply-to:mime-version:feedback-id
-         :references:in-reply-to:message-id:subject:from:to:date:delivered-to;
-        bh=qYULzprTaBb2mxIfTu4DgANiPAbjqwkK82E7yKBjcXU=;
-        fh=EPuRL0q57bADJF1OSotUttKcPP1U6/y86us4S6LckVY=;
-        b=iu035FMxoJk1cAfbdB6psIjj8ySAye1hWGZvs5HxmRSMy/BZ9Mu83ireaynZoUSi2L
-         9a7gD9ndAUsx0TpSfDZ+pwiQ4IxkCNm1EELVJ290oHPNc7xqeKBCiGGENmt80BCEJGrn
-         Tay9tvLISn0m7KFS4GrivOdK6JUrfcF7YgwKOSRrd+7sGS38pg/55z+gwUpExr4Vhvb+
-         bRIfXgaHhk6mzSTDkj3w7wnUgIp//aY1lbQZzP/HlkfLchYHKoxrKvMXJNXeTZgyWe9W
-         QtFwUZokN2+snnqIk2vCHHjKc3gqNOV/3qFZ2wFCqDtNCk1FnWa11aFdiiwIvz8eVgnv
-         i7IA==;
+         :mailing-list:precedence:content-language:mime-version:msip_labels
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:to:from:delivered-to;
+        bh=4My9mCgXaaQ9fqygy5swiHOxt3Fl/nDwsBZ9F7nYltM=;
+        fh=nJIIJ0I/prfScrwfcsIS/JCCT9TZCJKjWTTb2nyNnqU=;
+        b=aWMGXiuCfiTMiujkn79slk3syRf7xtRu0+k/+R8MFCvRpEFtDOHNvYEC6408TsDcwa
+         MidZ8p+5YXjYdr4R8DOuWvXRzcx0UGw8IvIPu66CWT9lKb109qKbAGJEdRsmxUTeFCvc
+         Ajqm9hevj1XtDZm7aYpMVf0VGn9gRcpzpKIPqlcD6Hnz2EQ1rjZ/YvyumE1EYYwIqQER
+         ZH5GMbz83gtlvFT+SwkNJ58itwdIAeLrrmrT/y9+CXUVijol9CCtluB6hpsmTaeRIr3Y
+         87ICHjYZhWIT6EL1rQE1LjHjxTIhLke0K1VTpjRliUrgQlMi6UBRL9HfnHfiS7oU8cZN
+         BySg==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.41.104 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
+       spf=pass (google.com: domain of cstrobel@crosslink.net designates 40.107.93.123 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723074225; x=1723679025;
+        d=1e100.net; s=20230601; t=1723131116; x=1723735916;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:mime-version
-         :feedback-id:references:in-reply-to:message-id:subject:from:to:date
-         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qYULzprTaBb2mxIfTu4DgANiPAbjqwkK82E7yKBjcXU=;
-        b=wMyxhtKa/Y4/ykqE3/rliUpPiIYICnpCAtzmnxNAfYmBmNxgroU3ccOWyJ8kEJ9CNu
-         2I9/YY07Y7jYLaxJr+3uH5/bhB3Vw/B5AKPitwirlYDo/uFU7rd+mlnG4szU5k/Zl5Xf
-         AwTSIpof9RURm3sp1GQlyqag8oTEuVD10JWit5UguRi18jIWZHbZQcY9zKYis2Nb8Sgb
-         laE2yli8TQvY9vIBmBkLNSTZoMceWhcVlZnbbdQ1Ah+a3o3zb8/ZngdgFMbLcOeb74At
-         yBbCZI1AeNA6RZo53ZLsbMe6Kowh1BNeaC3DYUj4HekKoMqKZbO6QQVuhjoxUhqFPmO4
-         eWzQ==
-X-Forwarded-Encrypted: i=2; AJvYcCUYz1OpNL6WRvO+g3TT8eH0zRXRjbSEnErTAzq2eK4XaB9N4xeu5uMhvzpKH/4Aiz8Gntae09Tu9p/DyO1Kfxp/m++1UKze8VRr
-X-Gm-Message-State: AOJu0YwmT1TH/Q9i7Eb46NPjpicqLyjiP91mesIwdf3DZDOgGRHEtyLy
-	tk/fXHtjmZtwBxHBB6Ay60TomA2oKgJL2x6RO/hBG5vJI0EgeLcLR/vPh5fFi8I=
-X-Google-Smtp-Source: AGHT+IFd5JIobHMZIXH0f8LnzYgLuMycw/mP3Afd8SgnpCWI1gjGpuWygyswPS4Uoh1jRd7dlM5NHg==
-X-Received: by 2002:a05:6808:f8a:b0:3db:2afc:ad6 with SMTP id 5614622812f47-3dc3b44c9f6mr203909b6e.38.1723074225116;
-        Wed, 07 Aug 2024 16:43:45 -0700 (PDT)
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender
+         :content-language:mime-version:msip_labels:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:to:from:delivered-to:x-beenthere:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=4My9mCgXaaQ9fqygy5swiHOxt3Fl/nDwsBZ9F7nYltM=;
+        b=nMC2TaGWyi5oBuFnGkXkrPX6WPgM3TzZh99PLAbMJouZZ6LQip+QWhNaK7AwOTTLzW
+         qeY+/ZcuGPPzFB5GmjqHZsGkkQMY4dxzG1M2RIFyBPDztXCdPVLgmouR7K521QrKH7dW
+         HJXeqf0HKEakTwP8Y86XnaXCCCDX/O6Dyos2PZ7v6Ydl5KRdeP+pXI6bw6a6cKQsI8eU
+         18mSSHXFUh3Ol/KQPfgVzt6VqoArU40g8ioH8OVQ7VBkfqyMN8gcuumZ/aphMb7pC2sm
+         zGOWMBKNq+6FFDXq+w8R+ACkBktgX0Uf6+Q0WPFgHuWtor3xTNnt1KynCEhQR/QylRIb
+         1riQ==
+X-Forwarded-Encrypted: i=2; AJvYcCWlf5HIqzxEkch+LHVPqK8sgIfOyboho+6OKE8PD+P1eaqK49bYScT4+EL31Sf2JZDPeuplag4TTr98hxUS21mcKIx8otcBNOiC
+X-Gm-Message-State: AOJu0YxYOnRAM4Jbncy9zJFqzOfxSgvqtAb96T/YGdvaMyBhunvMyK2b
+	kBuXllYFq5iIE0DKSC2w42q87fOO59VB88URLgPLFvBgQGJlMEfJP98c4yVaWZM=
+X-Google-Smtp-Source: AGHT+IEv1oiM9BHtDveVT+xX7XzcdGntcCPgZxIqrGJBkV755IbzrYCMAzy75yh6ZPy6QoexHpRiTA==
+X-Received: by 2002:a05:6820:1998:b0:5c4:27f0:ae with SMTP id 006d021491bc7-5d8559f7672mr3003152eaf.1.1723131115566;
+        Thu, 08 Aug 2024 08:31:55 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ac8:5a49:0:b0:444:f4c3:34ef with SMTP id d75a77b69052e-451d10eafecls5895631cf.0.-pod-prod-04-us;
- Wed, 07 Aug 2024 16:43:44 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCWg6Zf3SbtV7aUwKiKjzbcgrpJwTEHf2/PBCJoiKcSSS3SwZmcJd6ca/dfgpv+jCnPl0ZaR3YXCwgODb7oQSdhVHcgUFSFNHdBUpAzB
-X-Received: by 2002:a05:622a:410e:b0:44f:ee1a:3410 with SMTP id d75a77b69052e-451d421c847mr3179411cf.20.1723074223975;
-        Wed, 07 Aug 2024 16:43:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1723074223; cv=none;
+Received: by 2002:a4a:e64b:0:b0:5c4:789c:9e85 with SMTP id 006d021491bc7-5d8512ed4f2ls1121699eaf.2.-pod-prod-05-us;
+ Thu, 08 Aug 2024 08:31:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUkDfC3Yu14N4h17/Q45SwZBLTuMVKbWMYMXGJHAhaZTMsDTZuPN6NKrck9a0dy0m2HDHoRpjov7pBuFgbFTTE4Qz8K9VjGOUkDtXgP
+X-Received: by 2002:a05:6808:4197:b0:3d9:509f:221 with SMTP id 5614622812f47-3dc3b40bd9amr2317260b6e.7.1723131114591;
+        Thu, 08 Aug 2024 08:31:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1723131114; cv=none;
         d=google.com; s=arc-20160816;
-        b=iqp+6IZXso93gVhtVAwy2TZrURwN7fYFyYfNFIczTCGUdXQLNqXkPJWcSJ4S6Mv8Sb
-         AfhZZJNKMb+QWmV0f4N1zju7GuGZdvD6VBKwvjxiimpv2F31Q4U9Dkxdb8/s6pLTjDSX
-         KApUwpya6cC6keOxBbE/O4L7Fch134OLGzfXzMvFxtMhMXLZNzInGfGtYt8S2H7IVy2/
-         O50z2alUjFIAFSKTtmlIiy4dVfZ3Kykvym7Ve8DpjpYW3rLWpYsf+W9JYlfQemYUr203
-         mueHZ/W3BZPuhRUqh1nV/unCMKvL8iEZL9uGgZo6fyVV3namE6XnNprC0DlpPemwOWKG
-         vFWw==
+        b=m2nJDN19NWuxmLvcsXVfqVkxMGuzEKErFdsCAQvaa/7LECHG7MEq3PJ2Kce+Da/7Yx
+         9vO0GJCgxqteLrIAbK91xZQhtgQ2Z59QPUw9w7UbszKt4+6Uog06RE1YVplZAsyV7ZZu
+         ZoymDswLGSrgSHRsk/CBqcKZ13eTKxp5so8EvjMyjsET2YDvb5MCGmgWz8trkD7onbKA
+         RRDYKqV6TKIQRu+JYy+ESUEAY0aNHooNpxjk6eh9k6Dkjpq/d9r3oU9PBN5e7877FAXI
+         y0LcGWeiVIMAr1cMvZp+fJtx6oJzHbdbK7bh3r4ZG9PCNkbVZq4SEEnOmtMIqq3jzZpb
+         v9vA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:feedback-id:references:in-reply-to:message-id:subject
-         :from:to:date:delivered-to;
-        bh=6deSjmBBcW20Oq2VWYJISHLtqakPayvkYwN8TdBI1CY=;
-        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=hHlMMhJ9LWbdP+7ojV9CO1we4q/BL8JO1mDV9yxrY4md1muuzN/amw9l9UnHjdTKiW
-         YCt0ROL+Zmg5xY0DWbmThJcham/MFhXznREyaiwVaJGfnRLTmRkyRyY98qTxOmyIbq4Z
-         /gM9ugM5FUMCNuNFE3Ms380UIciPdnh41IbkEBBQ5jOiXZmbo8AIGEpN/fuTDfkz5BDv
-         qWp0pe8l2Vxmy6yO1XuoJmzQyl4yONPglFq8gzhAHVnmmPKWAZNUDJNqKvFxuqRRP3VT
-         mz7qA2DezVD/vEmzob0ikUeGAYTOudfwpW+G7CWS4KJ9MVP8TX9H6Rle7qGjaKp/hUyI
-         2i9Q==;
+        h=content-language:mime-version:msip_labels:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:to:from:delivered-to;
+        bh=Qm/ftM8bT2ewqmIu0+w8tj4nhVsYAhfgavflhGncbTA=;
+        fh=xbUhAY1a7P4KbMDAmFEVpa8RAp9GmyePQoq3R3yW52Y=;
+        b=tVeeBu5MqO+MnVrz1TAM6MXzlbBLSJusdC9jXKCFaq5pnjUjaxNoyiOGhsqnctCxco
+         aoazBYB75R0xNFBU3gKE7Ihwb86/VAVW9oNRBoSItqPTCdyDzReNSdRxXHlkVhN+Xf2x
+         k9CgnosrQJ9tl07RepNgglzeafvcTWIICPLLsBb0KoXTSOVBMS+s+SdCTNXZFdv73d/V
+         Xs+GorjioBOJUqfwEOb6GP/88QPxxGkUQmMvQbJ5QJ0skpN3J88or/6PzI4tNGjpTzCU
+         RiIJeIPgHnXrdMvJMUD1rxYsxUhC9HMrrjO3ndFkA6tR6bcllZH1+18FSywAzigm1yj+
+         SReA==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.41.104 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
+       spf=pass (google.com: domain of cstrobel@crosslink.net designates 40.107.93.123 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id d75a77b69052e-451c87d762esi27266491cf.287.2024.08.07.16.43.43
+        by mx.google.com with ESMTPS id a1e0cc1a2514c-83c07eec2b0si2667373241.23.2024.08.08.08.31.54
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Aug 2024 16:43:43 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.41.104 as permitted sender) client-ip=185.70.41.104;
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+        Thu, 08 Aug 2024 08:31:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cstrobel@crosslink.net designates 40.107.93.123 as permitted sender) client-ip=40.107.93.123;
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-339-GaNZkmVUMkmnDk9w7QVHSw-1; Wed,
- 07 Aug 2024 19:43:42 -0400
-X-MC-Unique: GaNZkmVUMkmnDk9w7QVHSw-1
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-613-_qjDrI55O2uSRqVJEx2tQQ-1; Thu,
+ 08 Aug 2024 11:31:52 -0400
+X-MC-Unique: _qjDrI55O2uSRqVJEx2tQQ-1
 Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 778AA1955F0D
-	for <blinux-list@gapps.redhat.com>; Wed,  7 Aug 2024 23:43:41 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 663C01955F65
+	for <blinux-list@gapps.redhat.com>; Thu,  8 Aug 2024 15:31:51 +0000 (UTC)
 Received: by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 7055C19560AD; Wed,  7 Aug 2024 23:43:41 +0000 (UTC)
+	id 6181D19560AD; Thu,  8 Aug 2024 15:31:51 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.46])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6D4BE19560AA
-	for <blinux-list@redhat.com>; Wed,  7 Aug 2024 23:43:41 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (unknown [170.10.128.131])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5E65919560AA
+	for <blinux-list@redhat.com>; Thu,  8 Aug 2024 15:31:51 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D4C2F1955F0D
-	for <blinux-list@redhat.com>; Wed,  7 Aug 2024 23:43:40 +0000 (UTC)
-Received: from mail-41104.protonmail.ch (mail-41104.protonmail.ch
- [185.70.41.104]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-369-v3-sL5-fMRy2SNIRQSM3Ng-1; Wed, 07 Aug 2024 19:43:37 -0400
-X-MC-Unique: v3-sL5-fMRy2SNIRQSM3Ng-1
-Date: Wed, 07 Aug 2024 23:43:12 +0000
-To: blinux-list@redhat.com
-From: "'Rastislav Kish' via blinux-list@redhat.com" <blinux-list@redhat.com>
-Subject: Re: Lios
-Message-ID: <bb57aa41-fa00-4cfe-a367-1a7a50251211@protonmail.com>
-In-Reply-To: <8107ca73-f5e8-4bc5-9e83-2460c0cc4ddb@gmail.com>
-References: <302d6c88-edc0-f33e-bb93-311e82098da4@panix.com> <7efeda7f-aad6-46fe-b848-9bc1be473feb@gmail.com> <c20c8201-159a-6ca5-61e6-b2c349b18a66@panix.com> <2dfdde94-9d53-4fb1-b29a-308b0872dc8b@gmail.com> <37b6459d-957d-32b3-57cd-e08cc9101eaf@panix.com> <9233824c-dd04-40ff-acdf-fbb26c6e1d2c@gmail.com> <0048a573-8a71-4fe9-9445-07d463c69b69@protonmail.com> <8107ca73-f5e8-4bc5-9e83-2460c0cc4ddb@gmail.com>
-Feedback-ID: 26663242:user:proton
-X-Pm-Message-ID: cd1e2686ebbb1fcea633958cf48eddc118b7ae4c
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C0E4E1955D60
+	for <blinux-list@redhat.com>; Thu,  8 Aug 2024 15:31:50 +0000 (UTC)
+Received: from NAM10-DM6-obe.outbound.protection.outlook.com
+ (mail-dm6nam10on2123.outbound.protection.outlook.com [40.107.93.123]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-159-rNWJO0Y9PMWiA2hk2TiXKA-1; Thu, 08 Aug 2024 11:31:48 -0400
+X-MC-Unique: rNWJO0Y9PMWiA2hk2TiXKA-1
+Received: from BN8PR18MB2497.namprd18.prod.outlook.com (2603:10b6:408:6b::27)
+ by SN7PR18MB3805.namprd18.prod.outlook.com (2603:10b6:806:10d::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7828.22; Thu, 8 Aug
+ 2024 15:31:44 +0000
+Received: from BN8PR18MB2497.namprd18.prod.outlook.com
+ ([fe80::a3be:12c9:c94d:976]) by BN8PR18MB2497.namprd18.prod.outlook.com
+ ([fe80::a3be:12c9:c94d:976%6]) with mapi id 15.20.7849.013; Thu, 8 Aug 2024
+ 15:31:42 +0000
+From: cstrobel crosslink.net <cstrobel@crosslink.net>
+To: Linux for blind general discussion <blinux-list@redhat.com>, Al
+ Sten-Clanton <albert.e.sten_clanton@verizon.net>
+Subject: Re: how to enable use of right-alt key
+Thread-Topic: how to enable use of right-alt key
+Thread-Index: AQHa6NxaCrk7wxCNaUyUnw5A8eT0trIdfJoR
+Date: Thu, 8 Aug 2024 15:31:42 +0000
+Message-ID: <BN8PR18MB24973A8490704B4C3702DD5BC7B92@BN8PR18MB2497.namprd18.prod.outlook.com>
+References: <37ae7068-5dd0-4446-81d4-3aa55b69cd0d.ref@verizon.net>
+ <37ae7068-5dd0-4446-81d4-3aa55b69cd0d@verizon.net>
+In-Reply-To: <37ae7068-5dd0-4446-81d4-3aa55b69cd0d@verizon.net>
+Accept-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN8PR18MB2497:EE_|SN7PR18MB3805:EE_
+x-ms-office365-filtering-correlation-id: 12ae5d7a-a2da-4d40-ecf6-08dcb7bf346e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7093399012|1800799024|376014|4022899009|366016|38070700018
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?iwy5p3+I597BMNoal3Ap4WHtqJ5HsZaqw6rsQfBCrzqQqcn/x1I+hC0Iqz?=
+ =?iso-8859-1?Q?r5acXggcOjrxx+iB5MaekQJOBXbBo6xD/4YtXg6qqZMWBw6oYEB171ToTk?=
+ =?iso-8859-1?Q?IPxAg/cwN86gBqTGHQSpT0xY7jPvJFF4Ei0M02JaAy7lEdt9TdazLcIx/b?=
+ =?iso-8859-1?Q?D1bTFZ7/2lHH03kl6ZjgcZ6SzRot8eWN1ifJ8eYD1yGt3pbfIc0xZMJgfD?=
+ =?iso-8859-1?Q?PiM1l/PMWzvHgo1Rfm8dUj0xABzq+SelO1om4kuD5YdVPR86/MMSldVfjt?=
+ =?iso-8859-1?Q?Y0ZDp0mwv87oqXkbg3+PUuWndG1P7AQwapJijBeZorrnSbJgI7A7M044I+?=
+ =?iso-8859-1?Q?/h4oj0iGxN/PfMzqPujkY/63YNOQ2LdV8LLulZ1TlURONgIBJJXG8OK4nI?=
+ =?iso-8859-1?Q?XwfSKKVpBHHM1/gp86dBqQ9bgJHoCIoRdGDrSUYjr/6Ahp4+1VDu55gMML?=
+ =?iso-8859-1?Q?aDUCxPbL1THaCoyPMSCvjcn6r0WL9MXJuTbLhbpdEl6sWcqDQYdPWicOsq?=
+ =?iso-8859-1?Q?AQJfZFe9IYg0ZP2dKUFbEmaIHUL/6nXC7cheXgeHV+Z9UolYYgbu0ze4qE?=
+ =?iso-8859-1?Q?3zvuUh0RJxa2f4wFhU/u2wK08gtoZSgdQES+0D30FjQmSs6DDrj86wfQmg?=
+ =?iso-8859-1?Q?zLao/Kio5CSWvyWbOL5rY0YPBBMjQscS8i8Ks1kEcVtpM5OpEZ7GRVEApF?=
+ =?iso-8859-1?Q?ZkzHpLW2ES/i4C3YfTTDM5ijeZM4BGSnB9UUwRzN5LlXgrw8dbnWknukLz?=
+ =?iso-8859-1?Q?zisIDH52NRzRJgyeCVctKKr8dREUbEQgidOeTfPj5tysyLfvPyPLthQfmq?=
+ =?iso-8859-1?Q?c2PCCSRoy6cvGbS4Y16yPJZA9+NR4sPS+OCb2I/VivuGsqMsd8xY9rxWeq?=
+ =?iso-8859-1?Q?tcr7L8y6q6i9CZJmbrXZnx2GyLkVYcgtdiEcUhVeJaW94BLZSKYIRykFit?=
+ =?iso-8859-1?Q?XILqSGK9el+GFkhLaMnxloJ0dpCai0sn+kA+9Roc5LGGgQR6yf0ewn1m+Z?=
+ =?iso-8859-1?Q?mCSbFLDtvlPn8KwikssM24NpYz4wkzQR6gRhQNdUGx9rm2q55bQ7PGyW02?=
+ =?iso-8859-1?Q?kudLNdz8JD0EfV5xP4DNPZLp0WWBpEtA5d4KV8ZSF9L0Yad/iAIiRq6IQC?=
+ =?iso-8859-1?Q?zRQPfuxk2LqjFqip7NRIoattkVOR46oxr1jgofuz63ozxB9OCEnGW0xI06?=
+ =?iso-8859-1?Q?6oyhEeEgksSuS//q/z3KETUrvKFKIn1UZwYp/PRzQDXwb5pCjQN5L2/ppn?=
+ =?iso-8859-1?Q?7QZDfo3eBXZs/0xsaNXDUP223TBrf3eB6n0CJP+tQyjqVoiph3U5S6n8f0?=
+ =?iso-8859-1?Q?29LUTiNbG0IOXqlQ3eBxOnpv8WC58peP39XX0wFDj/6z0o7XtP4Q6/3A9X?=
+ =?iso-8859-1?Q?BvS0BZCfDqZCaFPqw31UVO1TS7E0T9C99Si/wzazmHr9tlWv42325BlX6C?=
+ =?iso-8859-1?Q?T8SBXPNGORuINruaj3Z4cMmpIwghtP7vf3t+i5WsVJKomh+TKOxx9/xFpe?=
+ =?iso-8859-1?Q?A=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN8PR18MB2497.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7093399012)(1800799024)(376014)(4022899009)(366016)(38070700018);DIR:OUT;SFP:1102
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?maVathC1m/R702P0UXq4aKlzODlA1BftyD5CZHgmXqBD3FWHziHl1x26Gz?=
+ =?iso-8859-1?Q?jSC+hLHpb8syHY7qt0GLJ5aeToRpdK3LHRfnIXEx/vCbMzJzcexGbKp2m3?=
+ =?iso-8859-1?Q?pEiW0+FycQem+WLKV5sVn1RdB3ZmhuuOkX9CjepNyJ9zxkUfwzLZNzqEj0?=
+ =?iso-8859-1?Q?wPMKD50lTHJqOvcZOlL0ORHF5iJ2xr24LAZAyGs7K3GkKLUdSEMluHKUwq?=
+ =?iso-8859-1?Q?hUo9puUGjE5mNQHUSokv8tCKfN4M6UgX1sYk1eg2MyBemg7AtLFqHOIAkb?=
+ =?iso-8859-1?Q?SNqgUbYzFaKANToyTHvkowHAu+Yytr1s0IxnuqeiVi0kk5TgqCjmXj1PGA?=
+ =?iso-8859-1?Q?T7Jm32rlBNAPVaPxbBLgk2KHcxgwHgc+rz/glStzc/NwwJ5rKCsNsg2ALh?=
+ =?iso-8859-1?Q?+5zzVB/1kqt5UpC3STEu+/CXEZ3P5Hx8eVtAHK5VDEckHnCkluEy395Xvd?=
+ =?iso-8859-1?Q?egBIhznfAg/SR3d3RrfhF0S7j68JqHztp4NALN0sMHP6gEQI2AILDNqOgP?=
+ =?iso-8859-1?Q?ZXYX/gyXmkVIqhLXKZI3SC2VVWACTwTCXMCHj4wn+ZGq8sl5i81+JLUrIg?=
+ =?iso-8859-1?Q?fQZJWqNumrmXtiNNbudfcRm3Z7U61Jl/dtvxJYc0PFBaT3SXhVVYCWpxub?=
+ =?iso-8859-1?Q?yURWgw7KFMgJyUGsTqrLq8iCxe+eJE9cfQF8BKQCo1IivQnEKm4eDoLQ3s?=
+ =?iso-8859-1?Q?bJR59MV1cNqo7CrWYKUZRVHvnYP3MV5CNdN2Mnss8mszD9kFz0ScC6Quxr?=
+ =?iso-8859-1?Q?vCm0h1iUt7W6+nrsdViWK1aw+d0Q6OWiVUixWP7ZA2vb7dEWFycbdGN9gV?=
+ =?iso-8859-1?Q?fAN9ZSqYOkw/YSqT6XRQFD383wKj/1wFkZhhCNlOnsjEhebkRUkZFL0HCB?=
+ =?iso-8859-1?Q?Xrilsvz+4Wg9tLYNn8M5eU0yYvkupM+bRnEaId8Velc217UptywdyT//Jl?=
+ =?iso-8859-1?Q?SnRyH3vPqU9DS4PVZnS75PEj/tROzkFVgY4iumklmCXAzRVRqJWg2c2tqm?=
+ =?iso-8859-1?Q?ZoXAhQfnDBRETrH8e8ArwOcUFzBFoyQucDsm3Pw6fiaFAuuX5b67flAo0V?=
+ =?iso-8859-1?Q?tq4IjBD8ssToQNdIFuc6yWu53/uaNSArFYyt85NK59em2I5qRdZuVDBnXA?=
+ =?iso-8859-1?Q?MGSpL8ZCA54bpsjPbik5KYolP/LIWez+4BzCgXX/PXOAJKBU4XYAF2XVKk?=
+ =?iso-8859-1?Q?wdGQIlYsOrcb6IhVydTprH8+q8iVRR3W+arnQ3w4eDTXIbLM0b6ndA4t67?=
+ =?iso-8859-1?Q?IrLhmcCURhYIUNn1ln4hpiTWX43m2tJ5Srbl9wH5Q6z7ihsFgplXBV3aam?=
+ =?iso-8859-1?Q?ETrFc0gafx0Dpm+hoS0unvrWLH+theVbFoM5xPDBzfaivY58ubLr6yT7BT?=
+ =?iso-8859-1?Q?rCsVNKJf70n9ze3Ibs90CSJt7Y1Uc2G7UqBD1NyYhUGokoFU/9k0L2KtK5?=
+ =?iso-8859-1?Q?Im0I5LAIyR2qNhzxEWEuevBHOtbsN60SiX/e3Ve3gp4lt7ntR69EBE8ov+?=
+ =?iso-8859-1?Q?PW/1gCl+CjSdjlLK7En0ALznrnwLE3/dcHStpUOn+VmveoUBjNwvl0pYhf?=
+ =?iso-8859-1?Q?Vs9A7leyb2Qq+D6GqTxyTYX8dSdv+YWSCMfOoJ6FoXsO41Zl+4BNgIjqEj?=
+ =?iso-8859-1?Q?bLjzQrdVoJjy0CdRLa8YIMW30WoACnjHKX?=
 MIME-Version: 1.0
+X-OriginatorOrg: crosslink.net
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN8PR18MB2497.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12ae5d7a-a2da-4d40-ecf6-08dcb7bf346e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Aug 2024 15:31:42.5650
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: ffc1c47c-8879-4594-ade0-28ea8c2224c5
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WLIZOxohdXIaSWGoClRtW53kTmAmTbq77gpk8mTXPejK9zYEDNoUpson0T0fJ0sKQjN2rHhMTKsUlAOQvEbZ0w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR18MB3805
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: protonmail.com
+X-Mimecast-Originator: crosslink.net
+Content-Language: en-US
 Content-Type: multipart/alternative;
- boundary="b1_JoKhOBmrkY4Jq80vtHbRKhaowCpRfiRVrMqaQpG5k"
-X-Original-Sender: rastislav.kish@protonmail.com
+	boundary="_000_BN8PR18MB24973A8490704B4C3702DD5BC7B92BN8PR18MB2497namp_"
+X-Original-Sender: cstrobel@crosslink.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of rastislav.kish@protonmail.com designates 185.70.41.104 as permitted
- sender) smtp.mailfrom=rastislav.kish@protonmail.com
-X-Original-From: Rastislav Kish <rastislav.kish@protonmail.com>
-Reply-To: Rastislav Kish <rastislav.kish@protonmail.com>
+ domain of cstrobel@crosslink.net designates 40.107.93.123 as permitted
+ sender) smtp.mailfrom=cstrobel@crosslink.net
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -146,433 +237,126 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-This is a multi-part message in MIME format.
---b1_JoKhOBmrkY4Jq80vtHbRKhaowCpRfiRVrMqaQpG5k
+--_000_BN8PR18MB24973A8490704B4C3702DD5BC7B92BN8PR18MB2497namp_
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Hello Rodney,
-the official repository of the LIOS project is here:
-https://github.com/zendalona/lios
 
-I have forked it and applied my fixes I made some time ago for my HP laserj=
-et scanner.
-https://github.com/RastislavKish/lios
 
-See the scanimageDriverFix branch. If you=E2=80=99d like to try it out, the=
-re are two ways to do it, the more complicated but correct and simpler but =
-hacky.
+________________________________
+Maybe xmodmap if X is running?
+xmodmap by itself tells you what these keys are mapped to.
+I don't know for sure this will work, but try:
 
-The more complicated is to get rid of your current lios installation (this =
-is necessary to avoid package collisions) and install the program from the =
-fix branch of my repository:
+xmodmap -e "keysym Alt_R = Alt_L"
+If you want to reset it typ:
+setxkbmap
 
-git clone
-https://github.com/RastislavKish/lios
-cd lios
-git switch scanimageDriverFix
 
-And install from source according to the documentation.
+From: 'Al Sten-Clanton' via blinux-list@redhat.com <blinux-list@redhat.com>
+Sent: Wednesday, August 7, 2024 11:12 AM
+To: Linux for blind general discussion <blinux-list@redhat.com>
+Subject: how to enable use of right-alt key
 
-Don=E2=80=99t forget to select scanimage driver to be used in the LIOS sett=
-ings.
+Greetings!
 
-However, there is a simpler way. The fix basically deals with just one file=
-, and synce Python programs are not compiled, you can swap it out for the m=
-odified version in the existing installation and make it work this way. No =
-need to uninstall your current setup and it=E2=80=99s relatively quick.
 
-In order to do this, you first need to locate where did your system install=
- the lios python package. It likely resides in one of the python=E2=80=99s =
-dist-packages or site-packages directories, check /usr/lib/pytho, /usr/loca=
-l/lib/python etc. When you find the directory, the file you=E2=80=99re look=
-ing for is ./scanner/scanimage_driver.py
-Clone my repository like mentioned above, don=E2=80=99t forget to switch th=
-e branch i.e.
+A long time ago, I found and used a command that enabled me to use the
+right-alt key in the same way that I could use the left-alt key.  I did
+this especially for making Emacs easier to use, but I recall that the
+command itself was by way of the Bash shell.
 
-git clone
-https://github.com/RastislavKish/lios
-cd lios
-git switch scanimageDriverFix
 
-And swap the scanimage_driver.py. You will likely need to do this as a root=
- since LIOS is usually installed in a read-only directory.
+Recently, I've look for the way to do this but have not found it.  I've
+so far done no better searching Emacs information.  Can anybody tell me
+or point me to how I'd do this?  The main benefit for me would be in
+using Emacs, but being able to use both alt keys at the command line
+would also help some.
 
-Also make sure to select scanimage as the scanning driver in the LIOS setti=
-ngs.
 
-I=E2=80=99m not promising anything, as I mentioned before this was a simple=
- fix intended to make the program work with my scanner, but maybe it will w=
-ork for you too, the problem seems similar.
+Thanks for any information.
 
-Best regards
 
-Rastislav
+Al Sten-Clanton
 
-D=C5=88a 7. 8. 2024 o 21:37 rodney jackson nap=C3=ADsal(a):
 
-> Rastislav
->
-> I logged into my linux mint machine and the version of LIOS is 2.8
->
-> Rodney
->
-> On 8/7/2024 06:05, 'Rastislav Kish' via blinux-list@redhat.com wrote:
->
->> Hello,
->> which distribution of LIOS are you using?
->> These issues shouldn't be a big deal, LIOS has a bit incomplete implemen=
-tation of the scanner protocol, but when this happened on my machine I coul=
-d fix it in the code and I believe I reported the issues and my solutions b=
-ack.
->>
->> Best regards
->>
->> Rastislav
->>
->> D=C5=88a 6. 8. 2024 o 3:48 rodney jackson nap=C3=ADsal(a):
->>
->>> I am having issues with Lios, I am hoping someone can help me figure th=
-is out.
->>> Scanner I have: epson perfection v39 ii
->>> When trying to run Lios to scan documents
->>> Lios sees the scanner but I get the error below:
->>> Error I get:
->>> Scanner update list error Object has no attribute max_y
->>> I have tried this on Accessible Coconut and Linux mint as well as Debia=
-n Bookworm
->>> all other 3
->>>
->>> rd
->>>
->>> party scanning software on these machines have no issues with scanning =
-with this scanner
->>> Any help will be greatly appreciated.
->>> Rodney
+To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
-=E2=80=8B
+To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to blinux-list+unsubscribe@redhat.com.
-
---b1_JoKhOBmrkY4Jq80vtHbRKhaowCpRfiRVrMqaQpG5k
+--_000_BN8PR18MB24973A8490704B4C3702DD5BC7B92BN8PR18MB2497namp_
 Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
-">
-  </head>
-  <body>
-    <div class=3D"markdown-here-wrapper" data-md-url=3D"" style=3D"">
-      <p style=3D"margin: 0px 0px 1.2em !important;">Hello Rodney,<br>
-        the official repository of the LIOS project is here:<br>
-        <a href=3D"https://github.com/zendalona/lios"
-          class=3D"moz-txt-link-freetext">https://github.com/zendalona/lios=
-</a></p>
-      <p style=3D"margin: 0px 0px 1.2em !important;">I have forked it and
-        applied my fixes I made some time ago for my HP laserjet
-        scanner.<br>
-        <a href=3D"https://github.com/RastislavKish/lios"
-          class=3D"moz-txt-link-freetext">https://github.com/RastislavKish/=
-lios</a></p>
-      <p style=3D"margin: 0px 0px 1.2em !important;">See the
-        scanimageDriverFix branch. If you=E2=80=99d like to try it out, the=
-re
-        are two ways to do it, the more complicated but correct and
-        simpler but hacky.</p>
-      <p style=3D"margin: 0px 0px 1.2em !important;">The more complicated
-        is to get rid of your current lios installation (this is
-        necessary to avoid package collisions) and install the program
-        from the fix branch of my repository:</p>
-      <pre
-style=3D"font-family: Consolas, Inconsolata, Courier, monospace;font-size: =
-1em; line-height: 1.2em;margin: 1.2em 0px;"><code
-style=3D"font-family: Consolas, Inconsolata, Courier, monospace;margin: 0px=
- 0.15em; padding: 0px 0.3em; white-space: pre-wrap; font-weight: 550; backg=
-round-color: rgba(119, 119, 119, 0.3); border-radius: 3px; display: inline;=
-white-space: pre; overflow: auto; border-radius: 3px; border: 1px solid rgb=
-(204, 204, 204); padding: 0.5em 0.7em; display: block;">git clone <a class=
-=3D"moz-txt-link-freetext" href=3D"https://github.com/RastislavKish/lios">h=
-ttps://github.com/RastislavKish/lios</a>
-cd lios
-git switch scanimageDriverFix
-</code></pre>
-      <p style=3D"margin: 0px 0px 1.2em !important;">And install from
-        source according to the documentation.</p>
-      <p style=3D"margin: 0px 0px 1.2em !important;">Don=E2=80=99t forget t=
-o
-        select scanimage driver to be used in the LIOS settings.</p>
-      <p style=3D"margin: 0px 0px 1.2em !important;">However, there is a
-        simpler way. The fix basically deals with just one file, and
-        synce Python programs are not compiled, you can swap it out for
-        the modified version in the existing installation and make it
-        work this way. No need to uninstall your current setup and it=E2=80=
-=99s
-        relatively quick.</p>
-      <p style=3D"margin: 0px 0px 1.2em !important;">In order to do this,
-        you first need to locate where did your system install the lios
-        python package. It likely resides in one of the python=E2=80=99s
-        dist-packages or site-packages directories, check
-        /usr/lib/pytho, /usr/local/lib/python etc. When you find the
-        directory, the file you=E2=80=99re looking for is ./scanner/scanima=
-ge_<a
-          href=3D"http://driver.py">driver.py</a><br>
-        Clone my repository like mentioned above, don=E2=80=99t forget to s=
-witch
-        the branch i.e.</p>
-      <pre
-style=3D"font-family: Consolas, Inconsolata, Courier, monospace;font-size: =
-1em; line-height: 1.2em;margin: 1.2em 0px;"><code
-style=3D"font-family: Consolas, Inconsolata, Courier, monospace;margin: 0px=
- 0.15em; padding: 0px 0.3em; white-space: pre-wrap; font-weight: 550; backg=
-round-color: rgba(119, 119, 119, 0.3); border-radius: 3px; display: inline;=
-white-space: pre; overflow: auto; border-radius: 3px; border: 1px solid rgb=
-(204, 204, 204); padding: 0.5em 0.7em; display: block;">git clone <a class=
-=3D"moz-txt-link-freetext" href=3D"https://github.com/RastislavKish/lios">h=
-ttps://github.com/RastislavKish/lios</a>
-cd lios
-git switch scanimageDriverFix
-</code></pre>
-      <p style=3D"margin: 0px 0px 1.2em !important;">And swap the
-        scanimage_<a href=3D"http://driver.py">driver.py</a>. You will
-        likely need to do this as a root since LIOS is usually installed
-        in a read-only directory.</p>
-      <p style=3D"margin: 0px 0px 1.2em !important;">Also make sure to
-        select scanimage as the scanning driver in the LIOS settings.</p>
-      <p style=3D"margin: 0px 0px 1.2em !important;">I=E2=80=99m not promis=
-ing
-        anything, as I mentioned before this was a simple fix intended
-        to make the program work with my scanner, but maybe it will work
-        for you too, the problem seems similar.</p>
-      <p style=3D"margin: 0px 0px 1.2em !important;">Best regards</p>
-      <p style=3D"margin: 0px 0px 1.2em !important;">Rastislav</p>
-      <p style=3D"margin: 0px 0px 1.2em !important;"></p>
-      <div class=3D"markdown-here-exclude">
-        <div class=3D"moz-cite-prefix">D=C5=88a 7. 8. 2024 o 21:37 rodney
-          jackson nap=C3=ADsal(a):<br>
-        </div>
-      </div>
-      <p style=3D"margin: 0px 0px 1.2em !important;"></p>
-      <p style=3D"margin: 0px 0px 1.2em !important;"></p>
-      <div class=3D"markdown-here-exclude">
-        <blockquote type=3D"cite"
-          cite=3D"mid:8107ca73-f5e8-4bc5-9e83-2460c0cc4ddb@gmail.com">
-          <p>Rastislav</p>
-          <p>I logged into my linux mint machine and the version of LIOS
-            is
-            2.8</p>
-          <p>Rodney<br>
-          </p>
-          <div class=3D"moz-cite-prefix">On 8/7/2024 06:05, 'Rastislav
-            Kish' via
-            <a class=3D"moz-txt-link-abbreviated moz-txt-link-freetext"
-              href=3D"mailto:blinux-list@redhat.com"
-              moz-do-not-send=3D"true">blinux-list@redhat.com</a> wrote:<br=
->
-          </div>
-          <blockquote type=3D"cite"
-cite=3D"mid:0048a573-8a71-4fe9-9445-07d463c69b69@protonmail.com">
-            <p>Hello,<br>
-              which distribution of LIOS are you using?<br>
-              These issues shouldn't be a big deal, LIOS has a bit
-              incomplete
-              implementation of the scanner protocol, but when this
-              happened
-              on my machine I could fix it in the code and I believe I
-              reported the issues and my solutions back.<br>
-              <br>
-              Best regards<br>
-              <br>
-              Rastislav<br>
-              <br>
-            </p>
-            <div class=3D"moz-cite-prefix">D=C5=88a 6. 8. 2024 o 3:48 rodne=
-y
-              jackson
-              nap=C3=ADsal(a):<br>
-            </div>
-            <blockquote type=3D"cite"
-              cite=3D"mid:9233824c-dd04-40ff-acdf-fbb26c6e1d2c@gmail.com">
-              <pre class=3D"western">I am having issues with Lios, I am hop=
-ing someone can help me figure this out.
-Scanner I have: epson perfection v39 ii
-When trying to run Lios to scan documents
-Lios sees the scanner but I get the error below:
-Error I get:
-Scanner update list error Object has no attribute max_y
-I have tried this on Accessible Coconut and Linux mint as well as Debian Bo=
-okworm
-all other 3<sup>rd</sup> party scanning software on these machines have no =
-issues with scanning with this scanner
-Any help will be greatly appreciated.
-Rodney
-
-
-
-</pre>
-            </blockquote>
-          </blockquote>
-        </blockquote>
-      </div>
-      <p style=3D"margin: 0px 0px 1.2em !important;"></p>
-      <div
-title=3D"MDH:PHA+SGVsbG8gUm9kbmV5LDxicj50aGUgb2ZmaWNpYWwgcmVwb3NpdG9yeSBvZi=
-B0aGUgTElPUyBw
-cm9qZWN0IGlzIGhlcmU6PGJyPmh0dHBzOi8vZ2l0aHViLmNvbS96ZW5kYWxvbmEvbGlvczxicj4=
-8
-YnI+SSBoYXZlIGZvcmtlZCBpdCBhbmQgYXBwbGllZCBteSBmaXhlcyBJIG1hZGUgc29tZSB0aW1=
-l
-IGFnbyBmb3IgbXkgSFAgbGFzZXJqZXQgc2Nhbm5lci48YnI+aHR0cHM6Ly9naXRodWIuY29tL1J=
-h
-c3Rpc2xhdktpc2gvbGlvczxicj48YnI+U2VlIHRoZSBzY2FuaW1hZ2VEcml2ZXJGaXggYnJhbmN=
-o
-LiBJZiB5b3UnZCBsaWtlIHRvIHRyeSBpdCBvdXQsIHRoZXJlIGFyZSB0d28gd2F5cyB0byBkbyB=
-p
-dCwgdGhlIG1vcmUgY29tcGxpY2F0ZWQgYnV0IGNvcnJlY3QgYW5kIHNpbXBsZXIgYnV0IGhhY2t=
-5
-Ljxicj48YnI+VGhlIG1vcmUgY29tcGxpY2F0ZWQgaXMgdG8gZ2V0IHJpZCBvZiB5b3VyIGN1cnJ=
-l
-bnQgbGlvcyBpbnN0YWxsYXRpb24gKHRoaXMgaXMgbmVjZXNzYXJ5IHRvIGF2b2lkIHBhY2thZ2U=
-g
-Y29sbGlzaW9ucykgYW5kIGluc3RhbGwgdGhlIHByb2dyYW0gZnJvbSB0aGUgZml4IGJyYW5jaCB=
-v
-ZiBteSByZXBvc2l0b3J5Ojxicj48YnI+YGBgPGJyPmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5=
-j
-b20vUmFzdGlzbGF2S2lzaC9saW9zPGJyPmNkIGxpb3M8YnI+Z2l0IHN3aXRjaCBzY2FuaW1hZ2V=
-E
-cml2ZXJGaXg8YnI+YGBgPGJyPjxicj5BbmQgaW5zdGFsbCBmcm9tIHNvdXJjZSBhY2NvcmRpbmc=
-g
-dG8gdGhlIGRvY3VtZW50YXRpb24uPGJyPjxicj5Eb24ndCBmb3JnZXQgdG8gc2VsZWN0IHNjYW5=
-p
-bWFnZSBkcml2ZXIgdG8gYmUgdXNlZCBpbiB0aGUgTElPUyBzZXR0aW5ncy48YnI+PGJyPkhvd2V=
-2
-ZXIsIHRoZXJlIGlzIGEgc2ltcGxlciB3YXkuIFRoZSBmaXggYmFzaWNhbGx5IGRlYWxzIHdpdGg=
-g
-anVzdCBvbmUgZmlsZSwgYW5kIHN5bmNlIFB5dGhvbiBwcm9ncmFtcyBhcmUgbm90IGNvbXBpbGV=
-k
-LCB5b3UgY2FuIHN3YXAgaXQgb3V0IGZvciB0aGUgbW9kaWZpZWQgdmVyc2lvbiBpbiB0aGUgZXh=
-p
-c3RpbmcgaW5zdGFsbGF0aW9uIGFuZCBtYWtlIGl0IHdvcmsgdGhpcyB3YXkuIE5vIG5lZWQgdG8=
-g
-dW5pbnN0YWxsIHlvdXIgY3VycmVudCBzZXR1cCBhbmQgaXQncyByZWxhdGl2ZWx5IHF1aWNrLjx=
-i
-cj48YnI+SW4gb3JkZXIgdG8gZG8gdGhpcywgeW91IGZpcnN0IG5lZWQgdG8gbG9jYXRlIHdoZXJ=
-l
-IGRpZCB5b3VyIHN5c3RlbSBpbnN0YWxsIHRoZSBsaW9zIHB5dGhvbiBwYWNrYWdlLiBJdCBsaWt=
-l
-bHkgcmVzaWRlcyBpbiBvbmUgb2YgdGhlIHB5dGhvbidzIGRpc3QtcGFja2FnZXMgb3Igc2l0ZS1=
-w
-YWNrYWdlcyBkaXJlY3RvcmllcywgY2hlY2sgL3Vzci9saWIvcHl0aG8sIC91c3IvbG9jYWwvbGl=
-i
-L3B5dGhvbiBldGMuIFdoZW4geW91IGZpbmQgdGhlIGRpcmVjdG9yeSwgdGhlIGZpbGUgeW91J3J=
-l
-IGxvb2tpbmcgZm9yIGlzIC4vc2Nhbm5lci9zY2FuaW1hZ2VfZHJpdmVyLnB5PGJyPkNsb25lIG1=
-5
-IHJlcG9zaXRvcnkgbGlrZSBtZW50aW9uZWQgYWJvdmUsIGRvbid0IGZvcmdldCB0byBzd2l0Y2g=
-g
-dGhlIGJyYW5jaCBpLmUuPGJyPjxicj5gYGA8YnI+Z2l0IGNsb25lIGh0dHBzOi8vZ2l0aHViLmN=
-v
-bS9SYXN0aXNsYXZLaXNoL2xpb3M8YnI+Y2QgbGlvczxicj5naXQgc3dpdGNoIHNjYW5pbWFnZUR=
-y
-aXZlckZpeDxicj5gYGA8YnI+PGJyPkFuZCBzd2FwIHRoZSBzY2FuaW1hZ2VfZHJpdmVyLnB5LiB=
-Z
-b3Ugd2lsbCBsaWtlbHkgbmVlZCB0byBkbyB0aGlzIGFzIGEgcm9vdCBzaW5jZSBMSU9TIGlzIHV=
-z
-dWFsbHkgaW5zdGFsbGVkIGluIGEgcmVhZC1vbmx5IGRpcmVjdG9yeS48YnI+PGJyPkFsc28gbWF=
-r
-ZSBzdXJlIHRvIHNlbGVjdCBzY2FuaW1hZ2UgYXMgdGhlIHNjYW5uaW5nIGRyaXZlciBpbiB0aGU=
-g
-TElPUyBzZXR0aW5ncy48YnI+PGJyPkknbSBub3QgcHJvbWlzaW5nIGFueXRoaW5nLCBhcyBJIG1=
-l
-bnRpb25lZCBiZWZvcmUgdGhpcyB3YXMgYSBzaW1wbGUgZml4IGludGVuZGVkIHRvIG1ha2UgdGh=
-l
-IHByb2dyYW0gd29yayB3aXRoIG15IHNjYW5uZXIsIGJ1dCBtYXliZSBpdCB3aWxsIHdvcmsgZm9=
-y
-IHlvdSB0b28sIHRoZSBwcm9ibGVtIHNlZW1zIHNpbWlsYXIuPGJyPjxicj5CZXN0IHJlZ2FyZHM=
-8
-YnI+PGJyPlJhc3Rpc2xhdjxicj48YnI+PC9wPjxkaXYgY2xhc3M9Im1vei1jaXRlLXByZWZpeCI=
-+
-RMWIYSA3LiA4LiAyMDI0IG8gMjE6Mzcgcm9kbmV5IGphY2tzb24gbmFww61zYWwoYSk6PGJyPjw=
-v
-ZGl2PjxibG9ja3F1b3RlIHR5cGU9ImNpdGUiIGNpdGU9Im1pZDo4MTA3Y2E3My1mNWU4LTRiYzU=
-t
-OWU4My0yNDYwYzBjYzRkZGJAZ21haWwuY29tIj4KCiAgICAKICAKICAKICAgIDxwPlJhc3Rpc2x=
-h
-djwvcD4KICAgIDxwPkkgbG9nZ2VkIGludG8gbXkgbGludXggbWludCBtYWNoaW5lIGFuZCB0aGU=
-g
-dmVyc2lvbiBvZiBMSU9TIGlzCiAgICAgIDIuODwvcD4KICAgIDxwPlJvZG5leTxicj4KICAgIDw=
-v
-cD4KICAgIDxkaXYgY2xhc3M9Im1vei1jaXRlLXByZWZpeCI+T24gOC83LzIwMjQgMDY6MDUsICd=
-S
-YXN0aXNsYXYgS2lzaCcgdmlhCiAgICAgIDxhIGNsYXNzPSJtb3otdHh0LWxpbmstYWJicmV2aWF=
-0
-ZWQgbW96LXR4dC1saW5rLWZyZWV0ZXh0IiBocmVmPSJtYWlsdG86YmxpbnV4LWxpc3RAcmVkaGF=
-0
-LmNvbSIgbW96LWRvLW5vdC1zZW5kPSJ0cnVlIj5ibGludXgtbGlzdEByZWRoYXQuY29tPC9hPiB=
-3
-cm90ZTo8YnI+CiAgICA8L2Rpdj4KICAgIDxibG9ja3F1b3RlIHR5cGU9ImNpdGUiIGNpdGU9Im1=
-p
-ZDowMDQ4YTU3My04YTcxLTRmZTktOTQ0NS0wN2Q0NjNjNjliNjlAcHJvdG9ubWFpbC5jb20iPgo=
-g
-ICAgICAKICAgICAgPHA+SGVsbG8sPGJyPgogICAgICAgIHdoaWNoIGRpc3RyaWJ1dGlvbiBvZiB=
-M
-SU9TIGFyZSB5b3UgdXNpbmc/PGJyPgogICAgICAgIFRoZXNlIGlzc3VlcyBzaG91bGRuJ3QgYmU=
-g
-YSBiaWcgZGVhbCwgTElPUyBoYXMgYSBiaXQgaW5jb21wbGV0ZQogICAgICAgIGltcGxlbWVudGF=
-0
-aW9uIG9mIHRoZSBzY2FubmVyIHByb3RvY29sLCBidXQgd2hlbiB0aGlzIGhhcHBlbmVkCiAgICA=
-g
-ICAgb24gbXkgbWFjaGluZSBJIGNvdWxkIGZpeCBpdCBpbiB0aGUgY29kZSBhbmQgSSBiZWxpZXZ=
-l
-IEkKICAgICAgICByZXBvcnRlZCB0aGUgaXNzdWVzIGFuZCBteSBzb2x1dGlvbnMgYmFjay48YnI=
-+
-CiAgICAgICAgPGJyPgogICAgICAgIEJlc3QgcmVnYXJkczxicj4KICAgICAgICA8YnI+CiAgICA=
-g
-ICAgUmFzdGlzbGF2PGJyPgogICAgICAgIDxicj4KICAgICAgPC9wPgogICAgICA8ZGl2IGNsYXN=
-z
-PSJtb3otY2l0ZS1wcmVmaXgiPkTFiGEgNi4gOC4gMjAyNCBvIDM6NDggcm9kbmV5IGphY2tzb24=
-K
-ICAgICAgICBuYXDDrXNhbChhKTo8YnI+CiAgICAgIDwvZGl2PgogICAgICA8YmxvY2txdW90ZSB=
-0
-eXBlPSJjaXRlIiBjaXRlPSJtaWQ6OTIzMzgyNGMtZGQwNC00MGZmLWFjZGYtZmJiMjZjNmUxZDJ=
-j
-QGdtYWlsLmNvbSI+CiAgICAgICAgPHByZSBjbGFzcz0id2VzdGVybiI+SSBhbSBoYXZpbmcgaXN=
-z
-dWVzIHdpdGggTGlvcywgSSBhbSBob3Bpbmcgc29tZW9uZSBjYW4gaGVscCBtZSBmaWd1cmUgdGh=
-p
-cyBvdXQuClNjYW5uZXIgSSBoYXZlOiBlcHNvbiBwZXJmZWN0aW9uIHYzOSBpaQpXaGVuIHRyeWl=
-u
-ZyB0byBydW4gTGlvcyB0byBzY2FuIGRvY3VtZW50cwpMaW9zIHNlZXMgdGhlIHNjYW5uZXIgYnV=
-0
-IEkgZ2V0IHRoZSBlcnJvciBiZWxvdzoKRXJyb3IgSSBnZXQ6CglTY2FubmVyIHVwZGF0ZSBsaXN=
-0
-IGVycm9yIE9iamVjdCBoYXMgbm8gYXR0cmlidXRlIG1heF95CkkgaGF2ZSB0cmllZCB0aGlzIG9=
-u
-IEFjY2Vzc2libGUgQ29jb251dCBhbmQgTGludXggbWludCBhcyB3ZWxsIGFzIERlYmlhbiBCb29=
-r
-d29ybQphbGwgb3RoZXIgMzxzdXA+cmQ8L3N1cD4gcGFydHkgc2Nhbm5pbmcgc29mdHdhcmUgb24=
-g
-dGhlc2UgbWFjaGluZXMgaGF2ZSBubyBpc3N1ZXMgd2l0aCBzY2FubmluZyB3aXRoIHRoaXMgc2N=
-h
-bm5lcgpBbnkgaGVscCB3aWxsIGJlIGdyZWF0bHkgYXBwcmVjaWF0ZWQuClJvZG5leQoKCgo8L3B=
-y
-ZT4KICAgICAgPC9ibG9ja3F1b3RlPgogICAgPC9ibG9ja3F1b3RlPgogIAoKPC9ibG9ja3F1b3R=
-l
-Pg=3D=3D" aria-hidden=3D"true"
-style=3D"height:0;width:0;max-height:0;max-width:0;overflow:hidden;font-siz=
-e:0;padding:0;margin:0;">=E2=80=8B</div>
-    </div>
-  </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css" style="display:none;"> P {margin-top:0;margin-bottom:0;} </style>
+</head>
+<body dir="ltr">
+<div class="elementToProof" style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div id="appendonsend"></div>
+<div style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<hr style="display: inline-block; width: 98%;">
+<div id="divRplyFwdMsg" dir="ltr" class="elementToProof"><span style="font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);"><b>Maybe xmodmap if X is running?</b></span></div>
+<div style="direction: ltr; font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);" class="elementToProof">
+<b>xmodmap by itself tells you what these keys are mapped to.</b></div>
+<div style="direction: ltr; font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);" class="elementToProof">
+<b>I don't know for sure this will work, but try:<br>
+<br>
+</b></div>
+<div style="direction: ltr; font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);" class="elementToProof">
+<b>xmodmap -e &quot;keysym Alt_<i>R = Alt</i>_L&quot;</b></div>
+<div style="direction: ltr; font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);" class="elementToProof">
+<b>If you want to reset it typ:</b></div>
+<div style="direction: ltr; font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);" class="elementToProof">
+<b>setxkbmap</b></div>
+<div style="direction: ltr; font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);" class="elementToProof">
+<b><br>
+</b></div>
+<div style="direction: ltr; font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);" class="elementToProof">
+<b><br>
+</b></div>
+<div style="direction: ltr; font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);" class="elementToProof">
+<b>From:</b>&nbsp;'Al Sten-Clanton' via blinux-list@redhat.com &lt;blinux-list@redhat.com&gt;</div>
+<div style="direction: ltr; font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);">
+<b>Sent:</b>&nbsp;Wednesday, August 7, 2024 11:12 AM<br>
+<b>To:</b>&nbsp;Linux for blind general discussion &lt;blinux-list@redhat.com&gt;<br>
+<b>Subject:</b>&nbsp;how to enable use of right-alt key</div>
+<div style="direction: ltr;">&nbsp;</div>
+<div style="font-size: 11pt;">Greetings!<br>
+<br>
+<br>
+A long time ago, I found and used a command that enabled me to use the<br>
+right-alt key in the same way that I could use the left-alt key.&nbsp; I did<br>
+this especially for making Emacs easier to use, but I recall that the<br>
+command itself was by way of the Bash shell.<br>
+<br>
+<br>
+Recently, I've look for the way to do this but have not found it.&nbsp; I've<br>
+so far done no better searching Emacs information.&nbsp; Can anybody tell me<br>
+or point me to how I'd do this?&nbsp; The main benefit for me would be in<br>
+using Emacs, but being able to use both alt keys at the command line<br>
+would also help some.<br>
+<br>
+<br>
+Thanks for any information.<br>
+<br>
+<br>
+Al Sten-Clanton<br>
+<br>
+<br>
+To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.<br>
+<br>
+</div>
+</body>
 </html>
 
 <p></p>
 
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
-nsubscribe@redhat.com</a>.<br />
+To unsubscribe from this group and stop receiving emails from it, send an email to <a href="mailto:blinux-list+unsubscribe@redhat.com">blinux-list+unsubscribe@redhat.com</a>.<br />
 
---b1_JoKhOBmrkY4Jq80vtHbRKhaowCpRfiRVrMqaQpG5k--
+--_000_BN8PR18MB24973A8490704B4C3702DD5BC7B92BN8PR18MB2497namp_--
 
