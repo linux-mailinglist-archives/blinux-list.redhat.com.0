@@ -1,143 +1,146 @@
-Return-Path: <blinux-list+bncBDGI3AUYYYCBBZ6Z5G2QMGQEEH77KGA@redhat.com>
+Return-Path: <blinux-list+bncBCFIHJ744YGRBKHY5G2QMGQEW44YPTI@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mail.lfdr.de (Postfix) with ESMTPS id 763A194F7FD
-	for <lists+blinux-list@lfdr.de>; Mon, 12 Aug 2024 22:13:29 +0200 (CEST)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-44ffa2bf13fsf66674161cf.3
-        for <lists+blinux-list@lfdr.de>; Mon, 12 Aug 2024 13:13:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1723493608; cv=pass;
+Received: from mail-oa1-f72.google.com (mail-oa1-f72.google.com [209.85.160.72])
+	by mail.lfdr.de (Postfix) with ESMTPS id BF5E494F8DD
+	for <lists+blinux-list@lfdr.de>; Mon, 12 Aug 2024 23:18:33 +0200 (CEST)
+Received: by mail-oa1-f72.google.com with SMTP id 586e51a60fabf-260ffc95201sf4386655fac.0
+        for <lists+blinux-list@lfdr.de>; Mon, 12 Aug 2024 14:18:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1723497512; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tCfTAGIFWO6WSJhnTTUX21NvQI7OdPeAnsl/Uh20cmGNnsEXRIBn36yW9jpqFkO4DO
-         0QrkT2jxRk2WnMbscS+iW8uIdtRd4Of4NS29s2IQavHBDFt4/JPOLMALaOMhXzaOCiAg
-         1PCKDu1dmXsBF4+nEUlfxZLBX28RP3VGXbpkJuO+dmKcXvIqU9wqCQHUeXCTRv0qDyVv
-         ZMKWvZ3IBxDfmXf6CZ9a9iRix49uBzZKahHset6EhwzpEnP/MAYMgT2uQFPLYesU8dYJ
-         SdO1Yc3Sd+zpZtraCLqzx4QiVs8fzc2zw7LU36FgI+JRhPKslvrXwVrYcmvOarnkdacW
-         48aA==
+        b=iHXx9dW6r5ezpH3KldJGqSjxqiXnSALoiURXgSDwsOiBC5Mj09lD8GSigrxnBL2fsS
+         dNQEL7xqdOhtKAHColZNcjtYMhBHNdwZlKTvPipiQylD7cZB5a369K2Auh5ie7GddWXS
+         nDW5hCcm5POzrk8v5o5rH+gOGPJCX4DwejnqsERy134yNIn6BJPbjkv0/cqxAS/PFmTb
+         oMMvbQisEe+Jhy8JV2Lu7GYT91otZgz+DNxweRwOHXXXhZu4NZYCkpFxaWhoi2ucL5SF
+         2DPSW3eWk9Jsekz9jH5Aw0QWC4m22NyFuyot1aXeeqDKBAqbYKTyuTIBEpGDId7luVx3
+         F+fw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
          :mailing-list:precedence:content-disposition:in-reply-to
-         :mime-version:references:message-id:subject:to:from:date
-         :delivered-to;
-        bh=bof0NKPW/65S1dWMfpUiwD734mDeIV0k5SbxOCluJl0=;
-        fh=EQH4B8Y2a6GyHqGQjHZRnLNOGaZt++b3ysCPYjV0Enc=;
-        b=mrNbqe8IBufIpBkEI/x5NjnE+rrpneMUR4oTeSi0mz8Q8zgbzm1UO/jLMBsbUqv6bT
-         7Eww28vQ7hK2Lfnj5Kb9Ao3lDQPoqcm2kczernsbsJgWwoAf5WyvXxDcpDzB+OAxwfFm
-         gYh4OrCwa+GSFy5LA+ahdQZEXI2hq6eTeYU5ncr3c0HXZE4ab20CxEe7DkjyDzziiPWI
-         44V3QCXMsLOtl3oLmR+b0l8xujPTbIM22xMORBt731UeiPqIbl1oCk2lqZUT6DUcF6kc
-         hWMKjdsSWYHzOAh+QqJVXDEyChw0HzeswZMcjLWJJ6pDrMXYCIxzDeVIMUzJUMYcrBpd
-         dH+g==;
+         :mime-version:references:mail-followup-to:message-id:subject:to:from
+         :date:delivered-to;
+        bh=GwCKD1cttL544MZuCpjh7SgkigMyb5l9yOlWqpgVXtw=;
+        fh=jIyr9eoJV28iQdJ+/IWklsFAcaVDtviOzNCtkJMkdhA=;
+        b=Nv3b8EPDtYbII1PdRX8hIt8Aq3bg8c3Ws3c3Y3W+pIq/N6zvoGEl7WlqHlyD8V+uuC
+         GNlDFdcFVh86yzO3E58jwypCPw/qDXuyuZmuf1azqJ3L0Hq1JN98hXnKycY0A6VcihDB
+         exB5jxWshZxC+CGRMeOpnOGJAu/X/mWSZbSI7RXe66PCWFzfwXUjGceO7mc0VkK+IBS7
+         SxKdMhBIrumXAAhlfEtxAWj2SY/wRp2KX1GJpkhBujLtXM5GkShS2T2FgmE6MlF4101G
+         z/D4bcF0K96cfqbIt0VZUaedaQcSjH5+eJAiayaVCVtKC648fFKQw1CsnqbRbKiegJVa
+         cvdQ==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of salt@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=salt@panix.com
+       spf=pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) smtp.mailfrom=blinux.list@thechases.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1723493608; x=1724098408;
+        d=1e100.net; s=20230601; t=1723497512; x=1724102312;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender
-         :content-disposition:in-reply-to:mime-version:references:message-id
-         :subject:to:from:date:delivered-to:x-beenthere:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=bof0NKPW/65S1dWMfpUiwD734mDeIV0k5SbxOCluJl0=;
-        b=vL750uaDW9O5JizDeqSByNBStf/y7NFEp8vmmlkvIOenaIynDjxFPZcWIMBEY7MTqa
-         CBCyuDbMSRYRHlkI3rYKftfDEEM02vc2JfKfFL2zdWTBCsG2dawtmBEIR7UEw9CvpUaH
-         NdI05I+pbsd1Kpm46A40GOz/gx94CGuTuMODp220Jgq2D2agQVQAY9orr7cQk3d5LeEd
-         ZCgDhJWAWm6OOHhTEL4kOs8Hs8CT9C7LY2LbinmKbrNvRjiPuOCDHBhsEIaM7D/aKYka
-         l2ElxC4XIvBdd4jGj21e5n8gG/2FjFgnBvZgawv/8TxwLRTcVadqaivI6R6QnNtW62Vg
-         AQfA==
-X-Forwarded-Encrypted: i=2; AJvYcCWMsBOueTTZKtXhpL/B+Jf5tiSkARuTrBfaImJDyWpFOBJERMQq3Zbfweag5JALXmK/vZexB9F/NNz0AVA+0nPJN3mp0GzlIF75
-X-Gm-Message-State: AOJu0Yz7p4tBl9+3peAkD0cE/a7vvrh9GTkyVQ/uoRy8drcJT7pLWNMN
-	Ty+JGEioBwjb7hJQpRitGwAC48/scrgQ1wakoxEb3Upya7YJpGdJhbgRfZy7X4M=
-X-Google-Smtp-Source: AGHT+IFY+EtOeU29yUQaC+6qljDoxGN3jbJc4ZMxrAc/HHhudXcEAfnQF3ZSk3X4gvQpHjZ8LwLFEA==
-X-Received: by 2002:a05:622a:5989:b0:451:d859:204c with SMTP id d75a77b69052e-45349b3001fmr13341111cf.64.1723493607912;
-        Mon, 12 Aug 2024 13:13:27 -0700 (PDT)
+         :content-disposition:in-reply-to:mime-version:references
+         :mail-followup-to:message-id:subject:to:from:date:delivered-to
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GwCKD1cttL544MZuCpjh7SgkigMyb5l9yOlWqpgVXtw=;
+        b=vKSb0XgObMwc8IUGwIvACWGzgKmLAtdBstRF/uBLnmSBZ/gHSVHAtc2agCnPwcT1T6
+         FXafZxwJL4mXWyl9W9mlLJMCWxj7w6jbNm2AxkqncH409fopg5U+qBPRrmmMijdwJxvO
+         zmEYWbHpOtlPvg5AdUDwyVPHdGmxqr2SPwgHZ2CLE3e5dat+UAF4mSTfUETe9FOGaQHL
+         Sq/uoRSp2ZdPUB9vInDm5Z5z1iDDoAB45t6k/UgrVmOINPcW4OoD9KGp0FQlHpEAa+NP
+         N2jpI08r98e+NY1LkzG1gaZ5FEu72+oPTJ2upUZ/MZJuA7fiH8reZ1bEx8yEd8PD/Qcg
+         WiWQ==
+X-Forwarded-Encrypted: i=2; AJvYcCXQQHbq51jYfrMxSqaC8fzhFsiR1yrwscASm1JhdiY+VJTfQVVmmCECteOp7Jsa4krvALgb8AouHaL8jREXqTBdTm3SFQYm9o3Q
+X-Gm-Message-State: AOJu0YwuCFRrUGWG9le04/Z6Ov7DRH4bgFV/l3fxJrJdKNeVWslQ/a6W
+	wT3r2mKWfl+szIGefVz/ChSF0CCqnKKHLEtT5X75VdtGNy6IgDs85x7VEdD3qtw=
+X-Google-Smtp-Source: AGHT+IEuulLpATCkQghnN4eteLwQ0jUBMN9rtJUI1R2VPIfoXPg44Lc52Ni4EbuPDy1TZh7f6w33XA==
+X-Received: by 2002:a05:6870:1c8:b0:24f:d3ce:fe92 with SMTP id 586e51a60fabf-26fcb692519mr1658306fac.14.1723497512352;
+        Mon, 12 Aug 2024 14:18:32 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:622a:1a8a:b0:440:337d:f8bb with SMTP id
- d75a77b69052e-451d10eac9bls77903471cf.0.-pod-prod-07-us; Mon, 12 Aug 2024
- 13:13:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCVuAHv5h3sMBRot0949sm8cXZ8c5f9yG7DapNO06w+huEnDHh7gDb0yLpmPDqmcpMyd0L2XhaXZU3apMA2LMwzP0T/m05y4JXosHAT9
-X-Received: by 2002:a05:622a:5989:b0:446:59ab:56a6 with SMTP id d75a77b69052e-45349a66b50mr18139901cf.47.1723493606933;
-        Mon, 12 Aug 2024 13:13:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1723493606; cv=none;
+Received: by 2002:a05:6870:3d9a:b0:25e:1ff1:3bb7 with SMTP id
+ 586e51a60fabf-2692505b320ls2842969fac.0.-pod-prod-02-us; Mon, 12 Aug 2024
+ 14:18:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUq6eTOTnS8cfjhIevxIBV+fJM0uOLTa3oLQ0epCYPV7oMk7nT3p3h6sKZd49hLcPnsQy7ToHRRK9Q8QwEj4Nkkph2KL3UAV9iAcAc7
+X-Received: by 2002:a05:6808:2019:b0:3da:e587:3e1d with SMTP id 5614622812f47-3dd1edd2b6bmr1782064b6e.4.1723497511566;
+        Mon, 12 Aug 2024 14:18:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1723497511; cv=none;
         d=google.com; s=arc-20160816;
-        b=PTgOHMN7hWERlZ4dbBqPu6FSucy/mx+lU1eyuBsmofhHFT70J0Hud33Lb8HQEjAgkY
-         F+pFtx95t5fYBOYJXykhqLtKZRgs2yyAWo8Jdox3Iw8v67t547lHKnHuYICbTJSP/Dyi
-         xyePQ3TIDEKzxnt+rwggS1bANsyJxWuFHXBswMrmoAnE+UdmN/RDirj+FIzYCm3eLM1B
-         8HUbO5w6ZU64qWCyMvVrCWUrCt9/JV/1FvDg0xqtdY94mafYxzYLFkWQ0Lt00Mhv1BwB
-         tCHpJ8Eah+OQYVIlIjcAwdbnbb3r94WTZAY04qPndNpimHnfxKddvmxHywq/B5uy5bIS
-         uWHQ==
+        b=lbVlFCc2mjZflETj+6FpkE+h08H3gtfFeguDSW+B+7AlfvIiypqsDg2FDCjGJAXiuD
+         Imemldgoqz8pHgl03kOR0B8pVi7JdtjgcaEYk0dcOeH8OOm6k9zwqq5Eru7YXXpbPrfv
+         w+wSsIkMWX7N3cqMQQwiicftm9X5QAiauMQir7VOt5E9H4BfH+NsViqqlSGpldKMDJP9
+         lVH/Kk0IQPEQBVeZGO3fKiHEl9Pg2UXMT0bWuhLRmf7z5BzXuM+2V7RPnJBalJ1c8l67
+         VHom5BAL+hsJdPxnTIQfTXCij09A0ABDJI4xgLdtikXZUiJP5dzoaotyqJAsHr3oCDGT
+         REgw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:in-reply-to:mime-version:references:message-id
-         :subject:to:from:date:delivered-to;
-        bh=XDn53nrCZEMFP16ukJErWRXKIsPZ+e6dJ8GnV3GkbVE=;
+        h=content-disposition:in-reply-to:mime-version:references
+         :mail-followup-to:message-id:subject:to:from:date:delivered-to;
+        bh=uW/GetCSnV0fc75dX0R/O6dlRbE900NVwVLChO1U66A=;
         fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=S+/YiwdhCTwM0lZ1bXlwbOCrleubmluYbJCNDv8Cjy8MygEDdD6xoZdwS2VOWJ1zys
-         +Pfj4Mz14Y/vmiKioIexduZRqJeBQXvsy2rseqnDBwbWGM1enZ2m+x44RwVIErat7P/h
-         hT8dvR5NhWt88mXYPnwr9KuDOh8ToVZ+XSzyDSx8hFeH73ULz+fHewloE5YS9x0DGyPG
-         8WwEAgCP7oK7lMFpGhecTn9ecaeD1jQoDM7boqQvAnBEq8wMVLijLdXkagw9CLa3J1pM
-         KQ7qFSLQWJN+sJxLKlhLYJM+7xW+EqFUW+80pw9OUCD5/7N31d9TrlJVTOvRIotsdbFV
-         7QTw==;
+        b=bR3UvskkyQC5HuULAA4MfxhmVkz2Ivb3JfTZGN5GULdWQniYVExmGCEilwkb93QhqE
+         0Gki8BjcZS3Bv9XZW38SQEE6R/FwZv+JFRKuonOHe9AoRIlnxgfWd3bbVKYpiRtU6Clw
+         w1zifTgKYfgjuaVgmRBQF5YLz7CbW4gboyKaKGbvrUDWxQEXJP0VlIBncrBRMhDucRU8
+         BhiPwakGtRfwmYoLLRaHDMhD2NcnKyJ0uhDvK1cbsTWBSwNBb6VKRsmj/Ct9xS6UuWWh
+         CVoGlj5X1z+4DyQ8pj10gI6gqxhweC8sWAERwuElD0yFmFTVo6HWX0yiMC2MPnsVxA2C
+         8OYA==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of salt@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=salt@panix.com
+       spf=pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) smtp.mailfrom=blinux.list@thechases.com
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id d75a77b69052e-4531c1cb32fsi66449221cf.221.2024.08.12.13.13.26
+        by mx.google.com with ESMTPS id d75a77b69052e-4531c28edfasi68837861cf.546.2024.08.12.14.18.31
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Aug 2024 13:13:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of salt@panix.com designates 166.84.1.89 as permitted sender) client-ip=166.84.1.89;
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+        Mon, 12 Aug 2024 14:18:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of blinux.list@thechases.com designates 54.39.151.74 as permitted sender) client-ip=54.39.151.74;
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-691-ChuFA7YSNVei9P5sZg8aaA-1; Mon,
- 12 Aug 2024 16:13:25 -0400
-X-MC-Unique: ChuFA7YSNVei9P5sZg8aaA-1
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-201-P6gwCA2aNxGQc3JziJXD-w-1; Mon,
+ 12 Aug 2024 17:18:29 -0400
+X-MC-Unique: P6gwCA2aNxGQc3JziJXD-w-1
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AF66B18EA8AF
-	for <blinux-list@gapps.redhat.com>; Mon, 12 Aug 2024 20:13:24 +0000 (UTC)
-Received: by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id A88A219772C4; Mon, 12 Aug 2024 20:13:24 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 64C1D1954B10
+	for <blinux-list@gapps.redhat.com>; Mon, 12 Aug 2024 21:18:28 +0000 (UTC)
+Received: by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 5E5D01955F66; Mon, 12 Aug 2024 21:18:28 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.58])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A5E2E196BE80
-	for <blinux-list@redhat.com>; Mon, 12 Aug 2024 20:13:24 +0000 (UTC)
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.46])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5BE8319560AA
+	for <blinux-list@redhat.com>; Mon, 12 Aug 2024 21:18:28 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0E9B21979201
-	for <blinux-list@redhat.com>; Mon, 12 Aug 2024 20:13:24 +0000 (UTC)
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-394-0PBAm-AeNJuAbKoyPbrpvQ-1; Mon,
- 12 Aug 2024 16:13:21 -0400
-X-MC-Unique: 0PBAm-AeNJuAbKoyPbrpvQ-1
-Received: from panix5.panix.com (panix5.panix.com [166.84.1.5])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4WjQgj0FzMz13Yf
-	for <blinux-list@redhat.com>; Mon, 12 Aug 2024 16:13:21 -0400 (EDT)
-Received: by panix5.panix.com (Postfix, from userid 20196)
-	id 4WjQgj07CVzfYm; Mon, 12 Aug 2024 16:13:21 -0400 (EDT)
-Date: Mon, 12 Aug 2024 16:13:21 -0400
-From: Rudy Vener <salt@panix.com>
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D15E018EB228
+	for <blinux-list@redhat.com>; Mon, 12 Aug 2024 21:18:27 +0000 (UTC)
+Received: from thechases.com (thechases.com [54.39.151.74]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-86-qGrK2KPxNXm3rD3kfdskEw-1; Mon,
+ 12 Aug 2024 17:18:25 -0400
+X-MC-Unique: qGrK2KPxNXm3rD3kfdskEw-1
+Received: from localhost (thechases.com [local])
+	by thechases.com (OpenSMTPD) with ESMTPA id 2e28e0f3
+	for <blinux-list@redhat.com>;
+	Mon, 12 Aug 2024 21:18:24 +0000 (UTC)
+Date: Mon, 12 Aug 2024 16:18:24 -0500
+From: Tim Chase <blinux.list@thechases.com>
 To: blinux-list@redhat.com
 Subject: Re: taking a screenshot using either Links or e-links?
-Message-ID: <Zrps4QuFBMaLL4V7@panix.com>
+Message-ID: <Zrp8IPscd8k_WF1x@thechases.com>
+Mail-Followup-To: blinux-list@redhat.com
 References: <Pine.LNX.4.64.2408091402170.4147350@users.shellworld.net>
  <ZrpnxHg6pp4_xhuX@thechases.com>
+ <Zrps4QuFBMaLL4V7@panix.com>
 MIME-Version: 1.0
-In-Reply-To: <ZrpnxHg6pp4_xhuX@thechases.com>
+In-Reply-To: <Zrps4QuFBMaLL4V7@panix.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: panix.com
+X-Mimecast-Originator: thechases.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-X-Original-Sender: salt@panix.com
+X-Original-Sender: blinux.list@thechases.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of salt@panix.com designates 166.84.1.89 as permitted sender) smtp.mailfrom=salt@panix.com
+ domain of blinux.list@thechases.com designates 54.39.151.74 as permitted
+ sender) smtp.mailfrom=blinux.list@thechases.com
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -149,66 +152,77 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-You can also run elinks, links, or lynx within screen and do Ctl-A h to save a screen snapshot in
-hardcopy.x, where x is the number of your screen within your startup directory.
+Thanks for the GNU screen version of the same sort of thing (I used
+to use screen a decade or two ago, but started using the BSDs more,
+and tmux comes with a base install of OpenBSD, so I just kinda
+drifted in that direction eventually)
 
-Also, I modified my elinks.conf file to emulate the lynx keys, so I can save
-a rendered copy of the page by typing
-p, to print the rendered screen to a file.
-I have long since forgotten what the default key for this function is, but a review of the elinks manual and conf file
-should help you
+-tim
 
-Or, if you just want a fast and dirty solution, copy the following
-lines into your ~/.elinks/elinks.conf file:
-
-bind "main" "Enter" = "link-follow"
-bind "main" "l" = "link-follow"
-bind "main" "Left" = "history-move-back"
-bind "main" "h" = "history-move-back"
-bind "main" "Up" = "move-link-prev"
-bind "main" "k" = "move-link-prev"
-bind "main" "Down" = "move-link-next"
-bind "main" "j" = "move-link-next"
-bind "main" "p" = "save-formatted"
-bind "main" "!" = "open-os-shell"
-
-
-On Mon, Aug 12, 2024 at 02:51:32PM -0500, Tim Chase wrote:
-> On 2024-08-09 14:08, Karen Lewellen wrote:
-> > I recall, that links the chain has such a method.  If I am right can someone
-> > outline the steps again?
-> > or, can one create a screenshot file in elinks?
+On 2024-08-12 16:13, Rudy Vener wrote:
+> You can also run elinks, links, or lynx within screen and do Ctl-A h to save a screen snapshot in
+> hardcopy.x, where x is the number of your screen within your startup directory.
 > 
-> I don't know if you use tmux, but if you wrap your links-the-chain
-> (or lynx-the-cat or whatever) in a tmux-session, you can use
-> prefix-colon and type
+> Also, I modified my elinks.conf file to emulate the lynx keys, so I can save
+> a rendered copy of the page by typing
+> p, to print the rendered screen to a file.
+> I have long since forgotten what the default key for this function is, but a review of the elinks manual and conf file
+> should help you
 > 
->   capture-pane
+> Or, if you just want a fast and dirty solution, copy the following
+> lines into your ~/.elinks/elinks.conf file:
 > 
-> to capture the pane's contents (your lynx/links session), and then
-> use prefix-colon and type
-> 
->   save-buffer karen_screen_capture.txt
-> 
-> to save the snapshot to "karen_screen_capture.txt".
-> 
-> If you don't use tmux, it's an incredible tool and I strongly
-> recommend it, but I wouldn't want to encourage it while you're under
-> duress of trying to get work (like screenshotting) done.
-> 
-> -tim
+> bind "main" "Enter" = "link-follow"
+> bind "main" "l" = "link-follow"
+> bind "main" "Left" = "history-move-back"
+> bind "main" "h" = "history-move-back"
+> bind "main" "Up" = "move-link-prev"
+> bind "main" "k" = "move-link-prev"
+> bind "main" "Down" = "move-link-next"
+> bind "main" "j" = "move-link-next"
+> bind "main" "p" = "save-formatted"
+> bind "main" "!" = "open-os-shell"
 > 
 > 
+> On Mon, Aug 12, 2024 at 02:51:32PM -0500, Tim Chase wrote:
+> > On 2024-08-09 14:08, Karen Lewellen wrote:
+> > > I recall, that links the chain has such a method.  If I am right can someone
+> > > outline the steps again?
+> > > or, can one create a screenshot file in elinks?
+> > 
+> > I don't know if you use tmux, but if you wrap your links-the-chain
+> > (or lynx-the-cat or whatever) in a tmux-session, you can use
+> > prefix-colon and type
+> > 
+> >   capture-pane
+> > 
+> > to capture the pane's contents (your lynx/links session), and then
+> > use prefix-colon and type
+> > 
+> >   save-buffer karen_screen_capture.txt
+> > 
+> > to save the snapshot to "karen_screen_capture.txt".
+> > 
+> > If you don't use tmux, it's an incredible tool and I strongly
+> > recommend it, but I wouldn't want to encourage it while you're under
+> > duress of trying to get work (like screenshotting) done.
+> > 
+> > -tim
+> > 
+> > 
+> > 
+> > 
+> > 
+> > To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 > 
-> 
+> -- 
+> Rudy Vener
+> Website: http://www.rudyvener.com
+> Check out my latest story: Dwindling at http://www.starshipsofa.com/blog/2024/02/14/starshipsofa-726-rudy-vener/
+> Need a Limerick Fix? Visit https://limerickdude.substack.com
 > 
 > To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
-
--- 
-Rudy Vener
-Website: http://www.rudyvener.com
-Check out my latest story: Dwindling at http://www.starshipsofa.com/blog/2024/02/14/starshipsofa-726-rudy-vener/
-Need a Limerick Fix? Visit https://limerickdude.substack.com
+> 
 
 To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
