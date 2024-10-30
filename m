@@ -1,234 +1,172 @@
-Return-Path: <blinux-list+bncBCAJTHUAX4NBBS62RC4QMGQE75JAQIY@redhat.com>
+Return-Path: <blinux-list+bncBCMKFVG4RQEBBOHXRG4QMGQEYAYOUVA@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6C5729B638A
-	for <lists+blinux-list@lfdr.de>; Wed, 30 Oct 2024 13:57:50 +0100 (CET)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-6cbf496eda1sf99915246d6.1
-        for <lists+blinux-list@lfdr.de>; Wed, 30 Oct 2024 05:57:50 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1730293069; cv=pass;
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3448A9B6C25
+	for <lists+blinux-list@lfdr.de>; Wed, 30 Oct 2024 19:32:26 +0100 (CET)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7b144a054basf266751185a.0
+        for <lists+blinux-list@lfdr.de>; Wed, 30 Oct 2024 11:32:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1730313145; cv=pass;
         d=google.com; s=arc-20240605;
-        b=ZDU0eZTcpl9j6E3moojkCfG0m2rL1K9IJB+JxVNGzpq+8doj8F97BE8OtKCJ88b5+A
-         Fcryw0utHeNfy/OEo/4HEhWvVZHP0FUoGfUtL4YMYrdDZEq7kZ2F9qS0ocDOEAv3eJSj
-         +aMuV1XTalooYdsEHuF/XBJ5ZhBeJ/RIJUtFFT2xhUVOIAyp/reRFu38nztloqh7y5+E
-         wrXMc+lwwVgyk+TQCT7tDlPXnNxwHWtp82XQcm3hpvEIlAoN+WEkGC7WkdVi2Z1Rbj+X
-         kjUemTqrFFUT35wDhoXeDwzY4Z+3m5NQOVVnvcjDJS5gY6/j4LD2lUUNEib1i20ONPWB
-         +EFA==
+        b=kMfpi/e5OKgrTUpM/sHkUQ9yc7cUn68MyAXcyG22qR9goN8eicQbpqIMIodN3FMzYT
+         yeMz5YzhMswYFMotIR773HEQf1y97YHQq//W6XeN224Y7sJsQUVC60n7a3TD2pG6uAdk
+         ez38aEtM9YQft1U3Ic4qr98WM4kIJ1z74mw695kXZ0C66ZLuvalu6YL365rjklE6+KIL
+         yppgrkBLTS011Q/nt2rdTOUV9zWikSwXbIArV6gYHVv0veKuY8kz3ZP52OacvlptPcQr
+         VchZ4jra6F6EmYbk4CXSj28kE3JIqlJMl1rSxRgtiZxGaDuCEhueI1dqpViQLF/6AT4y
+         m/BA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-language:mime-version:msip_labels
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:to:from:delivered-to;
-        bh=bu+6KK1YIDYy3GkAY4xFf70E2T73VmGBaiw6VYoqMms=;
-        fh=o2Ialp4qmms8N17dTplIOO93EkYzxHdTyOJRwAQMSdI=;
-        b=W27xf56eZ2WTGfJpxiXgH1f/U5jrHP/NLq5QMchdAM0cAkLjQptDdRniwQ8MYl+gbv
-         QUEhlIU8B6sMMW3nsMZbRz6WbCAui3hAF+mpSYbhw9razf04GZjwUXmwSHqQA5ox78a8
-         dF/pt0T4G9dEx6pdBZwtFlyeAlRPOZzmR7wLN/OhEOxwamagcc+rwphBaD+HsY5qXSVQ
-         qgxUHDzUxvoCTmOfmh0+FJS8yZrWrNCDwkjf7/9bqXzY4sLI/qUQTIX/ptuXJBvvDNtE
-         64PfQfhABuJKbsP4PE7tnN+6tl7sPniUkFpQfKr1IVzv8991auLGA9n2UCrkYqby/MoI
-         0EQA==;
+         :mailing-list:precedence:reply-to:content-transfer-encoding
+         :content-language:in-reply-to:autocrypt:from:references:to:subject
+         :user-agent:mime-version:date:message-id:delivered-to;
+        bh=UCdwrS4wH1wqhvLiXnJ3kJAOjXLbAoVdN/3qlmUommw=;
+        fh=+xO+2dsZ/7tCjCtXP28w4aa0a+TkXbQcJfzj4pEGypM=;
+        b=iFHjfeTtY8rmLkvlp/BW4H3XdoDQvVN2XNKx/kupmcYAjUzUax8TZuUyBr7kGfV/8K
+         vZKEEXbZ7VzvQnW6MHXxsWXgi7XyeSZOWLJXP1bDyEhQHL+AcxePPsfCE+76WBeYs7ZK
+         YZdEHGm2VPrHTRQELUZbZdqfGKbKsfWL51v4Ru97brk64Ow22yELt4ls6FiEVdPh7m98
+         C+pB7T9I4eJZMknI2JnR3BPC0cVqnYf68VdPcPPOWPK5zYkRTXRyUcbIZVh6PMGk0WlS
+         xlB0HegdVRbUNfl6ymeBE4iO2OlITMphqmCu/Mpq6X+ek2JfKT4vCOgEbgOy84hyK47e
+         eE7Q==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of cstrobel@crosslink.net designates 40.107.244.93 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
+       spf=pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730293069; x=1730897869;
+        d=1e100.net; s=20230601; t=1730313145; x=1730917945;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
-         :content-language:mime-version:msip_labels:accept-language
-         :in-reply-to:references:message-id:date:thread-index:thread-topic
-         :subject:to:from:delivered-to:x-beenthere:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=bu+6KK1YIDYy3GkAY4xFf70E2T73VmGBaiw6VYoqMms=;
-        b=SxHEayf1LPWfLVPDjLppjw7ykwvj5SLwrpRb3mlr+0pMC1JwlxBG2GIBee8vb2Jm8Y
-         LZFgWN1vVAJl0DgRSrU8VFOLjHEgpGaQQb57uzSevvcodZOVwhM4+KaqlQGTWYRGyQES
-         rH5Y6CRnDuZC9UqvCWXw7/jQ63G4J+9Maf+QfyuVqim4q9KrbyrR3uUuW5zk3Tv4lZqp
-         cTxTYIo8mNMKraDwYQBIeBQ7L5ZoyyGD7lzFUitLm6CWjYj+I4s8DsyD80nGAGQdRMDV
-         SffxlxY162VgZZHNX9VsHbS1Ba3asgzE/BEbcnvwzcendZzWzGBFoPfOvhKC8sIgew1Q
-         LarQ==
-X-Forwarded-Encrypted: i=2; AJvYcCX9G7mreYucGRbGAA5jWJCAHQCAYhTjYY4fhqr3RH4F911ni7cdDBY/wRcD2ZGywpoMMcCDLA==@lfdr.de
-X-Gm-Message-State: AOJu0YyvfJpKT+cTb8yXmUfUKe3FwrEDZ6O8DwONFY1avDzoU3Y/NM1W
-	mK+i0/a0mfV5xiM6m4s6Nk1yhuwGfAcGFJxNCWkulGcb5TkdzG3rwFUHHgthQfE=
-X-Google-Smtp-Source: AGHT+IGt7bjaFE0zoCRqH7hCh/GY4/xWvB5iKNF6y9ZSBbhpCzjjcqhbUftBmqboITyy5ZZTGNYzNA==
-X-Received: by 2002:a05:6214:4291:b0:6cb:f8e0:18a7 with SMTP id 6a1803df08f44-6d185674f22mr239419986d6.9.1730293068532;
-        Wed, 30 Oct 2024 05:57:48 -0700 (PDT)
+         :content-transfer-encoding:content-language:in-reply-to:autocrypt
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UCdwrS4wH1wqhvLiXnJ3kJAOjXLbAoVdN/3qlmUommw=;
+        b=BhhdokNO5oUzt5+qW63CrEOtQbN2xiNz8m75t3TLw+H5QF4KR1PiVqBZhg+RGyh2dc
+         ImzqQZ0IK0NP7EfBPm1hNOb0GK8S1P2tZbl3DCWURIBUIvbsHqTyjBc9YFoxDSdgKrnU
+         PGdhePdx+3B77hpHmmvko3r8Bv0ur2J3zlWGEGUxANIS8Tf1JhjihsBekkxlzS44zryr
+         AXaKmIQWeS//LlotNOK2ajT7bK6dDZlLepUJlDxKC+xHroDQRF9zXqIGXv8RvHSxBsuw
+         VLZvsE4X/tHuBGol0FsGbuMXQpxqGaaB02G8gwK9N3CXEfSUgbhQ5O5V7JpoEc6fQAfJ
+         Wh0A==
+X-Forwarded-Encrypted: i=2; AJvYcCU/4Ch4tV54jXZtRyDgHwKBelegC1SBSVbCK8LdagQRo3WBrumkl2UDm1W5jckh0KLzrwDtMQ==@lfdr.de
+X-Gm-Message-State: AOJu0YyXS9xDbsrG97dn7gpNPZ2Ukrw3fKFDrwcObIntuQ25Zo+8n2VU
+	MkZ+/Je3smI6kRDQH/nYt+jlNXdi16JTOqJK6XmTjhGWNEM8U/4aObJhiSLcZuY=
+X-Google-Smtp-Source: AGHT+IEILNegX0TyeLcG8HjJHEadBorNsIptgDiwEhhQg9DWhdsDadFWuAobY+MkaC1xeCGGBBmWeA==
+X-Received: by 2002:a05:620a:4402:b0:7a8:554:c368 with SMTP id af79cd13be357-7b1b05ffa1cmr552321085a.6.1730313144845;
+        Wed, 30 Oct 2024 11:32:24 -0700 (PDT)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6214:ac1:b0:6bf:4817:dd88 with SMTP id
- 6a1803df08f44-6ce85fbc3cbls34763876d6.1.-pod-prod-02-us; Wed, 30 Oct 2024
- 05:57:47 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCW88aGEIDRKcl0XbspgxLgYIWKkFSWcyTaDDh7xRWdhliHvjm5+3J2Z4b2CCmmWiKX8pO36uHQZ89DbZg==@gapps.redhat.com
-X-Received: by 2002:a05:620a:458e:b0:7b1:48ff:6b63 with SMTP id af79cd13be357-7b193eea2aemr2250290985a.22.1730293067070;
-        Wed, 30 Oct 2024 05:57:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1730293067; cv=none;
+Received: by 2002:a05:622a:1b92:b0:460:3891:ad09 with SMTP id
+ d75a77b69052e-462aaab5e1als4262731cf.1.-pod-prod-00-us; Wed, 30 Oct 2024
+ 11:32:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUb/t+/1kPgM1v3ybZIsahiUYhzzvMTMuZOvrotDGbJ/dx+JO37boYdkLNZYZw6JKAt6eViQdI8DCfOOw==@gapps.redhat.com
+X-Received: by 2002:a05:620a:2916:b0:7b1:21c4:ecf8 with SMTP id af79cd13be357-7b1b06a1f7cmr542364885a.28.1730313143635;
+        Wed, 30 Oct 2024 11:32:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1730313143; cv=none;
         d=google.com; s=arc-20240605;
-        b=IAl3wek0wKlbRO4ZiKZ9ye8bk8ItWJtGbfMfw6qQ3FfqtJiPVTouy527gRJxidDTaO
-         pAx+B7L7/7ciDvxiB4AotRZSwL20f75D0NasCsmLcTGJyhRTCVpvBgyqYjcFlrmge0BR
-         bRTPDGO1X+oou5bRzooz9xN8+G2DmbtGXnfSE2hR4jFHe/PLYo3RDXCA0Z0Dn1lyfI2F
-         nyuQCrMogaHfLNdrmzbLi3wd9QFZkQ/x1BzTjLcTtFMrCrccFhQuuVyYFiLRjCsN1Rln
-         mQTJzQhgygjahvYOTP0Du4KRFE0jvWLJVCopIHUxpk0e8MH0g1LNFvisKj/X03hnOJ6n
-         ZW8A==
+        b=QEHaTMeJphVoRslidHEmiyxvZaiCoV3cQah6G8Oe2iJgwtUd9AaAGyLyHT1xdeHGHC
+         qgbV2plncHx2rU3DZjiAC3CyHlTXxrB9sboFaIymgRJH50nuTM7T3PaSY/CGLLBdR5kc
+         +5sVbwh6ozNJhwZN+sw6OfITStq1KFVeN3tdwt5+KXRy78y8lfjeffEsQCJGQYa62eb4
+         7qZxBvgdptEHLeX5uhbyXpbkaNdSU01/CO6iLYq7IDS1bGQ1EQ1GKfYWniNrLBm/0InB
+         KfCQOolm0z79NesFJZy8w++5xNCNQe/rTW4vx6GfTre2LeGUJkIqEgGYBACfcwVmjIlu
+         aiUQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-language:mime-version:msip_labels:accept-language
-         :in-reply-to:references:message-id:date:thread-index:thread-topic
-         :subject:to:from:delivered-to;
-        bh=McFhUFDAUmAIfsk/HLn8gT15L6Iz7vr17JRbAWQPDYY=;
-        fh=xhAlM8rWmkZIM96qSN0+ALD1n3LPlDaQsSwFLSHFSew=;
-        b=ZKqdqGbnbvy8xKkPwbQtLOCZPkYqb8MdM/pTO6FJARgtdQ4rDM72MLUGHKDvE/YZ5O
-         Iq/j6WXien9RNXxIl3ZJazLtYpNOUeR1uwaUPL/qmWt3A70/XSnAL4EHOfsPfbSLHMFR
-         0VedQNParpDan+Jrc/f7EXytOUPuDVeucXXFRV5L3aAQ7m6+EzM787GL8MiQST350aha
-         WY11FoqRbxY34+x62HEpwt7mo3yMBwXhpFYBpNYc3VwyFDooGB+2RzoqqiIvtBJ98fKq
-         HnNyoX1no/zY57W0bbT8oXann5aQpEB4iAEjI7sa/xlsPyaFGeGoLNBJeyZtIkf8A3K8
-         +LBQ==;
+        h=content-transfer-encoding:content-language:in-reply-to:autocrypt
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to;
+        bh=auMmlL+A7PFq54eDEBvT4gCVbHDe439M4SUW8LfHBvU=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=TFxgXyhYswTiNXOOC6/1b+rD9EUsyPSwEYoaqFgAW02yJXAIrWDQ405J55FJphSW2s
+         bb9U71nd/Q4beTmPOwvKMxaTbtUg+5CsOk0dn3IfR2bIgVOetgtYkGCdvG6O60YQphyJ
+         j3eIfDCEtiGxCEHd55qU48X7rZ/xfghI+DwPgiIfPftysiqXG70uLdeDUfKqOB6+2zLa
+         7c/mzvIa/ngAgWHjKbVzju95wTxhPvgDNQD9Je3eXVLfbA6KyLlEyvilGlNXSHwcbg/F
+         Mp4r+2L03lacGBcAOGl7YHDQWo5qAKpojrS55S3yd/NxdV21ko1oPvjAEPzenFnc0HV7
+         t74Q==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of cstrobel@crosslink.net designates 40.107.244.93 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [205.139.110.120])
-        by mx.google.com with ESMTPS id af79cd13be357-7b18d359de0si1467124385a.574.2024.10.30.05.57.46
+       spf=pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.128.131])
+        by mx.google.com with ESMTPS id af79cd13be357-7b18d362b2asi1414195485a.662.2024.10.30.11.32.23
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2024 05:57:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of cstrobel@crosslink.net designates 40.107.244.93 as permitted sender) client-ip=40.107.244.93;
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+        Wed, 30 Oct 2024 11:32:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) client-ip=172.105.89.79;
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-610-iVbCFDbSO_2Za4jGHg8cWg-1; Wed,
- 30 Oct 2024 08:57:45 -0400
-X-MC-Unique: iVbCFDbSO_2Za4jGHg8cWg-1
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-13-Yrr5p5v6NlamXLakMsKISA-1; Wed,
+ 30 Oct 2024 14:32:22 -0400
+X-MC-Unique: Yrr5p5v6NlamXLakMsKISA-1
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B6AC6195608C
-	for <blinux-list@gapps.redhat.com>; Wed, 30 Oct 2024 12:57:44 +0000 (UTC)
-Received: by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id B20F919560A7; Wed, 30 Oct 2024 12:57:44 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 809301955F43
+	for <blinux-list@gapps.redhat.com>; Wed, 30 Oct 2024 18:32:20 +0000 (UTC)
+Received: by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 7A94630001A5; Wed, 30 Oct 2024 18:32:20 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.58])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AE56419560A2
-	for <blinux-list@redhat.com>; Wed, 30 Oct 2024 12:57:44 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.46])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 76BA8300019D
+	for <blinux-list@redhat.com>; Wed, 30 Oct 2024 18:32:20 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 31CD019560BE
-	for <blinux-list@redhat.com>; Wed, 30 Oct 2024 12:57:44 +0000 (UTC)
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com
- (mail-mw2nam12on2093.outbound.protection.outlook.com [40.107.244.93]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-266-QT-Wzvh9ORe1gADuj-yv7A-1; Wed,
- 30 Oct 2024 08:57:41 -0400
-X-MC-Unique: QT-Wzvh9ORe1gADuj-yv7A-1
-Received: from CO6PR18MB4419.namprd18.prod.outlook.com (2603:10b6:5:35a::11)
- by IA3PR18MB6286.namprd18.prod.outlook.com (2603:10b6:208:516::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.20; Wed, 30 Oct
- 2024 12:57:37 +0000
-Received: from CO6PR18MB4419.namprd18.prod.outlook.com
- ([fe80::bc0e:c0a2:a316:9518]) by CO6PR18MB4419.namprd18.prod.outlook.com
- ([fe80::bc0e:c0a2:a316:9518%5]) with mapi id 15.20.8093.027; Wed, 30 Oct 2024
- 12:57:36 +0000
-From: cstrobel crosslink.net <cstrobel@crosslink.net>
-To: "blinux-list@redhat.com" <blinux-list@redhat.com>, Didier Spaier
-	<didier@slint.fr>
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EA2EE19560B0
+	for <blinux-list@redhat.com>; Wed, 30 Oct 2024 18:32:19 +0000 (UTC)
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+ relay.mimecast.com with ESMTP id us-mta-528-hn1qlaCNOMeT5lLJdKWSCQ-1; Wed,
+ 30 Oct 2024 14:32:17 -0400
+X-MC-Unique: hn1qlaCNOMeT5lLJdKWSCQ-1
+Received: from [192.168.112.207] (176-173-208-123.abo.bbox.fr [176.173.208.123])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 0D6A5625BD
+	for <blinux-list@redhat.com>; Wed, 30 Oct 2024 19:26:21 +0100 (CET)
+Message-ID: <71265e7f-e350-480f-98f3-c136a185cb3b@slint.fr>
+Date: Wed, 30 Oct 2024 19:31:17 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: Accessibility of Calamares with speech and Braille across
  distributions?
-Thread-Topic: Accessibility of Calamares with speech and Braille across
- distributions?
-Thread-Index: AQHbKi+zc55tgADNGkWvf29F+raB/7KePK6AgAAPcgCAAPWHIw==
-Date: Wed, 30 Oct 2024 12:57:36 +0000
-Message-ID: <CO6PR18MB4419BBE8415EA5700EDDA5ACC7542@CO6PR18MB4419.namprd18.prod.outlook.com>
+To: blinux-list@redhat.com
 References: <f83f8b32-a306-4802-adb2-66d3e6ca06e4@slint.fr>
  <e5e4a446-56f6-40b9-af89-30b46e6ea92b@gmail.com>
  <108015df-f3e8-4fb2-822b-b7649d692df7@slint.fr>
-In-Reply-To: <108015df-f3e8-4fb2-822b-b7649d692df7@slint.fr>
-Accept-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CO6PR18MB4419:EE_|IA3PR18MB6286:EE_
-x-ms-office365-filtering-correlation-id: fd9aa544-284f-415b-f336-08dcf8e26dd5
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7093399012|4022899009|366016|376014|8096899003|38070700018
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?P8lkInsHeVHsWCLbyx7AVsZCoNcINzLSkdvtuDZmo+NFbyLM+Yeqefv5B/?=
- =?iso-8859-1?Q?fpTTD+AkU6i3uLS8rZSFgtwhVtutKlgAA26SQKsVZSKl680T48KqdkSpQG?=
- =?iso-8859-1?Q?MXavnmSSh5iodgLzL1rf2PLdVPaAGEslyJBTFs/unKv0ezwoPrV8u8u2cm?=
- =?iso-8859-1?Q?K9ojfOyNb8BA1jG9t9Shy9DucLoas/ajM4vKhkPYs8QfuvbS4e3PRWSiBd?=
- =?iso-8859-1?Q?tncguBNgArH3/pw92688iJRygXGWsJfrCQxxJJxJKQfJW1n00wP4Dr6JDV?=
- =?iso-8859-1?Q?wJTsM4BUdvlJErDx/haqeZVfDDVxobQD8aFbfNA0N1WHuwtfddpdM4Szwk?=
- =?iso-8859-1?Q?MqejMVmiXXSiTtWcC1iAqmWdrgVv0OzvHztR5HkFX/NOYxjyc+sDXEYCPJ?=
- =?iso-8859-1?Q?KpeJ5BmTbqjPeDTiyUuMGcMB4JYWT8IGikSjUYMbbnD9L7f2c70BwiMiF7?=
- =?iso-8859-1?Q?CKEtFtKtuCDm+Huo7imwOVVsIv8R46PGcCxgnQ+i1BAZtNuCCGqPNOCIdz?=
- =?iso-8859-1?Q?+/aQQ8qrZNVqSSHlvHclwlbo4JQnPLSvWX4EvXgvIuCLSWkkl+bSsX49l3?=
- =?iso-8859-1?Q?eyKq3Y4o6S/6rS0G0AOgqwewcwC/OvCg2w/mo7W2wb3ge6bqYM+oYKkKSp?=
- =?iso-8859-1?Q?ozAtRJc3+DX7JfCtS7wYMvoGSIPDgXq+FhJ3FV8/YjyIK3nqlS/huxAdHV?=
- =?iso-8859-1?Q?XhTRNxFOgUrZk77Ei8JytJpYPPLWaSvxxLiplPCqY+FwKY33V7hJjJytN7?=
- =?iso-8859-1?Q?E2CBrbdQBG06+xHcXf3SZVa9u7q/3yyfSS1AQtpPbioZa0xnwY9UqkHuEU?=
- =?iso-8859-1?Q?Bg5HT9KMT5SEuTstGpWYQpauo5m3CnoshkPNHbGZCVREDTbMOJCZJKrf5Z?=
- =?iso-8859-1?Q?tjH3HAwAEQI5e/qhdxHRkQS7hzDVwEKV5z9982tY8Di6bp9muTkzqabFsr?=
- =?iso-8859-1?Q?xHNYTTySlpwlL+8adqphVp5pUtu4qZfzq8m20NFZ1m3XIEa4TPW7GCJYfd?=
- =?iso-8859-1?Q?KxL6kIbCYXjByYXCK+mh67VAjhboMWKNr/Be7UPggY1bu7iAKKjY0j1LsZ?=
- =?iso-8859-1?Q?gM/6vjgHUJNR9qzPQLlFD2raIbLJEa1BRR9Fi/QljgoOPRTbD107dE+8yd?=
- =?iso-8859-1?Q?C5Wx+sR5HZOI+sH/qy+Qq3b8DQk5+/HoNHvJkr79qZma1huJd+Yr8B9Fp7?=
- =?iso-8859-1?Q?ZipZA6tZEyAZqWhetCxXhQrn5GES3UZgqT0l5W/wxrqZ2bZYAWP0Z+KiPV?=
- =?iso-8859-1?Q?2+1irfXei2zIuPBqroHSsCoAY4Cm+1uUmhYxk2NBFRblVaX0/hp2WwgXmr?=
- =?iso-8859-1?Q?2GlLcB17Ol3mX5krCMJJIyPW98snlpFS/gZR9CO4oM2A+C8fu0uoP7yJab?=
- =?iso-8859-1?Q?KzWm95XUNnRXF/c6l6OPvqR85hPKprxZOjInL/UVJpU3nIhKcs3/NIHG+w?=
- =?iso-8859-1?Q?zhOwHEB3Zwe+AdiXcN0aitMPRrzaMpFMCaDb0w=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR18MB4419.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7093399012)(4022899009)(366016)(376014)(8096899003)(38070700018);DIR:OUT;SFP:1102
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?IOS0qBF8CAQ8oPIew/aNQIRVss2YeHXoGBjnlltoIGmMvGdZ5d0UFA8j9M?=
- =?iso-8859-1?Q?ifp6UvK907izkYpWu8KxYiKtWb34akBLsvOj2quhFpUomXKGuZdjZk3GS7?=
- =?iso-8859-1?Q?2Zo2SHnR8Czsbog8d3yhGCbT/Vk8+5migY+pDJWohncFk9if/rv3+K5FgJ?=
- =?iso-8859-1?Q?1ZFFU62G7VPwFBcsNRWjLQr5cqciQ4gWdlx2rhWq8pYrNV2stBhTAAt3uV?=
- =?iso-8859-1?Q?lAzdrEd4/0f+eWLt5JNcr7yOUIUMun8TALTzt4/kJw8fdybLLw+ngJdjxb?=
- =?iso-8859-1?Q?Is/SJ0tcX6o7xKeTifM+ZH7uY1qzZP2nfQP1lLn43lpWOXXo0XJfTA2nFz?=
- =?iso-8859-1?Q?s1C1h48SiaFm85NwJ1OegHGJiz6F94ggDo7AiPRxpyI4u3R+cdCDX7zAkP?=
- =?iso-8859-1?Q?jsOUfzi6hgJzyqiIpgb73K+PHjJ6o/dtRvpM40s5+Mu0vCjag+dqmiPr3H?=
- =?iso-8859-1?Q?pPdZ0QAIm5tFgSrZrGhv949s0OB5i4MpHJgCozrgwZHSs0oOxVcZVUyncf?=
- =?iso-8859-1?Q?dDRMVJAOIx8wsxT8j8xEeea3nW1dr/6d1O3YEy3T/0vloT+CW+QR+rpXrY?=
- =?iso-8859-1?Q?G52bKv8vawk9JZXMhwA1uexBJYIcLOB1pJmQtZ3kXF2j1SB7DzVew9Jyoj?=
- =?iso-8859-1?Q?U4rFIa336CY7cg323V3t7EmaTzsbPgdn5Mqh0q5p/QiKkhZMP8QU1KWuHZ?=
- =?iso-8859-1?Q?nR0FBxP/fkcNvst6D04WTzfguH/aWBwzR13n5+LEemmUYzl4HOu5bREDwO?=
- =?iso-8859-1?Q?0RyJq/jdKzPBnd8Lzm3tnc85lRrGc1s8YBGgGLPfubwkWccKwwrN5oWNYw?=
- =?iso-8859-1?Q?W1zu2v+xbkKHf0rQ4Tnf8l3q3E/5fWXpoRSVNqHD915fQkQ8V5NLZpJa12?=
- =?iso-8859-1?Q?z/BjL+hmT0YLG23wdAVSarKDKU7VfhErF1etGZ6ZU7H4sZQE9GRmYI7vIy?=
- =?iso-8859-1?Q?jC6DnUArZOg9QAn8O9UbUZa6WpJ5LRqD0xBurjvmHc/rQ7cWPT+MP6NrpB?=
- =?iso-8859-1?Q?W/7XjUDG5EoM851vdWt+Svp+CGN6peTtet4sVpMbv35GIpGdAbE0FNaSVq?=
- =?iso-8859-1?Q?jvdoiqkgknqX7/vOh/QL0o+BdxeThHRreRaP4mEx1OCRunQ5e7POk7XN4p?=
- =?iso-8859-1?Q?QKWPK35XmzOA18nESXlhbN82t79G3VyXkUV6SwJt9utVpNGWsBPLf45v0J?=
- =?iso-8859-1?Q?FePW/AybYw2X+db5qw02IHkRpXh2L6C+uMbMCMxazXrKyOCN4tDwkJuVPg?=
- =?iso-8859-1?Q?jcHWOWdv6evb5onPUhGRPPL69rLInXTmKpezYFCCqpRjDVwcTK7vF7pvZN?=
- =?iso-8859-1?Q?cP0J+ZusWZLOjsrcVdWWfdm4bLBzKCkGyPy/kPZRQp+JN35tgbj3a4nW48?=
- =?iso-8859-1?Q?zcMnE8+DTyblRLSE/MyaLtbqmltIY1pGqHSIxm2uInn+8E17XbZngvsSX1?=
- =?iso-8859-1?Q?4n97WKS5bpiJ9PjfAEjsWYTvIFIp+nHU2N3x2VOAtFrBsGkjbH1CQ69E/r?=
- =?iso-8859-1?Q?f/9WL6LDmJsd10rrSKSjkW/SYOjrdoZc2smwsIJ7HJ2KTxSTwIU6pkkpF2?=
- =?iso-8859-1?Q?VCMiWzmqiKwTADo3yNco9iirvn14lEkvoLEes9huuIj96+ug58/e2Cvvgo?=
- =?iso-8859-1?Q?CAD8IB7Knn104MgZXAwLR8kUW7Z1/gKVxz?=
-MIME-Version: 1.0
-X-OriginatorOrg: crosslink.net
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR18MB4419.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fd9aa544-284f-415b-f336-08dcf8e26dd5
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Oct 2024 12:57:36.8449
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: ffc1c47c-8879-4594-ade0-28ea8c2224c5
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: iFQfxp63GC9JwO41tg+0qEz5EdajHX5Humb0pyAJAR8JsPOc7R8nKlhVCNorhYPxhQNoGwlcsDFI8xrqUV/K6A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR18MB6286
+ <CO6PR18MB4419BBE8415EA5700EDDA5ACC7542@CO6PR18MB4419.namprd18.prod.outlook.com>
+From: "'Didier Spaier' via blinux-list@redhat.com" <blinux-list@redhat.com>
+Autocrypt: addr=didier@slint.fr; keydata=
+ xsBNBFY6fG8BCADH4Hf/OaE2MwXRFMrU/9oDd+YPqR/wkhmIv0veDio84fsWA5qMz1De7TEv
+ dNuxIVYTznuVOd/9lpdfxQ1KV9rgD7yoBPLmjbQA1vVjB+1QylIQUV0B9AYFUsxZP32Ic2pg
+ TS3US/WiZyx+/jS50ri4kvT9iDtIEu7WBWFr8YMOoq3oLkHI8Y7gBG0WsK9XYN09glhtI+bA
+ jLPr/ezwEg5M3FDb4U7XFq7GcA6EEzanKMAOHdZl3lta7dv5gpgdj+38j5jPfV1cJW+J1fha
+ 63X72xxXGs7V6J7NGpnW7SAKfTAMXsPXZwwGIuqMQs1Z89I+2ZPJPOoV8zMncTsWzHStABEB
+ AAHNH0RpZGllciBTcGFpZXIgPGRpZGllckBzbGludC5mcj7CwHkEEwEKACMCGwMHCwkIBwMC
+ AQYVCAIJCgsEFgIDAQIeAQIXgAUCYZVPGAAKCRDVAgLvYMA+6pOxCADB2pKmm/LgncWREzob
+ Z6M+RsvgzvGS/48ik/E/TH2KyPO/hn+Fzbj4MmMwQdqz5YPfdBmkcM7WyDzkPaukzfS8QUvl
+ VKyWQ92pqpbI/JUeShI+DLMKV7LZxiPinMBuKmpyLdpxuhk08g2+6F8X6ztbl8mbXQy5jcIZ
+ zKQ442N0D4wnn8VXM0tb0uonmqc6ly7dcmkQ/GI7Q0tF/hkn4n3g1Lh6+K1jBqEIC9vn/c6X
+ yf67ec+CwbE0GtgVM1FR1R0J1y/6vkYWr7gZHhnzgwKr6k1wzCGkVUyCSpFwB2oeANT9c0qP
+ rgn4YjoYQIHS3vMWd630vRyOfqwetWXmVjPxzsBNBFY6fG8BCACqDQKHSw0ElDkwPPpNguL0
+ ujOyygO30xlLyfW9pWOEycHSLhLzvDTlFkvr5IxvyCDBIFBdzpkeQqh1+ZxrFliwWyj+9/ro
+ JlIjxeAyNs2xQZ7tQM6K5xtbUs8O5YtkCCO3OegAiLgmzzgxes79Qy+V3ciKbl+vrsNu7T9r
+ o3zZhyinci1eOCcKEtXFPQW5P4woB+6+JheN9pIiDkjojmdC+xkvDadP7kJYKp19Itys/CbN
+ vxEoOLsgeJhsZSmNU2QNhXkLfr7+AC99fb/c5ZDTNPRBqgLJCp+gTxn1QVJrAbq2OP3refmS
+ RxdA3yUDMjxEeHwDNZJL9aEtTDlTzPk5ABEBAAHCwF8EGAEKAAkCGwwFAmGVT44ACgkQ1QIC
+ 72DAPuqjhwgApl0pdNIrbU+8Hn0mr3CTEXxPaTbAU2bYFPDiBaEvXsBGoz8xJ6EZQnywbC7o
+ l5wFtVT08LKDewLHaL78zS+Q8rv5sNmWwzMAaipFtZg67e/rU3V5tw4E12nUghyMzQpngUur
+ lZPMFlB9IZN9681cXuv2sZzAZlR2+3PsSAftpPQxReoSC7hj3dfiCiAis19G3A184HClA5MB
+ I5heGinSz7R/AXhkiej8HZZzz9ZPkS7aeL8HsZKqCwZvViutbGmpm+V70JnbRAHLFjYb+Se3
+ rdUWWAXcca4Ry8HCLTo5iK9xCTQh5gEuJ7ROdOXeY4SvMiqWjYhlrsR0qhTv9q/gfg==
+In-Reply-To: <CO6PR18MB4419BBE8415EA5700EDDA5ACC7542@CO6PR18MB4419.namprd18.prod.outlook.com>
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: crosslink.net
+X-Mimecast-Originator: slint.fr
 Content-Language: en-US
-Content-Type: multipart/alternative;
-	boundary="_000_CO6PR18MB4419BBE8415EA5700EDDA5ACC7542CO6PR18MB4419namp_"
-X-Original-Sender: cstrobel@crosslink.net
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: didier@slint.fr
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of cstrobel@crosslink.net designates 40.107.244.93 as permitted
- sender) smtp.mailfrom=cstrobel@crosslink.net
+ domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
+X-Original-From: Didier Spaier <didier@slint.fr>
+Reply-To: Didier Spaier <didier@slint.fr>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -240,156 +178,46 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
---_000_CO6PR18MB4419BBE8415EA5700EDDA5ACC7542CO6PR18MB4419namp_
-Content-Type: text/plain; charset="UTF-8"
+Thanks, it worked.
 
-Did you try super-alt-s? See this FAQ:
-https://wiki.debian.org/accessibility
-I haven't tried that Live CD, so I don't know if it works.
-
-
-
-
-
-________________________________
-From: 'Didier Spaier' via blinux-list@redhat.com <blinux-list@redhat.com>
-Sent: Tuesday, October 29, 2024 6:16 PM
-To: blinux-list@redhat.com <blinux-list@redhat.com>
-Subject: Re: Accessibility of Calamares with speech and Braille across distributions?
-
-Hi Matthew
-
-I just started the live ISO for Debian Trixie, how do I get speech in the live
-system before starting the installer?
+Actually I had tried it but as I run it in a Qemu VM I forgot that I needed=
+ to
+type the keyboard shortcut as argument of "sendkey" command typed in the Qe=
+mu
+monitor so it reach the system in the VM.
 
 Cheers,
-Didier
+didier
 
-On 10/29/24 22:21, Matthew Dyer wrote:
-> Hi,
->
->
-> Wile I donn't use braille full time, I can tell you that debian testing is using
-> calemaries and orca reads the install with no problems if you want a basic
-> install.  I am not sure about other distros like manjaro as the last time i
-> tried it orca was not included  in the live images.  HTH some.
->
->
-> Matthew
->
->
->
-> On 10/29/24 2:22 PM, 'Didier Spaier' via blinux-list@redhat.com wrote:
->> Hi,
->>
->> I consider including the Calamares installer instead of the current one for the
->> distribution I maintain.
->>
->> I assume that its accessibility with speech and braille using Orca and brlapi
->> depends on its configuration, hence my question: what are the distributions
->> providing the most accessible Calamares?
->>
->> Cheers,
->> Didier
->>
->>
->> To unsubscribe from this group and stop receiving emails from it, send an
->> email to blinux-list+unsubscribe@redhat.com.
->>
->
-> To unsubscribe from this group and stop receiving emails from it, send an email
-> to blinux-list+unsubscribe@redhat.com.
->
+On 10/30/24 13:57, cstrobel crosslink.net wrote:
+> Did you try super-alt-s? See this FAQ:
+> https://wiki.debian.org/accessibility <https://wiki.debian.org/accessibil=
+ity>
+> I haven't tried that Live CD, so I don't know if it works.
+>=20
+>=20
+>=20
+>=20
+>=20
+> -------------------------------------------------------------------------=
+-------
+> *From:*=C2=A0'Didier Spaier' via blinux-list@redhat.com <blinux-list@redh=
+at.com>
+> *Sent:*=C2=A0Tuesday, October 29, 2024 6:16 PM
+> *To:*=C2=A0blinux-list@redhat.com <blinux-list@redhat.com>
+> *Subject:*=C2=A0Re: Accessibility of Calamares with speech and Braille ac=
+ross
+> distributions?
+> =C2=A0
+> Hi Matthew
+>=20
+> I just started the live ISO for Debian Trixie, how do I get speech in the=
+ live
+> system before starting the installer?
+>=20
+> Cheers,
+> Didier
 
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
-
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
-
---_000_CO6PR18MB4419BBE8415EA5700EDDA5ACC7542CO6PR18MB4419namp_
-Content-Type: text/html; charset="UTF-8"
-
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<style type="text/css" style="display:none;"> P {margin-top:0;margin-bottom:0;} </style>
-</head>
-<body dir="ltr">
-<div class="elementToProof" style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
-Did you try super-alt-s? See this FAQ:</div>
-<div class="elementToProof" style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
-<a href="https://wiki.debian.org/accessibility" id="LPlnk169092">https://wiki.debian.org/accessibility</a></div>
-<div class="elementToProof" style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
-I haven't tried that Live CD, so I don't know if it works.</div>
-<div class="elementToProof" style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
-<br>
-<br>
-<br>
-<br>
-</div>
-<div id="appendonsend"></div>
-<div style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
-<br>
-</div>
-<hr style="display: inline-block; width: 98%;">
-<div id="divRplyFwdMsg" dir="ltr"><span style="font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);"><b>From:</b>&nbsp;'Didier Spaier' via blinux-list@redhat.com &lt;blinux-list@redhat.com&gt;<br>
-<b>Sent:</b>&nbsp;Tuesday, October 29, 2024 6:16 PM<br>
-<b>To:</b>&nbsp;blinux-list@redhat.com &lt;blinux-list@redhat.com&gt;<br>
-<b>Subject:</b>&nbsp;Re: Accessibility of Calamares with speech and Braille across distributions?</span>
-<div>&nbsp;</div>
-</div>
-<div style="font-size: 11pt;">Hi Matthew<br>
-<br>
-I just started the live ISO for Debian Trixie, how do I get speech in the live<br>
-system before starting the installer?<br>
-<br>
-Cheers,<br>
-Didier<br>
-<br>
-On 10/29/24 22:21, Matthew Dyer wrote:<br>
-&gt; Hi,<br>
-&gt;<br>
-&gt;<br>
-&gt; Wile I donn't use braille full time, I can tell you that debian testing is using<br>
-&gt; calemaries and orca reads the install with no problems if you want a basic<br>
-&gt; install.&nbsp; I am not sure about other distros like manjaro as the last time i<br>
-&gt; tried it orca was not included&nbsp; in the live images.&nbsp; HTH some.<br>
-&gt;<br>
-&gt;<br>
-&gt; Matthew<br>
-&gt;<br>
-&gt;<br>
-&gt;<br>
-&gt; On 10/29/24 2:22 PM, 'Didier Spaier' via blinux-list@redhat.com wrote:<br>
-&gt;&gt; Hi,<br>
-&gt;&gt;<br>
-&gt;&gt; I consider including the Calamares installer instead of the current one for the<br>
-&gt;&gt; distribution I maintain.<br>
-&gt;&gt;<br>
-&gt;&gt; I assume that its accessibility with speech and braille using Orca and brlapi<br>
-&gt;&gt; depends on its configuration, hence my question: what are the distributions<br>
-&gt;&gt; providing the most accessible Calamares?<br>
-&gt;&gt;<br>
-&gt;&gt; Cheers,<br>
-&gt;&gt; Didier<br>
-&gt;&gt;<br>
-&gt;&gt;<br>
-&gt;&gt; To unsubscribe from this group and stop receiving emails from it, send an<br>
-&gt;&gt; email to blinux-list+unsubscribe@redhat.com.<br>
-&gt;&gt;<br>
-&gt;<br>
-&gt; To unsubscribe from this group and stop receiving emails from it, send an email<br>
-&gt; to blinux-list+unsubscribe@redhat.com.<br>
-&gt;<br>
-<br>
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.<br>
-<br>
-</div>
-</body>
-</html>
-
-<p></p>
-
-To unsubscribe from this group and stop receiving emails from it, send an email to <a href="mailto:blinux-list+unsubscribe@redhat.com">blinux-list+unsubscribe@redhat.com</a>.<br />
-
---_000_CO6PR18MB4419BBE8415EA5700EDDA5ACC7542CO6PR18MB4419namp_--
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
 
