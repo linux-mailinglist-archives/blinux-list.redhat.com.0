@@ -1,171 +1,145 @@
-Return-Path: <blinux-list+bncBCMKFVG4RQEBBOGCX65QMGQEBCO46ZA@redhat.com>
+Return-Path: <blinux-list+bncBCM2V5WE3MDBBHGNYW5QMGQESUTZOYY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mail.lfdr.de (Postfix) with ESMTPS id CEF4A9FDA26
-	for <lists+blinux-list@lfdr.de>; Sat, 28 Dec 2024 12:30:02 +0100 (CET)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-468f6f2f57asf101003781cf.0
-        for <lists+blinux-list@lfdr.de>; Sat, 28 Dec 2024 03:30:02 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1735385402; cv=pass;
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mail.lfdr.de (Postfix) with ESMTPS id B80489FDF92
+	for <lists+blinux-list@lfdr.de>; Sun, 29 Dec 2024 16:11:26 +0100 (CET)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7b6f274f1f9sf1414836485a.3
+        for <lists+blinux-list@lfdr.de>; Sun, 29 Dec 2024 07:11:26 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1735485085; cv=pass;
         d=google.com; s=arc-20240605;
-        b=ASZV1LGzNXzdzP8XTlD/Gqqc1jXGLF1xal/glMEEWOr/HPrthoilF8HxePZqjp1hcw
-         7Fs7tl3crS3EFxvt0rkdvh22VO/9k59j0PZwqF3LXXHJY9DARa3v3nKu3nWgW6vb/znE
-         G/4NJhHV0YCTo//ebpiUG+XmgNe3osADbT2E9+RqUkH/sI1cEjNQywF423M1FUd7u/Zo
-         ENowtmAwe41nVTc7BoIl8wN4dRHnSU1zjnmygXap4t4nDHQw2vF7cCoNfFiSchAxUaOB
-         RkHCnUtT3JOge9O7VnCm1unAP7Ug7VlPrmQfCekxVeBcEMurhdEIlAaVYrND+ZM//bdV
-         1p7w==
+        b=h3RIiaTgXa3NSo8I7TQVH+Ldh+7MrYn+LjSm31g6em95W3GoDxVf3n9G7oV06T48RL
+         LhXZNcprShfXe7xAKlArCwPDTnb/hewilHbGnbsWwBAwJrO/Mf9nMLO2Sh7Zti1E/wCt
+         gnCRpnbEN0L+CZ9Ouzen1rZ07ZtxsG0T/SSGKzDoFulb/GtWMPjIy6I8wjCYFBwovE08
+         MEoURvakFLJriS/foW0pKWZJ+p79HPymnpJe6Pvo9DHWFzdZ6wddXtFlIww1ygmBPmJ4
+         Hyd2zsL6+dZ1esYLkof39MJcUqrTu0OctjEH2st6+VdwdsKuPlXjDT/v9lQ3kQiW4HFX
+         BTHQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:reply-to:content-transfer-encoding
-         :content-language:in-reply-to:autocrypt:from:references:to:subject
-         :user-agent:mime-version:date:message-id:delivered-to;
-        bh=f0/XTl5+kguY/YWmnyJ+Bysbi1BkkbGyF5nA34cJ1b0=;
-        fh=WgK4xWhEc54vzfDfYTGWFnp6Zy6tDe113oi8TeH7UK4=;
-        b=AAEbbqjqJXkpY0p39f027rJHQA2CE0rkk/MZnRdTQybBB8834ON+Xu+ioHLKhRSj1i
-         cL3fq8K0DodUrUFYKPi/mH3PQE7IV0fP5GxxDEjCpb0w+90Hnz1mVAVcTGJUi22kEm4k
-         Fbij0mDl4lXsUhtuEIC5F03MfJSAHxPcIxDO8DuVRhJq1BOXnacZbKVqJILUVYPOhHaU
-         WuHejM1DG5rNZWuXXfRoZtAfgqyTZsSJuCoTecvisVFx9j7ffhmwbeZjRDVJ3ICF44nU
-         jyDE7iHRQ7XDQZ9EkxQ1f49WRRtcS1jjzjuOtc1CvYFKcDAXfSHsBuiy3Qqyb4je3xa3
-         TBgw==;
+         :mailing-list:precedence:reply-to:mime-version:feedback-id
+         :references:in-reply-to:message-id:subject:from:to:date:delivered-to;
+        bh=UVsGkosobn8FTRugS2vgzMqTosNy2urRpouEuNk1YHU=;
+        fh=cQXaNFAUOqLczL6LoO1a2ZTaTgLaPkEMCY2JvNw1qYk=;
+        b=lAuK/kkRK1xFq9iNT3XPHVptSXSqtzpYrw1lfHr+K0arvgsLzq882Zpd5KBURNkF/d
+         MVauryrpNl+b0r3PxudkvC1NEQjKAWbXHoAUoQw/6e3JBeScz990FMhc4YECFpwGKlc1
+         6QmQ0pqqljv/KVrndDXc42t2j70eCghkq97cVdYEIeBw/RG6p2G8Nui99kffcnia3Vcv
+         pa+EbsyAeEI0+3ipiaxy0QAjJGNrqcBDF+LMZ3yQfznfIrujeZh3XNMqRbEjEJ0LR350
+         7wjJ+BvdRoUZUApopfKTikOittHZoP5ygQPb/M+yZIhp84p98i7Gd5nNBvdE0KXSXjtu
+         vSag==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
+       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.41.103 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735385402; x=1735990202;
+        d=1e100.net; s=20230601; t=1735485085; x=1736089885;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender
-         :content-transfer-encoding:content-language:in-reply-to:autocrypt
-         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :x-original-authentication-results:x-original-sender:mime-version
+         :feedback-id:references:in-reply-to:message-id:subject:from:to:date
          :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=f0/XTl5+kguY/YWmnyJ+Bysbi1BkkbGyF5nA34cJ1b0=;
-        b=SjyI9nYhYgO1nL2d2uvmyfpaf061x4XiHpo3lUTO4wxtQXjBggT9Wun3tU6dMJ052u
-         w1+1tjdGc8/9PiH56MgWVimEIbrY9nI/i2ArPC5n4NIDbyZmpiax9HdrSA2b0utXPXi4
-         EN4H2rtIxFFobu7wNrQ7uMOBOZhbPktFJUfszTxqAYMddDFHuoroentQxcG1nFwjQwHP
-         hq17F09WCqpB7sL4HxJBZaI3kJfMns/+Op5HZvvYgMtDCo3wDDcXCbe9mSVJEUD+nZXA
-         X1teYuAkLZrH67lNKSEBpnDGD1/oYbr7Y/J5y1c0uPnhm88Fb6wgWOfDmVNfhjm00b8A
-         48KA==
-X-Forwarded-Encrypted: i=2; AJvYcCXEqNq6w3krXjiA55PjXoGKqw3/3RuryZe9cXoHtWfHvqY9M17MhZi3cyzj/sVaLgn/Vqte7A==@lfdr.de
-X-Gm-Message-State: AOJu0Yx/3ujnrc2Akkro3g/UJiQQrawtowipUH9T4j5xUOwPM/thWQAo
-	RrEjSK0k8ZmVrBAsEy03OppH6Namld7LvyAraFNN21CZDb0Sxpo8PaMfrFNHA5s=
-X-Google-Smtp-Source: AGHT+IGQ6SpUMsNAqFq3MR9CWbLqAhoobrEoZWZB9tAbp74f/sscKrgv8nJ9dNlp172MFFyvBCZ3Uw==
-X-Received: by 2002:ac8:7d42:0:b0:469:dcc0:9b34 with SMTP id d75a77b69052e-46a4a9b7309mr500194391cf.51.1735385401182;
-        Sat, 28 Dec 2024 03:30:01 -0800 (PST)
+        bh=UVsGkosobn8FTRugS2vgzMqTosNy2urRpouEuNk1YHU=;
+        b=uFFkx/7fYkQqK2abmNLRKrLjRRvL1hduDmMkb3Ua5gVcFqCTtbdNBxNIGSFPcQL/GX
+         Uo8ZyLZtTYJEjiwSPnzmEZn8q7FugeyjJGo9Lc0VJhEUiqeRLruOqtCpyE/IZw8yC+uV
+         Z4LcPq8XyTpgz+QgXyw4PmBXSi7/bF1vRdIfrQeVG+vfWwISFZxTusKqdZ4er/bf8I/e
+         BOxoKeOh8Rdq9MHHxZiM21IgZcEDmWaYijOE3oK/Y87Cy7kNLVYMDchO7WSFUwFIEaEX
+         o5e12iECe07ztxDnngScKy0zZia567Pe/WPLmrHJvgsvVqLY/X20ZOxbHXPhS62rH6z8
+         jh9w==
+X-Forwarded-Encrypted: i=2; AJvYcCXelAqQZK5R2fWnletmRdO4o/3Ed2vaXu3OyOURmT9abMqdGXTCWOMiagQVbsWojmFn8vFw0w==@lfdr.de
+X-Gm-Message-State: AOJu0YzPWD8zMRTjnnjr2LB0OFrKgHulgfEUyhbabXUfEYxU5/QO3LHX
+	ptzgAodp+O3lQzA3wQNvDdR53UsXXK7mHi16Q8F0LI1rfWdRD6L2aiKpt1/dN2Y=
+X-Google-Smtp-Source: AGHT+IFzKe7qfJh9lPhvlfT7hTB1xK77HpCippFee8UKEZlGa947JzvJwrbokziJ1hDBAdLVt/LilQ==
+X-Received: by 2002:a05:6214:21e9:b0:6d8:a1fe:7293 with SMTP id 6a1803df08f44-6dd233ac3afmr428438156d6.42.1735485085122;
+        Sun, 29 Dec 2024 07:11:25 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ac8:5205:0:b0:466:ac8d:733d with SMTP id d75a77b69052e-46a3b05aebcls114734521cf.0.-pod-prod-08-us;
- Sat, 28 Dec 2024 03:30:00 -0800 (PST)
-X-Forwarded-Encrypted: i=2; AJvYcCUITztzl3qJrjPlAg/FIZQiQk4l1xH+30uaFmRsjHx4mm7uGCXl3hjbwO+GrAQXY0lwT/YBpCqPtcVc7w==@gapps.redhat.com
-X-Received: by 2002:a05:622a:144c:b0:467:456c:2957 with SMTP id d75a77b69052e-46a4a8b6401mr460156401cf.10.1735385400263;
-        Sat, 28 Dec 2024 03:30:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1735385400; cv=none;
+Received: by 2002:a05:6214:188f:b0:6d8:87d5:f97d with SMTP id
+ 6a1803df08f44-6dd1548d6c9ls69121506d6.2.-pod-prod-07-us; Sun, 29 Dec 2024
+ 07:11:24 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCWz7dnVBEK5QG14ivKGNVfvyGJz4hnhlgpohgkywiaS+vGjuBr+B7uBBJ1xDQAXnCy+5hvTk7voCtDF/A==@gapps.redhat.com
+X-Received: by 2002:a05:6102:568d:b0:4b2:4877:2de4 with SMTP id ada2fe7eead31-4b2cc38831dmr26614980137.15.1735485083783;
+        Sun, 29 Dec 2024 07:11:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1735485083; cv=none;
         d=google.com; s=arc-20240605;
-        b=h+iiY9G8M3iTEE4u5iw4ExcwN4tknNWvOzknEmaA/qAqUp9eg+ta3zQVEzusBuDQZK
-         4F2uU13HDQhl1e3dju6bIBLauBygI3ZykdaSXlu7OgPI0iZB5jo92ckPd6OabG5fAqKb
-         68uBz0zuOY7DQfrpfCtIMMGf1EQHbqAfXBC+tmNZvgOft+3H3PZwwGZVmEmf5mpq4W7v
-         0cats2Fgg4WqUzVELVeF+6Rqx7AC7AB+H+IUxuQoXDd1VVmO9d4CtptP90lf+beaKTu0
-         gPNQJo4pjdJ19VKRd0z0og0fxJ/YKsWOSyzTPun5G5Z+9XUydiHRT/yUsQusbeLiKL1f
-         H7GA==
+        b=EIrHCaesYrll9VndCcKRDG5klEnpNQN8YzwGfo7HpFswZ1FFODv1gq9p7VqGG3td7h
+         FI1RWqqREPSGKRzH5TmDHQwGhVbF2h9A6kJiWHqRchINHLw/mLzwEYXmcW9HxYYKi+5B
+         8almY/KK+PzL+hzf6GJ5KExUOqWyLMkb9ECou0WfHrVHv0gZ/LBFSZqzRP7hH4a3Sk8n
+         4Gwt7+ek1wR+DBw6EPRaG8+LvmmnTbsSdYppsKpMbjI418DrtlUFyzGwD5Lz2LsxVNc4
+         Xw1PZA0Ju+EvlLv/kKyafmFuCijGkiWKbeMW4Oo/gVgE0WzHzxEwjuMygXrWpnfFQzu2
+         aTgw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:content-language:in-reply-to:autocrypt
-         :from:references:to:subject:user-agent:mime-version:date:message-id
-         :delivered-to;
-        bh=Nn0GcXS2GlvqR/kqqKHrI146cOWNBuCBR/ux6azOqBA=;
+        h=mime-version:feedback-id:references:in-reply-to:message-id:subject
+         :from:to:date:delivered-to;
+        bh=Zi505aAe7hYTCz2mWA4JSNt48q8KVfVN+uW07tYbOqY=;
         fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=WiDigJkOcwbWyh9dfcyNVqzFYmk4hl7e9JF01q/C0UeqmARq58JlZPnN64EvPcrRIp
-         ZrSdvMgP56kJYBPl2a3DFE+pgU5FDts0u8ldV+RoHofLytaC1ljzFTPMNLh2loetFrah
-         FYuUU7H9lK9F9w7sSISjJmHqNqHijVong1ta8mEnP77suxKh8+6ojZXmhu5QGYWyjTJf
-         BL4DDdB5MkzdgDBHYLsGjXMxF//icX312fpyQQwVIxq0naxFGGnfawqt3iaS6b2p9mba
-         cEx3Je+hExyIOFEnsyR3sPgyc9f/IXwgbAUZUmkeAa/soL3Oplrno5V1R1TwEpWBOdWj
-         4yzQ==;
+        b=d2iPT+CTCHpRaeXkQo8getltoi7TDl9m0vSN7+kJ9x12rPJ0Msc77HMEPlnMNv9fYq
+         rutWueu35+F0jkwehvaRe1wGD4ir92LmjUjBBwjsD7Zj/Wzlgd4lpob9S+hfiumw/YIe
+         GNx7qo5w1wH+h89Z+F3TeI5EO2MPtvpO7fYUwszk7p7MpsYJQ4EAjNbzGt4ta2Jqx0Xg
+         Qcjuu1wIl0nWs0BzNuaNoWZOVXUOTYAbQ4TMfYAOUYFQqHNvfsoFPrvd5SlIOBHU6dUR
+         JEhMqntLlTchoOswE3rP+ynaR8ubvBubvyTcD3iuVRhSYwIstwfd0NecG1GKKow8WnVt
+         VsCg==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id d75a77b69052e-46a3ebd6536si247242241cf.558.2024.12.28.03.29.59
+       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.41.103 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [205.139.110.120])
+        by mx.google.com with ESMTPS id ada2fe7eead31-4b2bfb78ddbsi5366988137.502.2024.12.29.07.11.23
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 28 Dec 2024 03:30:00 -0800 (PST)
-Received-SPF: pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) client-ip=172.105.89.79;
+        Sun, 29 Dec 2024 07:11:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of rastislav.kish@protonmail.com designates 185.70.41.103 as permitted sender) client-ip=185.70.41.103;
 Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-117-LhZAl3duNpqvW2HNEVZTgQ-1; Sat,
- 28 Dec 2024 06:29:58 -0500
-X-MC-Unique: LhZAl3duNpqvW2HNEVZTgQ-1
-X-Mimecast-MFC-AGG-ID: LhZAl3duNpqvW2HNEVZTgQ
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-644-FyAXPHeOPmqCikMap-ATpA-1; Sun,
+ 29 Dec 2024 10:11:22 -0500
+X-MC-Unique: FyAXPHeOPmqCikMap-ATpA-1
+X-Mimecast-MFC-AGG-ID: FyAXPHeOPmqCikMap-ATpA
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DA7F719560AA
-	for <blinux-list@gapps.redhat.com>; Sat, 28 Dec 2024 11:29:57 +0000 (UTC)
-Received: by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 9B2FA1956088; Sat, 28 Dec 2024 11:29:57 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4A61D19560B1
+	for <blinux-list@gapps.redhat.com>; Sun, 29 Dec 2024 15:11:21 +0000 (UTC)
+Received: by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 44CE819560A3; Sun, 29 Dec 2024 15:11:21 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.46])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 98C601956086
-	for <blinux-list@redhat.com>; Sat, 28 Dec 2024 11:29:57 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [170.10.128.131])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4204F19560A2
+	for <blinux-list@redhat.com>; Sun, 29 Dec 2024 15:11:21 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F25C61956086
-	for <blinux-list@redhat.com>; Sat, 28 Dec 2024 11:29:56 +0000 (UTC)
-Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
- relay.mimecast.com with ESMTP id us-mta-517-JDrnKgHxMm-U3aa2mn0Lsw-1; Sat,
- 28 Dec 2024 06:29:54 -0500
-X-MC-Unique: JDrnKgHxMm-U3aa2mn0Lsw-1
-X-Mimecast-MFC-AGG-ID: JDrnKgHxMm-U3aa2mn0Lsw
-Received: from [192.168.29.74] (176-140-221-13.abo.bbox.fr [176.140.221.13])
-	by darkstar.slint.fr (Postfix) with ESMTPSA id 96EA362B59
-	for <blinux-list@redhat.com>; Sat, 28 Dec 2024 12:21:55 +0100 (CET)
-Message-ID: <6b06746d-5107-4cdd-8c96-bc5040a6e2b7@slint.fr>
-Date: Sat, 28 Dec 2024 12:29:42 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: Mate development
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A90EF1956086
+	for <blinux-list@redhat.com>; Sun, 29 Dec 2024 15:11:20 +0000 (UTC)
+Received: from mail-41103.protonmail.ch (mail-41103.protonmail.ch
+ [185.70.41.103]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-537-1N02fI9NOBiajbyUFVu5Qg-1; Sun, 29 Dec 2024 10:11:17 -0500
+X-MC-Unique: 1N02fI9NOBiajbyUFVu5Qg-1
+X-Mimecast-MFC-AGG-ID: 1N02fI9NOBiajbyUFVu5Qg
+Date: Sun, 29 Dec 2024 15:11:06 +0000
 To: blinux-list@redhat.com
-References: <4f5b9ef8-5e7b-4440-86b9-bd3c8bf957f1@seznam.cz>
-From: "'Didier Spaier' via blinux-list@redhat.com" <blinux-list@redhat.com>
-Autocrypt: addr=didier@slint.fr; keydata=
- xsBNBFY6fG8BCADH4Hf/OaE2MwXRFMrU/9oDd+YPqR/wkhmIv0veDio84fsWA5qMz1De7TEv
- dNuxIVYTznuVOd/9lpdfxQ1KV9rgD7yoBPLmjbQA1vVjB+1QylIQUV0B9AYFUsxZP32Ic2pg
- TS3US/WiZyx+/jS50ri4kvT9iDtIEu7WBWFr8YMOoq3oLkHI8Y7gBG0WsK9XYN09glhtI+bA
- jLPr/ezwEg5M3FDb4U7XFq7GcA6EEzanKMAOHdZl3lta7dv5gpgdj+38j5jPfV1cJW+J1fha
- 63X72xxXGs7V6J7NGpnW7SAKfTAMXsPXZwwGIuqMQs1Z89I+2ZPJPOoV8zMncTsWzHStABEB
- AAHNH0RpZGllciBTcGFpZXIgPGRpZGllckBzbGludC5mcj7CwHkEEwEKACMCGwMHCwkIBwMC
- AQYVCAIJCgsEFgIDAQIeAQIXgAUCYZVPGAAKCRDVAgLvYMA+6pOxCADB2pKmm/LgncWREzob
- Z6M+RsvgzvGS/48ik/E/TH2KyPO/hn+Fzbj4MmMwQdqz5YPfdBmkcM7WyDzkPaukzfS8QUvl
- VKyWQ92pqpbI/JUeShI+DLMKV7LZxiPinMBuKmpyLdpxuhk08g2+6F8X6ztbl8mbXQy5jcIZ
- zKQ442N0D4wnn8VXM0tb0uonmqc6ly7dcmkQ/GI7Q0tF/hkn4n3g1Lh6+K1jBqEIC9vn/c6X
- yf67ec+CwbE0GtgVM1FR1R0J1y/6vkYWr7gZHhnzgwKr6k1wzCGkVUyCSpFwB2oeANT9c0qP
- rgn4YjoYQIHS3vMWd630vRyOfqwetWXmVjPxzsBNBFY6fG8BCACqDQKHSw0ElDkwPPpNguL0
- ujOyygO30xlLyfW9pWOEycHSLhLzvDTlFkvr5IxvyCDBIFBdzpkeQqh1+ZxrFliwWyj+9/ro
- JlIjxeAyNs2xQZ7tQM6K5xtbUs8O5YtkCCO3OegAiLgmzzgxes79Qy+V3ciKbl+vrsNu7T9r
- o3zZhyinci1eOCcKEtXFPQW5P4woB+6+JheN9pIiDkjojmdC+xkvDadP7kJYKp19Itys/CbN
- vxEoOLsgeJhsZSmNU2QNhXkLfr7+AC99fb/c5ZDTNPRBqgLJCp+gTxn1QVJrAbq2OP3refmS
- RxdA3yUDMjxEeHwDNZJL9aEtTDlTzPk5ABEBAAHCwF8EGAEKAAkCGwwFAmGVT44ACgkQ1QIC
- 72DAPuqjhwgApl0pdNIrbU+8Hn0mr3CTEXxPaTbAU2bYFPDiBaEvXsBGoz8xJ6EZQnywbC7o
- l5wFtVT08LKDewLHaL78zS+Q8rv5sNmWwzMAaipFtZg67e/rU3V5tw4E12nUghyMzQpngUur
- lZPMFlB9IZN9681cXuv2sZzAZlR2+3PsSAftpPQxReoSC7hj3dfiCiAis19G3A184HClA5MB
- I5heGinSz7R/AXhkiej8HZZzz9ZPkS7aeL8HsZKqCwZvViutbGmpm+V70JnbRAHLFjYb+Se3
- rdUWWAXcca4Ry8HCLTo5iK9xCTQh5gEuJ7ROdOXeY4SvMiqWjYhlrsR0qhTv9q/gfg==
-In-Reply-To: <4f5b9ef8-5e7b-4440-86b9-bd3c8bf957f1@seznam.cz>
-X-Mimecast-MFC-PROC-ID: gNkidKbQM5P3iu3xoqoY0fsx6yEs4zzUuDXW-IC8ep8_1735385394
+From: "'Rastislav Kish' via blinux-list@redhat.com" <blinux-list@redhat.com>
+Subject: Re: Mate development
+Message-ID: <69bf721f-932e-4528-8f60-60cef78da871@protonmail.com>
+In-Reply-To: <6b06746d-5107-4cdd-8c96-bc5040a6e2b7@slint.fr>
+References: <4f5b9ef8-5e7b-4440-86b9-bd3c8bf957f1@seznam.cz> <6b06746d-5107-4cdd-8c96-bc5040a6e2b7@slint.fr>
+Feedback-ID: 26663242:user:proton
+X-Pm-Message-ID: 2e82258f9f8a7d3c85e3b2eccec3c1ec202d33ee
+MIME-Version: 1.0
+X-Mimecast-MFC-PROC-ID: EWzagz46OaOUuADFR6JQJ_WIaZRboFkG8Py3ZcXdM40_1735485076
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: AenFBUY4z5NhvBbNzyazxT46kzvVZl0hIYVq568yEi4_1735385398
-X-Mimecast-Originator: slint.fr
-Content-Language: en-US
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: didier@slint.fr
+X-Mimecast-MFC-PROC-ID: Rkz3ZpZidzOqBVjHxYerDc9qg0GDz9Pzw57vA93yz0k_1735485081
+X-Mimecast-Originator: protonmail.com
+Content-Type: multipart/alternative;
+ boundary="b1=_fUNwHylwqJH7FCzVHj8Vvr3V4SC6fKfSRYDgY6e5NNs"
+X-Original-Sender: rastislav.kish@protonmail.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
-X-Original-From: Didier Spaier <didier@slint.fr>
-Reply-To: Didier Spaier <didier@slint.fr>
+ domain of rastislav.kish@protonmail.com designates 185.70.41.103 as permitted
+ sender) smtp.mailfrom=rastislav.kish@protonmail.com
+X-Original-From: Rastislav Kish <rastislav.kish@protonmail.com>
+Reply-To: Rastislav Kish <rastislav.kish@protonmail.com>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -177,17 +151,147 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Hi Vojta,
+--b1=_fUNwHylwqJH7FCzVHj8Vvr3V4SC6fKfSRYDgY6e5NNs
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Plus, Mate is a pretty much retrospective DE, so the lack of new features i=
+s sort of a feature of its own. Currently the most important task of the pr=
+oject is moving to Wayland. After this is done, I imagine the project will =
+require just some minor maintenance to keep going, no major development. Th=
+ere are other DEs for that purpose, primarily GNOME, KDE and Cosmic these d=
+ays. :)
+
+Best regards
+
+Rastislav
+
+D=C5=88a 28. 12. 2024 o 12:29 =E2=80=98Didier Spaier=E2=80=99 via blinux-li=
+st@redhat.com nap=C3=ADsal(a):
+
+> Hi Vojta,
+>
+> last update of components of the Mate desktop are dated:
+> 03-Dec-2024 atril-1.28.1
+> 27-Nov-2024 mate-applets-1.28.1
+> 27-Nov-2024 mate-notification-daemon-1.28.3
+> 17-Oct-2024 mate-panel-1.28.4
+> as shown in
+> https://pub.mate-desktop.org/releases/1.28/
+> Further looking at these repositories:
+> https://github.com/orgs/mate-desktop/repositories
+> shows that there are recent commits.
+>
+> So as it is at least still maintained if not as actively developed as oth=
+er
+> desktops, my opinion is that nothing prevents continuing to use and also =
+to
+> provide Mate in distributions - and I will do so I a foreseeable future.
+>
+> Cheers,
+> Didier
+>
+> On 28/12/2024 11:58, Vojtech =C5=A1miro wrote:
+>
+>> Hello,
+>>
+>> will be Mate desktop develop again? One my friend told me Mate hasn't up=
+dates a
+>> few months.
+>>
+>> Thanks a lot.
+>>
+>> Best regards
+>>
+>> Vojta.
+>>
+>> To unsubscribe from this group and stop receiving emails from it, send a=
+n email
+>> to
+>> blinux-list+unsubscribe@redhat.com
+>> .
+>
+> To unsubscribe from this group and stop receiving emails from it, send an=
+ email to
+> blinux-list+unsubscribe@redhat.com
+> .
+
+&#8203;
+
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
+
+--b1=_fUNwHylwqJH7FCzVHj8Vvr3V4SC6fKfSRYDgY6e5NNs
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head>
+
+    <meta http-equiv=3D"content-type" content=3D"text/html; charset=3DUTF-8=
+"/>
+    <title></title>
+    <meta charset=3D"UTF-8"/>
+  </head>
+  <body>
+    <div class=3D"markdown-here-wrapper">
+      <p style=3D"margin-block: 0px 19.2px; margin-bottom: 19.2px; margin-t=
+op: 0px;">Plus,
+        Mate is a pretty much retrospective DE, so the lack of new
+        features is sort of a feature of its own. Currently the most
+        important task of the project is moving to Wayland. After this
+        is done, I imagine the project will require just some minor
+        maintenance to keep going, no major development. There are other
+        DEs for that purpose, primarily GNOME, KDE and Cosmic these
+        days. :)</p>
+      <p style=3D"margin-block: 0px 19.2px; margin-bottom: 19.2px; margin-t=
+op: 0px;">Best
+        regards</p>
+      <p style=3D"margin-block: 0px 19.2px; margin-bottom: 19.2px; margin-t=
+op: 0px;">Rastislav</p>
+      <p style=3D"margin-block: 0px 19.2px; margin-bottom: 19.2px; margin-t=
+op: 0px;">D=C5=88a
+        28. 12. 2024 o 12:29 =E2=80=98Didier Spaier=E2=80=99 via <a href=3D=
+"mailto:blinux-list@redhat.com" style=3D"border-block-color: rgb(11, 108, 2=
+18); border-bottom-color: rgb(11, 108, 218); border-inline-color: rgb(11, 1=
+08, 218); border-left-color: rgb(11, 108, 218); border-right-color: rgb(11,=
+ 108, 218); border-top-color: rgb(11, 108, 218); caret-color: rgb(11, 108, =
+218); color: rgb(11, 108, 218); column-rule-color: rgb(11, 108, 218); outli=
+ne-color: rgb(11, 108, 218); text-decoration-color: rgb(11, 108, 218); text=
+-decoration-line: underline; text-emphasis-color: rgb(11, 108, 218);" class=
+=3D"moz-txt-link-freetext">blinux-list@redhat.com</a>
+        nap=C3=ADsal(a):</p>
+      <blockquote type=3D"cite" style=3D"border-block-color: rgb(119, 119, =
+119); border-bottom-color: rgb(119, 119, 119); border-inline-color: rgb(114=
+, 159, 207) rgb(119, 119, 119); border-inline-start: 2px solid rgb(114, 159=
+, 207); border-left: 2px solid rgb(114, 159, 207); border-right-color: rgb(=
+119, 119, 119); border-top-color: rgb(119, 119, 119); caret-color: rgb(119,=
+ 119, 119); color: rgb(119, 119, 119); column-rule-color: rgb(119, 119, 119=
+); margin-block: 8px; margin-bottom: 8px; margin-inline: 0px; margin-left: =
+0px; margin-right: 0px; margin-top: 8px; outline-color: rgb(119, 119, 119);=
+ padding-block: 3.2px; padding-bottom: 3.2px; padding-inline: 8px; padding-=
+left: 8px; padding-right: 8px; padding-top: 3.2px; quotes: none; text-decor=
+ation-color: rgb(119, 119, 119); text-emphasis-color: rgb(119, 119, 119);">
+        <div class=3D"external-content" id=3D"extcontent-0" style=3D"border=
+-block-color: rgb(119, 119, 119); border-bottom-color: rgb(119, 119, 119); =
+border-inline-color: rgb(119, 119, 119); border-left-color: rgb(119, 119, 1=
+19); border-right-color: rgb(119, 119, 119); border-top-color: rgb(119, 119=
+, 119); caret-color: rgb(119, 119, 119); color: rgb(119, 119, 119); column-=
+rule-color: rgb(119, 119, 119); outline-color: rgb(119, 119, 119); quotes: =
+none; text-decoration-color: rgb(119, 119, 119); text-emphasis-color: rgb(1=
+19, 119, 119);">
+          <pre class=3D"moz-quote-pre" wrap=3D"">Hi Vojta,
 
 last update of components of the Mate desktop are dated:
 03-Dec-2024 atril-1.28.1
 27-Nov-2024 mate-applets-1.28.1
 27-Nov-2024 mate-notification-daemon-1.28.3
 17-Oct-2024 mate-panel-1.28.4
-as shown in https://pub.mate-desktop.org/releases/1.28/
+as shown in <a class=3D"moz-txt-link-freetext" href=3D"https://pub.mate-des=
+ktop.org/releases/1.28/">https://pub.mate-desktop.org/releases/1.28/</a>
 
 Further looking at these repositories:
-https://github.com/orgs/mate-desktop/repositories
+<a class=3D"moz-txt-link-freetext" href=3D"https://github.com/orgs/mate-des=
+ktop/repositories">https://github.com/orgs/mate-desktop/repositories</a>
 shows that there are recent commits.
 
 So as it is at least still maintained if not as actively developed as other
@@ -199,23 +303,85 @@ Didier
 
 
 On 28/12/2024 11:58, Vojtech =C5=A1miro wrote:
-> Hello,
->=20
-> will be Mate desktop develop again? One my friend told me Mate hasn't upd=
-ates a
-> few months.
->=20
-> Thanks a lot.
->=20
-> Best regards
->=20
-> Vojta.
->=20
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email
-> to blinux-list+unsubscribe@redhat.com.
->=20
+</pre>
+          <blockquote type=3D"cite">
+            <pre class=3D"moz-quote-pre" wrap=3D"">Hello,
+
+will be Mate desktop develop again? One my friend told me Mate hasn&#39;t u=
+pdates a
+few months.
+
+Thanks a lot.
+
+Best regards
+
+Vojta.
 
 To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to blinux-list+unsubscribe@redhat.com.
+mail
+to <a class=3D"moz-txt-link-abbreviated" href=3D"mailto:blinux-list+unsubsc=
+ribe@redhat.com">blinux-list+unsubscribe@redhat.com</a>.
+
+</pre>
+          </blockquote>
+          <pre class=3D"moz-quote-pre" wrap=3D"">To unsubscribe from this g=
+roup and stop receiving emails from it, send an email to <a class=3D"moz-tx=
+t-link-abbreviated" href=3D"mailto:blinux-list+unsubscribe@redhat.com">blin=
+ux-list+unsubscribe@redhat.com</a>.
+
+</pre>
+        </div>
+      </blockquote>
+      <div title=3D"MDH:PHA+UGx1cywgTWF0ZSBpcyBhIHByZXR0eSBtdWNoIHJldHJvc3B=
+lY3RpdmUgREUsIHNvIHRoZSBsYWNrIG9mIG5ldyBmZWF0dXJlcyBpcyBzb3J0IG9mIGEgZmVhdH=
+VyZSBvZiBpdHMgb3duLiBDdXJyZW50bHkgdGhlIG1vc3QgaW1wb3J0YW50IHRhc2sgb2YgdGhlI=
+HByb2plY3QgaXMgbW92aW5nIHRvIFdheWxhbmQuIEFmdGVyIHRoaXMgaXMgZG9uZSwgSSBpbWFn=
+aW5lIHRoZSBwcm9qZWN0IHdpbGwgcmVxdWlyZSBqdXN0IHNvbWUgbWlub3IgbWFpbnRlbmFuY2U=
+gdG8ga2VlcCBnb2luZywgbm8gbWFqb3IgZGV2ZWxvcG1lbnQuIFRoZXJlIGFyZSBvdGhlciBERX=
+MgZm9yIHRoYXQgcHVycG9zZSwgcHJpbWFyaWx5IEdOT01FLCBLREUgYW5kIENvc21pYyB0aGVzZ=
+SBkYXlzLiA6KTwvcD48cD5CZXN0IHJlZ2FyZHM8L3A+PHA+UmFzdGlzbGF2PGJyPjwvcD48ZGl2=
+IGNsYXNzPSJtb3otY2l0ZS1wcmVmaXgiPkTFiGEgMjguIDEyLiAyMDI0IG8gMTI6MjkgJ0RpZGl=
+lciBTcGFpZXInIHZpYSBibGludXgtbGlzdEByZWRoYXQuY29tIG5hcMOtc2FsKGEpOjxicj48L2=
+Rpdj48YmxvY2txdW90ZSB0eXBlPSJjaXRlIiBjaXRlPSJtaWQ6NmIwNjc0NmQtNTEwNy00Y2RkL=
+ThjOTYtYmM1MDQwYTZlMmI3QHNsaW50LmZyIj48cHJlIHdyYXA9IiIgY2xhc3M9Im1vei1xdW90=
+ZS1wcmUiPkhpIFZvanRhLAoKbGFzdCB1cGRhdGUgb2YgY29tcG9uZW50cyBvZiB0aGUgTWF0ZSB=
+kZXNrdG9wIGFyZSBkYXRlZDoKMDMtRGVjLTIwMjQgYXRyaWwtMS4yOC4xCjI3LU5vdi0yMDI0IG=
+1hdGUtYXBwbGV0cy0xLjI4LjEKMjctTm92LTIwMjQgbWF0ZS1ub3RpZmljYXRpb24tZGFlbW9uL=
+TEuMjguMwoxNy1PY3QtMjAyNCBtYXRlLXBhbmVsLTEuMjguNAphcyBzaG93biBpbiBodHRwczov=
+L3B1Yi5tYXRlLWRlc2t0b3Aub3JnL3JlbGVhc2VzLzEuMjgvCgpGdXJ0aGVyIGxvb2tpbmcgYXQ=
+gdGhlc2UgcmVwb3NpdG9yaWVzOgpodHRwczovL2dpdGh1Yi5jb20vb3Jncy9tYXRlLWRlc2t0b3=
+AvcmVwb3NpdG9yaWVzCnNob3dzIHRoYXQgdGhlcmUgYXJlIHJlY2VudCBjb21taXRzLgoKU28gY=
+XMgaXQgaXMgYXQgbGVhc3Qgc3RpbGwgbWFpbnRhaW5lZCBpZiBub3QgYXMgYWN0aXZlbHkgZGV2=
+ZWxvcGVkIGFzIG90aGVyCmRlc2t0b3BzLCBteSBvcGluaW9uIGlzIHRoYXQgbm90aGluZyBwcmV=
+2ZW50cyBjb250aW51aW5nIHRvIHVzZSBhbmQgYWxzbyB0bwpwcm92aWRlIE1hdGUgaW4gZGlzdH=
+JpYnV0aW9ucyAtIGFuZCBJIHdpbGwgZG8gc28gSSBhIGZvcmVzZWVhYmxlIGZ1dHVyZS4KCkNoZ=
+WVycywKRGlkaWVyCgoKT24gMjgvMTIvMjAyNCAxMTo1OCwgVm9qdGVjaCDFoW1pcm8gd3JvdGU6=
+CjwvcHJlPjxibG9ja3F1b3RlIHR5cGU9ImNpdGUiPjxwcmUgd3JhcD0iIiBjbGFzcz0ibW96LXF=
+1b3RlLXByZSI+SGVsbG8sCgp3aWxsIGJlIE1hdGUgZGVza3RvcCBkZXZlbG9wIGFnYWluPyBPbm=
+UgbXkgZnJpZW5kIHRvbGQgbWUgTWF0ZSBoYXNuJ3QgdXBkYXRlcyBhCmZldyBtb250aHMuCgpUa=
+GFua3MgYSBsb3QuCgpCZXN0IHJlZ2FyZHMKClZvanRhLgoKVG8gdW5zdWJzY3JpYmUgZnJvbSB0=
+aGlzIGdyb3VwIGFuZCBzdG9wIHJlY2VpdmluZyBlbWFpbHMgZnJvbSBpdCwgc2VuZCBhbiBlbWF=
+pbAp0byBibGludXgtbGlzdCt1bnN1YnNjcmliZUByZWRoYXQuY29tLgoKPC9wcmU+PC9ibG9ja3=
+F1b3RlPjxwcmUgd3JhcD0iIiBjbGFzcz0ibW96LXF1b3RlLXByZSI+ClRvIHVuc3Vic2NyaWJlI=
+GZyb20gdGhpcyBncm91cCBhbmQgc3RvcCByZWNlaXZpbmcgZW1haWxzIGZyb20gaXQsIHNlbmQg=
+YW4gZW1haWwgdG8gYmxpbnV4LWxpc3QrdW5zdWJzY3JpYmVAcmVkaGF0LmNvbS4KCjwvcHJlPjw=
+vYmxvY2txdW90ZT48dWwgY2xhc3M9ImRyb3Bkb3duLW1lbnUgdGV4dGNvbXBsZXRlLWRyb3Bkb3=
+duIiBzdHlsZT0iZGlzcGxheTogbm9uZTsgcG9zaXRpb246IGFic29sdXRlOyB6LWluZGV4OiAxM=
+DAwOyIgY29udGVudGVkaXRhYmxlPSJmYWxzZSI+PC91bD4=3D" aria-hidden=3D"true" sty=
+le=3D"font-size: 0px; padding: 0px; margin: 0px; block-size: 0px; height: 0=
+px; inline-size: 0px; max-block-size: 0px; max-height: 0px; max-inline-size=
+: 0px; max-width: 0px; overflow-block: hidden; overflow-inline: hidden; ove=
+rflow: hidden; width: 0px;" class=3D"mdhr-raw">&amp;#8203;</div>
+    </div>
+ =20
+
+</body></html>
+
+<p></p>
+
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
+nsubscribe@redhat.com</a>.<br />
+
+--b1=_fUNwHylwqJH7FCzVHj8Vvr3V4SC6fKfSRYDgY6e5NNs--
 
