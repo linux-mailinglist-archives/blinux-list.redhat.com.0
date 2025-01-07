@@ -1,144 +1,155 @@
-Return-Path: <blinux-list+bncBCNLZ3P6ZIDRBI4P6S5QMGQE6XJMEXI@redhat.com>
+Return-Path: <blinux-list+bncBDP7P6HU4IERBQHZ6W5QMGQEFC65VXI@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mail.lfdr.de (Postfix) with ESMTPS id 64474A03CFC
-	for <lists+blinux-list@lfdr.de>; Tue,  7 Jan 2025 11:53:26 +0100 (CET)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4679fc5c542sf247382551cf.0
-        for <lists+blinux-list@lfdr.de>; Tue, 07 Jan 2025 02:53:26 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1736247205; cv=pass;
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	by mail.lfdr.de (Postfix) with ESMTPS id 57A51A049F8
+	for <lists+blinux-list@lfdr.de>; Tue,  7 Jan 2025 20:13:13 +0100 (CET)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6d89a389ee9sf399800566d6.2
+        for <lists+blinux-list@lfdr.de>; Tue, 07 Jan 2025 11:13:13 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1736277185; cv=pass;
         d=google.com; s=arc-20240605;
-        b=Ex+THbAC/u4xuNb5nZR1//Z1XbVR2aZ6pVw2TOJx7S1RLzWffY7ooXHOT5q8PLZrBq
-         Kwsjilub9RrajaAHggHpudPXOR6c7EGdIQnpsoFU4quVpNh+5pC+9sHw2j8E3WjT4guf
-         o0QPF74U70lg2tosF0SZgedr0A09e2AtPeeWPXjwBVmx99qfPDYcU2srxR09iAY5r3yt
-         sQk+dVdgqSjx949F18Ru03aIpHO02W8wGCNLCZt3Yzb1T1KmbDi4ibAgxmPARmPHBu5j
-         UM/VdNhvVrcjvLHdmlUcSWgTkbepHY2vWxGKkdWIvIt74Gks5kv3K/vj3kqPwMBT+Q+6
-         2fng==
+        b=CpPlmPWdV0jpsB4UjgMp6zlJLEn33E/FpFTNHtHR59zPtoHL9D/nalAUXj9u7N1UZO
+         gRyp1S83d2E32Ky+X+5pEllwTYNH9SuCEeBLveOSFKy2ff5s675MX//l1rZBNo6KdYGG
+         GdEAuUiOT53INkZcq/P2rffLIUMqAoQ7RCcIYBsVWPZMHhvXfumrL1cHkkqoY36t2GAe
+         w0YHrT+RsqFL96aCVujIclbhHNkSbcqZP2BLBC17Ox0AGmIHcBq5flpOixYAJ8p3lGsY
+         GeqoHwaogdywba4ixq5LOgPtpBhPOe97C6awc8aDj+1iw1LYJCoDjvQ9fLTmkrvHszZ6
+         J7yQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:to:subject:message-id:date:from
-         :mime-version:delivered-to;
-        bh=c7TMR98lgVplz2WW+ndshurUxnF2T7laMAdT4iM/zg0=;
-        fh=nodvQOmnEsKx5u2S2rX8XEnqASyttqEK2IU8G8buiYo=;
-        b=E50eDnK+qxWmdmLEYXkdu5rfCqIuUiKn5nzG8kR62DrnA4Vzd2ZgisDkiE3Z6JkeVs
-         0J2c8UecBLlWIHeAtYDt1m7T+RyG9Z5CZ+Q9ribzgO7AU9W94aGNtY5hUyceRe10jZK8
-         UJa1kAEihwx/B5nxlMoumfAGZWv2oJUASvSnKyXCuTtmZSXI0gih3GEcp0IXpojkS/0L
-         HGHhMzKXjYx5A14nY8cIdKP33ig1tozl8g5mvv8QyZOFpkZaAdfiHj76P5n3TqRjlSpA
-         nh+fuKW0ejocpz/SYYye3XRBKnphK25jT/ehWpB5gXw+XKr2dsCZ6BrHoTirEDzFJP6q
-         ic5Q==;
+         :mailing-list:precedence:content-id:message-id:date:mime-version
+         :subject:to:from:delivered-to;
+        bh=wX9E+Al+jV5bwSdRbh6nuji0cckUMgUFDeyBM6pPl1A=;
+        fh=3pg5h0PJV4ZnJdODrk733A19dLopJRclsyZNs7WObyg=;
+        b=A9TUZ1vQpUnna9ew2Y9hC4oomqat6xqiVTDF/kpu4bxXrFbNhCLQot/fhJsgRQSv45
+         quu90MRiWmjKUzIkR/kQwiclqxmFpu+IUcW94ao5nrI42usC0SqSPVwLx3fvVEgnyOTT
+         QGpR7gt0ydM3ozDHkKYUk5oobOA7KTPH42lmmHIF/vP+C3q694/usfhP2mTN+E8FMOU7
+         J/q37cJXuB3N3RhtQB5rD9i37WqCCao2DTkqG0jTGC8O44JS94L1Q7+gmVHbP5DBqBlb
+         6BoQkPWn/9ZRWuqF13GArGuPgFSNSjbCWEKQa9Aa1cgOsaQOCr7EyOpAqh9HJrwE/jOd
+         9lHg==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of khalfang1366@gmail.com designates 209.85.219.170 as permitted sender) smtp.mailfrom=khalfang1366@gmail.com
+       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.60 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736247205; x=1736852005;
+        d=1e100.net; s=20230601; t=1736277185; x=1736881985;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:to:subject
-         :message-id:date:from:mime-version:delivered-to:x-beenthere
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=c7TMR98lgVplz2WW+ndshurUxnF2T7laMAdT4iM/zg0=;
-        b=bURtj//ANLqaFFOqAEgH99SdrZUlFy9ER3+wQ5WoOdsHJyaxffBCv7rE6W5+c/yTW0
-         WYAP9LlfKplo6CdHDdMllZbLeIuHCx1+/ohlsE1RtBiFLW5J/A0+25HZH6skpep1picv
-         ZsQ8+Q75NkZwPDzjrzrFJuK6AEIAW3j9iK+KIgWpdGYWsXqGB3kBQF2YIFvlBmdLZFgu
-         99h8IBp1vVS1XHXttlF3miY4SkQ+VuEs+qNRd525iC5FW0Ss3hRiIVzTHSEKMvfhNI7l
-         jjU63CGCi4I7z+uow86XzZ/UOulFLxvYXyHSerqLxwuhTqIiEZA2IHM6dWFYjpr0PoKs
-         rxhw==
-X-Forwarded-Encrypted: i=2; AJvYcCUYp3xuCoWt83NmTeDHqyCd3LqWtrcL00I6qjnS4583hVOCprkDjbGjbdwc2k+k5tokOCgUTQ==@lfdr.de
-X-Gm-Message-State: AOJu0Yxdz0xDsmpm5t13pbHJHaq7vMEhYXGDTMyyizfxzfg6rAdPLo57
-	iGVhntAC7sYa+AWpVR4zaD9BHCxygpMflrRyO7jfl80NaWPtkAYYamiK+5lrpAc=
-X-Google-Smtp-Source: AGHT+IHpN3U1TG9efnW8soPC9fSe7OgehBzejtvjmSG0SAKD+l8r4Tm6BjD1Ll1KCLSi5aNmwqTn1g==
-X-Received: by 2002:a05:6214:1252:b0:6d8:8a01:64e2 with SMTP id 6a1803df08f44-6dd233af19amr983154136d6.43.1736247204665;
-        Tue, 07 Jan 2025 02:53:24 -0800 (PST)
+         :x-original-authentication-results:x-original-sender:content-id
+         :message-id:date:mime-version:subject:to:from:delivered-to
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wX9E+Al+jV5bwSdRbh6nuji0cckUMgUFDeyBM6pPl1A=;
+        b=aPr9U8pQjupnu0Z4TQyiWvbSW7eWb6rGjRlMPI884P4cCiWn2i1U0xf5JlR9t6W97L
+         VKkzrPONc6b3slp01TEABctESQMMLMAVaq7pHUXBYc3XwtAi06jmeCoxoE7ttuHT3fIQ
+         Ygmq9wM5IhQOIByj46cwIoXG1gN14OzoKftMyGP3wCZlgdwAgL0AuVxJ5YRfg7sZLqVu
+         dWsHxxZmuHk/nxYNwhnW15Gzy00TURAaffoV1Qrnw3rSdGrBSAHMRqdVJH3s1/+SsVeJ
+         Wxh5nG7K7KllBoQWa0lAqcCK8gcB6uFOxu4vTAXozVzSA2ySy6SpeJyOzn3SSzW7DaRm
+         2MaA==
+X-Forwarded-Encrypted: i=2; AJvYcCUfoxy64JMGchZJg8ONyhy9pSM/e7EK4yyBLjoPbcPwCP+tOPdlyPW1N/bWREmyXMImeMc0Hw==@lfdr.de
+X-Gm-Message-State: AOJu0YyAuvMs3IbtrvgOP0t07JvtYLkrEvWInWS9v3TzSygLBQwsWKwC
+	GqV06VzuhSwbPUf1hHoYS9C/8XeqWVvIoaLBD14/jQca0kmox8o6aP7LLHv/uPg=
+X-Google-Smtp-Source: AGHT+IEvl1+SUAamFrLBSzZXORvj5FRIAx7KE/ISSsdBNRMaiYsWebWM+1Gu8UkEBv2fPQwy4NkeOw==
+X-Received: by 2002:a05:6214:1251:b0:6d8:a148:9ac9 with SMTP id 6a1803df08f44-6df9b2d08ffmr2576166d6.30.1736277184689;
+        Tue, 07 Jan 2025 11:13:04 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:6214:5857:b0:6d3:fa96:8dd with SMTP id
- 6a1803df08f44-6dd154838f5ls1525066d6.1.-pod-prod-02-us; Tue, 07 Jan 2025
- 02:53:23 -0800 (PST)
-X-Forwarded-Encrypted: i=2; AJvYcCWVbO+OkayZAmvHWxIjtH+IVqfP9kF4QGbeUTq7KSMoOHgosvaTLhx+VE4oB9hwJ4IOEAD7PBcNe/UikQ==@gapps.redhat.com
-X-Received: by 2002:a05:620a:28c4:b0:7b7:2de:6f83 with SMTP id af79cd13be357-7b9ba7e6918mr8534737585a.41.1736247203327;
-        Tue, 07 Jan 2025 02:53:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1736247203; cv=none;
+Received: by 2002:a05:622a:610e:b0:46b:cf11:757c with SMTP id
+ d75a77b69052e-46bcf1176d5ls9664691cf.0.-pod-prod-09-us; Tue, 07 Jan 2025
+ 11:13:03 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCXS3ZmX/5PlsrAMkYZabU0dW5i4zBJdHJmMLCPYeeThOO8l9xv8yBWylW6CHTCiptUiD1i2cP81rm7b2g==@gapps.redhat.com
+X-Received: by 2002:a05:620a:318c:b0:7b6:e20d:2b47 with SMTP id af79cd13be357-7b9ba7fe5e8mr10845680185a.49.1736277183600;
+        Tue, 07 Jan 2025 11:13:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1736277183; cv=none;
         d=google.com; s=arc-20240605;
-        b=ZmuHt2jOl3Kr7VoF7QGtv15Y0B2wkQ3OH6zdCRuCPB49M+WrRszoN5NbGFPfwYO2xD
-         o8d//lUbFxU0ATCgfqHTagHbdCWr+gLNl1KxoaspAN60mVXWKXPGnJs+hKyXTgLv4TiP
-         n2pRI16NNg/RNdBCbkgqSH1BTB08Q7SWyHImTdmYsjUkWAVx7RpzbWTI9zHvR6/b9nJJ
-         VJ/rCdt5vh8POKuQT2ryePixlMbIk47EDlUUPRLiZ/63h4sU0jzs5dYMGECE5SgK1F/S
-         GOZ8dgF3LMT6GYEt2jlJ1LUxHINQuJ8KpEYwAIEu7ez1cV3kqCqinvRC9/vUZHd4Uo5M
-         gsYA==
+        b=Lj4hw5m6mpQFgtWjPGWdluvLNuB1Hh9DCNWdY1uyXcy8dKtlnUq8hgi8y42G7VF5Vo
+         kZ+cojKLYhHKAmqIEdWJK4IbEILByFqMTZW0mnSmNZ8xGYn+9DmVXwl7rM21kjmd9J8z
+         Q+kM3iTv33l+KYMcceQP3pLhexKieUTVymxo5bfEvwOlEc2s0APkbOw30v/UF/8PtrtC
+         I4vgeNIqPvcSUMcRglw63I3idI51ZhThVSxQ3YJF/eIKdkTWgCBiTrvabK6bk0cSzN4M
+         pCUizY1y5xG40JK0QNI6mApbXMW6/gl+RSZT0QZTnIbU2TB2h0IK2mCu9N0eNQMKwy8D
+         xlhA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=to:subject:message-id:date:from:mime-version:delivered-to;
-        bh=uIVYpYAxhnSYR0VryBL7AM69rcG9Bzn+as1gTT8GXNY=;
+        h=content-id:message-id:date:mime-version:subject:to:from
+         :delivered-to;
+        bh=wm+YetkXOnLx/ENZCEKoq9yURTAAXNxoM6mgCPqbeMQ=;
         fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
-        b=Ryu6wLmlk8zGYVh2SsFN4XUU3viF+IcTDQgRt5k2yqmNsEnqvLy7u6yfxgRwjSxZ3n
-         8Zv26QumvFeUylrg7OVbf+putwkaNF3d6TRdZtTypYwNDOTeAanOB3+qp6ViDSg6X2aG
-         M5XMZTDYRTIS00R5+oU9A0BlMRi1cB6kJYyrqrmDo//AgnvLciynTvKGNBMf6CDvFJgC
-         5fTdKU8pTigeKg5Ccz611J0m/nd+tEapfDLY0iewDmFHkRPHGKmlsb/p0jpznWSQBXXx
-         sF3l/+BWqbcjqO7unLSS6fDegVgj0iL3uQI+mVVncKVSrDv6MqJW2FQq5bQ9JNHrNsqI
-         wMXg==;
+        b=GhGQob9mKjGbzjiSV40GeRGDchzf2PGDUao8MN7pITNa5NimOohshNyjRzuRsuu7w9
+         OoYp5lsIvAecI8QQP3PDiKlYFUcl2+RPCTxD8jVUTjRm0GjXrIkSeWG4Z9y1Spz/C/ZS
+         y3P93T/gOxxJ4JeRSXVDfwW7kEvPtqGNJkhgmSFP59Gx21wYSqoF+Z5IZQ0hDyyjyHtQ
+         bN8tRBX5Bz/EFbKF/1qKZBfG6BV9SS3ksKhN31c4AfcfNubjRYmhU40n1BPcsZLpPpfc
+         MKho/sPEbHFCqSQ/sjN13uZQ8E9+9g5isvk0jWEMB9uDV33FbHeAWs/maX1OMoiyzPzw
+         4hDQ==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of khalfang1366@gmail.com designates 209.85.219.170 as permitted sender) smtp.mailfrom=khalfang1366@gmail.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id af79cd13be357-7b9ac4f0173si4627772485a.486.2025.01.07.02.53.23
+       spf=pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.60 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [205.139.110.120])
+        by mx.google.com with ESMTPS id af79cd13be357-7b9ac47a1f8si4572111085a.251.2025.01.07.11.13.03
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 02:53:23 -0800 (PST)
-Received-SPF: pass (google.com: domain of khalfang1366@gmail.com designates 209.85.219.170 as permitted sender) client-ip=209.85.219.170;
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+        Tue, 07 Jan 2025 11:13:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of martin.m@suddenlink.net designates 65.20.63.60 as permitted sender) client-ip=65.20.63.60;
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-669-K1i4j3ybM6y6zk2er7ezaw-1; Tue,
- 07 Jan 2025 05:53:22 -0500
-X-MC-Unique: K1i4j3ybM6y6zk2er7ezaw-1
-X-Mimecast-MFC-AGG-ID: K1i4j3ybM6y6zk2er7ezaw
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-594-jCAnddk7PPqziqJEuZeunw-1; Tue,
+ 07 Jan 2025 14:13:02 -0500
+X-MC-Unique: jCAnddk7PPqziqJEuZeunw-1
+X-Mimecast-MFC-AGG-ID: jCAnddk7PPqziqJEuZeunw
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 46BBF1955F77
-	for <blinux-list@gapps.redhat.com>; Tue,  7 Jan 2025 10:53:21 +0000 (UTC)
-Received: by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 4278D195394B; Tue,  7 Jan 2025 10:53:21 +0000 (UTC)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6EFD41956048
+	for <blinux-list@gapps.redhat.com>; Tue,  7 Jan 2025 19:13:01 +0000 (UTC)
+Received: by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 693801955F4A; Tue,  7 Jan 2025 19:13:01 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.33])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3FB3B19560A2
-	for <blinux-list@redhat.com>; Tue,  7 Jan 2025 10:53:21 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [170.10.128.131])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 667B01955F43
+	for <blinux-list@redhat.com>; Tue,  7 Jan 2025 19:13:01 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [205.139.110.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B7CDB195609E
-	for <blinux-list@redhat.com>; Tue,  7 Jan 2025 10:53:20 +0000 (UTC)
-Received: from mail-yb1-f170.google.com (mail-yb1-f170.google.com
- [209.85.219.170]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-677-CI9xn6GxPJiukVz6fzQVnQ-1; Tue, 07 Jan 2025 05:53:18 -0500
-X-MC-Unique: CI9xn6GxPJiukVz6fzQVnQ-1
-X-Mimecast-MFC-AGG-ID: CI9xn6GxPJiukVz6fzQVnQ
-Received: by mail-yb1-f170.google.com with SMTP id 3f1490d57ef6-e3983f8ff40so18030257276.1
-        for <blinux-list@redhat.com>; Tue, 07 Jan 2025 02:53:18 -0800 (PST)
-X-Gm-Gg: ASbGnctV5GO3DDHorXM+GycTIyuMVkWmmK1MQVMFKDq7/FKTRgO7+2VbPVLXNmFIN4G
-	lFl1Zg6UGeQRx+o4Gl9y1QiqJ7f3C8f/0Hw1Jew==
-X-Received: by 2002:a05:690c:d81:b0:6e2:b263:104a with SMTP id
- 00721157ae682-6f3f8136adfmr357531867b3.23.1736247197270; Tue, 07 Jan 2025
- 02:53:17 -0800 (PST)
-MIME-Version: 1.0
-From: jace Kattalakis <khalfang1366@gmail.com>
-Date: Tue, 7 Jan 2025 10:53:06 +0000
-X-Gm-Features: AbW1kvap6RKe_Y7eTuI6spCRIZi2_1Xcn5RCX5r5FTCtDY-uaiiPLeOLAm1YpEA
-Message-ID: <CAC9uDhY7d4CGxSOrPvuu0GM2C3uE-82OLN=7Yp_gzTv=cU8QXg@mail.gmail.com>
-Subject: Quick guide to getting Kodi working with TTS
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F2A301956077
+	for <blinux-list@redhat.com>; Tue,  7 Jan 2025 19:13:00 +0000 (UTC)
+Received: from altprdrgo06.altice.prod.cloud.openwave.ai
+ (altprdrgo06.altice.prod.cloud.openwave.ai [65.20.63.60]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-564-_IDbIu43PK63EY-Np20wfg-1; Tue,
+ 07 Jan 2025 14:12:58 -0500
+X-MC-Unique: _IDbIu43PK63EY-Np20wfg-1
+X-Mimecast-MFC-AGG-ID: _IDbIu43PK63EY-Np20wfg
+X-RG-VS-CS: clean
+X-RG-VS-SC: 0
+X-RG-VS: Clean
+X-Originating-IP: [47.217.105.81]
+X-RG-Env-Sender: martin.m@suddenlink.net
+X-RG-Rigid: 67715D1F01B5B97B
+X-RazorGate-Vade: gggruggvucftvghtrhhoucdtuddrgeefuddrudegvddguddvtdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucetnffvkfevgfgfufdpggftfghnshhusghstghrihgsvgdpqfgfvfenuceurghilhhouhhtmecufedttdenucenucfjughrpefhvffugggtsehttddttddttddvnecuhfhrohhmpedfofgrrhhtihhnucfotgevohhrmhhitghkfdcuoehmrghrthhinhdrmhesshhuugguvghnlhhinhhkrdhnvghtqeenucggtffrrghtthgvrhhnpefhkedtkedtleejtdevhffgueelieevveffudeileeiffeujeetleeludekkefhueenucfkphepgeejrddvudejrddutdehrdekudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhephhgvlhhopeifsgehrghgiidpihhnvghtpeegjedrvddujedruddthedrkedupdhmrghilhhfrhhomhepmhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvthdpnhgspghrtghpthhtohepuddprhgtphhtthhopegslhhinhhugidqlhhishhtsehrvgguhhgrthdrtghomhdprghuthhhpghushgvrhepmhgrrhhtihhnrdhmsehsuhguuggvnhhlihhnkhdrnhgvthdpghgvohfkrfepfgfupdfovfetjfhoshhtpegrlhhtphhrughrghhotdei
+X-RazorGate-Vade-Verdict: clean 0
+X-RazorGate-Vade-Classification: clean
+Received: from wb5agz (47.217.105.81) by altprdrgo06.altice.prod.cloud.openwave.ai (5.8.812) (authenticated as martin.m@suddenlink.net)
+        id 67715D1F01B5B97B for blinux-list@redhat.com; Tue, 7 Jan 2025 14:12:58 -0500
+Received: from martin by wb5agz with local (Exim 4.96)
+	(envelope-from <martin.m@suddenlink.net>)
+	id 1tVF0W-000Hgp-2C
+	for blinux-list@redhat.com;
+	Tue, 07 Jan 2025 13:12:52 -0600
+From: "Martin McCormick" <martin.m@suddenlink.net>
 To: Linux for blind general discussion <blinux-list@redhat.com>
-X-Mimecast-MFC-PROC-ID: 5Fwxo_1wzCJvgSJpNw34a-wr7leOy00hHPuTIyD6OB4_1736247197
+Subject: MiniPC's
+MIME-Version: 1.0
+Date: Tue, 07 Jan 2025 13:12:52 -0600
+Message-Id: <E1tVF0W-000Hgp-2C@wb5agz>
+X-Mimecast-MFC-PROC-ID: aRLhxsSiT2R1QDpSg1O9XF2v0d-w2_hS7u72qCvzrfQ_1736277178
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 4ZDvqq4S5-JjHezqR98hIZzrCjCt5SybNecmT5MM-vI_1736247201
-X-Mimecast-Originator: gmail.com
-Content-Type: multipart/alternative; boundary="0000000000006f8a3c062b1b8d57"
-X-Original-Sender: KhalFang1366@gmail.com
+X-Mimecast-MFC-PROC-ID: FnCyitAzJhW3bm0PPcDaDgsuDkH_bFF-Y2b3R-46Jbs_1736277181
+X-Mimecast-Originator: suddenlink.net
+Content-Type: text/plain; charset="UTF-8"
+Content-ID: <68001.1736277172.1@wb5agz.lan>
+X-Original-Sender: martin.m@suddenlink.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of khalfang1366@gmail.com designates 209.85.219.170 as permitted
- sender) smtp.mailfrom=khalfang1366@gmail.com
+ domain of martin.m@suddenlink.net designates 65.20.63.60 as permitted sender) smtp.mailfrom=martin.m@suddenlink.net
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -150,187 +161,46 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
---0000000000006f8a3c062b1b8d57
-Content-Type: text/plain; charset="UTF-8"
+Has anybody on this list tried running debian Linux with speakup
+on a miniPC?  From what I understand, one needs a usb sound card
+which is no big deal but what I want to do is install debian
+without orca but with speakup and use it as a talking text
+terminal.  I am actually doing that exact thing now using a
+20-year-old Dell that puts out lots of heat and one of the fans'
+bearings are sending me a message in their own unique way that
+they are not long for this world.
 
-This is something I've been meaning to put on the list for a while, but
-only just now got around to it having to reinstall Kodi on a new laptop,
-and I figured I'd share. Kodi does, in fact, work with the screenreader
-addon., with a few caveats:
+	I tried this very thing on several Raspberry Pi's and one
+might think that they would really shine and they mostly do fine
+but each Pi, from a 9-year-old Pi 2 up to a 8-GB Pi 4 ran debian
+bookworm and also ran speakup mostly perfectly until one would
+produce a long spew of text such as read the entire contents of a
+long mail message at which point whole chunks of text would go
+missing pretty much the same way each time one produced the
+multi-screened text dump.
 
-1. I've taken this from the Kodi screenreader topic on the forum, all
-credits go to vbprofi for writing the original guide
+	I think this may be related to the hardware capabilities
+of a Raspberry Pi because another thing they don't do well is any
+application that seems to require several parallel activities.
+They end up doing that app correctly but take much longer than
+one would think such as using the imager app to generate a new
+bootable SSD card.
 
-2. I've only tested this on a 64 bit distro
-3.I'm using the flatpak version of Kodi for this since it's distro
-agnostic, but you can follow the instructions. I'll highlight the Flatpak
-specific things as and when we get to them
+	One would think that I am down on the Raspberry Pi but
+that is not the case.  I've seen them do a number of tasks as
+well as a full-sized PC but those tasks didn't require as much parallel
+capability so it's something to keep in mind.  In other words,
+try whatever it is but if there are slow results, that is
+probably why.
 
-Things you'll need:
+	I would be perfectly happy to have this miniPC run
+bookworm and speakup in command mode as well as the older I86
+system does so what would be a good 64-bit system to try that may
+be better able to handle this situation?
 
-1.Kodi installed either by flatpak or your distro's packages. I installed
-it via Flatpak because on NixOS, the usual methods do not result in being
-able to use addons, and I get a more up to date Kodi via flatpak
+Thanks for any constructive ideas.
 
-2. A way to download the files in question
-
-3. The knowledge of where the Kodi directory is. It's either in .kodi or
-within the flatpak directory. I'll put both paths in when we get to that
-
-Ready? Let's go
-
-1. Install Kodi, either by flatpak or your distor's package manager
-
-2. Get the folder ready
-
-Go to the pvagner/service.xbmc.tts Python 3 branch
-https://github.com/pvagner/service.xbmc.tts/tree/2to3
-
-Click on Code, Download ZIP, and download the file named
-service.xbmc.tts-2to3.zip
-
-Go to the pvagner/backends Python 3 branch
-https://github.com/pvagner/backends/tree/2to3
-
-Click on Code, Download ZIP, and download the file named backends-2to3.zip
-
-
-Extract both folders, and put everything from the 2to3 folder into the
-service.xbmc.tts/lib/backends folder
-
-3M. Move the folder into the right location
-
-It is either:
-
-kodi (if installing via a package manager
-
-Or, if using flatpak
-
-~/.var/app/tv.kodi.Kodi/data/addons/
-
-So eithr way you end up with the service.xbmc.tts folder inside the addons
-directory
-
-4. copy the addons/service.xbmc.tts/resources/settings.xml file to
-userdata/addon_data/service.xbmc.tts/settings.xml
-
-So for example, the path should look like
-
-~/.kodi/userdata/addon_data/service.xbmc.tts/settings.xml
-Or
-
-~/.var/app/tv.kodi.Kodi/data/userdata/addon_data/service.xbmc.tts/settings.xml
-
-5. Create the keymap
-
-
-Go to your Kodi folder, and create the file
-userdata/keymaps/service.xbmc.tts.keyboard.xml and insert the following:
-
-<keymap>
-  <global>
-    <keyboard>
-      <f1>NotifyAll(service.xbmc.tts,REPEAT)</f1>
-      <f2>NotifyAll(service.xbmc.tts,EXTRA)</f2>
-      <f3>NotifyAll(service.xbmc.tts,ITEM_EXTRA)</f3>
-      <f4>NotifyAll(service.xbmc.tts,STOP)</f4>
-      <f6>Addon.OpenSettings(service.xbmc.tts)</f6>
-
-<f12>RunScript(special://home/addons/service.xbmc.tts/enabler.py)</f12>
-      <numpadplus mod="ctrl">NotifyAll(service.xbmc.tts,VOL_UP)</numpadplus>
-      <numpadminus
-mod="ctrl">NotifyAll(service.xbmc.tts,VOL_DOWN)</numpadminus>
-      <plus mod="ctrl">NotifyAll(service.xbmc.tts,VOL_UP)</plus>
-      <minus mod="ctrl">NotifyAll(service.xbmc.tts,VOL_DOWN)</minus>
-      <equals mod="ctrl">NotifyAll(service.xbmc.tts,VOL_UP)</equals>
-    </keyboard>
-  </global>
-</keymap>
-
-6.
-
-If you installed to .kodi with your package manager and have been following
-along with the keymap and addon directories in .kodi, then, hitting F12
-should have Kodi beep and start talking
-
-If using the flatpak you need to override permissions and enable it to
-speak to the speech-dispatcher socket
-
-flatpak override --user --filesystem=/run/user/1000/speech-dispatcher
-
-After that, pressing F12 should have Kodi start talking.upKo
+Martin McCormick
 
 To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
-
---0000000000006f8a3c062b1b8d57
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr">This is something I&#39;ve been meaning to put on the list=
- for a while, but only just now got around to it having to reinstall Kodi o=
-n a new laptop, and I figured I&#39;d share. Kodi does, in fact, work with =
-the screenreader addon., with a few caveats:<br><br>1. I&#39;ve taken this =
-from the Kodi screenreader topic on the forum, all credits go to vbprofi fo=
-r writing the original guide<br><br>2. I&#39;ve only tested this on a 64 bi=
-t distro<br>3.I&#39;m using the flatpak version of Kodi for this since it&#=
-39;s distro agnostic, but you can follow the instructions. I&#39;ll highlig=
-ht the Flatpak specific things as and when we get to them<br><br>Things you=
-&#39;ll need:<br><br>1.Kodi installed either by flatpak or your distro&#39;=
-s packages. I installed it via Flatpak because on NixOS, the usual methods =
-do not result in being able to use addons, and I get a more up to date Kodi=
- via flatpak<br><br>2. A way to download the files in question<br><br>3. Th=
-e knowledge of where the Kodi directory is. It&#39;s either in .kodi or wit=
-hin the flatpak directory. I&#39;ll put both paths in when we get to that<b=
-r><br>Ready? Let&#39;s go<br><br>1. Install Kodi, either by flatpak or your=
- distor&#39;s package manager<br><br>2. Get the folder ready<br><br>Go to t=
-he pvagner/service.xbmc.tts Python 3 branch<br><a href=3D"https://github.co=
-m/pvagner/service.xbmc.tts/tree/2to3">https://github.com/pvagner/service.xb=
-mc.tts/tree/2to3</a><br><br>Click on Code, Download ZIP, and download the f=
-ile named service.xbmc.tts-2to3.zip<br><br>Go to the pvagner/backends Pytho=
-n 3 branch<br><a href=3D"https://github.com/pvagner/backends/tree/2to3">htt=
-ps://github.com/pvagner/backends/tree/2to3</a><br><br>Click on Code, Downlo=
-ad ZIP, and download the file named backends-2to3.zip<br><br><br>Extract bo=
-th folders, and put everything from the 2to3 folder into the service.xbmc.t=
-ts/lib/backends folder<br><br>3M. Move the folder into the right location<b=
-r><br>It is either:<br><br>kodi (if installing via a package manager<br><br=
->Or, if using flatpak<br><br>~/.var/app/tv.kodi.Kodi/data/addons/<br><br>So=
- eithr way you end up with the service.xbmc.tts folder inside the addons di=
-rectory<br><br>4. copy the addons/service.xbmc.tts/resources/settings.xml f=
-ile to userdata/addon_data/service.xbmc.tts/settings.xml<br><br>So for exam=
-ple, the path should look like<br><br>~/.kodi/userdata/addon_data/service.x=
-bmc.tts/settings.xml<br>Or<br><br>~/.var/app/tv.kodi.Kodi/data/userdata/add=
-on_data/service.xbmc.tts/settings.xml<br><br>5. Create the keymap<br><br><b=
-r>Go to your Kodi folder, and create the file userdata/keymaps/service.xbmc=
-.tts.keyboard.xml and insert the following:<br><br>&lt;keymap&gt;<br>=C2=A0=
- &lt;global&gt;<br>=C2=A0 =C2=A0 &lt;keyboard&gt;<br>=C2=A0 =C2=A0 =C2=A0 &=
-lt;f1&gt;NotifyAll(service.xbmc.tts,REPEAT)&lt;/f1&gt;<br>=C2=A0 =C2=A0 =C2=
-=A0 &lt;f2&gt;NotifyAll(service.xbmc.tts,EXTRA)&lt;/f2&gt;<br>=C2=A0 =C2=A0=
- =C2=A0 &lt;f3&gt;NotifyAll(service.xbmc.tts,ITEM_EXTRA)&lt;/f3&gt;<br>=C2=
-=A0 =C2=A0 =C2=A0 &lt;f4&gt;NotifyAll(service.xbmc.tts,STOP)&lt;/f4&gt;<br>=
-=C2=A0 =C2=A0 =C2=A0 &lt;f6&gt;Addon.OpenSettings(service.xbmc.tts)&lt;/f6&=
-gt;<br>=C2=A0 =C2=A0 =C2=A0 &lt;f12&gt;RunScript(special://home/addons/serv=
-ice.xbmc.tts/enabler.py)&lt;/f12&gt;<br>=C2=A0 =C2=A0 =C2=A0 &lt;numpadplus=
- mod=3D&quot;ctrl&quot;&gt;NotifyAll(service.xbmc.tts,VOL_UP)&lt;/numpadplu=
-s&gt;<br>=C2=A0 =C2=A0 =C2=A0 &lt;numpadminus mod=3D&quot;ctrl&quot;&gt;Not=
-ifyAll(service.xbmc.tts,VOL_DOWN)&lt;/numpadminus&gt;<br>=C2=A0 =C2=A0 =C2=
-=A0 &lt;plus mod=3D&quot;ctrl&quot;&gt;NotifyAll(service.xbmc.tts,VOL_UP)&l=
-t;/plus&gt;<br>=C2=A0 =C2=A0 =C2=A0 &lt;minus mod=3D&quot;ctrl&quot;&gt;Not=
-ifyAll(service.xbmc.tts,VOL_DOWN)&lt;/minus&gt;<br>=C2=A0 =C2=A0 =C2=A0 &lt=
-;equals mod=3D&quot;ctrl&quot;&gt;NotifyAll(service.xbmc.tts,VOL_UP)&lt;/eq=
-uals&gt;<br>=C2=A0 =C2=A0 &lt;/keyboard&gt;<br>=C2=A0 &lt;/global&gt;<br>&l=
-t;/keymap&gt;<br><br>6.<br><br>If you installed to .kodi with your package =
-manager and have been following along with the keymap and addon directories=
- in .kodi, then, hitting F12 should have Kodi beep and start talking<br><br=
->If using the flatpak you need to override permissions and enable it to spe=
-ak to the speech-dispatcher socket<br><br>flatpak override --user --filesys=
-tem=3D/run/user/1000/speech-dispatcher<br><br>After that, pressing F12 shou=
-ld have Kodi start talking.upKo</div>
-
-<p></p>
-
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
-nsubscribe@redhat.com</a>.<br />
-
---0000000000006f8a3c062b1b8d57--
 
