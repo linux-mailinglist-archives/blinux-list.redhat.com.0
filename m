@@ -1,148 +1,145 @@
-Return-Path: <blinux-list+bncBCVPTHE7K4IJVVMBXQDBUBBOIGCHG@redhat.com>
+Return-Path: <blinux-list+bncBDX2LR4P5UIBB2OVQS6AMGQEDIGKAUY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mail.lfdr.de (Postfix) with ESMTPS id E9FA3A0840D
-	for <lists+blinux-list@lfdr.de>; Fri, 10 Jan 2025 01:32:28 +0100 (CET)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-467a437e5fesf3772881cf.0
-        for <lists+blinux-list@lfdr.de>; Thu, 09 Jan 2025 16:32:28 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1736469148; cv=pass;
+Received: from mail-il1-f198.google.com (mail-il1-f198.google.com [209.85.166.198])
+	by mail.lfdr.de (Postfix) with ESMTPS id 42C43A09311
+	for <lists+blinux-list@lfdr.de>; Fri, 10 Jan 2025 15:13:02 +0100 (CET)
+Received: by mail-il1-f198.google.com with SMTP id e9e14a558f8ab-3a78421a2e1sf29470515ab.2
+        for <lists+blinux-list@lfdr.de>; Fri, 10 Jan 2025 06:13:02 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1736518381; cv=pass;
         d=google.com; s=arc-20240605;
-        b=kOhXFCFhSF6g+ZPD9tNRkZoOQ8GnyIHdtmK7DThNISFr8WJb5Z10qIev0Gl+XMd5R4
-         A5qubbvx+jzrkMai8PyufRKyk8NAYLgHGVzjIhXFXeCzfMhsKTbAZQFyX4AcuA7veeTe
-         vBxXD/NlWtVU9TDf+HV48aWrMg7shWKmp7d/A3p8J9eOsize9DiUQVe3O/gDldtNUEsi
-         Nm1waWzNNOnvIBNqfpb23gqxUQ4UbMJ5m8tnLWVGpZglkAJx9SRN4vw59HUUQ+OwL8Qq
-         AW8jZzz/nGyqCWzk+K+3J3BpLNOzERuMU1yQHqTaXaUVbFJFD7Mbo8b2Vu3kDmYM2DCE
-         b1LA==
+        b=LlZSLhqxUOne3YhgdpYjRGuwh4F27mPwSyE+L3QR6V5EVtURi0HMVESr+/pZgQPuz5
+         IL17PcewOnh2WyKjFZcN49RKJNNPpikDyPlmdq3WGxE3G903H2WNR2M8z/J0a1Vn5W9Q
+         koC40IHsvAu4CJxz/J0xTHLEBHj3t7wipa0Dih7eLMSPrAdG9DkJJWjmvZu0TdgcxiHb
+         4XVAC/BC8thaPdrocHzu1jYF3b0ovVRf694CSt0fC1reJiUb4CRwvkKvz4DfmLm1z3Pc
+         KWH3FrztKjNB+haoVGX8FOYeLy+oRX3iY3DFF6mRQJ9Zn6Yftx5M2KLLfuJwzqNJ63T9
+         LvTA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
          :mailing-list:precedence:mime-version:references:message-id
-         :in-reply-to:subject:cc:to:from:date:delivered-to;
-        bh=RsVrvHU0lq9BKv+fdCMKiTeR3YJ0//oyX3EPMpozI0k=;
-        fh=OOiNjT3SMDS120qUu1k2+L+6uEpRU4yxmjyL/qIUN8Y=;
-        b=SVA5ZnKaqx7pmF6DCzugCZ3Pw3R0jv9t4ACb14RCPDawWNh59McfmtQoYwpwdQh7dT
-         p7TEdM10zi5A4XeNuAXmBcv2uz6skFTePD1KpgPKf/7+yWW6XSx5J7iwx33E7DYpabQg
-         ugdKg3OlWZVsM6TlMkbltKM31Zm3Xr1MtAGtRK0B0KxKUIUAIuBrnbQoLst0LVdeaUIF
-         tmXxiwt3HCTdcY6RJW0yzjnC1vVry2nXcNzrbG+43i6PzXFMKxjkWeXKe6z/f2c+5qtg
-         EI6/l9RpcXNmE5tR4pPpI+If5ytNho7TUwhWHSeY4Wn9n+X0qPj3WJbdj3gmzpT3JSGk
-         nQfw==;
+         :in-reply-to:subject:to:from:date:delivered-to;
+        bh=wclDhmIui46/JUjw/Ze1ScDGbpUYekyU5hVaSLB5Hsk=;
+        fh=dWWHc50Ur5eNkmE6lUodFftEk31+B5PwoGH2WVdNQe4=;
+        b=L6ZSObm75AJmvPxTTQmV3V4w6qu4KTXtOSjP+lcfEZhn3S3unBami72H6UDr6sdW8/
+         NBQmxuCzNuCmzslMFRcQuHbczkG+RYygJQ83O+w4ukOf6PxQ4pj7CkKJIEdPRceySfyK
+         9m5CPLId9fizWFWwW8wdVwtn6BPXMRQkZeYzAE5NBbsu6i3xKK6swlKYu4exeep+/TeR
+         NZqjVKLOxbTn0F9Q1E8ylsLlzbyngz+UXc85VrzGw4qAUeoA+mh959SvmQp99K0vfqPB
+         o2+8FaJu7KMhJcOKeEtUv/BMKLfj3VyNJUqw10PAlTgTu9rQAr10mj1Y+ipX8IyAFkVV
+         2Hhw==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
+       spf=pass (google.com: domain of geoff@quitelikely.com designates 173.255.224.66 as permitted sender) smtp.mailfrom=geoff@quitelikely.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736469148; x=1737073948;
+        d=1e100.net; s=20230601; t=1736518381; x=1737123181;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender:mime-version
-         :references:message-id:in-reply-to:subject:cc:to:from:date
-         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RsVrvHU0lq9BKv+fdCMKiTeR3YJ0//oyX3EPMpozI0k=;
-        b=wyq+ajoQ2FzIeknWgfX9Z4fKxLeC+qSd/B4UiFi2VADihbUgXc2ySi8itKxZ38iekt
-         HICqjCGURxpK4gzzGkQVbs8HsSUkxvSkNlyHK3S6BAkiolFqKN3MOI5mag/3kG0e4hBb
-         TllS2/NSZ5ockLZpmo14SDPcyUohkUbBavMMKQ/VwdeaCxAokaeshT7s6P0IGyOww3bn
-         y6+5VNU60OpRFIuycalijy8F8x7DxI55/o3slCkKgAp1OMI74p3Bh7TxnEO4ukrF8fIj
-         wuYFo+M4ilhMt6z+9eVd/Gablytc0ZEUCaf4a+9O7436UrL7DMWZMC2qqF/jWKsqiMnb
-         iLNg==
-X-Forwarded-Encrypted: i=2; AJvYcCXM90nLWlIoeZB9wCqMlry5YFLbM/ZhtwE2gUEaUpKgdFsf1WNsPr0Sunv3xlVmaPqFEV3tjQ==@lfdr.de
-X-Gm-Message-State: AOJu0YxhbuY2qxNjk5sJTq0NKgJehUBPLb/F+qHUjA0+OaRf8LgHEg+1
-	qDsvaZDs3gBVbt8iVpaTQ8Pf+clSkzmjNVAGQpNGWiFjDSRZSWsVq3tRaWn7cpE=
-X-Google-Smtp-Source: AGHT+IFCh0A4eYaRNgg/AfF1sqNrpwyka/zNCH99sozSXMrmmzqpMhd5gzUjDlbTLioku0vObuRbUA==
-X-Received: by 2002:ac8:59ce:0:b0:467:83b3:ab1b with SMTP id d75a77b69052e-46c7107dbc4mr50692001cf.11.1736469147370;
-        Thu, 09 Jan 2025 16:32:27 -0800 (PST)
+         :references:message-id:in-reply-to:subject:to:from:date:delivered-to
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wclDhmIui46/JUjw/Ze1ScDGbpUYekyU5hVaSLB5Hsk=;
+        b=uhsGYwbqFofAo+81LgNgq4V92P2WISkmi0Hw4sRi1gdRyaHwFMxoS8M9h9IZSkHeiw
+         PSl9F7DmkfkRq4AW0MDLxA8MXp+loDdqV04WXA9R4xSJLhsj3XPqFpBiI0okTH2o10NZ
+         QkcuYm/gkPwAxA0wWfsS+wxS27sHhT7WrN8G2Fr8OU9B4ZFhEEN9IhLrnpIGJ7Ux7Va7
+         qwiWD5yTIxl+QftbfQd4P1QDMNBLKs92Hma4gLq3NFWbSizZQILe0KSOIz4W1RiF6qAs
+         GZz3ZmDd1yCn77q2sOzMT5jiFDHweH5CkgtQyD8xBfrmVSwop2VDQjsQwF0ENDvtcQU6
+         981A==
+X-Forwarded-Encrypted: i=2; AJvYcCVLVH6eNnIUSDzNCs15wCSDmcjMIXhuR7n902PaeAuI/bgEEoeKgkSUHmrVucKcRGwrVZ88sw==@lfdr.de
+X-Gm-Message-State: AOJu0Yy8FwzjSt7Ahi07OCiHu1xMj34OD/gPJbFwEyrW9enXEgtrWkBs
+	vcIDU/M5/esp1M09FY0a3MrZhj2Z/syRKUvo+bzAPybUE84uauMzEz+eAfzlIAk=
+X-Google-Smtp-Source: AGHT+IEWes9ZwwMiixksgoLhYWNlWnTT43heJWBUOjq84WO38izjRQLyiQUhEez5mhveiQHUsnoEWg==
+X-Received: by 2002:a05:6e02:190f:b0:3a7:8cc2:9a84 with SMTP id e9e14a558f8ab-3ce3a86a28amr84449285ab.5.1736518378715;
+        Fri, 10 Jan 2025 06:12:58 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a05:622a:510d:b0:466:9e59:9807 with SMTP id
- d75a77b69052e-46c7ab568f7ls32690321cf.1.-pod-prod-05-us; Thu, 09 Jan 2025
- 16:32:26 -0800 (PST)
-X-Forwarded-Encrypted: i=2; AJvYcCX7vFGZ8vmP+1znfCISW2gA0A3iQxHGl/le2mg9H8V5cUgY0CRvtnW/c+BPEKJ6z5OY9irkxxNngkZPcg==@gapps.redhat.com
-X-Received: by 2002:a05:620a:469f:b0:7b6:d2bb:25cd with SMTP id af79cd13be357-7bcd971c56amr1284458685a.37.1736469146144;
-        Thu, 09 Jan 2025 16:32:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1736469146; cv=none;
+Received: by 2002:a92:d608:0:b0:3a7:e18f:a625 with SMTP id e9e14a558f8ab-3ce475fdb8els11304665ab.2.-pod-prod-02-us;
+ Fri, 10 Jan 2025 06:12:57 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCUf+nzIVoj/+p/S8KpguFPGHdbIBka4AzW/Kq/lKksD3ECBJugJQK2cE31zm4iYVABvebzy929krd+B3Q==@gapps.redhat.com
+X-Received: by 2002:a05:6602:3e8f:b0:849:c82e:c03a with SMTP id ca18e2360f4ac-84ce0163894mr871428339f.10.1736518377134;
+        Fri, 10 Jan 2025 06:12:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1736518377; cv=none;
         d=google.com; s=arc-20240605;
-        b=FPzhuJhXElkFh2EQw8q3Et0OzRDNBZPdx7BvNYPipvdzbSy+ACumbgIg19VGRYEPV0
-         TYggy436z31AEEzAM5SbCngXEkWl7tqSiJe77pBdAMWmoF6J3ieu/ARmplGeQI+MOxII
-         UbIWiioMnOzLrrXAlSbiQogR5+RPUdCSPPRLK/qcmdEeh+1spMjnzgMa+NPeNxo/p5Z1
-         ipMuFRPw9OGdCzYc2UYyIE6B7d7rWkGLtg4OCHITyCz/NOSgTO5o2PWoCqWLsF/Bcyj9
-         YWxs6ZQqiuz90SnmEA3KA4PLyzRYy7oPOYTZYCC4jwR4007+vBX0XQRbSbzFybBBQ25j
-         dYfQ==
+        b=ghvGvUMJC4+uK9Mk8sZk+vMz+oEBUJy34fq/TWEbN2Roh+ms6t1p60Oig0Jr+Z7plF
+         ErQtKM4w9w5I91+Vk0tm4EaRLSGodLBimHpcj29alMe72FaLzMSqJWduDCpEUuCrtypJ
+         qlBSIgdoiF0gaWoAFvpDsJ77Pf8uKvwicQEv77mCZbCVSHzjwDUROpWO/mo9ZDJfwX/3
+         JQXE8fp/NFqljPT4g9Ne905gqca9p3pN8wwA/BkIw0RuJYbvaroMm9AkKrRqiN5Pixml
+         X8TLmmCwSnYr1v0Avy9mt/NcE/r+xC3x7xjsPNSEHft/SCqj/OWzi7EhzK4zIsXbChXK
+         Cr9A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:delivered-to;
-        bh=RsVrvHU0lq9BKv+fdCMKiTeR3YJ0//oyX3EPMpozI0k=;
-        fh=bTfZd/jz/G3NqSmi5SjMOwSrT8L+EiL4O/jLfsN7qN4=;
-        b=BypRmuhhA/UM9g3AwNVTwvE8fCLInG0bROaWQMixBgWP1RemKxC8ygRbpS++aabHwL
-         H3xehf0oQQu7bVCh5zKBKgVgaGE+60axJBwL0nUM5pvAt6lhCzs86ViX84hWg5bzYLSe
-         5YoCZzfumjMGJcsNQ+XGGmaUWHemmANJBES//1MJm8r5dUNRuTz+xhAhokHpZvJeeQoP
-         MnEggrnHES1IIhxJ27SUYiL/SgWUSxoTL9FTJ6EShC/ECPXStpPRrQlmN2ycQ7md/+WX
-         c1QPj/UFalkjGTkPVDCvFPWRXb8UUwHFpgsM1Q9bk4RnAcEADIMoXw2C5UgqC2buYR/b
-         OZTA==;
+        h=mime-version:references:message-id:in-reply-to:subject:to:from:date
+         :delivered-to;
+        bh=w6MfFlRhOwK+twoiu359puWic6S8TqG0z2kW7PSG4Ko=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=F6/q2LknUNX44kq9MfI0fk7iw8CHPHnt9PuYuri576I2v2E01d3C0AgBZOuFTaAOh5
+         j9A+MgNLO/9EHvPYP9q1eSPYgcmUE5ey/D5u0/PpYFNH/OPGp7voEML11oW8QEtj+3x+
+         vP96y5RC4DmZ30XKXa2JiMFwcdaKZoxnNWuY8CuE/F9iYtefHuJowQ1JF8nPi7xItN0T
+         ogWV+ZP05cx4wt++1RlNG67IGLXihFQej2/wmYr6YAS9UM2jOVktb5J1vYgJU2HfiEWI
+         GrSCP9F2FkkKSyxZ05+DZ6mdv0hxLd9nxwA4OJ5yjPcL5ZkiVXMyG/VLYN+xODmi5BPE
+         B0Fw==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [205.139.110.120])
-        by mx.google.com with ESMTPS id af79cd13be357-7bce350678esi302795585a.506.2025.01.09.16.32.25
+       spf=pass (google.com: domain of geoff@quitelikely.com designates 173.255.224.66 as permitted sender) smtp.mailfrom=geoff@quitelikely.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.128.131])
+        by mx.google.com with ESMTPS id 8926c6da1cb9f-4ea1b613022si1609957173.54.2025.01.10.06.12.56
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jan 2025 16:32:25 -0800 (PST)
-Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+        Fri, 10 Jan 2025 06:12:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of geoff@quitelikely.com designates 173.255.224.66 as permitted sender) client-ip=173.255.224.66;
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-542-wuOMVuILMs2MfOPNVVtoZQ-1; Thu,
- 09 Jan 2025 19:32:24 -0500
-X-MC-Unique: wuOMVuILMs2MfOPNVVtoZQ-1
-X-Mimecast-MFC-AGG-ID: wuOMVuILMs2MfOPNVVtoZQ
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-351-NrzfUR-WOLS5O1S1tpFhMA-1; Fri,
+ 10 Jan 2025 09:12:55 -0500
+X-MC-Unique: NrzfUR-WOLS5O1S1tpFhMA-1
+X-Mimecast-MFC-AGG-ID: NrzfUR-WOLS5O1S1tpFhMA
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D08E819560B0
-	for <blinux-list@gapps.redhat.com>; Fri, 10 Jan 2025 00:32:23 +0000 (UTC)
-Received: by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id AEC423003E7F; Fri, 10 Jan 2025 00:32:23 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 71CD419560AA
+	for <blinux-list@gapps.redhat.com>; Fri, 10 Jan 2025 14:12:54 +0000 (UTC)
+Received: by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 6C677195E3DE; Fri, 10 Jan 2025 14:12:54 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.58])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AC3BE30001BE
-	for <blinux-list@redhat.com>; Fri, 10 Jan 2025 00:32:23 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.46])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 69CD9195E3D9
+	for <blinux-list@redhat.com>; Fri, 10 Jan 2025 14:12:54 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [170.10.132.61])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2E9EC19560B0
-	for <blinux-list@redhat.com>; Fri, 10 Jan 2025 00:32:23 +0000 (UTC)
-Received: from atlas.bondproducts.com (atlas.bondproducts.com [23.24.6.165])
- by relay.mimecast.com with ESMTP id us-mta-367-jwKGXd73OvyGCGia_j3zsQ-1;
- Thu, 09 Jan 2025 19:32:20 -0500
-X-MC-Unique: jwKGXd73OvyGCGia_j3zsQ-1
-X-Mimecast-MFC-AGG-ID: jwKGXd73OvyGCGia_j3zsQ
-Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
-	by atlas.bondproducts.com (Postfix) with ESMTP id 23E9440508;
-	Thu,  9 Jan 2025 19:32:19 -0500 (EST)
-Received: by users.shellworld.net (Postfix, from userid 1005)
-	id C469E1001B8; Thu,  9 Jan 2025 19:32:18 -0500 (EST)
-Received: from localhost (localhost [127.0.0.1])
-	by users.shellworld.net (Postfix) with ESMTP id C16561000A9;
-	Thu,  9 Jan 2025 19:32:18 -0500 (EST)
-Date: Thu, 9 Jan 2025 19:32:18 -0500 (EST)
-From: Karen Lewellen <klewellen@shellworld.net>
-To: =?utf-8?Q?Lars_Bj=C3=B8rndal?= <lars@lamasti.net>
-cc: Linux for blind general discussion <blinux-list@redhat.com>
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BDBD519560BA
+	for <blinux-list@redhat.com>; Fri, 10 Jan 2025 14:12:53 +0000 (UTC)
+Received: from bullseyemail.carmickle.com (bullseyemail.carmickle.com
+ [173.255.224.66]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-206-B2Ua503YO7C2CMHGVJWDew-1; Fri, 10 Jan 2025 09:12:51 -0500
+X-MC-Unique: B2Ua503YO7C2CMHGVJWDew-1
+X-Mimecast-MFC-AGG-ID: B2Ua503YO7C2CMHGVJWDew
+Received: from [192.168.126.128] (unknown [176.230.58.49])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by bullseyemail.carmickle.com (Postfix) with ESMTPSA id 5E929A25DE31
+	for <blinux-list@redhat.com>; Fri, 10 Jan 2025 14:12:50 +0000 (UTC)
+Date: Fri, 10 Jan 2025 16:12:48 +0200 (IST)
+From: Geoff Shang <geoff@QuiteLikely.com>
+To: Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: Google blocking access
 In-Reply-To: <m3a5bzvek5.fsf@dalen.lamasti.net>
-Message-ID: <Pine.LNX.4.64.2501091928400.1357245@users.shellworld.net>
+Message-ID: <a7efe3c2-71ac-7ad3-21f3-800f38ec6207@QuiteLikely.com>
 References: <m3a5bzvek5.fsf@dalen.lamasti.net>
 MIME-Version: 1.0
-X-Mimecast-MFC-PROC-ID: 4aEdApWGLAjK_UgrjIguLsooNxVyG54npv6P0avfPc8_1736469139
+X-Mimecast-MFC-PROC-ID: iMbTb7mwbM7s-83zBWOTREFK-fahNIJ-aR3L1o5Tuig_1736518371
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: iK7EKhwLgsPGCDLcpFw0YLOhulPnpVd_uhFfqEOIOBw_1736469143
-X-Mimecast-Originator: shellworld.net
-Content-Type: MULTIPART/MIXED; BOUNDARY="1949452079-1512932709-1736469138=:1357245"
-X-Original-Sender: klewellen@shellworld.net
+X-Mimecast-MFC-PROC-ID: 4s8AQg2KMLUB92Fdl5gwmOsm1kPOPosE3eSK2UHihkc_1736518374
+X-Mimecast-Originator: quitelikely.com
+Content-Type: multipart/mixed; boundary="8323329-1469674266-1736518370=:187586"
+X-Original-Sender: geoff@quitelikely.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of klewellen@shellworld.net designates 23.24.6.165 as permitted
- sender) smtp.mailfrom=klewellen@shellworld.net
+ domain of geoff@quitelikely.com designates 173.255.224.66 as permitted
+ sender) smtp.mailfrom=geoff@quitelikely.com
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -156,25 +153,9 @@ List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegro
 
   This message is in MIME format.  The first part should be readable text,
   while the remaining parts are likely unreadable without MIME-aware tools.
---1949452079-1512932709-1736469138=:1357245
-Content-Type: TEXT/PLAIN; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: QUOTED-PRINTABLE
-
-Hi Lars
-I actually have two suggestions.  Although one of them depends on if you=20
-are  willing to make a call.
-Very very recently Google's disability support team created a phone=20
-number. it is not toll free, like Apples, Northern California if memory=20
-serves.
-Given how Google tracks things, I would personally seek a truly human=20
-connection for the solution.
-My other suggestion is to join the Google accessibility list, and there=20
-ask for a direct contact.
-Does that resonate?
-Hope it helps,
-Karen
-
-
+--8323329-1469674266-1736518370=:187586
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
 
 On Thu, 9 Jan 2025, Lars Bj=C3=B8rndal wrote:
 
@@ -184,19 +165,50 @@ On Thu, 9 Jan 2025, Lars Bj=C3=B8rndal wrote:
 > that I'm a human and not a robot. I've not found any email address or
 > contact form that let me contact Google to remove my IP address from
 > their block list.
->
+
+This can be a problem with accessing from hosted servers, as you are=20
+somewhat at the mercy of what others may have done with your IP address=20
+before you, or what others with addresses in the same block are currently=
+=20
+doing.
+
+I hate to be one of those people who say to use something else, but I also=
+=20
+recommend using DuckDuckGo.  I've found Google's search to be frustrating=
+=20
+when you specify several terms and it decides not to match against all of=
+=20
+them.
+
+When using DuckDuckGo with lynx, it redirects to=20
+https://lite.duckduckgo.com/lite which has a nice clean minimalist=20
+interface.
+
 > Do you have any suggestions for how to resolve this problem? Is it
 > possible to run orca remotely, so that I can run Firefox from the
 > server, just to access Google and prove that I'm a human, in hope that
 > this will remove the IP address? Do you have other tips?
->
-> Thanks,
->
-> Lars
->
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to blinux-list+unsubscribe@redhat.com.
->
->
---1949452079-1512932709-1736469138=:1357245--
+
+If you really want to resolve the IP block and you have Firefox set up=20
+locally, you could forward a port on your SSH connection and access it=20
+with your local Firefox.
+
+Example:
+
+ssh -L 8443:google.com:443 <yourserver>
+
+Then once you've logged in to the remote server, you can connect to=20
+localhost:8443 with your local Firefox.
+
+Of course, you can use whichever port you want for the local port, so long=
+=20
+as nothing else is already using it.
+
+HTH,
+Geoff.
+
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
+
+--8323329-1469674266-1736518370=:187586--
 
