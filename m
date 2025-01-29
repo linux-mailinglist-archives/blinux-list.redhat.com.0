@@ -1,234 +1,237 @@
-Return-Path: <blinux-list+bncBCAJTHUAX4NBBEHY5C6AMGQEOCTPCPQ@redhat.com>
+Return-Path: <blinux-list+bncBDM5DGHN5MHRBO7B5K6AMGQEQANWIPQ@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-yb1-f198.google.com (mail-yb1-f198.google.com [209.85.219.198])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1E347A21F3B
-	for <lists+blinux-list@lfdr.de>; Wed, 29 Jan 2025 15:32:51 +0100 (CET)
-Received: by mail-yb1-f198.google.com with SMTP id 3f1490d57ef6-e399d4ef55csf18549434276.2
-        for <lists+blinux-list@lfdr.de>; Wed, 29 Jan 2025 06:32:51 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1738161170; cv=pass;
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mail.lfdr.de (Postfix) with ESMTPS id C2801A22669
+	for <lists+blinux-list@lfdr.de>; Wed, 29 Jan 2025 23:50:37 +0100 (CET)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-46e2504c3aasf2741641cf.1
+        for <lists+blinux-list@lfdr.de>; Wed, 29 Jan 2025 14:50:37 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1738191036; cv=pass;
         d=google.com; s=arc-20240605;
-        b=MNvMnDWYm8xE8bRjDpHRitVH7VaNt644ABCAEDjCsuQN/hzWsCaEPGny77oDz6ktrk
-         hWpnHtrYjUFlzzL3d+ZkPsrf2LSVPgCCjfc3zWPM4Qp3eHVlDLmYN5M1oVFhGgR3rUQ2
-         GA43zJ01f88GR8H6I7j1CP/8fhmBgGbE/wxcfRLHtqbN2dh0ZedDaCRiI6vphiFoc/MR
-         fZK2kfsfkTV4IYDOicHn7581iiomP1wvoO1jP4zHuc0VOYRMNZ3NhUP+we1gIyUYEGj6
-         7E0cU0HbL+USZWlKRU3Xhax/tNkORJYQIUV4h+4mEqrQ7aeGr17xdnhj4Ll0hBPAXa8L
-         lbsA==
+        b=cwaJV8fOY3gXXRXHnx6Cav5NhPJwCDoKQ50/a9e96W2BgU7ZpOVOkP1Wk+LxipePA3
+         YZObC5zRW9UmNJJ3Y9tfPFZuo/YQxWRGe0AqqTB5A+fs8/wK52DKNkohBd79omEJ4PGq
+         rcCmF9gkHULGlC/38mNevepzpJh+7pUNsc96PuWwJ5DflsnF0hg5A4n8vbZDKJsdJbzS
+         +ybrihMgYXxpd3cBqC27tw7gNXR7gByzBPqZQe3si+r1XFGpejgG4yJFEhAghggASxjJ
+         i/+wuCwXAFj+w9XCxgEkgNV8WfHuDqRiFl7u29oA8lcl9cfQKwLFoVQt4I1BAZhzk+31
+         Txsw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-language:mime-version:msip_labels
+         :mailing-list:precedence:content-language:mime-version
          :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:to:from:delivered-to;
-        bh=brJmilDAdYp0+w0XLZ7HcE86UIi14M/gm9xNJAijZ5s=;
-        fh=rL1TwQPyl2x8eZIfvlHSrYTUlEWYYQdiHvTKIgMBrLw=;
-        b=LB8YwUypIPvgg4rMjBwrW6ZoLdM7D+ZNgppZx6Yu5lCj0zJX3T+QBtn+QIgMPe4Osh
-         PElC8BA2Iipnus6RBOGg+1NkS9DgD6N7zaHUmB3yFfa3bpQxE73Dgr/Wh4rZ4djaDHZ3
-         2OjeR/BC3HC2G1xyJxLGUsj8ucWywA7xDsDg/DTdnDEWiqwgGJaANlqY8CQOTRE1+5Vk
-         7oXLhfhNUB6Z1YnuidQs7cjCn6DgckEb1X0bmTOxDQ1MpG3OjIQMOPCqUwuVmA0ggI9C
-         LE4kgfTulzOGOplXcc97aqrqI91Xx8XYgbEj072QF9RPtqAHP9BwF1p57PH/eSyw1OK0
-         lS8Q==;
+         :thread-topic:subject:cc:to:from:delivered-to;
+        bh=I1P/LBKvO9NOe0iofYeqhzmEMvlCbwUhoFA7GzcIU4U=;
+        fh=anXcpL8FcOCyf8R5LxiKkxRj9JhEM73sn4wbiBCDGFM=;
+        b=M6JFcXIA+H7YIyc+/RIlNKLUdAhfRXYH6ghKzB1P/bRSpWaLHVG8ujo9fiV+Hzjsgx
+         MOYWvfIrhh8KrxFEPKZtTRrPpkoa1+naSHRC96BjHmTi/W/Z4TEr7dLNwXbQklsuid4W
+         KxhoZH4bmTDxm/ITgg3Qb7U7uH6KUYRk8K+mLr13f6o24XuI0DWHmD9RL4GaxeLkAc4S
+         7WeG4hiMYvd9phOXSKHwckL9hUdp3uZiolrTSpLqcuEugyXvFOGsc4HLbtWvrwBlAbWT
+         LopcPmf5qqcClUtk4Yeq7xlHQdZgjLSWr4TxD0Qd/iuYkfvZzQimckoVNktK89WD2cFM
+         L3pQ==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of cstrobel@crosslink.net designates 40.107.96.107 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
+       spf=pass (google.com: domain of ilovecountrymusic483@outlook.com designates 40.92.21.14 as permitted sender) smtp.mailfrom=ilovecountrymusic483@outlook.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738161170; x=1738765970;
+        d=1e100.net; s=20230601; t=1738191036; x=1738795836;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender
-         :content-language:mime-version:msip_labels:accept-language
-         :in-reply-to:references:message-id:date:thread-index:thread-topic
-         :subject:to:from:delivered-to:x-beenthere:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=brJmilDAdYp0+w0XLZ7HcE86UIi14M/gm9xNJAijZ5s=;
-        b=Mw7PEJG+rBUBYZHvzEpQ/ctaPllXe9MYsWJ1aJQWXSMacuv/dRcs1rsyONX43ArU6u
-         2BwCWGipaDIdqp9BVVoZXN1TJ9y8HJzkkGMEIQYkWGKh8Bi5RthzswULpMzzorQwQdQZ
-         X66FItrdIzbMDxy/wLvRA8mYr/3qzTNqVwK+TuGIlgNu3V8AI5bouMg3+uWSRIsB+0P6
-         VpihiXifMzUF6vvttWZdb2cstI57XlLI9jIsr6IMLfyU22Tkn0wxTmL06gGJf9rE6a9o
-         BiE+4PJ/Aqfe026JgFTPScwfoVTK0wqn86O7buXMJMaFKeD++MYauIqfasweeEO/Jrpt
-         KPSw==
-X-Forwarded-Encrypted: i=2; AJvYcCXxNrOGRxfKCbVPsindcQBxmYVAmZsaVVVjfOkEiuY8XOHbrqHNHG4W2ojrPNkB8AHyskKzPA==@lfdr.de
-X-Gm-Message-State: AOJu0Yy2G89quHi+fGoWePu6KSXAiPQks2CK/V7UJCiZfGqxOXJcoLFT
-	I7smMRwSOkBe5t1O7gGEzM4g8ms80qKEV2xKHaA0ujhD29mSspVEnelLSJWZPUs=
-X-Google-Smtp-Source: AGHT+IGcVgRvAjf3Uny2LLB+CLZIWCmsaVmRlX0Lb1mNTsei2Y+4p0aDD1WxRz0mT9bU/Mu6ViTyxA==
-X-Received: by 2002:a05:6902:2e05:b0:e47:4bf7:b3 with SMTP id 3f1490d57ef6-e58a4b2a1bamr2432222276.28.1738161169521;
-        Wed, 29 Jan 2025 06:32:49 -0800 (PST)
+         :content-language:mime-version:accept-language:in-reply-to
+         :references:message-id:date:thread-index:thread-topic:subject:cc:to
+         :from:delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=I1P/LBKvO9NOe0iofYeqhzmEMvlCbwUhoFA7GzcIU4U=;
+        b=S6jRS1N8gAYPFnlzZ/gwiL7L/T94rzfRjrA/9rqOkluGzfn8akbsOgrnSlLRnzfRCJ
+         TSmcTP5A7+wIvbWv2ogsc9r/6Em3IqfFJKrYd6Km4dDbkASiNQD73FUA/wIG5YkP57JL
+         3shawXI9ecCZN+6Rh2VmkjIx0c1qfP/1a+Vyp+KZpIpERO4Bczx6E3eq5a5fejtkW6eq
+         xvy0koxBYRV3U8fH+bI/N3ok7HBrmoQNYHv2JqSwmwpmCZ55+ncFFqcCVmOqmxoWOJOJ
+         euWfOnxdO0ybObtZ5G6Atdq8d+D+m0QDnWsJ1cAmKCHqzFHo6ovx6miE6XsvaS9urFgj
+         4jMA==
+X-Forwarded-Encrypted: i=2; AJvYcCXIt3s16gO7j1O3VEdSAkkEdqrO6WuP/Bh6EDibspB/7fWv/uAAdL90167pIgiAJR3Ur+AVxw==@lfdr.de
+X-Gm-Message-State: AOJu0YwevGr7mFVrvIQ6fGlrg7WOuZ6mF3eq4XFSQzzglzNuOdFB6My1
+	VsTd6Nk35NAZALpcByiRna6iIONmhi6pAB1xuSQ7mas3nIMSv1kRr+cC/E1+0F8=
+X-Google-Smtp-Source: AGHT+IF8P8Bx/bYGuSG5WGl+7TxoFyKHyWUKGQ633+j3ssPnXK9JENoehUesSprit0rLWzOELbed9w==
+X-Received: by 2002:a05:622a:134e:b0:46c:7152:317e with SMTP id d75a77b69052e-46fd0b753famr70752661cf.42.1738191036103;
+        Wed, 29 Jan 2025 14:50:36 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:a25:b30a:0:b0:e57:32d7:dded with SMTP id 3f1490d57ef6-e5825dc9246ls1227122276.1.-pod-prod-05-us;
- Wed, 29 Jan 2025 06:32:48 -0800 (PST)
-X-Forwarded-Encrypted: i=2; AJvYcCUl9743gg0MU60X1RXegBACF8vnGdEaR+rFgANubBzhSBpY4HPtpPiN5SX8ROnJ7LI1e3hL8ElLmD24BA==@gapps.redhat.com
-X-Received: by 2002:a05:6902:2b8b:b0:e58:227:e963 with SMTP id 3f1490d57ef6-e58a4af76bbmr2282356276.21.1738161168179;
-        Wed, 29 Jan 2025 06:32:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1738161168; cv=none;
+Received: by 2002:ac8:4f81:0:b0:46d:dee4:45d6 with SMTP id d75a77b69052e-46fdcfb9bd3ls5615021cf.2.-pod-prod-03-us;
+ Wed, 29 Jan 2025 14:50:35 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCUEsEeHRUoKP0vpTLLKA45XKBXrOqcaKqHwXxPcmBmdq+YBcgHelph9vfH5A7aV+P44y1h7pTbK3Vn64A==@gapps.redhat.com
+X-Received: by 2002:a05:622a:8cb:b0:46a:65c:b589 with SMTP id d75a77b69052e-46fd0a81258mr76994751cf.6.1738191034840;
+        Wed, 29 Jan 2025 14:50:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1738191034; cv=none;
         d=google.com; s=arc-20240605;
-        b=RF7mlKz9RXCR5HwmHWYWCcSD/zpb5DpNGpUXJFFhl6Yg6Uf1Yuoo+8Tb7KIGwSzXAn
-         sL0JRudfU9G4hEVY15c+NALkRHCtaOKOJSypBu81OytDiWWDuqPWTQI4+GLz2Uz6F9YD
-         FiBYgR6ac96nxS/Eu6zN6caYB5pRmrzmfkXWw50jPnsOL9gcH9hMKO94w5Gm6I90sLhT
-         zvgqunzwwqzAjKIzh1c/etgOvH6RWJ4Z5dSr8gmY6hmIM82EwJHgcOIXRHudrqBFuJSS
-         9FUQ4DXtc9GkYzZmAyLu5++gn+aBgu7TQEK1K1NMgGtrTSgeiO6uue4yxOdeQuQTp7NC
-         sBVQ==
+        b=YU7zmjGnlXy+bD4HYXokOmOIzCCc19iEXuzkj1QN4J9ZTPzMrGFkwsOqsEmcRL/D1r
+         ZtaxkH/7FPdv52Ehw7BVeqmqCdQlm5FhWzNxlnl0xgAJfk7IYQaF2BjCja81Z25VbIr7
+         iDIzmI6mvlwW+HAudsYxmkxrtfK1vtQgdy3s9aQ1kXD2ifJhZeuo1Md8we6v2FUdpu5q
+         5Q6XWq2sNVo3hEjQs0+2qzSlltN//mU9EHcMPKX21jlAIXCZz++IsZNztjQaDOiu3HD9
+         SLVVJh5DcEtgimfWMxdAPOOA5ZYKCbQhkjLmDq+q2cE4aggXrLQrXTfex+iBUE6EiBAN
+         xJ3A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-language:mime-version:msip_labels:accept-language
-         :in-reply-to:references:message-id:date:thread-index:thread-topic
-         :subject:to:from:delivered-to;
-        bh=fYidwqP7+XzSkPej+r9kcziE620ihdMuAkhBB7sVjYc=;
-        fh=xjr+nr5u++CU8k7N6XBcrDU/Vwd1Ngx6NopgaRunhU8=;
-        b=FcjyglB98z0sDgxHJR4kJpwhKy/nRG+RjnJN6EzJZoQkadp9tYCNWcBIqxcK3cEF3D
-         XCqceIV8WXYUougOoR3ypiGi3GDhiH7D9pIXCszYnvMGV4NoDcHWPTgYIS6x1TZw/WVs
-         iHFDf43BjqDvmKR6MUFEVjcortvqAziq4IRZ+JkvRGRRUba2wRsAGXA8sqX6YL4jrj5z
-         AwW5k/wXB6qVUPrKCm6uKInDmTyA9uTf10gs2n0X510QrYrzHfdcI6Dps6TBiQYq05NC
-         f+x7wjraC4U5S4iiLf3nVCkpV/rMFUHrMPRZ7K6h2hYLyr96Ztqdx94JHb00bCQdIgNZ
-         3PSg==;
+        h=content-language:mime-version:accept-language:in-reply-to
+         :references:message-id:date:thread-index:thread-topic:subject:cc:to
+         :from:delivered-to;
+        bh=bTTnU5IQFnwd4mzeZYAo4AjJO6Drm22qEVX6aRfj1zI=;
+        fh=NqM+ocv+tctyYibxFwB333Kj+nut3FS2DTnawapVZlM=;
+        b=RdEwaE4fQC59rPnNll3m259ug9XofstdJe1FX/GW6jURTui5CdoxLerjs4/EPYI8TA
+         UMEYaNsmreu0U7bORnKwxdEZdxN/43fEjTRxW5wQofoeeLwB7esGVwhEKiUbBiyxqXd7
+         qGTugQOdHI0bfPTr1E2IgpL9Vber7eHiivW3FfLcx2bjO2Om+RGjnxAtXulFqR9cwUDK
+         zKEpe9hLGpPXTCr/yJrze+MvKE4PN4IMf1uRgRQ1vlVWBJCMm+Z1HAfWKDu13zwC2dPe
+         KJhsH/etGl61j9fmyk7EU/J2uIR5po12ZstA2NmJP4ZnheGyL9W/RPa7qcmR1ABgZ2q3
+         RaSA==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of cstrobel@crosslink.net designates 40.107.96.107 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.132.61])
-        by mx.google.com with ESMTPS id 3f1490d57ef6-e58a6c640d5si1011232276.228.2025.01.29.06.32.47
+       spf=pass (google.com: domain of ilovecountrymusic483@outlook.com designates 40.92.21.14 as permitted sender) smtp.mailfrom=ilovecountrymusic483@outlook.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.128.131])
+        by mx.google.com with ESMTPS id d75a77b69052e-46fdf0adcf3si3174251cf.86.2025.01.29.14.50.34
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jan 2025 06:32:48 -0800 (PST)
-Received-SPF: pass (google.com: domain of cstrobel@crosslink.net designates 40.107.96.107 as permitted sender) client-ip=40.107.96.107;
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+        Wed, 29 Jan 2025 14:50:34 -0800 (PST)
+Received-SPF: pass (google.com: domain of ilovecountrymusic483@outlook.com designates 40.92.21.14 as permitted sender) client-ip=40.92.21.14;
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-368-iD73yJvMP7uYpuhNEtmC9w-1; Wed,
- 29 Jan 2025 09:32:46 -0500
-X-MC-Unique: iD73yJvMP7uYpuhNEtmC9w-1
-X-Mimecast-MFC-AGG-ID: iD73yJvMP7uYpuhNEtmC9w
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-325-gxBRo_rQM--xF5pSKPKt_A-1; Wed,
+ 29 Jan 2025 17:50:32 -0500
+X-MC-Unique: gxBRo_rQM--xF5pSKPKt_A-1
+X-Mimecast-MFC-AGG-ID: gxBRo_rQM--xF5pSKPKt_A
 Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A6B1D180034D
-	for <blinux-list@gapps.redhat.com>; Wed, 29 Jan 2025 14:32:45 +0000 (UTC)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A49AD1801F0F
+	for <blinux-list@gapps.redhat.com>; Wed, 29 Jan 2025 22:50:31 +0000 (UTC)
 Received: by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id A35E618008C8; Wed, 29 Jan 2025 14:32:45 +0000 (UTC)
+	id A092218008C0; Wed, 29 Jan 2025 22:50:31 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.33])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9FA181800268
-	for <blinux-list@redhat.com>; Wed, 29 Jan 2025 14:32:45 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.124])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9D2611800358
+	for <blinux-list@redhat.com>; Wed, 29 Jan 2025 22:50:31 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.132.61])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2868719560B8
-	for <blinux-list@redhat.com>; Wed, 29 Jan 2025 14:32:45 +0000 (UTC)
-Received: from NAM02-SN1-obe.outbound.protection.outlook.com
- (mail-sn1nam02on2107.outbound.protection.outlook.com [40.107.96.107]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-363-weLt3-iDNiCFpjWzKp1jCg-1; Wed, 29 Jan 2025 09:32:42 -0500
-X-MC-Unique: weLt3-iDNiCFpjWzKp1jCg-1
-X-Mimecast-MFC-AGG-ID: weLt3-iDNiCFpjWzKp1jCg
-Received: from CO6PR18MB4419.namprd18.prod.outlook.com (2603:10b6:5:35a::11)
- by IA3PR18MB6355.namprd18.prod.outlook.com (2603:10b6:208:51b::22) with
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1D905180034F
+	for <blinux-list@redhat.com>; Wed, 29 Jan 2025 22:50:31 +0000 (UTC)
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com
+ (mail-bn8nam12olkn2014.outbound.protection.outlook.com [40.92.21.14]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-438-ONj2kxmhPIupF9tortRjFA-1; Wed,
+ 29 Jan 2025 17:50:26 -0500
+X-MC-Unique: ONj2kxmhPIupF9tortRjFA-1
+X-Mimecast-MFC-AGG-ID: ONj2kxmhPIupF9tortRjFA
+Received: from DM6PR06MB4777.namprd06.prod.outlook.com (2603:10b6:5:fa::26) by
+ BY3PR06MB8180.namprd06.prod.outlook.com (2603:10b6:a03:3cf::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.18; Wed, 29 Jan
- 2025 14:32:38 +0000
-Received: from CO6PR18MB4419.namprd18.prod.outlook.com
- ([fe80::bc0e:c0a2:a316:9518]) by CO6PR18MB4419.namprd18.prod.outlook.com
- ([fe80::bc0e:c0a2:a316:9518%7]) with mapi id 15.20.8398.017; Wed, 29 Jan 2025
- 14:32:37 +0000
-From: cstrobel crosslink.net <cstrobel@crosslink.net>
-To: Martin McCormick <martin.m@suddenlink.net>, Linux for blind general
- discussion <blinux-list@redhat.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.17; Wed, 29 Jan
+ 2025 22:50:22 +0000
+Received: from DM6PR06MB4777.namprd06.prod.outlook.com
+ ([fe80::c62e:2a74:7a6f:fff]) by DM6PR06MB4777.namprd06.prod.outlook.com
+ ([fe80::c62e:2a74:7a6f:fff%5]) with mapi id 15.20.8398.017; Wed, 29 Jan 2025
+ 22:50:22 +0000
+From: matthew dyer <ilovecountrymusic483@outlook.com>
+To: cstrobel crosslink.net <cstrobel@crosslink.net>
+CC: Martin McCormick <martin.m@suddenlink.net>, Blind Linux
+	<blinux-list@redhat.com>
 Subject: Re: Control-Alt-F1 What is it?
 Thread-Topic: Control-Alt-F1 What is it?
-Thread-Index: AQHbccce8Zw6tLFSjEOCooTsFCkEZLMt0Kt4
-Date: Wed, 29 Jan 2025 14:32:37 +0000
-Message-ID: <CO6PR18MB44191CF4BEB8CE9214BFD620C7EE2@CO6PR18MB4419.namprd18.prod.outlook.com>
+Thread-Index: AQHbcqAtxRrvPstBTkG4DtnBW7rSzA==
+Date: Wed, 29 Jan 2025 22:50:22 +0000
+Message-ID: <742860A5-86AC-4976-8B82-8E2C87DA017E@outlook.com>
 References: <E1tcsd6-000YH1-1N@wb5agz>
-In-Reply-To: <E1tcsd6-000YH1-1N@wb5agz>
+ <CO6PR18MB44191CF4BEB8CE9214BFD620C7EE2@CO6PR18MB4419.namprd18.prod.outlook.com>
+In-Reply-To: <CO6PR18MB44191CF4BEB8CE9214BFD620C7EE2@CO6PR18MB4419.namprd18.prod.outlook.com>
 Accept-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-msip_labels: 
+x-ms-exchange-messagesentrepresentingtype: 1
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CO6PR18MB4419:EE_|IA3PR18MB6355:EE_
-x-ms-office365-filtering-correlation-id: 189ad961-ddae-4e76-8abc-08dd4071c716
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7093399012|4022899009|8096899003|38070700018|7053199007
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?YJ79BoRg4XmzpY9RnApdZ19I6YVSWSxe2faDbKU6VFofQyT+l1Pvi0a5T5?=
- =?iso-8859-1?Q?LT3pUCW1MocwJC5YOZIwyb8NcL80oHipbH9Mndj25T71juIIPkzY10ug8v?=
- =?iso-8859-1?Q?bi8RXkLj67PkYU0aU6G/F84ELbUofNMT7G57ydMu65ESNnUDAmRCJabfVY?=
- =?iso-8859-1?Q?IvLQOYyTmEaw7M1DsKizfXf4C1GdUQZaw+3gqZMj7ed5aIhzIsTXqmJeGm?=
- =?iso-8859-1?Q?+6Rg3yQCv8dwtRKGhePVxi8isu1RtvkWcZZ432g2Lxgq8y0qF2osIuQf8t?=
- =?iso-8859-1?Q?TSgVdYJDqA1S47FHxlFmcdwL9Whpa5+lf46Xcu0E9yZiPXMcPl4vgtYtAV?=
- =?iso-8859-1?Q?KzZ/SU04lL+6flUpWgCRShgYhC8krIFF0ClKDkb3mDtvxMXbmVk4nm65+s?=
- =?iso-8859-1?Q?C/uQhScgd4Ow0LSHcEdxlh3wHGk4rhnaJUotlXxFzBZz2U0qAIsnNRAkF3?=
- =?iso-8859-1?Q?gZZd3/CpDMavUK1rPylrXiUTT2IMJ0ef6IvG0VN9xjxE6hK5+3HTqGiexQ?=
- =?iso-8859-1?Q?karoSKIVF85cCNMTXUG9Uk62Hn6T+hpK58p7vcPBW0OF5oznwTTmqwEys1?=
- =?iso-8859-1?Q?zmIUSxCgzT7L/BroljjrITF7tGx0MTi88yxnG8yidzt4qi0eccGF1pQoFv?=
- =?iso-8859-1?Q?nAA1uutNh6bAC61aVFRbD+E4QBgZv+BsPKYeAPpTzJYR4gQpM0a8lE45Qx?=
- =?iso-8859-1?Q?cotL5+2FU36umS8QzqlX+RLZ7tKPQ1aBEoqXmzlF2L0FMCCMNHSddvDG1s?=
- =?iso-8859-1?Q?uDuGnIgMR7QuR0HdkHJBXUckxinVQoIassV6AyvSVdnh4VJyFvAb4/T15+?=
- =?iso-8859-1?Q?+X5eWv/24mOnSpFY2yTPN25EjuettLDdWIDifagKD4hprY+Y30l/FvGI4f?=
- =?iso-8859-1?Q?CofA+fJWchB94aWgodbYFTapnwiWJvYt/NnUsmUabsflIGL1qfRwTlJhNI?=
- =?iso-8859-1?Q?/80En7U5RYzovM3KSm4vX9gPkofCa9iDm8cI0sOGG0V4meq9mcv71ECy8Z?=
- =?iso-8859-1?Q?b7Kth732vfawZnPF4q7tvf6KNSrQkMzcdmj3cO1AmYhdyWH5benmDPnGHk?=
- =?iso-8859-1?Q?m40IN1nGUOYhKCArIonqVcE2mBqlIs6rnyv4JRvh1oV/7Ua6hpKYw7B9mo?=
- =?iso-8859-1?Q?4st6QyOu+wiEY9zBPxnLZzlA5EAKOYCMCxVOGUCdpx6RQhEG5gX9lcuELd?=
- =?iso-8859-1?Q?N9KvSoAgHO+9Cq8qfG7WsSAtP+quBtGtq+OzF1pXbzKHBSlz8rBRhOQOZI?=
- =?iso-8859-1?Q?t6pbgDGrI9/HzBy75DdJyoJG+VIwLvELaQyPLhZ5WyJDb2fC99Ug7KjCrK?=
- =?iso-8859-1?Q?iRSXlOuJNvTNmG4yM0sHaEMfK4xfiuam6ywRRqMvbXQKVQEGP82DeyX4yl?=
- =?iso-8859-1?Q?OcAO9m85nbCj6LylLoJtFKIOFs0aa8nTAgmQSJQcf/wPc/iqpVzBcQcM8J?=
- =?iso-8859-1?Q?OlQnb+lbFgwPzd3NHnxO381gaLWAvMGYc4uJ/yr8+K7WCEQK7CU8EkrCvk?=
- =?iso-8859-1?Q?pvTt085c3CICX6aODRzOJGqFmWhxXXtXvnMPvN472LYw=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR18MB4419.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7093399012)(4022899009)(8096899003)(38070700018)(7053199007);DIR:OUT;SFP:1102
+x-ms-traffictypediagnostic: DM6PR06MB4777:EE_|BY3PR06MB8180:EE_
+x-ms-office365-filtering-correlation-id: 67efa422-26f5-4344-0d39-08dd40b75059
+x-microsoft-antispam: BCL:0;ARA:14566002|19110799003|461199028|8060799006|15080799006|8062599003|8022599003|7092599003|12050799009|56899033|102099032|3412199025|440099028
+x-microsoft-antispam-message-info: =?utf-8?B?M0FSZWxRQXEyVU1JdHp0VjZsU0lTZVNLQi84eldQMFgwUlY4ajRndzB6Q1Aw?=
+ =?utf-8?B?NjJ6enR6WVkwQ2E4aXpSWWtDeFlzWGs1b2ZMMTRYTjJhMHFtNnRBb0VkRXJP?=
+ =?utf-8?B?Q1cyNWdETldEQTR0blAwc3pSUStMQXR0Y0Z6aG1QVFptRDRxb0J0dDlDa3RU?=
+ =?utf-8?B?ZHM0dDY1RHlNNzBLZFBwckVnNThubDdaTFdPS29yREZlNWRTaXZTWTNkK3Uv?=
+ =?utf-8?B?WlN6SjlZRjdrZUIzK1pPNXM4NUtncmlGVy9XOWhSUW4rcG5iQzFPdjV5Y0hU?=
+ =?utf-8?B?djBnYm12WEdQQnhhVWZNL2JYSldxMDQ0ZURSSE1mdDhPRVZKajFGMCtVSjhR?=
+ =?utf-8?B?U1Q5aEdlMEtnMHZHTStnbU5odE1sL2l2WXR6OHlQRUZSMCtpaURGa2hHVWdO?=
+ =?utf-8?B?TnpCZ0IxVm5VdnVmcWp6bVRJVFllZUQ5aSttaWp4RzZyRU51TTkvSWUzVWtZ?=
+ =?utf-8?B?OXV4em9rRzhIVzY5dGdTR1d1ZDJrUEVNVTZxV29LZ25ITmtnOWpHVEw0YXpu?=
+ =?utf-8?B?aTQzVmZ4ZCsreDFHR2MrUkc2Y2d4aDRvSWZML1lLOXZkQk5LcjQ4NDkwdzRW?=
+ =?utf-8?B?d1VNNDdnbU1EZll3UDBVYURlMXFINmZUZWNTYWJYRlh0enhTODhGeUhBMmRm?=
+ =?utf-8?B?RE9HK1RsTGNUQ1hoaTl0T3Q0cEpjS2VkR0tTa0lIcGJCSU5MQ3lWdjlDMjZu?=
+ =?utf-8?B?Skw0MGVUbkwraWgvRHl2dXI2dUtIT0xOQmZDYXlxazBvZDEvTUFOZTE2amdl?=
+ =?utf-8?B?Q1ZnTUZ0UXU0akhscU1La2JvV1JmaEx1ZnQ5UkxIdVVtcW1Kb1luZDlBb25Q?=
+ =?utf-8?B?WkRvUnBnejNiZWh1eU9Nb0J2SktDYWRwa1J3aTg2VDJydUg1dEgvdWxsdDFx?=
+ =?utf-8?B?eEVWdGhNa0tOUW1ZZTRwVmhHNVpSdFIrTE9PWWdWWmc2WHB3eVdCd0hORnBi?=
+ =?utf-8?B?a1hsMHN5ZEt5OWJQTFVnTnNlOVlYbEx1YkRKNEUyM00yN2NDM1I5cEM0RlJO?=
+ =?utf-8?B?OC9lZWlvaTNWdWZydHhqbjhtMHpLR0FwOVZqQityOVNPK2JFZU95M25VZlNL?=
+ =?utf-8?B?NzQrTVdDN00vN0ZCaEVOL284OHBFV1I2TkFiZXRTejB2ejNnWVpiYUhrYUNZ?=
+ =?utf-8?B?L1F6NGpxOHpYVE5Va1dJOUk3OGtxMmJVU3VrbzcvaDN3WWZTQ0lmdjN3UFI4?=
+ =?utf-8?B?TEpxeVp0R1BXejNPMDkzeDVyZTNxK0FyZ0tYNkh2YyttRUlmcmlnOXZGb3Bz?=
+ =?utf-8?B?TUF6YlNrUHlGa3gwSTU1eDdOdjRZaEMxSWJiRGlGL1hsN3ErZXhqOE5zNkxi?=
+ =?utf-8?B?RVVmak13QlRFT0FGVE5aVTFLSWRXbGVpb2pIbkFra3ZjMm84b0EzUlBML0V5?=
+ =?utf-8?B?eG9RMUswaGdEV1VMMWRjZjNCN0lYNWFtWFcvRjM1bERRaHdiVWZqRlZoNkFi?=
+ =?utf-8?B?NTNvWlhHclRZcU1lelpxb082d0gvY29NQzNpdHdJdzgwZ1lCUm4yY1dpU0Nk?=
+ =?utf-8?B?ZmFhL0d4ZHNrZWNZM3c3bWdNdnBlL2JYc1EyVHk5V1NId0JHNlcwbmhFT0M4?=
+ =?utf-8?B?eVhsUT09?=
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?XJf+fNWVPwC5maq/D01Cey1Ymmro7dKnOLflhPclEWxs4RFotNYm2G5Lmy?=
- =?iso-8859-1?Q?oqdxSw9qwLOeKi6F8dcjV6AEpnLu8LYTh9/mWEcgqVhfLnqGL60DWPJ9q1?=
- =?iso-8859-1?Q?NCtQUTSduP4pZ/4dKJJD6bZO3j4VVtv33AKTA4RLPoOYMiUHrq+LptkMRr?=
- =?iso-8859-1?Q?7P03aOJ8hlMz/yprJrrJGSAyKyZZU6a6khijVSpXx+4iLkPB39BEba/z7V?=
- =?iso-8859-1?Q?iQyBcDajubkpkScNUCik5GtqxZxSwJXiYCDhaD/KwwUEkUu8kkMLlxMEvA?=
- =?iso-8859-1?Q?AyCB2NKsm6wmS6YXgtz48YfV2FcS2mEt7HdxQ5Nz0wGP1m0mAZVUP0ddDx?=
- =?iso-8859-1?Q?R2V8a+QRBLUqeUIqvK9Zj8oLjVT6e3qnG9McaZRkYKAXbxgzMPkdzLm7xN?=
- =?iso-8859-1?Q?kmCbTAkQtAMvScRL3w3ggGiFgp380c0fyObAt1pr08ihvxg/NWPgS8UK5q?=
- =?iso-8859-1?Q?7k5xmrUC25cN0D0wB4l1Ixn+Ry9gkBQU9ydeq/Mtp5GqpRl5684ZqtMlU2?=
- =?iso-8859-1?Q?UlJAUESJQqeSo6NCaZIbfb+DvAJ3eZDaSlzbjiKCUk/l+hrbueCgq+Xh6j?=
- =?iso-8859-1?Q?55sdGO2IrzKExOEQUmPUigPtnsn7EcDy1uvox9J7pK+BXUdlOJAZcQ1wsw?=
- =?iso-8859-1?Q?pt+jNaCqNIm0wCd7M+xZhngDdxQszacFKsR2LdOiglsu8Cjy63IAEuqN/S?=
- =?iso-8859-1?Q?Vsmo1TcHbZAe4hNT5Qs5XdBiffcUi0PMw5VhQGNLC15va/v12fDJw/9pfP?=
- =?iso-8859-1?Q?ZdOSol82PU1fdunjOKfjiz4ug22Urf/HzMEGWVMkwup3BThYtJMsqDYT73?=
- =?iso-8859-1?Q?ZNxjyNkZZyXJ+Lei0HX0JRcezHzHtx9PmN1nPkir5LuGn+GFS1k0qxKIEL?=
- =?iso-8859-1?Q?B2AZiCNDRUiCKIVhZU5D7m9pxZ2TKTsrRzKRAEMwlLDZfBxXdc0cDBBSvL?=
- =?iso-8859-1?Q?vhgIi/ELpIStQOgCkdwCB7z3FURFPGjhH7kqzYloYXvrPixqBr0W6XOr49?=
- =?iso-8859-1?Q?lwvRBKdULowI7Q3+Dem2hLUg6SWbcZ+X0LwYpyhWQt5fFLOs075v07TRA9?=
- =?iso-8859-1?Q?9oyvdE4whT3WMt61+H+VFulBrZijVjyPRw0vNdxtwi+ywFa7uyX4zg4Jrq?=
- =?iso-8859-1?Q?4n44+0NfCeKZkqwFXAZyX/T7QG5yngIE7If7z3T8vGYic2ebz1V3UZ69nZ?=
- =?iso-8859-1?Q?GADXs4cVBonZ3JuihrrgY5d+HiCduf+R540+dTtbZa8kX+Zgui6rLAxj7E?=
- =?iso-8859-1?Q?al1j46FgVCIoy6+PGFXoeQrOm14PH48hqEy7pzOje4cwUtj0kcDUR5OPDK?=
- =?iso-8859-1?Q?a4wrtxYHzNutug5dkSMqF/xWLRIdjZYnuARu1EpAXW3funoe3+bgq5z3ZN?=
- =?iso-8859-1?Q?KW+IZkPDwv5grd/9DtcA8ZuiCeTjxzllFjPJkp/tJeGIklnx4xeAaKygnz?=
- =?iso-8859-1?Q?5KKrjYo9GRoQwhRIo0eunU/wn9O3ON+W9kUCsXKTEz6uzEzA3yB2D0cdpO?=
- =?iso-8859-1?Q?eAXhmSu/e+eQxpvBXSxmR3/dPXvjn3oABw1V7qRwpxudMKOWnbI+1cuFKT?=
- =?iso-8859-1?Q?zt2F0KCVRkMWxs6xxuFwfdSHEMeFKqbK9JQ7ZSM+Q5mjq753JhxWod9LVV?=
- =?iso-8859-1?Q?3YN5SrDq72LnEQ7KcIWU6+kuStU14g26uE?=
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?S0ZaMEZteUtpaFdCQXJvK3RIUXpGY0ZQRWxVZVFkT0pUMm1BWERrc1FaMzhk?=
+ =?utf-8?B?dnlQZWhPZFZONkNKVWtqKy9GbnQ2YmVJT3RKYW0xNHRUWTJkQkYrM2NpZ3Jn?=
+ =?utf-8?B?R1FFS3pHSFFUT0g5MGlpSG1TQ0RuNnRhaWtlWlk3OHBYbkpSSGFQN2pVb0Fr?=
+ =?utf-8?B?ZG0yZTJrNkVKU2IzNkpZY1NiTzFCVjlxK3Z6cEtjdm5nQi81Rno0cThUTElp?=
+ =?utf-8?B?MkE1OGtGN25WZUZGbm5YRTFrWHlJci9JWElHU3h3QlQ5VXhHNWpHc3pIKzF1?=
+ =?utf-8?B?RVpHM2x5QnRHUDBNeXIwUk8rWGdFVUQvK0NsUmNLTStjUS9YSXV6Q3ZwTTJk?=
+ =?utf-8?B?TFVjSWVvbVozUEJiWjdQS0M5MDg0UkVmbHpMV09lNDJ3QjNlT1U2elVPMUdY?=
+ =?utf-8?B?OEtQejBFTmtRNXFIblFXTmF3cENhVnFBazV0MW1jLzQ5R0V5WGl1RmxoYXoz?=
+ =?utf-8?B?ZE1yUjNhTVR0emJCV2dhYjJiUmRWWTFCcHc4OVlxb0N4em9sbktMU250Y2gw?=
+ =?utf-8?B?SFFBWDhOVkpWZ0dCM3VnN015aWkvYk5EdU82d1NKUzhFcW9TUFEyWjgvNEwx?=
+ =?utf-8?B?QlNuSTVGbmh4aElET3VXbmJqSmYya0NpZUFUTHlPMXEwbG1HcytTZTRQekpr?=
+ =?utf-8?B?TkxXQXJjWVBORnZLS29uanIvYWZ2T3RDZWNvb0E1b2JzZTBZWkVNcWhGdEFz?=
+ =?utf-8?B?UUZqakovdWRvRFg5QjNIRWxSeVEyQ1RjRkpwSEF6U2x4bjRRNXNOVXJseEY5?=
+ =?utf-8?B?UzNXMnBoZzBqVUQ1azZqbS9tWnRGMmtWN2VESUIvY1RPREl1dit0d0xZN09h?=
+ =?utf-8?B?RlZnVDdtRi9ON0YvLzNCVmFKV1hzemRQNHA3QXZWK2ZQZG42K1VEU09ncTg2?=
+ =?utf-8?B?a25NalJqQXVCd0VUakYrTUxGckkzUjhSSTVqUWR6R2tocjdmekZxNDJiSDgy?=
+ =?utf-8?B?MElKa0pyMVEvNC82ZFFKcXlRNSt2VXdQWUFBcVdpY1RPZmI5eldsUER2VkM0?=
+ =?utf-8?B?UDdMbTJVcStjTWJsRTFOVHRuM3ZKb0lvRm5CZVpBRC94bWJDS2ZXL1NnTHVt?=
+ =?utf-8?B?SXYwS2xSMXlGSnFsTnVtOE5CMEVGTzU0NTFSQllOY3MwbUo3TnlPbzBCOGdJ?=
+ =?utf-8?B?OFJzNndUem1LbDQ5MFJ0WFE1MGJFVkpNRmtiZklKOFRCL3F0dHBLT3psU0wz?=
+ =?utf-8?B?eXMyVUJ1RkViNUFhQWREeHY0U0RnbVVKaVZlQU9ncHBiMzI4alB5dENqYk9v?=
+ =?utf-8?B?K0tCMi9wdXNaT0FXRlppc3ZtVzZKZGFaVGpOdGwzYnlkNUhWNVVHMmEvL250?=
+ =?utf-8?B?NHpuWE9VQkRHRTlVM29XSEtFaWFoRGsyS3J4aGpscy9GbXVnQi8valJKVU9B?=
+ =?utf-8?B?SzVaSGo1Z3hXT2xOTGhyditPb1JzNTU0Q2duMmRBK1FTQ2hzK0tHNnpXTGZ1?=
+ =?utf-8?B?UllSYmJqZjdFNWNWV3o5VitKci9RTWt6S005dVpGcW42YkErUWJ3Q0RHQXRG?=
+ =?utf-8?B?RUV3djVXeTVVRzlhazNlUXd5Q0tCaExZMDYxSVl2aWVvajc4VGVoTExaT25k?=
+ =?utf-8?B?WlEwWnZRQmU4VjROeis0NDhuVjJuL2tUbk9LMkRrTkdjNjVhMGVUOURhL201?=
+ =?utf-8?B?ZnBrRllkMGp3MDRRN2cyMjZINEpEMjhpRzUySUFDd3lSYXorRmw5M3RzMmFD?=
+ =?utf-8?B?bi9qOEtsaE5PazdnNjVaTzFSckptRU5qd3ZLUlRCaXpXQm5MbWZlT2RiUjEr?=
+ =?utf-8?B?Z3ZOeEhSdTV6QVB6TVpTN0lKVnIxclIrbVlXNnY2a01selV6M1EySFA3azgx?=
+ =?utf-8?B?MzRmQ3YrZUMwTjdNcTdpUT09?=
 MIME-Version: 1.0
-X-OriginatorOrg: crosslink.net
+X-OriginatorOrg: outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR18MB4419.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 189ad961-ddae-4e76-8abc-08dd4071c716
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Jan 2025 14:32:37.1975
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR06MB4777.namprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 67efa422-26f5-4344-0d39-08dd40b75059
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Jan 2025 22:50:22.7666
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: ffc1c47c-8879-4594-ade0-28ea8c2224c5
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: sKQQVsZc1g3S7w1LTqVQouuyPakvTj0Gys+dQAeeH4Z73+OIgbV58MzIuQR3FCJJR3RjU+/p0b6aQRkWGz+9Tw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR18MB6355
-X-Mimecast-MFC-PROC-ID: q9djDaneED1440mQR_4UGpaC6K0xQP_lDI3YVLBod6c_1738161161
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY3PR06MB8180
+X-Mimecast-MFC-PROC-ID: L10ZG_yDFlkzfetCN_HU4XPRWNBKH89JycGKopT7PgA_1738191023
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: WF5AeP7g62E_FOkWNEfrD6RbjqyYmwlZ-9FdcdPHhT4_1738161165
-X-Mimecast-Originator: crosslink.net
+X-Mimecast-MFC-PROC-ID: 2n63TJFpbUpE8HoO3g4jmzL2iJzooNNcacr2Zip-2jQ_1738191031
+X-Mimecast-Originator: outlook.com
 Content-Language: en-US
 Content-Type: multipart/alternative;
-	boundary="_000_CO6PR18MB44191CF4BEB8CE9214BFD620C7EE2CO6PR18MB4419namp_"
-X-Original-Sender: cstrobel@crosslink.net
+	boundary="_000_742860A586AC49768B828E2C87DA017Eoutlookcom_"
+X-Original-Sender: ilovecountrymusic483@outlook.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of cstrobel@crosslink.net designates 40.107.96.107 as permitted
- sender) smtp.mailfrom=cstrobel@crosslink.net
+ domain of ilovecountrymusic483@outlook.com designates 40.92.21.14 as
+ permitted sender) smtp.mailfrom=ilovecountrymusic483@outlook.com
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -240,11 +243,26 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
---_000_CO6PR18MB44191CF4BEB8CE9214BFD620C7EE2CO6PR18MB4419namp_
+--_000_742860A586AC49768B828E2C87DA017Eoutlookcom_
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,  I have never gotten speech to work in a conceal unless the guy is disa=
+bled.  I either have to use one or the ogther.  In bulzie this was not the =
+case, but since bookworm this does not work.
+
+Matthew
 
 
-On my Bookworm system pressing alt-control-f1 takes me to a normal console.  There is sometimes a delay, or the speech doesn't work right away, but the Braille shows it.  Once I log in, it is tty1.  The graphical console is tty7.
+
+On Jan 29, 2025, at 9:32=E2=80=AFAM, cstrobel crosslink.net <cstrobel@cross=
+link.net> wrote:
+
+
+On my Bookworm system pressing alt-control-f1 takes me to a normal console.=
+  There is sometimes a delay, or the speech doesn't work right away, but th=
+e Braille shows it.  Once I log in, it is tty1.  The graphical console is t=
+ty7.
 I thinkIt may be a bug of some sort.
 
 
@@ -286,7 +304,8 @@ not saying so if it is.
 
 Martin
 
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
 
 
 ________________________________
@@ -327,40 +346,77 @@ not saying so if it is.
 
 Martin
 
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
 
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
---_000_CO6PR18MB44191CF4BEB8CE9214BFD620C7EE2CO6PR18MB4419namp_
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com<mailto:blinux-list+unsubscribe@r=
+edhat.com>.
+
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
+
+--_000_742860A586AC49768B828E2C87DA017Eoutlookcom_
 Content-Type: text/html; charset="UTF-8"
+Content-ID: <8F2922A8C256A343860031B4702D51BF@namprd06.prod.outlook.com>
+Content-Transfer-Encoding: quoted-printable
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<style type="text/css" style="display:none;"> P {margin-top:0;margin-bottom:0;} </style>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
 </head>
-<body dir="ltr">
-<div class="elementToProof" style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<body style=3D"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-br=
+eak: after-white-space;">
+Hi, &nbsp;I have never gotten speech to work in a conceal unless the guy is=
+ disabled. &nbsp;I either have to use one or the ogther. &nbsp;In bulzie th=
+is was not the case, but since bookworm this does not work.
+<div><br>
+</div>
+<div>Matthew</div>
+<div><br>
+</div>
+<div><br id=3D"lineBreakAtBeginningOfMessage">
+<div><br>
+<blockquote type=3D"cite">
+<div>On Jan 29, 2025, at 9:32=E2=80=AFAM, cstrobel crosslink.net &lt;cstrob=
+el@crosslink.net&gt; wrote:</div>
+<br class=3D"Apple-interchange-newline">
+<div><style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;marg=
+in-bottom:0;} </style>
+<div dir=3D"ltr">
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
 <br>
 </div>
-<div id="appendonsend"></div>
-<div class="elementToProof" style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
-On my Bookworm system pressing alt-control-f1 takes me to a normal console.&nbsp; There is sometimes a delay, or the speech doesn't work right away, but the Braille shows it.&nbsp; Once I log in, it is tty1.&nbsp; The graphical console is tty7.</div>
-<div class="elementToProof" style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<div id=3D"appendonsend"></div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
+On my Bookworm system pressing alt-control-f1 takes me to a normal console.=
+&nbsp; There is sometimes a delay, or the speech doesn't work right away, b=
+ut the Braille shows it.&nbsp; Once I log in, it is tty1.&nbsp; The graphic=
+al console is tty7.</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
 I thinkIt may be a bug of some sort.</div>
-<div class="elementToProof" style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
 <br>
 <br>
 </div>
-<hr style="display: inline-block; width: 98%;">
-<div dir="ltr" id="divRplyFwdMsg" class="elementToProof"><span style="font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);"><b>From:</b>&nbsp;Martin McCormick &lt;martin.m@suddenlink.net&gt;<br>
+<hr style=3D"display: inline-block; width: 98%;">
+<div dir=3D"ltr" id=3D"divRplyFwdMsg" class=3D"elementToProof"><span style=
+=3D"font-family: Calibri, sans-serif; font-size: 11pt;"><b>From:</b>&nbsp;M=
+artin McCormick &lt;martin.m@suddenlink.net&gt;<br>
 </span></div>
-<div style="direction: ltr; font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);">
-<b>Sent:</b>&nbsp;Tuesday, January 28, 2025 3:56 PM<br>
-<b>To:</b>&nbsp;Linux for blind general discussion &lt;blinux-list@redhat.com&gt;<br>
+<div style=3D"direction: ltr; font-family: Calibri, sans-serif; font-size: =
+11pt;"><b>Sent:</b>&nbsp;Tuesday, January 28, 2025 3:56 PM<br>
+<b>To:</b>&nbsp;Linux for blind general discussion &lt;blinux-list@redhat.c=
+om&gt;<br>
 <b>Subject:</b>&nbsp;Control-Alt-F1 What is it?</div>
-<div style="direction: ltr;">&nbsp;</div>
-<div style="font-size: 11pt;">The Linux box I am running is a HP PC using Debian 12 or bookworm<br>
+<div style=3D"direction: ltr;">&nbsp;</div>
+<div style=3D"font-size: 11pt;">The Linux box I am running is a HP PC using=
+ Debian 12 or bookworm<br>
 and I have all the consoles talking.&nbsp; The first console is orca<br>
 and the other 4 are not orca but command-line consoles which are<br>
 nice when not needing the GUI but there is 1 mystery.&nbsp; Orca is<br>
@@ -372,41 +428,58 @@ Control-Alt-F1, I get nothing and am curious as to what that<br>
 brings up.&nbsp; Everything is silent and nothing at all good or bad<br>
 happens so there must be something somewhere that just doesn't<br>
 talk.&nbsp; Here's what the who command reported:<br>
-martin&nbsp;&nbsp; tty2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (tty2)<br>
+martin&nbsp;&nbsp; tty2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan=
+ 24 12:05 (tty2)<br>
 <br>
 That's orca.<br>
 <br>
 This next 1 is a console in which I run screen.<br>
-martin&nbsp;&nbsp; tty3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05<br>
-martin&nbsp;&nbsp; pts/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.1)<br>
-martin&nbsp;&nbsp; pts/1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.2)<br>
-martin&nbsp;&nbsp; pts/2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.3)<br>
-martin&nbsp;&nbsp; pts/3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.4)<br>
-martin&nbsp;&nbsp; pts/4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.5)<br>
-martin&nbsp;&nbsp; pts/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.0)<br>
-martin&nbsp;&nbsp; pts/6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 28 12:31 (:tty3:S.0)<br>
-martin&nbsp;&nbsp; tty5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 25 11:25<br>
+martin&nbsp;&nbsp; tty3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan=
+ 24 12:05<br>
+martin&nbsp;&nbsp; pts/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.1)<br>
+martin&nbsp;&nbsp; pts/1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.2)<br>
+martin&nbsp;&nbsp; pts/2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.3)<br>
+martin&nbsp;&nbsp; pts/3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.4)<br>
+martin&nbsp;&nbsp; pts/4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.5)<br>
+martin&nbsp;&nbsp; pts/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.0)<br>
+martin&nbsp;&nbsp; pts/6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 28 1=
+2:31 (:tty3:S.0)<br>
+martin&nbsp;&nbsp; tty5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan=
+ 25 11:25<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; One would think that tty1 would be Ctrl-Alt-F1 but it's<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; One would think that tty1 would =
+be Ctrl-Alt-F1 but it's<br>
 not saying so if it is.<br>
 <br>
 Martin<br>
 <br>
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.<br>
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.<br>
 <br>
 </div>
-<div id="appendonsend"></div>
-<div style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<div id=3D"appendonsend"></div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt;">
 <br>
 </div>
-<hr style="display: inline-block; width: 98%;">
-<div dir="ltr" id="divRplyFwdMsg"><span style="font-family: Calibri, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);"><b>From:</b>&nbsp;Martin McCormick &lt;martin.m@suddenlink.net&gt;<br>
+<hr style=3D"display: inline-block; width: 98%;">
+<div dir=3D"ltr" id=3D"divRplyFwdMsg"><span style=3D"font-family: Calibri, =
+sans-serif; font-size: 11pt;"><b>From:</b>&nbsp;Martin McCormick &lt;martin=
+.m@suddenlink.net&gt;<br>
 <b>Sent:</b>&nbsp;Tuesday, January 28, 2025 3:56 PM<br>
-<b>To:</b>&nbsp;Linux for blind general discussion &lt;blinux-list@redhat.com&gt;<br>
+<b>To:</b>&nbsp;Linux for blind general discussion &lt;blinux-list@redhat.c=
+om&gt;<br>
 <b>Subject:</b>&nbsp;Control-Alt-F1 What is it?</span>
 <div>&nbsp;</div>
 </div>
-<div style="font-size: 11pt;">The Linux box I am running is a HP PC using Debian 12 or bookworm<br>
+<div style=3D"font-size: 11pt;">The Linux box I am running is a HP PC using=
+ Debian 12 or bookworm<br>
 and I have all the consoles talking.&nbsp; The first console is orca<br>
 and the other 4 are not orca but command-line consoles which are<br>
 nice when not needing the GUI but there is 1 mystery.&nbsp; Orca is<br>
@@ -418,27 +491,51 @@ Control-Alt-F1, I get nothing and am curious as to what that<br>
 brings up.&nbsp; Everything is silent and nothing at all good or bad<br>
 happens so there must be something somewhere that just doesn't<br>
 talk.&nbsp; Here's what the who command reported:<br>
-martin&nbsp;&nbsp; tty2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (tty2)<br>
+martin&nbsp;&nbsp; tty2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan=
+ 24 12:05 (tty2)<br>
 <br>
 That's orca.<br>
 <br>
 This next 1 is a console in which I run screen.<br>
-martin&nbsp;&nbsp; tty3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05<br>
-martin&nbsp;&nbsp; pts/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.1)<br>
-martin&nbsp;&nbsp; pts/1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.2)<br>
-martin&nbsp;&nbsp; pts/2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.3)<br>
-martin&nbsp;&nbsp; pts/3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.4)<br>
-martin&nbsp;&nbsp; pts/4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.5)<br>
-martin&nbsp;&nbsp; pts/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 12:05 (:tty3:S.0)<br>
-martin&nbsp;&nbsp; pts/6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 28 12:31 (:tty3:S.0)<br>
-martin&nbsp;&nbsp; tty5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 25 11:25<br>
+martin&nbsp;&nbsp; tty3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan=
+ 24 12:05<br>
+martin&nbsp;&nbsp; pts/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.1)<br>
+martin&nbsp;&nbsp; pts/1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.2)<br>
+martin&nbsp;&nbsp; pts/2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.3)<br>
+martin&nbsp;&nbsp; pts/3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.4)<br>
+martin&nbsp;&nbsp; pts/4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.5)<br>
+martin&nbsp;&nbsp; pts/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 24 1=
+2:05 (:tty3:S.0)<br>
+martin&nbsp;&nbsp; pts/6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan 28 1=
+2:31 (:tty3:S.0)<br>
+martin&nbsp;&nbsp; tty5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jan=
+ 25 11:25<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; One would think that tty1 would be Ctrl-Alt-F1 but it's<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; One would think that tty1 would =
+be Ctrl-Alt-F1 but it's<br>
 not saying so if it is.<br>
 <br>
 Martin<br>
 <br>
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.<br>
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.<br>
+<br>
+</div>
+</div>
+<div><br class=3D"webkit-block-placeholder">
+</div>
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to
+<a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+unsubscri=
+be@redhat.com</a>.<br>
+</div>
+</blockquote>
+</div>
 <br>
 </div>
 </body>
@@ -446,7 +543,9 @@ To unsubscribe from this group and stop receiving emails from it, send an email 
 
 <p></p>
 
-To unsubscribe from this group and stop receiving emails from it, send an email to <a href="mailto:blinux-list+unsubscribe@redhat.com">blinux-list+unsubscribe@redhat.com</a>.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
+nsubscribe@redhat.com</a>.<br />
 
---_000_CO6PR18MB44191CF4BEB8CE9214BFD620C7EE2CO6PR18MB4419namp_--
+--_000_742860A586AC49768B828E2C87DA017Eoutlookcom_--
 
