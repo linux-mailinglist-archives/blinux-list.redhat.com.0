@@ -1,237 +1,252 @@
-Return-Path: <blinux-list+bncBDM5DGHN5MHRBO7B5K6AMGQEQANWIPQ@redhat.com>
+Return-Path: <blinux-list+bncBCAJTHUAX4NBBNO3526AMGQEW3FSLDI@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mail.lfdr.de (Postfix) with ESMTPS id C2801A22669
-	for <lists+blinux-list@lfdr.de>; Wed, 29 Jan 2025 23:50:37 +0100 (CET)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-46e2504c3aasf2741641cf.1
-        for <lists+blinux-list@lfdr.de>; Wed, 29 Jan 2025 14:50:37 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1738191036; cv=pass;
+Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com [209.85.210.70])
+	by mail.lfdr.de (Postfix) with ESMTPS id 02F3EA2323F
+	for <lists+blinux-list@lfdr.de>; Thu, 30 Jan 2025 17:50:00 +0100 (CET)
+Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-726603f9478sf699287a34.0
+        for <lists+blinux-list@lfdr.de>; Thu, 30 Jan 2025 08:49:59 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1738255798; cv=pass;
         d=google.com; s=arc-20240605;
-        b=cwaJV8fOY3gXXRXHnx6Cav5NhPJwCDoKQ50/a9e96W2BgU7ZpOVOkP1Wk+LxipePA3
-         YZObC5zRW9UmNJJ3Y9tfPFZuo/YQxWRGe0AqqTB5A+fs8/wK52DKNkohBd79omEJ4PGq
-         rcCmF9gkHULGlC/38mNevepzpJh+7pUNsc96PuWwJ5DflsnF0hg5A4n8vbZDKJsdJbzS
-         +ybrihMgYXxpd3cBqC27tw7gNXR7gByzBPqZQe3si+r1XFGpejgG4yJFEhAghggASxjJ
-         i/+wuCwXAFj+w9XCxgEkgNV8WfHuDqRiFl7u29oA8lcl9cfQKwLFoVQt4I1BAZhzk+31
-         Txsw==
+        b=GRwHMRI4Bn8/Bhf6uf+2R2kYFVc8dCF1PCpJ6oGa9/D/uVRB8h+qxP+nUNM3gNcL4o
+         NBDzOzt90thteEVHHoCnWfwRQHFYWciLFBvx9nzF5Unahu/MjzyxI0rE7Zp3fGwrlnG5
+         En4MGj4JQYY+BXLxWJxbT4ahxghVN3QU6+4UQD2R9gYyNOdX+SknmYghtvksXPaKCSza
+         CImnJdkJcXXSXw8ybDNNlupyXwXG6xn3M6YdnsOfstvWzXy24FWacnNGs8I8Hdq52FOS
+         pll5wG/32kdnGi5IFLrXiyvNkFD8JFT+FdPwFY0JPPSS4aEhtHzvF/7CzgFGZZRDhLv9
+         DV+Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-language:mime-version
+         :mailing-list:precedence:content-language:mime-version:msip_labels
          :accept-language:in-reply-to:references:message-id:date:thread-index
          :thread-topic:subject:cc:to:from:delivered-to;
-        bh=I1P/LBKvO9NOe0iofYeqhzmEMvlCbwUhoFA7GzcIU4U=;
-        fh=anXcpL8FcOCyf8R5LxiKkxRj9JhEM73sn4wbiBCDGFM=;
-        b=M6JFcXIA+H7YIyc+/RIlNKLUdAhfRXYH6ghKzB1P/bRSpWaLHVG8ujo9fiV+Hzjsgx
-         MOYWvfIrhh8KrxFEPKZtTRrPpkoa1+naSHRC96BjHmTi/W/Z4TEr7dLNwXbQklsuid4W
-         KxhoZH4bmTDxm/ITgg3Qb7U7uH6KUYRk8K+mLr13f6o24XuI0DWHmD9RL4GaxeLkAc4S
-         7WeG4hiMYvd9phOXSKHwckL9hUdp3uZiolrTSpLqcuEugyXvFOGsc4HLbtWvrwBlAbWT
-         LopcPmf5qqcClUtk4Yeq7xlHQdZgjLSWr4TxD0Qd/iuYkfvZzQimckoVNktK89WD2cFM
-         L3pQ==;
+        bh=+aI4v0uC8L56wtbmDNDMa/sftFvP++jRWMyGb7EuY9o=;
+        fh=LTJ5FcCG05hJ3DbdAhUXFO+B9X4ieafpawrT25FGcjY=;
+        b=KXZJ1oUxlIgHPU9j0OFBkKuhauc0zBFIleqQCTuBu++yFGlmn41IdYJvJmBJA8qTXt
+         /dkxUzr+BA70/YVxFD6onbimGhrnDbC6BvyNIfAtMCCTbN6yQ+r7yftflUqIG3rCJrKO
+         qMx2yPKFC7okZ1R6zOR5zDL5zUixZk4GQWmmjeFdBIUP+NHaTmukPWpVW/W1eE1Qr61f
+         etJIWSV8z2ie5wTbgTbAcaGJDmAc3KEK7Ml6m4JgGeLnHfazKinkPRBAEr6QFFqAoliN
+         2M76xetgZq2vn9N1Okey3XztkX3Lp4c3eHm1lHb13gyRSUnEHxndzDRmjhyRo1pWNmGx
+         Zkvg==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of ilovecountrymusic483@outlook.com designates 40.92.21.14 as permitted sender) smtp.mailfrom=ilovecountrymusic483@outlook.com
+       spf=pass (google.com: domain of cstrobel@crosslink.net designates 40.107.236.128 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738191036; x=1738795836;
+        d=1e100.net; s=20230601; t=1738255798; x=1738860598;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender
-         :content-language:mime-version:accept-language:in-reply-to
-         :references:message-id:date:thread-index:thread-topic:subject:cc:to
-         :from:delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=I1P/LBKvO9NOe0iofYeqhzmEMvlCbwUhoFA7GzcIU4U=;
-        b=S6jRS1N8gAYPFnlzZ/gwiL7L/T94rzfRjrA/9rqOkluGzfn8akbsOgrnSlLRnzfRCJ
-         TSmcTP5A7+wIvbWv2ogsc9r/6Em3IqfFJKrYd6Km4dDbkASiNQD73FUA/wIG5YkP57JL
-         3shawXI9ecCZN+6Rh2VmkjIx0c1qfP/1a+Vyp+KZpIpERO4Bczx6E3eq5a5fejtkW6eq
-         xvy0koxBYRV3U8fH+bI/N3ok7HBrmoQNYHv2JqSwmwpmCZ55+ncFFqcCVmOqmxoWOJOJ
-         euWfOnxdO0ybObtZ5G6Atdq8d+D+m0QDnWsJ1cAmKCHqzFHo6ovx6miE6XsvaS9urFgj
-         4jMA==
-X-Forwarded-Encrypted: i=2; AJvYcCXIt3s16gO7j1O3VEdSAkkEdqrO6WuP/Bh6EDibspB/7fWv/uAAdL90167pIgiAJR3Ur+AVxw==@lfdr.de
-X-Gm-Message-State: AOJu0YwevGr7mFVrvIQ6fGlrg7WOuZ6mF3eq4XFSQzzglzNuOdFB6My1
-	VsTd6Nk35NAZALpcByiRna6iIONmhi6pAB1xuSQ7mas3nIMSv1kRr+cC/E1+0F8=
-X-Google-Smtp-Source: AGHT+IF8P8Bx/bYGuSG5WGl+7TxoFyKHyWUKGQ633+j3ssPnXK9JENoehUesSprit0rLWzOELbed9w==
-X-Received: by 2002:a05:622a:134e:b0:46c:7152:317e with SMTP id d75a77b69052e-46fd0b753famr70752661cf.42.1738191036103;
-        Wed, 29 Jan 2025 14:50:36 -0800 (PST)
+         :content-language:mime-version:msip_labels:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:cc:to:from:delivered-to:x-beenthere:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+aI4v0uC8L56wtbmDNDMa/sftFvP++jRWMyGb7EuY9o=;
+        b=RphaD4FSnhl6+5VS6zyyGeFlR1lufb8BRPWPM0ysidzZ73ibgPOlifOpC3vRYGcdG+
+         HpNyFfbi33TtHqEFQw1atZ/uz1cKHl7vp9f6yHFsnz4q2Pw+7savYHaUytyqsA+/sfqz
+         n/mnwswINa1GitvOy8DzvCXM27Ov9lj5z3km+B8w55hl3g0aXT8aymtoks9hdhJs3mKf
+         0JnGlLa5Tw/szIHD11SeJihK/qWgVBbdhHsAAR2hLxbjQI3DKxIMzaQ3B3zX/E6mtquf
+         xwH1yb804Ks1X0f8xzoVc2jbWdiqrVoqde/WFG+9d9jb8BbL0TB2vNU/90LXag+OvRJo
+         Z/pw==
+X-Forwarded-Encrypted: i=2; AJvYcCWa+Kdi3E7w0X3zg88IcBHVj2lShuDMjUJTZ1XGktgyvWKRQqPS9BvYFZSpI7P5DvL03rFgJA==@lfdr.de
+X-Gm-Message-State: AOJu0YxYLSnqThj9cJQ5DCMgwCyua28LmDpK8PCLP8ie0vBuN7IcYUMP
+	rRjxuzqhbI56nfKFairHmh4pVixCLgOrieWDhJKVCuBhicgMI62ww76Zp8veHyo=
+X-Google-Smtp-Source: AGHT+IHLKGNz6M6GJc1dSOe60k7W2P5kVBRaFCwHSg96TtGdqajVm3Uoa6LZoDCK4NKaXTdxwjoGyg==
+X-Received: by 2002:a05:6830:6709:b0:71e:1649:25db with SMTP id 46e09a7af769-726698bf108mr348833a34.2.1738255798232;
+        Thu, 30 Jan 2025 08:49:58 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ac8:4f81:0:b0:46d:dee4:45d6 with SMTP id d75a77b69052e-46fdcfb9bd3ls5615021cf.2.-pod-prod-03-us;
- Wed, 29 Jan 2025 14:50:35 -0800 (PST)
-X-Forwarded-Encrypted: i=2; AJvYcCUEsEeHRUoKP0vpTLLKA45XKBXrOqcaKqHwXxPcmBmdq+YBcgHelph9vfH5A7aV+P44y1h7pTbK3Vn64A==@gapps.redhat.com
-X-Received: by 2002:a05:622a:8cb:b0:46a:65c:b589 with SMTP id d75a77b69052e-46fd0a81258mr76994751cf.6.1738191034840;
-        Wed, 29 Jan 2025 14:50:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1738191034; cv=none;
+Received: by 2002:a4a:ba17:0:b0:5f2:d36c:1775 with SMTP id 006d021491bc7-5fc1861a5d8ls49066eaf.0.-pod-prod-00-us;
+ Thu, 30 Jan 2025 08:49:57 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCUXy2hDB1LpeL+74Kk1EeVafec5p07spRqg18qiGUcFkTGc7E9pqC7Dsxw/3W+xyv/n0dL8q3AIihtq2A==@gapps.redhat.com
+X-Received: by 2002:a05:6830:6788:b0:710:a425:d6b8 with SMTP id 46e09a7af769-7266040988amr2673368a34.14.1738255797118;
+        Thu, 30 Jan 2025 08:49:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1738255797; cv=none;
         d=google.com; s=arc-20240605;
-        b=YU7zmjGnlXy+bD4HYXokOmOIzCCc19iEXuzkj1QN4J9ZTPzMrGFkwsOqsEmcRL/D1r
-         ZtaxkH/7FPdv52Ehw7BVeqmqCdQlm5FhWzNxlnl0xgAJfk7IYQaF2BjCja81Z25VbIr7
-         iDIzmI6mvlwW+HAudsYxmkxrtfK1vtQgdy3s9aQ1kXD2ifJhZeuo1Md8we6v2FUdpu5q
-         5Q6XWq2sNVo3hEjQs0+2qzSlltN//mU9EHcMPKX21jlAIXCZz++IsZNztjQaDOiu3HD9
-         SLVVJh5DcEtgimfWMxdAPOOA5ZYKCbQhkjLmDq+q2cE4aggXrLQrXTfex+iBUE6EiBAN
-         xJ3A==
+        b=i7lGFw6HNkQou3QA/V2thMiVufQ/rhKK39LnaHy8dDo4A6VOQb62nKKRvEBfichtSc
+         MsAKnUt1HU/IlCPINOAvAKb/6asLrWOj/AcCJg4fcEXgcHuFeQfVi1s7iJXZda69jXvG
+         I/8bL4sXxz6Fq6PrVrQz73pcYrdqR9njGoO+glp/icbZAhjaNyv9Dsb3Zaejcuszv30c
+         L19Npk/xIsm78xJIEnxVFbzDW3oOC8QwVXi6EoGGKndPt6B8gf66dEB+jCk1Zb6544rY
+         vvsGDQYMdoFfu8FDLsGMrTlEeuruuZ56iYjyCPbvdcuGbJ5JVMKRein+MmHzo5aTyZlw
+         4nKg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-language:mime-version:accept-language:in-reply-to
-         :references:message-id:date:thread-index:thread-topic:subject:cc:to
-         :from:delivered-to;
-        bh=bTTnU5IQFnwd4mzeZYAo4AjJO6Drm22qEVX6aRfj1zI=;
-        fh=NqM+ocv+tctyYibxFwB333Kj+nut3FS2DTnawapVZlM=;
-        b=RdEwaE4fQC59rPnNll3m259ug9XofstdJe1FX/GW6jURTui5CdoxLerjs4/EPYI8TA
-         UMEYaNsmreu0U7bORnKwxdEZdxN/43fEjTRxW5wQofoeeLwB7esGVwhEKiUbBiyxqXd7
-         qGTugQOdHI0bfPTr1E2IgpL9Vber7eHiivW3FfLcx2bjO2Om+RGjnxAtXulFqR9cwUDK
-         zKEpe9hLGpPXTCr/yJrze+MvKE4PN4IMf1uRgRQ1vlVWBJCMm+Z1HAfWKDu13zwC2dPe
-         KJhsH/etGl61j9fmyk7EU/J2uIR5po12ZstA2NmJP4ZnheGyL9W/RPa7qcmR1ABgZ2q3
-         RaSA==;
+        h=content-language:mime-version:msip_labels:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:cc:to:from:delivered-to;
+        bh=tjsfW3MqnJ5fY6t8yHTwadYMBN2tp5YXjcHOvsfw1Vk=;
+        fh=Xm3E+cbs2XASfE+mO41OqC60e+UBR/x5K9zBJRUuZGM=;
+        b=EvITCLZIHk4Lq3TlfhpQ5oL4X9et10G1k1xMQ7DYk6OCRgM+d6LDxlon1sYG4HEb+Q
+         0LqbkfQQ4G0zF8Uue2DrozDqwNgkzcT9cFuNLI68zXebAPWUg3MRvyG8eoUQuNoo1u6O
+         qCtTPjHMOq9weiSeawn5p28PklrmC0Ljlo7ozjyBhZKh1bKve3Nt5Ru7AmVff7lMBo91
+         PbAfMcqdkKMJJ9Nhu9wZWz0bBupszGyj7t7xobKsFWk/kDmr2r+XWLNlwbFsGh/ZFMjq
+         jIkHsGR4+oCBQJ0Tvb/nz+eE9gYZ2xP3uBQJUvo21fFouz5lrCNfR3aqhNcsgmEdwa+I
+         Ps5g==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of ilovecountrymusic483@outlook.com designates 40.92.21.14 as permitted sender) smtp.mailfrom=ilovecountrymusic483@outlook.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id d75a77b69052e-46fdf0adcf3si3174251cf.86.2025.01.29.14.50.34
+       spf=pass (google.com: domain of cstrobel@crosslink.net designates 40.107.236.128 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.132.61])
+        by mx.google.com with ESMTPS id 46e09a7af769-726618c05b8si1842098a34.297.2025.01.30.08.49.56
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jan 2025 14:50:34 -0800 (PST)
-Received-SPF: pass (google.com: domain of ilovecountrymusic483@outlook.com designates 40.92.21.14 as permitted sender) client-ip=40.92.21.14;
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+        Thu, 30 Jan 2025 08:49:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of cstrobel@crosslink.net designates 40.107.236.128 as permitted sender) client-ip=40.107.236.128;
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-325-gxBRo_rQM--xF5pSKPKt_A-1; Wed,
- 29 Jan 2025 17:50:32 -0500
-X-MC-Unique: gxBRo_rQM--xF5pSKPKt_A-1
-X-Mimecast-MFC-AGG-ID: gxBRo_rQM--xF5pSKPKt_A
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-204-rN1QszY0PWGyCEW8mC3Znw-1; Thu,
+ 30 Jan 2025 11:49:55 -0500
+X-MC-Unique: rN1QszY0PWGyCEW8mC3Znw-1
+X-Mimecast-MFC-AGG-ID: rN1QszY0PWGyCEW8mC3Znw
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A49AD1801F0F
-	for <blinux-list@gapps.redhat.com>; Wed, 29 Jan 2025 22:50:31 +0000 (UTC)
-Received: by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id A092218008C0; Wed, 29 Jan 2025 22:50:31 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3C66218009B7
+	for <blinux-list@gapps.redhat.com>; Thu, 30 Jan 2025 16:49:54 +0000 (UTC)
+Received: by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 1A27D1800267; Thu, 30 Jan 2025 16:49:54 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.124])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9D2611800358
-	for <blinux-list@redhat.com>; Wed, 29 Jan 2025 22:50:31 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.132.61])
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.23])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 16BDE180035D
+	for <blinux-list@redhat.com>; Thu, 30 Jan 2025 16:49:53 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [170.10.132.61])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1D905180034F
-	for <blinux-list@redhat.com>; Wed, 29 Jan 2025 22:50:31 +0000 (UTC)
-Received: from NAM12-BN8-obe.outbound.protection.outlook.com
- (mail-bn8nam12olkn2014.outbound.protection.outlook.com [40.92.21.14]) by
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3CC311955DDD
+	for <blinux-list@redhat.com>; Thu, 30 Jan 2025 16:49:53 +0000 (UTC)
+Received: from NAM11-BN8-obe.outbound.protection.outlook.com
+ (mail-bn8nam11on2128.outbound.protection.outlook.com [40.107.236.128]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-438-ONj2kxmhPIupF9tortRjFA-1; Wed,
- 29 Jan 2025 17:50:26 -0500
-X-MC-Unique: ONj2kxmhPIupF9tortRjFA-1
-X-Mimecast-MFC-AGG-ID: ONj2kxmhPIupF9tortRjFA
-Received: from DM6PR06MB4777.namprd06.prod.outlook.com (2603:10b6:5:fa::26) by
- BY3PR06MB8180.namprd06.prod.outlook.com (2603:10b6:a03:3cf::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.17; Wed, 29 Jan
- 2025 22:50:22 +0000
-Received: from DM6PR06MB4777.namprd06.prod.outlook.com
- ([fe80::c62e:2a74:7a6f:fff]) by DM6PR06MB4777.namprd06.prod.outlook.com
- ([fe80::c62e:2a74:7a6f:fff%5]) with mapi id 15.20.8398.017; Wed, 29 Jan 2025
- 22:50:22 +0000
-From: matthew dyer <ilovecountrymusic483@outlook.com>
-To: cstrobel crosslink.net <cstrobel@crosslink.net>
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-48-bkWGRF-tMEypBsiX26kY8g-1; Thu,
+ 30 Jan 2025 11:49:49 -0500
+X-MC-Unique: bkWGRF-tMEypBsiX26kY8g-1
+X-Mimecast-MFC-AGG-ID: bkWGRF-tMEypBsiX26kY8g
+Received: from DM8PR18MB4421.namprd18.prod.outlook.com (2603:10b6:8:3f::24) by
+ BL1PR18MB4263.namprd18.prod.outlook.com (2603:10b6:208:318::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8398.20; Thu, 30 Jan 2025 16:49:45 +0000
+Received: from DM8PR18MB4421.namprd18.prod.outlook.com
+ ([fe80::39b8:9b93:4cf7:e76b]) by DM8PR18MB4421.namprd18.prod.outlook.com
+ ([fe80::39b8:9b93:4cf7:e76b%4]) with mapi id 15.20.8398.017; Thu, 30 Jan 2025
+ 16:49:45 +0000
+From: cstrobel crosslink.net <cstrobel@crosslink.net>
+To: matthew dyer <ilovecountrymusic483@outlook.com>
 CC: Martin McCormick <martin.m@suddenlink.net>, Blind Linux
 	<blinux-list@redhat.com>
 Subject: Re: Control-Alt-F1 What is it?
 Thread-Topic: Control-Alt-F1 What is it?
-Thread-Index: AQHbcqAtxRrvPstBTkG4DtnBW7rSzA==
-Date: Wed, 29 Jan 2025 22:50:22 +0000
-Message-ID: <742860A5-86AC-4976-8B82-8E2C87DA017E@outlook.com>
+Thread-Index: AQHbccce8Zw6tLFSjEOCooTsFCkEZLMt0Kt4gACMIQCAASzBuA==
+Date: Thu, 30 Jan 2025 16:49:45 +0000
+Message-ID: <DM8PR18MB44214CA8D328FA22FB5C7C14C7E92@DM8PR18MB4421.namprd18.prod.outlook.com>
 References: <E1tcsd6-000YH1-1N@wb5agz>
  <CO6PR18MB44191CF4BEB8CE9214BFD620C7EE2@CO6PR18MB4419.namprd18.prod.outlook.com>
-In-Reply-To: <CO6PR18MB44191CF4BEB8CE9214BFD620C7EE2@CO6PR18MB4419.namprd18.prod.outlook.com>
+ <742860A5-86AC-4976-8B82-8E2C87DA017E@outlook.com>
+In-Reply-To: <742860A5-86AC-4976-8B82-8E2C87DA017E@outlook.com>
 Accept-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-x-ms-exchange-messagesentrepresentingtype: 1
+msip_labels: 
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM6PR06MB4777:EE_|BY3PR06MB8180:EE_
-x-ms-office365-filtering-correlation-id: 67efa422-26f5-4344-0d39-08dd40b75059
-x-microsoft-antispam: BCL:0;ARA:14566002|19110799003|461199028|8060799006|15080799006|8062599003|8022599003|7092599003|12050799009|56899033|102099032|3412199025|440099028
-x-microsoft-antispam-message-info: =?utf-8?B?M0FSZWxRQXEyVU1JdHp0VjZsU0lTZVNLQi84eldQMFgwUlY4ajRndzB6Q1Aw?=
- =?utf-8?B?NjJ6enR6WVkwQ2E4aXpSWWtDeFlzWGs1b2ZMMTRYTjJhMHFtNnRBb0VkRXJP?=
- =?utf-8?B?Q1cyNWdETldEQTR0blAwc3pSUStMQXR0Y0Z6aG1QVFptRDRxb0J0dDlDa3RU?=
- =?utf-8?B?ZHM0dDY1RHlNNzBLZFBwckVnNThubDdaTFdPS29yREZlNWRTaXZTWTNkK3Uv?=
- =?utf-8?B?WlN6SjlZRjdrZUIzK1pPNXM4NUtncmlGVy9XOWhSUW4rcG5iQzFPdjV5Y0hU?=
- =?utf-8?B?djBnYm12WEdQQnhhVWZNL2JYSldxMDQ0ZURSSE1mdDhPRVZKajFGMCtVSjhR?=
- =?utf-8?B?U1Q5aEdlMEtnMHZHTStnbU5odE1sL2l2WXR6OHlQRUZSMCtpaURGa2hHVWdO?=
- =?utf-8?B?TnpCZ0IxVm5VdnVmcWp6bVRJVFllZUQ5aSttaWp4RzZyRU51TTkvSWUzVWtZ?=
- =?utf-8?B?OXV4em9rRzhIVzY5dGdTR1d1ZDJrUEVNVTZxV29LZ25ITmtnOWpHVEw0YXpu?=
- =?utf-8?B?aTQzVmZ4ZCsreDFHR2MrUkc2Y2d4aDRvSWZML1lLOXZkQk5LcjQ4NDkwdzRW?=
- =?utf-8?B?d1VNNDdnbU1EZll3UDBVYURlMXFINmZUZWNTYWJYRlh0enhTODhGeUhBMmRm?=
- =?utf-8?B?RE9HK1RsTGNUQ1hoaTl0T3Q0cEpjS2VkR0tTa0lIcGJCSU5MQ3lWdjlDMjZu?=
- =?utf-8?B?Skw0MGVUbkwraWgvRHl2dXI2dUtIT0xOQmZDYXlxazBvZDEvTUFOZTE2amdl?=
- =?utf-8?B?Q1ZnTUZ0UXU0akhscU1La2JvV1JmaEx1ZnQ5UkxIdVVtcW1Kb1luZDlBb25Q?=
- =?utf-8?B?WkRvUnBnejNiZWh1eU9Nb0J2SktDYWRwa1J3aTg2VDJydUg1dEgvdWxsdDFx?=
- =?utf-8?B?eEVWdGhNa0tOUW1ZZTRwVmhHNVpSdFIrTE9PWWdWWmc2WHB3eVdCd0hORnBi?=
- =?utf-8?B?a1hsMHN5ZEt5OWJQTFVnTnNlOVlYbEx1YkRKNEUyM00yN2NDM1I5cEM0RlJO?=
- =?utf-8?B?OC9lZWlvaTNWdWZydHhqbjhtMHpLR0FwOVZqQityOVNPK2JFZU95M25VZlNL?=
- =?utf-8?B?NzQrTVdDN00vN0ZCaEVOL284OHBFV1I2TkFiZXRTejB2ejNnWVpiYUhrYUNZ?=
- =?utf-8?B?L1F6NGpxOHpYVE5Va1dJOUk3OGtxMmJVU3VrbzcvaDN3WWZTQ0lmdjN3UFI4?=
- =?utf-8?B?TEpxeVp0R1BXejNPMDkzeDVyZTNxK0FyZ0tYNkh2YyttRUlmcmlnOXZGb3Bz?=
- =?utf-8?B?TUF6YlNrUHlGa3gwSTU1eDdOdjRZaEMxSWJiRGlGL1hsN3ErZXhqOE5zNkxi?=
- =?utf-8?B?RVVmak13QlRFT0FGVE5aVTFLSWRXbGVpb2pIbkFra3ZjMm84b0EzUlBML0V5?=
- =?utf-8?B?eG9RMUswaGdEV1VMMWRjZjNCN0lYNWFtWFcvRjM1bERRaHdiVWZqRlZoNkFi?=
- =?utf-8?B?NTNvWlhHclRZcU1lelpxb082d0gvY29NQzNpdHdJdzgwZ1lCUm4yY1dpU0Nk?=
- =?utf-8?B?ZmFhL0d4ZHNrZWNZM3c3bWdNdnBlL2JYc1EyVHk5V1NId0JHNlcwbmhFT0M4?=
- =?utf-8?B?eVhsUT09?=
+x-ms-traffictypediagnostic: DM8PR18MB4421:EE_|BL1PR18MB4263:EE_
+x-ms-office365-filtering-correlation-id: aadbf257-6cd5-44b5-bb5c-08dd414e19e1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7093399012|4022899009|38070700018|8096899003|7053199007
+x-microsoft-antispam-message-info: =?utf-8?B?NXVGakFLK3daWTV3TTV3WGlTcWxnRERYdllmbzdjUVQ5cnVEQnhHODVrbklo?=
+ =?utf-8?B?aGVrazBoUUJWd0NaMGtFNGt3RWZWSkFzb05uYTVkb3pHWUhCUWQ1cmtna1Vo?=
+ =?utf-8?B?NE1IYnVwTzhXcjhxamFnZ1VVNFl4QmxjNFFTMmVOOTROMzZ5VUJwQUFnWC9D?=
+ =?utf-8?B?TlpNR2oxbEV4dDdVZTZyMUVWcHJkSGtHanAvaGJuRm1obnVnZ3pQbnV5Ulhv?=
+ =?utf-8?B?Q2xtYUtOQTJ1aWFVNFd6Z1NFZTNWU3JUTjd3MTBIVm0rQWFvcURXL3N2Q1hQ?=
+ =?utf-8?B?Smg3QVVSU3I0SmNiZnJWZXhHTHVTdkRxQVFROHVxaDYxZVRkOWtTT1VRcXFh?=
+ =?utf-8?B?TG55cTNWNlQxTEJCWFE0SVhpOFZYK0hUVlF3M0NGYUdOUlJES0VJZ0pvZktr?=
+ =?utf-8?B?V3JLeUhzTUpGZm9kSW9iWmZaUW5ZRlRWWllwRjI4b2krRkVxcnRxV3RYMFBY?=
+ =?utf-8?B?T3ZuUnErKzVzbGRUM3R4UlNrV2RVYVE0MzZ0VGVNa2ZFSFRuUEFZVzM0ZmV1?=
+ =?utf-8?B?YU1NNmxNYVM4b3g0WWtsV3JSdDR4WEtseUt0cFlaaTBGVm1TRUc0Z1EvUU9x?=
+ =?utf-8?B?WmRVNmFDeHVKOTRXUEJaOVJwSm9RcG5HNkZPRTFHVjJOUlZGWGg5eE1Ob2lZ?=
+ =?utf-8?B?MTNIb3RGS2tPVUNwMlZrNWhNazF4amRVS2ZDSEJFTENydGZwaGFwS0VWTnRH?=
+ =?utf-8?B?MTZUZWNsL1hoS1ZNZG16RmNPMjRTUjUzN0VadklseHM1SXdXOGZpUjA1YU1M?=
+ =?utf-8?B?aGxvelAxaWJsb2JRZWx5eEhqMVFGWUxzd1h4MGlqWmtPRDhHUkNJbFNyRmlm?=
+ =?utf-8?B?ckpINjQ5UEl1QkxKVG9KMmMweTNaN1Q0Z3RYck00UmlkY000UjNTRGZaQmVy?=
+ =?utf-8?B?eXdrd2JlQmo4dzZyWm0vejZkd20rSTBkaTNxdy9UOW4vR3JhV0c3QXBOVkdH?=
+ =?utf-8?B?Tm1SY3NtbG5nNmcrUzk0Rnh0anVXWGZrZExkV2Jmd1lrTytwTVM2M0lDcE94?=
+ =?utf-8?B?NW9Rbng1T2EyOTFJbFp1L1ZnS0VWSzRkTnBiU1pEajBwcmRUbmdCT25sbTlC?=
+ =?utf-8?B?cE5XVkQ0Sk1MU3pFemQ0eU1qKzZGdHZ0NE1FSUQ5T2U1TFpvd25OTDNXVU9B?=
+ =?utf-8?B?QzNwdVZ1dEpKK0d5TFJMNGxQVTUva1VmU1ROVk1lZnBnWEVaNWJpTitMUW4y?=
+ =?utf-8?B?dkJqZTJyNmhZd0V5M1lPRHZuV2VZS3haQ3BjQmhuOXhJR1RDNEthenp4ODFx?=
+ =?utf-8?B?UWFuaVpONjkyaGcyZ2dIU29mVXM0a01PN01ZTzBUZGJRa1JhVXFMczFlTFZM?=
+ =?utf-8?B?M08vbXNYUXc3bGVaQUtCY1NkaU12UEo2aEhKbmo4QnRXVUNCK3lsRk0xQTF3?=
+ =?utf-8?B?b25XZ3JqK25zZ2Q0V0RaTXZ3Yy94WXQzbGpBcGZXQXJKMm85MXdLZEdRdXlW?=
+ =?utf-8?B?SFAwSDY2ampqRG5JNFcvVXBWRTV3SnN0UkhMZ2FxWHBOd0p2ZjdzYmcwdFE1?=
+ =?utf-8?B?cE5KbFcxa2tmRlJMT2M3ZHJtRUorazBMZnRqeEtJYmlQRXFkOFdYK0hoVEE4?=
+ =?utf-8?B?Sk9PYnBvQzgydTBMa1lLN2RNUUpyOXhHS21uYWZDMTdaMkxXaEcyWk4zeDdL?=
+ =?utf-8?B?VEFWemM2cWw2dkdOOFR5TDN1N1JpQlBHRzBmTjZBYmY3MDZVUVdOeWV3bVhi?=
+ =?utf-8?B?OUEveHV6ejNWN082SE5qSkYxNTBIWWFCM1JhK1h4eDF3SDl3V2Z0bER2RU1Q?=
+ =?utf-8?B?RExrQ0U2d1A0Nm1zSnp4dHE0VnBpSVJYUGhkZ3pWYXlRZDdZckF1cW41YWJl?=
+ =?utf-8?B?WGFpenlobW80Tm1aajh6TG1abTdlUDk4Ly9PZjVaVmt6K1pCeXV1SDJFYWx2?=
+ =?utf-8?B?SFliKy9RYlNQUmFKaWhDVm5HNzVGdzdqbFRqYWJNOUNJSnJrUHdsSk82bDll?=
+ =?utf-8?B?bnJPUWVXV0I0eWJmcFNkbnZHanNvcXF3OGJoKzBiVXMvSjNOUkI1dVl4VCtO?=
+ =?utf-8?B?eTFwV3dsR1Z3PT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR18MB4421.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7093399012)(4022899009)(38070700018)(8096899003)(7053199007);DIR:OUT;SFP:1102
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?S0ZaMEZteUtpaFdCQXJvK3RIUXpGY0ZQRWxVZVFkT0pUMm1BWERrc1FaMzhk?=
- =?utf-8?B?dnlQZWhPZFZONkNKVWtqKy9GbnQ2YmVJT3RKYW0xNHRUWTJkQkYrM2NpZ3Jn?=
- =?utf-8?B?R1FFS3pHSFFUT0g5MGlpSG1TQ0RuNnRhaWtlWlk3OHBYbkpSSGFQN2pVb0Fr?=
- =?utf-8?B?ZG0yZTJrNkVKU2IzNkpZY1NiTzFCVjlxK3Z6cEtjdm5nQi81Rno0cThUTElp?=
- =?utf-8?B?MkE1OGtGN25WZUZGbm5YRTFrWHlJci9JWElHU3h3QlQ5VXhHNWpHc3pIKzF1?=
- =?utf-8?B?RVpHM2x5QnRHUDBNeXIwUk8rWGdFVUQvK0NsUmNLTStjUS9YSXV6Q3ZwTTJk?=
- =?utf-8?B?TFVjSWVvbVozUEJiWjdQS0M5MDg0UkVmbHpMV09lNDJ3QjNlT1U2elVPMUdY?=
- =?utf-8?B?OEtQejBFTmtRNXFIblFXTmF3cENhVnFBazV0MW1jLzQ5R0V5WGl1RmxoYXoz?=
- =?utf-8?B?ZE1yUjNhTVR0emJCV2dhYjJiUmRWWTFCcHc4OVlxb0N4em9sbktMU250Y2gw?=
- =?utf-8?B?SFFBWDhOVkpWZ0dCM3VnN015aWkvYk5EdU82d1NKUzhFcW9TUFEyWjgvNEwx?=
- =?utf-8?B?QlNuSTVGbmh4aElET3VXbmJqSmYya0NpZUFUTHlPMXEwbG1HcytTZTRQekpr?=
- =?utf-8?B?TkxXQXJjWVBORnZLS29uanIvYWZ2T3RDZWNvb0E1b2JzZTBZWkVNcWhGdEFz?=
- =?utf-8?B?UUZqakovdWRvRFg5QjNIRWxSeVEyQ1RjRkpwSEF6U2x4bjRRNXNOVXJseEY5?=
- =?utf-8?B?UzNXMnBoZzBqVUQ1azZqbS9tWnRGMmtWN2VESUIvY1RPREl1dit0d0xZN09h?=
- =?utf-8?B?RlZnVDdtRi9ON0YvLzNCVmFKV1hzemRQNHA3QXZWK2ZQZG42K1VEU09ncTg2?=
- =?utf-8?B?a25NalJqQXVCd0VUakYrTUxGckkzUjhSSTVqUWR6R2tocjdmekZxNDJiSDgy?=
- =?utf-8?B?MElKa0pyMVEvNC82ZFFKcXlRNSt2VXdQWUFBcVdpY1RPZmI5eldsUER2VkM0?=
- =?utf-8?B?UDdMbTJVcStjTWJsRTFOVHRuM3ZKb0lvRm5CZVpBRC94bWJDS2ZXL1NnTHVt?=
- =?utf-8?B?SXYwS2xSMXlGSnFsTnVtOE5CMEVGTzU0NTFSQllOY3MwbUo3TnlPbzBCOGdJ?=
- =?utf-8?B?OFJzNndUem1LbDQ5MFJ0WFE1MGJFVkpNRmtiZklKOFRCL3F0dHBLT3psU0wz?=
- =?utf-8?B?eXMyVUJ1RkViNUFhQWREeHY0U0RnbVVKaVZlQU9ncHBiMzI4alB5dENqYk9v?=
- =?utf-8?B?K0tCMi9wdXNaT0FXRlppc3ZtVzZKZGFaVGpOdGwzYnlkNUhWNVVHMmEvL250?=
- =?utf-8?B?NHpuWE9VQkRHRTlVM29XSEtFaWFoRGsyS3J4aGpscy9GbXVnQi8valJKVU9B?=
- =?utf-8?B?SzVaSGo1Z3hXT2xOTGhyditPb1JzNTU0Q2duMmRBK1FTQ2hzK0tHNnpXTGZ1?=
- =?utf-8?B?UllSYmJqZjdFNWNWV3o5VitKci9RTWt6S005dVpGcW42YkErUWJ3Q0RHQXRG?=
- =?utf-8?B?RUV3djVXeTVVRzlhazNlUXd5Q0tCaExZMDYxSVl2aWVvajc4VGVoTExaT25k?=
- =?utf-8?B?WlEwWnZRQmU4VjROeis0NDhuVjJuL2tUbk9LMkRrTkdjNjVhMGVUOURhL201?=
- =?utf-8?B?ZnBrRllkMGp3MDRRN2cyMjZINEpEMjhpRzUySUFDd3lSYXorRmw5M3RzMmFD?=
- =?utf-8?B?bi9qOEtsaE5PazdnNjVaTzFSckptRU5qd3ZLUlRCaXpXQm5MbWZlT2RiUjEr?=
- =?utf-8?B?Z3ZOeEhSdTV6QVB6TVpTN0lKVnIxclIrbVlXNnY2a01selV6M1EySFA3azgx?=
- =?utf-8?B?MzRmQ3YrZUMwTjdNcTdpUT09?=
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SkVLZDIybzluWmVzQ05XZGpCL1U5UGRKZDZJMFNSZERXbWpiQVlCc2hvZFJm?=
+ =?utf-8?B?QVc3WjcxZnMvV1JDOG14bnBoTEpaYVlUWUhQWmZNZ0pxVWNvMEhaQlcxYWRX?=
+ =?utf-8?B?VTZVM3hqYTJLT3NRanhkNmx4Nnp4N2tiT3AxRy9BWEtBRjlxNnFWMDRzcWZS?=
+ =?utf-8?B?WmFFMHdSWUpUTDk4TmRBTEVLRk52U0NkdHlmZ2I5NURHeDdhWG1TemVqWEMw?=
+ =?utf-8?B?L2c0bmZSWURoVXAvU2VwOWVhVm5KblUxdEt1dERlY3JqajRwTXNmcFAzVFBj?=
+ =?utf-8?B?cFV4VmdMODRjclRrMU8zTVQzVlQyWlRQTmhNdThSTkZiVmZZSER5VUtCYzM4?=
+ =?utf-8?B?T3pJYlN5Wi9zZHM4RHREVkNCRk1acXc3emgxSVMzeWQ1Q1M3UUtYRkcwZ2ZK?=
+ =?utf-8?B?ci9pTllVZE9kSlRYQWw5NTB6OHFwbWpUY2phMGEwbXIxRVBOOGZpY2F4Uk15?=
+ =?utf-8?B?VW5qMU5OYjV2RVhOOGZ6M1RFT0V3dkIwTzZ5ejl4M0p3N0V3WlZ5SnduU08r?=
+ =?utf-8?B?eTBFVHd4ZVBtbTNOV1IxL0o5OXYzMjlPbmIrR0p4N0Z3OTNObU8wK05Jb3NV?=
+ =?utf-8?B?d1huSGN2MTZsWkt2VHJhemFwOGtxMzdHNTBkOXpGQWpva2tmRHI0Z2NGaGl2?=
+ =?utf-8?B?M056VmR0TzhNRy9XZFRLNEJkREUyTTdWV1hJaEprWDNLMXJZUDVkbW1YOEFo?=
+ =?utf-8?B?RE8yVGVxMjRweGltMGdhVzB3ekxPbFd5QzFWZDF4eHk0bXdKbC9VMVFKWk5H?=
+ =?utf-8?B?MFJPV2RZTEFkSUtPdXhKRHlFVjRpTVFVMEs0K1dqNU1WZU1jMk54ZWdaaEow?=
+ =?utf-8?B?cW5lV1lsbmR4VnlPd1ZhbU1meHdQUk1acUlUc3QrMDJGTWFmTmt4MFVtQURW?=
+ =?utf-8?B?UFc1eHlwL09iaFhXZnBKK216R0U1NmJhNi95c1ROQXptYmw3Tzdtb0pMK3Nr?=
+ =?utf-8?B?N21HOUFKcm03b0lxTUVkU3YzQlZXSmw4VllBTTkvaEREK3kvTWV3L1VCQUF4?=
+ =?utf-8?B?cFNWZmFLYVIzL1lIdldwMFAxK2diazhvNEFuMTEvZklxME8zeVdGT1YySmFN?=
+ =?utf-8?B?dEkwcEwrU2o1eWZ2UXVTczNBd1dtS2NkekFjU2crYityT0FTdWoxVi9wVThQ?=
+ =?utf-8?B?TUxNSHlLbnR4eDdwYzluUjRrS29NdmZReEtETTREcWFJMFREdlpWNm54K1Br?=
+ =?utf-8?B?WHVieXVMbGxwL2pDelJrVEw1eCtWbkJNQVVWdXk0S1RWNE5icWduOUxZbllH?=
+ =?utf-8?B?b0Q0N1VpL0JLemNpeFBYbnYzWWt6VlE5RzRhbDg1RzNYNVVCYlk5SGxEbG5T?=
+ =?utf-8?B?VzI2bkpLSGJZWE1TeW1odHBtSjJhWEtNLzdIeENrWmR4Q2FTUVdrVVNZZ1pk?=
+ =?utf-8?B?ZzlGeXVvMjBnQ0gwbkhJRlBmKzg4K3NXUXRPQjVLTzlZYThmQloydFFlZ3E5?=
+ =?utf-8?B?RDIwSmJxU1ljaUNNTmxJWXJmOCtvaWJGWlhFSE9rN3BvVnRidFI5NlYyc085?=
+ =?utf-8?B?SVdYUUdwWWhBOTB0cUp2bzlUaVNFK1kxM1c4SXo3ZmdiS3lCQnBpVlpZMzd4?=
+ =?utf-8?B?VGROSnl4THk5MjVERGpvQVlLalUrTHhqdmpUV05QbXRTRFFydkcyQlczdkdN?=
+ =?utf-8?B?aXJVaExzUHhiZXVVNk5JRWRNU3pEM0Yzdk1Eb0UvVm1sc3dxa0U1QlI0ejc4?=
+ =?utf-8?B?NTFUa0xVMk54V0VMVFpsOEhNTHdiSFYvaEFUVG5yekZRUXVWczJWVkUyZ0cy?=
+ =?utf-8?B?T2U5Q2tjd1p3UVNNdGZVc3JxMjhTaW1kZFIwTDkyYTdZVjhEUU5LQ2Z1Z0hJ?=
+ =?utf-8?B?NGNRRkJIMUhrRkFTcHN4NkpRZWcwVjN1RVhQUTZqVHB1YTRpczNRbEsxNzIx?=
+ =?utf-8?B?YmNocXRhYWMzd3NHS3RmNG9TZXZrUTJHNXFRbHBERTF5Y2RQSHlRVHBKV2Yx?=
+ =?utf-8?B?T2l6VnlPM3lZKyswczBUQW80VkxweDFWWDU4TDRQeXhkeXp5U1ZqRWVLbVIy?=
+ =?utf-8?B?QSszTmhYVU54N1JZUVRKLzVrK3VhNzRQY0liSGQvRWptbDQ0Mm5QZGlvQjQv?=
+ =?utf-8?B?b290VmRKRUErRUFJc2owaUVWbElYWWM5YWFZeWtmamZlUmtwcU8zYlFTdmsw?=
+ =?utf-8?Q?BBBa5KeVEQNmR+yqQvegihcV5?=
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
+X-OriginatorOrg: crosslink.net
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR06MB4777.namprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67efa422-26f5-4344-0d39-08dd40b75059
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Jan 2025 22:50:22.7666
+X-MS-Exchange-CrossTenant-AuthSource: DM8PR18MB4421.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aadbf257-6cd5-44b5-bb5c-08dd414e19e1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jan 2025 16:49:45.3887
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY3PR06MB8180
-X-Mimecast-MFC-PROC-ID: L10ZG_yDFlkzfetCN_HU4XPRWNBKH89JycGKopT7PgA_1738191023
+X-MS-Exchange-CrossTenant-id: ffc1c47c-8879-4594-ade0-28ea8c2224c5
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: qxx1GO+Xr964X4det8x03+KvVN9b0CuZFFVX8RRniazlxZuDxgzL0o24SXQf4Pof2f9p8GIytn2KT7J4PKsyTg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR18MB4263
+X-Mimecast-MFC-PROC-ID: fobFpTeAqbetW_ne5pBvEPDmyckj7gntCvquLeh8heg_1738255788
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 2n63TJFpbUpE8HoO3g4jmzL2iJzooNNcacr2Zip-2jQ_1738191031
-X-Mimecast-Originator: outlook.com
+X-Mimecast-MFC-PROC-ID: rjgn6QccnMI7U28lzIqIKEwuOvQcknqeUiUSWghvwdk_1738255794
+X-Mimecast-Originator: crosslink.net
 Content-Language: en-US
 Content-Type: multipart/alternative;
-	boundary="_000_742860A586AC49768B828E2C87DA017Eoutlookcom_"
-X-Original-Sender: ilovecountrymusic483@outlook.com
+	boundary="_000_DM8PR18MB44214CA8D328FA22FB5C7C14C7E92DM8PR18MB4421namp_"
+X-Original-Sender: cstrobel@crosslink.net
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of ilovecountrymusic483@outlook.com designates 40.92.21.14 as
- permitted sender) smtp.mailfrom=ilovecountrymusic483@outlook.com
+ domain of cstrobel@crosslink.net designates 40.107.236.128 as permitted
+ sender) smtp.mailfrom=cstrobel@crosslink.net
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -243,9 +258,31 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
---_000_742860A586AC49768B828E2C87DA017Eoutlookcom_
+--_000_DM8PR18MB44214CA8D328FA22FB5C7C14C7E92DM8PR18MB4421namp_
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+
+
+Both work in Bookworm for me.  If you are still using Pulse audio instead o=
+f Pipewire, that might have something to do with it.  You can read the Debi=
+an Accessibility FAQ for some ideas.
+
+
+
+
+
+
+
+
+
+
+________________________________
+From: matthew dyer <ilovecountrymusic483@outlook.com>
+Sent: Wednesday, January 29, 2025 5:50 PM
+To: cstrobel crosslink.net <cstrobel@crosslink.net>
+Cc: Martin McCormick <martin.m@suddenlink.net>; Blind Linux <blinux-list@re=
+dhat.com>
+Subject: Re: Control-Alt-F1 What is it?
 
 Hi,  I have never gotten speech to work in a conceal unless the guy is disa=
 bled.  I either have to use one or the ogther.  In bulzie this was not the =
@@ -357,57 +394,93 @@ edhat.com>.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to blinux-list+unsubscribe@redhat.com.
 
---_000_742860A586AC49768B828E2C87DA017Eoutlookcom_
+--_000_DM8PR18MB44214CA8D328FA22FB5C7C14C7E92DM8PR18MB4421namp_
 Content-Type: text/html; charset="UTF-8"
-Content-ID: <8F2922A8C256A343860031B4702D51BF@namprd06.prod.outlook.com>
 Content-Transfer-Encoding: quoted-printable
 
 <html>
 <head>
 <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
 </head>
-<body style=3D"overflow-wrap: break-word; -webkit-nbsp-mode: space; line-br=
-eak: after-white-space;">
-Hi, &nbsp;I have never gotten speech to work in a conceal unless the guy is=
- disabled. &nbsp;I either have to use one or the ogther. &nbsp;In bulzie th=
-is was not the case, but since bookworm this does not work.
+<body dir=3D"ltr">
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+</div>
+<div id=3D"appendonsend"></div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+Both work in Bookworm for me.&nbsp; If you are still using Pulse audio inst=
+ead of Pipewire, that might have something to do with it.&nbsp; You can rea=
+d the Debian Accessibility FAQ for some ideas.</div>
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+<hr style=3D"display: inline-block; width: 98%;">
+<div dir=3D"ltr" id=3D"divRplyFwdMsg"><span style=3D"font-family: Calibri, =
+sans-serif; font-size: 11pt; color: rgb(0, 0, 0);"><b>From:</b>&nbsp;matthe=
+w dyer &lt;ilovecountrymusic483@outlook.com&gt;<br>
+<b>Sent:</b>&nbsp;Wednesday, January 29, 2025 5:50 PM<br>
+<b>To:</b>&nbsp;cstrobel crosslink.net &lt;cstrobel@crosslink.net&gt;<br>
+<b>Cc:</b>&nbsp;Martin McCormick &lt;martin.m@suddenlink.net&gt;; Blind Lin=
+ux &lt;blinux-list@redhat.com&gt;<br>
+<b>Subject:</b>&nbsp;Re: Control-Alt-F1 What is it?</span>
+<div>&nbsp;</div>
+</div>
+<div>Hi, &nbsp;I have never gotten speech to work in a conceal unless the g=
+uy is disabled. &nbsp;I either have to use one or the ogther. &nbsp;In bulz=
+ie this was not the case, but since bookworm this does not work.</div>
 <div><br>
 </div>
 <div>Matthew</div>
 <div><br>
 </div>
-<div><br id=3D"lineBreakAtBeginningOfMessage">
 <div><br>
-<blockquote type=3D"cite">
+</div>
+<div><br>
+</div>
+<blockquote>
 <div>On Jan 29, 2025, at 9:32=E2=80=AFAM, cstrobel crosslink.net &lt;cstrob=
 el@crosslink.net&gt; wrote:</div>
-<br class=3D"Apple-interchange-newline">
-<div><style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;marg=
-in-bottom:0;} </style>
-<div dir=3D"ltr">
-<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
-nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
+<br>
+<div style=3D"direction: ltr; font-family: Aptos, Aptos_EmbeddedFont, Aptos=
+_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
 <br>
 </div>
-<div id=3D"appendonsend"></div>
-<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
-nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
+<div id=3D"x_appendonsend"></div>
+<div style=3D"direction: ltr; font-family: Aptos, Aptos_EmbeddedFont, Aptos=
+_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
 On my Bookworm system pressing alt-control-f1 takes me to a normal console.=
 &nbsp; There is sometimes a delay, or the speech doesn't work right away, b=
 ut the Braille shows it.&nbsp; Once I log in, it is tty1.&nbsp; The graphic=
 al console is tty7.</div>
-<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
-nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
+<div style=3D"direction: ltr; font-family: Aptos, Aptos_EmbeddedFont, Aptos=
+_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
 I thinkIt may be a bug of some sort.</div>
-<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
-nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
+<div style=3D"direction: ltr; font-family: Aptos, Aptos_EmbeddedFont, Aptos=
+_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
 <br>
 <br>
 </div>
-<hr style=3D"display: inline-block; width: 98%;">
-<div dir=3D"ltr" id=3D"divRplyFwdMsg" class=3D"elementToProof"><span style=
-=3D"font-family: Calibri, sans-serif; font-size: 11pt;"><b>From:</b>&nbsp;M=
-artin McCormick &lt;martin.m@suddenlink.net&gt;<br>
+<hr style=3D"direction: ltr; display: inline-block; width: 98%;">
+<div class=3D"x_elementToProof" id=3D"x_divRplyFwdMsg" dir=3D"ltr"><span st=
+yle=3D"font-family: Calibri, sans-serif; font-size: 11pt;"><b>From:</b>&nbs=
+p;Martin McCormick &lt;martin.m@suddenlink.net&gt;<br>
 </span></div>
 <div style=3D"direction: ltr; font-family: Calibri, sans-serif; font-size: =
 11pt;"><b>Sent:</b>&nbsp;Tuesday, January 28, 2025 3:56 PM<br>
@@ -415,8 +488,8 @@ artin McCormick &lt;martin.m@suddenlink.net&gt;<br>
 om&gt;<br>
 <b>Subject:</b>&nbsp;Control-Alt-F1 What is it?</div>
 <div style=3D"direction: ltr;">&nbsp;</div>
-<div style=3D"font-size: 11pt;">The Linux box I am running is a HP PC using=
- Debian 12 or bookworm<br>
+<div style=3D"direction: ltr; font-size: 11pt;">The Linux box I am running =
+is a HP PC using Debian 12 or bookworm<br>
 and I have all the consoles talking.&nbsp; The first console is orca<br>
 and the other 4 are not orca but command-line consoles which are<br>
 nice when not needing the GUI but there is 1 mystery.&nbsp; Orca is<br>
@@ -463,23 +536,23 @@ To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to blinux-list+unsubscribe@redhat.com.<br>
 <br>
 </div>
-<div id=3D"appendonsend"></div>
-<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
-Calibri, Helvetica, sans-serif; font-size: 12pt;">
+<div id=3D"x_appendonsend"></div>
+<div style=3D"direction: ltr; font-family: Aptos, Aptos_EmbeddedFont, Aptos=
+_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt;">
 <br>
 </div>
-<hr style=3D"display: inline-block; width: 98%;">
-<div dir=3D"ltr" id=3D"divRplyFwdMsg"><span style=3D"font-family: Calibri, =
-sans-serif; font-size: 11pt;"><b>From:</b>&nbsp;Martin McCormick &lt;martin=
-.m@suddenlink.net&gt;<br>
+<hr style=3D"direction: ltr; display: inline-block; width: 98%;">
+<div id=3D"x_divRplyFwdMsg" dir=3D"ltr"><span style=3D"font-family: Calibri=
+, sans-serif; font-size: 11pt;"><b>From:</b>&nbsp;Martin McCormick &lt;mart=
+in.m@suddenlink.net&gt;<br>
 <b>Sent:</b>&nbsp;Tuesday, January 28, 2025 3:56 PM<br>
 <b>To:</b>&nbsp;Linux for blind general discussion &lt;blinux-list@redhat.c=
 om&gt;<br>
 <b>Subject:</b>&nbsp;Control-Alt-F1 What is it?</span>
 <div>&nbsp;</div>
 </div>
-<div style=3D"font-size: 11pt;">The Linux box I am running is a HP PC using=
- Debian 12 or bookworm<br>
+<div style=3D"direction: ltr; font-size: 11pt;">The Linux box I am running =
+is a HP PC using Debian 12 or bookworm<br>
 and I have all the consoles talking.&nbsp; The first console is orca<br>
 and the other 4 are not orca but command-line consoles which are<br>
 nice when not needing the GUI but there is 1 mystery.&nbsp; Orca is<br>
@@ -526,18 +599,15 @@ To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to blinux-list+unsubscribe@redhat.com.<br>
 <br>
 </div>
-</div>
-<div><br class=3D"webkit-block-placeholder">
+<div><br>
 </div>
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to
-<a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+unsubscri=
-be@redhat.com</a>.<br>
-</div>
+<a href=3D"mailto:blinux-list+unsubscribe@redhat.com" id=3D"OWAe197f3de-431=
+d-118b-4434-12e9d715309d" class=3D"OWAAutoLink">
+blinux-list+unsubscribe@redhat.com</a>.<br>
 </blockquote>
-</div>
 <br>
-</div>
 </body>
 </html>
 
@@ -547,5 +617,5 @@ To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
 nsubscribe@redhat.com</a>.<br />
 
---_000_742860A586AC49768B828E2C87DA017Eoutlookcom_--
+--_000_DM8PR18MB44214CA8D328FA22FB5C7C14C7E92DM8PR18MB4421namp_--
 
