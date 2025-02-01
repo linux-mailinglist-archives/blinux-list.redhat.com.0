@@ -1,142 +1,145 @@
-Return-Path: <blinux-list+bncBCVPTHE7K4IMNCXVXQDBUBDV72CYG@redhat.com>
+Return-Path: <blinux-list+bncBCVPTHE7K4ILTCHWXQDBUBH37333G@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7FB17A244FC
-	for <lists+blinux-list@lfdr.de>; Fri, 31 Jan 2025 22:48:56 +0100 (CET)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4679becb47esf59754871cf.3
-        for <lists+blinux-list@lfdr.de>; Fri, 31 Jan 2025 13:48:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1738360135; cv=pass;
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mail.lfdr.de (Postfix) with ESMTPS id 32AF2A24676
+	for <lists+blinux-list@lfdr.de>; Sat,  1 Feb 2025 03:17:31 +0100 (CET)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4678b42cbfesf53935401cf.3
+        for <lists+blinux-list@lfdr.de>; Fri, 31 Jan 2025 18:17:31 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1738376250; cv=pass;
         d=google.com; s=arc-20240605;
-        b=OC/XVtcyAoQV1bqi0iyjDGZbY67kJSPfJEI0OSQ5UwH8mYGnTpHoJjaQIQXYWob6yJ
-         U5Gt4kIWLWCSRKIeqJo0NrxKJu7YurzRd1t+GbmqQugkwMu+sxl80ci0orQtPNF9jMdw
-         ODtAz/QpK70MOx8MM6JPcoze2zeedBO9KZq0RNDkcJF6KylV6xqckD+Q68OnZUuKUHe4
-         RDdzJaVcwHCAq/s+wnxiHuPOqMOs68cmDJL81BMYoKnKZJtIgkwSpkwEfmm+Ugo5gaRy
-         VvQt2Zxnno0wO6fnh8owvQ1Y9whF5See3oXqmeTvs8yO/LpIdqdjEhFX7dE/LZFtdSvK
-         x2rg==
+        b=Z62adnQO+VZ7144u24qv1hDHrElSlPKUotMCbV1dHlP/wCNWtT51SHoUSm/s3144bf
+         OMqPTfhPukBHNIRtbvlxfZYpBJTd7kkQ8haEY+xPgKTwfjpYvpJzu70eWrkMU9ew823L
+         PoOggbXZe+oqYIsbUBDjiWAomC71YOkE5XO+ohlOPDzjgdoGddk4+RMwNxplOogeQBGQ
+         GgQJnu9sFAXuGp/IRzbPdGPVYwR4HBptihv1Nmx1LqIFSfzQvpB0/YHC2ueE6PdfRSAG
+         K+/WWZiot7LjMALiiLSM/A7P0O0KcSb50BjajAx6W6WJJjn9n8z1lymKE9kD22WFlxkI
+         DhQg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
          :mailing-list:precedence:mime-version:references:message-id
          :in-reply-to:subject:cc:to:from:date:delivered-to;
-        bh=FVD5/e4JpOhLjQ4EwK8CyUFMUCyUEiCOHYLJ5EQtpV8=;
-        fh=rcaHQsR7EgjJz2shVFmursQrR6TKq7KFdx/KThCROlk=;
-        b=YY8eoGwoBY4JlnKrMedXVm/TnbZuZhb/G4Xviz+9sTB+UnpFwlNU3dKUsMmrbmW67f
-         P2fq6oPswOn/GNtp0JMvmLotdJ8Dtfpbdk+ATtAWeWp9YIYnw0d+UR3TIc3qXDTRUYvh
-         EVR2xu5tkGGGPkvDi+jojO3JEbmmFVXbS3cQNFqB95UUTeyFMfWP0mX3+gRkIrpla+6j
-         saSlhY5GIE5a3yL4d5gpLfhSEr9ARUEt6PYXccWw9z859lBGSGDzQzNG15HUCn7n5dyn
-         71EVlincGiPWqGQDfnBDT+QAEDALooA62p6sT6E6yG4TMTLYtayKw5bgHmGY33txn1Ku
-         5cfQ==;
+        bh=lP3821pN2g/91p+ZqPv2fRxeJFLZ4mWs6ea+c0BV8TA=;
+        fh=kdehlQJtQ++LWL5qHPs9P5FG1FX3Gn1sWnOwUq3MhcI=;
+        b=D6umLtUf3PoEvKadEqJ5ML25bJr9vjAmacEz2cG3PYjJXhbMkZD/+kRwqKWX6vpzeX
+         ZlZiWZwnRIEtEIc0K97QhNl1ML3M8+NMGJmcaHNl5atFSLOw8CWf1zAKBwWYceXwApKi
+         uLiG+gpDRPqFL3cF08KVvo1LPue3sWJK9Xx3Hha+L4fZCDpYEfaQGPX9aAylgqgfke1C
+         3lJBsNzWuQHp88PUvI8jk3nPHUz3aiSw1FuhQ0dVE0sIq1IU12YXYEsWawK1/Ym379rV
+         SQhS6dNvHW1B5NpwrdqmCY0xLSct49nkTq0Mzayx7rngwmu15rhW2GvWjJycMQBHP3tN
+         DKlw==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
        spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738360135; x=1738964935;
+        d=1e100.net; s=20230601; t=1738376250; x=1738981050;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender:mime-version
          :references:message-id:in-reply-to:subject:cc:to:from:date
          :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FVD5/e4JpOhLjQ4EwK8CyUFMUCyUEiCOHYLJ5EQtpV8=;
-        b=JoupAkcFtC3/orsozfBpZUQw8IKt+ITBeVZh7HtGDY+ufpH9Va79GLHQaJ/8Zev8W3
-         5Tl3eKm0ZYKzyEKE+NtJLzmAhkSj8xj03KAJCy+PnI3/8rXlhGJqDaKAoKIsLwxtzwY1
-         MjMwI4XI5WivTYQFg8OAohmQUabvdmTfup2Q2HjO0poQX8lioP+j4gg3bV5ZxGlx+kMQ
-         kyv8k3L1XaEfjc6YNMBh3aU8sZyQkPGwV6IguqJrF2ZIP8vmlMc1uTmGCxz0ndJaZzMu
-         Z0g1P+zgkgeOjg4xIlW8GnUAQNP6XH1nxB8Wn8XiRXaz9V2ndD7S0rCHH5/sDFGssyqY
-         rC5g==
-X-Forwarded-Encrypted: i=2; AJvYcCWolhvRVWdIRUcyNa0CU/ZTFhavo5viPF0JXAaUymSAHawwxDuqwzmOwL7L/yn6b9UoN2aBug==@lfdr.de
-X-Gm-Message-State: AOJu0YxCIS+fnTZDX2/QcAMag69k8n5apPzbzlxGRUJvkB2oldUVdfKo
-	xilev8oIsW/ZYVbtIjgww+X0YPywun/lHxIqWCgQ8TyKTtwMDh9nxOcC9Mx3ZJg=
-X-Google-Smtp-Source: AGHT+IGoVvQ5xjgGVUZiBpAqvZDTVOQZeDHE4baf5BHFoCkSS3iCD29Zd+r0yMrbJfjCqD6X2VOu5Q==
-X-Received: by 2002:ac8:5811:0:b0:466:b382:a789 with SMTP id d75a77b69052e-46fd0a820bcmr205198421cf.4.1738360134695;
-        Fri, 31 Jan 2025 13:48:54 -0800 (PST)
+        bh=lP3821pN2g/91p+ZqPv2fRxeJFLZ4mWs6ea+c0BV8TA=;
+        b=Qtyha/bfTZqfX7EqwokvvW3RcGk3+sCLFUH+FnZN+WpIwRTJIySvi7C1Hpk28Ho5kh
+         bhe+AjbJxlNKI14MLJy5J1txqhan6B0FUsI15DvP5b/kLpDHUhBGiTW3m+k11h7fqn8E
+         TmdcFynjj1W+a2WVIcthhteKCIZLSl8SeTBqsggNomVYbMdEpmU2IKuBWS6CdUWfouCj
+         gMNnFWOlegsgYroppSlMyLDJdtmXcVWyECpY2BpL7arVbpHABS5CXNTmxKyh9wGoNM7U
+         dWgjARLcxeAVyw4lc3kLY8+gbJWenNNGRudlOyuh0/lYTd1XYSJ1CzfFQFGfrEN2+3ZP
+         zhcg==
+X-Forwarded-Encrypted: i=2; AJvYcCW5hoG+0DRVGXvFume/XCExgVetzKgz1xAwVjraO4PlU51u3FrVmz7xaolQcy1H8+H92s+HJQ==@lfdr.de
+X-Gm-Message-State: AOJu0YzQq5mgcm32ZGzvQhI2MUIsnPl2EOfvpqnlapjqEsICdpMJITX8
+	3RCwZWUSweg/fdkCz11x1gGgqebWM5Whj9OBieTJF7XKXIKYoMNJqjPf1RXPJKw=
+X-Google-Smtp-Source: AGHT+IEGD2NfJLjfv88Qwebdjtd6KtZW/NUtXU1CTvLpzSta3V8ogvuGuSm7XgPQbQ3PB6W6usYGpQ==
+X-Received: by 2002:a05:622a:4018:b0:466:a04c:e9db with SMTP id d75a77b69052e-46fd0ae3433mr250196381cf.33.1738376249856;
+        Fri, 31 Jan 2025 18:17:29 -0800 (PST)
 X-BeenThere: blinux-list@redhat.com
-Received: by 2002:ac8:4615:0:b0:467:6771:ac55 with SMTP id d75a77b69052e-46fdcf87f69ls37104171cf.1.-pod-prod-06-us;
- Fri, 31 Jan 2025 13:48:53 -0800 (PST)
-X-Forwarded-Encrypted: i=2; AJvYcCXMzMRwYxZEWT6asni0dkpBcZLGF+rZ8neG9vJJ6sMJSshPOPk+cPo+My+tDUJRozFvp7/ylBZEV05JcA==@gapps.redhat.com
-X-Received: by 2002:a05:622a:1c16:b0:45f:788:b1ad with SMTP id d75a77b69052e-46fd0ace3f5mr223244951cf.27.1738360133235;
-        Fri, 31 Jan 2025 13:48:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1738360133; cv=none;
+Received: by 2002:a05:622a:a044:b0:467:5082:dafc with SMTP id
+ d75a77b69052e-46fdcf6b3b6ls41685691cf.2.-pod-prod-02-us; Fri, 31 Jan 2025
+ 18:17:28 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCVUeCH+2cXnEHNIN8X8lv9v4eHvaJFKjWMyVQSLMRizPBTm1pfvyP0hLgE+w9twcMJWze2V93yx3jFYWg==@gapps.redhat.com
+X-Received: by 2002:ac8:5fd6:0:b0:466:b395:fe with SMTP id d75a77b69052e-46fd0ae1b2cmr232478281cf.35.1738376248737;
+        Fri, 31 Jan 2025 18:17:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1738376248; cv=none;
         d=google.com; s=arc-20240605;
-        b=dS1ZBMakbXQR2gBzmFAe46hofSYcvG/ZaMwO3NeCTc1EVnLBCYbsndIhRkbFb+Y7gE
-         4XO/K13rD9ldnsVj+O6B9lnfvDTH71sIF3Gs/uMcyheCR8NHecVEojTavxWWL35QsDsy
-         m+fx8+XbkgHJ5hc75tbLhaGeeIjZQRRtNV7RAUX847l/hPEnFIqzWk3U3RHpjTnfuLJM
-         fbdvl8nQo/lMy6cujDjSrZ1kItxoizm30XMfy13/y4C0t5tZYzajVpv3g6ZkmS4hOhar
-         exBAE69Mxd++uuZWU4MaTmBHinENxFg7ugBtV0+ms7NizQ0ZWdy873HO89K8e3VagfEf
-         i+3A==
+        b=hMplewkbwkJ9yIK04qmVhw3SzIm1INe08OkqqEkdRQKEwt6aQhm6aIcf8Z7nmiXBwr
+         7YlM4YNN5Q8p4HZpCqp8CMHkq4nrWKzxiYDk5ChWw0GAeX3nOgiPiOZv05AO46OSc/JF
+         u3zX7A3BCk5eMHuKsiPJ9od1MN7jpT79Q6bNZegb3tRMhiYSR8UAdmAvgx6PpUxXCAaI
+         lImTq6LKH9zHWwTc+hycepL7Qo7i4XKQOX8ElWPKPivaFb+cFZc5wW39eSaGl8YJrvHe
+         gt0XAKuYOV/paFlBVCrShPx7/8GbKddKUZSFT5Mt3ppapHOkRffOUFBMUT3fNWhIR+4T
+         UAQA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
          :date:delivered-to;
-        bh=FVD5/e4JpOhLjQ4EwK8CyUFMUCyUEiCOHYLJ5EQtpV8=;
-        fh=afeQqVKmYf9Me5LKKoc1/L+JG9TzQiygF/Tjngx+Kf8=;
-        b=bdeCh8+e7IvSSio/tNHwBIxfyl4DDcEST5ncM19I8ZLDwT5LCjp3GCdO1M+EGAox7R
-         Pz15tLi6sBjiSj9tfaID4PQBmJAcNIhGiMo58rn3wPwGiiqiCiiBDPtOcqylaYx77tlT
-         Ft+twDwszZYqzjpRiyWFaodXCXFZy1wrwlj+6pWqDmBv9KwR05LnTVbwdojVZtlhc644
-         th5Tl5GrO1jR2zhWh9eaMUeAMBKGBpYmQuovn/f5LFzdfgsI8AC8Vsb+j3DiE8efkC+N
-         qVjcRTPzTl7P25f45p8D3mliva6dlHld1SJIPw3QE902/9GQzROzRtsup/AGF0TKbaFN
-         2kKg==;
+        bh=lP3821pN2g/91p+ZqPv2fRxeJFLZ4mWs6ea+c0BV8TA=;
+        fh=tV+Bar99KZAh063knxXNnwlVKIeXjOrOgjjwaSMIV+I=;
+        b=a2YIMxkaxCFuOH5wEn/RRbiYqr8ROXAh5E37uM8qTNTnBV7/KKS1btwwuEvwTIBeQK
+         SavE/RYWXY7Utn34p6EGTpSVyZns7D0QQl3eRhd8ibBqGia8RWzdkJkNC3l9x0LmPLom
+         YLb44RlNEndokSlHNz9NmajgtwJIv1FiKM16CMUzyoMjyG6EzX7I/EjBHRiNq4kSwkeC
+         85MI81HWXsDH70gcc/is9kYsfQOw8hM2bZw6U8Y42JiP6iVo/KboluVcZpVBxz2YbGOA
+         oI6jgOx31OB3JfVYaF8HaVvx5ykYs1sUcq94uxF5ebv12q9k1SfmFs25CEtiuheQlnAY
+         loAA==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
        spf=pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) smtp.mailfrom=klewellen@shellworld.net
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id d75a77b69052e-46fdf1d09a3si46092341cf.357.2025.01.31.13.48.52
+        by mx.google.com with ESMTPS id d75a77b69052e-46fdf1d3327si55144671cf.464.2025.01.31.18.17.28
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Jan 2025 13:48:53 -0800 (PST)
+        Fri, 31 Jan 2025 18:17:28 -0800 (PST)
 Received-SPF: pass (google.com: domain of klewellen@shellworld.net designates 23.24.6.165 as permitted sender) client-ip=23.24.6.165;
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-651-7pb_b_KHNmCn7ZJ2mzgY8w-1; Fri,
- 31 Jan 2025 16:48:51 -0500
-X-MC-Unique: 7pb_b_KHNmCn7ZJ2mzgY8w-1
-X-Mimecast-MFC-AGG-ID: 7pb_b_KHNmCn7ZJ2mzgY8w
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-567-e0QODHeNMG-EL7TYuyJcpg-1; Fri,
+ 31 Jan 2025 21:17:27 -0500
+X-MC-Unique: e0QODHeNMG-EL7TYuyJcpg-1
+X-Mimecast-MFC-AGG-ID: e0QODHeNMG-EL7TYuyJcpg
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B5FA319560B0
-	for <blinux-list@gapps.redhat.com>; Fri, 31 Jan 2025 21:48:50 +0000 (UTC)
-Received: by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id ADC5218009A6; Fri, 31 Jan 2025 21:48:50 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 44AFC1800361
+	for <blinux-list@gapps.redhat.com>; Sat,  1 Feb 2025 02:17:26 +0000 (UTC)
+Received: by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 3FD2B1955F3B; Sat,  1 Feb 2025 02:17:26 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.58])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AA80F1800998
-	for <blinux-list@redhat.com>; Fri, 31 Jan 2025 21:48:50 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3CBCF19560AA
+	for <blinux-list@redhat.com>; Sat,  1 Feb 2025 02:17:25 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.132.61])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EC7D519560B0
-	for <blinux-list@redhat.com>; Fri, 31 Jan 2025 21:48:49 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 05D2C19560AF
+	for <blinux-list@redhat.com>; Sat,  1 Feb 2025 02:17:25 +0000 (UTC)
 Received: from atlas.bondproducts.com (atlas.bondproducts.com [23.24.6.165])
- by relay.mimecast.com with ESMTP id us-mta-609-0u66m6wYNp-JEK8dSZFR5A-1;
- Fri, 31 Jan 2025 16:48:47 -0500
-X-MC-Unique: 0u66m6wYNp-JEK8dSZFR5A-1
-X-Mimecast-MFC-AGG-ID: 0u66m6wYNp-JEK8dSZFR5A
+ by relay.mimecast.com with ESMTP id us-mta-606-zS6KDKYgOj2wW7NJ4VXc3Q-1;
+ Fri, 31 Jan 2025 21:17:22 -0500
+X-MC-Unique: zS6KDKYgOj2wW7NJ4VXc3Q-1
+X-Mimecast-MFC-AGG-ID: zS6KDKYgOj2wW7NJ4VXc3Q
 Received: from users.shellworld.net (users.shellworld.net [50.116.47.71])
-	by atlas.bondproducts.com (Postfix) with ESMTP id 9D0DA40508;
-	Fri, 31 Jan 2025 16:48:46 -0500 (EST)
+	by atlas.bondproducts.com (Postfix) with ESMTP id 72ED840508;
+	Fri, 31 Jan 2025 21:17:21 -0500 (EST)
 Received: by users.shellworld.net (Postfix, from userid 1005)
-	id 62957100169; Fri, 31 Jan 2025 16:48:46 -0500 (EST)
+	id 339001001B0; Fri, 31 Jan 2025 21:17:21 -0500 (EST)
 Received: from localhost (localhost [127.0.0.1])
-	by users.shellworld.net (Postfix) with ESMTP id 603791000A3;
-	Fri, 31 Jan 2025 16:48:46 -0500 (EST)
-Date: Fri, 31 Jan 2025 16:48:46 -0500 (EST)
+	by users.shellworld.net (Postfix) with ESMTP id 3114D1001AA;
+	Fri, 31 Jan 2025 21:17:21 -0500 (EST)
+Date: Fri, 31 Jan 2025 21:17:21 -0500 (EST)
 From: Karen Lewellen <klewellen@shellworld.net>
-To: Rudy Vener <salt@panix.com>
-cc: Linux for blind general discussion <blinux-list@redhat.com>
+To: Jeffery Mewtamer <mewtamer@gmail.com>
+cc: Chime Hart <chime@hubert-humphrey.com>, Rudy Vener <salt@panix.com>, 
+    Linux for blind general discussion <blinux-list@redhat.com>
 Subject: Re: more gui obfuscation
-In-Reply-To: <Z5zsPmVhEhvMGaTL@panix.com>
-Message-ID: <Pine.LNX.4.64.2501311647400.2141668@users.shellworld.net>
+In-Reply-To: <CAO2sX33D2BGvtCvi55_UeMrDuBx1xePHfDx-Ycqvn8KPd8CrFQ@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.2501312112240.2145039@users.shellworld.net>
 References: <Z5xIBQ5itO0f071J@panix.com> <Pine.LNX.4.64.2501310351040.2129007@users.shellworld.net>
- <Z5zsPmVhEhvMGaTL@panix.com>
+ <Z5zsPmVhEhvMGaTL@panix.com> <6aa20dc0-b64b-f866-090a-a65e80f3dc05@hubert-humphrey.com>
+ <CAO2sX33D2BGvtCvi55_UeMrDuBx1xePHfDx-Ycqvn8KPd8CrFQ@mail.gmail.com>
 MIME-Version: 1.0
-X-Mimecast-MFC-PROC-ID: TEIAuXksPv6lkRu1EMOjpcXtGL672QmRo7KTbzqi2j0_1738360126
+X-Mimecast-MFC-PROC-ID: ForHMYpI8lHCB7tVem0Jhb1199lkaHGYnOuK0qkClJc_1738376241
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: H2-PAC2-IUFxMehY0paPZR-iX_8dDE9rvegOLKOhIfc_1738360130
+X-Mimecast-MFC-PROC-ID: lxoQRNWXcTAyEQ3UlpKwueqtU_9Aoyt2reF4kbQNFXc_1738376246
 X-Mimecast-Originator: shellworld.net
 Content-Type: TEXT/PLAIN; charset=US-ASCII; format=flowed
 X-Original-Sender: klewellen@shellworld.net
@@ -154,58 +157,62 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Rudy,
-I have no Linux setup as I have no way to use one speech wise.
-I do hope those instructions help others however.
-with appreciation,
+Hi Jeffery,
+I cannot speak to the personal logic, but I can share a reason why, 
+depending on the project, I might choose .wav.
+granted I am a radio producer.  For high quality broadcast work, one wants 
+the least compressed edition of a file..even if that file is very large 
+indeed.
+Compression can happen with the m classes, stripping away of things.  Wav, 
+and  Aif, are considered to be reasonably lossless, and in theory better 
+sound quality.
+Just a possible rational.
 Karen
 
 
 
-On Fri, 31 Jan 2025, Rudy Vener wrote:
+On Fri, 31 Jan 2025, Jeffery Mewtamer wrote:
 
+> Is there a reason to have yt-dlp convert extracted audio to .wav instead of
+> just leaving the extracted audio in its original .m4a(a tiny fraction of
+> YouTube content) or .opus(the vast majority of YouTube content)  formats? I
+> mostly use yt-dlp for batch downloading entire channels for offline
+> listening on my Senseplayer, and other than having to rename .opus files to
+> .aac, have yet to have a problem with playing downloaded files since I
+> added the option to extract audio to my
 >
-> Hi Karen,
+> ~/.config/yt-dlp/config
 >
-> Yes.
+> file, and I would expect mpv to be less picky about file extensions.
+> Converting to .wav just seems like a waste of disc space(perhaps no an
+> issue for individual files you plan to listen and delete, but adds up if
+> batch downloading from a newly discovered creator with hundreds of videos
+> in their backlog), and conversion to an obsolete lossy format for archival
+> just seems bizarre.
 >
-> Put the following three lines into a script file, e.g. ytlisten
-> url=$(cat url.txt)
-> yt-dlp  -q --no-part --extract-audio --audio-format wav -omyaudio $url
-> mplayer myaudio*wav
+> And incase anyone finds it useful, here's the contents of my
+> ~/.config/yt-dlp/config:
 >
-> Make sure to chmod 755 ytlisten, copy your youtube url into url.txt  and run ytlisten.
-> This creates a wav file and plays it with mplayer
+> -o "%(title)s.%(ext)s" -x --cookies-from-browser firefox
 >
+> the -o  and what follows prompts yt-dlp to save downloads with the
+> title of the video and the file extension, the default
+> behavior gums up the filenames with the gibberish Google uses to give
+> each video a unique ID. the -x tells yt-dlp to extract audio without
+> doing further conversion or saving the original video file, which both
+> greatly reduces disk space requirements when downloading whole
+> channels and saves the hassle of manually extracting audio afterward,
+> and the bit about cookies cuts down on downloads failing due to
+> Google's anti-bot measures. And having all of this in the config file
+> means I can just invoke
 >
-> Wav files are big, so if you want to keep the audio around for later, I suggest you convert the wav file to mp3 with lame.
-> e.g.
-> lame -m s myaudio*wav  -o myaudio.mp3
-> rm myaudio*wav
+> yt-dlp [url]
 >
+> at the command line.
 >
-> On Fri, Jan 31, 2025 at 03:54:27AM -0500, Karen Lewellen wrote:
->> Hi  Rudy,
->> Does that include specific YouTube links?
->> For example, I *very* often get a YouTube link sent via a discussion.
->> Even better, say I am reading an article at rolling stone, something I can
->> do quite well with lynx.  there is a YouTube link in the article, and so
->> forth.
->> Can you, as you indicate, scrape and play those?
->> Thanks,
->> Karen
->>
->>
->>
->
-> -- 
-> Rudy Vener
->
-> Beast Hunt Vol 1, containing my short story Dragon Wing, is loose in the wild: https://www.amazon.com/dp/B0DPN1QGGJ
-> Latest Limerick - California Pipe Dreaming Of Secession https://limerickdude.substack.com/p/california-pipe-dreaming-of-secession
-> Website: http://www.rudyvener.com
+> Though, if anyone wants to suggest other useful things to put in my
+> config file, I would love to hear them.
 >
 > To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
->
 >
 
