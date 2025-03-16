@@ -1,151 +1,176 @@
-Return-Path: <blinux-list+bncBDGI3AUYYYCBBM7N3O7AMGQEQGZI4XQ@redhat.com>
+Return-Path: <blinux-list+bncBDM4LSNO5MHBBJNH3S7AMGQEVPT2P5A@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com [209.85.128.199])
-	by mail.lfdr.de (Postfix) with ESMTPS id E2C20A6365A
-	for <lists+blinux-list@lfdr.de>; Sun, 16 Mar 2025 17:05:09 +0100 (CET)
-Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-6fda1dcbdf1sf35508577b3.1
-        for <lists+blinux-list@lfdr.de>; Sun, 16 Mar 2025 09:05:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1742141108; cv=pass;
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mail.lfdr.de (Postfix) with ESMTPS id 72AA8A636E5
+	for <lists+blinux-list@lfdr.de>; Sun, 16 Mar 2025 19:08:40 +0100 (CET)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-47693206f16sf78927671cf.1
+        for <lists+blinux-list@lfdr.de>; Sun, 16 Mar 2025 11:08:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1742148519; cv=pass;
         d=google.com; s=arc-20240605;
-        b=TWcJ1p8B5QlLq8IDofKmJS20EzH6Oea2w2Fl+LcxudY3srzg/Mwb4F50tjoSn9NpRf
-         EU1Jya8LGdc3XELwAorTABP7uHcXZY2NnosBpCtmq52qTE/BPnXklqHV2XgY+a1THXe0
-         cJ8evI3aIP3p9MRXejxRg8fOd2y606L3+VfXoQrGno18m+tXD8pb8KuziP6LUvKO0fb0
-         OIeZBX/H5o1cMCy+2LJ64zfTbMkI81CWWe/qXWgIHtMbYaVYQEI26Y/3quKaP+cOvxzw
-         TGB1DTtW0YjcQ7o7Rcj3+BEe0yPelAYIM0Y/u3g/rJNNHeScyVcRGn/MwjJR17lo+AJC
-         LGXw==
+        b=bBWeZsJxMgUjlnlOA81b+nf7y81967nu+Htk+sllG+gKdFhOVKXmQ6xm50lQPOuJN2
+         mKcxdwxkWGr9r9e32jExTeM4uqC40YcOsodFNexh+K3Kq7keFIXYKSM+OCEUNiC2ZrCw
+         rSAPcplSsIixTa8Do+qmOPxViFyuz4rJe5W8hVrIcBD11FTwynnuJVYS+HjuyNvqRy8Y
+         Q9FQl9xR8+4qaz7JPLV0Tv2FH0/Z9iu1XW42pxgtiTJhiX1fOSKrVlGvWYJzr7yAEj/9
+         UWlz6F97mVxgB0vIru1yN1/Ejh7Wclo+L5PyE0NsJOJhw37ydLnemK8a4mYcK7q0VwLS
+         gvww==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-disposition:in-reply-to
-         :mime-version:references:message-id:subject:to:from:date
-         :delivered-to;
-        bh=ZDihCWfRTm5uJlErIeSfHBr0lCPLbAjgEVmjwz5XYbk=;
-        fh=vmrNQZNuQWTGNswL8HYeHS9hQA5Ux9efYL3so9pV4b8=;
-        b=ARnlWWzElBxxiF7sg80+5HITD99zEKy9HtHXpIWDP5by26gRJyREOOJbWNHZB3d5bE
-         rNGNhui5d49b3m3v2owwrKQ99wa8ZY4NWk9RC34jaUVyv5r6XoWuV0qvXxHUVVh84RAR
-         EdwEAcw10mC3lo1e+XbygpljiDTc00jDAKAIDnafFZnkxjBZUyxYCTwdooGJr5T1NYkN
-         kWhM/JLJJZjiUdVZrmldzsVoeZGvpKdToPozSO4XS8y1JYUMsoyxxbnvrEPo79Rol5YK
-         XwBHN2ykFY5qhhOf0V3wFk9a07E/FJbyU+hWF4JkhKxSCxOTD1TaklGYu0cJP/IHFWKV
-         TQAg==;
+         :mailing-list:precedence:reply-to:content-language:ui-outboundreport
+         :in-reply-to:from:references:to:subject:user-agent:mime-version:date
+         :message-id:delivered-to;
+        bh=uh8s5qQQ55AAXRI0+DgpAx/itRPHepVuRdwtkBnYHG8=;
+        fh=Y75hvV48yJZqHey2lb09Il4Xbo5hriHRMmaurSpxT+8=;
+        b=XhMHZ22DMS78AVZJSVscGuMZwBevuL+H946BnuCt4nmgh07wAcGaHrkYfzIEoQDh80
+         gsEmAxrpi/2jljYVQvpVB0HEn1PatTTyGU9l3+j652Qym8A0mgPYBxzggihzWgdL7u7D
+         WcucfoV+MN5u+TaVGVfuz/khexrNgGXBBZ7lt1QgCFG6hTZ0VPBLwiljN6G24XGgZRa2
+         sOaCvukxGMktHkpkCiI6KNHwdHkNmdynVk9zkNAKa/iQYQX7g0Ln4fF3JTeplwzmKGW4
+         5d7u03fSkM3pbiQxhSSR7L8lsmmwQeUaN6Lh5fe31wek6u2zQ+FtpyQ9vrtJ0CC9kCHU
+         Ztew==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of salt@panix.com designates 166.84.1.75 as permitted sender) smtp.mailfrom=salt@panix.com
+       spf=pass (google.com: domain of johndoe65534@mail.com designates 74.208.4.200 as permitted sender) smtp.mailfrom=johndoe65534@mail.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742141108; x=1742745908;
+        d=1e100.net; s=20230601; t=1742148519; x=1742753319;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
-         :content-disposition:in-reply-to:mime-version:references:message-id
-         :subject:to:from:date:delivered-to:x-beenthere:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZDihCWfRTm5uJlErIeSfHBr0lCPLbAjgEVmjwz5XYbk=;
-        b=wpEioR/ohnlu+HbD5ua2PPKl9DK1mGp2b8kEmIPesRPcIu+X0M3o9WSfFKr/VYYxGo
-         5D6hcFaFa/EGfMcs3L+2/W7p4kt5aLc14ugn/M/XaVKM/KPteqZknhdnlebtGscj248B
-         hD1buTnDow7NMXwFBT/K91iU3OfyuzHTpPdbqziyf0TY04bcZXhccYSl0wRYcAmmyRRH
-         Gf/5XO9zeWUzIXpZAmxx5Ya/hCQ87u8XpFQ97+g6NC4imTUbnSb0NVorrvwWww0GHaYb
-         n6Pt7mmHrlfQ+cb8nbIC/kOdB1d3PBZI4KTakEQAez/5xGj8rQfkvPqfNNI2NAKEUO/E
-         8B5Q==
-X-Forwarded-Encrypted: i=2; AJvYcCUd/stneu2dUM55tfW4OnzIkccPh0659wSmvULkFyKwk6nlt8Qt17e+waoyRho+zd0tlwaNQQ==@lfdr.de
-X-Gm-Message-State: AOJu0YxLQUnV+eTsW1Y710vkrs0Cps2ymR9JIut98CHSa5RiREUCZl6u
-	PepM1VjbjEkBkdKyosCBPpqNmF6p759Z/PVeXvHJEcssX22t/ZiPgBG0TmiieoQ=
-X-Google-Smtp-Source: AGHT+IEDyCd+GDKrojiPujffmgdhfvDxEanljjZ6LolMzOO1GdsKIbzAwo05o/FKJ6iShukVVRy5ug==
-X-Received: by 2002:a05:6902:2008:b0:e5e:23c5:a8c8 with SMTP id 3f1490d57ef6-e63f652fe3amr11301089276.22.1742141107942;
-        Sun, 16 Mar 2025 09:05:07 -0700 (PDT)
-X-BeenThere: blinux-list@redhat.com; h=ARLLPAIdDNhTkNohMDVu1FktHxizQGHRwvzYgKYVTqrEqoduOQ==
-Received: by 2002:a25:7e86:0:b0:e61:1c4c:6d6b with SMTP id 3f1490d57ef6-e63dc3cae07ls960269276.2.-pod-prod-02-us;
- Sun, 16 Mar 2025 09:05:06 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCXzuSY/lR5TKfCMg6KPssUfYqo6kNUlGY5kGmW2ZcaqLHhLWeafCMik2auAJSmmC0GY6zn+2hYS4hXFYw==@gapps.redhat.com
-X-Received: by 2002:a05:6902:2191:b0:e5d:defb:3774 with SMTP id 3f1490d57ef6-e63f65e2699mr11627377276.45.1742141106429;
-        Sun, 16 Mar 2025 09:05:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1742141106; cv=none;
+         :content-language:ui-outboundreport:in-reply-to:from:references:to
+         :subject:user-agent:mime-version:date:message-id:delivered-to
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uh8s5qQQ55AAXRI0+DgpAx/itRPHepVuRdwtkBnYHG8=;
+        b=paPgfetO6e/CtwtMBjWOC+daj/F4rSnFznsaqJMdpMjw+iXPy2qRMECUmoz14BBL9I
+         2OAlZB85rpwTZ5pGl3SewESKH7KomyIPTxXDma5hUsvJJ2GTP5jH/v3piujd3bU5jn8F
+         FUoGV0vASi1yCb+WBjGVw4bbN5l704wk9Fiovc17KDQOh9NC6W8pemkR5g4aid6rDDjk
+         pUZ7uSmBXacjUuxDlDUrd9/PFSMt3HriwFxAkk6y8h2w3s+U31zvdYyWt4NfJNM+6Caz
+         RmEEU4DrhLlSqxRN4wujq830ho/PyKLM3F/wWKH4IAz4wFFx14+gEzWumCFQuhptb+1U
+         ryOw==
+X-Forwarded-Encrypted: i=2; AJvYcCV9hvJ/U6MQNRo59thTMua0IfF3AAa+NfZ3wC0ysZDgaKHrMzBi+Y/oVoIU8zMtBsKgfhamAw==@lfdr.de
+X-Gm-Message-State: AOJu0YwHrZWvql1n3DQfCsfsOc0QBV3nR9b30nj7dfTddZgd4sI/JKrE
+	4knOIE2ukuN5o3FWvkS50a2pXnMImhY8JeA0GVcdXBOo0AkmpKXeK0+qOyoNDo0=
+X-Google-Smtp-Source: AGHT+IFW2t45sj1semnuUpuJMuIVpTwDvjFKxAqpNiFe0APXUwckKrNM3i6ZIuaHgyKIJ2kIUnG6OA==
+X-Received: by 2002:ac8:7f56:0:b0:476:7b0b:3110 with SMTP id d75a77b69052e-476c812fd86mr168122301cf.20.1742148518591;
+        Sun, 16 Mar 2025 11:08:38 -0700 (PDT)
+X-BeenThere: blinux-list@redhat.com; h=ARLLPAJHzTgzkTvsZ6UaTYCG4LWcIK5Wa1OBNh/7CLLoXj9Jlg==
+Received: by 2002:ac8:7f0a:0:b0:476:9198:df22 with SMTP id d75a77b69052e-476b7d9a2f0ls69651231cf.1.-pod-prod-02-us;
+ Sun, 16 Mar 2025 11:08:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUwBYHgbRqT6O3wSC0HmWgwiKz1D76TTExjpkuoUD4Xx6wU2FwJUyOD91TwuKTzMvnWkAUgrCm7bJ81Zw==@gapps.redhat.com
+X-Received: by 2002:a05:620a:46a0:b0:7c5:5d13:f188 with SMTP id af79cd13be357-7c57c80f088mr1215184185a.26.1742148516703;
+        Sun, 16 Mar 2025 11:08:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1742148516; cv=none;
         d=google.com; s=arc-20240605;
-        b=ObyMr67dfl8CgEu//9x9EF7Dpas2HWoX0VAQQ6Z+fFdjbzCX/1RaK4zuFyyS2b/eHT
-         9YjrXz4lv+CMJwFBtSsmPeyHPOqkotb7qBo8MfAUuDpqHMnOPiZxQmhhN766hjxAl3av
-         oPVi93VeZUXmwwh1lYifIV/U+9ID5QcRyLCwTdofdalW5pepPmHqgIVLRXhlI9Eius53
-         YhymswK9aO80BDJBrTMD9v9WkVHHSqEF9kQMwY2H/zjum4rXa24Y4wCrJUTPb1lNuIMz
-         QqKoui3xs0zDhFi7XDBCD+1E2e10gM+2wKD0TaduYlXdyBccb9oBUgh44PFoIK2cuA5u
-         H1mw==
+        b=De483Nzjgr/pYdQjr578u4VQsoPOCpaY3xZbUasJtvLGiUO/hYdpBILVHWvgyYC0h2
+         uiDEpj4k+WWQznVmuhWFq7oxqgh8NIQZ1oGvc1G3fkcv4TJOwPX6IQv4Mjelbe8U9CRC
+         nEMTOmlijynxKSisiJSyshZmvAy5d7T6xSDJgoHjZsE11elELM4uFGZ/tuZt7oZaY7Pb
+         YXmdlKIwrc9Ccn9La8BGdZiXwCOm/gdd+MnIkVPUyb59TxmlLqz0JnF83Eu/mEzfkiWu
+         gsCJyqK7ntw2dZCdnzXHDVnBegLzv9G6sp3DazDJlrTZnUVl7xGB1yUuxXiVN1zVQw/n
+         c6fQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-disposition:in-reply-to:mime-version:references:message-id
-         :subject:to:from:date:delivered-to;
-        bh=NVmA9u79F3mzGMvrEWfonbhE8SJB4RPvG9si5b61L4M=;
-        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
-        b=CNg93bepby3qsPMJLG9XKYJb6j8Xhix30xePM9M6y4Gam6NMConRvVF4oLiSNjA8Tg
-         VD3q4fK4tOHBttM38m+uLisPAfXUJufBYScDVgaCBY23jG7HtGTPXwv124MNfDMMtXfy
-         kq9fGVaJfyCXwOciMysbjbQENl7BeiV6zcCIkwqJzCrHDcghtZw3glNFPVdghYMTIx58
-         z3eUmdGJ/+re1Lek6oIrNHcVN1l3TEgQI46UzCzmOPGU16ZLYTYL4r1LRy8YtpODuXb9
-         06cMdzZMDzLTu9Oc+mBe7xZF8FiMiaxtmq4y00baHZFGSS3zcOxq1RMNVzCxaQ7rrkax
-         qaRw==;
+        h=content-transfer-encoding:content-language:ui-outboundreport
+         :in-reply-to:from:references:to:subject:user-agent:mime-version:date
+         :message-id:delivered-to;
+        bh=XBHcXHhQ25hJgLQWRFKM8edoLiGdQBbowwNXwpXJ2E8=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=cdfFfgaOAvxfwnVI5hFtJNL0vzdyKTnQbL+/4A5XBI2jPyKpW9C04qWVnH7CCTlJuW
+         GYZGYPopEe9J4ySm87sVk5xcmlZdASIC9k4tkqAYHBkBumU5pTWmGLfEMZKkHGNojl2D
+         D1IsVbaHs7zXapnHe6RgAgPUy2qAvszB98ID+YMTQGOq2NzB0xsZC0ELT9TAtK/h1rW5
+         vOtEg/gcM4Kp1KSMw97/EtT7T+WPYrVjsmreRNObofiVgnerWT2qTQv6ia7gHYr2wnxP
+         /LGI9drPU4Yiz7tfIwbHuvfMmDH8k2r9ddW9k9FhsXeokAkItqnH/hz7HP5gvLjT8YPx
+         ruMA==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of salt@panix.com designates 166.84.1.75 as permitted sender) smtp.mailfrom=salt@panix.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.132.61])
-        by mx.google.com with ESMTPS id 3f1490d57ef6-e63e5772ee5si6646047276.495.2025.03.16.09.05.06
+       spf=pass (google.com: domain of johndoe65534@mail.com designates 74.208.4.200 as permitted sender) smtp.mailfrom=johndoe65534@mail.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.128.131])
+        by mx.google.com with ESMTPS id af79cd13be357-7c573d1a85bsi813773485a.583.2025.03.16.11.08.36
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Mar 2025 09:05:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of salt@panix.com designates 166.84.1.75 as permitted sender) client-ip=166.84.1.75;
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+        Sun, 16 Mar 2025 11:08:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of johndoe65534@mail.com designates 74.208.4.200 as permitted sender) client-ip=74.208.4.200;
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-70-P3kyl20JOj2nT_MDsMRlxQ-1; Sun,
- 16 Mar 2025 12:05:04 -0400
-X-MC-Unique: P3kyl20JOj2nT_MDsMRlxQ-1
-X-Mimecast-MFC-AGG-ID: P3kyl20JOj2nT_MDsMRlxQ_1742141104
-Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-53-mqsUKaU-NnWx9OE6LcuaKA-1; Sun,
+ 16 Mar 2025 14:08:35 -0400
+X-MC-Unique: mqsUKaU-NnWx9OE6LcuaKA-1
+X-Mimecast-MFC-AGG-ID: mqsUKaU-NnWx9OE6LcuaKA_1742148514
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2CA7318004A9
-	for <blinux-list@gapps.redhat.com>; Sun, 16 Mar 2025 16:05:04 +0000 (UTC)
-Received: by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 244381954B33; Sun, 16 Mar 2025 16:05:04 +0000 (UTC)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 87E8A19560AB
+	for <blinux-list@gapps.redhat.com>; Sun, 16 Mar 2025 18:08:34 +0000 (UTC)
+Received: by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 4A6F21828A84; Sun, 16 Mar 2025 18:08:34 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.90])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 21C891954B32
-	for <blinux-list@redhat.com>; Sun, 16 Mar 2025 16:05:03 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.132.61])
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.58])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4795B1828A83
+	for <blinux-list@redhat.com>; Sun, 16 Mar 2025 18:08:34 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [170.10.128.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A2E54180AB1C
-	for <blinux-list@redhat.com>; Sun, 16 Mar 2025 16:05:03 +0000 (UTC)
-Received: from l2mail1.panix.com (l2mail1.panix.com [166.84.1.75]) by
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CB32219560B6
+	for <blinux-list@redhat.com>; Sun, 16 Mar 2025 18:08:33 +0000 (UTC)
+Received: from mout.mail.com (mout.mail.com [74.208.4.200]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-14-ws9LuacpPVSy1kEDpBIX2A-1; Sun,
- 16 Mar 2025 12:05:00 -0400
-X-MC-Unique: ws9LuacpPVSy1kEDpBIX2A-1
-X-Mimecast-MFC-AGG-ID: ws9LuacpPVSy1kEDpBIX2A_1742141100
-Received: from mailbackend.panix.com (mailbackend.panix.com [166.84.1.89])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (1024 bits) server-digest SHA256)
-	(No client certificate requested)
-	by l2mail1.panix.com (Postfix) with ESMTPS id 4ZG2XQ6nXxzDS7
-	for <blinux-list@redhat.com>; Sun, 16 Mar 2025 11:46:46 -0400 (EDT)
-Received: from panix5.panix.com (panix5.panix.com [166.84.1.5])
-	by mailbackend.panix.com (Postfix) with ESMTP id 4ZG2XQ292fz4qB3
-	for <blinux-list@redhat.com>; Sun, 16 Mar 2025 11:46:46 -0400 (EDT)
-Received: by panix5.panix.com (Postfix, from userid 20196)
-	id 4ZG2XQ1ysPzfYm; Sun, 16 Mar 2025 11:46:46 -0400 (EDT)
-Date: Sun, 16 Mar 2025 11:46:46 -0400
-From: Rudy Vener <salt@panix.com>
-To: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: firefox or chromium Capturing A Table to a Text File
-Message-ID: <Z9byZpI1w_r3jNYU@panix.com>
-References: <E1ttmRL-000ND0-2x@wb5agz>
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-663-edTVMxBiOESZ-3RPgogmYA-1; Sun,
+ 16 Mar 2025 14:08:31 -0400
+X-MC-Unique: edTVMxBiOESZ-3RPgogmYA-1
+X-Mimecast-MFC-AGG-ID: edTVMxBiOESZ-3RPgogmYA_1742148510
+X-UI-Sender-Class: f2cb72be-343f-493d-8ec3-b1efb8d6185a
+Received: from johndoe65534.mail.com ([81.164.0.33]) by smtp.mail.com
+ (mrgmxus004 [74.208.5.15]) with ESMTPSA (Nemesis) id 0Lz53m-1t7hdu1VhI-00r3zI
+ for <blinux-list@redhat.com>; Sun, 16 Mar 2025 19:08:30 +0100
+Message-ID: <19bde197-e22d-4f2e-a69d-2a47f1ac33f9@mail.com>
+Date: Sun, 16 Mar 2025 19:08:28 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: firefox or chromium Capturing A Table to a Text File
+To: blinux-list@redhat.com
+References: <E1ttmRL-000ND0-2x@wb5agz>
+From: "'john doe' via blinux-list@redhat.com" <blinux-list@redhat.com>
 In-Reply-To: <E1ttmRL-000ND0-2x@wb5agz>
-X-Mimecast-MFC-PROC-ID: MheB6NAo67WWtWk1AVURRuUrUWxPA75_F8FVd7NE-84_1742141100
+X-Provags-ID: V03:K1:4DJhIAceBO7KDqnKBJbB/nAjDkrtBghtNmX9/z4HsBq2+yaOrTA
+ JOqW32LUuxqlcAYFQZD6OvYKWgFI4rFt+cxwS3uuvyDtDU28T0Sit7EiInqIqMTEcS3KV7Q
+ s+aYLWQqyitcSTGo3luEafxQTpsClhJzWx4cTTdsFA7FyoqTb/V3gGcnqC6FzMFZwqVhOwv
+ ICtJEUor9Bf7nvQbm2flg==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:vXp+DNyHoSs=;8BEbYK3S1xxqcTO3MEFoJT1eMrd
+ ZlaPoyQXaa3/H+ROiIb+T27l9MnXQ/9gwyTsPmShgH8FqnDYM47x0fo4FmiTSk1aAfLUnQ7ZR
+ ePNS3PAxTQ5yMZIAV22WH1ZfhTPo1HIqo26jOWeQrZNqaQb0mHT0ZS4cGv6ZYXUQMQyuPR/T3
+ z4G5xUgx9DrWEH7n9SSNIqPOViOO5Zggskdd4QyaTUL2r3RGUShdRCEfefA/BFAO6isN7BGWk
+ eBvWJ2Zj5GAObUGFGiW+uNgaoI4F59gwBx2GtVXrKyCWf8HVwgDKmguGKgYKnKnNd/WzVGKfl
+ IDCsGxflWSZnhTZ3Ug1QkOMevOTmpzliLEOuGLoEjBbCGLs3lOe6+Tp4cAppQHgNJHZPGtFlB
+ GmZGy4GneHu83a32Lki6i1JbonFzzMrM+tyI1HN0QI6laCO4gFZocvyQmkNzdKnVorqhkN580
+ rRok7Lr8P3OF0PjragmgZxhJuoj7IFx/0A5I/c3s2uiYnQm7Qm5S0/nl/b4Qi4p+VblMKYJfz
+ R2o1PMnCtnICZ/zmjPi91mUUsUuhADqTfuxfvzIiHP+1wKEBp3s+4ypau/maQLcrBWvob5opn
+ aKAvJnQlwI5V/agnLUebW9T0Esyym3foBQqsajeA0iK8dC9jJuyrPptTc7UI1c93jtHmHjToA
+ thM5X0djzy5UiTyVshXDP0p5/YviZAiNbedIxaixoGCzUAylHZMD+yFEBeRjPY3BEVgQ9Oz+I
+ hjjhoNZ/pwuqoGoJ4P+m32a3dYQl0+zlSamuTf39RuE6gQhFH0IyyjDgp/ACunmaDjPi8jf0A
+ oGMYK0xj2ux2t5d7TP+BiGk8Kv7Qhz2OwDKU13M54RzRGO1uww1oE9sy/IsMg/mUYl5CoDWtS
+ TpJDAGBMjSHzbkRHxL/mv4ZoaTyjvVo0i/k5kPyr5zB4Jz5NqyH8Kw3VFHi+BEt+pogvcvWpi
+ tKTOJbWPsirfu8KUPSc6Z/+JjmhELbHvs1h2INA9z13cG63VNx2K3aHt4zGFOhkG9BQi2aI5O
+ UW0GEDb84xCRwBuXn4SFZNmxFRg7mhQzXvQVmmGJ8QwrrTDdj1micrW3R8yn+qNKHGdBg1yi1
+ SFd14wdl5N3s8ViC3D/1XqEd0i2X8B73ZOUwhoZ2HFcUbTPleqvweHAZT9+yDjSjSs2m7XmeQ
+ +BAPk0UnWJ5hvjZ/xsuWbdYg7lw4bKG6HPm2CFo1wpxk5iMNzAq4Pg2csH5ylijyua4OyaA9j
+ pEyI+qCSi3ei8Vg9oTE1QLk0F907+feyI6WyNqFPKkQatBXOpzOrnyIm0SWP4bpwFf0q/wta5
+ //b0/Z5MmQ3ljzQ/Yn1/6KSpEDhNoLMIEi4xroStBazvuN74kkfTip/aY52VZcOZNlT+NEu54
+ bj1ilQf3/SuIs9lpuepytFYmLl/l4CvvyP1o1/se18EDwStnwI0h2C6En5jfSCIMx+FoQAbtY
+ 4PUwKmzQWNi1veeh6uIimehStEvg=
+X-Mimecast-MFC-PROC-ID: rA0NsLRwolYfqKs2e73jniSal570_mxzRSZCCKl2yt8_1742148510
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: f8U9y1JWikzSw28s0zP47o_y-mmJGEK8LximeDuRyiU_1742141104
-X-Mimecast-Originator: panix.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-X-Original-Sender: salt@panix.com
+X-Mimecast-MFC-PROC-ID: XNekxOfv5pzozYbweCUZyQW0lLUrFo8wFvqE9Z_ErCA_1742148514
+X-Mimecast-Originator: mail.com
+Content-Language: en-US
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-Original-Sender: johndoe65534@mail.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of salt@panix.com designates 166.84.1.75 as permitted sender) smtp.mailfrom=salt@panix.com
+ domain of johndoe65534@mail.com designates 74.208.4.200 as permitted sender) smtp.mailfrom=johndoe65534@mail.com
+X-Original-From: john doe <johndoe65534@mail.com>
+Reply-To: john doe <johndoe65534@mail.com>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -157,40 +182,7 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-You could try locating the temporary files containing the rendered data created by firefox.
-First create a script containing the command
-
-grep -l "some.*unique.*string.*in.*the.*display" *
-
-Call this script stringhunt.
-Then cd to locations where firefox may be creating its tmp files, such as /tmp for example
-and run stringhunt.
-
-If you get a filename,  run stringhunt > ~/myfile
-
-Now myfile contains the name of the rendered temp file which will probably be long, complicated andtotally meaningless.
-
-If this actually works you can manipulate the file, examine it or edit it with something like
-vi $(cat ~/myfile)
-or other tools to try extracting the actual data.
-
-On the other hand this might not work because I haven't a clue if firefox even creates temp files of rendered text.
-For all I know it is all done in RAM and no files are created.
-
-Good luck, and may the farce be with you.
-
--- 
-Rudy Vener
-
-Beast Hunt Vol 1, containing my short story Dragon Wing, is loose in the wild: https://www.amazon.com/dp/B0DPN1QGGJ
-Latest Limerick - Schumer's Choice: Trump Wins Or Dems Lose  https://limerickdude.substack.com/p/schumers-choice-trump-wins-or-dems
-Website: http://www.rudyvener.com
-
-
-On Sun, Mar 16, 2025 at 06:45:59AM -0500, Martin McCormick wrote:
-> Is it possible to save a table to a text file in either Chrome or
-> Firefox?
-> 
+On 3/16/25 12:45, Martin McCormick wrote:
 > 	I just had a heck of a scare at our house when our ISP
 > had some sort of day-long melt-down that bricked our 2013-vintage
 > Netgear router.  The router is actually fine and came right back
@@ -198,7 +190,7 @@ On Sun, Mar 16, 2025 at 06:45:59AM -0500, Martin McCormick wrote:
 > working properly again but I think it is time to retire this
 > router and go with a Linux or FreeBSD-based router that lives on
 > plain ASCII configuration files.
-> 
+>
 > 	Our present router is a NETGEAR Router WNDR3400v2
 > and probably might make a good access point as the hardware seems
 > to be okay but I am sick and tired of dealing with the web
@@ -207,65 +199,43 @@ On Sun, Mar 16, 2025 at 06:45:59AM -0500, Martin McCormick wrote:
 > rather than what I call the easy way which is,  Edit the files in
 > question.  Give the system a n update command and you're good to
 > go.
-> 
+>
 > 	For 25 years, I ran the DHCP and DNS boxes at a
 > university before retirement so I know what I need to do.
-> 
+>
 > 	The Netgear router has never been very blind-friendly
 > because every browser I have tried on it has some sort of issue.
 > Somewhere along the way, I was finally able to change the
 > password because it comes with a default password that one should
 > always change unless you want to let all your neighbors share
 > your WiFi.
-> 
+>
+
+I always buy a router that is OpenWrt capable for that reason, the one
+you have looks to be capable! ;^)
+
 > 	I could reset the router to gain access to it again but
 > that would clear out the dedicated IP address tables I created
 > over time.  Those tables are visible as I look at the "attached
 > devices" tables so if I can capture those to a file or files, I
 > can make the ASCII tables in to the sort of files that the ISC
 > dhcp server uses which are ordinary text files.
-> 
-> 	Right now, when it prompts for a password, nothing I
-> thought I was changing it to works.  I even tried the old default
-> password and it no longer works either.
-> 
-> 	I tried backing up the router to a file which is a good
-> thing anyway since all the settings including the rotten password
-> are saved but this particular model of Netgear router uses some
-> sort of proprietary format to the backup file which would be a
-> major project to try to reverse engineer.
-> 
-> 	For those interested in such things, a number of folks
-> are using mini PC's loaded with an open-source router program so
-> you have to get a mini PC with two network interface cards and
-> install Linux for FreeBSD depending on what router software one
-> needs to run.
-> 
-> 	One NIC points to your ISP and the other is your home
-> network, usually some private number space such as 192.168.x.x
-> 
-> 	The Netgear device has a mechanism in it's web GUI to let
-> a person recover the system password but, you guessed it, the
-> process only works on Internet Explorer, firefox and chrome.  It
-> specifically doesn't work on safari which is what I used the time
-> I tried to change the password but I've changed it to some unknown
-> garbage and can't seem to get chrome or firefox to help me any.
-> GRRR!
-> 
-> 	Anyway, right now, the Netgear is good so I want to copy
-> the DHCP tables to a real good old text file and never see
-> another web GUI on a router in my house as long as I live.
-> 
-> 	Seriously, web GUI's aren't evil but there are no
-> standards for them so for something that is mission critical, one
-> needs a basic lo-level connection like command lines and ASCII
-> text.  They usually always work.
-> 
+>
+
+You could use `rping` utility to discover what IP and associated MAC are
+used on your network.
+
+
 > Thanks for any ideas on capturing the tables to a text file.
-> 
-> Martin McCormick
-> 
-> To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+
+If you look online, the wndr3400 looks to be telnet capable with a
+specific packet.
+
+As long as the TTL for DHCP leases is long enough, you should be able to
+change your router without losing the reserved leases.
+
+--
+John Doe
 
 To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
