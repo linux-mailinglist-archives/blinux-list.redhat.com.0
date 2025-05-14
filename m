@@ -1,198 +1,168 @@
-Return-Path: <blinux-list+bncBCV3N6GOXMCRBCHMZLAAMGQEMKLBM5I@redhat.com>
+Return-Path: <blinux-list+bncBC53745Z5QKRB5NPSPAQMGQEKVAGHHY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mail.lfdr.de (Postfix) with ESMTPS id 09C46AA58CD
-	for <lists+blinux-list@lfdr.de>; Thu,  1 May 2025 01:45:18 +0200 (CEST)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-476900d10casf10327241cf.0
-        for <lists+blinux-list@lfdr.de>; Wed, 30 Apr 2025 16:45:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1746056713; cv=pass;
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mail.lfdr.de (Postfix) with ESMTPS id 78477AB733C
+	for <lists+blinux-list@lfdr.de>; Wed, 14 May 2025 19:50:48 +0200 (CEST)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6f2b50a75d8sf2139026d6.0
+        for <lists+blinux-list@lfdr.de>; Wed, 14 May 2025 10:50:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1747245047; cv=pass;
         d=google.com; s=arc-20240605;
-        b=lU3MkJQDo3liPVPfMHsImyU68GKsCFtzCramOROPAs835adW67lUy+S96zD3In7r4I
-         bfSE19MZlERtx5gixEHoJX7TsfPp0iW+VYrCFOGb5CONA3D1gi3yHB5TA1X/KNxDHyzZ
-         eNnY/npujRwPDPGKov18x9+70srh9mevEhbOxw972f4oQRv0XfR1rcM60QRIlrHjaUCH
-         gDZexRnM4G2GGWQY999mQtpynKkq/dbgIKaWSufXkGdovI8P3zPRzh4jK68sAsQqiprt
-         mC9wCwsji1dmpLWQv6p5M7QFoN+7/uuO7IAyfijSoka9kR+vyhdmw270Ff48a+joW82t
-         dMbw==
+        b=kpti6mkhCcYWPG+GGhTiT79EhpuaUU8lLpb+FEZQvqQnxWO70PEKuf8F6p4yTMQEEk
+         n3XsqmvQXOwDWN/kZdY1mL7t7PpuZahQHmZ5oGlQsWylzkEuU6mXURco29mdboc/IrnZ
+         YNHYJ1+FuhBpHdCuNLo4+rotJ2O5t+uZNNHoT0ThMjSMdSx6iW6wby8WIAfOdg9ZfCS7
+         bQoEeVSBvD9hblhOVYAP4wcT+EcxPg7zIW9Ho337Ht2OBYDz6Zhuo2TCjpqicgyl+0n+
+         EicqLKFUKvL2a7Am0j+XtFsUypPmhgKes6AAQNoV3zxmzONBbIClrzhCkaMJyr9k+zRS
+         B63Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:reply-to:content-language:ui-outboundreport
-         :in-reply-to:from:references:to:subject:user-agent:mime-version:date
-         :message-id:delivered-to;
-        bh=FzTSCSwn2z9nI+UkgvUJpfsf2qjyfZgmlGQtj96Fsak=;
-        fh=JpopkXLuE3jBX8m9LDjAVE+nLFilm5gshSTe60JArtQ=;
-        b=Ah+c7PgEuKI1ncP4g77BDXyEv+FUCqDzbIgOOk4GPR+xhfXdDu7EpqI4delK0Umbid
-         MryCK82bcWc9l49mw2Amn6280U2S9uYGODpJX6Av97VuH/WvF/tlJQE8eyavWj5TxWCo
-         0flOLI/tJ297c+S6+KTNTqhR5QmEvjDDjx4ATOK+FcLyVHTii5wK/RipQ89bQmr8KCWC
-         dlMq8JnjSVIa8TAbaVHMIu+LgwQ2TzelgwiIZrmQD9rVh5egYswtT5XXj4b6+BGWT4SA
-         5scC2wxFTZXVWX+fXwETggZm9EeEovtJstuEWQFPGQEVNqoDx6GFYDwc/R0wCv87bRqT
-         CwQg==;
+         :mailing-list:precedence:date:to:references:message-id:subject
+         :mime-version:from:delivered-to;
+        bh=/ukrVbEhTcu6aWNC+e4fhpmvw7VBoYNbvhf+aYCg2qQ=;
+        fh=HwR0qps6BF2XEURMtWbx257TAfMVkbj0ns/BlHlJeNI=;
+        b=aZZaJJI84Ik0groygUtqdFqhy7lFjxdXO50RJRp2zK8LfICkFUXPfuKjNiPRc5x7o5
+         BCpXAz7IlunahD4eg0akm7flurbE8T+HV2h2ptt9h6EAQlX1pmQ4Nj6oybrrvclADq/O
+         SoeLTe8/cULOJ2gGyEOZgHMMZGKklE157hGEfEaFXbMJtqx9pt+csfTlzemaYeWEAH/V
+         /ibZJJhjC6HlYs44jmfYHjsJhLibEELR9N8pOBzJYoDxNekuMFvURTZXah9YGjPq+ggB
+         BmTjQS4LURmxVc+np5Svc7mBHllZVXwie4c4GAxGnf4VuZnGWBo0ddtlQ740I7mOpb+H
+         EKAQ==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of kyle@gmx.it designates 212.227.17.22 as permitted sender) smtp.mailfrom=kyle@gmx.it
+       spf=pass (google.com: domain of anders@pipkrokodil.se designates 93.188.3.37 as permitted sender) smtp.mailfrom=anders@pipkrokodil.se
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746056713; x=1746661513;
+        d=1e100.net; s=20230601; t=1747245047; x=1747849847;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender
-         :content-language:ui-outboundreport:in-reply-to:from:references:to
-         :subject:user-agent:mime-version:date:message-id:delivered-to
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:date:to
+         :references:message-id:subject:mime-version:from:delivered-to
          :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=FzTSCSwn2z9nI+UkgvUJpfsf2qjyfZgmlGQtj96Fsak=;
-        b=vgccGD9PL116v8m33vt0BEL/kkZbOyPCtJb/0YBnlkmMCOC7aGOPuYLG3hEAqakPqv
-         fu3er4UvyzVtkfVDeEQ6Je0h5Go2X2hT18RmVeKryG+S++kYaWLBsaMFsRCHTHqEfbzQ
-         E6F7oda2Toz1PekWZK7e2Os5izRi3xPqEdVOPMIyq3U6UhhTJKIb8lIMViI50SMt1Z90
-         9EUFLdPQVbm3TeeRmVFZecdCuoiRWVuh/X+vXMBlhbkPew+hQxXYVPSwPntUWjEwPTJy
-         1uF+lwXBhuFIIOX1RP+XB9mtAAzHRDc8zEr5FHVXR0y/EhquLvx1A3VQkflva2Rm/OaG
-         NDYw==
-X-Forwarded-Encrypted: i=2; AJvYcCVXqYNR/75rECOFYMB3LLD4cCoHX1OAX3qacXciucWXrFDysgqe9kJimfu3Jb8mAyEwUZIsrw==@lfdr.de
-X-Gm-Message-State: AOJu0YzGFUuGSDYWBZ3nV9PBQWjtlzVG5IZhKKXIDwVGP3e9S3ABn2bh
-	q6oGZee8P/pLDbSZUZA4EJk+j5aeFsF6GlUZtcAKzFYKhXXI1SVXWYUYgMU00+E=
-X-Google-Smtp-Source: AGHT+IGuf/7EQNEEHh3B5MQyqulNj9AD3Ynej5FNA9pivUp3fdpsXuWSGJ7eX7vy4cytVNA98O3FHg==
-X-Received: by 2002:a05:622a:5c99:b0:47b:4d3:5d12 with SMTP id d75a77b69052e-489e67b4ea5mr81838351cf.49.1746056712768;
-        Wed, 30 Apr 2025 16:45:12 -0700 (PDT)
-X-BeenThere: blinux-list@redhat.com; h=AVT/gBEVEVQ8V4bwAaRy+zgPX/njVYtDO/Rxy876PZK/HdwZ2w==
-Received: by 2002:a05:622a:1981:b0:480:e761:3edd with SMTP id
- d75a77b69052e-48ad89c6f05ls7098391cf.2.-pod-prod-06-us; Wed, 30 Apr 2025
- 16:45:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCWKD8O+N8ZEObG0Ynk9xbqw+wCx9YJAPmfWIlO3mrTMOA6t6rcHIPxKoSXj7eBMMAlwqOtW1PrFbCQuDQ==@gapps.redhat.com
-X-Received: by 2002:a05:622a:1483:b0:48a:3824:1dce with SMTP id d75a77b69052e-48a382420c7mr45467861cf.0.1746056711352;
-        Wed, 30 Apr 2025 16:45:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1746056711; cv=none;
+        bh=/ukrVbEhTcu6aWNC+e4fhpmvw7VBoYNbvhf+aYCg2qQ=;
+        b=cbofgJ4ULoStXIB4/XWs7NCbYxbvLPqRcsfC5+cD6aqdg1V2XwJcwqc0qPdazukVlJ
+         b879ZgGNA0B5w1M42IHtvVoS+2E7XTTzmsdQzsTrnDVGeeUk3aaBqjCqdKIZxPUd5e8H
+         F1qhdXbnElIBhlyDHBBRnk5W6fd9Yt/4+a4u5I7+vP8d7/bel2n+4mrA4H1J54eLk3+8
+         /fCvAdRd4Q4FG7owQWn5gUXO+uixJlG4LWNtacHUebtUyx82tVgKtohrSjivJsyjyOiW
+         dMW6s4f94MCJWpOboeSGmhHIat9/rHXO+/AEQ8Ez3nl/tx8z640lVjD+M3f542d+L5r8
+         7u9A==
+X-Forwarded-Encrypted: i=2; AJvYcCVFURE2Csja5+VBF49QTKbaDrJ0HYjOgHRCbrkbMids7SvE2BTSorFNhVDhnYs3S5OfqAZ4cg==@lfdr.de
+X-Gm-Message-State: AOJu0YwB/bxd2Z2u/AgmVgpv+9BIyu6ahTVBbSk3fnrHqlfN9/v0zKOo
+	qna7oVIIg9w++H2dvfjuj8QkgRyoGHW2z4Z/JIn7P08JGA/Stb7yjb7Pu6Zq6jQ=
+X-Google-Smtp-Source: AGHT+IGUteBFTPyGrYDkVg730VyQtfvPiMPwFKOnzUvgJNVxa1+Zie6vKr6EQTzpfsr7QzdwFXvk3Q==
+X-Received: by 2002:ad4:5749:0:b0:6ea:d393:962f with SMTP id 6a1803df08f44-6f896e1079fmr72591956d6.16.1747245046469;
+        Wed, 14 May 2025 10:50:46 -0700 (PDT)
+X-BeenThere: blinux-list@redhat.com; h=AVT/gBHNS7+Q69yzfXnnil3ik4Kq1NSlJ5WZo34spoQDJZdfRw==
+Received: by 2002:a0c:fa8c:0:b0:6f8:9a7d:23c with SMTP id 6a1803df08f44-6f8a375e324ls565826d6.2.-pod-prod-05-us;
+ Wed, 14 May 2025 10:50:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCXMy3TW8nYEdgC1QoKa9uWGk+vf83GMjRt1UAGSU0FmveqfWSW5MLY2jHClwfQbBCVymwVXVFN1vFPGWA==@gapps.redhat.com
+X-Received: by 2002:a05:620a:258c:b0:7c5:5fa0:4617 with SMTP id af79cd13be357-7cd2884ce3cmr660096585a.40.1747245044950;
+        Wed, 14 May 2025 10:50:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1747245044; cv=none;
         d=google.com; s=arc-20240605;
-        b=YmQIIGrG+ZvlqhN4M9QXCkfTMbPWG1ZgjzPGjr1yLycMSnXHyBVIohfoOBDlMH9Ocn
-         WK/2GV5yqiq6KSnwVBueMNXrJ0ED5ZBTXXd50a4EDLpj+kR+OIXQbwgX7i7k+PDr7P6p
-         iQqNXERaPjg0QAza2qAk3H9Icqw1XbgYpl8sQNgbrBooDaGB/HK9UmBeRYvXv3kogUae
-         Fjc4AssIvPwyNMxWLt3qB1hIrPlJmMyZq7VB/FPHlUyap1Z2DlDK0i12a2Wlf0v8YjVR
-         L5BL60sJmXDuElQrXv4lK+6KdJgyOAt35wbEiXBipj04gsqTiAIJArwnvfDVFPp/KR4D
-         FFqA==
+        b=S9h/m5xsuzdvPIPeYetsk50ijJVE6IecUeW1YkbGb4AlUCWZRtd7i4NRe2oAa/UMlX
+         U55DWCgJx5VvS+OntUD5xC0bt6zBlg0Z3h4hjjUCiBukzldg58u8OKAg0k3Pt9Gfinby
+         NiTb/ctJ6O1LFv22ypq0MHAXCVrVEzR9C7TMY6SZ4yHc194hLG8MoPgTrBmoGsMOy9Fc
+         zDJDT0HH1W7YIgBfAje1EaaqkzghdYUI8JQKGz9G2CUvGFDCs6lSjkGSJXwa5SPlYUVC
+         fRZ3QZJbC+/zA3FloVJkLdPb/JqA52iTPi18e20Tj0wLxNxg5fxVPKLjy/sqPvRR+yAK
+         mftQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:content-language:ui-outboundreport
-         :in-reply-to:from:references:to:subject:user-agent:mime-version:date
-         :message-id:delivered-to;
-        bh=OzLcPrLLftcAsBb4YV6CcjjJTSQ6BaBXRwgFc3ntvOo=;
-        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
-        b=SYco07qS/woPWu2H2smSS7DV6h6UydiZywCv0U3buQRJCGvmq0emUax2FvQfPGrs/o
-         gOZQcvzM/0kaerM6DDHBIIp0zgmAGFpiFPtiM5XWUh7I4VA9DzZtysBETOe4k6p42+My
-         eDVO+CJbaiG4zjYn964UGb554NpRFTVNWDSn2BTLtrJx3Ts3VcQed3O5bDrgbGMR6X3H
-         NkRY5Usb6wZidzWaAwOkQ6K31gt/wprK3txQAAHAiI2sxqeZ7v75ARS4qyfBkecJBewL
-         ADWh7V/DntSU2/w2XWLHRU2p/LmG2ZuZAOiQ4WZ55S/cHFP/43L2e36i9bN2NFwTZhBn
-         kr0Q==;
+        h=date:to:references:message-id:subject:mime-version:from
+         :delivered-to;
+        bh=0KKb0fQxlBp1DL+HNhSQAXmZo7ygtvsxGkt1RQ7U0xk=;
+        fh=LBjpU90bP2emkazE0Gc5OAoaiqgp8P8XIgkk948Hows=;
+        b=Uu+NlXti8mX0wg1RmtO0XPv7gqKqZxUDXGGNZ7DSXvycut9+iJWhjfCXUQ2QqOOhpt
+         /S3yDi8hV38gGbrLp0LwYSAinEhz5UR06s2YqZ2Q5/+LOruiW61D//BcQOLsb2+7pR3V
+         dON69+sz3S1CCMdZG+3HPsxELjLBPKxbASUpiZult8C0EjdAu8CWo7kG0QYvvQU2OvVX
+         uLVFSFbyuByzR3d+1PPEewlTLOOGIDlITNLUfMSRyOiBmBXlA6Nv1mvsCkEivFLi0hLJ
+         fNz7MRSnEeAxTUuVKSyW/yiKH1tHm9JKySdSpuwk5B684BLdePx6q4p+WFK2AQBTRJNX
+         5ZZA==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of kyle@gmx.it designates 212.227.17.22 as permitted sender) smtp.mailfrom=kyle@gmx.it
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id d75a77b69052e-48b06a1912esi4483351cf.184.2025.04.30.16.45.11
+       spf=pass (google.com: domain of anders@pipkrokodil.se designates 93.188.3.37 as permitted sender) smtp.mailfrom=anders@pipkrokodil.se
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.132.61])
+        by mx.google.com with ESMTPS id af79cd13be357-7cd00f51776si1395305185a.131.2025.05.14.10.50.44
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Apr 2025 16:45:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of kyle@gmx.it designates 212.227.17.22 as permitted sender) client-ip=212.227.17.22;
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+        Wed, 14 May 2025 10:50:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of anders@pipkrokodil.se designates 93.188.3.37 as permitted sender) client-ip=93.188.3.37;
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-477-CKJiGawgONaXxb6mbcAbuA-1; Wed,
- 30 Apr 2025 19:45:09 -0400
-X-MC-Unique: CKJiGawgONaXxb6mbcAbuA-1
-X-Mimecast-MFC-AGG-ID: CKJiGawgONaXxb6mbcAbuA_1746056708
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-294-lZfhRox_MWKV1mSYtqtD-g-1; Wed,
+ 14 May 2025 13:50:43 -0400
+X-MC-Unique: lZfhRox_MWKV1mSYtqtD-g-1
+X-Mimecast-MFC-AGG-ID: lZfhRox_MWKV1mSYtqtD-g_1747245042
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 910DA1800263
-	for <blinux-list@gapps.redhat.com>; Wed, 30 Apr 2025 23:45:08 +0000 (UTC)
-Received: by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 8D80B1800115; Wed, 30 Apr 2025 23:45:08 +0000 (UTC)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 423CA1955DCE
+	for <blinux-list@gapps.redhat.com>; Wed, 14 May 2025 17:50:42 +0000 (UTC)
+Received: by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 3D7E830001B0; Wed, 14 May 2025 17:50:42 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.49])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8AB181800878
-	for <blinux-list@redhat.com>; Wed, 30 Apr 2025 23:45:08 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.132.61])
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.124])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3A19C30001A1
+	for <blinux-list@redhat.com>; Wed, 14 May 2025 17:50:41 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 14B8419560BA
-	for <blinux-list@redhat.com>; Wed, 30 Apr 2025 23:45:08 +0000 (UTC)
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.22]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-516-wcin5Tl4PryuVf7B-MpUsQ-1; Wed,
- 30 Apr 2025 19:45:03 -0400
-X-MC-Unique: wcin5Tl4PryuVf7B-MpUsQ-1
-X-Mimecast-MFC-AGG-ID: wcin5Tl4PryuVf7B-MpUsQ_1746056702
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [10.0.0.160] ([136.47.142.229]) by mail.gmx.net (mrgmx104
- [212.227.17.174]) with ESMTPSA (Nemesis) id 1MGhuU-1uE4fF2Xuk-004Rhu for
- <blinux-list@redhat.com>; Thu, 01 May 2025 01:39:59 +0200
-Message-ID: <36eb311f-5ea5-4f83-aaae-281a144ae74a@gmx.it>
-Date: Wed, 30 Apr 2025 19:39:57 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: new machine, intel or arm-based
-To: Linux for blind general discussion <blinux-list@redhat.com>
-References: <B7CE5054-8121-496A-B4C7-9B153C4D51FC@gmail.com>
-From: "'Kyle' via blinux-list@redhat.com" <blinux-list@redhat.com>
-In-Reply-To: <B7CE5054-8121-496A-B4C7-9B153C4D51FC@gmail.com>
-X-Provags-ID: V03:K1:DRzppY/3s9+hgLo6/ks+vaS3jNvAy2jP/bq0u6JIVw35Bat3ReH
- YHtutiv1Q3sDXSEhkaLMG+oY95fhNH8HeS+Lts3qT4O6ASGVWluNzEjKkL4TNeBj0LmUJLR
- CdKeMo8GBjBEMbfLxJDfc/s+l3emGXPmC8dK1DpL1m/I8+dDuF7aeieT26vsLNcyPIO+vkH
- +bDXp12Q+KElzeEchzT9g==
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 835D618003FC
+	for <blinux-list@redhat.com>; Wed, 14 May 2025 17:50:41 +0000 (UTC)
+Received: from smtp.outgoing.loopia.se (smtp.outgoing.loopia.se
+ [93.188.3.37]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-137-8opgZNHiNbqmQi_G79Bk_A-1; Wed, 14 May 2025 13:50:37 -0400
+X-MC-Unique: 8opgZNHiNbqmQi_G79Bk_A-1
+X-Mimecast-MFC-AGG-ID: 8opgZNHiNbqmQi_G79Bk_A_1747245036
+Received: from s807.loopia.se (localhost [127.0.0.1])
+	by s807.loopia.se (Postfix) with ESMTP id 61A4438A64F
+	for <Blinux-list@redhat.com>; Wed, 14 May 2025 19:41:02 +0200 (CEST)
+Received: from s979.loopia.se (unknown [172.22.191.5])
+	by s807.loopia.se (Postfix) with ESMTP id 48BBB38B787
+	for <Blinux-list@redhat.com>; Wed, 14 May 2025 19:41:02 +0200 (CEST)
+Received: from s474.loopia.se (unknown [172.22.191.6])
+	by s979.loopia.se (Postfix) with ESMTP id 4776110BC462
+	for <Blinux-list@redhat.com>; Wed, 14 May 2025 19:41:02 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at amavis.loopia.se
 X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:ViOtyY8OfU8=;B+TzvvCRjVXoBI7gm5Gwl150VzL
- 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
- Jr42XDl5FQOyv++aqNHv1QrMYbzmmf4=
-X-Mimecast-MFC-PROC-ID: RX6s5Omt35faiK6xvFSQVaYioZd0jyESx_L3V4gqcXk_1746056702
+X-Spam-Score: -1.198
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.198 tagged_above=-999 required=6.2
+ tests=[ALL_TRUSTED=-1, DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+ DKIM_VALID_EF=-0.1, HTML_FONT_LOW_CONTRAST=0.001, HTML_MESSAGE=0.001]
+ autolearn=disabled
+Received: from s980.loopia.se ([172.22.191.6])
+ by s474.loopia.se (s474.loopia.se [172.22.190.14]) (amavisd-new, port 10024)
+ with LMTP id ZmWiq-QZHswx for <Blinux-list@redhat.com>;
+ Wed, 14 May 2025 19:41:01 +0200 (CEST)
+X-Loopia-Auth: user
+X-Loopia-User: anders@pipkrokodil.se
+X-Loopia-Originating-IP: 193.203.12.37
+Received: from smtpclient.apple (unknown [193.203.12.37])
+	(Authenticated sender: anders@pipkrokodil.se)
+	by s980.loopia.se (Postfix) with ESMTPSA id 73DB12201660
+	for <Blinux-list@redhat.com>; Wed, 14 May 2025 19:41:01 +0200 (CEST)
+From: Anders Holmberg <anders@pipkrokodil.se>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.600.51.1.1\))
+Subject: =?utf-8?Q?Fwd=3A_=5BTech-VI=5D_I_Want_to_Love_Linux=2E_It_Doesn?=
+ =?utf-8?Q?=E2=80=99t_Love_Me_Back=3A_from_Fireborn=3A_Interlude_=E2=80=93?=
+ =?utf-8?Q?_A_Thank_You=2C_Where_It=E2=80=99s_Due?=
+Message-Id: <BA2EC323-A155-4E67-9BAC-3BE2CB37D46D@pipkrokodil.se>
+References: <PH7P220MB166358FDEF7DB090EE7FC2DEEE91A@PH7P220MB1663.NAMP220.PROD.OUTLOOK.COM>
+To: Linux for blind general discussion <Blinux-list@redhat.com>
+Date: Wed, 14 May 2025 19:40:51 +0200
+X-Mimecast-MFC-PROC-ID: Pievsm_GVztgI0W7ih2GDneXkPrImDGV2ltpm8CkoNU_1747245036
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Vf5HXA_eJFTgeffBX4AWiDHH6YYL_X-vlqbcmP80iF0_1746056708
-X-Mimecast-Originator: gmx.it
-Content-Language: en-US
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-Original-Sender: kyle@gmx.it
+X-Mimecast-MFC-PROC-ID: AIWDQ1SOAE7oZlth5fM5jb64bkNIeUGlwfYOU3TRfHU_1747245042
+X-Mimecast-Originator: pipkrokodil.se
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_6C03D069-C021-4D80-AC48-91E9C1275BBB"
+X-Original-Sender: anders@pipkrokodil.se
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of kyle@gmx.it designates 212.227.17.22 as permitted sender) smtp.mailfrom=kyle@gmx.it
-X-Original-From: Kyle <kyle@gmx.it>
-Reply-To: Kyle <kyle@gmx.it>
+ domain of anders@pipkrokodil.se designates 93.188.3.37 as permitted sender) smtp.mailfrom=anders@pipkrokodil.se
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -204,19 +174,502 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Ubuntu-MATE will run on pretty much anything. Fedora will certainly run 
-on a Raspberry Pi, though I don't know whether or not it will run on the 
-Pi5, which makes the best server these days, as long as you connect to 
-the network via the ethernet port ... I'm not sure if they got wifi to 
-work yet, and if your internet is good, wifi is stable enough for 
-servers now, giving you better flexibility placing the machine.
+--Apple-Mail=_6C03D069-C021-4D80-AC48-91E9C1275BBB
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
 
 
-Regarding the machine to use, I personally wouldn't touch Intel these 
-days, but AMD miniPC machines are still able to be had fairly 
-inexpensively. Otherwise, the Pi5 is your best bet for the price.
 
-~Kyle
+> Vidarebefordrat mejl:
+>=20
+> Fr=C3=A5n: "David Goldfield via groups.io" <david.goldfield=3Doutlook.com=
+@groups.io>
+> =C3=84mne: [Tech-VI] I Want to Love Linux. It Doesn=E2=80=99t Love Me Bac=
+k: from Fireborn: Interlude =E2=80=93 A Thank You, Where It=E2=80=99s Due
+> Datum: 14 maj 2025 02:40:44 CEST
+> Till: tv <tech-vi@groups.io>
+> Efters=C3=A4nt fr=C3=A5n: david.goldfield@outlook.com
+> Svara till: tech-vi@groups.io
+>=20
+> fireborn - Monday, May 12, 2025 at 8:00=E2=80=AFPM
+>=20
+> I Want to Love Linux. It Doesn=E2=80=99t Love Me Back: Interlude =E2=80=
+=93 A Thank You, Where It=E2=80=99s Due
+>=20
+>=20
+> This blog series has been a lot of yelling.
+> Rightfully so=E2=80=94because a lot of Linux is broken.
+> But this post? This one's different.
+>=20
+> Because while the failures need to be called out, the people trying to fi=
+x it deserve recognition.
+> And a few teams=E2=80=94despite limited resources, upstream breakage, and=
+ years of neglect=E2=80=94are actually doing the work.
+>=20
+> Debian: Quietly Keeping the Lights On
+>=20
+> First, let me say it again: thank you to the Debian accessibility team.
+>=20
+> They don't have the flashiest distro.
+> They don't have the newest packages.
+> Speakup doesn't speak at the console by default.
+> And yes, the desktop stack can lag behind.
+>=20
+> But despite that?
+>=20
+> The installer is accessible=E2=80=94and has been for years.
+> If you boot with s, you get speech.
+> The login screen speaks.
+> The desktop starts with Orca running.
+> Braille displays are supported out of the box.
+> That matters.
+>=20
+> It's consistent.
+> It's reliable.
+> It's one of the only distros where you can install blind and get to a wor=
+king desktop with speech.
+>=20
+> That shouldn=E2=80=99t be rare. But it is.
+> And Debian makes it possible.
+>=20
+> Are the packages old? Sure.
+> But you can build newer ones.
+> Install backports. Track testing. But that stable core? That working base=
+line? That's Debian.
+>=20
+> Elementary OS: Asking the Right Questions
+>=20
+> A more recent and very welcome surprise: elementary OS.
+>=20
+> The team reached out.
+> They=E2=80=99re asking about accessibility.
+> They=E2=80=99re listening.
+> They want to know what=E2=80=99s broken and what=E2=80=99s needed.
+>=20
+> They=E2=80=99re not just responding to a bug report.
+> They=E2=80=99re starting a conversation.
+>=20
+> That=E2=80=99s huge.
+>=20
+> Because most projects don=E2=80=99t even do that.
+> They wait until someone screams=E2=80=94or they don=E2=80=99t wait, becau=
+se no one bothered to test at all.
+>=20
+> But elementary OS?
+> They=E2=80=99re reaching out before that.
+> That=E2=80=99s how you fix things.
+>=20
+> It=E2=80=99s not perfect yet.
+> It=E2=80=99s not all working.
+> But the fact that they=E2=80=99re even asking puts them miles ahead of mo=
+st.
+>=20
+> Blazie Technologies: Getting Linux Into More Hands
+>=20
+> Another thank-you goes to Blazie Technologies, the makers of the BT Speak=
+=E2=80=94a braille input, speech output device designed for blind users, ru=
+nning Linux under the hood.
+>=20
+> Why does this matter?
+>=20
+> Because it=E2=80=99s putting Linux into the hands of more blind users.
+> It=E2=80=99s expanding the user base.
+> It=E2=80=99s growing the pool of people who can test, report, fix, and ad=
+vocate.
+>=20
+> And it=E2=80=99s doing it in the right way.
+>=20
+> The system is configured accessibly out of the box=E2=80=94as you=E2=80=
+=99d expect.
+> And when things go wrong?
+>=20
+> There are key combos.
+> There are simple commands from the traditional mode interface to reset an=
+d recover speech, display, and session functionality.
+> You don=E2=80=99t need a second machine.
+> You don=E2=80=99t need a script from GitHub.
+>=20
+> You just fix it. Blind. From the machine itself.
+>=20
+> And if you can't? Support is only a call away.
+>=20
+> That=E2=80=99s what Linux should be.
+>=20
+> Disclosure
+>=20
+> I have voluntarily contributed code to Blazie Technologies and the BT Spe=
+ak.
+> They did not commission or request this blog series.
+> They have not reviewed or approved any part of it.
+>=20
+> This is entirely my own work.
+> And I=E2=80=99m grateful they=E2=80=99re building something that=E2=80=99=
+s actually helping.
+>=20
+> The People Who Make It All Possible
+>=20
+> This entire series wouldn=E2=80=99t exist=E2=80=94because none of us woul=
+d be using Linux blind=E2=80=94without the people behind the core accessibi=
+lity infrastructure.
+>=20
+> So thank you to the maintainers and contributors of:
+>=20
+> Orca, the screen reader that makes graphical Linux usable
+> AT-SPI, the accessibility bridge that keeps everything talking=20
+> BRLTTY, the console braille access layer that=E2=80=99s been doing the ha=
+rd work for decades
+> These are massive, complicated, underfunded projects.
+> They deal with breakage from toolkits, distros, libraries, and kernel upd=
+ates.
+> They patch around missing features, broken standards, and things that sho=
+uld have worked but didn=E2=80=99t.
+>=20
+> They are building access where there was none.
+> Sometimes with little help. Sometimes for free.
+> Sometimes while being blamed for breakage that isn=E2=80=99t even theirs.
+>=20
+> Without them, there would be no blind Linux users.
+>=20
+> And we thank you.
+>=20
+> Progress Deserves to Be Seen
+>=20
+> None of this means everything=E2=80=99s great.
+> We still need to scream.
+> We still need to break things down and rebuild them better.
+>=20
+> But these teams?
+> They deserve to be noticed.
+>=20
+> Because if more distros did what Debian does=E2=80=A6
+> If more developers asked like elementary OS is asking=E2=80=A6
+>=20
+> This blog series wouldn=E2=80=99t need to exist.
+>=20
+> So for now?
+>=20
+> Thank you.
+>=20
+> You're making Linux just a little more livable.
+> And we see you =E2=80=93 please keep seeing us.
+>=20
+>=20
+> https://fireborn.mataroa.blog/blog/i-want-to-love-linux-it-doesnt-love-me=
+-back-interlude-a-thank-you-where-its-due/
+>=20
+>=20
+> =20
+> =20
+> David Goldfield,
+> Blindness Assistive Technology Specialist
+> =20
+> If you need help using your assistive technology learn about my training =
+services by visiting
+> WWW.ScreenReaderTraining.com <http://www.screenreadertraining.com/>
+> =20
+> Am Yisrael Chai
+> The Nation of Israel Lives!
+> =20
+> JAWS Certified, 2022 <https://www.freedomscientific.com/Training/Certific=
+ation/>
+> NVDA Certified Expert <https://certification.nvaccess.org/>
+> =20
+> Subscribe to the Tech-VI announcement list to receive news, events and in=
+formation regarding the blindness assistive technology field.
+> Email: tech-vi+subscribe@groups.io <mailto:tech-vi+subscribe@groups.io>
+> www.DavidGoldfield.com <http://www.davidgoldfield.com/>
+> =20
+> =20
+> =20
+> =20
+> _._,_._,_
+> Groups.io Links:
+> You receive all messages sent to this group.
+>=20
+> View/Reply Online (#9264) <https://groups.io/g/tech-vi/message/9264> | Re=
+ply to Group <mailto:tech-vi@groups.io?subject=3DRe:%20%3D%3FUTF-8%3FB%3FW1=
+RlY2gtVkldIEkgV2FudCB0byBMb3ZlIExpbnV4LiBJdCBEb2VzbuKAmXQgTG92ZSBNZSBCYWNrO=
+iBmcm9tIEZpcmVib3JuOiBJbnRlcmx1ZGUg4oCTIEEgVGhhbmsgWW91LCBXaGVyZSBJdOKAmXMg=
+RHVl%3F%3D> | Reply to Sender <mailto:david.goldfield@outlook.com?subject=
+=3DPrivate:%20Re:%20%3D%3FUTF-8%3FB%3FW1RlY2gtVkldIEkgV2FudCB0byBMb3ZlIExpb=
+nV4LiBJdCBEb2VzbuKAmXQgTG92ZSBNZSBCYWNrOiBmcm9tIEZpcmVib3JuOiBJbnRlcmx1ZGUg=
+4oCTIEEgVGhhbmsgWW91LCBXaGVyZSBJdOKAmXMgRHVl%3F%3D> | Mute This Topic <http=
+s://groups.io/mt/113101364/685>=20
+> Your Subscription <https://groups.io/g/tech-vi/editsub/685> | Contact Gro=
+up Owner <mailto:tech-vi+owner@groups.io> | Unsubscribe <https://groups.io/=
+g/tech-vi/leave/11559870/685/1091978340/xyzzy> [anders@pipkrokodil.se]
+>=20
+> _._,_._,_
 
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
+
+--Apple-Mail=_6C03D069-C021-4D80-AC48-91E9C1275BBB
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=
+=3Dutf-8"></head><body style=3D"overflow-wrap: break-word; -webkit-nbsp-mod=
+e: space; line-break: after-white-space;"><br id=3D"lineBreakAtBeginningOfM=
+essage"><div><br><blockquote type=3D"cite"><div>Vidarebefordrat mejl:</div>=
+<br class=3D"Apple-interchange-newline"><div style=3D"margin-top: 0px; marg=
+in-right: 0px; margin-bottom: 0px; margin-left: 0px;"><span style=3D"font-f=
+amily: -webkit-system-font, Helvetica Neue, Helvetica, sans-serif; color:rg=
+ba(0, 0, 0, 1.0);"><b>Fr=C3=A5n: </b></span><span style=3D"font-family: -we=
+bkit-system-font, Helvetica Neue, Helvetica, sans-serif;">"David Goldfield =
+via groups.io" &lt;david.goldfield=3Doutlook.com@groups.io&gt;<br></span></=
+div><div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; m=
+argin-left: 0px;"><span style=3D"font-family: -webkit-system-font, Helvetic=
+a Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);"><b>=C3=84mne: </b=
+></span><span style=3D"font-family: -webkit-system-font, Helvetica Neue, He=
+lvetica, sans-serif;"><b>[Tech-VI] I Want to Love Linux. It Doesn=E2=80=99t=
+ Love Me Back: from Fireborn: Interlude =E2=80=93 A Thank You, Where It=E2=
+=80=99s Due</b><br></span></div><div style=3D"margin-top: 0px; margin-right=
+: 0px; margin-bottom: 0px; margin-left: 0px;"><span style=3D"font-family: -=
+webkit-system-font, Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0,=
+ 0, 1.0);"><b>Datum: </b></span><span style=3D"font-family: -webkit-system-=
+font, Helvetica Neue, Helvetica, sans-serif;">14 maj 2025 02:40:44 CEST<br>=
+</span></div><div style=3D"margin-top: 0px; margin-right: 0px; margin-botto=
+m: 0px; margin-left: 0px;"><span style=3D"font-family: -webkit-system-font,=
+ Helvetica Neue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);"><b>Till:=
+ </b></span><span style=3D"font-family: -webkit-system-font, Helvetica Neue=
+, Helvetica, sans-serif;">tv &lt;tech-vi@groups.io&gt;<br></span></div><div=
+ style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-le=
+ft: 0px;"><span style=3D"font-family: -webkit-system-font, Helvetica Neue, =
+Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);"><b>Efters=C3=A4nt fr=C3=
+=A5n: </b></span><span style=3D"font-family: -webkit-system-font, Helvetica=
+ Neue, Helvetica, sans-serif;">david.goldfield@outlook.com<br></span></div>=
+<div style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margi=
+n-left: 0px;"><span style=3D"font-family: -webkit-system-font, Helvetica Ne=
+ue, Helvetica, sans-serif; color:rgba(0, 0, 0, 1.0);"><b>Svara till: </b></=
+span><span style=3D"font-family: -webkit-system-font, Helvetica Neue, Helve=
+tica, sans-serif;">tech-vi@groups.io<br></span></div><br><div>
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+
+<div dir=3D"auto">
+<div dir=3D"ltr"><p>fireborn - Monday, May 12, 2025 at 8:00=E2=80=AFPM</p>
+<h1>I Want to Love Linux. It Doesn=E2=80=99t Love Me Back: Interlude =E2=80=
+=93 A Thank You, Where It=E2=80=99s Due</h1><div><br class=3D"webkit-block-=
+placeholder"></div><p>This blog series has been a lot of yelling.<br>
+Rightfully so=E2=80=94because a lot of Linux is broken.<br>
+But this post? This one's different.</p><p>Because while the failures need =
+to be called out, the people trying to fix it deserve recognition.<br>
+And a few teams=E2=80=94despite limited resources, upstream breakage, and y=
+ears of neglect=E2=80=94are actually doing the work.</p>
+<hr>
+<h2 id=3D"debian-quietly-keeping-the-lights-on">Debian: Quietly Keeping the=
+ Lights On</h2><p>First, let me say it again: <strong>thank you</strong> to=
+ the Debian accessibility team.</p><p>They don't have the flashiest distro.=
+<br>
+They don't have the newest packages.<br>
+Speakup doesn't speak at the console by default.<br>
+And yes, the desktop stack can lag behind.</p><p>But despite that?</p>
+<ul>
+<li>The <strong>installer is accessible</strong>=E2=80=94and has been for y=
+ears. </li><li>If you boot with <code>s</code>, you get speech. </li><li>Th=
+e login screen speaks. </li><li>The desktop starts with Orca running. </li>=
+<li>Braille displays are supported out of the box.</li></ul><p>That matters=
+.</p><p>It's consistent.<br>
+It's reliable.<br>
+It's one of the <strong>only distros</strong> where you can install blind a=
+nd get to a working desktop with speech.</p><p>That shouldn=E2=80=99t be ra=
+re. But it is.<br>
+And Debian makes it possible.</p><p>Are the packages old? Sure.<br>
+But you can build newer ones.<br>
+Install backports. Track testing. But that stable core? That working baseli=
+ne? <strong>
+That's Debian.</strong></p>
+<hr>
+<h2 id=3D"elementary-os-asking-the-right-questions">Elementary OS: Asking t=
+he Right Questions</h2><p>A more recent and very welcome surprise: <strong>=
+elementary OS</strong>.</p><p>The team reached out.<br>
+They=E2=80=99re asking about accessibility.<br>
+They=E2=80=99re listening.<br>
+They want to know what=E2=80=99s broken and what=E2=80=99s needed.</p><p>Th=
+ey=E2=80=99re not just responding to a bug report.<br>
+They=E2=80=99re <strong>starting a conversation.</strong></p><p>That=E2=80=
+=99s huge.</p><p>Because most projects don=E2=80=99t even do that.<br>
+They wait until someone screams=E2=80=94or they don=E2=80=99t wait, because=
+ no one bothered to test at all.</p><p>But elementary OS?<br>
+They=E2=80=99re reaching out <strong>before</strong> that.<br>
+That=E2=80=99s how you fix things.</p><p>It=E2=80=99s not perfect yet.<br>
+It=E2=80=99s not all working.<br>
+But the fact that they=E2=80=99re even asking puts them <strong>miles ahead=
+</strong> of most.</p>
+<hr>
+<h2 id=3D"blazie-technologies-getting-linux-into-more-hands">Blazie Technol=
+ogies: Getting Linux Into More Hands</h2><p>Another thank-you goes to <stro=
+ng>Blazie Technologies</strong>, the makers of the
+<strong>BT Speak</strong>=E2=80=94a braille input, speech output device des=
+igned for blind users, running Linux under the hood.</p><p>Why does this ma=
+tter?</p><p>Because it=E2=80=99s putting Linux into the hands of more blind=
+ users.<br>
+It=E2=80=99s expanding the user base.<br>
+It=E2=80=99s growing the pool of people who <em>can</em> test, report, fix,=
+ and advocate.</p><p>And it=E2=80=99s doing it in the right way.</p><p>The =
+system is configured accessibly out of the box=E2=80=94as you=E2=80=99d exp=
+ect.<br>
+And when things go wrong?</p><p>There are key combos.<br>
+There are simple commands from the traditional mode interface to reset and =
+recover speech, display, and session functionality.<br>
+You don=E2=80=99t need a second machine.<br>
+You don=E2=80=99t need a script from GitHub.</p><p>You just fix it. Blind. =
+From the machine itself.</p><p>And if you can't? Support is only a call awa=
+y.</p><p>That=E2=80=99s what Linux should be.</p>
+<hr>
+<h3 id=3D"disclosure">Disclosure</h3><p>I have voluntarily contributed code=
+ to Blazie Technologies and the BT Speak.<br>
+They did not commission or request this blog series.<br>
+They have not reviewed or approved any part of it.</p><p>This is entirely m=
+y own work.<br>
+And I=E2=80=99m grateful they=E2=80=99re building something that=E2=80=99s =
+actually helping.</p>
+<hr>
+<h2 id=3D"the-people-who-make-it-all-possible">The People Who Make It All P=
+ossible</h2><p>This entire series wouldn=E2=80=99t exist=E2=80=94because no=
+ne of us would be using Linux blind=E2=80=94without the people behind the c=
+ore accessibility infrastructure.</p><p>So thank you to the maintainers and=
+ contributors of:</p>
+<ul>
+<li><strong>Orca</strong>, the screen reader that makes graphical Linux usa=
+ble </li><li><strong>AT-SPI</strong>, the accessibility bridge that keeps e=
+verything talking
+</li><li><strong>BRLTTY</strong>, the console braille access layer that=E2=
+=80=99s been doing the hard work for decades</li></ul><p>These are massive,=
+ complicated, underfunded projects.<br>
+They deal with breakage from toolkits, distros, libraries, and kernel updat=
+es.<br>
+They patch around missing features, broken standards, and things that <em>s=
+hould have worked but didn=E2=80=99t</em>.</p><p>They are building access w=
+here there was none.<br>
+Sometimes with little help. Sometimes for free.<br>
+Sometimes while being blamed for breakage that isn=E2=80=99t even theirs.</=
+p><p>Without them, there would be <strong>no</strong> blind Linux users.</p=
+><p>And we <strong>thank you</strong>.</p>
+<hr>
+<h2 id=3D"progress-deserves-to-be-seen">Progress Deserves to Be Seen</h2><p=
+>None of this means everything=E2=80=99s great.<br>
+We still need to scream.<br>
+We still need to break things down and rebuild them better.</p><p>But these=
+ teams?<br>
+They deserve to be noticed.</p><p>Because if more distros did what Debian d=
+oes=E2=80=A6<br>
+If more developers asked like elementary OS is asking=E2=80=A6 </p><p>This =
+blog series wouldn=E2=80=99t need to exist.</p><p>So for now?</p><p><strong=
+>Thank you.</strong></p><p>You're making Linux just a little more livable.<=
+br>
+And we see you =E2=80=93 please keep seeing us.</p><div><br class=3D"webkit=
+-block-placeholder"></div><p><a href=3D"https://fireborn.mataroa.blog/blog/=
+i-want-to-love-linux-it-doesnt-love-me-back-interlude-a-thank-you-where-its=
+-due/">https://fireborn.mataroa.blog/blog/i-want-to-love-linux-it-doesnt-lo=
+ve-me-back-interlude-a-thank-you-where-its-due/</a></p>
+</div>
+<br id=3D"lineBreakAtBeginningOfSignature">
+<div dir=3D"ltr"><div style=3D"margin: 0in;"><o:p style=3D"background-color=
+: rgba(255, 255, 255, 0);">&nbsp;</o:p></div><div style=3D"margin: 0in;"><o=
+:p style=3D"background-color: rgba(255, 255, 255, 0);">&nbsp;</o:p></div><d=
+iv style=3D"margin: 0in;"><span style=3D"background-color: rgba(255, 255, 2=
+55, 0);">David Goldfield,<o:p></o:p></span></div><div style=3D"margin: 0in;=
+"><span style=3D"background-color: rgba(255, 255, 255, 0);">Blindness Assis=
+tive Technology Specialist<o:p></o:p></span></div><div style=3D"margin: 0in=
+;"><o:p style=3D"background-color: rgba(255, 255, 255, 0);">&nbsp;</o:p></d=
+iv><div style=3D"margin: 0in;"><span style=3D"background-color: rgba(255, 2=
+55, 255, 0);">If you need help using your assistive technology learn about =
+my training services by visiting<o:p></o:p></span></div><div style=3D"margi=
+n: 0in;"><font><span style=3D"caret-color: rgb(0, 0, 0); background-color: =
+rgba(255, 255, 255, 0);"><a href=3D"http://www.screenreadertraining.com/">W=
+WW.ScreenReaderTraining.com</a><o:p></o:p></span></font></div><div style=3D=
+"margin: 0in;"><o:p style=3D"background-color: rgba(255, 255, 255, 0);">&nb=
+sp;</o:p></div><div style=3D"margin: 0in;"><span style=3D"background-color:=
+ rgba(255, 255, 255, 0);">Am Yisrael Chai<o:p></o:p></span></div><div style=
+=3D"margin: 0in;"><span style=3D"background-color: rgba(255, 255, 255, 0);"=
+>The Nation of Israel Lives!<o:p></o:p></span></div><div style=3D"margin: 0=
+in;"><o:p style=3D"background-color: rgba(255, 255, 255, 0);">&nbsp;</o:p><=
+/div><div style=3D"margin: 0in;"><font><span style=3D"caret-color: rgb(0, 0=
+, 0); background-color: rgba(255, 255, 255, 0);"><a href=3D"https://www.fre=
+edomscientific.com/Training/Certification/">JAWS Certified, 2022</a><o:p></=
+o:p></span></font></div><div style=3D"margin: 0in;"><font><span style=3D"ca=
+ret-color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0);"><a href=
+=3D"https://certification.nvaccess.org/">NVDA Certified Expert</a><o:p></o:=
+p></span></font></div><div style=3D"margin: 0in;"><o:p style=3D"background-=
+color: rgba(255, 255, 255, 0);">&nbsp;</o:p></div><div style=3D"margin: 0in=
+;"><span style=3D"background-color: rgba(255, 255, 255, 0);">Subscribe to t=
+he Tech-VI announcement list to receive news, events and information regard=
+ing the blindness assistive technology field.<o:p></o:p></span></div><div s=
+tyle=3D"margin: 0in;"><span style=3D"background-color: rgba(255, 255, 255, =
+0);">Email:&nbsp;<a href=3D"mailto:tech-vi+subscribe@groups.io">tech-vi+sub=
+scribe@groups.io</a><o:p></o:p></span></div><div style=3D"margin: 0in;"><fo=
+nt><span style=3D"caret-color: rgb(0, 0, 0); background-color: rgba(255, 25=
+5, 255, 0);"><a href=3D"http://www.davidgoldfield.com/">www.DavidGoldfield.=
+com</a><o:p></o:p></span></font></div><div style=3D"margin: 0in;"><o:p styl=
+e=3D"background-color: rgba(255, 255, 255, 0);">&nbsp;</o:p></div><div styl=
+e=3D"margin: 0in;"><o:p style=3D"background-color: rgba(255, 255, 255, 0);"=
+>&nbsp;</o:p></div><div style=3D"margin: 0in;"><o:p style=3D"background-col=
+or: rgba(255, 255, 255, 0);">&nbsp;</o:p></div><div style=3D"margin: 0in;">=
+<o:p style=3D"background-color: rgba(255, 255, 255, 0);">&nbsp;</o:p></div>
+</div>
+</div>
+
+
+
+<div width=3D"1" style=3D"color:white;clear:both">_._,_._,_</div>
+
+<hr>
+
+
+Groups.io Links:<p>
+
+
+ =20
+    You receive all messages sent to this group.
+ =20
+ =20
+
+
+</p><p>
+<a target=3D"_blank" href=3D"https://groups.io/g/tech-vi/message/9264">View=
+/Reply Online (#9264)</a> |
+
+
+  <a target=3D"_blank" href=3D"mailto:tech-vi@groups.io?subject=3DRe:%20%3D=
+%3FUTF-8%3FB%3FW1RlY2gtVkldIEkgV2FudCB0byBMb3ZlIExpbnV4LiBJdCBEb2VzbuKAmXQg=
+TG92ZSBNZSBCYWNrOiBmcm9tIEZpcmVib3JuOiBJbnRlcmx1ZGUg4oCTIEEgVGhhbmsgWW91LCB=
+XaGVyZSBJdOKAmXMgRHVl%3F%3D">Reply to Group</a>
+ =20
+    | <a target=3D"_blank" href=3D"mailto:david.goldfield@outlook.com?subje=
+ct=3DPrivate:%20Re:%20%3D%3FUTF-8%3FB%3FW1RlY2gtVkldIEkgV2FudCB0byBMb3ZlIEx=
+pbnV4LiBJdCBEb2VzbuKAmXQgTG92ZSBNZSBCYWNrOiBmcm9tIEZpcmVib3JuOiBJbnRlcmx1ZG=
+Ug4oCTIEEgVGhhbmsgWW91LCBXaGVyZSBJdOKAmXMgRHVl%3F%3D">Reply to Sender</a>
+ =20
+
+|
+
+  <a target=3D"_blank" href=3D"https://groups.io/mt/113101364/685">Mute Thi=
+s Topic</a>
+
+
+<br>
+
+
+
+
+<a href=3D"https://groups.io/g/tech-vi/editsub/685">Your Subscription</a> |
+<a href=3D"mailto:tech-vi+owner@groups.io">Contact Group Owner</a> |
+
+<a href=3D"https://groups.io/g/tech-vi/leave/11559870/685/1091978340/xyzzy"=
+>Unsubscribe</a>
+
+ [anders@pipkrokodil.se]<br>
+</p><div width=3D"1" style=3D"color:white;clear:both">_._,_._,_</div>
+
+</div></blockquote></div><br></body></html>
+
+<p></p>
+
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
+nsubscribe@redhat.com</a>.<br />
+
+--Apple-Mail=_6C03D069-C021-4D80-AC48-91E9C1275BBB--
 
