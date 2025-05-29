@@ -1,37 +1,37 @@
-Return-Path: <blinux-list+bncBDM4LSNO5MHBB6VY4HAQMGQE5ESACOY@redhat.com>
+Return-Path: <blinux-list+bncBCV3N6GOXMCRBKEQ4LAQMGQEFV6BCZQ@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mail.lfdr.de (Postfix) with ESMTPS id 10FE7AC7E67
-	for <lists+blinux-list@lfdr.de>; Thu, 29 May 2025 15:09:17 +0200 (CEST)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4a43ae0dcf7sf8353781cf.1
-        for <lists+blinux-list@lfdr.de>; Thu, 29 May 2025 06:09:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1748524155; cv=pass;
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7E309AC80C0
+	for <lists+blinux-list@lfdr.de>; Thu, 29 May 2025 18:15:39 +0200 (CEST)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6fac8e05bd4sf10886886d6.2
+        for <lists+blinux-list@lfdr.de>; Thu, 29 May 2025 09:15:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1748535337; cv=pass;
         d=google.com; s=arc-20240605;
-        b=kFeKn5Kgrf29gZ4uB1pMzLrzmIZBw4vdX5Y88UtNe2KlGmsXKURpFb1tamsEu2VU96
-         ahWrlq7bH94wHx/bkhTuJo8nuk/6/TWedDoNC34SKO9/ZgYxbMo3tBPYsM8krxcHAXBz
-         PXMlecnbEX4zKo+BXHjooQgt0T6OhYND6p13IooUqkEVKMihTzUF7KQWOTIAScw8URVH
-         4J1reAcTkXMa69yZmRvgqgenA4XW2OEaHsicDZmgrXeu6eOFSywwdSBSaOChlvD2/uQX
-         a757cqUAXnsHInVpbKMaKpCmIwHD4A2iUlQ1LWxLy0QEe4eVt8HPqMNdSOIHcsGQVnrf
-         EA/A==
+        b=Mp3TXzXKAySe05pbyr9rtmHop9KSvvVUp3zihZeHrNg18wySVtV+ase44ke9UPqBvU
+         84HLnbBPRi+ilYc+gjK86qwr277Y5PaKhX9fXCsYsBcEs4kXq0NLUtu3YyxjOzHW5HBe
+         NJpDTt471ObOyqnkL8HghkWOrcrH6cQV9kwmiSC3wiUvR6BhU8JvMCQgnUJqJsvZT1Xn
+         tOBaC1y2odMtS/FtXleEV9R19qPF6XIWe+rO2NQNVCVEyT12Yvta4DAqDnK1o92PQqxz
+         t2FKOhPaid1s72ylLZYWkAdteZrW8jfZj1yPvvwbb/izNyNYTz7RAli8d/FtNHhQWjwQ
+         Zo9Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
          :mailing-list:precedence:reply-to:content-language:ui-outboundreport
          :in-reply-to:from:references:to:subject:user-agent:mime-version:date
          :message-id:delivered-to;
-        bh=xOiIr+YwiaqAycM8WP21quVriCuWm6fuAIaL5N7li7s=;
-        fh=LCSFT8lZwP0zdzdUlf9RKGuQrOztRb/D8/cU1wnlY30=;
-        b=frwRdGbN56caxt77aE0FxoYkABIsZ7VAM9C4sZtgZLah7kFj7IeV9p/vU8WbET3/Tl
-         +b/cbqSGcHch1HbHZpaU+/6OEHhIhgenhy6ENiONButijfao959wGLCwck8PzyrSOVLz
-         OPjmpM+CvDpedLZFcesXDe+03lU6ibOtwo2rP5WJ/dnoYqrj1wIxlwJQn9rorLJ4ewF2
-         jZRrz8fTWi0S+OSa1ubWu98UjuXnzvsqE/PDznLZzKHQuFB9y8sGu1QmGjDAt2A9Kbb/
-         QRFK2YKxXZqVlZklkF8/sJNV8DtkU2SAZ77GA4lNP459fdZeXgsNJDGTvl21FuYlAqMi
-         /Vmg==;
+        bh=m/Rt2m2nhU8+tdKZLwRyl5Ol/5tOEf/iPb7RW85V2Aw=;
+        fh=qAFDKNNxrhnyiJOZBZqOVllyi6xfXAFrwF6AMTAVMoU=;
+        b=ZnZVnE7uQDS/65rkV5s2CSTvsT88dqPoo94Y3wMtFlBTvl9ptC1NxX6koIZZW6k6RR
+         DlFCCrU/CPAO8/g5KU5bkFcI4Bsr1W/sCA9qz3HF53PQyYI8CQRkLl6XUKfShIq77S0q
+         wIQDFcruCx0HOmfhXL9/wUdkLJvOnJNujsc8k1yZdrQFLI9+fCULrIUnfFLuGwz999VR
+         xaGMyo/BwVKlTbZduivopiygxjyr9a2qz0dj4hsrPkpqAg5/5lMgknhfw5AappJZzBkq
+         KEIkJcTAVQOVRQGNvOkD2Br9w/IT0hJ6QbYb9wzpjBN77QRW6+AfyuD7t+3KWXWZ1dhZ
+         PEZA==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; mx.google.com;
-       spf=pass (google.com: domain of johndoe65534@mail.com designates 74.208.4.200 as permitted sender) smtp.mailfrom=johndoe65534@mail.com
+       spf=pass (google.com: domain of kyle@gmx.it designates 212.227.15.19 as permitted sender) smtp.mailfrom=kyle@gmx.it
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748524155; x=1749128955;
+        d=1e100.net; s=20230601; t=1748535337; x=1749140137;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
@@ -39,162 +39,161 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:user-agent:mime-version:date:message-id:delivered-to
          :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xOiIr+YwiaqAycM8WP21quVriCuWm6fuAIaL5N7li7s=;
-        b=j6MHxayILJpvpxgR7QlaqTRCUT2RqY+vi/pRdlqNXqjLW6Rd+QMsKLSuMCLqB/qnmB
-         bMmKy0PYRUQ4ObYSLbYcSMw1nTwsL79EsNEiUd9vBD1OvCbcYmri/Mhbb0ZrJb3BOICT
-         mCJP7DgRjw0utlqFuC7xLaK/7240hspjk0vxIlKZOGTzDNeGz4byKguFsVMT6gkrxLtV
-         8EhVdpxy6xe6lZwPADxrr/x/CssnxPfsTaHo11O6tEPULYl24/JhGIrfJoUnOum84fgw
-         Dyjdaozsz1My0dxECe0qgmNa5iqP0qfr1yn5QXYpnZ1d4wWLwCKgZqWd9vzXgEx9L09n
-         IQXQ==
-X-Forwarded-Encrypted: i=2; AJvYcCVI675QNlQPqxMccDdivkefxLSUI0PHVb5RbQVmpsnfDSQnmjBL7qCQhQpCRnwFVV2BTPWW/A==@lfdr.de
-X-Gm-Message-State: AOJu0YzD6lotzvhrevvLl3Y+FEnaokx6qG50FT0OTA1shYUzknaWv8b2
-	7gNl86pGfS/5zGEmaECg81X1/kjQ4JCJc9xzFcjfnf4SbA3rG1Wd+XtHnARSAftWc+E=
-X-Google-Smtp-Source: AGHT+IFm1AqactTqBd0R1w/pQt10MWCzxJvOuMRZ4SzVp8pDKjcK3vlqjBNvloZMl5HhMJd79FIpkA==
-X-Received: by 2002:a05:6214:124e:b0:6e6:6c7f:1116 with SMTP id 6a1803df08f44-6fabf2c2778mr83435116d6.24.1748524155043;
-        Thu, 29 May 2025 06:09:15 -0700 (PDT)
-X-BeenThere: blinux-list@redhat.com; h=AZMbMZfsfREgCIfZZsGwK3/BMqdmibbkjLlLdEvuniKaYSm4ng==
-Received: by 2002:a05:6214:e47:b0:6fa:c3dc:b004 with SMTP id
- 6a1803df08f44-6fac5d6ea5dls17263156d6.2.-pod-prod-01-us; Thu, 29 May 2025
- 06:09:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCVFtpl6DBC16+C8QIbreEP4UmFHGrLyvOpPEhvTOIaM0M9AwpEgoSuzQlQm0oyLdmvWCqWH+QWPntYqhA==@gapps.redhat.com
-X-Received: by 2002:a05:620a:1910:b0:7c7:739d:5cea with SMTP id af79cd13be357-7cfc6097f36mr917750685a.35.1748524152597;
-        Thu, 29 May 2025 06:09:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1748524152; cv=none;
+        bh=m/Rt2m2nhU8+tdKZLwRyl5Ol/5tOEf/iPb7RW85V2Aw=;
+        b=S3kRqtE/eHPjgICnMLGxtDuHB1pjiStv5XaC4STXSxstMU9EDpC1YhM9zcXYa6Kui+
+         lPsahtb/wCfMILlG3flamMA3hBNtVMM7AlCD4MXuSAQBeSl7dWGn56NCnqschbZ3hUKR
+         RISXWp1aCKx9PGkQhBlJh5yn+ayvKd4sAGaildQW7Drp3IifrpWGH6GHdQdaPi6KauGm
+         qMz00rEbAijOKkkbWOWKrIyqcf1OHqFLpBJIgzDEmY8VxHSpXJGklhcMC9HI0KC7159C
+         RaHXjMp8O8pUstzuIt6cu+T4MWi+jh/lGCbvY5vUJEOgNk69hgAuV50yIciDi2v3z6ql
+         PD9w==
+X-Forwarded-Encrypted: i=2; AJvYcCWTFdnYTAg0K3QPdj4g+qb0vnNWlu8uXM1j38QH50BRUrH5j8FtNM3tRN6CA/vd09DZorTtrQ==@lfdr.de
+X-Gm-Message-State: AOJu0Yy9GjVHJrHuLd33qby32DRT4I6mw6XQO15HCLuALHFnfRsMH7yw
+	/L4236Arm7Yadau1KNx7Q/bb/Ve+VdlcFSm22TMbi9/zbvmskWdQT5ea7GORFTHsQmk=
+X-Google-Smtp-Source: AGHT+IHQ05o+0Up2FsgUDnATtEu6fyoVcNNI5pJoRGpl1LmMmobgZDSnpLXkIasM1h7l52y1IzybSw==
+X-Received: by 2002:ad4:5c6f:0:b0:6fa:c721:f917 with SMTP id 6a1803df08f44-6faced58159mr2201196d6.41.1748535337073;
+        Thu, 29 May 2025 09:15:37 -0700 (PDT)
+X-BeenThere: blinux-list@redhat.com; h=AZMbMZfZMueY3fNolnoV9NJUoqz0WYkz62hlnvtQ3Jwr646KZg==
+Received: by 2002:a05:6214:5585:b0:6fa:c4e4:78b3 with SMTP id
+ 6a1803df08f44-6fac5d65a19ls15734316d6.1.-pod-prod-03-us; Thu, 29 May 2025
+ 09:15:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCV27GT2ccXodCOnmPgOm2SR2dzAGHZAcXnTtLIf8HMj0OUg830OrnfcpjW6DsjBgruS8G12tzTWXgGMSg==@gapps.redhat.com
+X-Received: by 2002:a05:6102:38c9:b0:4e5:ac94:a00d with SMTP id ada2fe7eead31-4e6e41a94d4mr167734137.17.1748535335809;
+        Thu, 29 May 2025 09:15:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1748535335; cv=none;
         d=google.com; s=arc-20240605;
-        b=Z6XOpjXWQePiZBwhoH0pbF4wIk5/4ZXu6x6FMePpC4W8uDH2dAiLbfp4bI1HD5sTdd
-         ARwy765x823MZxRMeaeR92Iy+WeXGVEeWx1xGirMVv9DrqfMdh+UEi5uw1myrnkjNxOt
-         n9KKkIOgmevz5Qo1ShRG60Yw/a1vLqcsF+L/lzbCjxVl7e3vvwOHkfj8skeC0PT8Zg+F
-         JcRno6PkmNWFQ5pI1v18vamsYroqoamyEFeep2aT06gzNTvGhD/6NCnlbhAKByWKiwId
-         3kO5AAmXyt/V5Xxl2W/R/vAx+SfvTvDsiqqdZ7gsb58MuzhoRBJxcRmMBIHqGv8/QZk5
-         36vg==
+        b=Pr2ZVscvFIyNUh8T1t3JWghWK0UyEGY7HdosKVIKvVm7CHqdZL8PHFK7ipKZMnE2DT
+         mNInBY+Sg7SgS5G8hhVRswkAMSpHilGN1uw/dWA4Zosju0w1uJOfE5nfliZPXbMuBO0E
+         +olzI4YjHJoLNlOwGHo3nynQ/BJ9I2Aqfonvk7e/q/8/rYJR8sWv/t08G+WV/4aCnD8p
+         FHF8PIylkPBODOu8wvwAIH05rn78ytONv2P1IWgI3pFXtUfcKtC/dZdxs48uHqxLHC4R
+         QwGKPgaZ8Wn2+eVXRlSXC30fmsfghkrEWuL3Qal98hWULlmVLkAedvG87hteWunxPdJj
+         /8bA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:content-language:ui-outboundreport
          :in-reply-to:from:references:to:subject:user-agent:mime-version:date
          :message-id:delivered-to;
-        bh=9BnjO7Fb3gIjn4ZptysacQdhahmWD9q9VS3nOUeNT0c=;
-        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
-        b=OVamahLXA6+eCZ6DQwBkvvSpH1zCvV4YLRoJQBmB3xzXM/CQRLX2E5euk1E00Ag/rJ
-         6NipJBE//ZE4v71Y29TLOAFhdKFcjGwxkNkIGB6dOn3hmaQVLC0GlmSAzheH+DmVXPwx
-         ijjtxiUpfYC0D0sRs946MSNnyIb+Q2/scLh/LPCSs6mAItzNgYJh/fkdm4ti+PvfnZz1
-         t/80D7rGsa3MFoUVePif5YwsP1qPvPR+m+SAc2vbMbwzZTUE46v1SDmTHB/onIJLqkia
-         vcldgkRtWnitObSrK7o81FnDflm+b47Gn98cJr9EBswPxNZOb4OpcnRoqJxL4tRvbMbA
-         FHHA==;
+        bh=tI/EZWCkAFQlEH1d8qVAr5UIjt6E1K94PUAUs8x5KZU=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=Cu8W0gCO3w3h0LSMsHy89by0JbfbuSjZ+to+WthDfAgB5QFISt4o3zCfimLnEZFTr/
+         Jse61lZuOqQmy8xmyNnYaVG+F5q815siksE5igARAt44LLeipkmJwSQVEKhCUlUdMo0q
+         Ywrxps/DlV5M93tCVc20XvqHhMr9Mpq1vsFvvvSHK96arYT/trBG+/1C3dqXTeIu6MiY
+         3/Q4rWz6bDTC0380nogV5+lJ8596eoRjq8v7dCIsy3+KjEkkFFpaUhS/F/DccL7ESvrl
+         VEJMRkDrBZLMgWcuhqCPtpXU2dRlbjbhpT9/T4+1oNF3NDBmcv2MjydqhlLNVgoOhA1y
+         c5xg==;
         dara=google.com
 ARC-Authentication-Results: i=1; mx.google.com;
-       spf=pass (google.com: domain of johndoe65534@mail.com designates 74.208.4.200 as permitted sender) smtp.mailfrom=johndoe65534@mail.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id af79cd13be357-7d09a1fa3dbsi154620485a.347.2025.05.29.06.09.12
+       spf=pass (google.com: domain of kyle@gmx.it designates 212.227.15.19 as permitted sender) smtp.mailfrom=kyle@gmx.it
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.128.131])
+        by mx.google.com with ESMTPS id ada2fe7eead31-4e644421860si586245137.5.2025.05.29.09.15.35
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 May 2025 06:09:12 -0700 (PDT)
-Received-SPF: pass (google.com: domain of johndoe65534@mail.com designates 74.208.4.200 as permitted sender) client-ip=74.208.4.200;
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+        Thu, 29 May 2025 09:15:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kyle@gmx.it designates 212.227.15.19 as permitted sender) client-ip=212.227.15.19;
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-161-ujc2qcfLPNi-k_NZsaDA_A-1; Thu,
- 29 May 2025 09:09:11 -0400
-X-MC-Unique: ujc2qcfLPNi-k_NZsaDA_A-1
-X-Mimecast-MFC-AGG-ID: ujc2qcfLPNi-k_NZsaDA_A_1748524150
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-157-QJr5Kqz6PEWexWzjA7uRWQ-1; Thu,
+ 29 May 2025 12:15:34 -0400
+X-MC-Unique: QJr5Kqz6PEWexWzjA7uRWQ-1
+X-Mimecast-MFC-AGG-ID: QJr5Kqz6PEWexWzjA7uRWQ_1748535333
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 573DD1800446
-	for <blinux-list@gapps.redhat.com>; Thu, 29 May 2025 13:09:10 +0000 (UTC)
-Received: by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 4DDA21955D85; Thu, 29 May 2025 13:09:10 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3EE8B1956096
+	for <blinux-list@gapps.redhat.com>; Thu, 29 May 2025 16:15:33 +0000 (UTC)
+Received: by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 08AE919560B7; Thu, 29 May 2025 16:15:33 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.33])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 440431955D82
-	for <blinux-list@redhat.com>; Thu, 29 May 2025 13:09:10 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.132.61])
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.49])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 05F0C19560AF
+	for <blinux-list@redhat.com>; Thu, 29 May 2025 16:15:32 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BE2FE19560BD
-	for <blinux-list@redhat.com>; Thu, 29 May 2025 13:09:09 +0000 (UTC)
-Received: from mout.mail.com (mout.mail.com [74.208.4.200]) by
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7FC0D195608D
+	for <blinux-list@redhat.com>; Thu, 29 May 2025 16:15:32 +0000 (UTC)
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.19]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-228-0cUG53kvOSmzUnH5fiJ0Cw-1; Thu,
- 29 May 2025 09:09:07 -0400
-X-MC-Unique: 0cUG53kvOSmzUnH5fiJ0Cw-1
-X-Mimecast-MFC-AGG-ID: 0cUG53kvOSmzUnH5fiJ0Cw_1748524143
-X-UI-Sender-Class: f2cb72be-343f-493d-8ec3-b1efb8d6185a
-Received: from johndoe65534.mail.com ([193.74.50.9]) by smtp.mail.com
- (mrgmxus004 [74.208.5.15]) with ESMTPSA (Nemesis) id 0M1Dig-1v9HhV3n8i-00vkkX
- for <blinux-list@redhat.com>; Thu, 29 May 2025 15:03:58 +0200
-Message-ID: <ac090d7f-aae5-4c77-88cb-f417ebfd47f7@mail.com>
-Date: Thu, 29 May 2025 15:03:56 +0200
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-411-1s62CgAZOtK2w4vPs-5C4w-1; Thu,
+ 29 May 2025 12:15:29 -0400
+X-MC-Unique: 1s62CgAZOtK2w4vPs-5C4w-1
+X-Mimecast-MFC-AGG-ID: 1s62CgAZOtK2w4vPs-5C4w_1748535328
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [10.0.0.160] ([136.47.142.229]) by mail.gmx.net (mrgmx005
+ [212.227.17.184]) with ESMTPSA (Nemesis) id 1MxDp4-1v4oRb2jwe-00w7aa for
+ <blinux-list@redhat.com>; Thu, 29 May 2025 18:15:28 +0200
+Message-ID: <411886e3-01ea-468f-8174-1fe74badc1f9@gmx.it>
+Date: Thu, 29 May 2025 12:15:25 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: pi 400 and orca
-To: blinux-list@redhat.com
+To: Linux for blind general discussion <blinux-list@redhat.com>
 References: <66E77BE5-B80F-40CF-ACEC-4543D71E4256@gmail.com>
-From: "'john doe' via blinux-list@redhat.com" <blinux-list@redhat.com>
+From: "'Kyle' via blinux-list@redhat.com" <blinux-list@redhat.com>
 In-Reply-To: <66E77BE5-B80F-40CF-ACEC-4543D71E4256@gmail.com>
-X-Provags-ID: V03:K1:YP8lcj+EOMVLIEr6KIrJyp5yrSSHI4Q01KJvOVubehJbqrPjs6x
- QVbLpl1/YmI/oZwOI7T/neyYzm+dTh/WVCHLdjdBrFJHiy1SAeMB7C8v5Fq50o7hNNpRdaM
- V5SNsEPLq9VHL7ovK0WDxH2rdt5fE42X4pi1z/UFjiR1ryBo4VWsWPgI/9cPmA2336QLXn1
- lWtL0aPZcQdeFFTB2Gmfw==
+X-Provags-ID: V03:K1:+Qqxv4thnib4RIaZzHjsZCqry6ewS+JEVJxKDFQkvShWX6OAJRA
+ r/KNxsX9jD3LntuCcqKmwiygAohjKAV48h7iMh/kKOqXlJ5PSd7kAGBdzCrjNEyM1B17hYq
+ diSZwE9mtMY5lTd+CTQQu5xq0qo+D+T10PqjroIojRsycI2pv6YmeUGVRvAsBuaZX4wdhh8
+ RepAoNsOo28i5+z3lrv0g==
 X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:7EpXXmSulho=;RFOoQmtlnvLw8rBmCqaaNbGXuJ4
- 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
- ASQcqYFijw5Ck=
-X-Mimecast-MFC-PROC-ID: ZRyXugxVAnqW2Z7qkBepiqBXxYMaeN6wWs1I-8hXIaY_1748524143
+UI-OutboundReport: notjunk:1;M01:P0:d67LorS9RgY=;UqFxAQ9TRTDT6K0bDKb2eNRFW5o
+ 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
+X-Mimecast-MFC-PROC-ID: 2Rq8caGpKZu2SeHWb97QMvvDg_gfj5YtqkXNMSmggoc_1748535328
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Plk00EZlMw8vLCtahs8aOqEAdy5Tewh3XA-bOoCnvbA_1748524150
-X-Mimecast-Originator: mail.com
+X-Mimecast-MFC-PROC-ID: -vdfHUQRZUoVYZ_wKQT0cKMgHmT6qvcAbsD_jRQAUes_1748535333
+X-Mimecast-Originator: gmx.it
 Content-Language: en-US
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-Original-Sender: johndoe65534@mail.com
+X-Original-Sender: kyle@gmx.it
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of johndoe65534@mail.com designates 74.208.4.200 as permitted sender) smtp.mailfrom=johndoe65534@mail.com
-X-Original-From: john doe <johndoe65534@mail.com>
-Reply-To: john doe <johndoe65534@mail.com>
+ domain of kyle@gmx.it designates 212.227.15.19 as permitted sender) smtp.mailfrom=kyle@gmx.it
+X-Original-From: Kyle <kyle@gmx.it>
+Reply-To: Kyle <kyle@gmx.it>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -206,19 +205,12 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-On 5/29/25 00:52, Daniel Crone wrote:
-> With fedora or ubuntu on a pc, the system needs a monitor, even though I have no need of one.
+I didn't need a monitor to get Stormux going. I don't recall needing one 
+to get Fedora working either, although I abandoned Fedora 36 or 37 I 
+think it was because wifi wasn't working at that time. My guess is that 
+it should work now, but I haven't tried it recently.
 
-Actually, you can install a headless distro without requiring a monitor.
-
-> If using a pi 400 must a monitor be connected for any operating system to work with it?
-> 
-
-You just install the distro of your choosing and than boots it up in the 
-Pie.
-
--- 
-John Doe
+~Kyle
 
 To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
