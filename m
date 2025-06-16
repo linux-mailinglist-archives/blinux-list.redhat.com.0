@@ -1,197 +1,191 @@
-Return-Path: <blinux-list+bncBC3NDNGRUAMRB472YDBAMGQEOXAE4EQ@redhat.com>
+Return-Path: <blinux-list+bncBCAJTHUAX4NBB35UYHBAMGQE6LUSSGQ@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mail.lfdr.de (Postfix) with ESMTPS id 13D3BADB5DE
-	for <lists+blinux-list@lfdr.de>; Mon, 16 Jun 2025 17:51:18 +0200 (CEST)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4a42c569a9asf92111191cf.0
-        for <lists+blinux-list@lfdr.de>; Mon, 16 Jun 2025 08:51:18 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1750089077; cv=pass;
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7B809ADB839
+	for <lists+blinux-list@lfdr.de>; Mon, 16 Jun 2025 19:54:57 +0200 (CEST)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4a5b3aac5bfsf10791721cf.3
+        for <lists+blinux-list@lfdr.de>; Mon, 16 Jun 2025 10:54:57 -0700 (PDT)
+ARC-Seal: i=4; a=rsa-sha256; t=1750096496; cv=pass;
         d=google.com; s=arc-20240605;
-        b=IBXUrXB4MDtOr5VT0OBUV3oEYgTvA1O/KjVtk/3oEA3wl0ka/VOApXL/Fa8CigYD0O
-         32D0XaurXK+hs7ip+E5CnQzcesAYMdIXOK8G12mlExnZCLjVgahFOdJsB9hDwqbMo/Kl
-         NTXlDUux7ykJ4E5k12jRyYCBbLGa7n3bxj2UvVZwdrOmdHkgH7WEbtUJ9sNrU93ySVKD
-         53uFergqoJvDT3gE4jhnxraUyTetBFUQHNQrMdYtgHtVZrPcQFgtxorXySg0Y7GUxhnQ
-         gkteWzp6g4QYCPs6CUQ395taAuE1hAduByrqapag37Jw25N0bqSL4jWuKo7J9uyheKLz
-         63uA==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        b=gVCP0LL0SGTbt+Z9Po4bvNXVc+9b5JlRdZAdBl7QvpNXxeJC66rNy189vMA1c0sFOB
+         6Ht6bu8/5Ke2Y975jTQ6irVGwnvhiCYHq80V4pEZK/G3kvTxePuxJmrg3uAoeqL7eipD
+         NR4rVkxUzQN7qOEgXGqe1wO+x0YrehLyDH3vADcNKZyVHbS57mfQ63p9bqvRPO8GTOT2
+         BRNkQUXY35GIeCIp/5VFuf52Y+NmGDd+LNCw7M3UFkXbbL5575Df1JklBUKJw1i3+z8F
+         MS95jVCTGTsrr9x1fJRwXd+rRx2q2pvlX7y95gsWqwZvz/U4ghuFz+efyvFHEB2vOvbv
+         r8LQ==
+ARC-Message-Signature: i=4; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:mime-version:message-id:subject:to:from
-         :date:feedback-id:delivered-to;
-        bh=DeAwH8bZqksDR88oNVNMHNOJeHg8Kp8wGHFXJUok1ss=;
-        fh=N+fdLC6eQKCKNhz8Quws4uI976FT17vfuxkxTaATFmo=;
-        b=ROvlOgkq8L+CpHiUP5EgWHmkUh7CYvr9PNrfLgNjCCL3G+G8IDM/Yfhi0NLwaNQDgP
-         EnRYW4nPns81fKNsS9yfF67PD/uu4xZmupIhdp/PKnjy8D56tz4sGFPUL+OrEOiDUX7u
-         81mFf4KQPcXuyDXo54AG1ldYBzNs8QIa98k3EtQ9YFghu9o1+fguSYFwGl4umWlfr65M
-         p7lxWSrqPdXPm1vO9sI72rsT5f33sXntRnCOUJxkFR4wNsFgK8sAgdg8qfr9ChY3enU3
-         EUU114G5yTDDNiI46Vma+Kj6u4y1b1qUjIMSH6W5n/p4aR8YGJMZ3JfIZRxjQ948dus8
-         rp6A==;
+         :mailing-list:precedence:reply-to:content-transfer-encoding
+         :content-language:in-reply-to:from:references:to:subject:user-agent
+         :mime-version:date:message-id:delivered-to;
+        bh=6uCpMUMSsKb0ZqBMTurHwbFtGcj6GVLT7VPn3znTUME=;
+        fh=9gCQzu4+bE3w0ObA7xRc8pH50bbT06665u8INQggrjo=;
+        b=TYfwfoQh5Gh2ebF4oeaLJ49sBxSRwJeiz7j9WSCYovY7YncBRsCsr/YjpAmCc2Fzte
+         7qqc2VNWN5HMK6mU2Z1gkTJwuo0NWrEofoK8AAJZs8MYyf7iuWFMAqkrr1nFfZQkJKo4
+         +rXYtnyKSyJJftazkoy0fKpYwSnyQGGpC76e9NViODcN475/4X0zli8rAzfmwUOmFsaC
+         Kohx422xTYOCEczKi6tgNDKX8ZcQ+dGo4IooRCVANcKiKklD2h+BqdXk1cnBO7RntM/L
+         SnnWmJNFnlmolFKM0yVnfAEF9DFK5zLWmuXyIEuQmnRqe3ZbKo58+XaWlw2kD12MeAW6
+         t4dw==;
         darn=lfdr.de
-ARC-Authentication-Results: i=3; mx.google.com;
-       dkim=pass header.i=@hubert-humphrey.com header.s=fm2 header.b=KXmiKhMR;
-       dkim=pass header.i=@messagingengine.com header.s=fm1 header.b=QBwWZxLe;
-       arc=pass (i=1 spf=pass spfdomain=hubert-humphrey.com dkim=pass dkdomain=hubert-humphrey.com dkim=pass dkdomain=messagingengine.com dmarc=pass fromdomain=hubert-humphrey.com);
-       spf=pass (google.com: domain of chime@hubert-humphrey.com designates 103.168.172.159 as permitted sender) smtp.mailfrom=chime@hubert-humphrey.com
+ARC-Authentication-Results: i=4; mx.google.com;
+       dkim=pass header.i=@crosslink.net header.s=zoho header.b=hr4duqFi;
+       arc=pass (i=2 spf=pass spfdomain=crosslink.net dkim=pass dkdomain=crosslink.net dmarc=pass fromdomain=crosslink.net);
+       spf=pass (google.com: domain of cstrobel@crosslink.net designates 136.143.188.14 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750089077; x=1750693877;
+        d=1e100.net; s=20230601; t=1750096496; x=1750701296;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:mime-version
-         :message-id:subject:to:from:date:feedback-id:delivered-to
-         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DeAwH8bZqksDR88oNVNMHNOJeHg8Kp8wGHFXJUok1ss=;
-        b=eJJW+tM517i51NOKxQQXZVVIcW2ciRGEnNO8u4y880HTSO8+E4th9vF6f+3gxUiazy
-         eTB46YSa6g8VlTHpDCI5b+FnmWyeg0Jj4BRv4+AkjnmQ3VF7hNaKZfHjtjQgpusF+yfS
-         7eUjGeNA4H0Ie81hm3wAc7JSvdQZyQ8kInfKIhY0kptvDw6DrgrXhsKYB1+3zV/MckXA
-         545FGGUHrBXguJBXr75dwxTkoYGf2o1PMQgnotbvJuibh0ePIGMAshGvwm44F3vpCwjS
-         T93bBfcJHJMOWSGDwBNzQlZ/7nonSM/u0lRiucH6ohH01OzJkcQC/ZVPiNbjuNzYj0ST
-         +yRA==
-X-Forwarded-Encrypted: i=3; AJvYcCWT5IwWUuxjvZbag43LefZQtAWnR8h88ewTpa4HaxsOmAc2VrzWpk0FFK+cK1FODhHl8CkyEw==@lfdr.de
-X-Gm-Message-State: AOJu0YyE9iVLTsKCe7Ymr8zSQlE/YlWgvA/zFtmuGinbP/FAlwzDh3hh
-	hgFwla9oyBb6GL8sle4MTXqnoC6T3+intj6ChvYbwRazOz1s8pXcSyjS5DzsXOCzDPY=
-X-Google-Smtp-Source: AGHT+IEt6jvUFsuj2AjP1tTPnmcAeuFfatLfL8TTcKaewl4ftjnwM113hrzpSAoO8+VPGW4M5DeSdA==
-X-Received: by 2002:a05:622a:1491:b0:4a7:23a3:c562 with SMTP id d75a77b69052e-4a739144fecmr174513371cf.22.1750089076377;
-        Mon, 16 Jun 2025 08:51:16 -0700 (PDT)
-X-BeenThere: blinux-list@redhat.com; h=AZMbMZfKeBO7eU+C/nIU8YA0BGkwTLnnOI9KOuNUI2cnGvkpnw==
-Received: by 2002:a05:622a:347:b0:494:783a:3a5d with SMTP id
- d75a77b69052e-4a722cb9269ls79209661cf.2.-pod-prod-00-us; Mon, 16 Jun 2025
- 08:51:15 -0700 (PDT)
-X-Forwarded-Encrypted: i=3; AJvYcCWDf6rfGvfhTuXLHsqFS860+4Cxx7/Ot7mebtFtnzDQNB5OxBnY96or/g6G6dwemhfE2SwZYbsQmT54vA==@gapps.redhat.com
-X-Received: by 2002:a05:622a:1354:b0:4a6:f801:4db with SMTP id d75a77b69052e-4a73b7c4391mr174037951cf.25.1750089075270;
-        Mon, 16 Jun 2025 08:51:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1750089075; cv=pass;
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender
+         :content-transfer-encoding:content-language:in-reply-to:from
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6uCpMUMSsKb0ZqBMTurHwbFtGcj6GVLT7VPn3znTUME=;
+        b=o7PrmdgTjpQIiYwbfU83J3gNcrG9/acSZzJp/8Rx6b8xHaQv3Osu7JWyXfKQab4unK
+         vSvExCNUo/Rar1Vqj+rO4c50mJ4zY1kLeMGQzqW3KmcWH3wOfQcUlqvgz5tZhCbbfmd1
+         nch+qv5y73H4ZwVE4UbQwJBfg5UtM5+3p6Eb548AeEdNRgWYW25RQRkUbelsL6QuiBiu
+         EVA/oswM1TPQpn+Sp7n7EvAJXQlVX7QkwqXKW/HZF7Kmdo9qTnJlR6gGXlB+O748AtFy
+         S1JrbFUfGCTUu7nffoL1pm3rd9axCYd13MCeIztN3aKzl9VUDmr3xePIo18BIr65wm/c
+         4hMA==
+X-Forwarded-Encrypted: i=4; AJvYcCU3Se17q19zg8MIOd6en51/Dwwy+sZpiv81R2tne1ZFNad3LkgQ5PT2AyEPVTG92NhTj8ENng==@lfdr.de
+X-Gm-Message-State: AOJu0Yx2QEt4eVlnvUa/uWrBf7Ui8sdBAteyWcUo7UQj8/k19otOMjY1
+	K3fLudQtMrDWo+LrFzCaFNKFjgYZdG8SVandG1X/K3tM5DcFvjW9xkAEUif6qTI+0mU=
+X-Google-Smtp-Source: AGHT+IEyQaK8IUHven24w0eQS+BVskEynk3RzHFukEtq2vTR8bYs4ZQ/sP1SKiNHM53TzdMeJ/srIw==
+X-Received: by 2002:ac8:5c92:0:b0:47a:e81b:cca6 with SMTP id d75a77b69052e-4a758b92af9mr3612301cf.10.1750096496015;
+        Mon, 16 Jun 2025 10:54:56 -0700 (PDT)
+X-BeenThere: blinux-list@redhat.com; h=AZMbMZd14CexgO/t0zBbFVG25CcU7/wx4NXL5bid8A9Zqb8Q/Q==
+Received: by 2002:a05:622a:2cf:b0:476:7bf7:255e with SMTP id
+ d75a77b69052e-4a722c7f915ls87847011cf.1.-pod-prod-05-us; Mon, 16 Jun 2025
+ 10:54:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCW2uBpQKUE9jyMGasQ64noU46Qpud28jlE/DE4ZlI+G4HnqmSFlALObJAEbjm3bt93YiBv4jPxIbgsqyw==@gapps.redhat.com
+X-Received: by 2002:a05:620a:4091:b0:7d3:b5ff:fb22 with SMTP id af79cd13be357-7d3c6cde124mr1371561485a.32.1750096494904;
+        Mon, 16 Jun 2025 10:54:54 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1750096494; cv=pass;
         d=google.com; s=arc-20240605;
-        b=fMzV8Eaxng/6+9oC+yVJ+YImuGYux6y+/5yt4ptg5ow3Trl8P24LhTwWYbGIhKbxs8
-         8rHQNHoK7m8gw2Ja8+tTEO/HhD6EH53ukl+cABQAAHXTk1/81LeU3WiZPHXgI09jiS7g
-         oKx0dz6d6z0GgsfQ/gCp0JlMo2SQcjfAYv0KH+CswqWly+uqipUNMnpbC5PLMJzOGJVv
-         ib34duEM65iwK/Oa49xIauKb74/1NaZTorUzVHIdDOAfXa+Z+ICOOEIYjJETp70jM836
-         c6Y4XZz2gIxXuCsAX/Eovq9Yk/d6cOu1QBHRot6JXAuE4CLQR9kicu2q4XwRvjdUEBhP
-         Ot7w==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=mime-version:message-id:subject:to:from:date:feedback-id
-         :dkim-signature:dkim-signature:delivered-to;
-        bh=3NP+peFvITY91mbf3MZoC1t2Rol4DtCBBUfDM8FWi3E=;
-        fh=PmA6iCFgUoqrqU6x2M9dR3vZbb+FlLGidi4NLHtSolM=;
-        b=ELiDa+HQ3TYE5QMhint0CQKwKw9TTMgBs7ByGoiMHZobWRcpcq4as7pLogqRdiRrDX
-         AxsUajnQwkQIszVXwQIYVxJYWmmf1hWvbDWwxWM3ob+CSxvMtsgqtFyUxBmfskUIrRnN
-         /SLBNBorhNeTfkA9RvTOds7PBP7N3NZe20B3+KybPNl7xgEI0efwBrraIHDac4wmaDKa
-         QWVtw6ZzAPokz72o+u0GXD//PXf12SFDmbE02OJhwbMbWvGMBryXZ0LHhWnBLzbA8PVH
-         ZabeHADx936Nv1t5T0Kdsb2fFaahUcC/5+IDtGXkGgrOWSM0HlNGibeDafgNbVlz17Zq
-         aw3g==;
+        b=RO0a632KJC+R0hr6RjP1OvPfpgRmH9Vnbwkcat8xu2bm/aX3+W0C7NNfGRhya9ykVH
+         FRN2qH1sS8R392xBJdZ98hgf5WiA7fqH+udPUlKJkDuVsps8UTGHfdzg648kHtedwb33
+         nlsYA9NqKBAZTbsjL52iIOluMiHOIxxiGUXiMmluGUFsmChl4nIdRChyYmGtzwzP5V6x
+         SRCan0MCEE+G5CDJlQ63vq3A2WRrB3cUY4NGrljFLvzcFcUr4Kbom7VWeRnZ+sccgeSZ
+         M60040L8w+byp33ig2umcWImI4e5LV1kINUSRn4IbJbAIiXmQ7XgnlRM3L/Fd8E9mRZj
+         gaWw==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:content-language:in-reply-to:from
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :dkim-signature:delivered-to;
+        bh=vOC0VimyPdtYqcA+69qDTwL/av2QsEh8UaxNa/9Nf4w=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=UJuZaAmkWJpQ8tcdUCvI8GUdVg2WypnfH0sIDnaU8BbL3n7kKMou8xI7L1frWU46TF
+         QqrvMO6X2oEN9ykRueB6Dlg4sVGIv3dZwrHh19YcbHM8vP3QxSDp/X6UPo57XbPwToVL
+         6hLfppKvKhDIhIGFftdaO2UbCv6r9PJB+BwvLFHM43OeDCzGONCjJfTjFdp9+LT4naf0
+         kB9uvKbJJ8bDj9X3rkqAE7QO2rNGqkjEPS3mUpQSqc+Hcw4OpzKwwiikqsuYWmarl04z
+         Getpq5V19IV+GoS2+s2z9Nve5ey/yGGWw8FNc+W8h2+wUXC5bs4h4tnQxh9yfbdDi4z0
+         Ww2g==;
         dara=google.com
-ARC-Authentication-Results: i=2; mx.google.com;
-       dkim=pass header.i=@hubert-humphrey.com header.s=fm2 header.b=KXmiKhMR;
-       dkim=pass header.i=@messagingengine.com header.s=fm1 header.b=QBwWZxLe;
-       arc=pass (i=1 spf=pass spfdomain=hubert-humphrey.com dkim=pass dkdomain=hubert-humphrey.com dkim=pass dkdomain=messagingengine.com dmarc=pass fromdomain=hubert-humphrey.com);
-       spf=pass (google.com: domain of chime@hubert-humphrey.com designates 103.168.172.159 as permitted sender) smtp.mailfrom=chime@hubert-humphrey.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@crosslink.net header.s=zoho header.b=hr4duqFi;
+       arc=pass (i=2 spf=pass spfdomain=crosslink.net dkim=pass dkdomain=crosslink.net dmarc=pass fromdomain=crosslink.net);
+       spf=pass (google.com: domain of cstrobel@crosslink.net designates 136.143.188.14 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id d75a77b69052e-4a72a4f1988si96503291cf.463.2025.06.16.08.51.14
+        by mx.google.com with ESMTPS id d75a77b69052e-4a72a543d0bsi99841731cf.621.2025.06.16.10.54.54
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Jun 2025 08:51:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of chime@hubert-humphrey.com designates 103.168.172.159 as permitted sender) client-ip=103.168.172.159;
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+        Mon, 16 Jun 2025 10:54:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cstrobel@crosslink.net designates 136.143.188.14 as permitted sender) client-ip=136.143.188.14;
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-515-jJMwnsXMOPyjecUbnUeRXw-1; Mon,
- 16 Jun 2025 11:51:13 -0400
-X-MC-Unique: jJMwnsXMOPyjecUbnUeRXw-1
-X-Mimecast-MFC-AGG-ID: jJMwnsXMOPyjecUbnUeRXw_1750089072
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-607-BiQOaMIONOKU5z8AXJe9hA-1; Mon,
+ 16 Jun 2025 13:54:53 -0400
+X-MC-Unique: BiQOaMIONOKU5z8AXJe9hA-1
+X-Mimecast-MFC-AGG-ID: BiQOaMIONOKU5z8AXJe9hA_1750096492
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 88EC81800288
-	for <blinux-list@gapps.redhat.com>; Mon, 16 Jun 2025 15:51:12 +0000 (UTC)
-Received: by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 83D2719560AB; Mon, 16 Jun 2025 15:51:12 +0000 (UTC)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6C43319560AE
+	for <blinux-list@gapps.redhat.com>; Mon, 16 Jun 2025 17:54:52 +0000 (UTC)
+Received: by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 670161800287; Mon, 16 Jun 2025 17:54:52 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.23])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 80CAD19560A3
-	for <blinux-list@redhat.com>; Mon, 16 Jun 2025 15:51:12 +0000 (UTC)
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.49])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 63F5C180045B
+	for <blinux-list@redhat.com>; Mon, 16 Jun 2025 17:54:52 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [170.10.128.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 256FC19560BC
-	for <blinux-list@redhat.com>; Mon, 16 Jun 2025 15:51:12 +0000 (UTC)
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=dkim.mimecast.com; s=201903; t=1750089071;
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DE7BD195608C
+	for <blinux-list@redhat.com>; Mon, 16 Jun 2025 17:54:51 +0000 (UTC)
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1750096491;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 dkim-signature; bh=3NP+peFvITY91mbf3MZoC1t2Rol4DtCBBUfDM8FWi3E=;
-	b=KcN8gf4X84yaclL8ikSHnlz6QxFKHNv3+MMMZlg8sBC0CheiLF4lDOn3cj+mj8+h2ssud1
-	Y8aPWrPKfbLznCxWghuvx+pJaj+UShLttNEVPhEKeHB1nf+0OQJE7aAKpUzV0lbVqhuXXR
-	1nBPbXEAaFH8G9lf5W3ii1MCMC5FwZKV9I2a91C2lh7/66PJxfrBakQOESEiPI4xdlNc5z
-	oNU1WcKl4Pw9leC+1s+Ed6VR2St4F6H0usJFQp4LvJVhGO1vaxrmozvB/LFr6Oc3HSdb3Y
-	8MTpnRTv5h4xpryoO/ZcPUUHtmeY1jqPG4wN1yhhMTOaF3wP8/TJlOxo7MQi/A==
-ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1750089071; a=rsa-sha256;
-	cv=none;
-	b=j5hEUi2rXTLoqVEwr8ZVaWqLRQ+ELrpf1ckd4/cGYkdYZ9PghDR04Zajj5ZAE+2EWaQPeA
-	zt+/mE++49l2YZDojjN2oyANvkTtN2bGog1YAilCqsrmKD2rb0eo3fMWdZ3PuVMxoaeENA
-	LkIUrDWXzQ67HiFFuRMEgqxgh0IHEMk36QnFNgLCNrO574hIfD6YubWgxrd0/fCRRkQOi+
-	eqw3DjwCcatI3fYFuERk3txTzwGsxfmQraEGyDc9VHsAjxvlvUN1sqPJh6G9yTZSrZMrbK
-	eymZzGMw2i38gkbiqS8NtriYAqv0WcxApbEgkCG22sPDJJ4iR2pOcZv8sGJAnA==
-ARC-Authentication-Results: i=1;
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=vOC0VimyPdtYqcA+69qDTwL/av2QsEh8UaxNa/9Nf4w=;
+	b=NcEN8uH7FcIiNJxZvH2eZdBy99EIvF/iGou8Xc+4Ex1bVU2tzS6PRt3J14ESfXdkxxW+nW
+	dF9wlQeYCVY1lsMuDXZ1zRnrJQ2KHWA0cXanBj058HVe7609pcXr/BrN3i66CRcRh5mkyy
+	SfGAR2qeW0uP2hhhJ+kbfz+i/aI+ER3s/suEmhwagWDy76i8LUHDu2ALQ+mM6qA43H5sEm
+	PDPqeWHjyIQ4futRHjJTSgWwr6biYb7OsI4Vq8om2771UbhXXpgF+67WjZuL3DCgcfur0w
+	EUpg+oA4n5MM+a2EflntLuU84+QstAm1xhAqY4PUmkXDrXNDPHYsNO5uMar27g==
+ARC-Seal: i=2; s=201903; d=dkim.mimecast.com; t=1750096491; a=rsa-sha256;
+	cv=pass;
+	b=fR8Y0EIZyFCXTnPZAaZrMPvHbxa+SRvxmfiuNnAsGGz8bT8nhlrPFVouWML/sx5mhTpHcb
+	4JOo7PrT3xC/yUv5/vVXI6x1H+/BHsPs3CCkXpgZstHKoTqJ9VlB0DCCKCjdGOGplsvBBH
+	fgLB7ylQ5ZuR33DYrpPkdM7uhk0AJQ3+Nfq9KA5p/3jTXfjhoLbiIkESiZOat5AuV5VkFr
+	e0CcnZQ5YX2ApCXlRJWG9Nz8LMeqFnD9Sn+1wcKMh0j3EjjT0if41iOZNZj0OusK3sVnmw
+	wHVdGFtzkCKAPjoSoezl1xG8Z4QAmdo5ZkUUHZExKYYoJfQ0lnG8hVIMb/dqkw==
+ARC-Authentication-Results: i=2;
 	relay.mimecast.com;
-	dkim=pass header.d=hubert-humphrey.com header.s=fm2 header.b=KXmiKhMR;
-	dkim=pass header.d=messagingengine.com header.s=fm1 header.b="Q BwWZxL";
-	dmarc=pass (policy=none) header.from=hubert-humphrey.com;
-	spf=pass (relay.mimecast.com: domain of chime@hubert-humphrey.com designates 103.168.172.159 as permitted sender) smtp.mailfrom=chime@hubert-humphrey.com
-Received: from fhigh-a8-smtp.messagingengine.com
- (fhigh-a8-smtp.messagingengine.com [103.168.172.159]) by relay.mimecast.com
- with ESMTP with STARTTLS (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384)
- id us-mta-97-KNIK6-qsOV-CDR5j9EyDYA-1; Mon, 16 Jun 2025 11:51:09 -0400
-X-MC-Unique: KNIK6-qsOV-CDR5j9EyDYA-1
-X-Mimecast-MFC-AGG-ID: KNIK6-qsOV-CDR5j9EyDYA_1750089068
-Received: from phl-compute-09.internal (phl-compute-09.phl.internal [10.202.2.49])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 49D08114018A
-	for <blinux-list@redhat.com>; Mon, 16 Jun 2025 11:44:28 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-09.internal (MEProxy); Mon, 16 Jun 2025 11:44:28 -0400
-X-ME-Sender: <xms:3DtQaADDG7sUm4i87ws1b4Ie91_ZAzjvLJ0AapP3Nckt9lN7aooJKw>
-    <xme:3DtQaCgj-qey49lGhBKujVwye9istYyAAL_oZlRzZX2SujYJcl_tIM-6r5rLKlf3P
-    EO7GUjWAYDMQ1wUToQ>
-X-ME-Received: <xmr:3DtQaDlAV1FowSj6Y6XU0C9t6arhVzZEHVzfcc48bGBeLvm3PR5hooio3a6jJ4KdoMj-sZBuNig2KqUy89VAOAFLbcY0TS57-K0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddvieeljecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpeffhffvuffkgggtsehttdertddttddvnecuhfhr
-    ohhmpeevhhhimhgvucfjrghrthcuoegthhhimhgvsehhuhgsvghrthdqhhhumhhphhhrvg
-    ihrdgtohhmqeenucggtffrrghtthgvrhhnpeejffffudejleeuffeivedtieettedtkefg
-    gfekvdeujeetkedtheefhffhvdetkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpegthhhimhgvsehhuhgsvghrthdqhhhumhhphhhrvgihrdgt
-    ohhmpdhnsggprhgtphhtthhopedupdhmohguvgepshhmthhpohhuthdprhgtphhtthhope
-    gslhhinhhugidqlhhishhtsehrvgguhhgrthdrtghomh
-X-ME-Proxy: <xmx:3DtQaGz6SO2-vluYTEVBJTSwHGNvZ_2xVDuDNQMoqdREsMVDlG7Vew>
-    <xmx:3DtQaFRs41hlhrSZPnOwfFDJkHYd7L9qIzcYChN8LmBnCFq68f-VzQ>
-    <xmx:3DtQaBY0f2IA4Axxeepo-5yuu0q3WJWPNx_Oi6tIAERYHuGdcC4WWA>
-    <xmx:3DtQaOSC2sOr7ketw1o280QaXK_hq3-y7RNZAEDoadQuxg60hhU7AQ>
-    <xmx:3DtQaLCXR5uQR0gm3jQfzpQWQnWpPXQps-EDisDLQ7BPS2ed_t8dTemL>
-Feedback-ID: ia9b947fb:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA for
- <blinux-list@redhat.com>; Mon, 16 Jun 2025 11:44:27 -0400 (EDT)
-Date: Mon, 16 Jun 2025 08:44:26 -0700 (PDT)
-From: Chime Hart <chime@hubert-humphrey.com>
-X-X-Sender: chime@chime.lan
-To: Blinux Discussion List <blinux-list@redhat.com>
-Subject: No Sound After Python3.13 Update?
-Message-ID: <d66104bd-98d1-b8df-2b2e-c3508369a260@hubert-humphrey.com>
+	dkim=pass header.d=crosslink.net header.s=zoho header.b=hr4duqFi;
+	arc=pass ("zohomail.com:s=zohoarc:i=1");
+	dmarc=pass (policy=quarantine) header.from=crosslink.net;
+	spf=pass (relay.mimecast.com: domain of cstrobel@crosslink.net designates 136.143.188.14 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
+Received: from sender4-op-o14.zoho.com (sender4-op-o14.zoho.com
+ [136.143.188.14]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-179-VLeP_Q1XOIGnzeYkksdxVA-1; Mon, 16 Jun 2025 13:54:47 -0400
+X-MC-Unique: VLeP_Q1XOIGnzeYkksdxVA-1
+X-Mimecast-MFC-AGG-ID: VLeP_Q1XOIGnzeYkksdxVA_1750096486
+ARC-Seal: i=1; a=rsa-sha256; t=1750096485; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=TzVcAszKaKQy7Dcph4thI/G61o7lrzkVZpV4CB7pOKSlGRm3fV3uzUmLbcB6+4O4dUfW3ed29qL5Q/GlYuEQLW1iz42kTqgRSoRaJUxYwu2PnK6BOrR2PiYYD9U5uV8jNeZ1NNP8kOggek+oLmGwSXxDUqwf1MgmVsqp1W5gqnc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750096485; h=Content-Type:Content-Transfer-Encoding:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=vOC0VimyPdtYqcA+69qDTwL/av2QsEh8UaxNa/9Nf4w=; 
+	b=YzPqHhfjPt6tFLamtdmWx9YlwZmz21t1CW/Xxhv6wbKY3lefHKzvjk9TpGfiy5ulkk9J1GXy+NyOouEBusr7m4u+PsYAs69WNhsWC4hdknzYgFg59QInV7bIgCtEkfhtKLfKGsYcEkhI4IrATIHp6GFCc59iqC/j+gVekK8kS1A=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=crosslink.net;
+	spf=pass  smtp.mailfrom=cstrobel@crosslink.net;
+	dmarc=pass header.from=<cstrobel@crosslink.net>
+Received: by mx.zohomail.com with SMTPS id 1750096482227309.92732086382466;
+	Mon, 16 Jun 2025 10:54:42 -0700 (PDT)
+Message-ID: <30035a27-7f55-42b5-86d3-b64d8d5aa823@crosslink.net>
+Date: Mon, 16 Jun 2025 13:54:41 -0400
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: No Sound After Python3.13 Update?
+To: blinux-list@redhat.com
+References: <d66104bd-98d1-b8df-2b2e-c3508369a260@hubert-humphrey.com>
+From: "'Chevelle' via blinux-list@redhat.com" <blinux-list@redhat.com>
+In-Reply-To: <d66104bd-98d1-b8df-2b2e-c3508369a260@hubert-humphrey.com>
+X-ZohoMailClient: External
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: T72-e5Y3aXJuOMiCsw-1eXUaQZOQeyXmIQDuh9ZqbwY_1750089068
+X-Mimecast-MFC-PROC-ID: 0Rls43lD02TRZJe7RdUPkVYPk-jgF3q0e7VSR7ehZj8_1750096486
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-Content-Type: text/plain; charset="UTF-8"
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Original-Sender: chime@hubert-humphrey.com
+Content-Language: en-US
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Original-Sender: cstrobel@crosslink.net
 X-Original-Authentication-Results: mx.google.com;       dkim=pass
- header.i=@hubert-humphrey.com header.s=fm2 header.b=KXmiKhMR;       dkim=pass
- header.i=@messagingengine.com header.s=fm1 header.b=QBwWZxLe;       arc=pass
- (i=1 spf=pass spfdomain=hubert-humphrey.com dkim=pass dkdomain=hubert-humphrey.com
- dkim=pass dkdomain=messagingengine.com dmarc=pass fromdomain=hubert-humphrey.com);
-       spf=pass (google.com: domain of chime@hubert-humphrey.com designates
- 103.168.172.159 as permitted sender) smtp.mailfrom=chime@hubert-humphrey.com
+ header.i=@crosslink.net header.s=zoho header.b=hr4duqFi;       arc=pass (i=2
+ spf=pass spfdomain=crosslink.net dkim=pass dkdomain=crosslink.net dmarc=pass
+ fromdomain=crosslink.net);       spf=pass (google.com: domain of
+ cstrobel@crosslink.net designates 136.143.188.14 as permitted sender) smtp.mailfrom=cstrobel@crosslink.net
+X-Original-From: Chevelle <cstrobel@crosslink.net>
+Reply-To: Chevelle <cstrobel@crosslink.net>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -203,12 +197,28 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-Hi All: On Saturday I wrote to the newer Blinux list, but I wouldn't know which 
-list has more readers? Anyway here in debian SID, Friday morning I ran my daily 
-updates. After those updates my sound completely stopped working. We tried 
-removing, purging, and re-installing Pipewire-pulse, even rebooting. Still no 
-progress among 4 sound-cards. Thanks so much in advance for any guidance.
-Chime
+If you issue 'journalctl' do you see any errors?=C2=A0 Perhaps you should a=
+sk=20
+on Debian Accessibility.
 
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+
+
+On 6/16/25 11:44, Chime Hart wrote:
+> Hi All: On Saturday I wrote to the newer Blinux list, but I wouldn't know=
+ which
+> list has more readers? Anyway here in debian SID, Friday morning I ran my=
+ daily
+> updates. After those updates my sound completely stopped working. We trie=
+d
+> removing, purging, and re-installing Pipewire-pulse, even rebooting. Stil=
+l no
+> progress among 4 sound-cards. Thanks so much in advance for any guidance.
+> Chime
+>
+> To unsubscribe from this group and stop receiving emails from it, send an=
+ email to blinux-list+unsubscribe@redhat.com.
+>
+
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
 
