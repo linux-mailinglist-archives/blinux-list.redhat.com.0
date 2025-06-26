@@ -1,176 +1,203 @@
-Return-Path: <blinux-list+bncBC4KRXEWRQERBP5I63BAMGQEKK7QQPQ@redhat.com>
+Return-Path: <blinux-list+bncBCMKFVG4RQEBB2OL63BAMGQEZJVZ4YQ@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mail.lfdr.de (Postfix) with ESMTPS id D9F2AAEA586
-	for <lists+blinux-list@lfdr.de>; Thu, 26 Jun 2025 20:41:06 +0200 (CEST)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-235c897d378sf11017965ad.1
-        for <lists+blinux-list@lfdr.de>; Thu, 26 Jun 2025 11:41:06 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1750963265; cv=pass;
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mail.lfdr.de (Postfix) with ESMTPS id 68E44AEA783
+	for <lists+blinux-list@lfdr.de>; Thu, 26 Jun 2025 21:56:28 +0200 (CEST)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-6fb5f71b363sf27953346d6.2
+        for <lists+blinux-list@lfdr.de>; Thu, 26 Jun 2025 12:56:28 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1750967787; cv=pass;
         d=google.com; s=arc-20240605;
-        b=djECc+mZ+Cl/0HxGUy2sexm9OAKPGNmkZx+i6S7HW/uHgxZXEfnt0OZuTReVyIcKKd
-         Bu1y67lVW3xVvL4m7QQX5bAdntCycoBxpTPOZqm72dWhTx49dcILbrzmQK6W1WudpI/M
-         6u4CfVTXHW4j3bUrRqc+K1qdtquJk2liNNyrrlW697taLNyCxO8l7x4VnmFrLwIul45I
-         7mIRa+JcG1JduoY3s4dOdNMZnzfruWbzjnp9FUGDmNKa6liCThZaBcK4pAVpJROkxFM/
-         jEXMhssP5M/s/m4guS0B/VQhRxnwt5PNHg1ZexGDCwbuO1cWVx+pw3N0fk4+9NCaS4VR
-         DQtQ==
+        b=J3QoEUPjXYkjZLxXgkP4D5L2CtY1ORn0ePJ+TT/OZsqrBzSk7Pzc9te2tX1uOyUJAt
+         FnhdceKBxJ6m/QhGQl1HjgS24nedXGQbulaw9n5hKiakShEvhzHBxfcO/wRu2takAL9j
+         /3uZBYvtDG/crJSiEL+Zw5MvP0iofg37+koVyZ0xbHtiX0Eo9ddsplUIfG3czU8aOK3I
+         luVopbYvcidin6S2RmuZpWKCE9Y7gvsnghu6nGFSzGION2wnB8Vq+sOL0IuK9HbouVN1
+         lp+1/eCcb1X6cG0Gi7IeVCRSDEQKVqVowTQnOAGJ4v0DKOiFB9wtFsoNSSjiCXeKdvge
+         KdTQ==
 ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-disposition:in-reply-to
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :dkim-filter:delivered-to;
-        bh=L+XZxiFdmiUhDb/g7CusA+3Afo6RzZ88JN1zOkU8LtY=;
-        fh=aBoSlhe9rpotEJz27KagJYDM773MFG5GfTtZqDIHVpc=;
-        b=RWX3F3SjbDbmlY7oXzTeuU6rM9EC3Cfvp/tnNZuuo0MH0GiyknQSvh7FPiLfuzkYuY
-         H3HYslNQeM3hSi6x0ftJ2reWnfvRN+6Mf4ZTB+Ae/wI0KjLhv1GbeG/bOXU9hGTrRaN6
-         VhbSwSWa2/Hay2qoJAfOko7GpwJbphFClr/2vWuk8fRNtgLZY0KvUOH4eU+2uTYjn4Rd
-         X9xRWSHJ43cZSQPat+kMf0Xx0zbZG6x/9jUMtFdb+UFI55HyVKEzCfU91E/ZcDl7e2UH
-         wCYBXMhjJuQ5DFUE83wuLAAdFAXFn/nFQD7xTCfHFQmBoc9BvldW1DHxocC/H/1mC7tG
-         W1eg==;
+         :mailing-list:precedence:reply-to:content-language:in-reply-to
+         :autocrypt:from:references:to:subject:user-agent:mime-version:date
+         :message-id:delivered-to;
+        bh=MdVBg+Ud90yDWk7VnB7aeXMqBLerdV1AzAYoYyQSkcE=;
+        fh=EGoUxjjCAzbIk26RxFQtAsij/11oWRkTGaoDB97BfoE=;
+        b=UzPd7V22b6z7dO/EoPHmagUELsMNAv2shW+nDhr+pKB0/aFQAsl0jAh4LTsEG6XlQf
+         rlP1RJv199WNWF6RIMWiwMYf+c9QdxwDkLlJWAuhMhia62C/QgxOn6ZgJMDT+Aax0ieS
+         AE7zNenuZlZ692R9q76K7p8LQbYuIkTpTJSp6zmbwaXb/bEVZD1w8icxta/PxSGwXV3C
+         hCmqkkoISxRgMbkQWBCMhYEy7uGn31uyCmcqI+MDHDDJqcy8S62TDnJoR2QT/7gyCYPE
+         kbQasnLvSUUGGqa16vED9rp347kXzGCgBzv+nFaw8vud2NV/HCcLdIRHjIDVdZaA5tUZ
+         sElQ==;
         darn=lfdr.de
 ARC-Authentication-Results: i=3; mx.google.com;
-       dkim=pass header.i=@lamasti.net header.s=mail header.b=HlutOUhq;
-       arc=pass (i=1 spf=pass spfdomain=dalen.lamasti.net dkim=pass dkdomain=lamasti.net dmarc=pass fromdomain=lamasti.net);
-       spf=pass (google.com: domain of lrs@dalen.lamasti.net designates 185.181.61.11 as permitted sender) smtp.mailfrom=lrs@dalen.lamasti.net
+       dkim=permerror (no key for signature) header.i=@slint.fr header.s=default header.b=lkTSDO1I;
+       arc=pass (i=1 spf=pass spfdomain=slint.fr dmarc=pass fromdomain=slint.fr);
+       spf=pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750963265; x=1751568065;
+        d=1e100.net; s=20230601; t=1750967787; x=1751572587;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
-         :content-disposition:in-reply-to:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-filter:delivered-to:x-beenthere
+         :content-language:in-reply-to:autocrypt:from:references:to:subject
+         :user-agent:mime-version:date:message-id:delivered-to:x-beenthere
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=L+XZxiFdmiUhDb/g7CusA+3Afo6RzZ88JN1zOkU8LtY=;
-        b=hn9TA3jA966T+YGLhhca5FaIzF1qqX/luzliGy5H+rpiB+uCouBwczF82V745xycqh
-         3bl2Hznu+mZN4k75mHU3RN/MpVc11j+WFz02GnrGuuxVYQh+0jkkB3uDl5eo70ewEYXw
-         yhPntINZLdtdekj1dILmgPTuZrKgNbL++xBPBlETkYeeRF8XafqN3p/EcLEgHpsR4M3H
-         ekq91SutZhjX1hbtjR95cMwmygVxAFX1wFNbXBvOA1Gq8JA4a96fM3hE2gXvC7rSJ1K6
-         EIkif5lrD0kYJCyvP/nIz08NFOxgo+zUvZBx/jnSyRwhp08fW0G7VofwTIJq+GPkxp1N
-         qTmw==
-X-Forwarded-Encrypted: i=3; AJvYcCVMOT1/xG7wYfIf/ZGBLZVDMkISNxiNUi4fGnKu9UrppiHKXlBjUifmX+YTyB9ybHHYuj2kxw==@lfdr.de
-X-Gm-Message-State: AOJu0YwzYPuqCbJxU1cXqh5D3Aw7fwFOnMhRmqcWiLkQjCMRAyCIO8Uo
-	wPMpRA7YdsoAYb3yvJR0yr3OZmmf3d2AMwbFeMGXakibwicfwpVnHluhSKPp9tPk+qIQeUHtadk
-	=
-X-Google-Smtp-Source: AGHT+IGsNxUnFk8v+XOo+Hd5krQjW9MOCyvU3iEAh5qRhl/+C1RbrB+c85NYisV6Ju85ObHHAXK/Bg==
-X-Received: by 2002:a17:902:cecf:b0:22e:421b:49b1 with SMTP id d9443c01a7336-23ac487c9f8mr4642705ad.48.1750963264561;
-        Thu, 26 Jun 2025 11:41:04 -0700 (PDT)
-X-BeenThere: blinux-list@redhat.com; h=AZMbMZd3zfyr7yS1I5Bqo758/toc73Ctrx+7iz0ix4BQrIBNdw==
-Received: by 2002:a17:902:e149:b0:234:e655:a617 with SMTP id
- d9443c01a7336-238e59d8489ls7668215ad.2.-pod-prod-02-us; Thu, 26 Jun 2025
- 11:41:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=3; AJvYcCVVwFPLwWSsmbXTaVgFf+TwQwxcOqO6zpcYVGV8UpWOoad9Y4HN66l2rZEi8CzxO+EdYR0+JBimNPDVbg==@gapps.redhat.com
-X-Received: by 2002:a17:903:2f8a:b0:235:779:ede0 with SMTP id d9443c01a7336-23ac465d136mr5722895ad.35.1750963262517;
-        Thu, 26 Jun 2025 11:41:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1750963262; cv=pass;
+        bh=MdVBg+Ud90yDWk7VnB7aeXMqBLerdV1AzAYoYyQSkcE=;
+        b=oAg+AQhKlbg/3JSKtJ4+CjHkDkZr06iSvflu/mmz4jHLR0F7CB2+pigdEztK06RTX/
+         IgzQj5rzWMPVOo1FUu4p0CAEzzXxxYEPrPN/2rgK27V4aqIz+PU9LYtsMVYx9WKT+ihu
+         T1D3YKEqG+A3A0KSNZrUEuB1Hg814v/SjB81dnF93aB4tJvzW7TJ7V67aOPut1uYXrvK
+         zm/7UV0nLXmve3RLCCVhA5HBEBdXOCSaLdWey5e+KHtASsDLedfaGwGoLYsZD2Db15iz
+         yUqU41F9+3rJkxcF+wTzPF4scIqA++qQR+FvCWecA/FtByF0VLUbWzugXN3QfLbL/M2Y
+         46gg==
+X-Forwarded-Encrypted: i=3; AJvYcCWIRMcdP9gFoGpRwWMsxFm+WTb1/zHxhonVuZhz/A5kNPlOZwdJ/o2nabquWVQTTMXZa+BxIg==@lfdr.de
+X-Gm-Message-State: AOJu0YyQNVkvJwDYDhgo4xwO3Ch+TvsrSpZP40sAXNT/VQXvBnl3mrEp
+	imGBOoj/XlQ4gmaj3CPKHlVxfahKoIsCW7CBp9a8b1Y5qsRFeGDOnPGUv4pA8z7TKbM=
+X-Google-Smtp-Source: AGHT+IG5mMlwTkDms8Uag1Zii2t8j2ljpquWGBGDiXqdBpvNU4162pwruDm2PHXckQmUQE4yswnoog==
+X-Received: by 2002:ad4:5caa:0:b0:6fa:cc39:ab with SMTP id 6a1803df08f44-70002152ed2mr11415686d6.24.1750967786327;
+        Thu, 26 Jun 2025 12:56:26 -0700 (PDT)
+X-BeenThere: blinux-list@redhat.com; h=AZMbMZdPPpTGqVH7BbFhjhnKXdNyIkOc+FGhMVt225+6vqikqA==
+Received: by 2002:a05:6214:f0a:b0:6fa:c0b0:1fa7 with SMTP id
+ 6a1803df08f44-6fd7513c817ls23491286d6.1.-pod-prod-07-us; Thu, 26 Jun 2025
+ 12:56:25 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCU0e93HHNghXOSatfr8ZPn2Em5kwEn6h/gstoakprxFSoFymlw3LXR4aQrcY2JR7vaAxspQMo0qZGQiRQ==@gapps.redhat.com
+X-Received: by 2002:a05:6214:c48:b0:6fa:a724:8769 with SMTP id 6a1803df08f44-7000291853fmr13721226d6.35.1750967785034;
+        Thu, 26 Jun 2025 12:56:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1750967785; cv=pass;
         d=google.com; s=arc-20240605;
-        b=AczwvK8o0eRv/Cxm2LDxKJEUIvTX/k2ag0s3pKLwXhgXDCRRVw+udr9K1fk3nwFkKz
-         y+TEamTfmkxu4d2F+zSbP1fkUAeliPQWVIk9amcFtweWTJSmB55wBMw3iDPtMcapA1LF
-         ZCNV10pnLOS0Um6gzZkO+eCchHlqpHpeRe1xwsbdfgvQAgPG3NF0KAdWLVW5wuuIga7j
-         NRRuNJKIEe9TnGk2a3rQDML+7wVo4miIs0V7bb5IDmxHOqy/TvGai5EnLWmkB5CbYDHQ
-         tjNea4mJMoGP/2ZxgFca1Xc6henue+HBa9xNVIS/PAWOiPoihPCnS6DWZTep4qpQrhfm
-         rJeQ==
+        b=Mp2fOd9LPNzO2G/qQETW+aVLa+IgSKb/L8Um3fM90JloIAurt8qvIB3Kl6HFXunxfn
+         M1IcBQuj75eVnRipP1GkHhzKuGn260Es32RzF9je+dpC3VVI73TlA1o4nIERbaWxuyJ4
+         CMRZI5qqskflYN/KeF0uKZ+d3N+lBGtpKVTLChuzcJwLNUlJ/uHfqJo7zSYgVqTKSwjO
+         EP3wQGqI7a9A0ntS/X4xiZ2bkQ17K8xW8w//XjqY0JQaEniR7L4LEkwFI9Mv1JOM4RP0
+         cDYGcNTZUMpgD71TjPEiu+EbX5EVVNq/gxOY6Zc1f8sjG1VHdI/ZY1dDaXKKzoc+3nFm
+         SmVQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-disposition:in-reply-to:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature:dkim-filter:delivered-to;
-        bh=GIUOYxxBFHCce8P+Gc2JMMWY84xwDVvaKLjlRsNfuU8=;
-        fh=J+Y5kC7kZyhseIM00lLeblDFGbTNlEjAqaLJjhjp7/I=;
-        b=NL6snoGCJV9mYX72r6roCmLuUofh7p4anQvqHzLN+/pir0YnVixDZgASZM6P4AM8X2
-         ZpaHL5M7jExvzX2LYLxOfQMZvspFwb2T3I7gl4zNpg2kQtHb2jl9VjG73ZLmZ8ugnryT
-         MAp8Ctg/digB1KZR5OqVZBe2qfvVcUQY/TqsZSBe6F+eQiUExDnsQk7smlts12yy458U
-         ZgZL32Q79SzOkbaFeMkMlhOn9hW+H9rBgAxelL2+TtggQIIBxYvHm7MogotJIxucSjEd
-         21c7eI0R6cIpWfOcry2Ctiio/Nh1B4q2vcjJ8l/46Uk3nCX0UReqgL/COchbimZQNQAb
-         qnsg==;
+        h=content-transfer-encoding:content-language:in-reply-to:autocrypt
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :dkim-signature:delivered-to;
+        bh=NNlsxiBJLnP/fF1m+b5ETNc+iqu9K6wJBbS64ZCaONE=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=Nu1anLh/gYseAp2c/sfs+7ehyBqaS3CL7fkacyqXY1k6by7t3/tnvvVIk1xSZHnKZQ
+         P/VeI3uSp0pDxFZTohgh0M37IB7V/TmycFV+quiJUN7YaYHIseXjoaO1sXmo1KTaI+Qt
+         m5WZNYugtrfoFwymmK5upTZ1dxFX+xDaMVKHiyLFWTkt2jpIJ8TU3kgWgZ8X1/DtNe+f
+         AFaA+EpRMqnkVVB297cYmh7g06ARsruYF0VpDgRbMBjd6W2qRkV54mLTVXFj9ijOdpgM
+         Qor3LpK+VviOeMsYl2a7IbwypLNWs6kz9VyCX85ldsHUKEIhliivzHLeaULZpqasXXN3
+         M/6Q==;
         dara=google.com
 ARC-Authentication-Results: i=2; mx.google.com;
-       dkim=pass header.i=@lamasti.net header.s=mail header.b=HlutOUhq;
-       arc=pass (i=1 spf=pass spfdomain=dalen.lamasti.net dkim=pass dkdomain=lamasti.net dmarc=pass fromdomain=lamasti.net);
-       spf=pass (google.com: domain of lrs@dalen.lamasti.net designates 185.181.61.11 as permitted sender) smtp.mailfrom=lrs@dalen.lamasti.net
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.132.61])
-        by mx.google.com with ESMTPS id d9443c01a7336-23abe3d0a52si4253835ad.437.2025.06.26.11.41.01
+       dkim=permerror (no key for signature) header.i=@slint.fr header.s=default header.b=lkTSDO1I;
+       arc=pass (i=1 spf=pass spfdomain=slint.fr dmarc=pass fromdomain=slint.fr);
+       spf=pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.128.131])
+        by mx.google.com with ESMTPS id 6a1803df08f44-6fd77288da5si25270736d6.24.2025.06.26.12.56.24
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Jun 2025 11:41:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lrs@dalen.lamasti.net designates 185.181.61.11 as permitted sender) client-ip=185.181.61.11;
+        Thu, 26 Jun 2025 12:56:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) client-ip=172.105.89.79;
 Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-532-Y5gjRGmMPmmFPKa4MjSoHg-1; Thu,
- 26 Jun 2025 14:40:59 -0400
-X-MC-Unique: Y5gjRGmMPmmFPKa4MjSoHg-1
-X-Mimecast-MFC-AGG-ID: Y5gjRGmMPmmFPKa4MjSoHg_1750963258
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-141-_ANDbj26NySA2IYcD6xNsg-1; Thu,
+ 26 Jun 2025 15:56:22 -0400
+X-MC-Unique: _ANDbj26NySA2IYcD6xNsg-1
+X-Mimecast-MFC-AGG-ID: _ANDbj26NySA2IYcD6xNsg_1750967782
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2208D193A541
-	for <blinux-list@gapps.redhat.com>; Thu, 26 Jun 2025 18:40:45 +0000 (UTC)
-Received: by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 0951319560B9; Thu, 26 Jun 2025 18:40:45 +0000 (UTC)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 13360180047F
+	for <blinux-list@gapps.redhat.com>; Thu, 26 Jun 2025 19:56:22 +0000 (UTC)
+Received: by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 0E87F195E74A; Thu, 26 Jun 2025 19:56:22 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.124])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id ACCC61956067
-	for <blinux-list@redhat.com>; Thu, 26 Jun 2025 18:40:44 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.49])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0C20719560AF
+	for <blinux-list@redhat.com>; Thu, 26 Jun 2025 19:56:21 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.132.61])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6F0E8188EA7C
-	for <blinux-list@redhat.com>; Thu, 26 Jun 2025 18:40:34 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9977C193F048
+	for <blinux-list@redhat.com>; Thu, 26 Jun 2025 19:56:21 +0000 (UTC)
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=dkim.mimecast.com; s=201903; t=1750963233;
+	d=dkim.mimecast.com; s=201903; t=1750967780;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=GIUOYxxBFHCce8P+Gc2JMMWY84xwDVvaKLjlRsNfuU8=;
-	b=BDTvX/jry8V78xVrNKDZodnm/DC1C8A+lllAPHW17/lKjyuMevjQcDq4Y51IlnxdNY+V0T
-	xdF6kKGHap99Bx4W9SI7s/+UYsidag7N4HokRtOvfHqO7eBkd/Ck6ncY3nMfsDB/iBKNe9
-	MddAGt5dD0b5VGtDPRJeswGNetszOD/KU0VEKNNYZQWzP6OPwff9F4kYxHeK0cxttMZl83
-	V663SNW7nrg/8AIPZTCUB5UooO2mR4EGC9cfoXSHTV8fjOPQNk+OxUaF154D+hajqezLLb
-	yEwTExDCYd+cHdAMKlcYzAfiDiJwI/lhF4KuWcglyIrcAO3e/fkFlzjMPGMhBQ==
-ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1750963233; a=rsa-sha256;
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature:autocrypt:autocrypt;
+	bh=NNlsxiBJLnP/fF1m+b5ETNc+iqu9K6wJBbS64ZCaONE=;
+	b=UW6p+Ns1ouOssAgyl8S4ijDB5+gmRIyo5vOYwDqLxPbKwLhHZIsE2CharLGKTosZXw3u26
+	Uo137pkC7jMZS6tLLhrg5Jl4dEwQn0dSq7y9hdTAjFFlGwlPgwQbcHkWn0oCpMZUk7pDXf
+	13pa/xllX7qH0Kc6wDM1SWl+gV9wvRphq9KmpNI5tTejlWO/bW/wfZneOK9FpzMZasc6gX
+	bPEiGesY/0iPogPIjIMPzbsfXYdsqBKPmqc1hG7gsGDFAEI7v/9SqP6JtvXd8OfXJggmbv
+	9ry3H7OZDJQ7BGTpfGazEUDKtuKkiaKs7pJnp83KcBRW1YaPjS93tzcWel5dJw==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1750967780; a=rsa-sha256;
 	cv=none;
-	b=PephsjgXqGVSXZDBoK4LO5tBhsXd0Jya34cT36Rj4QJhvxrMlY6iTK/e+bgE1C6gzCtseZ
-	wFYxez24w1sWpOgB/ofWs2Bp0MmFlO2hkvzF/QQGIUveydhVfBmRyoPBmByAVqiZo+l7wQ
-	WlPigiluxlxEaTrFtXYLr9sROwB4639QzRFutpXXNRxVNt8TBH1TefFvnpu8WnCa6XL1VO
-	Ky/Ccd+sPsLutkrXd/2inBnN1op7M9t1Ssz14pjiYxuvjF4dMUFMlK13dEIU8Q1ydh0AyD
-	hekELnzJyv7bPg0ONOXtBP2DZxib8nxKrr/O0WQz8CIlbwxC4qq+54hXENrxxw==
+	b=X5inzxACrNto8NaY/r1ubWIb4bYyIjyCPJCP/tSE4d5ugYSDhk8+yGID4G1wWkKvREJvIo
+	0IUST1f1tgJAxCtpK1F0jYTK7Kbv6HhPD/VqmFQywnf4r1ZZJA92DwaE6+BYY5wzUDbO0I
+	/9mJoZlwhztNEAcSajarbKOYcK12NsI/hE9Hx+1xwNfEJCv38bHvxnHnggH0CxSJQC1Ldq
+	L/qknYIvu343jb+R08TtJFdzn3STA6OOOZehIXUXipo1QPUgvbSp/4OOKILX7JqFsVWZuk
+	nGpc6+Lz8gMuEDEDNzBES1TphvqEGRToDcWGq9el8mR+BkLq2o6HQJi56bgQZQ==
 ARC-Authentication-Results: i=1;
 	relay.mimecast.com;
-	dkim=pass header.d=lamasti.net header.s=mail header.b=HlutOUhq;
-	dmarc=pass (policy=none) header.from=lamasti.net;
-	spf=pass (relay.mimecast.com: domain of lrs@dalen.lamasti.net designates 185.181.61.11 as permitted sender) smtp.mailfrom=lrs@dalen.lamasti.net
-Received: from dalen.lamasti.net (lamasti.net [185.181.61.11]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-687-DrUDUDb6MQuqXsu1HkKoHQ-1; Thu,
- 26 Jun 2025 14:40:27 -0400
-X-MC-Unique: DrUDUDb6MQuqXsu1HkKoHQ-1
-X-Mimecast-MFC-AGG-ID: DrUDUDb6MQuqXsu1HkKoHQ_1750963226
-Received: by dalen.lamasti.net (Postfix, from userid 500)
-	id 82B8814C26C4; Thu, 26 Jun 2025 20:34:01 +0200 (CEST)
-X-Virus-Status: Clean
-X-Virus-Scanned: clamav-milter 1.0.8 at dalen.lamasti.net
-DKIM-Filter: OpenDKIM Filter v2.11.0 dalen.lamasti.net 82B8814C26C4
-Date: Thu, 26 Jun 2025 20:34:01 +0200
-From: Lars =?utf-8?B?QmrDuHJuZGFs?= <lars@lamasti.net>
-To: Daniel Crone <dcrone215@gmail.com>
-Cc: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: linux and Braille
-Message-ID: <aF2SmS1If_tq7sdn@lamasti.net>
-References: <A98ADDBD-B429-4040-94CF-6DE62DA80558@gmail.com>
+	dkim=none ("invalid DKIM record") header.d=slint.fr header.s=default header.b=lkTSDO1I;
+	dmarc=pass (policy=quarantine) header.from=slint.fr;
+	spf=pass (relay.mimecast.com: domain of didier@slint.fr designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
+Received: from darkstar.slint.fr (darkstar.slint.fr [172.105.89.79]) by
+ relay.mimecast.com with ESMTP id us-mta-204-i2QpcqGIOIypVeZtcpt7Lw-1; Thu,
+ 26 Jun 2025 15:56:19 -0400
+X-MC-Unique: i2QpcqGIOIypVeZtcpt7Lw-1
+X-Mimecast-MFC-AGG-ID: i2QpcqGIOIypVeZtcpt7Lw_1750967778
+Received: from [192.168.1.60] (176-173-208-123.abo.bbox.fr [176.173.208.123])
+	by darkstar.slint.fr (Postfix) with ESMTPSA id 5B3311602E8
+	for <blinux-list@redhat.com>; Thu, 26 Jun 2025 19:55:26 +0200 (CEST)
+Message-ID: <cb4e0932-509e-4f5c-8315-204b2e5a19d0@slint.fr>
+Date: Thu, 26 Jun 2025 21:56:16 +0200
 MIME-Version: 1.0
-In-Reply-To: <A98ADDBD-B429-4040-94CF-6DE62DA80558@gmail.com>
-X-Mimecast-Spam-Score: -3
-X-Mimecast-MFC-PROC-ID: 5JntCToiJMXr_6rUuaX5MilVbumW4vFhLeJX_M7BRcI_1750963226
+User-Agent: Mozilla Thunderbird
+Subject: Re: Braille Blaster and linux
+To: Linux for blind general discussion <blinux-list@redhat.com>
+References: <8775841C-4F73-4EE1-B8B6-2F5DFE0E9ED0@gmail.com>
+ <366e0c17-48d9-46dc-b550-54b8c1da3a3a@slint.fr>
+ <A5B44213-E216-477A-82E3-8E6934C590C9@gmail.com>
+ <e438d884-82b9-427e-9207-1aff37fe2c7e@slint.fr>
+ <C1DD2AFA-6AFD-4389-BB30-F166BEF6BFC8@gmail.com>
+From: "'Didier Spaier' via blinux-list@redhat.com" <blinux-list@redhat.com>
+Autocrypt: addr=didier@slint.fr; keydata=
+ xsBNBFY6fG8BCADH4Hf/OaE2MwXRFMrU/9oDd+YPqR/wkhmIv0veDio84fsWA5qMz1De7TEv
+ dNuxIVYTznuVOd/9lpdfxQ1KV9rgD7yoBPLmjbQA1vVjB+1QylIQUV0B9AYFUsxZP32Ic2pg
+ TS3US/WiZyx+/jS50ri4kvT9iDtIEu7WBWFr8YMOoq3oLkHI8Y7gBG0WsK9XYN09glhtI+bA
+ jLPr/ezwEg5M3FDb4U7XFq7GcA6EEzanKMAOHdZl3lta7dv5gpgdj+38j5jPfV1cJW+J1fha
+ 63X72xxXGs7V6J7NGpnW7SAKfTAMXsPXZwwGIuqMQs1Z89I+2ZPJPOoV8zMncTsWzHStABEB
+ AAHNH0RpZGllciBTcGFpZXIgPGRpZGllckBzbGludC5mcj7CwHkEEwEKACMCGwMHCwkIBwMC
+ AQYVCAIJCgsEFgIDAQIeAQIXgAUCYZVPGAAKCRDVAgLvYMA+6pOxCADB2pKmm/LgncWREzob
+ Z6M+RsvgzvGS/48ik/E/TH2KyPO/hn+Fzbj4MmMwQdqz5YPfdBmkcM7WyDzkPaukzfS8QUvl
+ VKyWQ92pqpbI/JUeShI+DLMKV7LZxiPinMBuKmpyLdpxuhk08g2+6F8X6ztbl8mbXQy5jcIZ
+ zKQ442N0D4wnn8VXM0tb0uonmqc6ly7dcmkQ/GI7Q0tF/hkn4n3g1Lh6+K1jBqEIC9vn/c6X
+ yf67ec+CwbE0GtgVM1FR1R0J1y/6vkYWr7gZHhnzgwKr6k1wzCGkVUyCSpFwB2oeANT9c0qP
+ rgn4YjoYQIHS3vMWd630vRyOfqwetWXmVjPxzsBNBFY6fG8BCACqDQKHSw0ElDkwPPpNguL0
+ ujOyygO30xlLyfW9pWOEycHSLhLzvDTlFkvr5IxvyCDBIFBdzpkeQqh1+ZxrFliwWyj+9/ro
+ JlIjxeAyNs2xQZ7tQM6K5xtbUs8O5YtkCCO3OegAiLgmzzgxes79Qy+V3ciKbl+vrsNu7T9r
+ o3zZhyinci1eOCcKEtXFPQW5P4woB+6+JheN9pIiDkjojmdC+xkvDadP7kJYKp19Itys/CbN
+ vxEoOLsgeJhsZSmNU2QNhXkLfr7+AC99fb/c5ZDTNPRBqgLJCp+gTxn1QVJrAbq2OP3refmS
+ RxdA3yUDMjxEeHwDNZJL9aEtTDlTzPk5ABEBAAHCwF8EGAEKAAkCGwwFAmGVT44ACgkQ1QIC
+ 72DAPuqjhwgApl0pdNIrbU+8Hn0mr3CTEXxPaTbAU2bYFPDiBaEvXsBGoz8xJ6EZQnywbC7o
+ l5wFtVT08LKDewLHaL78zS+Q8rv5sNmWwzMAaipFtZg67e/rU3V5tw4E12nUghyMzQpngUur
+ lZPMFlB9IZN9681cXuv2sZzAZlR2+3PsSAftpPQxReoSC7hj3dfiCiAis19G3A184HClA5MB
+ I5heGinSz7R/AXhkiej8HZZzz9ZPkS7aeL8HsZKqCwZvViutbGmpm+V70JnbRAHLFjYb+Se3
+ rdUWWAXcca4Ry8HCLTo5iK9xCTQh5gEuJ7ROdOXeY4SvMiqWjYhlrsR0qhTv9q/gfg==
+In-Reply-To: <C1DD2AFA-6AFD-4389-BB30-F166BEF6BFC8@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: KBKGf1KWoqaCNitZNvw8yZS65cU8_T74PyUTyW8CNtg_1750967778
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+Content-Language: en-US
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
-X-Original-Sender: lars@lamasti.net
-X-Original-Authentication-Results: mx.google.com;       dkim=pass
- header.i=@lamasti.net header.s=mail header.b=HlutOUhq;       arc=pass (i=1
- spf=pass spfdomain=dalen.lamasti.net dkim=pass dkdomain=lamasti.net
- dmarc=pass fromdomain=lamasti.net);       spf=pass (google.com: domain of
- lrs@dalen.lamasti.net designates 185.181.61.11 as permitted sender) smtp.mailfrom=lrs@dalen.lamasti.net
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Original-Sender: didier@slint.fr
+X-Original-Authentication-Results: mx.google.com;       dkim=permerror (no key
+ for signature) header.i=@slint.fr header.s=default header.b=lkTSDO1I;
+       arc=pass (i=1 spf=pass spfdomain=slint.fr dmarc=pass
+ fromdomain=slint.fr);       spf=pass (google.com: domain of didier@slint.fr
+ designates 172.105.89.79 as permitted sender) smtp.mailfrom=didier@slint.fr
+X-Original-From: Didier Spaier <didier@slint.fr>
+Reply-To: Didier Spaier <didier@slint.fr>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -182,13 +209,80 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-[Daniel]
-> Anyone know what Braille translation software is out there for linux?
+There is PKGBUILD for braille-blaster in the AUR, but not for the current version:
+https://aur.archlinux.org/packages/brailleblaster-bin
+https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=brailleblaster-bin
 
-I use Liblouisutdml found here: liblouis.io.
+Maybe you could request the maintainer to update it.
 
-Thanks,
-Lars
+Cheers,
+Didier
+
+On 26/06/2025 21:37, Daniel Crone wrote:
+> I am running arch.
+> 
+>> On Jun 26, 2025, at 14:29, Didier Spaier <didier@slint.fr> wrote:
+>>
+>> The link leads to 4 tarballs:
+>> aph-brailleblaster_3.0.1_amd64.deb
+>> aph-brailleblaster_3.0.1_arm64.deb
+>> brailleblaster-3.0.1-linux-amd64.tar.gz
+>> brailleblaster-3.0.1-linux-aarch64.tar.gz
+>>
+>> Those whose name ends in .deb are Debian binary packages for architectures amd64
+>> and arm64.
+>>
+>> Those whose name ends in .tar.gz seem similar, without the metadata needed to
+>> install them on Debian using the apt application.
+>>
+>> In all cases these are not source tarballs, so nothing to configure and make and
+>> I could not find the sources in the website.
+>>
+>> I which distribution do you want to install brailleblaster?
+>>
+>> For your information liblouis, liblouisudtml and liblouisxml are included in Slint.
+>>
+>> Cheers,
+>> Didier
+>>
+>>
+>> On 26/06/2025 20:51, Daniel Crone wrote:
+>>> I was on the following link.
+>>> https://assets.brailleblaster.org/brailleblaster/downloads/download.html
+>>> <https://assets.brailleblaster.org/brailleblaster/downloads/download.html>
+>>>
+>>>> On Jun 26, 2025, at 12:18, 'Didier Spaier' via blinux-list@redhat.com <blinux-
+>>>> list@redhat.com> wrote:
+>>>>
+>>>> Looks like already built package.
+>>>>
+>>>> Anyway to find out we need a link to this file.
+>>>>
+>>>> Cheers,
+>>>> Didier
+>>>>
+>>>> PS this list is superseded by blinux@freelists.org
+>>>>
+>>>> On 26/06/2025 18:11, Daniel Crone wrote:
+>>>>> I downloaded a file from brailleblaster.org ending with .tar.gz and then went
+>>>>> to where it was.
+>>>>> I used
+>>>>> tar -xf file-name.tar.gz
+>>>>> then checked for a script file to run
+>>>>> ./configure
+>>>>> but found no script.
+>>>>> The were the directories
+>>>>> /bin
+>>>>> /lib
+>>>>> /share
+>>>>> Without a script, I would not be able to run the
+>>>>> make
+>>>>> command.
+>>>>> How may I get where
+>>>>> sudo make install
+>>>>> may be run?
+>>
+> 
 
 To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
