@@ -1,233 +1,233 @@
-Return-Path: <blinux-list+bncBCV3N6GOXMCRBHVKSLBQMGQEOAEEOQI@redhat.com>
+Return-Path: <blinux-list+bncBDM4LSNO5MHBBEOWSPBQMGQE6ZX2TTY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mail.lfdr.de (Postfix) with ESMTPS id ADF00AF0852
-	for <lists+blinux-list@lfdr.de>; Wed,  2 Jul 2025 04:10:40 +0200 (CEST)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7d38fe2eff2sf970775585a.2
-        for <lists+blinux-list@lfdr.de>; Tue, 01 Jul 2025 19:10:40 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1751422239; cv=pass;
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mail.lfdr.de (Postfix) with ESMTPS id A7E97AF0DA8
+	for <lists+blinux-list@lfdr.de>; Wed,  2 Jul 2025 10:17:24 +0200 (CEST)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-237f8d64263sf55859395ad.1
+        for <lists+blinux-list@lfdr.de>; Wed, 02 Jul 2025 01:17:24 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1751444243; cv=pass;
         d=google.com; s=arc-20240605;
-        b=VLM5pLe4C6TdsnLfFWtww84nvNKZrH0bpW8GmSFuBSntllH9R0lRaFDP6ZRIwsHiVr
-         9B7XdtnNKdPAaIyCRxb2iqFWS1xwWxxTqt+okZXoZtcugpGeQghtdEo9bYzHq6wMhNGn
-         XYk6852/0OwUdkxPauyGiVpUwJn0/yY4cD4ohY3XW3Gt6q/oLnafL0Jz8IaozgKnrdD6
-         o31kgjJ30TCu3oP9wwP3e2o1B3QYF/8uhYTcaxBGMvJHWi9NxVA+IEdfEfumdPjGQO/L
-         0qI1PkesURwFGBRLnBRByanZR2cskYA+nCekb2QO/ALQFraSzM8zLtKHQbwpAEOYKbVz
-         IKXQ==
+        b=Ku+vbLtXzC79IGOrHZy3rDAiKup2vnx6pQpZORjlnfCLNSa7uL1y2hMcuNk4E7VdKd
+         sbBD5M2svFzBCqUMEJTmxeotQ7mZXJ4rKtbwGei6UWYMaf7W2/2ZSEOhgdlEDEwxa78k
+         ev/zhrlwym9QzIIbfSSTZwiqqxCB35m7kBpsXkMoqLoLpFlgzx139vhhqkodj/bg6wXh
+         0tNBGdUZz4n752931SZBDvLyZuRWayDlO79cyQV5EMU9rNL1a1Bu/4qcLJsGBk1Okl8J
+         YRMC6BkYX2ncfy2+8aZH4Z4wbFYOE6dGrV4a/qHLyWrWTXCTEqhRpkgjSOtbFuqDbgMK
+         t3ig==
 ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:reply-to:content-language:ui-outboundreport
-         :in-reply-to:from:references:to:subject:user-agent:mime-version:date
-         :message-id:delivered-to;
-        bh=TnmQXGr3d9xCtEbjbt9rf89pRopLMNEVAiCxAZPeIzQ=;
-        fh=QDS9Fe5JqCbTlHv/qNjRb9dY2R7wBXPNOTrKdTkDcQU=;
-        b=ALadoEB8CwF4a2qIDa9V4Bmow5Me3iYTMNYDAIoFcJVtwDYg7UuHNAuWZ7xwmvLDKA
-         HICi47okcsTaclJ/E8C2vOjW6BQ47lx6LhF3prLQv21NH+k4mn+TE2i2IQzNc9OgczVQ
-         70aRXTxZBUmIFjBkgyJdFVIfUwE3W2zjLJsP8I0Dpx8131bNDcAp1GVfBP+N3vj+rV1O
-         Q6D6Et1ouhWjePTeQOOBoQGJfMhd2v8Pi6exHYIj+A9XsnGV2RQIVfl8kMkzhOqQZBP3
-         A3QIngIqdBO6G/oBxwylqv1cbH3b3GGx7i5/Gz+eYhz0WWJep9Rx98nD3Xuyqij4Ax/e
-         fc6A==;
+         :mailing-list:precedence:reply-to:content-transfer-encoding
+         :content-language:ui-outboundreport:in-reply-to:from:references:to
+         :subject:user-agent:mime-version:date:message-id:delivered-to;
+        bh=qdk5XL1rD5LWS5qSYIjmOoPXvin1h0hxFYAuYmQ0TxY=;
+        fh=3e/fCPLLfsf0KRRumciC5S65XKANJ/0ayacFn59KPKk=;
+        b=ekfLXTQ9Q0xAb+uRbTrc+fCkrtad0r+HTjJA/0VA+bXzINjAhMs4Bj06j54MRBtNxC
+         EhVTxoxGt6LvZ4BBCfoU/16Nulpev+I2cJe0xq1eWieamLzXFon63PkP/W3mwI3p0C8S
+         HNZ0TE/Ap+4ui11T2PTCxXV1OeDLu8X9mZu/zhpcDr8ZUUFW+P0U8hqQx2NTLe3iomV7
+         yjkmAMic5JgNgYaJpY6Eiy5IalrVJTkgvBhDltzPuNQpfn6K7ffHUQofjclW7E4Jq818
+         tWT3mDA0xzjf16+fZQBJV3/8ttckw45mwOrSHAOGefQwGLsAGyyJFXSO+SE4+LxL/PPp
+         rywQ==;
         darn=lfdr.de
 ARC-Authentication-Results: i=3; mx.google.com;
-       dkim=neutral (body hash did not verify) header.i=@gmx.it header.s=s31663417 header.b=jRuh19V+;
-       arc=pass (i=1 spf=pass spfdomain=gmx.it dkim=pass dkdomain=gmx.it dmarc=pass fromdomain=gmx.it);
-       spf=pass (google.com: domain of kyle@gmx.it designates 212.227.17.21 as permitted sender) smtp.mailfrom=kyle@gmx.it
+       dkim=neutral (body hash did not verify) header.i=@mail.com header.s=s1089575 header.b=KrmaoKDU;
+       arc=pass (i=1 spf=pass spfdomain=mail.com dkim=pass dkdomain=mail.com dmarc=pass fromdomain=mail.com);
+       spf=pass (google.com: domain of johndoe65534@mail.com designates 74.208.4.201 as permitted sender) smtp.mailfrom=johndoe65534@mail.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1751422239; x=1752027039;
+        d=1e100.net; s=20230601; t=1751444242; x=1752049042;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
-         :content-language:ui-outboundreport:in-reply-to:from:references:to
-         :subject:user-agent:mime-version:date:message-id:delivered-to
-         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TnmQXGr3d9xCtEbjbt9rf89pRopLMNEVAiCxAZPeIzQ=;
-        b=mqcdNJXPLiGTPFdI15O4q3HIRnLLZx7pBUacjCa6TeNbihqgC3AFBzKA8DlTYC2PQ8
-         /8BHnoCOTO2TK6Er+0VEZKwEipTdZwjTmPlzAHsxs8366o8VJom1daJE7/ei12EyUaqE
-         JhuLuW4yDWP/8XFw69dsXNw8v0lg239epGwxqR/k14ADNcxUSGsfRGdkT3V0wu/orPFf
-         1IQJbvYXgWj8/tQ6Zt0MNyErDU9CkxHFD/q4qkRmEZWtC908rkdOeLgaBrSuFd5oESDs
-         JQjDbZ2RXLIHf5OGH23Wie5j/e/fHyGnmQ11sTMf6D+LOu7zdZqwFmZDtKxLgGA9BcRD
-         UfcQ==
-X-Forwarded-Encrypted: i=3; AJvYcCVdutJ++wjXVErkytjsOKdnQ8bsOuTeqAOyuKE6+YQUyVnoVYNRATVkhVgdrwajcUa+UuWu/w==@lfdr.de
-X-Gm-Message-State: AOJu0YzCBWOCRsp8oHGM5w27lpb1LLGmlRUltryk0d1jYVXeP2mey1ec
-	UOJoDg4ASOkwSCXYFpKJNkbztE217Hs2wLFZ0i6Djwilcu2kocfpzM53c2U2sQnOfwc=
-X-Google-Smtp-Source: AGHT+IG++uHKzEVNhlc/qhyqr47U0kpa9uWC4WmWfkRWI5giHCK1BSy/8Z3dDsg4Ch+U1MLU8y24Aw==
-X-Received: by 2002:a05:620a:178f:b0:7d2:15f:f976 with SMTP id af79cd13be357-7d5c473590emr169337285a.52.1751422238796;
-        Tue, 01 Jul 2025 19:10:38 -0700 (PDT)
-X-BeenThere: blinux-list@redhat.com; h=AZMbMZcnse8K7ZNrBwoNpCORPCIgYvYC49UgSP6VKJEk3btpIA==
-Received: by 2002:a05:622a:59ca:b0:4a5:a87e:51c1 with SMTP id
- d75a77b69052e-4a82f15a0a7ls25972191cf.1.-pod-prod-03-us; Tue, 01 Jul 2025
- 19:10:37 -0700 (PDT)
-X-Forwarded-Encrypted: i=3; AJvYcCVR66qISy72V9GGi08AjJl92Ybu9vcDX8icHsNy0ReFnbXh92JdhQ+5Hz3eQUxiIe+DXwN+Wp5vdKgB5g==@gapps.redhat.com
-X-Received: by 2002:a05:622a:46c6:b0:4a7:6839:d095 with SMTP id d75a77b69052e-4a97721ff2fmr14081221cf.3.1751422237698;
-        Tue, 01 Jul 2025 19:10:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1751422237; cv=pass;
+         :content-transfer-encoding:content-language:ui-outboundreport
+         :in-reply-to:from:references:to:subject:user-agent:mime-version:date
+         :message-id:delivered-to:x-beenthere:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qdk5XL1rD5LWS5qSYIjmOoPXvin1h0hxFYAuYmQ0TxY=;
+        b=oJ+sJJXBvrZ/u/Cv817TuNoIcK179fgf10vTUg37aNlmCqOtLqQcRRTuHGF228BChB
+         6O5FYB38zFNXcZWSmkMTGFLQ4t67oM/0hBfWLDxIFIjc4qRksdVU7+3cE67+E6A10a5t
+         /9PiyYkAMW0aIu+HuroBQt2iDP0cFl3hT3cWA27H6uOZqVpodlAPh8o993NqAdXjYhc6
+         I4aCAkd69LGm01LyyI+xuehrhL2h96G6ixY1mbkXBhwA14/P0AK0eghGWgkkcyo0xH/h
+         G3y6X9pbGJgvLJUsx6PBpNkVAkyGV7LxH8GXO01/MAWyIiXYUQE5IOhBYkLSoQ8f2r+k
+         U4VQ==
+X-Forwarded-Encrypted: i=3; AJvYcCU9RylYq9hjOCznr55CqI8XHJeBIS546VxsYJUDKNEYTWIh4mdMbj/RGxOM6YHwDRHV1lmntg==@lfdr.de
+X-Gm-Message-State: AOJu0YyBZcGYZMKUCBmLQ3tTxZCA+GRz5pTaxSN53yfs2B5rVhHRXQEa
+	gtJ33hXq484FL6FEEVBPL64gjie3Ge7ZOyGda/B2wPxfpMpPZzrIihBaKS5NVtGxzC0=
+X-Google-Smtp-Source: AGHT+IGTZfRePJ9F0w680MyGFPlMxCsyqV7s6dCp6gb2+6TJKlb2W4oxCOCJXYA5C0fltboxZp0H+Q==
+X-Received: by 2002:a17:903:1b67:b0:236:15b7:62e4 with SMTP id d9443c01a7336-23c6e511dc5mr37944575ad.38.1751444242265;
+        Wed, 02 Jul 2025 01:17:22 -0700 (PDT)
+X-BeenThere: blinux-list@redhat.com; h=AZMbMZeCj3FUpR2kJCbiXeGzCpMBP7b7AoycD6coKH2LPz0ydw==
+Received: by 2002:a17:903:22d1:b0:234:b428:baa0 with SMTP id
+ d9443c01a7336-23b358815dfls19962125ad.2.-pod-prod-01-us; Wed, 02 Jul 2025
+ 01:17:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCURCjGmiBGZVuBymnuBXVhTI9EAseG9vBo/LLPjSOcuVAaRn9tDk5AnMV3RqvCO+D0FoDbbzsME5QyVtQ==@gapps.redhat.com
+X-Received: by 2002:a17:902:d4ca:b0:235:f51f:c9e4 with SMTP id d9443c01a7336-23c6e46d380mr40557005ad.12.1751444240511;
+        Wed, 02 Jul 2025 01:17:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1751444240; cv=pass;
         d=google.com; s=arc-20240605;
-        b=g2ife6yAVw7BwStZVpDPNAHZMiwLr4+11f7mNhhokyAnDkmk8s0Ncnqip1bU+H+hgp
-         KA3sJjYxwZ7nhKYji9iCm0cSAjnDb+Mjck/Ec0iPT/4My2oBLhvnDd57+8PBnkJ6oPWE
-         BQiB26j2Aw9qP7R+I2wCsMR8Xzt/ZjvdeMxdCIvRTryAhxlQB9ibs5khXjitiaPxrrvX
-         o0jOK5gHGnJPL4DGn/QKSv/iltbAJjuduig1JkyksvEbMcflQ5ZktFTpUJRwU0AAh4Js
-         iWGUk2U6ot2tNNzeDSf9Wtgsa5aUa1NquH2JFbCaYIGHyb1mXnH+a+B6ne/lzgbLkaRu
-         +P6g==
+        b=LHLbyhMWuVd12Ls/GzXboQIVcXAhKKscluQozmkzK5+bZGfHGHLZ5Nmix7mQLLyzRu
+         a+KOffA/KPkzGabiE9LV39hPZ65Nxx9/oXag6QMIMhq4VzGucLMcNLu9rSipfIjYRLHr
+         iIRWtRFoMpdcbGHXGBwwNO255lrkRQLgFCtBqZoaJVkTsm29xE9HNWjRvvz2zt+PwYX+
+         xJfXjz6aHzv74HutsuDVEOfrM3mWSWTcZ7n0AspxpDC4w0zqrN68PCZxtVOgJZ0Klgf2
+         hNR+cET5t5dV6VA+35Pp/Pz4cEdOnCEI7Q55UL2ueGwpn7DWQXJ4xOWAqHAUuBe8BPvo
+         fbug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:content-language:ui-outboundreport
          :in-reply-to:from:references:to:subject:user-agent:mime-version:date
          :message-id:dkim-signature:delivered-to;
-        bh=+HR+IwKkLvOsL71IaZLGdYyfG56zFssufaPABGFp1xQ=;
-        fh=e2WkPm7zvS8I1715rBVZO2tJtzyPRmLixC1Gk6KdXuk=;
-        b=Ua/NE8WWnFVx+OhDzKkMUI8hNeMP+Rsg+6GImzVnHOX8J0S48BpbyCn2VfuVDousmI
-         fy86yYCqxxXvPgokfrITPjrERhBi6bb5HnoMbrLFP/1V7yJQku5fAPS8pkGUzUA84xHK
-         MAZ7H5INl52xwdBXav5Tb1uMb9/3eWdtdfaJ4yD+cQGw/XkAYw5u7KnWsEzgt7j4DMc6
-         Y1W+glNAAjadTz55jO20a/O1UJnj+gJrRq7y+7VUZsCC5cJQOLalWTyKneQAZf0quDdB
-         iKgY5Sz3VYyKigEYV9ixZCmUwaq3aTUDQO1+S/eTJskvOOvqmncJNsWjTeAnIkdHB8V7
-         zSCA==;
+        bh=etjkWHJGYx3tqWFFGGSpfiEXyQnRbEmONegu0fh8Bcs=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=gSVqInFbVUu5blJorv9ux3kI4ZjkEphE6wf3cUsKHVnSIeFXmvK6GmRRLgyIP5rrpP
+         zF++Y1m6Hr1haxGYQZk3jAr1zaSjtPjEAvBZJh+0No620eslrRWE6A2xsYypIdI4vQE5
+         CwgO75Fo+PQmtbSeM0QD+JGex7YzJf824JMthTUEWCYsE4nLZF0/EyXoxz7ycs6EYo18
+         pR9BG26I9FVytIo0wHmIKtQq7L2TTLdjMKVO+xxvhYzPg67XvJoOC4P4vHSRoDUaw/qj
+         HGEFH5FuGekGQLF4rfx75a7RvlaM6pfW9u5aLsSgRhb1ozW8F/uuBG0hS6Y5nzBwtzwi
+         6UEQ==;
         dara=google.com
 ARC-Authentication-Results: i=2; mx.google.com;
-       dkim=neutral (body hash did not verify) header.i=@gmx.it header.s=s31663417 header.b=jRuh19V+;
-       arc=pass (i=1 spf=pass spfdomain=gmx.it dkim=pass dkdomain=gmx.it dmarc=pass fromdomain=gmx.it);
-       spf=pass (google.com: domain of kyle@gmx.it designates 212.227.17.21 as permitted sender) smtp.mailfrom=kyle@gmx.it
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.128.131])
-        by mx.google.com with ESMTPS id d75a77b69052e-4a7fc5568f7si118059451cf.522.2025.07.01.19.10.37
+       dkim=neutral (body hash did not verify) header.i=@mail.com header.s=s1089575 header.b=KrmaoKDU;
+       arc=pass (i=1 spf=pass spfdomain=mail.com dkim=pass dkdomain=mail.com dmarc=pass fromdomain=mail.com);
+       spf=pass (google.com: domain of johndoe65534@mail.com designates 74.208.4.201 as permitted sender) smtp.mailfrom=johndoe65534@mail.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.132.61])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-b34e324219asi15479634a12.496.2025.07.02.01.17.20
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jul 2025 19:10:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of kyle@gmx.it designates 212.227.17.21 as permitted sender) client-ip=212.227.17.21;
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+        Wed, 02 Jul 2025 01:17:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of johndoe65534@mail.com designates 74.208.4.201 as permitted sender) client-ip=74.208.4.201;
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-77-bfdi3GhKMKS86jekT7037A-1; Tue,
- 01 Jul 2025 22:10:36 -0400
-X-MC-Unique: bfdi3GhKMKS86jekT7037A-1
-X-Mimecast-MFC-AGG-ID: bfdi3GhKMKS86jekT7037A_1751422235
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-278-gezbRU1-NzGSEjuQbkmwLg-1; Wed,
+ 02 Jul 2025 04:17:18 -0400
+X-MC-Unique: gezbRU1-NzGSEjuQbkmwLg-1
+X-Mimecast-MFC-AGG-ID: gezbRU1-NzGSEjuQbkmwLg_1751444237
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 54FCB1800343
-	for <blinux-list@gapps.redhat.com>; Wed,  2 Jul 2025 02:10:35 +0000 (UTC)
-Received: by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 5020930001B9; Wed,  2 Jul 2025 02:10:35 +0000 (UTC)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2B4501956061
+	for <blinux-list@gapps.redhat.com>; Wed,  2 Jul 2025 08:17:17 +0000 (UTC)
+Received: by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 0C3B819560B4; Wed,  2 Jul 2025 08:17:17 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.49])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4D24830001B1
-	for <blinux-list@redhat.com>; Wed,  2 Jul 2025 02:10:35 +0000 (UTC)
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.124])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0945119560B2
+	for <blinux-list@redhat.com>; Wed,  2 Jul 2025 08:17:16 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C110C1944AA9
-	for <blinux-list@redhat.com>; Wed,  2 Jul 2025 02:10:34 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 71E1018011DF
+	for <blinux-list@redhat.com>; Wed,  2 Jul 2025 08:17:16 +0000 (UTC)
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=dkim.mimecast.com; s=201903; t=1751422234;
+	d=dkim.mimecast.com; s=201903; t=1751444235;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=+HR+IwKkLvOsL71IaZLGdYyfG56zFssufaPABGFp1xQ=;
-	b=Tz0pSwrNDtMalHk5CNx9n7VfhF3rzVWDyi2ucxAeswUtLxXBSIhU2O75rhbz0edxft7546
-	IV80zFzzVdl0FOlaM0enUrVAwxQ/L6lUlqN66xSVeL2BDX48zwGlwfsE3HHZjGb+0utkGF
-	K2RuHo3SzvFZ6M6OeY8u/SMUCEelFb8SLehyxCVaXuYTV+WkQh+/r00UZT6GXFS60+ybIZ
-	f+PJL8upxmLhi15iaUcnMbk5e8z7YARZR8+ROdAVMRaRzZonLEEgJVtcKDmm8+wiLSq1BB
-	sT9cwBKldBcYlZgcal8HDiGFmLueotUorDFdJ7WAkJchE1WYWsGRmOzdj3mJ/A==
-ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1751422234; a=rsa-sha256;
+	bh=etjkWHJGYx3tqWFFGGSpfiEXyQnRbEmONegu0fh8Bcs=;
+	b=Bwl9frBL9Vkm98U+ZVT/m+oQaxHnzSbuaCpMsrgLhyIk5Ssq8faH+tbZhRrQmb8op/nog6
+	Nyk+foC2/4qlvzCaor6HAMevfz82nhdWSy1nKPWeCjyQP20IZHaynmH/pvWN0+4gTsH6ES
+	Lmcw2+kSk6d5MQOXqIPVXDCWlailUqMC6AovJ1pkQ6ay0y3PZl5djx4uTOomek1nxInzMH
+	Iao4lUhdOZ9t7dbkw0rusVK98tC6PPDOoGxQ9zy6ynLnyXXcAlG5cPex358KpcwH7pY+az
+	DAueAaod7DG1ggo7tDy3eJ3X3GhbSTERgQ1BleyIJOdaz1wWPLBi/mju1+3x5Q==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1751444235; a=rsa-sha256;
 	cv=none;
-	b=NyO0ZgkOTuZp1WZa4NCYe6LrXK26t7HkznzsOlinSXJ0R4Qk3yIP1kbpgM4bLmLXWXo/x/
-	uSTUm7CkZa6xVDqI6IyYjeSfnAFXbqW4x9dN84MWBTuy6heLpeuZc/hC/0LcHcDAZloQB+
-	lFmuxyMIyA/QlhuiQ4xYOwruvodoPXnHKUhuN9S0CD2zpjCMMNvmSKrlMEJiR5RRmSaO8o
-	Aa55ngCSdhikOearMRi7kSt6ziPUvS3m8qgMyBVWmosuqjrPeMs7lZ70H6+PdHV7vzOatB
-	UMAKfHmZBn7J1LHHR8JL/PU9Cd3rqqNYVb9hWhPK8WbfF4z1cRw8wWqBTHKsbw==
+	b=YMmd+0931et89iSM+LlYjmw6b1NzwWIh1CQVIhBK78QluYvKNgYsGv2sbQA/HHV8OEXUUu
+	SmRYDAVx0/dgXXOwtWL3FiM1WPA0jUba6lfAA8JJ5pOuY7gsB+nIahAN60bZzqxUH2eQWX
+	8popFe5ptVqg7eLN31SqCrytbAFhkxuKxqHKyZBE7jb5l4ufqbjeumwVgYqfSM8vCVPfup
+	p8kb2K3HZYtbWus2lGVetMSaMt4d/fGuC6LruJDtC+8Dl0pLRQJOmOoBwaVhgo53fu+F9R
+	aLWuK2IjycrUgenAoOz4L9b8KFGPbnQD0MpYhbaKhuWr4rlQ2tmJ2QDZY7vnrQ==
 ARC-Authentication-Results: i=1;
 	relay.mimecast.com;
-	dkim=pass header.d=gmx.it header.s=s31663417 header.b=jRuh19V+;
-	dmarc=pass (policy=quarantine) header.from=gmx.it;
-	spf=pass (relay.mimecast.com: domain of kyle@gmx.it designates 212.227.17.21 as permitted sender) smtp.mailfrom=kyle@gmx.it
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.21]) by
+	dkim=pass header.d=mail.com header.s=s1089575 header.b=KrmaoKDU;
+	dmarc=pass (policy=quarantine) header.from=mail.com;
+	spf=pass (relay.mimecast.com: domain of johndoe65534@mail.com designates 74.208.4.201 as permitted sender) smtp.mailfrom=johndoe65534@mail.com
+Received: from mout.mail.com (mout.mail.com [74.208.4.201]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-205-lvw_wXpDOxyzoMT2QVFWRA-1; Tue,
- 01 Jul 2025 22:10:32 -0400
-X-MC-Unique: lvw_wXpDOxyzoMT2QVFWRA-1
-X-Mimecast-MFC-AGG-ID: lvw_wXpDOxyzoMT2QVFWRA_1751422231
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [10.0.0.236] ([136.47.142.229]) by mail.gmx.net (mrgmx104
- [212.227.17.174]) with ESMTPSA (Nemesis) id 1MBlxM-1uP7xy2d6i-002L7W; Wed, 02
- Jul 2025 04:10:31 +0200
-Message-ID: <ed3c3c5f-71d1-412d-92e0-f2a0251fc019@gmx.it>
-Date: Tue, 1 Jul 2025 22:10:28 -0400
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-607-4jPbmJz7PGWL53XFctecsg-1; Wed,
+ 02 Jul 2025 04:17:13 -0400
+X-MC-Unique: 4jPbmJz7PGWL53XFctecsg-1
+X-Mimecast-MFC-AGG-ID: 4jPbmJz7PGWL53XFctecsg_1751444232
+X-UI-Sender-Class: f2cb72be-343f-493d-8ec3-b1efb8d6185a
+Received: from johndoe65534.mail.com ([193.74.50.9]) by smtp.mail.com
+ (mrgmxus003 [74.208.5.15]) with ESMTPSA (Nemesis) id 0M87Ox-1usxsd1BFB-00qxv6
+ for <blinux-list@redhat.com>; Wed, 02 Jul 2025 10:17:10 +0200
+Message-ID: <1dceb3fa-aec9-48cd-8dd2-deff957aca85@mail.com>
+Date: Wed, 2 Jul 2025 10:17:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: Seeking Guidance on Switching to Linux for Personal Use
-To: AbdullahZubair@BlindHelp.net,
- Linux for blind general discussion <blinux-list@redhat.com>
+To: blinux-list@redhat.com
 References: <04ad9922-c266-43ab-9474-9c896ca850cf@BlindHelp.net>
-From: "'Kyle' via blinux-list@redhat.com" <blinux-list@redhat.com>
+From: "'john doe' via blinux-list@redhat.com" <blinux-list@redhat.com>
 In-Reply-To: <04ad9922-c266-43ab-9474-9c896ca850cf@BlindHelp.net>
-X-Provags-ID: V03:K1:KKkPGi4CGGW/gmthILkPDmRxZsspUvMk4zXkqz8oAtHcH8IogX+
- hc07Q3k1zra52YltSvJdFWydxCvlrFoFdNXk3j+xrvhPTMLBR3PAUY5MG6qj+gs+oXbjY6F
- K2jEqUGoE6IeObBGBuefgb5YNVd8/bVniwnA3N9R+jXUngftP6SUM0ejFzq6fJXmx9xVt+t
- iLC57FFSKsjMvos8yubdw==
+X-Provags-ID: V03:K1:x5zB8QuDnpOXa2F40hPL5mKTst3O1u6eCw9Iha8YtB+VGZzd8dc
+ EHUBqH0CI4AS3udFzP1x6D3iWRabMaMf0VB/Z8G/Qp1212v3LcqyUYk3+ac/g+xe4T2QK2Z
+ aeHb8U9Sd5zgAL8jAEUin7bM2AAlUhauc0hvkeyTxqbQonq3OYXDRx87TyorTTWYpwBkzMV
+ B7GE7MrC8hV9+VQQjwiIg==
 X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:0jfbtWz4/b0=;5UXa26T5W+bqdS8aIKPxZHUBUnn
- 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
-X-Mimecast-Spam-Score: -4
-X-Mimecast-MFC-PROC-ID: 7-sSkXZ3WPp1jaWfn70AM0fRIGQx2-Xe1Po1orPBS68_1751422231
+UI-OutboundReport: notjunk:1;M01:P0:Ji9mcmS5QHw=;ZWdjC8c+GaTgN8aIdJoDiS2/rn3
+ 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
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: MzjbrVzLZ7ILSXITnIiBl1qCfjryg4s-FW3uNAB-3VQ_1751444232
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
 Content-Language: en-US
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-X-Original-Sender: kyle@gmx.it
+Content-Transfer-Encoding: quoted-printable
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+X-Original-Sender: johndoe65534@mail.com
 X-Original-Authentication-Results: mx.google.com;       dkim=neutral (body
- hash did not verify) header.i=@gmx.it header.s=s31663417 header.b=jRuh19V+;
-       arc=pass (i=1 spf=pass spfdomain=gmx.it dkim=pass dkdomain=gmx.it
- dmarc=pass fromdomain=gmx.it);       spf=pass (google.com: domain of
- kyle@gmx.it designates 212.227.17.21 as permitted sender) smtp.mailfrom=kyle@gmx.it
-X-Original-From: Kyle <kyle@gmx.it>
-Reply-To: Kyle <kyle@gmx.it>
+ hash did not verify) header.i=@mail.com header.s=s1089575 header.b=KrmaoKDU;
+       arc=pass (i=1 spf=pass spfdomain=mail.com dkim=pass dkdomain=mail.com
+ dmarc=pass fromdomain=mail.com);       spf=pass (google.com: domain of
+ johndoe65534@mail.com designates 74.208.4.201 as permitted sender) smtp.mailfrom=johndoe65534@mail.com
+X-Original-From: john doe <johndoe65534@mail.com>
+Reply-To: john doe <johndoe65534@mail.com>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -239,77 +239,34 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
-I'm a Fedora MATE user here. Have been for several years, going from I 
-believe 34 all the way to the current 42. That said, there is a problem 
-with the installer on Fedora-MATE-Compiz 42, so you may have better luck 
-with Fedora Workstation or Fedora-MATE-Compiz 41, from which you can 
-update to 42 without any issues. I really like the MATE desktop 
-environment, personal preference, but some prefer the GNOME desktop that 
-is on the workstation installer. The thing I specifically like about 
-Fedora Linux is the installer, because instead of having to listen to 
-the whole menu and type in numbers, you just arrow and tab and enter 
-what you like, similar to the way most graphical applications work, and 
-for the most part, this installer works well with the Orca screen 
-reader, except the 42 MATE installer that I mentioned.
+On 7/2/25 00:12, Abdullah Zubair wrote:
+> That brings me to my main reason for reaching out.
+> I=E2=80=99d love some guidance, mentorship, or a roadmap on how to start =
+this=20
+> transition. Specifically:
+>=20
+>  =C2=A0* What should I learn first? Are there any key tutorials or
+>  =C2=A0=C2=A0 beginner-friendly resources?
 
+For a few months, I would suggest a multiboot or using a linux VM to=20
+test everything out.
 
-One thing you will find on most Linux desktops is that things pretty 
-much work as you expect them to work. For example, file management works 
-the way you would expect; select the file or files you want, shifted 
-arrows select files in the same row or column, control+arrows skip over 
-files you don't want to select, control+space selects a file if you 
-skipped over some to get to another, then you move the files with 
-control+x to cut or control+c to copy, and then paste them where you 
-want them. You can also delete multiple files without copying or moving 
-them anywhere, just with the delete key, open with the enter key, etc. 
-The good thing is that if you don't happen to like the layout or the 
-information you get, you can change it, or even change the file manager 
-if you want; its completely up to you. Of course reading email works as 
-expected, you can get a list of messages in the folder you are in, 
-reading the list with the arrow keys, or use the folder tree to go to a 
-new folder or mailbox, press the enter key to open the message you want 
-to read, then use either the arrow keys to read a message a line at a 
-time or Orca's SayAll key, the plus sign on the keypad, to read the 
-entire message at once.
+>  =C2=A0* How do you handle common tasks like file management, software
+>  =C2=A0=C2=A0 installation, and system settings with a screen reader?
 
+If you are comfortable using the CLI, one possibility would be to use a=20
+DE only for web browsing and e-mail.
 
-There is a key difference however when looking at websites. Rather than 
-reading static page source into the screen reader's memory, thereby 
-losing much dynamic content, Orca actually presents the page using the 
-browser's view. For you, this means that if something on the page 
-changes, it won't get past Orca the same way it can get past non-Linux, 
-especially Windows screen readers, and pages actually load noticeably 
-faster as well. Still a bigger key difference comes with the amount of 
-structural navigation available in the Orca screen reader. Just an 
-example: h will take you to the next heading, shift+H takes you to the 
-previous heading, and alt+shift+h gives you a list of all the headings 
-on the page. This works the same for buttons, radio buttons, checkboxes, 
-links, unvisited links, visited links, clickable elements and others I 
-probably missed. Every key that navigates you to the next whatever, add 
-the shift key to take you to the previous one, or add the alt and shift 
-keys to give you a list of all the same type of element on the whole 
-page. This small but useful feature set makes Orca stand out as onee of 
-the most browser-friendly screen readers anywhere.
+Linux is simply a server with a desktop environment ontop of it!
 
+>  =C2=A0* Any must-know keyboard shortcuts or accessibility hacks?
+>=20
 
-So most everything else pretty much works as you would expect, right 
-down to first letter menu navigation, using the tab/shift+tab keys to 
-change focus, using the arrow keys to navigate menus and other items, 
-pressing the enter key to open something or activate a button, space 
-also works for that, etc. It is largely a myth that Linux still has a 
-very steep learning curve. Although a learning curve does in fact exist, 
-Linux is far more graphical and user-friendly and much less terminal 
-dependent than it was even 10 years ago. The hardest thing you will need 
-to decide for yourself is which desktop you like the best, and which 
-other components you like the best, want to replace with something more 
-to your liking, etc.
+You know the CLI!
 
+--=20
+John Doe
 
-I know I can get a bit long-winded at times, but I was trying to answer 
-all your questions at once, so I'm hoping I was able to do that 
-successfully for you. Do enjoy your journey in this new Linux desktop world.
-
-~Kyle
-
-To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to blinux-list+unsubscribe@redhat.com.
 
