@@ -1,171 +1,174 @@
-Return-Path: <blinux-list+bncBCM2V5WE3MDBBEHSZHDAMGQEQVP677Q@redhat.com>
+Return-Path: <blinux-list+bncBCNLZ3P6ZIDRB4X6TXDQMGQEO3K4CKY@redhat.com>
 X-Original-To: lists+blinux-list@lfdr.de
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mail.lfdr.de (Postfix) with ESMTPS id 52F03B95753
-	for <lists+blinux-list@lfdr.de>; Tue, 23 Sep 2025 12:40:19 +0200 (CEST)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-77f2a990c55sf1947112b3a.1
-        for <lists+blinux-list@lfdr.de>; Tue, 23 Sep 2025 03:40:19 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1758624017; cv=pass;
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mail.lfdr.de (Postfix) with ESMTPS id F119FBC84A0
+	for <lists+blinux-list@lfdr.de>; Thu, 09 Oct 2025 11:25:08 +0200 (CEST)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4df80d0d4aasf28246061cf.2
+        for <lists+blinux-list@lfdr.de>; Thu, 09 Oct 2025 02:25:08 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1760001908; cv=pass;
         d=google.com; s=arc-20240605;
-        b=TL7F7DZ4oUE3Cza24CW88oQhZfn/4/S5znWNgCNqpG7SK/ZwZDNZIlRMB6WLpycU1T
-         mpV9C+UVeXmo1qI0YGoCQUTpVyJJxM2VXDZ3VsJGrYvKTsLj5uAtfWcVU7uFxmpEI2aT
-         GJk+QJ5LbAFz6rte7KXVZNcSaexM6HgOUkitXDzDoeAVUupKkx6hoHQjXQRYzJwODewd
-         OpvQv9Pa7K0CmE6c8OskjipUMMBypq6LFFaSGmsv++LpXX03ru985eAuTAE/srDIzcyo
-         gCT8fWYZNdxMq0fRWcS8puYyIOUEYOaM62uahUX7Jdvkza36UYcXQmZxumIzod6e4L/N
-         5PlA==
+        b=lgjUrqZa6w8fwW8XwPl7hFGiGXIKDUDqZSzBwji2/X2p/O4hA4p1Cb02cemUK6FSql
+         hU1SlPeRQmrdqll17Tlulbmd1izeYU9Lfjw6fvMWz0/LHu58zTxe6LvQ4mtU9V5YCpTJ
+         tzsqk5UUcIlyHb9ngz3qNXBzaHR5Z+lisfmhKyG/+DE2sqBET2lPI+5IpIU+qJsclZAF
+         yq8gor/Nu0XH7vg/G5MVRN/3I3mMRZ4IWpo+3YrJIvT8tBifA2itYB6ODhxc9so5L9BW
+         O3o/0PEP5n19sMpvABY3eqcV9iBkvZnJvVT0f8TszYQPZ2RWPDXuKkFfy3VhLi5Tdzb4
+         2/CQ==
 ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:reply-to:mime-version:feedback-id
-         :message-id:subject:from:to:date:delivered-to;
-        bh=ClGX5cmr1se6SmQLIkqZu+eEeIVrx6S9xnUUSviQpAI=;
-        fh=2wp+h0WRxLxnWZ8Q6byI3MPRKIJ9i0nTvDlBwig8gdk=;
-        b=OtDQtyFGrH0DjHlcpdaHuc5MH/kUUFFE5SjInxXo2Llom7/M2LZKMxa+XXPREQ1l82
-         6ZvsS40X/ThRtUu1pj3Ma155wB7vyuxGGH3nkklOOjGuJNwWSX7+igI5x2bSsHUkTD97
-         iM6f8OmnR8MFqVdJ61KWJAMW+043i5c6C4y+xmJGH9tAtuXOCaUnI0itEJD7uGEBvpQB
-         mKSa6Q5NkEuEQPj9gVEeESiylXnnjc3vYXH0Ex3es2BDUl6CI7JBlQ+YcW+0GRqsUgHd
-         XGMHCKfTSaOaqos100T9pHEB2fM+21QMQh4Xdl5ZWxMklB3ySGkaGgn1OtpE6yX+upqh
-         tnGA==;
+         :mailing-list:precedence:to:subject:message-id:date:from
+         :mime-version:delivered-to;
+        bh=aPu4rNGVLcW4f3FaycAz5VU0nrRJGanHwiC50xJKkTE=;
+        fh=7R+SRsb2bisTiuu4+1Zg42heM+cmPHSD0/svpHxsCpo=;
+        b=DmYnYAWMHOzJKz/JyVHhfM4LSTqRm+NtEx8LWjPC3hl3mzyxhx5fYQyJGhooS1oVFc
+         4KWZ4qzSvraZ6/ug3w2WTVzRN7+RDfVjXlYimq/Bs4Sfuv9de7kTPEjtGLcY3VHdMS65
+         ecFCVOQcj5S7YqAfoqg+28oJxS8gzFQy1jZkPaBEl3/6si+/BAnPV7uYtp3R+LUJs1CK
+         boJIq7GrYWV5mVKz6RyyFPmweEsgAJSaJhhT9oiwloWxkZ3DLOg2exaSSc5Gh8bIb4i4
+         89lGAxOsLlSMw6x/yvvxq8wAEsa920pbWB+SnipQBU/CpqQ6eO06TMdgPbTzRkfdgItt
+         3NFQ==;
         darn=lfdr.de
 ARC-Authentication-Results: i=3; mx.google.com;
-       dkim=neutral (body hash did not verify) header.i=@protonmail.com header.s=protonmail3 header.b=VzVoRVFo;
-       arc=pass (i=1 spf=pass spfdomain=protonmail.com dkim=pass dkdomain=protonmail.com dmarc=pass fromdomain=protonmail.com);
-       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 109.224.244.18 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=DG7FZhJm;
+       arc=pass (i=1 spf=pass spfdomain=gmail.com dkim=pass dkdomain=gmail.com dmarc=pass fromdomain=gmail.com);
+       spf=pass (google.com: domain of khalfang1366@gmail.com designates 209.85.128.175 as permitted sender) smtp.mailfrom=khalfang1366@gmail.com
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758624017; x=1759228817;
+        d=1e100.net; s=20230601; t=1760001908; x=1760606708;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:mime-version
-         :feedback-id:message-id:subject:from:to:date:delivered-to
-         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ClGX5cmr1se6SmQLIkqZu+eEeIVrx6S9xnUUSviQpAI=;
-        b=St0oYdekbF6CFfkJnhDEaY+c3/rnCg98m3xxNqWB39xfyY7fuuGOdhZytBN78OdQau
-         VE1uAZY7ppdGe93TzIRSZwurRP9RkGtRN5CbWrUPm09u/MnPYj5Gm4+8U/lFO/3RZeDs
-         OtJegI4Nymc86ODPo6WSxVb7QkMQEuHFGarKmwSMei1AgGjCph2UVBx+sbRgHuPtLp+/
-         FhlVTXitI/EFHZ3v68h5717rd2+YLzOrtCDAbNNu/GWj+nsfPfGqYqg87ZggHuCpzY32
-         5MtJce+fLVbR+rgDni69BV7JEKwGgYATA1Kojfyz0nCpuAGnYd1euPUhYrK61IvkooxA
-         ztug==
-X-Forwarded-Encrypted: i=3; AJvYcCVmQXO2UAF0EKbIraSSu6nCRRRpJQFeJwIzyalKrZcNZGvl68zBMw6Nokj8rj/QNFg/jp2Mpw==@lfdr.de
-X-Gm-Message-State: AOJu0YwxDRmDx7pSn1xrixrEUaie9PhUXmHianjjj0O2z6RleLcFD2zF
-	w51/8R6iA+eeSDaFQ09l0vPxwlxWbpdlBcKwWIPEJ8+DO+Cxcbxg3OWxCKoh4n5VaAA=
-X-Google-Smtp-Source: AGHT+IH5830bbAflf89ceSBjfvz2QyTtypl6RNXASgSBiH7VawjL500/q3wnovK4YVXacm49HTAneA==
-X-Received: by 2002:aa7:8882:0:b0:776:32e0:248f with SMTP id d2e1a72fcca58-77f53a8d4d1mr2484287b3a.27.1758624016916;
-        Tue, 23 Sep 2025 03:40:16 -0700 (PDT)
-X-BeenThere: blinux-list@redhat.com; h=ARHlJd4jqTIqUoQfLXyYxyaZQvf+2NZyogq5+mC0uvfc1q8Jxg==
-Received: by 2002:a05:6a00:7617:b0:77e:ce3:c5c8 with SMTP id
- d2e1a72fcca58-77e0ce3e5a7ls4083214b3a.1.-pod-prod-04-us; Tue, 23 Sep 2025
- 03:40:15 -0700 (PDT)
-X-Forwarded-Encrypted: i=3; AJvYcCVUdnFQbs/C/fphG8UfJBJFe7XnGyoZSvY4DFQicF2jEEc4cXC/j4vag/xaRlwZ+A0Yf4dDVH35ZvrR7g==@gapps.redhat.com
-X-Received: by 2002:a05:6a20:728f:b0:2b8:5f2d:9340 with SMTP id adf61e73a8af0-2cffedc6fe6mr3524085637.56.1758624014713;
-        Tue, 23 Sep 2025 03:40:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1758624014; cv=pass;
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:to:subject
+         :message-id:date:from:mime-version:delivered-to:x-beenthere
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=aPu4rNGVLcW4f3FaycAz5VU0nrRJGanHwiC50xJKkTE=;
+        b=QxienViJFIHOyn0XLH2tI2C0a685tlzAMBuOl1iR9DB3NMgwI9L3NJ+S4Z2RMwU7hG
+         3IBT4iGr6sIR5vXWZuKc2kVCtvcGNQC7e2JoS2hSX/Zrb27VYOjfgv0yJkirkf1Lnj4J
+         UyuIeNh51NtF/bqDKB4njRO3rRZ0Lg4fMs03yheP+36SokvY/B1z6JFgUzs3oSwQbTSV
+         J/LuONrzlOAfrvNNkP352dSILKEJ071IJraCentFE2aDerFQB65595umyqpbJAAXhr6a
+         BJAp4MBsA/aVr9YBtWH5XEpNayI9QyPWqSTN55o2mYnauQogj7OjUedfHaDOxVvVuRg4
+         //Tg==
+X-Forwarded-Encrypted: i=3; AJvYcCV4Nj/WVrgoMJF8ryfftFTuc7xC0j4VQppeFFvv2vPlmQoGslOf4iWlpMWqDPaXDCaCTv9w8A==@lfdr.de
+X-Gm-Message-State: AOJu0YxympqKOqNHFi5XDuOZfBuOGFPkyaXXGgFbNcIork6ZspsSIOM7
+	ldVDTKKlEQ+Xi4BxlcJfKhI3q71e9i+MDozzX+D5HoKiw3MNF681KvYGVDkNbQFWaSE=
+X-Google-Smtp-Source: AGHT+IGIag6yi7POAoW6J5CB8DQ2mLAYbqHIuffnNzRJQyww/BBw9teENd8wv28LPnC6kTgrnyG21Q==
+X-Received: by 2002:a05:622a:53c7:b0:4b7:9ce0:43c4 with SMTP id d75a77b69052e-4e6eacc1df7mr94534471cf.5.1760001907509;
+        Thu, 09 Oct 2025 02:25:07 -0700 (PDT)
+X-BeenThere: blinux-list@redhat.com; h="ARHlJd6ek5+LAzdkMFL9Yx5WVVPZB+CRSdNeppU7NBPJ2rHKxA=="
+Received: by 2002:a05:622a:8c13:b0:4b5:dc6e:c1df with SMTP id
+ d75a77b69052e-4e6f8b8b9fcls15987651cf.2.-pod-prod-07-us; Thu, 09 Oct 2025
+ 02:25:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AJvYcCXsknF/VyfrK9NyJ+R/yJ5UiY6/4JOxBj1EvaNJGkXQqXAYOXDdbZZV1usbmrA0mOxAX8NDqlMk7OyiYg==@gapps.redhat.com
+X-Received: by 2002:a05:620a:454b:b0:861:119b:307e with SMTP id af79cd13be357-88352e8e763mr1034549385a.81.1760001906420;
+        Thu, 09 Oct 2025 02:25:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1760001906; cv=pass;
         d=google.com; s=arc-20240605;
-        b=i+VBNXKAxz7KU66mz3Xk07GIraWtWTWHN/H/hxsnwKnWiOHnVO28jQCY8dG8r8yUZX
-         Jtr9kinYyAnlKseVLOl2zTSYe6Ivf9WhU785RO7YYujL8CAdYA1vm3ufyXHkCXGgH7dp
-         4atgQpJRKYc2F9TW0qUvg9zGL13d+pMNw8AQ/31PL07Wpvp+YKr7EWuZW/ZWRzqZPixi
-         Qrr20d3PbKJvOUSUs/Q10If2IFpErA+J/3SlrVOTOY+QGThyxicbJD1efT5qpL1utOeO
-         3lIOdU2ZjF2rRy7EobZyefpXVX0xL1NJd/PJJN662RKqXF365DfPfXK7I4lSM1h3w2Qh
-         4jYA==
+        b=ZzBqYAB13MB9LE5T8GLH4+Y2S2qyUngTASEkuknDXie/zCm8FSWqOT6rwhO9cNH7kT
+         5F1XfFOyP9TYbZ9KT4RzzraKbFDqBOxVNrEdIO4JupjSLL5OauGUA+tmpBXnPfCDsRtL
+         ISiDcNdiwhwnyuiQ2akHuMi5zGfwFjTMgCjpQKd6n/YxDZLkxW38DrhmdDHCqrEjxfcj
+         6vnbWT09DVruIMVQfKvjrcXO2mCjLqgIrSMC3CNmAgjN0pc2K5c6lVBJlKAAUmFQbdIO
+         weM/Ne4ihojk4Nuf3PJvfTw1m5PmpLn3QGni8+XGPz0bA2Cw6co5sAh4t60+08oxTBxk
+         emPA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=mime-version:feedback-id:message-id:subject:from:to:date
-         :dkim-signature:delivered-to;
-        bh=wa2qZAeHVcSl5zePd9yU4NRogooCEBPfHTcqDF6gCNA=;
-        fh=AXNZjH/ikmBqNPZoOQ6NPxFksrtYaqnihA22kp5aTsI=;
-        b=gAyjp98fQo1iTCrrWMeaZzqQ680m60qpUijV/77bO6WHc1zeAIBE+G5D3GcD60BJNE
-         oeqNLtXdRlOa357c3xuX7vml1whgsdXQPTi/LFlVwoK22zhaXFYJC+RXMdmo2bcPY2s8
-         YJq2wR/2uq+i+pdfBemWm/zt+1KHaFM+VIBnbT2QJ7CPLiGc+uysN0gJHLNhAN+Iercv
-         hj5CAyoZoVOAtWwDcMf6P9HBODdw95nV7BbJrZVbsc7JTygScU2+P4duoOJ2H2qEnC9G
-         XYWGVOZvuIgmeEfQx5UOzekZk5tFrOnN0Sxc2oFOm6/rXavk4nsySf04EeUC/5gChtVs
-         U0IQ==;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature
+         :delivered-to;
+        bh=CBbTRsrrSZTkkuTmLwlbXzGhsOG2tcRVE4sOgMntzPE=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=GLy8eM18WRvA5JQ7hV24Kah1qbWB9zLnYJmCeslpcxxZQaF9MB2JEwIEFB4GYtJd2k
+         wUBvydPBP+dYEs/E2NBZcBk3QzFUyQyDGHVp7iO7qGDrqzVps1fV+Xy/ok81DDYFgjDp
+         MgTee7nZ1ezn12MGZhuaYPToUFE3SMdZxPKUerUMBx1MhfqW9S/ERCRGI6e9HCrvxkQi
+         WgpOjIwXoT/G5KqriUTUZEHpmxlblEbQgj4m1XLccFK81uBGlulD1C7/ySoQsOj5H3Wl
+         DVAQxtYibYPFtN9ATI+VHnCZWJBjzQtAuKNfA7ICKlkWE76YcUY4HvTgQfteUp3v8bMR
+         saEw==;
         dara=google.com
 ARC-Authentication-Results: i=2; mx.google.com;
-       dkim=neutral (body hash did not verify) header.i=@protonmail.com header.s=protonmail3 header.b=VzVoRVFo;
-       arc=pass (i=1 spf=pass spfdomain=protonmail.com dkim=pass dkdomain=protonmail.com dmarc=pass fromdomain=protonmail.com);
-       spf=pass (google.com: domain of rastislav.kish@protonmail.com designates 109.224.244.18 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.132.61])
-        by mx.google.com with ESMTPS id 41be03b00d2f7-b555bab4079si1819090a12.487.2025.09.23.03.40.14
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=DG7FZhJm;
+       arc=pass (i=1 spf=pass spfdomain=gmail.com dkim=pass dkdomain=gmail.com dmarc=pass fromdomain=gmail.com);
+       spf=pass (google.com: domain of khalfang1366@gmail.com designates 209.85.128.175 as permitted sender) smtp.mailfrom=khalfang1366@gmail.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.132.61])
+        by mx.google.com with ESMTPS id d75a77b69052e-4e6ea8c998asi23188401cf.1290.2025.10.09.02.25.06
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Sep 2025 03:40:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rastislav.kish@protonmail.com designates 109.224.244.18 as permitted sender) client-ip=109.224.244.18;
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+        Thu, 09 Oct 2025 02:25:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of khalfang1366@gmail.com designates 209.85.128.175 as permitted sender) client-ip=209.85.128.175;
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-614-WWHjXCCPONGxJWGRqFNESQ-1; Tue,
- 23 Sep 2025 06:40:06 -0400
-X-MC-Unique: WWHjXCCPONGxJWGRqFNESQ-1
-X-Mimecast-MFC-AGG-ID: WWHjXCCPONGxJWGRqFNESQ_1758624005
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-324-QSNtuyPDNGqhpiC-06k2Mg-1; Thu,
+ 09 Oct 2025 05:25:04 -0400
+X-MC-Unique: QSNtuyPDNGqhpiC-06k2Mg-1
+X-Mimecast-MFC-AGG-ID: QSNtuyPDNGqhpiC-06k2Mg_1760001903
 Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B8C911800576
-	for <blinux-list@gapps.redhat.com>; Tue, 23 Sep 2025 10:40:05 +0000 (UTC)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D3A3D19560AD
+	for <blinux-list@gapps.redhat.com>; Thu,  9 Oct 2025 09:25:03 +0000 (UTC)
 Received: by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id B3D8E1956048; Tue, 23 Sep 2025 10:40:05 +0000 (UTC)
+	id CEA6919560BB; Thu,  9 Oct 2025 09:25:03 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.23])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B0E5019560BB
-	for <blinux-list@redhat.com>; Tue, 23 Sep 2025 10:40:05 +0000 (UTC)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.128.131])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CBB671955F42
+	for <blinux-list@redhat.com>; Thu,  9 Oct 2025 09:25:03 +0000 (UTC)
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [170.10.128.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 244EA19560B8
-	for <blinux-list@redhat.com>; Tue, 23 Sep 2025 10:40:05 +0000 (UTC)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 42F1919560AD
+	for <blinux-list@redhat.com>; Thu,  9 Oct 2025 09:25:03 +0000 (UTC)
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=dkim.mimecast.com; s=201903; t=1758624004;
+	d=dkim.mimecast.com; s=201903; t=1760001902;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 dkim-signature; bh=wa2qZAeHVcSl5zePd9yU4NRogooCEBPfHTcqDF6gCNA=;
-	b=VsSgeKQo+O2PsCcI/pmxQXfAFZWFbovCY1kvurXZlnK8nnUwkdsehBcwzIEC+h5sC2baZG
-	CXZYjkEw+RziduiI6VgCLOeDd6YVSqq46nrCR7GAjVw/ieOyv6OhRRhnf1aRagXjsP3uO8
-	C0PQLLrweDvNXVSHQFnBm8tybNlzB5pGNOc1vI7mt4ufjadPBNElcHhwj4Y+rUo2gShgDL
-	mZ3Jz3jwmRKwcToI3rQgULgopVDHV5uk4hMlI08raxBiAdZeu+kHxjDKCuhzcn7XNmgv+l
-	sBuoKsYvfTHpN4qT7ex3BuBGhmwafmcgvWFjMyyJfiAUqPcQDRfHN9wUR3Ugog==
-ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1758624004; a=rsa-sha256;
+	 dkim-signature; bh=CBbTRsrrSZTkkuTmLwlbXzGhsOG2tcRVE4sOgMntzPE=;
+	b=bG4PLX+PjedzEoto+OrmkasVsY5+o7J3qffGWhbQbouEFB2IJDlaQyfLlh4FIvc02s66Sm
+	e+y87MvqsAuCjCatEgU4AgyxRjlQ6Lz0x0KQrbhu/+rUtPoLkIaxS2dX4L/ocFZa5oERp7
+	WZxXJXSsmcdnBD3kX49VDaMNeOhGgA8Ov+ZLh6EKIliG4Kyaon5yj8JyWVWUv7MNWxmfxj
+	w8d+s1FnS66iXn6Gu3Dtz/sydu0AdJPGVdTL07SUg1QghDDSa3GcGBOfREMpGw9jKA0Pe7
+	PbQIu63r5dWWbgliO0cuKsU7jLYvjFroOvjtzfVObhkRd7NSsoU+9sSO0vimgw==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1760001902; a=rsa-sha256;
 	cv=none;
-	b=KDWPmyaGrUsvW6YgT2fss5OoNKqcp8+Rx/zORRNpMjf8VMVRQhodCa9E2U3+WMfuUWCeeB
-	uMNhKeAjWtYBfk1oHsTiyC0Seow7eJH/sG4sell46lgzRP1CwW5zvigU5KbNsNLPKaAtuM
-	bsAJL5zJXvCqzuFXzpviy2Isqucgp0f64NSVFuM/2d6RGmhxRoVshtUtmcM1F0taOKTsao
-	prppFzHbTYYtaB4lV63GC381cFER/SvFritM7LToHh7paEtpaO7RU/bOHpN4J/DD02S10j
-	fr4aVL1kydqqhcRk8RBsDGff1L2DGsrkdVLWEgVFtEzBuKBDIuJtateZd+KR3w==
+	b=bPcdEPAznSxZ2kj/J2W4mBItYOmwCGEi6W9UUMnf21rb/kWiogV5IPwoEEm8r08yus6Lyp
+	WXIU7r5csQo8CPEQB9+VAc1bmKZV9A2IJLoyNiHYjzQU9T0b/Q8AySgzCK5v5K840Oekd8
+	bhzuv4TmpHHRQ8j4h8gQaf4h1/BYiQvGs3QnHXvNKuqNlyyHUHX8fLHtguAA/h7zB5GmCM
+	QCO6dt9pFC01glaGRdf/kZw3mAhoTS2183PoP5SgqEGVtPO6tLTNypHymxY6GYGHsxJVWs
+	4ozdJMMheX0u0eZmP7KJ9opcsCm2Zvn78yWvgvGhxp19NWmjhXvwzj51p3MPNw==
 ARC-Authentication-Results: i=1;
 	relay.mimecast.com;
-	dkim=pass header.d=protonmail.com header.s=protonmail3 header.b=VzVoRVFo;
-	dmarc=pass (policy=quarantine) header.from=protonmail.com;
-	spf=pass (relay.mimecast.com: domain of rastislav.kish@protonmail.com designates 109.224.244.18 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
-Received: from mail-24418.protonmail.ch (mail-24418.protonmail.ch
- [109.224.244.18]) by relay.mimecast.com with ESMTP with STARTTLS
+	dkim=pass header.d=gmail.com header.s=20230601 header.b=DG7FZhJm;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (relay.mimecast.com: domain of khalfang1366@gmail.com designates 209.85.128.175 as permitted sender) smtp.mailfrom=khalfang1366@gmail.com
+Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com
+ [209.85.128.175]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-359-QBiBfXRuPCWCUUpIsfKLKQ-1; Tue, 23 Sep 2025 06:40:01 -0400
-X-MC-Unique: QBiBfXRuPCWCUUpIsfKLKQ-1
-X-Mimecast-MFC-AGG-ID: QBiBfXRuPCWCUUpIsfKLKQ_1758624000
-Date: Tue, 23 Sep 2025 10:39:54 +0000
-To: orca@freelists.org, Linux for blind general discussion <blinux-list@redhat.com>
-From: "'Rastislav Kish' via blinux-list@redhat.com" <blinux-list@redhat.com>
-Subject: A Gnome developer looking for a11y feedback to improve the Gnome experience
-Message-ID: <625b6692-6ea2-4f41-8536-6d9c94cb5848@protonmail.com>
-Feedback-ID: 26663242:user:proton
-X-Pm-Message-ID: b57c3e96232a2c72b9a792bd70de18c43cccf105
+ us-mta-253-SoPAlcDePqutXxH23aZX1g-1; Thu, 09 Oct 2025 05:24:59 -0400
+X-MC-Unique: SoPAlcDePqutXxH23aZX1g-1
+X-Mimecast-MFC-AGG-ID: SoPAlcDePqutXxH23aZX1g_1760001899
+Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-780fe73e33bso1639687b3.1
+        for <blinux-list@redhat.com>; Thu, 09 Oct 2025 02:24:59 -0700 (PDT)
+X-Gm-Gg: ASbGncsUWTQ4M6x7G+KTcV0XSDlSmSw7wbLWVHW+jdH76FP9hsUYh3E3SxoCf/0CQ2b
+	sdn0P3twvbIwtvUfkgP2WU1huomc5NxtGGdm7i6BTOrFHTt7v8N2wYYX6qJkQgOCCyuGg0h1zFn
+	FEbqdjsGPHrdlRzT1r/MI6hxniUb6g6yoi7yZGTophmM10LNu9II1qLHZe5UnoVvASn198Tn+Ac
+	vGRjPX2VAowqXaDHWl1pcWa9ew=
+X-Received: by 2002:a53:ba4c:0:b0:63a:183:ffda with SMTP id
+ 956f58d0204a3-63ccb8e1958mr4600693d50.26.1760001898759; Thu, 09 Oct 2025
+ 02:24:58 -0700 (PDT)
 MIME-Version: 1.0
+From: jace Kattalakis <khalfang1366@gmail.com>
+Date: Thu, 9 Oct 2025 10:24:48 +0100
+X-Gm-Features: AS18NWC9OA3uOSUcFQLGIiW7rZMM2rh8MEqNQ7prox_VFu3iBCNS5h-YVtERXnY
+Message-ID: <CAC9uDhZ5fUxCC74U_5gD3B0_chDi-s-7oidF2JrgR=4bAh2uZQ@mail.gmail.com>
+Subject: Niri, all about it
+To: Linux for blind general discussion <blinux-list@redhat.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: S8jksLofzgkfrTM2FcshiOhLNPirmjJj7JUUwtdMx7k_1758624000
+X-Mimecast-MFC-PROC-ID: ko9RMhEgy-dEFNOa25LpmhG7dE5oytL6o63up7l9qyk_1760001899
 X-Mimecast-Impersonation-Protect: Policy=DMARC Check - CHG0118091;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-Content-Type: multipart/alternative;
- boundary="b1=_vVBVzlJq3vz6zIb4YHzhaMIkfGLAi9efKRbVjNc"
+Content-Type: multipart/alternative; boundary="000000000000fac9ab0640b65f99"
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Original-Sender: rastislav.kish@protonmail.com
-X-Original-Authentication-Results: mx.google.com;       dkim=neutral (body
- hash did not verify) header.i=@protonmail.com header.s=protonmail3
- header.b=VzVoRVFo;       arc=pass (i=1 spf=pass spfdomain=protonmail.com
- dkim=pass dkdomain=protonmail.com dmarc=pass fromdomain=protonmail.com);
-       spf=pass (google.com: domain of rastislav.kish@protonmail.com
- designates 109.224.244.18 as permitted sender) smtp.mailfrom=rastislav.kish@protonmail.com
-X-Original-From: Rastislav Kish <rastislav.kish@protonmail.com>
-Reply-To: Rastislav Kish <rastislav.kish@protonmail.com>
+X-Original-Sender: KhalFang1366@gmail.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20230601 header.b=DG7FZhJm;       arc=pass (i=1
+ spf=pass spfdomain=gmail.com dkim=pass dkdomain=gmail.com dmarc=pass
+ fromdomain=gmail.com);       spf=pass (google.com: domain of
+ khalfang1366@gmail.com designates 209.85.128.175 as permitted sender) smtp.mailfrom=khalfang1366@gmail.com
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -177,107 +180,60 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 
---b1=_vVBVzlJq3vz6zIb4YHzhaMIkfGLAi9efKRbVjNc
+--000000000000fac9ab0640b65f99
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Hello lists,
+So, stumbled on this window manager earlier.
+I'm pleasantly surprised.it's Wayland, but also has a goal with
+accessibility. The documentation states it supports Orca with the 08.25
+version and...this is true. It's also got a very, very well commented
+configuration, and seems stable and viable.
 
-forwarding a post of one of the Gnome=E2=80=99s volunteers who would like t=
-o work on improving the a11y of the DE, and is looking for feedback from Or=
-ca users.
+It has Vim keys by default, H/J/K/L, it has several layouts. But the best
+part of it is, once you get Orca up and going, and you may well need
+Xwayland-satellite (at least I did on NixOS), you just boot in, hit
+Super+alt+S and Orca comes up talking.
 
-https://www.reddit.com/r/linux/comments/1nnos0f/are_there_any_orca_screen_r=
-eader_users_on_this/
+But there are caveats:
+|
+1. The config is set for Alacrity and Fussel by default. You could probably
+should, change those to whatever you want
 
-I=E2=80=99m myself waiting currently until Gnome 49 lands in the stable Tum=
-bleweed repos, so I can review and comment on the latest updates. But I kno=
-w there are several long-time very experienced Gnome users on our lists who=
-=E2=80=99ve already received the 49 update, so someone could be even faster=
- than me.
+Aside from that, and a keybind to restart Orca, and one for swaync, hat's
+the only modding I have done with the config.It live loads it once you save
+and exit
 
-There is also some very interesting a11y development of the Gnome Calendar,=
- and the devs behind it are also looking for Orca users feedback, see:
+THe Niri devs have a dedicated accessibility section in their Github wiki,
+which is where I am getting the info from.
 
-https://www.reddit.com/r/linux/comments/1mc83d0/gnome_calendar_a_new_era_of=
-_accessibility/
+Yes. it's Wayland only.But it is silky smooth and works extremely well, at
+least in my testing.The worst you can do is give it a shot and see how you
+like it
 
-Best regards
+To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
-Rastislav
-
-&#8203;
-
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to blinux-list+unsubscribe@redhat.com.
-
---b1=_vVBVzlJq3vz6zIb4YHzhaMIkfGLAi9efKRbVjNc
+--000000000000fac9ab0640b65f99
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<!DOCTYPE html><html><head>
-
-    <meta http-equiv=3D"content-type" content=3D"text/html; charset=3DUTF-8=
-"/>
-    <title></title>
-    <meta charset=3D"UTF-8"/>
-  </head>
-  <body>
-    <div class=3D"markdown-here-wrapper">
-      <p style=3D"margin-bottom: 19.2px; margin-top: 0px;">Hello lists,</p>
-      <p style=3D"margin-bottom: 19.2px; margin-top: 0px;">forwarding a
-        post of one of the Gnome=E2=80=99s volunteers who would like to wor=
-k on
-        improving the a11y of the DE, and is looking for feedback from
-        Orca users.</p>
-      <p style=3D"margin-bottom: 19.2px; margin-top: 0px;"><a href=3D"https=
-://www.reddit.com/r/linux/comments/1nnos0f/are_there_any_orca_screen_reader=
-_users_on_this/" class=3D"moz-txt-link-freetext">https://www.reddit.com/r/l=
-inux/comments/1nnos0f/are_there_any_orca_screen_reader_users_on_this/</a></=
-p>
-      <p style=3D"margin-bottom: 19.2px; margin-top: 0px;">I=E2=80=99m myse=
-lf
-        waiting currently until Gnome 49 lands in the stable Tumbleweed
-        repos, so I can review and comment on the latest updates. But I
-        know there are several long-time very experienced Gnome users on
-        our lists who=E2=80=99ve already received the 49 update, so someone
-        could be even faster than me.</p>
-      <p style=3D"margin-bottom: 19.2px; margin-top: 0px;">There is also
-        some very interesting a11y development of the Gnome Calendar,
-        and the devs behind it are also looking for Orca users feedback,
-        see:</p>
-      <p style=3D"margin-bottom: 19.2px; margin-top: 0px;"><a href=3D"https=
-://www.reddit.com/r/linux/comments/1mc83d0/gnome_calendar_a_new_era_of_acce=
-ssibility/" class=3D"moz-txt-link-freetext">https://www.reddit.com/r/linux/=
-comments/1mc83d0/gnome_calendar_a_new_era_of_accessibility/</a></p>
-      <p style=3D"margin-bottom: 19.2px; margin-top: 0px;">Best regards</p>
-      <p style=3D"margin-bottom: 19.2px; margin-top: 0px;">Rastislav</p>
-    </div>
-    <div class=3D"mdhr-raw" style=3D"height:0;width:0;max-height:0;max-widt=
-h:0;overflow:hidden;font-size:0;padding:0;margin:0;" aria-hidden=3D"true" t=
-itle=3D"MDH:PHA+SGVsbG8gbGlzdHMsPC9wPjxwPmZvcndhcmRpbmcgYSBwb3N0IG9mIG9uZSB=
-vZiB0aGUgR25vbWUncyB2b2x1bnRlZXJzIHdobyB3b3VsZCBsaWtlIHRvIHdvcmsgb24gaW1wcm=
-92aW5nIHRoZSBhMTF5IG9mIHRoZSBERSwgYW5kIGlzIGxvb2tpbmcgZm9yIGZlZWRiYWNrIGZyb=
-20gT3JjYSB1c2Vycy48L3A+PHA+aHR0cHM6Ly93d3cucmVkZGl0LmNvbS9yL2xpbnV4L2NvbW1l=
-bnRzLzFubm9zMGYvYXJlX3RoZXJlX2FueV9vcmNhX3NjcmVlbl9yZWFkZXJfdXNlcnNfb25fdGh=
-pcy88L3A+PHA+PGJyPjwvcD48cD5JJ20gbXlzZWxmIHdhaXRpbmcgY3VycmVudGx5IHVudGlsIE=
-dub21lIDQ5IGxhbmRzIGluIHRoZSBzdGFibGUgVHVtYmxld2VlZCByZXBvcywgc28gSSBjYW4gc=
-mV2aWV3IGFuZCBjb21tZW50IG9uIHRoZSBsYXRlc3QgdXBkYXRlcy4gQnV0IEkga25vdyB0aGVy=
-ZSBhcmUgc2V2ZXJhbCBsb25nLXRpbWUgdmVyeSBleHBlcmllbmNlZCBHbm9tZSB1c2VycyBvbiB=
-vdXIgbGlzdHMgd2hvJ3ZlIGFscmVhZHkgcmVjZWl2ZWQgdGhlIDQ5IHVwZGF0ZSwgc28gc29tZW=
-9uZSBjb3VsZCBiZSBldmVuIGZhc3RlciB0aGFuIG1lLjwvcD48cD48YnI+PC9wPjxwPlRoZXJlI=
-GlzIGFsc28gc29tZSB2ZXJ5IGludGVyZXN0aW5nIGExMXkgZGV2ZWxvcG1lbnQgb2YgdGhlIEdu=
-b21lIENhbGVuZGFyLCBhbmQgdGhlIGRldnMgYmVoaW5kIGl0IGFyZSBhbHNvIGxvb2tpbmcgZm9=
-yIE9yY2EgdXNlcnMgZmVlZGJhY2ssIHNlZTo8L3A+PHA+aHR0cHM6Ly93d3cucmVkZGl0LmNvbS=
-9yL2xpbnV4L2NvbW1lbnRzLzFtYzgzZDAvZ25vbWVfY2FsZW5kYXJfYV9uZXdfZXJhX29mX2FjY=
-2Vzc2liaWxpdHkvPC9wPjxwPjxicj48L3A+PHA+QmVzdCByZWdhcmRzPC9wPjxwPjxicj48L3A+=
-PHA+UmFzdGlzbGF2PC9wPjxwPjxicj48L3A+PHVsIGNsYXNzPSJkcm9wZG93bi1tZW51IHRleHR=
-jb21wbGV0ZS1kcm9wZG93biIgc3R5bGU9ImRpc3BsYXk6IG5vbmU7IHBvc2l0aW9uOiBhYnNvbH=
-V0ZTsgei1pbmRleDogMTAwMDsiIGNvbnRlbnRlZGl0YWJsZT0iZmFsc2UiIHBvcG92ZXI9ImF1d=
-G8iPjwvdWw+">&amp;#8203;</div>
- =20
-
-</body></html>
+<div dir=3D"ltr"><div><div><div><div><div><div><div>So, stumbled on this wi=
+ndow manager earlier.<br></div>I&#39;m pleasantly <a href=3D"http://surpris=
+ed.it">surprised.it</a>&#39;s Wayland, but also has a goal with accessibili=
+ty. The documentation states it supports Orca with the 08.25 version and...=
+this is true. It&#39;s also got a very, very well commented configuration, =
+and seems stable and viable.<br><br></div>It has Vim keys by default, H/J/K=
+/L, it has several layouts. But the best part of it is, once you get Orca u=
+p and going, and you may well need Xwayland-satellite (at least I did on Ni=
+xOS), you just boot in, hit Super+alt+S and Orca comes up talking.<br><br><=
+/div>But there are caveats:<br>|<br></div>1. The config is set for Alacrity=
+ and Fussel by default. You could probably should, change those to whatever=
+ you want<br><br></div>Aside from that, and a keybind to restart Orca, and =
+one for swaync, hat&#39;s the only modding I have done with the config.It l=
+ive loads it once you save and exit<br><br></div>THe Niri devs have a dedic=
+ated accessibility section in their Github wiki, which is where I am gettin=
+g the info from.<br><br></div>Yes. it&#39;s Wayland only.But it is silky sm=
+ooth and works extremely well, at least in my testing.The worst you can do =
+is give it a shot and see how you like it</div>
 
 <p></p>
 
@@ -285,5 +241,5 @@ To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
 nsubscribe@redhat.com</a>.<br />
 
---b1=_vVBVzlJq3vz6zIb4YHzhaMIkfGLAi9efKRbVjNc--
+--000000000000fac9ab0640b65f99--
 
