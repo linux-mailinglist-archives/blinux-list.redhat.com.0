@@ -1,347 +1,273 @@
-Return-Path: <blinux-list+bncBCA2Z2HI2EIBBFMZ5TFQMGQEHHTSJ5Q@redhat.com>
+Return-Path: <blinux-list+bncBCS6LGFW6MFRBRWH5XFQMGQEDRHRRZY@redhat.com>
 Delivered-To: lists+blinux-list@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id ULK4CJ0Me2nfAwIAu9opvQ
-	(envelope-from <blinux-list+bncBCA2Z2HI2EIBBFMZ5TFQMGQEHHTSJ5Q@redhat.com>)
-	for <lists+blinux-list@lfdr.de>; Thu, 29 Jan 2026 08:30:37 +0100
+	id 0C9MDspje2l2EQIAu9opvQ
+	(envelope-from <blinux-list+bncBCS6LGFW6MFRBRWH5XFQMGQEDRHRRZY@redhat.com>)
+	for <lists+blinux-list@lfdr.de>; Thu, 29 Jan 2026 14:42:34 +0100
 X-Original-To: lists+blinux-list@lfdr.de
-Received: from mail-qv1-xf45.google.com (mail-qv1-xf45.google.com [IPv6:2607:f8b0:4864:20::f45])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6F760ACA26
-	for <lists+blinux-list@lfdr.de>; Thu, 29 Jan 2026 08:30:31 +0100 (CET)
-Received: by mail-qv1-xf45.google.com with SMTP id 6a1803df08f44-894878d9b91sf17783976d6.3
-        for <lists+blinux-list@lfdr.de>; Wed, 28 Jan 2026 23:30:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1769671830; x=1770276630; darn=lfdr.de;
+Received: from mail-qt1-x848.google.com (mail-qt1-x848.google.com [IPv6:2607:f8b0:4864:20::848])
+	by mail.lfdr.de (Postfix) with ESMTPS id 717A8B07F1
+	for <lists+blinux-list@lfdr.de>; Thu, 29 Jan 2026 14:42:33 +0100 (CET)
+Received: by mail-qt1-x848.google.com with SMTP id d75a77b69052e-50341fddb89sf26628461cf.3
+        for <lists+blinux-list@lfdr.de>; Thu, 29 Jan 2026 05:42:33 -0800 (PST)
+ARC-Seal: i=3; a=rsa-sha256; t=1769694152; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=IkWu906255RXLy6T+4ZwzZA0FnnIjxw+vaas72A8M85kRhGy3AKcgqeuwYXCPZhOMA
+         oLBmnkcL9ApRLn4+dhjspTZiBbOOcIWlPVlPYGL0uLpjfuE+8XWbMo2t68VR3DPAgOa9
+         l8kLC+qe/9gIEO4sxh6FGmU4xzSxRishCjgeNb68YS119mvw8DBvWwo6EHiwOQaiRJC3
+         /QcWtq6oXlqEc4GPg65Xe81jEmu4/Z0vAqzP3YAMRRa9tVHObs8h8DvFwPse0aQ6tk2K
+         VU3iCLPQFLJsoSvWrcDlmwQW6Z9VnbRDYa7yoefpdoVFrTuuJZuEmFf3DUhJGun8kY5U
+         Ahpw==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:x-original-authentication-results
-         :x-original-sender:mime-version:references:message-id:in-reply-to
-         :subject:cc:from:date:authentication-results-original:delivered-to
-         :sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=UkTyujBH02JKKa+y9NH5kuw/pr+OV09GfNPf/392DU0=;
-        b=CxnMfaLaerU5fYLHe+hFIy/ahLr47xhs3eSN9umFLcvT6gk/4Cwh1/aZrXvDDlNiMb
-         AhYM9d/PwFGrarVW7o2Z9lGCNOdpqrzMd+lC5epN10JCCfPcCVTPxFO2hlxfZNp4MrYd
-         otEAqGbMkHSn78gpib8+liN/NUWhfmTy30yS4kWgh2PDtOg3YxS+OrVbJfvhpEC6Ksol
-         CeYu3kjQ0y+rWM742HX256n2x4Teo4r5B/28ldL1xnpmZTHXoVpzbQVafUoBWGrq/WDY
-         Jw07TwRohk41jj5OWGm+hXZNA35Jh2rN24fRQz2OhY1HI2TtCi0307bqcRFYAGKWazHK
-         SNNg==
+         :mailing-list:precedence:reply-to:content-language:ui-outboundreport
+         :in-reply-to:from:references:to:subject:user-agent:mime-version:date
+         :message-id:delivered-to:dkim-signature;
+        bh=2uf/q1AQzRbMicmNXkZA2jnDGAaL9vP/lrUrG29bAT4=;
+        fh=io6XCKOVTvESsK1XGZIADVK/+jnHHQ1xWlHe0u8NFxs=;
+        b=ZQiGWZnbUhphIupu/d5CevbFwreynzAHgMzLjfcWvBe32VbNZ+6khBxdmEQGUnZ9FH
+         nUjibfmJpWdFdOtcWDU3m+Ct8KFFioDnCItb1p6yoTqgvDzKy4/4NgRDd/kq0HpAKncf
+         nwy6buyKsVpl4lXcuQzUqh8CbF9yanrPwQiYmbX6VwiQe/hjVT0M/jX6AI6S+CJTSIHT
+         XgMpiRSKtP3Jfnj/Zd4LwrGWIe9bmFYO2OJRCSW91Jyv/WK9qI9A09FcyGD2zTlHraf5
+         b0OpcSf8LtL1aIvbs386V1G658yZ8dL1brTLDlDtWrxCR6vPDUPrNF2JPN3cgOJ93p/I
+         JdLA==;
+        darn=lfdr.de
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=neutral (body hash did not verify) header.i=@gmx.net header.s=s31663417 header.b=jU39+362;
+       arc=pass (i=1 spf=pass spfdomain=gmx.net dkim=pass dkdomain=gmx.net dmarc=pass fromdomain=gmx.net);
+       spf=pass (google.com: domain of guenterk@gmx.net designates 212.227.15.18 as permitted sender) smtp.mailfrom=guenterk@gmx.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1769694152; x=1770298952; darn=lfdr.de;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:reply-to:x-original-authentication-results
+         :x-original-sender:content-language:ui-outboundreport:in-reply-to
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :delivered-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=2uf/q1AQzRbMicmNXkZA2jnDGAaL9vP/lrUrG29bAT4=;
+        b=sLIkjpz6/qrCh7tsZcDJtk1cHcHgsY55QSx0kyTZ7noY/JME5JB8TyQFtwEkdNV8NA
+         Eo0g8urapcVMyyJVv9irKz/S0yjL5pOKXVU8tZRDOmzoOEIl/dsT4ZvuFVwsW+4Mk45l
+         rs0RyV4F06RG/enHvAOEB6sMnzoHDATvcwuKJ2xbaotD4zHwqOV08gr5jMWeDmv04DkY
+         b2HDvBVP6OxKbVyWSvFRjn/DoaPiLr2dRpKJiqJK2abbjtmCIgkqxteLUbdTHb6IdioL
+         p28NctBid/QjBwl41aWOPU7EByLzFvNbl/miLHGqdw84ysF0BEDOESvxiIu03U6QnYwi
+         0yRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769671830; x=1770276630;
+        d=1e100.net; s=20230601; t=1769694152; x=1770298952;
         h=list-unsubscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:mime-version
-         :references:message-id:in-reply-to:subject:cc:from:date
-         :authentication-results-original:delivered-to:x-beenthere
-         :x-gm-message-state:sender:from:to:cc:subject:date:message-id
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender
+         :content-language:ui-outboundreport:in-reply-to:from:references:to
+         :subject:user-agent:mime-version:date:message-id:delivered-to
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=UkTyujBH02JKKa+y9NH5kuw/pr+OV09GfNPf/392DU0=;
-        b=MZg18/Cbv7whP1j5YH8VfHCmzMtERyk/3VC+9ogBqEuKXgKAczr1GZGYMQ48iAHqS1
-         aVIv9C2/MfZHSJEzTSOAAWKxmh3Kt+u/VDSa+89aigy5Hf19vGT/jG4+PNPVVh4cvqm7
-         EWPSvoMzs0u6X+2U5vzgAXQK3xS0JUXBukkM0lUN3P+bddoB2UsD6UEZpkAP0kBmNWBG
-         CjGpDkJs0PG981hZkQ1QA6dNI1VAUJs+8F1k/oDPEB8gzx+uYzlDErKEW/Df5+sz/nOH
-         3CX/kOkgOE2gG9xL/I650qgeIA/CqU7NPL6ZozRxY3tXdaeCZ3hQov3ufMRDEpbmP5Mn
-         Zu5g==
-Sender: blinux-list@redhat.com
-X-Forwarded-Encrypted: i=4; AJvYcCXpLlFvn5cZ4bFuyK5gzEuuWwV/9apbCoRJ47KsrJ6+A8nzCfwYR0iydlADX8KUged98MjM3w==@lfdr.de
-X-Gm-Message-State: AOJu0Yw3i4MtGX5pH3PnQ0q9SN1xoEA8qJ4Es/Rg1qJ1I6lCdUJYLKpl
-	3Jdcifg9jyMS1z6aIO0p7rfSTu5GkzQfHKPPuothFopa+2eDYT+/VoDmCtt1P9O4at8=
-X-Received: by 2002:ad4:5d6a:0:b0:888:81bc:93c8 with SMTP id 6a1803df08f44-894cc8118d4mr129164336d6.23.1769671829854;
-        Wed, 28 Jan 2026 23:30:29 -0800 (PST)
-X-BeenThere: blinux-list@redhat.com; h="AV1CL+EyDWgWX8MqzmkKkEBkZrnLgD9nTBtmhiMofTQs2io+dg=="
-Received: by 2002:a05:6214:2aa7:b0:890:5973:709e with SMTP id
- 6a1803df08f44-894e0b30da7ls7574536d6.0.-pod-prod-02-us; Wed, 28 Jan 2026
- 23:30:28 -0800 (PST)
-X-Forwarded-Encrypted: i=4; AJvYcCV2JyjdZsHu+J2ZmVQcEwSrMLQ2YOi3gGVzVszYaq9faO1W7lojIuAyTlgR0XysLYJtFLf31X+6bYsc+w==@gapps.redhat.com
-X-Received: by 2002:a05:6214:29e2:b0:880:501f:608 with SMTP id 6a1803df08f44-894cc90bd4fmr122311066d6.46.1769671828579;
-        Wed, 28 Jan 2026 23:30:28 -0800 (PST)
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com. [170.10.132.61])
-        by mx.google.com with ESMTPS id 6a1803df08f44-894d37e0ba8si45816376d6.354.2026.01.28.23.30.27
+        bh=2uf/q1AQzRbMicmNXkZA2jnDGAaL9vP/lrUrG29bAT4=;
+        b=GuRbIl3eUsUDO3T+764JuqG76RsoYmNrIyipAwutchPdAQHz62JM43DQeaXaTVJEZQ
+         TbaQuCuH0FcICc/FWHpIcQ+Cw78c3gT1qFrEPhKdSb98j0H70ck4DYiEw32w01UV01xn
+         Y5ZpYFrus7BIWEU8ENm4Sp/CEnkI60X5J4H8kz3mUNX2vtWa1essduY9NFTzokJ0CL9l
+         eWFn5I7+yPJl5I9As7+I0dFKdQ4Zsx57GJSZmG+uo3yEcyDCtsWTMKFH3npts5kzmosV
+         cqvi6/2mZ7ceoSZwRvKzYEvwkZyGflNXjGnGxfwIf+s6yIXWQ4V9yQ9Uiht3cokwncvo
+         qmgw==
+X-Forwarded-Encrypted: i=3; AJvYcCUQVrDVBxG/HHXHVquXwnIOIvHMOZyGlKA8tMepIM4YNenVfmyVLqXcs43Fvl/KqG/70Iy7Gg==@lfdr.de
+X-Gm-Message-State: AOJu0Yxs9yRMqT/WY4KI7vSglxBgwJ+rpWLZa5tRiMhDG/N8mryqv6Qd
+	bNxwNGaXcRf4gK0xWSHmtcbtTa27qzEel4DSQPu7qgikZK0/FkIDkT45VeJpdV4dP2A=
+X-Received: by 2002:ac8:5a82:0:b0:501:5024:23f4 with SMTP id d75a77b69052e-5032f8dd90amr120811951cf.53.1769694151518;
+        Thu, 29 Jan 2026 05:42:31 -0800 (PST)
+X-BeenThere: blinux-list@redhat.com; h="AV1CL+GL4YiUAuoNFbZQIt15Vbf7ne2avUhD4cfS0bnrxgLrfA=="
+Received: by 2002:ac8:7dc6:0:b0:501:4ea7:28e2 with SMTP id d75a77b69052e-503d3fda2efls10470211cf.0.-pod-prod-01-us;
+ Thu, 29 Jan 2026 05:42:30 -0800 (PST)
+X-Forwarded-Encrypted: i=3; AJvYcCWN57H2tqI1QJOe+xC5fHn4UOHFg4o5AxY8HAG0BT5Dvmm+qYJBNse8JYPHcLhYp3B/NfCSY2VBnxxVEQ==@gapps.redhat.com
+X-Received: by 2002:ac8:5a82:0:b0:501:5024:23f4 with SMTP id d75a77b69052e-5032f8dd90amr120811181cf.53.1769694150192;
+        Thu, 29 Jan 2026 05:42:30 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1769694150; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=CWGn+uAqbqbXR4i6rTmJURYoCAnm2Twd/06rdhv0pIxtHhOhIQtg1QPXvasDVinI4u
+         sJ5i8Mh1I42pTzPN3NI1VUFlgRX18AttJSGkcEpLWj3LMkh/PspaZXmLE6tnsdTzt8fo
+         FUjxMLz2YHs/XV3dG2NgEbiHRzZIbTKzdsP3cpmWO158vxZ+wET95u2RPgVn/IkypSqb
+         I5HEz+16OUCn3qk+2sNhiV63UYyRhkK04dFl8vSt7ihUUGJRtDoqlxPNikn1L6/UvkPw
+         fJV0U0j8FeslyWEItkzQqwFaTc/kS+wgJOmPEECuHCIqU86M3AwpbZHvePh+uYvtDmXH
+         p2Ug==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:content-language:ui-outboundreport
+         :in-reply-to:from:references:to:subject:user-agent:mime-version:date
+         :message-id:dkim-signature:delivered-to;
+        bh=AwmvM8BpnZ1kEZFQSF9D3BF5dqQKUEfR/50mLOILwEU=;
+        fh=hUMLaj1qiZfoDoiTFhzcKELatGw8GqpvMqlOZTxv2vw=;
+        b=juzykjBGK/2FZSpl52I/vHznDeP2A4o+FYVPbaD5eubXytItv8thXrY6W+laI8suhS
+         uNcumhqy3yQ9PK1QVdN++FvXOchrTcCqt4l0uDhmYQlXFVlpTGBpgDcvbMQ8P7I9VLrB
+         44rYkmrxXSridaG3EX4Fm5FpXNnM3y3oNYjUufDdkaUXnAQPDOmkHOpXte+ug8Kp3yye
+         7U9Z/XI4AkIms6Zp/5QmuNKIH4O1sQolJ8iwAIB3EjTZdK4RoPI3/ZbRNqIqt6Y2EH4/
+         G4b3Wj7F36TovJpzKHqbQf5VFYiqDEEwpwuwZntfySnmWh/n3ysb73bQoToyr+yf/uVC
+         gt5g==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=neutral (body hash did not verify) header.i=@gmx.net header.s=s31663417 header.b=jU39+362;
+       arc=pass (i=1 spf=pass spfdomain=gmx.net dkim=pass dkdomain=gmx.net dmarc=pass fromdomain=gmx.net);
+       spf=pass (google.com: domain of guenterk@gmx.net designates 212.227.15.18 as permitted sender) smtp.mailfrom=guenterk@gmx.net
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.132.61])
+        by mx.google.com with ESMTPS id 6a1803df08f44-894d38368dbsi57187816d6.563.2026.01.29.05.42.30
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jan 2026 23:30:27 -0800 (PST)
-Received-SPF: pass (google.com: domain of wvdwalt@csir.co.za designates 40.107.145.137 as permitted sender) client-ip=40.107.145.137;
+        Thu, 29 Jan 2026 05:42:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of guenterk@gmx.net designates 212.227.15.18 as permitted sender) client-ip=212.227.15.18;
 Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-210-Ggjb-WHsNBa5WitgJs4sFA-1; Thu,
- 29 Jan 2026 02:30:25 -0500
-X-MC-Unique: Ggjb-WHsNBa5WitgJs4sFA-1
-X-Mimecast-MFC-AGG-ID: Ggjb-WHsNBa5WitgJs4sFA_1769671823
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-80-Xyy1q9x0Pg2lrVBn2FWwKQ-1; Thu,
+ 29 Jan 2026 08:42:28 -0500
+X-MC-Unique: Xyy1q9x0Pg2lrVBn2FWwKQ-1
+X-Mimecast-MFC-AGG-ID: Xyy1q9x0Pg2lrVBn2FWwKQ_1769694148
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AA1AB180034F
-	for <blinux-list@gapps.redhat.com>; Thu, 29 Jan 2026 07:30:23 +0000 (UTC)
-Received: by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id A54933001DB9; Thu, 29 Jan 2026 07:30:23 +0000 (UTC)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E08B2180044D
+	for <blinux-list@gapps.redhat.com>; Thu, 29 Jan 2026 13:42:27 +0000 (UTC)
+Received: by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id DBD7E19560A7; Thu, 29 Jan 2026 13:42:27 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
 Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.90])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A0B383000218
-	for <blinux-list@redhat.com>; Thu, 29 Jan 2026 07:30:23 +0000 (UTC)
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D8ACF19560A2
+	for <blinux-list@redhat.com>; Thu, 29 Jan 2026 13:42:27 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-inbound-delivery-1.mimecast.com [170.10.132.61])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1928418002C8
-	for <blinux-list@redhat.com>; Thu, 29 Jan 2026 07:30:23 +0000 (UTC)
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed;
-	d=dkim.mimecast.com; s=201903; t=1769671822;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 77D4C180034D
+	for <blinux-list@redhat.com>; Thu, 29 Jan 2026 13:42:27 +0000 (UTC)
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1769694146;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=QddwbJO6OqqFDeK75fKn3yk1KWdM1uCP+QMk5HTQ3w0=;
-	b=S7D0JGfBnjMQSNOz00PWKz+/COMtJ8/Gfntyh1ZDErTummRAz2PisjCbuU0x9ozXqURnqF
-	q0ST5a0hMmTwIAZIy1I7ZVN+87B+Toln6vDPgw0vbGzsv90g2k080f5A1cpWt3lfNDvSpf
-	+1bYYBrjGnPnm59oK+nJ5QQVbk7PaVh5QGWDqpih1xOgx/aFtPjT1PO06eXJw5qN09Yuqx
-	v+CRQNiF9lwHMGwjgi1KfqNPpTGUKaZVVHbdbgXY+Jzh/vveSOdk8RLnviZe+PeKLcebju
-	uKq+mL4WnkYf1Ff0nuJEVZ+Yyq3OFUkdA4AVz2s8rcsx3JLyxs/d9W6wNHk7Mg==
-ARC-Seal: i=3; s=201903; d=dkim.mimecast.com; t=1769671822; a=rsa-sha256;
-	cv=fail;
-	b=YBIFE5gtqipQhK/MW9dEH9wM7N1am00D1ckgnOwvGkyvlaz0NblImW+3UadVqa23E4Eqqd
-	UiPOlV1Tvd0v+skUfBDQwZjjViW1InDtBURVYQL/qF7T62xflcg8QuJBPA4rdWUSFQeg+q
-	35iqupu5JaM8xrSdC2v7qe49/u8j28O4A0eJ7S4cMd1bh1XXKSN3k0SZ+I+wEeYDobk33w
-	6PBOEeXBFf9uMPCGE9I5VXLLOyY0IczJwwLDUNTC8HLYuB287Kw+E50Dxo9wAbcR9kDZE7
-	mP78qhYNaBkjFNUD20ogttAe/Ve5bcS8644yKF/dnGyCkZU17LNmxmFpkZad5Q==
-ARC-Authentication-Results: i=3;
+	bh=AwmvM8BpnZ1kEZFQSF9D3BF5dqQKUEfR/50mLOILwEU=;
+	b=h97dDeAmjS5h+Isag4vDb3aZ33RRgPwOahEt6+8eOZ2v8Eq3V3vZcWLLa9+18JgEBGTS8x
+	bd3Y3YSRBr3liNrC8u6gsBuCr4Gh8wS3FmVEwTxyIXlV2iv4hZHOueB9T5YhqDcwQjEs5M
+	MxB4usfvpRZ/v4oT6scig6wHtR+Iga6vz1Z0qEK/mssiQt2tSAXhKaG6n5qsfPCsSN33iM
+	baDPNdZQ1a8TvmDFc2Xas9l8rYvAcyCbwtARTCGT766w9//oFvPf4WktOEpCF0joLPkrLi
+	efoi1G69rZIQ57OhfaXBWssFZo1bfkTZuczQl7V3OQvtOgWCvbREkHSr7yzSwQ==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1769694146; a=rsa-sha256;
+	cv=none;
+	b=a2UpXNKhKTAeQg18HuhJ8No0iA+0aiNAOYf85yqh4/aUa9r+1N/UMXuzzR6v2nC4p+U1WZ
+	tTEqQvhU3H8BUEXlDGWRiCRwL9Xzo//k8uxQXuYHSG7Oip9ciJLswGagmtTNq5fPrfTVTG
+	y3FF3OLgXet202z+oNZKkErtm8gYcPqeWyNeyLo4GehicqgUt7ttKQA7ZrrhmnL4pI+EV7
+	De66jn7VvrodGNJHE2nWtvxgkgiufXMJAzVIyCJKOb8r0Tdza5hLWIUDnI/AHjkUIjOxPM
+	fdLXYpM/2khhW62PRlZOzlqTtEqIq9l0dlKRNBknDq7r43MiU/tgvYDBAHpx3w==
+ARC-Authentication-Results: i=1;
 	relay.mimecast.com;
-	dkim=pass header.d=csircoza.onmicrosoft.com header.s=selector2-csircoza-onmicrosoft-com header.b=mp7g+KJ4;
-	dkim=fail ("body hash did not verify") header.d=csircoza.onmicrosoft.com header.s=selector2-csircoza-onmicrosoft-com header.b="kBJg91N/";
-	dkim=fail ("body hash did not verify") header.d=mail-dkim-eu-west-1.prod.hydra.sophos.com header.s=v1 header.b=YFC3J+Vi;
-	arc=reject ("cv is fail on i=2");
-	dmarc=pass (policy=none) header.from=csir.co.za;
-	spf=pass (relay.mimecast.com: domain of wvdwalt@csir.co.za designates 40.107.145.137 as permitted sender) smtp.mailfrom=wvdwalt@csir.co.za
-Received: from CT2P275CU008.outbound.protection.outlook.com
- (mail-southafricawestazon11021137.outbound.protection.outlook.com
- [40.107.145.137]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-270-05cI_yn9NMKslF7Fd4EgtA-2; Thu, 29 Jan 2026 02:30:19 -0500
-X-MC-Unique: 05cI_yn9NMKslF7Fd4EgtA-2
-X-Mimecast-MFC-AGG-ID: 05cI_yn9NMKslF7Fd4EgtA_1769671819
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=fail;
- b=FA2B15Cjd6ElPSyByIQVO+A6NVTqMoi11sqlZTgJVoEBTRG4ALjjQcX8NL7JE31RQ4O9qYiQmpXayvybEs1liSptkkBblCEL39cr4tTtOGJ0XERtujNDdK8aDAwXS8znjDwum0L7XTnlvmpMktlzgk1q0AfyvTIJ2jO70keCl36MjDW9AWwE6ECPHMJBoGvoF+4KTLbKnZVosnwLxZuBVUumkUVwvyt8w0vVJ9KH9//owD2mTld0O6m4u6qjxDAtGxmu5NNT7dr9qBb7kSXF2CSRSSOS92xhhvdlGLSA9VwQ9ODDvi6ocABGX+xPv4fcZb/ZmEsBnK9QfT+Exyl5Gg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QddwbJO6OqqFDeK75fKn3yk1KWdM1uCP+QMk5HTQ3w0=;
- b=TepolcsMkBGmpGKIqN0ZKoX+w/YEJq5rfd6KxHA8gXNWwMa7qCazhVCQVg7LwDorEQQ1p3W8ZgZSSiQio/zsJPFpJeeEnDNMG4UdbsGd8dwo0cI5W0hdz/xhjsoTTndbZsveMhksNdzUi8Gks3YNhWAZSiFAz4fpPzG6YANCdkMYVxnopo1Q/J0pWk5Vv4h6+cRyI47GQHDgzhM8HutwYfj0nAdT/d2CL5OnmXJy7AgcWGJVnbA5PSPe2nHE3Y3y+R6P1AinPvuemt1CnmX/PhBpffD5tbJd8uJx0/9lk9hm9LYKkeEvL/jGftdI1WLUrfgO38wlardUlbxdfOBRVA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 198.154.180.224) smtp.rcpttodomain=redhat.com smtp.mailfrom=csir.co.za;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=csir.co.za;
- dkim=fail (body hash did not verify) header.d=csircoza.onmicrosoft.com;
- dkim=fail (body hash did not verify)
- header.d=mail-dkim-eu-west-1.prod.hydra.sophos.com; arc=fail (47)
-Received: from CT2P275CA0055.ZAFP275.PROD.OUTLOOK.COM (2603:1086:100:24::13)
- by CP7P275MB1362.ZAFP275.PROD.OUTLOOK.COM (2603:1086:100:31::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9564.10; Thu, 29 Jan
- 2026 07:30:14 +0000
-Received: from CPT0EPF0000071B.ZAFP275.PROD.OUTLOOK.COM
- (2603:1086:100:24:cafe::ab) by CT2P275CA0055.outlook.office365.com
- (2603:1086:100:24::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.9 via Frontend Transport; Thu,
- 29 Jan 2026 07:30:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.154.180.224)
- smtp.mailfrom=csir.co.za; dkim=fail (body hash did not verify)
- header.d=csircoza.onmicrosoft.com;dkim=fail (body hash did not verify)
- header.d=mail-dkim-eu-west-1.prod.hydra.sophos.com;dmarc=pass action=none
- header.from=csir.co.za
-Received: from mfod-euw1.prod.hydra.sophos.com (198.154.180.224) by
- CPT0EPF0000071B.mail.protection.outlook.com (10.167.241.20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Thu, 29 Jan 2026 07:30:13 +0000
-Received: from ip-172-19-1-86.eu-west-1.compute.internal (ip-172-19-1-86.eu-west-1.compute.internal [127.0.0.1])
-	by mfod-euw1.prod.hydra.sophos.com (Postfix) with ESMTP id 4f1rQD10bjzvRDq
-	for <blinux-list@redhat.com>; Thu, 29 Jan 2026 07:30:12 +0000 (UTC)
-X-Sophos-Product-Type: Mailflow
-X-Sophos-Email-ID: de80260ffe96434ead8dcee7dd3ab898
-Received: from JNYP275CU001.outbound.protection.outlook.com
- (mail-southafricanorthazon11020141.outbound.protection.outlook.com
- [52.101.161.141])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mf-outbound-eu-west-1.prod.hydra.sophos.com (Postfix) with ESMTPS id
- 4f1rQB2BXfzTgD6
- for <blinux-list@redhat.com>; Thu, 29 Jan 2026 07:30:10 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uZeeiOtlXV6bi5wCcQMJjJhjRKbAyQMmD7vP5EVCNF9CD809xvPWIQZ7XjoKXPoajccCBLydaRMYQfAaMW2YedjaATXTksBPxgV0ZtDDejn/YOHKFFKUjE3sNE2IjAHkhxAigCXt1Aiethdo4FIYpokhvNqEDsyr4N4IOcJtY0doR3xZHEOhgmSozGPjT6NvBUNOvnT51VHeMGtdVMnJu9UhJIsVP7C0NmiIm3Bp89OAi8zw60qhikcpddmHSPsv5rfW8pd605ao4bIMdRsdNb+rCrAb+6XVMckQQZRXDc1Tt31dxeJdy0/YwdidoUV8CyIVcI5k7+drlagNSJMvJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5uLvKTs6QD+1706PAmDmj9ke+PsiroRessIJYw65MdU=;
- b=vxV2YNq4a2HB+xRqIcgM8XZan/htdmJqlNpOeJe8aKwugO9NeymCBgw16NJnuT25fO6lEtkSz7d3LOP7uHZtRutP1eycvk2l8hczoU/Rod4yqDIntZzw4+HSYgGdMKhxXW8U6zMSKvFc4ZzaRbNqkitOusRawNS6HfJiZlfkrkIzfG6QPJesD0ttPTaiFt6P4GN+URFbgzJeqqTFGYGKW4k1JnlNspUWgfZjyV7uUHh9HGCqQyZ1UrrBIrB7LpFvk5K0A7fHUua33lfkU/u0hcy5TMHbN5FASgm9Rgf5x+GKVMxdicLgbun1AZsZAw78ozVli6u6tQbH0C3cL+b7EA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=csir.co.za; dmarc=pass action=none header.from=csir.co.za;
- dkim=pass header.d=csir.co.za; arc=none
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=csir.co.za
-Received: from JN3P275MB2310.ZAFP275.PROD.OUTLOOK.COM (2603:1086:0:af::11) by
- JN1P275MB1813.ZAFP275.PROD.OUTLOOK.COM (2603:1086:0:79::6) with
- Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.7; Thu, 29 Jan 2026 07:30:05 +0000
-Received: from JN3P275MB2310.ZAFP275.PROD.OUTLOOK.COM
- ([fe80::a11b:32ef:8eed:d91d]) by JN3P275MB2310.ZAFP275.PROD.OUTLOOK.COM
- ([fe80::a11b:32ef:8eed:d91d%6]) with mapi id 15.20.9542.015; Thu, 29 Jan 2026
- 07:30:05 +0000
-Date: Thu, 29 Jan 2026 09:30:05 +0200 (SAST)
-From: Willem van der Walt <wvdwalt@csir.co.za>
-cc: Linux for blind general discussion <blinux-list@redhat.com>
-Subject: Re: Sad to hear about Didier
-In-Reply-To: <CAM+Q2c7c+M3ho66a5Kq8R_DERW_G6WPsUvrTkNovhEKWqTbBBA@mail.gmail.com>
-Message-ID: <37e953ad-9a08-c124-0ef7-037fc78a4dce@csir.co.za>
-References: <CAM+Q2c7c+M3ho66a5Kq8R_DERW_G6WPsUvrTkNovhEKWqTbBBA@mail.gmail.com>
-X-ClientProxiedBy: JN3P275CA0035.ZAFP275.PROD.OUTLOOK.COM (2603:1086:0:ca::7)
- To JN3P275MB2310.ZAFP275.PROD.OUTLOOK.COM
- (2603:1086:0:af::11)
+	dkim=pass header.d=gmx.net header.s=s31663417 header.b=jU39+362;
+	dmarc=pass (policy=quarantine) header.from=gmx.net;
+	spf=pass (relay.mimecast.com: domain of guenterk@gmx.net designates 212.227.15.18 as permitted sender) smtp.mailfrom=guenterk@gmx.net
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.18]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-376-q6cMOVHiNGSfIcCvQoTwUQ-1; Thu,
+ 29 Jan 2026 08:42:24 -0500
+X-MC-Unique: q6cMOVHiNGSfIcCvQoTwUQ-1
+X-Mimecast-MFC-AGG-ID: q6cMOVHiNGSfIcCvQoTwUQ_1769694144
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.109] ([79.231.11.8]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1N2mFi-1vtCVJ1GJQ-011cTV for
+ <blinux-list@redhat.com>; Thu, 29 Jan 2026 14:37:21 +0100
+Message-ID: <6609f378-fa78-41e6-8833-59e89bfd58fc@gmx.net>
+Date: Thu, 29 Jan 2026 14:37:20 +0100
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: JN3P275MB2310:EE_|JN1P275MB1813:EE_|CPT0EPF0000071B:EE_|CP7P275MB1362:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7a5af20b-5f30-4b81-a5f0-08de5f083e42
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|4022899009|376014
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?xmOz7ICnwW8cWT7ZxEyTBrpPypJ7713s1CaGRFJpIiYUQ1w8KyqnjbsiPPWH?=
- =?us-ascii?Q?mdSiN1sahnGRUB+T1eHgV1xqe8tCeV7zlW0NwWol7Q6F5cHghi30DqTh5jlB?=
- =?us-ascii?Q?spoFW36GoPZO5vwe2F3W2pwxWW8tl74WAMkulQ7f/4qtTNdRmC4hjKUX01rr?=
- =?us-ascii?Q?QWVqES6oeSBtT6XhTlY0bcUGY57e0l0XBsEPsTJOnTn7X31oJ/i+T4NfJdiK?=
- =?us-ascii?Q?R32tCwOiS1YY0wQKZ+Ryr2rXm1YOrzYePkaZbnrXuu7lWA1078qJ9OKSKdDT?=
- =?us-ascii?Q?g8FxkwNBFb4th5ky1Aw7NUkqO26TXh+hPWf7bEpd2YxJKEnD8rtkISL/opTQ?=
- =?us-ascii?Q?03TZRbP5upcVye0LRL+3Xw7hS7Rm43c7WrmoSDPtnVvN4MEnVHdl2E/7irb3?=
- =?us-ascii?Q?hvz45wATZCpsQ6RGRuDdtwQHK+pkBRQMbKEHu+IFW0uZ2rP+zJO0FPfcSCbZ?=
- =?us-ascii?Q?mg3akauIYZtUovefOyVsYG/ERT5TDsCB6QTlEq437S+ZYil4u9FI13+A1T3s?=
- =?us-ascii?Q?ooAYEKhjySdqY/eEJRdKxZXBwKW4CFjjl6JiIF8T0WzODtDOzO09yoW/2KNU?=
- =?us-ascii?Q?hif2p2UHFDnhjurWXuaieaXimGg7t8LavCwxoFDFf6dI6byYHAFCPGkG/rA0?=
- =?us-ascii?Q?3hnj7K2T0INz8qRAEZjvqIRGSK9K5iObJqC++5Qd1DDu/ikks0BOKqMeGF3D?=
- =?us-ascii?Q?dACvBt95VGEi9CdVcJknQqgzpDShnszybMYF1gKbz+WFSbTembfERipSLW+0?=
- =?us-ascii?Q?ljirZtPDyyLsLtex1lJB6eTFMStgUOhYRGDdzcaD3+fedJq/IWI6RUd1Rl7Z?=
- =?us-ascii?Q?t0A+DKKE8QqCSKAu1Gs/nBiWwGxV3VXVd8k1aCrJogGpG/004P8+jfJpLhgZ?=
- =?us-ascii?Q?0XSMqTbPMT0vccIFnVtBIPDqI0q3aHOnvTQSwstFk3rRUs4MYuizlvu1psBR?=
- =?us-ascii?Q?XgjMfxGfSlBQ/ogeTyPYokJBe8N80C23TCDO+s1NaXSortigVP9ZeALJwDOd?=
- =?us-ascii?Q?uiVrbAE/+OA2hzOCV4boHvMBByVO+wHYVdFawpV8+XcQkCZ3yQjBKqGGdgWB?=
- =?us-ascii?Q?ddkMbhkY97+FTqMAp8oV4UJUDRstwOsRGiQp2LFBy3DM+0Hu+PcYdEFWui2J?=
- =?us-ascii?Q?shCV9H99kSx6cnPwAxq5eJRwU9tj/2azZ0S/Xbn4evsRjfgZryZacHUeaglJ?=
- =?us-ascii?Q?TOzVB7VMrJT6Hvx/L4OdZ4dhQnHoHfFSFosTHzGIVkJXc+7pje7Wfi7jnkgZ?=
- =?us-ascii?Q?RqjX5aK8IbUuBn/EJs6jU6uN23LB0Du+N1wc2mIXB507n614wMLwmw+XBJNT?=
- =?us-ascii?Q?ahYrAHK8eXFdKJXtV2gu81hmFhPQ+ItgowRuVMUdHbr8+lPUT939IXqmqn7A?=
- =?us-ascii?Q?0RsWnA24N8yjCrtNB/liF84vvggL4kwukWpzeYxdvKF82lFBvZ/72QhnEO73?=
- =?us-ascii?Q?p4XlKaMztgCvOKT0P9bPuR3pTYsbZaVO8vghrW+sshEmyVbWpUUB90RrBkGo?=
- =?us-ascii?Q?2NgQ/L7rUrmy0iA=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255; CTRY:; LANG:en;
- SCL:1; SRV:; IPV:NLI; SFV:NSPM; H:JN3P275MB2310.ZAFP275.PROD.OUTLOOK.COM;
- PTR:; CAT:NONE; SFS:(13230040)(366016)(1800799024)(4022899009)(376014);
- DIR:OUT; SFP:1102
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JN1P275MB1813
-X-Sophos-Email: [eu-west-1] Antispam-Engine: 6.0.3,
- AntispamData: 2026.1.29.65719
-X-LASED-SpamProbability: 0.085099
-X-LASED-Hits: ARCAUTH_PASSED 0.000000, BODY_SIZE_3000_3999 0.000000,
- BODY_SIZE_5000_LESS 0.000000, BODY_SIZE_7000_LESS 0.000000,
- DKIM_SIGNATURE 0.000000, FROM_NAME_PHRASE 0.000000, HTML_00_01 0.050000,
- HTML_00_10 0.050000, IN_REP_TO 0.000000, LEGITIMATE_SIGNS 0.000000,
- MIME_TEXT_ONLY_MP_MIXED 0.050000, MISSING_HEADERS 0.000000,
- MSGID_SAMEAS_FROM_HEX_844412 0.100000, MSG_THREAD 0.000000,
- MULTIPLE_REAL_RCPTS 0.000000, NO_FUR_HEADER 0.000000, OUTBOUND 0.000000,
- OUTBOUND_SOPHOS 0.000000, REFERENCES 0.000000, SUSP_DH_NEG 0.000000,
- TO_MALFORMED 0.000000, URI_TOC_SOPHOS_NO_ID 0.000000,
- URI_WITH_PATH_ONLY 0.000000, __ANY_URI 0.000000,
- __ARCAUTH_DKIM_PASSED 0.000000, __ARCAUTH_DMARC_PASSED 0.000000,
- __ARCAUTH_PASSED 0.000000, __ARC_SEAL_MICROSOFT 0.000000,
- __ARC_SIGNATURE_MICROSOFT 0.000000, __ATTACH_CTE_8BIT 0.000000,
- __BOUNCE_CHALLENGE_SUBJ 0.000000, __BOUNCE_NDR_SUBJ_EXEMPT 0.000000,
- __BULK_NEGATE 0.000000, __CANPHARM_UNSUB_LINK 0.000000, __CC_NAME 0.000000,
- __CC_NAME_DIFF_FROM_ACC 0.000000, __CC_REAL_NAMES 0.000000,
- __CP_URI_IN_BODY 0.000000, __CT 0.000000, __CTYPE_HAS_BOUNDARY 0.000000,
- __CTYPE_MULTIPART 0.000000, __CTYPE_MULTIPART_MIXED 0.000000,
- __DQ_NEG_DOMAIN 0.000000, __DQ_NEG_HEUR 0.000000, __DQ_NEG_IP 0.000000,
- __FORWARDED_MSG 0.000000, __FRAUD_BODY_WEBMAIL 0.000000,
- __FRAUD_INTRO 0.000000, __FRAUD_NEGATE 0.000000, __FRAUD_NEGATE_FROM 0.000000,
- __FRAUD_URGENCY 0.000000, __FRAUD_WEBMAIL 0.000000,
- __FROM_ADDY_SHORT_LC 0.000000, __FROM_DOMAIN_NOT_IN_BODY 0.000000,
- __FROM_NAME_NOT_IN_BODY 0.000000, __FUR_RDNS_SOPHOS 0.000000,
- __HAS_CC_HDR 0.000000, __HAS_FROM 0.000000, __HAS_MSGID 0.000000,
- __HAS_REFERENCES 0.000000, __HAS_X_FF_ASR 0.000000,
- __HAS_X_FF_ASR_CAT 0.000000, __HAS_X_FF_ASR_SFV 0.000000, __HTTPS_URI 0.000000,
- __IMP_FROM_MY_ORG 0.000000, __INVOICE_MULTILINGUAL 0.000000,
- __IN_REP_TO 0.000000, __JSON_HAS_SCHEMA_VERSION 0.000000,
- __JSON_HAS_TENANT_DOMAINS 0.000000, __JSON_HAS_TENANT_ID 0.000000,
- __JSON_HAS_TENANT_SCHEMA_VERSION 0.000000, __JSON_HAS_TRACKING_ID 0.000000,
- __MIME_TEXT_ONLY 0.000000, __MIME_TEXT_P 0.000000, __MIME_TEXT_P1 0.000000,
- __MIME_TEXT_P2 0.000000, __MIME_VERSION 0.000000, __MSGID_HEX_844412 0.000000,
- __MULTIPLE_URI_TEXT 0.000000, __NO_HTML_TAG_RAW 0.000000,
- __O365_BANNER 0.000000, __OUTBOUND_SOPHOS_FUR 0.000000,
- __OUTBOUND_SOPHOS_FUR_IP 0.000000, __OUTBOUND_SOPHOS_FUR_RDNS 0.000000,
- __PHISH_SPEAR_GREETING 0.000000, __PHISH_SPEAR_STRUCTURE_2 0.000000,
- __PRODUCT_TYPE_MAILFLOW 0.000000, __REFERENCES 0.000000, __SANE_MSGID 0.000000,
- __SCAN_D_NEG 0.000000, __SCAN_D_NEG2 0.000000, __SCAN_D_NEG_HEUR 0.000000,
- __SCAN_D_NEG_HEUR2 0.000000, __SL_HEAVY 0.000000, __SUBJ_ALPHA_END 0.000000,
- __SUBJ_ALPHA_NEGATE 0.000000, __SUBJ_REPLY 0.000000, __URI_IN_BODY 0.000000,
- __URI_MAILTO 0.000000, __URI_NOT_IMG 0.000000, __URI_NO_PATH 0.000000,
- __URI_NO_WWW 0.000000, __URI_NS 0.000000, __URI_TOC_SOPHOS 0.000000,
- __X_FF_ASR_SCL_NSP 0.000000, __X_FF_ASR_SFV_NSPM 0.000000
-X-LASED-Impersonation: False
-X-LASED-Spam: NonSpam
-X-Sophos-Mailflow-Processing-Id: dd785c5b709c425b8f09ef3acf78650f
-X-Sophos-MH-Mail-Info-Key: NGYxclFEMTBianp2UkRxLTE3Mi4xOS4xLjg2
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: CPT0EPF0000071B.ZAFP275.PROD.OUTLOOK.COM
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: d09358cb-956d-4159-f083-08de5f083928
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|4022899009|35042699022|376014|82310400026|14060799003
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HTf0llqsAFk0FYudahjGLgcqgTZozpy2uDOdkKPH4muelSTakND2xLQecxoj?=
- =?us-ascii?Q?2VJKj7IJIgf60Fptigipiro55Z8MrNV8fPf/C0VtwHH09Urd5ARTAArT9mZ1?=
- =?us-ascii?Q?MQPA3BOQ86JkXmzkMKPfslDubmuVF7rCxXwmO+EIz7GSQO1k3ck3BO5zP2YP?=
- =?us-ascii?Q?qNmn2YMAXh4sx0uZys+1cHbLNRD8fRavSAGYdDun6xnATwnwcKmRBUB/isbp?=
- =?us-ascii?Q?9rHpwCBhDnXR85IHumFuMr5CTIEbWYVWpMHkHwH0UfAZigdKnsHoMcxIozz9?=
- =?us-ascii?Q?h+AtpgxaxuaoGFdrFy3jrkgN+2JJNjDgVOJ3YbUWG/qt1MCYuB82eSYNwvlM?=
- =?us-ascii?Q?r9lS0mIhrCvh5yZNeQBARDmIUOC/00btJ2ajSjgifw6aer937NFiNbGKQrv6?=
- =?us-ascii?Q?dSnOzhsniEsO1RSfe+cZbyLA91suoCbCcbSebG51H/WJydmR6+Rj8gTpX40q?=
- =?us-ascii?Q?x+MAqq5v3TmDkkxcZSZo+XjvRcRyoYghQ4ewrUi8z9pTifTvviLOAZaJK8vM?=
- =?us-ascii?Q?esiA3SbBNr+TW29cNcn/ZgpjTnTsa40uQtqeo7BgKYi17M0+/4CVsU2FwL13?=
- =?us-ascii?Q?5oq7HcNfFYBc2outaUhy9BQ3qIuChLyjFInaXoF8TU8NdCjHyf0Bi1VZP6et?=
- =?us-ascii?Q?oYsUMD1gIbxJ0r24KrtWIM71BQuOFTGeRizjzG+sQXZJUKmcLAnxBEfdsGsP?=
- =?us-ascii?Q?BCGgApvomPvbYj0IWC+w6HzQZGMK+dFJPeNSqSbojGTpeb6MFZUA69goIrbB?=
- =?us-ascii?Q?fyWy7htt3n0ts8YKnDeI+x1agVJqzRAo7yGBE4HidOH8xH35I181le/EiQcE?=
- =?us-ascii?Q?vdlSmSEqJ7G8aBUJY359wKJwdk/LXmxdnZ0rahsbQoKzxBStJFwQL045T9YH?=
- =?us-ascii?Q?a804Czz1PpQbqaErzQ3cDyPsq3K3GhhLQ5lS6nbsP8TpGAiYdM0Pi0DAMe7b?=
- =?us-ascii?Q?/zdwNK1i3MaIRs0ezPKbVhfWQ5E4YbLqxQjM1UzWRHRz4SXnlsWiW4VLsNzn?=
- =?us-ascii?Q?vhe1QPlWtbcw1VeK/dP2GJMxxuuOo8nX4ZKlXTtu3vwDqk5ZEi9WXOj61vtt?=
- =?us-ascii?Q?vR6SLTvXw8PKKyFe8VIPOQOaPkcI23DKzHXXPxq/YTNJXxtt4tevS+fe/yJN?=
- =?us-ascii?Q?BYUMOgtrThRx60JcJoUynkb6jGXU7gDu/84xBIA+8uAMriW1jxxjXNmsRx8d?=
- =?us-ascii?Q?qWUaof4ewaX4VR4zg6R3LiCzWW+DaVWwYv7bC/FGC3W90W9hdWjmpR7TyfB0?=
- =?us-ascii?Q?hc/q9MNnLqJhuvmpqYN85s/0jtUm6fJwKJyq13+ADQBSnRmNX46XcEd/q84x?=
- =?us-ascii?Q?Gnkb78Qr+fLhIC7qzXbM4NTDbm/cHLgNwtd6iUiB/auAU1ynv06Fb7+JT3ZC?=
- =?us-ascii?Q?FCfW2HdS27DdUmxSBaCjHP1KDQV41OBD7egIUsN/5zb1I26UPREK49agfi43?=
- =?us-ascii?Q?JEkVdQGSLH+G+U4XFLl6+DDUR/PiuIE31xyCaBEFtVL+rOsnzvg590asPJ9Y?=
- =?us-ascii?Q?RaTY16A+dOdzfulP5/qTFDMlWt8XgWJtU8yUy5bKblQAtKGGWOnnAcR/rOKv?=
- =?us-ascii?Q?FKSQgVzI0ZTUbACl9oc6rZgdTE/vBVk6KrvPU5BwjzhqSjfhEHmzPQS0agNm?=
- =?us-ascii?Q?mA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:198.154.180.224;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mfod-euw1.prod.hydra.sophos.com;PTR:mfod-euw1.prod.hydra.sophos.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(4022899009)(35042699022)(376014)(82310400026)(14060799003);DIR:OUT;SFP:1102
-X-OriginatorOrg: csir.co.za
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jan 2026 07:30:13.7064
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7a5af20b-5f30-4b81-a5f0-08de5f083e42
-X-MS-Exchange-CrossTenant-Id: 2fd3c5d5-ddb2-4ed3-9803-f89675928df4
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=2fd3c5d5-ddb2-4ed3-9803-f89675928df4;Ip=[198.154.180.224];Helo=[mfod-euw1.prod.hydra.sophos.com]
-X-MS-Exchange-CrossTenant-AuthSource: CPT0EPF0000071B.ZAFP275.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CP7P275MB1362
-X-Mimecast-Spam-Score: 2
-X-Mimecast-MFC-PROC-ID: MQuPzv5IYWae8xpV3Iwbi4nhfay1Pp7MxAj_hpB2rdI_1769671819
+User-Agent: Mozilla Thunderbird
+Subject: Re: Sad
+To: blinux-list@redhat.com
+References: <CAM+Q2c7c+M3ho66a5Kq8R_DERW_G6WPsUvrTkNovhEKWqTbBBA@mail.gmail.com>
+From: "'guenter' via blinux-list@redhat.com" <blinux-list@redhat.com>
+In-Reply-To: <CAM+Q2c7c+M3ho66a5Kq8R_DERW_G6WPsUvrTkNovhEKWqTbBBA@mail.gmail.com>
+X-Provags-ID: V03:K1:H0DKAB5W4J8ZyF2alfIe5DzIt5t27BDFaqn59V2NodZ37697XcH
+ th0dtcAzst2iB+lU4KC3v/lUaIvA03UsyMqZlNswpqN64ScP0f2ZwYtncOj4AMBCwX9WFwD
+ NJAGM9N4ZbLZv4uvNb/rwPx/+rIO9n0N4YKwCsgOeR7YwPfVsfSxyA/WPjWA9UuvreyVrFy
+ v/iFzx6zK3B1NuoIoJ3jw==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:Qo//Na1hhRg=;UZPJsZDaxQhrtyjlmuuXpuaFdOK
+ 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
+ Mw49j9igA75FEHnSCsaDN2EOHfgiIPX79i8=
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 95h3cFz7qKlveE1Grs8jhq0cPTckPWGhsFUFF6kovwA_1769694144
 X-Mimecast-Impersonation-Protect: Policy=DMARC Check - CHG0118091;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-Content-Type: multipart/mixed; boundary="1407934472-469921374-1769671805=:2890"
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-X-Original-Sender: wvdwalt@csir.co.za
-X-Original-Authentication-Results: mx.google.com;       dkim=pass
- header.i=@csircoza.onmicrosoft.com header.s=selector2-csircoza-onmicrosoft-com
- header.b=mp7g+KJ4;       dkim=neutral (body hash did not verify)
- header.i=@csircoza.onmicrosoft.com header.s=selector2-csircoza-onmicrosoft-com
- header.b="kBJg91N/";       dkim=neutral (body hash did not verify)
- header.i=@mail-dkim-eu-west-1.prod.hydra.sophos.com header.s=v1
- header.b=YFC3J+Vi;       arc=fail (signature failed);       spf=pass
- (google.com: domain of wvdwalt@csir.co.za designates 40.107.145.137 as
- permitted sender) smtp.mailfrom=wvdwalt@csir.co.za
+Content-Language: en-US
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Original-Sender: guenterk@gmx.net
+X-Original-Authentication-Results: mx.google.com;       dkim=neutral (body
+ hash did not verify) header.i=@gmx.net header.s=s31663417 header.b=jU39+362;
+       arc=pass (i=1 spf=pass spfdomain=gmx.net dkim=pass dkdomain=gmx.net
+ dmarc=pass fromdomain=gmx.net);       spf=pass (google.com: domain of
+ guenterk@gmx.net designates 212.227.15.18 as permitted sender) smtp.mailfrom=guenterk@gmx.net
+X-Original-From: guenter <GuenterK@gmx.net>
+Reply-To: guenter <GuenterK@gmx.net>
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -353,103 +279,40 @@ List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
 X-Rspamd-Server: lfdr
-X-Spamd-Result: default: False [3.59 / 15.00];
-	MISSING_TO(2.00)[];
-	CTYPE_MIXED_BOGUS(1.00)[];
-	ARC_REJECT(1.00)[cv is fail on i=2];
+X-Spamd-Result: default: False [-0.21 / 15.00];
+	FREEMAIL_REPLYTO_NEQ_FROM(2.00)[];
+	ARC_ALLOW(-1.00)[google.com:s=arc-20240605:i=3];
+	DMARC_POLICY_ALLOW(-0.50)[redhat.com,quarantine];
 	R_DKIM_ALLOW(-0.20)[redhat.com:s=google];
 	MAILLIST(-0.20)[googlegroups];
-	DMARC_POLICY_SOFTFAIL(0.10)[csir.co.za : No valid SPF, DKIM not aligned (relaxed),none];
-	MIME_GOOD(-0.10)[multipart/mixed,text/plain];
+	R_SPF_ALLOW(-0.20)[+ip6:2607:f8b0:4000::/36];
+	MIME_GOOD(-0.10)[text/plain];
 	HAS_LIST_UNSUB(-0.01)[];
-	TAGGED_FROM(0.00)[bncBCA2Z2HI2EIBBFMZ5TFQMGQEHHTSJ5Q];
-	TO_DN_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_ONE(0.00)[1];
 	RCVD_TLS_LAST(0.00)[];
-	MIME_TRACE(0.00)[0:+,1:+];
+	TAGGED_FROM(0.00)[bncBCS6LGFW6MFRBRWH5XFQMGQEDRHRRZY];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[mail-qt1-x848.google.com:helo,mail-qt1-x848.google.com:rdns];
+	RCPT_COUNT_ONE(0.00)[1];
+	FREEMAIL_REPLYTO(0.00)[gmx.net];
+	MIME_TRACE(0.00)[0:+];
+	TO_EQ_FROM(0.00)[];
+	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
 	DKIM_TRACE(0.00)[redhat.com:+];
-	MISSING_XM_UA(0.00)[];
-	ASN(0.00)[asn:15169, ipnet:2607:f8b0::/32, country:US];
+	HAS_REPLYTO(0.00)[GuenterK@gmx.net];
+	TO_DN_NONE(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	REPLYTO_DOM_NEQ_FROM_DOM(0.00)[];
 	NEURAL_HAM(-0.00)[-1.000];
-	RCVD_COUNT_TWELVE(0.00)[16];
-	FROM_NEQ_ENVFROM(0.00)[wvdwalt@csir.co.za,blinux-list@redhat.com];
-	FORGED_SENDER_MAILLIST(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	R_SPF_DNSFAIL(0.00)[-any];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
 	TAGGED_RCPT(0.00)[blinux-list];
-	REDIRECTOR_URL(0.00)[sophos.com];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[mail-qv1-xf45.google.com:helo,mail-qv1-xf45.google.com:rdns]
-X-Rspamd-Queue-Id: 6F760ACA26
+	ASN(0.00)[asn:15169, ipnet:2607:f8b0::/32, country:US];
+	RCVD_COUNT_SEVEN(0.00)[10]
+X-Rspamd-Queue-Id: 717A8B07F1
 X-Rspamd-Action: no action
 
---1407934472-469921374-1769671805=:2890
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: quoted-printable
+Really sad to hear this!
+-- 
+.
 
-Good day,
-Didier's contribution went a lot wider than just Slint.  He was always=20
-prompt and thurror in answering.
-The blind Linux community will miss him.
-Kind regards, Willem
-
-
-On Thu, 2d9 Jan 2026, Jackie McBride wrote:
-
-> Warning!s This message was sent from outside your organization and we=20
-were unable to verify the sender.
->
-> You don't often get email from abletec@gmail.com. Learn why this is impor=
-tant<https://eu-west-1.protection.sophos.com?d=3Daka.ms&u=3DaHR0cHM6Ly9ha2E=
-ubXMvTGVhcm5BYm91dFNlbmRlcklkZW50aWZpY2F0aW9u&p=3Dm&i=3DNjU0NjA2MWRiMzM3ZDM=
-zYTFlMGNmNmY4&t=3DNXBoeWk1WjVxR0loMEw1YU9OZWFqSi9TcDJYOW90VHoxWU1lQlJnUC9oS=
-T0=3D&h=3D100a4574ff864d06aceec165d683aa7b&s=3DAVNPUEhUT0NFTkNSWVBUSVb_qWJZ=
-PX62TGtRFPUEf08fFBEnvaQWeJDQMrHkmB0G8y0a9vs4Nb3Jtn6LJq6taaDn_6_TrOfoslYxysi=
-dPo3x>
-> I just heard that Didier Spaier, the author of Slint, has passed away. We=
-'ve lost another champion.
-> https://eu-west-1.protection.sophos.com?d=3Dlwn.net&u=3DaHR0cHM6Ly9sd24ub=
-mV0L0FydGljbGVzLzEwNTYzODQv&p=3Dm&i=3DNjU0NjA2MWRiMzM3ZDMzYTFlMGNmNmY4&t=3D=
-WTNMTkVaT3ZQaVE2MGJINVprclF5UmpLbDVzQjBGRGdSYXlCVVE1SkVmZz0=3D&h=3D100a4574=
-ff864d06aceec165d683aa7b&s=3DAVNPUEhUT0NFTkNSWVBUSVb_qWJZPX62TGtRFPUEf08fFB=
-EnvaQWeJDQMrHkmB0G8y0a9vs4Nb3Jtn6LJq6taaDn_6_TrOfoslYxysidPo3x
->
->
->
-> Jackie McBride
-> Proofpoint Certified Email Authentication Specialist 2024
-> Author 36: Last Hours of a Life
-> Be a hero. Fight Scams. Learn how at https://eu-west-1.protection.sophos.=
-com?d=3Dscam911.org&u=3Dd3d3LnNjYW05MTEub3JnLzxodHRwOi8vd3d3LnNjYW05MTEub3J=
-nLz4=3D&p=3Dm&i=3DNjU0NjA2MWRiMzM3ZDMzYTFlMGNmNmY4&t=3DNGdDQzdkcjZtWVpHZnVI=
-UC94L00xRTl3c2lyVmdSQllwdDZPZ0thc1BOMD0=3D&h=3D100a4574ff864d06aceec165d683=
-aa7b&s=3DAVNPUEhUT0NFTkNSWVBUSVb_qWJZPX62TGtRFPUEf08fFBEnvaQWeJDQMrHkmB0G8y=
-0a9vs4Nb3Jtn6LJq6taaDn_6_TrOfoslYxysidPo3x
-> Also check out wp4newbs.com<https://eu-west-1.protection.sophos.com?d=3Dw=
-p4newbs.com&u=3DaHR0cDovL3dwNG5ld2JzLmNvbQ=3D=3D&p=3Dm&i=3DNjU0NjA2MWRiMzM3=
-ZDMzYTFlMGNmNmY4&t=3DUFE3Tk13QWVKRTBWbXhydFFRellFZmJIM1AzQVlQL2hsTnoySURLal=
-V2cz0=3D&h=3D100a4574ff864d06aceec165d683aa7b&s=3DAVNPUEhUT0NFTkNSWVBUSVb_q=
-WJZPX62TGtRFPUEf08fFBEnvaQWeJDQMrHkmB0G8y0a9vs4Nb3Jtn6LJq6taaDn_6_TrOfoslYx=
-ysidPo3x> brightstarsweb.com<https://eu-west-1.protection.sophos.com?d=3Dbr=
-ightstarsweb.com&u=3DaHR0cDovL2JyaWdodHN0YXJzd2ViLmNvbQ=3D=3D&p=3Dm&i=3DNjU=
-0NjA2MWRiMzM3ZDMzYTFlMGNmNmY4&t=3DNU4zT013cEl3UG0rWWIwdSs4L1gyKzAwbVdoMjNBZ=
-lF2NjVFMG51T291dz0=3D&h=3D100a4574ff864d06aceec165d683aa7b&s=3DAVNPUEhUT0NF=
-TkNSWVBUSVb_qWJZPX62TGtRFPUEf08fFBEnvaQWeJDQMrHkmB0G8y0a9vs4Nb3Jtn6LJq6taaD=
-n_6_TrOfoslYxysidPo3x> mysitesbeenhacked.com<https://eu-west-1.protection.s=
-ophos.com?d=3Dmysitesbeenhacked.com&u=3DaHR0cDovL215c2l0ZXNiZWVuaGFja2VkLmN=
-vbQ=3D=3D&p=3Dm&i=3DNjU0NjA2MWRiMzM3ZDMzYTFlMGNmNmY4&t=3DYitxM1Q1MTVLbVdWSS=
-tZeWNod3lCdzhuZzNjUUlPSlVoN2x4eTVXRlh2TT0=3D&h=3D100a4574ff864d06aceec165d6=
-83aa7b
- &s=3DAVNPUEhUT0NFTkNSWVBUSVb_qWJZPX62TGtRFPUEf08fFBEnvaQWeJDQMrHkmB0G8y0a9=
-vs4Nb3Jtn6LJq6taaDn_6_TrOfoslYxysidPo3x>
->
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to blinux-list+unsubscribe@redhat.com<mailto:blinux-list+unsubscribe=
-@redhat.com>.
->
-
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to blinux-list+unsubscribe@redhat.com.
-
---1407934472-469921374-1769671805=:2890--
+To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
