@@ -1,202 +1,219 @@
-Return-Path: <blinux-list+bncBCRNHOFA7YJBBTVVXLFQMGQERZP6JXY@redhat.com>
-X-Original-To: lists+blinux-list@lfdr.de
+Return-Path: <blinux-list+bncBCN6ZTHZ24PBB36J5LFQMGQENYW5A5Q@redhat.com>
 Delivered-To: lists+blinux-list@lfdr.de
-Received: from mail-qt1-x847.google.com (mail-qt1-x847.google.com [IPv6:2607:f8b0:4864:20::847])
-	by mail.lfdr.de (Postfix) with ESMTPS id E59FED3B8EA
-	for <lists+blinux-list@lfdr.de>; Mon, 19 Jan 2026 21:57:52 +0100 (CET)
-Received: by mail-qt1-x847.google.com with SMTP id d75a77b69052e-50299d2e742sf199741961cf.1
-        for <lists+blinux-list@lfdr.de>; Mon, 19 Jan 2026 12:57:52 -0800 (PST)
-ARC-Seal: i=3; a=rsa-sha256; t=1768856272; cv=pass;
+Received: from mail.lfdr.de
+	by lfdr with LMTP
+	id qGvMOPKkemmN8wEAu9opvQ
+	(envelope-from <blinux-list+bncBCN6ZTHZ24PBB36J5LFQMGQENYW5A5Q@redhat.com>)
+	for <lists+blinux-list@lfdr.de>; Thu, 29 Jan 2026 01:08:18 +0100
+X-Original-To: lists+blinux-list@lfdr.de
+Received: from mail-qv1-xf46.google.com (mail-qv1-xf46.google.com [IPv6:2607:f8b0:4864:20::f46])
+	by mail.lfdr.de (Postfix) with ESMTPS id 66D84AA18A
+	for <lists+blinux-list@lfdr.de>; Thu, 29 Jan 2026 01:08:18 +0100 (CET)
+Received: by mail-qv1-xf46.google.com with SMTP id 6a1803df08f44-894971e3b60sf12381716d6.2
+        for <lists+blinux-list@lfdr.de>; Wed, 28 Jan 2026 16:08:18 -0800 (PST)
+ARC-Seal: i=4; a=rsa-sha256; t=1769645297; cv=pass;
         d=google.com; s=arc-20240605;
-        b=P6Nd1uyswa9zuH5ZxJcQlXUcHNUJ55sfBxiMqoAfhM627AfqJonWbEzyyB9khEGROf
-         vp5tSy9jTerv9E23oncEg6fE1JYEwt3/xbbHFDbDZ6QgX2iU6NfoWFDORrkDr8BVuapz
-         UaxZG0D7ELB34vmkKmWsSEUE8c6PwP1bkIDK91uKhAiX3oNR24JCFTvJGQw7lEWOoYd8
-         gMhCY3u3Wv5G4RdtNmqyqxp1OFVZzO5OTg3SkF+JQaXKWhnSeieUkiBJdd+EifXcm8L7
-         JiRRuIZ22oZw4+evibSttWVaQ3NsYU0q/GTAY5zdpCSZDjyqpKLD1qjJOxuICRKxTR8q
-         N0DA==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        b=NnE4pyl/nikS3KXN/FQ8Fi4xfSojfOR8sNfuB8mHl0AgQdYiPc+Blf/GUMOP1ohyv0
+         xt0Ivm9U8Y2VIzFAAivLuWYd1WQ/+hrCRbDPa12uz5V2xWEFQHyReVLhKRJrYH0A/kkh
+         sfAJVFjPfml83GNiXd1a+LGwjHG3IcYKBqCpt/Chx7DAwFa6vUhHClnT2ttmTRT2lK2b
+         yvg+6VDeTj5Y1R390qhhkWyjyRQgqN5GV/u2GRC/aJqft8VhHLEdj7nYKyGQoSM3QIhG
+         yuq/ZODiNChpjgJBytDEoAliwcJWyNI3bRlwNzMvyDaEJ/dO6Ng5hD0p3150kmoJ/vd0
+         aHkA==
+ARC-Message-Signature: i=4; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-transfer-encoding:to:references
-         :message-id:cc:date:in-reply-to:from:subject:mime-version
-         :delivered-to:sender:dkim-signature;
-        bh=HYne2nU3fGE9ScyNCBQfQOvp9QNSto1nMRxwLnFZJyM=;
-        fh=1oTsCW2wE0zUIzlAzho8VLbBcJ0+9l132qXNnMKoDjA=;
-        b=a6utrSDBmojiRNRUWcoCd5pNxo9bk/mDJYMce961sp/HI5FTGMoqTtxAkReu6t+95M
-         S1bmOXQ+U2efwTx21ucTdPQzqEbsuK0TSSfXSPNhDrfBVVjh5iaOZ//hSRLY4JZAQ7ab
-         IZ41jNoB1k/dgSF4+NuWNdEpphB8QtqxWV5knzSsYOLxv7ik/w/W0qyUf8VTbtp0kmmM
-         NK3ar/iOE0KxxzlNszBgEaWFbM+G/1H/e/B20a2qN2YItF8dnrEF3z+GQKmHHY4raP6V
-         Y1rYcyUIgyzfTug4z+PKm/n+YtLxmxgDB+zIOSQ5sSOS07/rt8jJZASb1vul1CfISZAr
-         UiPQ==;
+         :mailing-list:precedence:to:subject:message-id:date:from
+         :mime-version:delivered-to:sender:dkim-signature;
+        bh=J/EMHor9NpzInuaJgUuLr5Rb7VBGxBZ7ASxHoetZVQk=;
+        fh=WII42iB0MTanR2Zc9wmLPU2Oim8PeaKf27eosi830rA=;
+        b=POpyAakySZe/N9rGagNOEtBh4w+YqUYSLTndIiaEi/LZe+7jCXBik6faSpKzhlGsyl
+         p2X2bTjqMUooE4c2VQ5gRFETnSNV7q4qRUgJGIv0kUXXYC/ZBSeteMHYJuDYLNJw1MKG
+         tpcRKTR/oszJRPOav/2GQ6vB/8IgfX2q+v+dE6EbB6u5CGDggZbLFG/TzDcNFRj349dU
+         e0A7wMu3uw3eqJZNy4WQ6sn061sn29wmgPyl3AvMtxFWVEht0+3WFzu/jxa5XCNsqrI1
+         H6q7cMjsDW3XzNRDHT1T+JoBtKC3R7zxnhHWu0R6TvJxPgi6vWsIs+8LkSwKV5tSCmI1
+         UYzA==;
         darn=lfdr.de
-ARC-Authentication-Results: i=3; mx.google.com;
-       dkim=neutral (body hash did not verify) header.i=@cfcl.com header.s=google header.b=Wmx5iEHI;
-       arc=pass (i=1 spf=pass spfdomain=cfcl.com dkim=pass dkdomain=cfcl.com);
-       spf=pass (google.com: domain of rdm@cfcl.com designates 209.85.216.50 as permitted sender) smtp.mailfrom=rdm@cfcl.com
+ARC-Authentication-Results: i=4; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="C/f+Rn/D";
+       arc=pass (i=2 spf=pass spfdomain=gmail.com dkim=pass dkdomain=gmail.com dmarc=pass fromdomain=gmail.com);
+       spf=pass (google.com: domain of abletec@gmail.com designates 74.125.82.180 as permitted sender) smtp.mailfrom=abletec@gmail.com;
+       dara=neutral header.i=@gapps.redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1768856271; x=1769461071; darn=lfdr.de;
+        d=redhat.com; s=google; t=1769645297; x=1770250097; darn=lfdr.de;
         h=list-unsubscribe:list-archive:list-help:list-post:list-id
          :mailing-list:precedence:x-original-authentication-results
-         :x-original-sender:content-transfer-encoding:to:references
-         :message-id:cc:date:in-reply-to:from:subject:mime-version
+         :x-original-sender:to:subject:message-id:date:from:mime-version
          :delivered-to:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=HYne2nU3fGE9ScyNCBQfQOvp9QNSto1nMRxwLnFZJyM=;
-        b=AaSCPDPBysbVd9W7+bgPTINBURKcKR2fqM2WlIA3tWRO20pdJLJyg2quBhx9mhulqF
-         5cCH2L2PbYtyAQYAS2yCC/TKbvMmlxopTC+Jwo5bfCwRtVEI9vsP+ankz7GLECJs3PPk
-         Hogvv4ZRuUekD5cSF5EDA85GBUWtChuZlbDohjpc8jfppoTh36FFYTssr69oJ0h/+mVD
-         0NE5SJcDo2dx6/Dy6/rMPl/yaU7gEbTFWehFv6sqsceHRmzkeZrGTBTrXMUppoROg8QB
-         u0w+riTWZfZPgO3WnH8AXkMu2TNCWvVpST/Nnly9POPcRdNNXa/fgavkZw/+Hu/cywUu
-         YHTA==
+        bh=J/EMHor9NpzInuaJgUuLr5Rb7VBGxBZ7ASxHoetZVQk=;
+        b=W4WoSUE/1erZXoyw139WBPaKp3HrLUQkpwb/DmwaZljmk+TfQzfuu3+5l8jFkYJb5o
+         7mY/CIUQTmpm8eEQoIQ2fMfJQCMfKmYR+c3gS2btj9CpulYldRfHphtLilhB7GiANyDS
+         PVVKNwBChREw4M4LtOi/LR/CV5RlZ4yWDTgXWIb9pPAcbnjck7VdIoaSsLPUI2Q6GQ6h
+         UKdaQJ9Hq72wdwHBSodQOPgMjEZNOuxRBFDaPYUsF9ONAAhdDEqsKKDwlURZ3ueD39WW
+         o+ARls+aOdPrF33jQU1LZLwuHBUTHHNw1WFFgNR7OVCGY3bCUhdd/yKsBhCebDE1acXY
+         Tusg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768856271; x=1769461071;
+        d=1e100.net; s=20230601; t=1769645297; x=1770250097;
         h=list-unsubscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender
-         :content-transfer-encoding:to:references:message-id:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:delivered-to
-         :x-beenthere:x-gm-message-state:sender:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HYne2nU3fGE9ScyNCBQfQOvp9QNSto1nMRxwLnFZJyM=;
-        b=X+HgAm6gb9cGq+uVjZNmIezsmDHWy2Jro/DEc2nIUqqGbGpViZgTtGivp6gEyuVtEP
-         UzU22KYvqhQMgqtVy9Hme75mWCs6NSjHD2aaWIBIiuMlIIHIbqknDQDh7rKhBL/LUh0P
-         XHI4s3XhXHWejhgiGr/p36UwHPXa7oAAbYW0WETpvLmfcUGekoEEYTsbc7/TQHMGSAy4
-         gYuxqG+0nI5Rye2zcxNdgf1iwWxv/Ow5s+1gVLmaAHsqRRDRrlnvRlm1xR/kNCtxS5zS
-         QSL7qwEwVCMnh7i6BVTnV8XwsESChkznp/RteFVjXjNKSuGsVPi2hUDhhMqWhGVVdWvR
-         bxDA==
+         :x-original-authentication-results:x-original-sender:to:subject
+         :message-id:date:from:mime-version:x-gm-gg:delivered-to:x-beenthere
+         :x-gm-message-state:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=J/EMHor9NpzInuaJgUuLr5Rb7VBGxBZ7ASxHoetZVQk=;
+        b=Z1a82rL/Vy8oiJcJvGTuIPkzb9m4i2IhXstz2JNUvLT1x/Zdf0GV1WHT+H8/AhmZxr
+         pouhvy3Z7B3LDTDKNYCkC1gvO2CghWpXbfoYmpV6s+wAvCMO/Db9K4n6+/pcmX2h+uxu
+         JUgLOIF/Ffo7CeM7ZDDsz9ZLNzFxhgp6VGRnUCkMLufeXCd2lWY8X/JV6grjnWh9YQAx
+         WQmWQN2M8zST4ewxpnPHo4W2CsffmimCghdJcVe+F1lhNu5xmjex84XMZjokTl+pWlVj
+         odJh27PqoEKyOBCvAHBIfpU49SWYoaqtY5+R6bANS8RvlLjL0l0Qdc8q1KTzTzsh4AM6
+         rbhg==
 Sender: blinux-list@redhat.com
-X-Forwarded-Encrypted: i=3; AJvYcCWqcg0uIJohfEbBYWM+a8StTiYc4eBpp8h30m+4BiBoa6lO42nhS8R9vfOP8onYBvFus1/5qQ==@lfdr.de
-X-Gm-Message-State: AOJu0Yxlz3k2tbuTfEQ+QFaoXkIFOIeDtkylCyL6DHUfoFjyf7rvbe3v
-	6Y5Idqtwx/Y/Bxu72d2rldaN+swe/Oe6gSnI8cpY3T0WM2UGRq258Di3xdFYXWGNQ5A=
-X-Received: by 2002:ac8:5d8d:0:b0:501:4a67:971b with SMTP id d75a77b69052e-502a1e3bf18mr176150541cf.36.1768856271319;
-        Mon, 19 Jan 2026 12:57:51 -0800 (PST)
-X-BeenThere: blinux-list@redhat.com; h="AV1CL+HX6qoaxJ7fwxtCM+zkpvuygTlTPveqt7SgD8NtE+cl7A=="
-Received: by 2002:a05:622a:91:b0:4ed:d8e7:bb76 with SMTP id
- d75a77b69052e-50214a14afcls102482191cf.2.-pod-prod-04-us; Mon, 19 Jan 2026
- 12:57:50 -0800 (PST)
-X-Forwarded-Encrypted: i=3; AJvYcCXU4k2f7otdW+C+EjLrKuwjPc+frNtlBF30BCa1ehQMdOAXnEWORKXle0hRr6Z31Kj86fHgFMZqvnQFrQ==@gapps.redhat.com
-X-Received: by 2002:ac8:5ac2:0:b0:4ee:24e8:c9ae with SMTP id d75a77b69052e-502a1f21c1cmr191638661cf.53.1768856269964;
-        Mon, 19 Jan 2026 12:57:49 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1768856269; cv=pass;
+X-Forwarded-Encrypted: i=4; AJvYcCV/a5NdHcat76WXyigjx9PQh5Ie2/QFPxOXcHptBfG/s2Ryi0UvJrHCxsMViLr6wrL5XY16GQ==@lfdr.de
+X-Gm-Message-State: AOJu0YymbK256bD5uRBQxoe81zvOY57FwbmWKhkTMWVmcAwE0RhXWQEk
+	XnntfaLGiqIEsnfSe7lovAqD+4WRGJ5tXOfrRae/1VvtgrWABIxImASDkBM34xkr7Rs=
+X-Received: by 2002:a05:6214:1d27:b0:894:61c8:930c with SMTP id 6a1803df08f44-894cc7e732fmr101278446d6.6.1769645296367;
+        Wed, 28 Jan 2026 16:08:16 -0800 (PST)
+X-BeenThere: blinux-list@redhat.com; h="AV1CL+F1etxJPimKug2wWqAsYPRG7af8wVt1cRm2vjEK9bLvnA=="
+Received: by 2002:a05:6214:528a:b0:882:3acc:d7a with SMTP id
+ 6a1803df08f44-894e0b2c14fls2798186d6.0.-pod-prod-07-us; Wed, 28 Jan 2026
+ 16:08:14 -0800 (PST)
+X-Forwarded-Encrypted: i=4; AJvYcCUIYAnWn1Hc7TMxZxVn8Awzcegp64zgEXWbNMD/0YCojCPKg0qqfyl+AGPXs1xWGFh4omRVro3j1zLdEw==@gapps.redhat.com
+X-Received: by 2002:a05:620a:701a:b0:8be:6733:92ab with SMTP id af79cd13be357-8c70b72de06mr939076385a.0.1769645294580;
+        Wed, 28 Jan 2026 16:08:14 -0800 (PST)
+ARC-Seal: i=3; a=rsa-sha256; t=1769645294; cv=pass;
         d=google.com; s=arc-20240605;
-        b=XC/7k5b/IF6HHRyqYhStGCmijSNmxv4dpumWz+Nn13/atAbQNOaffpynz9oUR7DmGs
-         cHie64mvYREiFO/PtwWSNCbC5bCmxxctMJ+ihom9zqwKdsZbmp8u1DowWqMfM4Nlr4px
-         HmNx2g4PsP9mSWrFgrY1hfA20Iz4odLeW4B6r0xYvY29URqYL4rCeY4qAmjvPnuzaVZh
-         v8NSKvJ7y7rlR9asybNP8LsTrrFmYfKBWz/Y4PRE/xoPrKyOD93sXRUzQz3xVy8jqG0F
-         biN1vDOruxTxowBuk7p2LnX3jUUVQgLJyHVbVrfirez6JQcZsf2SfTtnRtshyFW9xedm
-         bYQg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:to:references:message-id:cc:date
-         :in-reply-to:from:subject:mime-version:dkim-signature:delivered-to;
-        bh=JDWEv6NJjI2S2dlS6JrFOkEbIP9lvTmHL/9nEKdO+Sg=;
-        fh=HQWK3cpOLwsnWKoQHOi5yGhPRio9745ZKdcRRfzAszU=;
-        b=hUHx5HRAXARJ7yodqu4sy242yOEiipZfhOo6OgG9jcZjhtS9aRoUPAVy3wTN0FnKlc
-         pl8ghux0vrhjXMu1jUrMrvi+FIDOb6LZkjt6kQWAnmq2rBAidmmWJnb+0qv1PB7HCoJV
-         44YOTvkgQHUogfKeKteudaXOhYrMp2DgZlIgEMlyXFUpEr2W9WnUYqhEVfhPxhQouRAm
-         0SxmBZ20b1/QFKCSBaLGHGbXq0ViztZOA9Ru87Mi3UD3+T4tstHhikT1t7iOs5ow14fe
-         f7C9YQZTWGHLCUgRPavlLREn0DuDad9eT3+wN+dsvdP166Qz3BfNzfGsNjE8PjrJ91rS
-         xOSg==;
+        b=GtnK4m0n8b77x2XFXnQp/rg51vhBZBytcb3BQxo1gpip1G0uv5VO+XB6FrGOBxKGQZ
+         tNRSGOlYk6tcCTUnMq56E4hjJ/MM/gJTbAL4us2Jp+Y0F0ZSv4hPhJ1oYa2pM39u65pM
+         bxcm7nG58mUgBZ/VZJqQdPrOusHxwpUGR+INSGRVcAUM9pBX05Ew5IPEbfk2olbERyEd
+         8u2JhZ+OZ9XaqMYISL/4MEVa6AxDS0G0rBe2YFmaFMNsqQw7QoMOztgjRRoZ6ZI5Tto9
+         XScxk4lIv+sjNY0pA3mW8xv9wTPtALpB1ey/bTHjfFW+POkXchZfmy6uRhHLXgTz+Z98
+         C+5Q==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature
+         :delivered-to;
+        bh=X3cAsoLklf2kImPgTJ+GB+02znHTE9B53n9aMh201YE=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=AgPhMZjLUhaGjXu+FuDN4W1mFj8YDxar0uu46QCR+zVGNIDnzMm1l2fyOz8O5EpZSQ
+         5y/xcThhMx2PED0dqH3weyn5TRXEWp3fv711bxlMyEm/KVr0Q4CgfRENCLFeAC8JqL+K
+         8cEVaA3bzg0RSMZ6Mgk/vMPLIFQrezSZjwb1njX7ykdVTMYqOVMHl4bt/UkaT/60hUFn
+         XNODOBaffELQPHo5BAS6p8wrDutCHzIVzb6SkyY/dZtrgqDD1+N49GrLxCyskCFGkmnr
+         Jr1H9OiqoDPoGOY+C4BVf+dHHkoQOzGf4QTodQhU7rWgflqFnXQRmJMfyMHb2Nv30Fm9
+         Vo5w==;
         dara=google.com
-ARC-Authentication-Results: i=2; mx.google.com;
-       dkim=neutral (body hash did not verify) header.i=@cfcl.com header.s=google header.b=Wmx5iEHI;
-       arc=pass (i=1 spf=pass spfdomain=cfcl.com dkim=pass dkdomain=cfcl.com);
-       spf=pass (google.com: domain of rdm@cfcl.com designates 209.85.216.50 as permitted sender) smtp.mailfrom=rdm@cfcl.com
-Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.132.61])
-        by mx.google.com with ESMTPS id 6a1803df08f44-8942e5c2ae0si115855416d6.55.2026.01.19.12.57.49
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="C/f+Rn/D";
+       arc=pass (i=2 spf=pass spfdomain=gmail.com dkim=pass dkdomain=gmail.com dmarc=pass fromdomain=gmail.com);
+       spf=pass (google.com: domain of abletec@gmail.com designates 74.125.82.180 as permitted sender) smtp.mailfrom=abletec@gmail.com;
+       dara=neutral header.i=@gapps.redhat.com
+Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [170.10.128.131])
+        by mx.google.com with ESMTPS id af79cd13be357-8c711dd5912si412007285a.538.2026.01.28.16.08.14
         for <blinux-list@gapps.redhat.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jan 2026 12:57:49 -0800 (PST)
-Received-SPF: pass (google.com: domain of rdm@cfcl.com designates 209.85.216.50 as permitted sender) client-ip=209.85.216.50;
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+        Wed, 28 Jan 2026 16:08:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of abletec@gmail.com designates 74.125.82.180 as permitted sender) client-ip=74.125.82.180;
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-652-I7uZMutlM9GyFqAZbsElBQ-1; Mon,
- 19 Jan 2026 15:57:48 -0500
-X-MC-Unique: I7uZMutlM9GyFqAZbsElBQ-1
-X-Mimecast-MFC-AGG-ID: I7uZMutlM9GyFqAZbsElBQ_1768856267
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-117-ssi1f08_PX6WAyaSvV4PrQ-1; Wed,
+ 28 Jan 2026 19:08:12 -0500
+X-MC-Unique: ssi1f08_PX6WAyaSvV4PrQ-1
+X-Mimecast-MFC-AGG-ID: ssi1f08_PX6WAyaSvV4PrQ_1769645292
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 74E4518003FC
-	for <blinux-list@gapps.redhat.com>; Mon, 19 Jan 2026 20:57:47 +0000 (UTC)
-Received: by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
-	id 705F319560A7; Mon, 19 Jan 2026 20:57:47 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 09C461956054
+	for <blinux-list@gapps.redhat.com>; Thu, 29 Jan 2026 00:08:12 +0000 (UTC)
+Received: by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix)
+	id 0466E180087B; Thu, 29 Jan 2026 00:08:12 +0000 (UTC)
 Delivered-To: blinux-list@redhat.com
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.49])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6CFE019560A2
-	for <blinux-list@redhat.com>; Mon, 19 Jan 2026 20:57:47 +0000 (UTC)
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.58])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 016FE1800870
+	for <blinux-list@redhat.com>; Thu, 29 Jan 2026 00:08:11 +0000 (UTC)
 Received: from us-smtp-inbound-delivery-1.mimecast.com (us-smtp-delivery-1.mimecast.com [170.10.132.61])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C8FE71956095
-	for <blinux-list@redhat.com>; Mon, 19 Jan 2026 20:57:46 +0000 (UTC)
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=dkim.mimecast.com; s=201903; t=1768856266;
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 61F6E1955D80
+	for <blinux-list@redhat.com>; Thu, 29 Jan 2026 00:08:11 +0000 (UTC)
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1769645290;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=JDWEv6NJjI2S2dlS6JrFOkEbIP9lvTmHL/9nEKdO+Sg=;
-	b=nEWbW1x2xhS+ss5LqW9e3yLAPbjcqGo4DR5mhlQV2cCXo7bw7QU4OaJYvtJ0/z6dEYxrL9
-	ehEOx89a2wA8RjVTQTGR+1n/uY3lb7Yag3vKU55l34S4edBXi+SdowMPoKAnL099F0yhIX
-	UaOLCgL2UEymDUScOhapqimewt5crFojS3rVI9WP2ylY/mW2Rlwn1wE5qP0uaWUIFt2lo8
-	YBTM5yosKZqnN/xPha+jiyhjR01JaOGEecxMpvu16Gu5MHF+bLtKI4wfmjz/kjCAYN1vwX
-	tJQCvp3yqgVGZ0AFoNg8c1YzZgGDX0IKQRLHPuBRgY5I/3vu4/HCJQ075iHgCQ==
-ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1768856266; a=rsa-sha256;
-	cv=none;
-	b=EM4h8slHE4/Gaxp7ZWvTig6ieTE8xM5YAUUiLCdomJ07dHYWQJBUPrTTUbKfGmQ8SP9Qy5
-	KaIPyRQhDVzh5fVABvOc2XkTij+jKAyFcIxGE3VU4ocu1mLAvF3s1kGsVNtBDLCWHz3S3y
-	PqrlMpJf055SpiwJwZrP3e2lLI1sXUIXCdTO0h+ge1/Q6Bxp4EAKleOLAUSryanXYyaKt5
-	AtTvuRkmznhymshASpGxV6o2mDADZfuW3EhNbtgb11vclbmOeXW+UGKyciAHP4/Ky4tJ9x
-	pFP70/esTYa7K9MpXwF57hhQthujsVlUu5lgpojlG8vMyBqfKEQpiXBKH+cvwg==
-ARC-Authentication-Results: i=1;
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 dkim-signature; bh=X3cAsoLklf2kImPgTJ+GB+02znHTE9B53n9aMh201YE=;
+	b=HN+iexFQOFzVaAtKxGGZWzCN0IiOwBRjNAu9wlCVqKB3pjJxaXnHFApBc17ICdiVE64HzS
+	rd+Qp8xzdNEYYjtf0q0WW6uacItVPDxLGOo6P/mVvFP5PUiNgMpxuoWCJ7rNnZEePWvsQe
+	QXDKA8aHxwhyhHkJQrBTDEh4tBHeo71m3CskstOoSZxiTS0Y8BbwwyS8JiXo2sDS5P/k70
+	+X0i1K3OfZrwkwZLE42DvLjx9XSaoqK83yWVOL+5syQzFtZZjDyAi/4jTWGiaYEDnvrm4e
+	7t9yjIKQeoVfFqNOb+0V72uEVzOJmYWVrWGlayLYw2tvqGXEfR6YQHWUQ/aRSg==
+ARC-Seal: i=2; s=201903; d=dkim.mimecast.com; t=1769645290; a=rsa-sha256;
+	cv=pass;
+	b=TblF/wurFNOOC1cYTstnc8CAroWwMZQVxDASODWlRNAn0F3F6N/UkLOX60CdngpdkGdNZ+
+	ZoVnZelj7hQ95Kjvc1s/FlDTYWDw+u1bo3G2LmeYX7qpbF8zruf4jjc3uRf/MLdVKJxGKD
+	rDCZJMwXd9xW6JQ72FPViBojmsCoqS51MtfnUg4M0eN4jlTN5JQLSeDzqCpCpMYBs236kk
+	NdBSoBzw4gdimR1hxtudG8q1OeXgnexovTBdFcfnW3pckcvH+e97wgB2rpTs/GXHXnPB1Q
+	SkqNRarTtuX2YMQxBI4B9ehAKoH4k7P5e0kfDIyx8M7P+qNmZ1j7w5dvfnxPKQ==
+ARC-Authentication-Results: i=2;
 	relay.mimecast.com;
-	dkim=pass header.d=cfcl.com header.s=google header.b=Wmx5iEHI;
-	dmarc=none;
-	spf=pass (relay.mimecast.com: domain of rdm@cfcl.com designates 209.85.216.50 as permitted sender) smtp.mailfrom=rdm@cfcl.com
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com
- [209.85.216.50]) by relay.mimecast.com with ESMTP with STARTTLS
+	dkim=pass header.d=gmail.com header.s=20230601 header.b="C/f+Rn/D";
+	arc=pass ("google.com:s=arc-20240605:i=1");
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (relay.mimecast.com: domain of abletec@gmail.com designates 74.125.82.180 as permitted sender) smtp.mailfrom=abletec@gmail.com
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com
+ [74.125.82.180]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-62-2p4rTeBtPdiJl25fUkMs8w-1; Mon, 19 Jan 2026 15:57:44 -0500
-X-MC-Unique: 2p4rTeBtPdiJl25fUkMs8w-1
-X-Mimecast-MFC-AGG-ID: 2p4rTeBtPdiJl25fUkMs8w_1768856263
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-34c24f4dfb7so2415379a91.0
-        for <blinux-list@redhat.com>; Mon, 19 Jan 2026 12:57:43 -0800 (PST)
-X-Gm-Gg: AZuq6aKK8TRwAhDJrvSKhxEQ8U5guaAO6bjEgDSgZv90NcoQsaWXicpYi/7DjiaEu0B
-	7opncZ9tLDWexrI5FoggrJ4RGSVLts2LjlDvO0G2kg/qDTWc3UOwcxpMo6z6POebNj1gXKBAANQ
-	o+g+xGTFz1rBLJf4bTSHgm2SCyDWt4/+PIkAgoHY7fipVT3C6/S6GkLFIahEi/Vu3bOqcq0oUz/
-	+LHnUKO3wRMjmyKVRUBwms/e//jeMN4XD09sRzHnGKu/pdXopLHm8Bs5XsTQdCaLypJ6oEH0SKM
-	okdawfND98uevg80f945BZX/QejM/CNcW1Ntofscn+yDVMR8V/iPIjf9mNoG19kYBgRMAoM0RBH
-	tIS4Q+ZA+Ggvya+NspopCkk3SdDR10MUIdG6wmEz4u04qogIp4Z57xOOFXT4DpOYx0yMa+tEt3w
-	CWE/sfi/YGotIXjztA
-X-Received: by 2002:a17:90b:3ecc:b0:341:2141:df76 with SMTP id 98e67ed59e1d1-35273178839mr9367820a91.13.1768856262742;
-        Mon, 19 Jan 2026 12:57:42 -0800 (PST)
-Received: from smtpclient.apple ([50.123.68.111])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-352678ef77fsm12301929a91.17.2026.01.19.12.57.41
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 19 Jan 2026 12:57:41 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.8\))
-Subject: Re: Fillable pdf forms
-From: Rich Morin <rdm@cfcl.com>
-In-Reply-To: <db3057b0-521a-2285-e138-c407a5ef6072@gmail.com>
-Date: Mon, 19 Jan 2026 12:57:39 -0800
-Cc: Blinux list <blinux-list@redhat.com>
-Message-Id: <5BAA6BA9-0974-4683-9308-D9C3489380C3@cfcl.com>
-References: <db3057b0-521a-2285-e138-c407a5ef6072@gmail.com>
-To: kd7cyu@gmail.com
-X-Mimecast-Spam-Score: -3
-X-Mimecast-MFC-PROC-ID: qvL9breXdpxaigfanyvPJlqJXaj48ZeSr0hMxL-W_6Q_1768856263
+ us-mta-368-w64I-uc1NyeNlO6bUXNToQ-1; Wed, 28 Jan 2026 19:08:08 -0500
+X-MC-Unique: w64I-uc1NyeNlO6bUXNToQ-1
+X-Mimecast-MFC-AGG-ID: w64I-uc1NyeNlO6bUXNToQ_1769645287
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-2b1981ca515so632557eec.1
+        for <blinux-list@redhat.com>; Wed, 28 Jan 2026 16:08:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769645287; cv=none;
+        d=google.com; s=arc-20240605;
+        b=cHqn4Fe792VXWWvNjBGY3WxXy3n2x6OAhGHLCprN6yN1wcBYtmQ6293GKUMpt9B/1t
+         OTUe4s4uiD1DnBLptjFegnY0qdbABfgLRvsQ/v9qtG0VEqSw2xKEo8kyFLhUeFv/NWQM
+         zhGgtZth5p1IUmCl8l7mxVcn4joM/VPCn3NVAj4VUbv8vzhXxDy+Jbenf9NT/pzp8Uyf
+         XXykcMZcBqUyoLL9pNPfIZJABAYDJzEhHoEP/GgO/pElcFXazFbfp57UZ17a1u944sO8
+         QXZnxtDh/z9gODA3uhscPFyMxI/sTnGm+TZbK9BlZKvb/LoDyiWAaPC4g1cEW5nm11C4
+         FILA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=X3cAsoLklf2kImPgTJ+GB+02znHTE9B53n9aMh201YE=;
+        fh=YXBAxwt+95BfrQ2KSJvIF71c3xemy7gF74ZvtI+w29I=;
+        b=QKGubpJutHHyA6VPmJrECrE9BJvQ0CqT95Yfq5ldKSu18F9iiXduxK4yjZ6zK5OrHK
+         7QgtVYNXifTBZp60s4iduBpr4oMamf8XtkND0Sdo6ccMni68MqPJ/t+XdBbXKlIb1z5x
+         62hjygP308LqFtjYI+xzXt1sDCXVPVHIYbSeE4ph1xCo0m6Z14QDkBDt4S3LUR7Jov5W
+         51dDIZQwOfHREagv5mFaYklpzAdaCHK2/S+RA2UtRGi7i7RJGOOCOjC0R8Jwt+UIdQP3
+         WmYDO/6zSG7KYuhyaCZFZsNsU3n2mEyRk7X9ZLuSLo97OZ2Tu3ipxu8bq2lxnRURyk2w
+         IgGA==;
+        darn=redhat.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Gm-Gg: AZuq6aLL0J0y4cAdt0ISrNs/DBle1r40KN01idzfaNQQd737k3dtRu1xc3iHnHS3slM
+	npHqI6L9YcuijMXzxMIAUuLpGRk6ba0SVwhg8y1ot+zvVgn78090CPyWoxR80Ig3ByDwGtBTs8y
+	NLmMrevOEK0j4VPUakhcdUYcjWzKVH+Z+YRjAtIK+fA6IczQFlwDHK2uEoenK3R8Bl0WfChQDav
+	k7B2y5BW/d94QlzukSJT74dfIRNRA5/Uig/PMAFwDCaJWG7gtwkCdinJcbaInKOZNiPaR5D1U0S
+	DFKZi/XclTcLUeYrqfSkC89JMWV9mXSKzcgQa1Rr+xvP7XPijYsthjf4mhcHZRkEXif2+3HqFBf
+	Bf6BFyk8Tp5Ex2q0=
+X-Received: by 2002:a05:7301:4592:b0:2b7:2a75:a991 with SMTP id
+ 5a478bee46e88-2b78da34f90mr3763863eec.30.1769645286603; Wed, 28 Jan 2026
+ 16:08:06 -0800 (PST)
+MIME-Version: 1.0
+From: Jackie McBride <abletec@gmail.com>
+Date: Wed, 28 Jan 2026 17:07:31 -0700
+X-Gm-Features: AZwV_QhFGAacN3C3bFxfEFnHrzQ_rpym5D3mDUeys3jgXtlwfXDzJw6QxDpIgoE
+Message-ID: <CAM+Q2c7c+M3ho66a5Kq8R_DERW_G6WPsUvrTkNovhEKWqTbBBA@mail.gmail.com>
+Subject: Sad
+To: Linux for blind general discussion <blinux-list@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: AFRB8w_hAne2S5tziFKcNH9tFsYvq0prZd5Hxgepq-c_1769645287
 X-Mimecast-Impersonation-Protect: Policy=DMARC Check - CHG0118091;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
 X-Mimecast-Impersonation-Protect: Policy=CLT - Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Original-Sender: rdm@cfcl.com
-X-Original-Authentication-Results: mx.google.com;       dkim=neutral (body
- hash did not verify) header.i=@cfcl.com header.s=google header.b=Wmx5iEHI;
-       arc=pass (i=1 spf=pass spfdomain=cfcl.com dkim=pass dkdomain=cfcl.com);
-       spf=pass (google.com: domain of rdm@cfcl.com designates 209.85.216.50
- as permitted sender) smtp.mailfrom=rdm@cfcl.com
+Content-Type: multipart/alternative; boundary="000000000000afc16d06497ba6ba"
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-Original-Sender: abletec@gmail.com
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20230601 header.b="C/f+Rn/D";       arc=pass
+ (i=2 spf=pass spfdomain=gmail.com dkim=pass dkdomain=gmail.com dmarc=pass
+ fromdomain=gmail.com);       spf=pass (google.com: domain of
+ abletec@gmail.com designates 74.125.82.180 as permitted sender)
+ smtp.mailfrom=abletec@gmail.com;       dara=neutral header.i=@gapps.redhat.com
 Precedence: list
 Mailing-list: list blinux-list@redhat.com; contact blinux-list+owners@redhat.com
 List-ID: <blinux-list.redhat.com>
@@ -207,69 +224,74 @@ List-Help: <https://support.google.com/a/redhat.com/bin/topic.py?topic=25838>, <
 List-Archive: <https://groups.google.com/a/redhat.com/group/blinux-list/>
 List-Unsubscribe: <mailto:googlegroups-manage+304886998071+unsubscribe@googlegroups.com>,
  <https://groups.google.com/a/redhat.com/group/blinux-list/subscribe>
+X-Rspamd-Server: lfdr
+X-Spamd-Result: default: False [-1.61 / 15.00];
+	ARC_ALLOW(-1.00)[google.com:s=arc-20240605:i=4];
+	R_SPF_ALLOW(-0.20)[+ip6:2607:f8b0:4000::/36];
+	MAILLIST(-0.20)[googlegroups];
+	R_DKIM_ALLOW(-0.20)[redhat.com:s=google];
+	MIME_GOOD(-0.10)[multipart/alternative,text/plain];
+	DMARC_POLICY_SOFTFAIL(0.10)[gmail.com : SPF not aligned (relaxed), DKIM not aligned (relaxed),none];
+	HAS_LIST_UNSUB(-0.01)[];
+	FORGED_SENDER_MAILLIST(0.00)[];
+	TAGGED_RCPT(0.00)[blinux-list];
+	MIME_TRACE(0.00)[0:+,1:+,2:~];
+	MISSING_XM_UA(0.00)[];
+	ASN(0.00)[asn:15169, ipnet:2607:f8b0::/32, country:US];
+	RCPT_COUNT_ONE(0.00)[1];
+	DKIM_TRACE(0.00)[redhat.com:+];
+	MID_RHS_MATCH_FROMTLD(0.00)[];
+	FREEMAIL_FROM(0.00)[gmail.com];
+	FROM_NEQ_ENVFROM(0.00)[abletec@gmail.com,blinux-list@redhat.com];
+	FROM_HAS_DN(0.00)[];
+	NEURAL_HAM(-0.00)[-1.000];
+	TAGGED_FROM(0.00)[bncBCN6ZTHZ24PBB36J5LFQMGQENYW5A5Q];
+	RCVD_TLS_LAST(0.00)[];
+	TO_DN_ALL(0.00)[];
+	RCVD_COUNT_SEVEN(0.00)[10]
+X-Rspamd-Queue-Id: 66D84AA18A
+X-Rspamd-Action: no action
 
-> On Jan 19, 2026, at 09:44, Tom Masterson <kd7cyu@gmail.com> wrote:
->=20
-> Is there an accessible way in linux to fill out these fillable pdf forms =
-so many people are fond of?
+--000000000000afc16d06497ba6ba
+Content-Type: text/plain; charset="UTF-8"
 
-(CCing the list, because I think this may be of general interest.)
+I just heard that Didier Spaier, the author of Slint, has passed away.
+We've lost another champion.
+https://lwn.net/Articles/1056384/
 
-I think there might be an agentic AI solution to this (if not now, then soo=
-n).  Meanwhile, I asked the Goog:
 
-Q: Is there a text-based web front end that would let a blind person fill i=
-n an online PDF form?
 
-A: Yes, for blind users to fill online PDF forms,  the key isn't a separate=
- "text-based web front end," but rather accessible PDF design (using proper=
- tagging and structure in Adobe Acrobat/HTML alternatives) that works seaml=
-essly with their existing screen readers (like JAWS, NVDA) and sometimes sp=
-ecialized tools like WebbIE, which reads web pages and forms in text-only m=
-ode, allowing screen readers to interpret form fields effectively.=20
+Jackie McBride
+Proofpoint Certified Email Authentication Specialist 2024
+Author 36: Last Hours of a Life
+Be a hero. Fight Scams. Learn how at www.scam911.org/
+Also check out wp4newbs.com brightstarsweb.com mysitesbeenhacked.com
 
-How it Works for Blind Users:
+To unsubscribe from this group and stop receiving emails from it, send an email to blinux-list+unsubscribe@redhat.com.
 
-	=E2=80=A2 Screen Readers: A screen reader (like JAWS, NVDA) reads the acce=
-ssible PDF aloud, announcing form fields and labels.
+--000000000000afc16d06497ba6ba
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-	=E2=80=A2 WebbIE (Optional): For web-based forms (not always PDFs), tools =
-like WebbIE convert pages to simple text, making them easier for screen rea=
-ders to navigate and fill forms.
+<div dir=3D"ltr"><div>I just heard that=C2=A0Didier Spaier, the author of S=
+lint, has passed away. We&#39;ve lost another champion.</div><div><a href=
+=3D"https://lwn.net/Articles/1056384/">https://lwn.net/Articles/1056384/</a=
+></div><div><div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gm=
+ail_signature"><div dir=3D"ltr"><br></div><div dir=3D"ltr"><br></div><div d=
+ir=3D"ltr"><br></div><div dir=3D"ltr">Jackie McBride<br><div>Proofpoint Cer=
+tified Email Authentication Specialist 2024 <br></div><div>Author 36: Last =
+Hours of a Life</div>Be a hero. Fight Scams. Learn how at <a href=3D"http:/=
+/www.scam911.org/" target=3D"_blank">www.scam911.org/</a><br>Also check out=
+ <a href=3D"http://wp4newbs.com" target=3D"_blank">wp4newbs.com</a> <a href=
+=3D"http://brightstarsweb.com" target=3D"_blank">brightstarsweb.com</a> <a =
+href=3D"http://mysitesbeenhacked.com" target=3D"_blank">mysitesbeenhacked.c=
+om</a><br></div></div></div></div>
 
-	=E2=80=A2 Accessibility Tags: The PDF itself needs proper "tags" (metadata=
-) that tell the screen reader what each field is (e.g., "Name field," "Addr=
-ess text box"), ensuring correct input.
-
-What Makes a PDF Form Accessible:
-
-	=E2=80=A2 Proper Tagging: Form fields must be correctly tagged and have de=
-scriptive titles/tooltips.
-
-	=E2=80=A2 Logical Reading Order: The order in which a screen reader reads =
-fields (tab order) must match the visual flow.
-
-	=E2=80=A2 HTML Conversion (Ideal): Converting PDFs to HTML is often the be=
-st solution, as HTML is inherently more accessible and flexible for assisti=
-ve technologies.
-
-Tools & Solutions:
-
-	=E2=80=A2 Adobe Acrobat Pro: Used to create and fix PDF accessibility (tag=
-ging).
-
-	=E2=80=A2 PAVE: A web tool from Perkins School for the Blind to make PDFs =
-accessible.
-
-	=E2=80=A2 Helperbird: An all-in-one accessibility tool that helps with web=
- pages and PDFs.
-
-	=E2=80=A2 WebbIE: A text-only browser that works with screen readers for w=
-eb browsing and forms.=20
-
-So, the "front end" is often the screen reader and browser working with an =
-accessible PDF, rather than a separate interface.=20
+<p></p>
 
 To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to blinux-list+unsubscribe@redhat.com.
+mail to <a href=3D"mailto:blinux-list+unsubscribe@redhat.com">blinux-list+u=
+nsubscribe@redhat.com</a>.<br />
+
+--000000000000afc16d06497ba6ba--
 
